@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "0.3.0",
+    "version": "0.4.0",
     "status": "IN_PROGRESS",
     "lastUpdated": "2026-08-31",
     "corpusVersion": "2026_08",
@@ -9,14 +9,17 @@
     "corpusEdition": "Professional Edition",
     "groupsComplete": [
       "Group 1 — Policy & Scope",
-      "Group 2 — Routing & Approval"
+      "Group 2 — Routing & Approval",
+      "Group 4 — Capture & Vendors"
     ],
     "groupsRemaining": [
       "Group 3 — PO Matching",
-      "Group 4 — Capture & Vendors",
       "Group 5 — Data Structure & Accounting",
       "Group 6 — Compliance / E-Invoicing",
       "Group 7 — Ops (deferred)"
+    ],
+    "corrections": [
+      "Group 4 critic: 3 page-binding corrections applied via bin/apply-corrections.py"
     ]
   },
   "nodes": {
@@ -146,6 +149,95 @@
         "url": "/expense/admin/invoice/exceptionList.asp",
         "group": "Group 2 — Routing & Approval",
         "coverage": "good",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "page.capture-processing-admin",
+        "name": "Capture Processing Admin",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Capture Processing Admin",
+          "Email Administration tab",
+          "Actions",
+          "Manage Email Alias",
+          "Add Alias"
+        ],
+        "navPathSourceQuote": "Click Administration > Invoice > Capture Processing Admin > Email Administration tab.\n\n2.  Click Actions > Manage Email Alias > Add Alias.",
+        "navPathSourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md",
+        "navPathAlternates": [
+          "Administration > Invoice > Capture Processing Admin",
+          "Administration > Invoice > Capture Processing Admin > Email Administration",
+          "Capture Processing > Task Definitions tab",
+          "Invoice Admin > Capture Processing Admin > Other Settings",
+          "Invoice Admin > Capture Processing Admin > Other Settings tab"
+        ],
+        "url": "/expense/admin/invoice/captureProcessing.asp?featCode=PMT",
+        "group": "Group 4 — Capture & Vendors",
+        "coverage": "good",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "page.vendor-search-admin",
+        "name": "Vendor Search Admin",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Vendor Search Admin"
+        ],
+        "navPathSourceQuote": "The Invoice Admin accesses the new Vendor Search Admin tool by clickingAdministration  Invoice  Vendor Search Admin (left menu).",
+        "navPathSourceFile": "concur-invoice-professional-edition-tools-guides/adding-and-removing-vendor-search-fields-e7023558.md",
+        "navPathAlternates": [
+          "Vendor Manager > Manage Vendors (tab) > View menu > Inactive Vendors"
+        ],
+        "url": "/expense/admin/invoice/vendorSearch.asp",
+        "group": "Group 4 — Capture & Vendors",
+        "coverage": "thin",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "page.image-handling",
+        "name": "Image Handling",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Policies",
+          "Modify",
+          "Scan Configuration (list)"
+        ],
+        "navPathSourceQuote": "Click Policies (left menu). The Policies page appears.\n    \n    English Only\n    \n3.  Select the desired policy.\n    \n    English Only\n    \n4.  Click Modify. The Modify Policy page appears.\n    \n    English Only\n    \n5.  Select the appropriate scan configuration name from the Scan Configuration list.",
+        "navPathSourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-scan-configuration-to-a-policy-634c76ba.md",
+        "navPathAlternates": [
+          "Administration > Company > Tools > Invoice E-Bunsho Timestamp",
+          "Administration > Invoice > Group Configurations > Policies column > Modify",
+          "Administration > Invoice > Image Handling",
+          "Administration > Invoice > Image Handling > Scan Configurations (tab)",
+          "Administration > Invoice > Image Handling > Scan Configurations tab",
+          "Administration > Invoice > Image Handling > or, for vendors, Administration > Invoice > Vendor Handling",
+          "Administration > Invoice > Policies > Modify > Timestamp Configuration",
+          "Administration > Invoice > Policies > Modify Policy > Scan Configuration list",
+          "Administration > Invoice > Vendor Handling",
+          "Administration > Invoice > Workflows > Modify > Require Hardcopy Receipts"
+        ],
+        "url": "/expense/admin/invoice/imageHandling.asp",
+        "group": "Group 4 — Capture & Vendors",
+        "coverage": "good",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "page.units-of-measure",
+        "name": "Units Of Measure",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Units Of Measure"
+        ],
+        "navPathSourceQuote": "Click Administration > Invoice > Units Of Measure to open the page.",
+        "navPathSourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md",
+        "navPathAlternates": [],
+        "url": "/expense/admin/invoice/unitOfMeasure.asp",
+        "group": "Group 4 — Capture & Vendors",
+        "coverage": "thin",
         "uiVariant": "undifferentiated"
       }
     ],
@@ -1856,6 +1948,842 @@
         "sourceQuote": "select the check box beside the desired exception",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-exceptions-aa2889cc.md",
         "notes": "Per-row checkbox on the Exceptions list used before Remove.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.task-def-name",
+        "pageId": "page.capture-processing-admin",
+        "name": "task_def_name",
+        "label": "Task Def Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Task Def Name: The name of the task.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "Field appears on Verification, Content Extraction, Document Separation, and Automated Document Separation task-definition rows in Modify Task Definition window.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.verification-header-form",
+        "pageId": "page.capture-processing-admin",
+        "name": "verification_header_form",
+        "label": "Header (Verification forms)",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Header: Specify the header form to use",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "One of three form selectors under Verification task definition; forms are configured via the Forms and Fields tab.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.verification-line-item-form",
+        "pageId": "page.capture-processing-admin",
+        "name": "verification_line_item_form",
+        "label": "Line Item (Verification forms)",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Line Item: Specify the line item form to use",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.verification-vendor-form",
+        "pageId": "page.capture-processing-admin",
+        "name": "verification_vendor_form",
+        "label": "Vendor (Verification forms)",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Vendor: Specify the vendor form to use",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.disable-task-definition-verification",
+        "pageId": "page.capture-processing-admin",
+        "name": "disable_task_definition_verification",
+        "label": "Disable Task Definition (Verification)",
+        "fieldType": "radio",
+        "validValues": [
+          "No",
+          "Yes"
+        ],
+        "sourceQuote": "Disable Task Definition: No (enabled) by default; select Yes (disabled) to disable verification.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "Same-named control repeats per task with task-specific default (see Automated Document Separation, default Yes).",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.instruction-text",
+        "pageId": "page.capture-processing-admin",
+        "name": "instruction_text",
+        "label": "Instruction Text",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Instruction Text: For more information, refer to Configuring: Exception Email Address and Instruction Text Options in this document.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "Lives under Verification task definition (Modify Task Definition window), not the Other Settings tab, per revision history: \"The Instruction Text and Capture Attention To task settings are moved to the Task Definitions tab, under the Verification task definition.\"",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.capture-attention-to",
+        "pageId": "page.capture-processing-admin",
+        "name": "capture_attention_to",
+        "label": "Capture Attention To",
+        "fieldType": "radio",
+        "validValues": [
+          "Yes",
+          "No"
+        ],
+        "sourceQuote": "By setting this option to Yes (default is No), Capture Processing will attempt to capture the name and route accordingly.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md",
+        "notes": "Adds the optional \"Assign Invoice To\" field to the Invoice Details section of the Verification tab when enabled. Disable when Routing Configuration auto-routing is used.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.disable-task-definition-content-extraction",
+        "pageId": "page.capture-processing-admin",
+        "name": "disable_task_definition_content_extraction",
+        "label": "Disable Task Definition (Content Extraction)",
+        "fieldType": "radio",
+        "validValues": [
+          "No",
+          "Yes"
+        ],
+        "sourceQuote": "Disable Task Definition: No (enabled) by default; select Yes (disabled) to disable content extraction.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.default-language",
+        "pageId": "page.capture-processing-admin",
+        "name": "default_language",
+        "label": "Default Language",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Default Language: Set the default language used on extraction.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "Content Extraction task definition field.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.disable-task-definition-doc-separation",
+        "pageId": "page.capture-processing-admin",
+        "name": "disable_task_definition_doc_separation",
+        "label": "Disable Task Definition (Document Separation)",
+        "fieldType": "radio",
+        "validValues": [
+          "No",
+          "Yes"
+        ],
+        "sourceQuote": "Disable Task Definition: No (enabled) by default; select Yes (disabled) in conjunction with selecting No in the Automated Document Separation definition to have the system perform automated (not manual) separation of document pages to processing-ready state.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.task-definitions-edit-button",
+        "pageId": "page.capture-processing-admin",
+        "name": "task_definitions_edit_button",
+        "label": "Edit (Task Definitions list)",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Select the definition and click Edit.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "List-level control opening the Modify Task Definition window.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.add-email-address",
+        "pageId": "page.capture-processing-admin",
+        "name": "add_email_address",
+        "label": "Add Email (address text box)",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Type an email address, with a suffix of \"concursolutions.com\" in the text box (see Examples of Acceptable Email Formatsbelow for required format of email).",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-address-5073fd51.md",
+        "notes": "Entered in the Add Email window on the Email Administration tab. Format required: CompanyName/Domain + InvoiceCapture + @concursolutions.com.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.add-email-capture-type",
+        "pageId": "page.capture-processing-admin",
+        "name": "add_email_capture_type",
+        "label": "Capture Type (Add Email)",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "With both capture types available, the admin can add an email, then specify the capture type they want matched to the address.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/email-administration-5ebbb8b0.md",
+        "notes": "Dual-support (Client-Managed + Concur Managed Service) field on the Add Email page; determines which capture type a batch sent to that address is pre-set to.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.alias-name",
+        "pageId": "page.capture-processing-admin",
+        "name": "alias_name",
+        "label": "Alias Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Type the name in Alias Name, and set the following optional attributes:",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md",
+        "notes": "Manage Email Alias page.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.alias-policy-name",
+        "pageId": "page.capture-processing-admin",
+        "name": "alias_policy_name",
+        "label": "Policy Name (alias)",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Policy Name: Select the policy that will be associated to invoices included in any batch emailed using this alias",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md",
+        "notes": "",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.owner-assignment",
+        "pageId": "page.capture-processing-admin",
+        "name": "owner_assignment",
+        "label": "Owner Assignment",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Sender"
+        ],
+        "sourceQuote": "Owner Assignment: Select Sender to have the system automatically assign the invoice to the user sending the invoices via their \"From\" email address",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md",
+        "notes": "Only one value (Sender) is enumerated in the corpus; other unselected/default state exists but no other named value is documented.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.edit-email-button",
+        "pageId": "page.capture-processing-admin",
+        "name": "edit_email_button",
+        "label": "Edit Email",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "The admin searches for the email by its address, and then clicks Edit Email to open the Edit Email window.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-in-the-supplier-email-administration-tab-d3b9a9b4.md",
+        "notes": "List-level control on Supplier Email Administration tab.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.block-incoming-emails",
+        "pageId": "page.capture-processing-admin",
+        "name": "block_incoming_emails",
+        "label": "Block Incoming Emails",
+        "fieldType": "radio",
+        "validValues": [
+          "No",
+          "Yes"
+        ],
+        "sourceQuote": "Block Incoming Emails: (Default = No) Capture Processing will prevent a supplier email from being received or displayed based on the email address associated with that supplier.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-in-the-supplier-email-administration-tab-d3b9a9b4.md",
+        "notes": "Edit Email window field.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.send-email-acknowledgement",
+        "pageId": "page.capture-processing-admin",
+        "name": "send_email_acknowledgement",
+        "label": "Send Email Acknowledgement",
+        "fieldType": "radio",
+        "validValues": [
+          "No",
+          "Yes"
+        ],
+        "sourceQuote": "Send Email Acknowledgement: (Default = No) Capture Processing will send an acknowledgement to the supplier on receipt of their email unless the admin selects No to prevent this email from being generated and sent.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-in-the-supplier-email-administration-tab-d3b9a9b4.md",
+        "notes": "Edit Email window field.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.exception-email-address",
+        "pageId": "page.capture-processing-admin",
+        "name": "exception_email_address",
+        "label": "Exception Email Address",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "On the Other Settings tab, type an email address in Exception Email Address. To add multiple email addresses, separate the additional email addresses using a semi-colon.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md",
+        "notes": "Supports multiple semicolon-separated addresses; recipient of unprocessable-email exception notifications.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.default-policy-upload",
+        "pageId": "page.capture-processing-admin",
+        "name": "default_policy_upload",
+        "label": "Default Policy For Upload",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Default Policy For Upload/Default Policy for Email\n\nThe default policy options let the administrator set a default policy under which each of the batches, based on the sending method (upload and email), will inherit their policy attributes.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md",
+        "notes": "Populates the Policy field for uploaded batches in the Verification page.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.default-policy-email",
+        "pageId": "page.capture-processing-admin",
+        "name": "default_policy_email",
+        "label": "Default Policy for Email",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Default Policy For Upload/Default Policy for Email\n\nThe default policy options let the administrator set a default policy under which each of the batches, based on the sending method (upload and email), will inherit their policy attributes.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md",
+        "notes": "Populates the Policy field for emailed batches in the Verification page.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.captured-header-fields-catalog",
+        "pageId": "page.capture-processing-admin",
+        "name": "captured_header_fields_catalog",
+        "label": "Fields Supported for Capture (Header Fields)",
+        "fieldType": "table",
+        "validValues": [
+          "Vendor Name",
+          "Invoice Date",
+          "Invoice Number",
+          "Currency",
+          "Total Amount",
+          "Shipping",
+          "Tax",
+          "PO Number",
+          "Invoice Owner is configured",
+          "Vat 1 (Australia GST, US Tax, VAT UK/Japan)",
+          "Vat Amount 1 - 4"
+        ],
+        "sourceQuote": "<p>Fields Supported for Capture for Client-Managed Capture Processing</p></td></tr><tr class=\"row\"><td class=\"entry\" colspan=\"3\" style=\"vertical-align:top;\"><p>Header Fields</p></td></tr><tr class=\"row\"><td class=\"entry\" style=\"vertical-align:top;\"><p>Vendor Name</p></td><td class=\"entry\" style=\"vertical-align:top;\"><p>Invoice Date</p></td><td class=\"entry\" style=\"vertical-align:top;\"><p>Invoice Number</p></td>",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+        "notes": "Confirmed via grep -c '<table' = 1 (raw HTML table). These are the default fields auto-captured by OCR on the Header form in Capture Processing; configured on the Forms and Fields tab.",
+        "uiVariant": "undifferentiated",
+        "fromRawHtmlTable": true
+      },
+      {
+        "id": "field.capture-processing-admin.captured-line-item-fields-catalog",
+        "pageId": "page.capture-processing-admin",
+        "name": "captured_line_item_fields_catalog",
+        "label": "Fields Supported for Capture (Line-Item Fields)",
+        "fieldType": "table",
+        "validValues": [
+          "Part Number",
+          "Description",
+          "Total (calculated)",
+          "Quantity",
+          "Unit Price",
+          "PO Number",
+          "Vat 1 (Australia GST, US Tax, VAT UK/Japan)",
+          "Vat Amount 2 - 4"
+        ],
+        "sourceQuote": "<p>Line-Item Fields</p></td></tr><tr class=\"row\"><td class=\"entry\" style=\"vertical-align:top;\"><p>Part Number</p></td><td class=\"entry\" style=\"vertical-align:top;\"><p>Description</p></td><td class=\"entry\" style=\"vertical-align:top;\"><p>Total (calculated)</p></td>",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+        "notes": "Same raw HTML table as Header Fields catalog (grep -c '<table' = 1). Fields added beyond these require manual entry/coding by the Verifier.",
+        "uiVariant": "undifferentiated",
+        "fromRawHtmlTable": true
+      },
+      {
+        "id": "field.capture-processing-admin.vendor-form-field",
+        "pageId": "page.capture-processing-admin",
+        "name": "vendor_form_field",
+        "label": "Vendor Code (Vendor form)",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "The Capture Processing vendor form features a single field, Vendor Code, which is the only field that will be identified and captured when processing.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+        "notes": "Only auto-captured field on the Vendor form; other added fields will not be captured by the system.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.client-managed-task-definitions-subtab",
+        "pageId": "page.capture-processing-admin",
+        "name": "client_managed_task_definitions_subtab",
+        "label": "Client Managed Task Definitions (sub-tab)",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "On the Capture Processing Admin page, click Task Definition and then click the Client Managed Task Definitions tab.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/task-definition-b3446cf4.md",
+        "notes": "Dual-support sub-tab under the Task Definition tab, per the tools-guides Task Definition topic.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.disable-task-definition-auto-doc-separation",
+        "pageId": "page.capture-processing-admin",
+        "name": "disable_task_definition_auto_doc_separation",
+        "label": "Disable Task Definition (Automated Document Separation)",
+        "fieldType": "radio",
+        "validValues": [
+          "Yes",
+          "No"
+        ],
+        "sourceQuote": "Disable Task Definition: Yes (disabled) by default; select No (enabled) in conjunction with selecting Yes in the Document Separation definition to have the system perform automated (not manual) separation of document pages to processing-ready state.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md",
+        "notes": "Automated Document Separation row of the Task Definitions tab. Default is Yes (disabled) — the opposite default from the sibling Document Separation task definition, whose same-named control reads 'Disable Task Definition: No (enabled) by default'. Mutual-exclusion/pairing rule documented in the file: setting this one to No (enabled) must be done in conjunction with selecting Yes in the Document Separation definition, so exactly one of the two separation methods is active. The file also states this task 'requires the use of separator pages between invoices'. The dropped 'Task Def Name: Name of the task.' sentence belongs to a separate field and was removed from the quote.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.manage-email-alias-action",
+        "pageId": "page.capture-processing-admin",
+        "name": "manage_email_alias_action",
+        "label": "Actions > Manage Email Alias > Add Alias",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click Actions > Manage Email Alias > Add Alias.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md",
+        "notes": "List-level control sequence reached from the Email Administration tab. Navigation path documented as step 1 in the same procedure: 'Click Administration > Invoice > Capture Processing Admin > Email Administration tab.' This Add Alias action is step 2; step 3 then prompts 'Type the name in Alias Name, and set the following optional attributes'.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.additional-ocr-language",
+        "pageId": "page.capture-processing-admin",
+        "name": "additional_ocr_language",
+        "label": "Additional OCR Language",
+        "fieldType": "dropdown",
+        "validValues": [
+          "None",
+          "Japanese",
+          "Chinese"
+        ],
+        "sourceQuote": "Additional OCR Language - Select an option:\n        \n        -   None: Latin-based character set\n            \n        -   Japanese: Japanese character set, then Latin-based character set\n            \n        -   Chinese: Chinese character set, then Latin-based character set",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md",
+        "notes": "Optional attribute set on the Add Alias flow (Email Administration tab). Character-set precedence per option: None = Latin-based character set; Japanese = Japanese character set, then Latin-based; Chinese = Chinese character set, then Latin-based. Documented constraint from the NOTE immediately following the list: 'The None setting is superseded if a language is configured in Modify Task Definition \\> Default Language.'",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.enable-vendor-segregation",
+        "pageId": "page.capture-processing-admin",
+        "name": "enable_vendor_segregation",
+        "label": "Enable Vendor Segregation",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Yes"
+        ],
+        "sourceQuote": "To activate this feature, select Yes from the Enable Vendor Segregation list.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md",
+        "notes": "Other Settings tab section (its own heading 'Enable Vendor Segregation'). Only 'Yes' is literally enumerated as option text in the corpus; 'No' was removed as not genuinely enumerated. Documented effect: by associating email addresses to a single email alias and assigning the alias to a group of vendors, only those vendors are available during the OCR step and when changing vendors manually during the verification step; a policy and language attribute may also be set as defaults. Cross-reference given in the file: 'Appendix: Using the Email Address to Filter Vendor Availability'.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.default-ledger",
+        "pageId": "page.capture-processing-admin",
+        "name": "default_ledger",
+        "label": "Default Ledger",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Default Ledger\n\nClients using more than one ledger at their company can specify which ledger they want associated with the invoice output generated by Capture Processing.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md",
+        "notes": "Other Settings tab field, carrying its own 'Default Ledger' section heading (now included in the quote so the label itself is anchored). Applies only where a client uses more than one ledger; it binds a ledger to the invoice output generated by Capture Processing. Stated purpose in the sentence immediately following: 'Doing this prevents incorrect account codes from being unintentionally associated with invoices created in Capture Processing.' No ledger values are enumerated in the corpus (they are tenant data), so validValues is correctly empty.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.capture-processing-admin.capture-processing-admin-tabs",
+        "pageId": "page.capture-processing-admin",
+        "name": "capture_processing_admin_tabs",
+        "label": "Capture Processing Admin page tabs",
+        "fieldType": "unknown",
+        "validValues": [
+          "Forms and Fields",
+          "Task Definition",
+          "Email Administration",
+          "Supplier Email Administration",
+          "Other Settings"
+        ],
+        "sourceQuote": "The tool includes options available on several tabs on the page:\n\n-   Forms and Fields: Configure the processing-specific forms on this tab, adding default (supported capture) fields and other fields, as required\n    \n-   Task Definition: Specify the forms (if required) for the verification task and configure separation and extraction tasks.\n    \n-   Email Administration: Create one or more email addresses, each assigned to an alias and a capture type, for batch emails sent by the supplier. Use an email alias to set attributes, such as auto-assign to sender, for all emails associated with the alias.\n    \n-   Supplier Email Administration: You can configure how Concur Invoice responds to supplier emails using the options on this tab. For example, you can configure Concur Invoice to block or not respond to supplier emails.\n    \n-   Other Settings: Additional settings for configuration of Capture Processing",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/using-the-capture-processing-admin-tool-8b2ae77c.md",
+        "notes": "Canonical 5-tab catalog for the Capture Processing Admin page; all five validValues are now anchored by the quote itself. ALIAS: this bullet writes the second tab as 'Task Definition' (singular), while working-with-options-on-the-task-definitions-tab-735ce2d9.md and accessing-capture-processing-admin-2fb515a6.md write it plural — 'Task Definitions in the Task Definitions tab...', 'In Capture Processing, click the Task Definitions tab.' Same tab, both spellings in the 2026_08 corpus. LANDING STATE: per accessing-capture-processing-admin-2fb515a6.md, 'The page opens to the Capture Processing view of the Forms and Fields tab.' ORDERING/PREREQUISITE constraint stated immediately after the list: 'It is critical that these settings be configured prior to use. For example, the Client Managed Verification option for the Task Processor field must be selected, or the admin will not see either the Verification or Document Separation options.' Tool is available to the Invoice Configuration administrator (Unrestricted) role when Capture Processing (client-managed) is activated.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.vendor-search-admin.searchable",
+        "pageId": "page.vendor-search-admin",
+        "name": "searchable",
+        "label": "Searchable",
+        "fieldType": "checkbox",
+        "validValues": [
+          "Yes",
+          "No"
+        ],
+        "sourceQuote": "This is represented as a _Yes_ or _No_ variable under the Searchable column on the Vendor Form page.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/adding-and-removing-vendor-search-fields-e7023558.md",
+        "notes": "Two-value Yes/No attribute set under the Searchable column on the Vendor Form page (the corpus places it there; it does NOT state that the Vendor Form page and the Vendor Search Admin page are the same grid, so no such equivalence is asserted here). The attribute determines which fields the Vendor Search Admin tool can expose to quick search and advanced search. Documented constraint, stated verbatim in the same paragraph: \"Note that while all fields can be added as columns in the vendor row grid, only selected fields can be used for the quick search and advanced search functionalities.\" So the Searchable value partitions the field set: every added field appears as a vendor-row-grid column regardless, but only Searchable=Yes fields reach quick/advanced search. fieldType mapped to the schema's boolean/two-value type ('checkbox') because the schema has no 'yes_no' member; the corpus calls it a \"variable\" and never documents the input widget, so no widget shape is claimed. Verified: grep -c '<table' on this file returns 0.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.vendor-search-admin.vendorsearchfieldname",
+        "pageId": "page.vendor-search-admin",
+        "name": "vendorSearchFieldName",
+        "label": "Field (added/removed on Vendor Search Admin)",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "This page is used to add or remove the fields that will appear for the user when searching for vendors.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/adding-and-removing-vendor-search-fields-e7023558.md",
+        "notes": "Primary control of the Vendor Search Admin page. Binding, stated in the same file: the Invoice Admin accesses the Vendor Search Admin tool by clicking Administration > Invoice > Vendor Search Admin (left menu) — the corpus renders that path with non-breaking-space separators, so it is paraphrased here rather than quoted. Documented constraint from the same paragraph as the sourceQuote: \"Note that while all fields can be added as columns in the vendor row grid, only selected fields can be used for the quick search and advanced search functionalities.\" — i.e. adding a field always yields a vendor-row-grid column, but quick/advanced search availability is governed separately by the Searchable Yes/No attribute. Illustration only (NOT an enumeration, per LOCKED RULE 6): \"For example, the administrator can decide to add the _Tax Type_ or _Country_ fields as searchable items. These will appear as columns in the vendor row grid, but only the _Tax Type_ field will be available in quick search and advanced search.\" No field-picker catalog for this page exists anywhere in this corpus, so validValues is deliberately empty. fieldType left 'unknown' because the corpus never documents the add/remove widget shape and the repair instruction did not call the type wrong. Verified: grep -c '<table' on this file returns 0.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.imagingconfigname",
+        "pageId": "page.image-handling",
+        "name": "imagingConfigName",
+        "label": "Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Enter a unique name for the configuration. This name will appear as an option when setting up policies.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "Unique per configuration; consumed downstream as a selectable value on the Policies page (imaging configuration assignment).",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.acrobatreaderdownloadurl",
+        "pageId": "page.image-handling",
+        "name": "acrobatReaderDownloadUrl",
+        "label": "Acrobat Reader Download URL",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Enter the link to the Adobe Web site where the employee can download the software.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "Link appears in the error message shown when the system checks whether Adobe Reader is installed on the employee's machine.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.markinvoicesreceivedonsuccessfulimagecheck",
+        "pageId": "page.image-handling",
+        "name": "markInvoicesReceivedOnSuccessfulImageCheck",
+        "label": "Mark invoices received in Payment Processor for requests with a successful invoice image",
+        "fieldType": "checkbox",
+        "validValues": [],
+        "sourceQuote": "Select this check box if you want the system to note the invoices as received when they have transmitted successfully.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "NOTE in source: the employee must still verify the clarity and accuracy of the successful transmission of invoices.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.allowemployeeuploadimagefiles",
+        "pageId": "page.image-handling",
+        "name": "allowEmployeeUploadImageFiles",
+        "label": "Allow employee to upload image files",
+        "fieldType": "checkbox",
+        "validValues": [],
+        "sourceQuote": "Select this check box if you want the Upload Image link to appear to the user in the Actions menu.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "If the checkbox itself is not displayed, source says to submit a service request to have the feature turned on -- implying it can be gated at the SAP Concur account level independent of this checkbox's visibility.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.imagingconfigsave",
+        "pageId": "page.image-handling",
+        "name": "imagingConfigSave",
+        "label": "Save",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click Save.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "Commits the new or modified Invoice/Vendor Imaging configuration row.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.scanconfigurationstab",
+        "pageId": "page.image-handling",
+        "name": "scanConfigurationsTab",
+        "label": "Scan Configurations (tab)",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "On the Image Handling page, admins will see the Scan Configurations tab.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md",
+        "notes": "Third tab on the Image Handling page (alongside Invoice Imaging / Vendor Imaging), confirmed again in step-1-add-a-scan-configuration-f86f03da.md ('Click the Scan Configurations tab.').",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.scanconfignew",
+        "pageId": "page.image-handling",
+        "name": "scanConfigNew",
+        "label": "New",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click New.\n    \n    English Only\n    \n    A new row appears ready for input.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-a-scan-configuration-f86f03da.md",
+        "notes": "List-level control on the Scan Configurations tab; adds a new editable row.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.scanconfigurationname",
+        "pageId": "page.image-handling",
+        "name": "scanConfigurationName",
+        "label": "Configuration Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "This is the name of the scan configuration. The name does not need to be unique for each configuration; however, SAP Concur recommends that you use names that are easy to understand and to recognize in the list.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-a-scan-configuration-f86f03da.md",
+        "notes": "Later selected on the Policies page via the Scan Configuration list (step-2-assign-the-scan-configuration-to-a-policy-634c76ba.md: 'Select the appropriate scan configuration name from the Scan Configuration list.').",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.imageinvoicecontaineridrequired",
+        "pageId": "page.image-handling",
+        "name": "imageInvoiceContainerIdRequired",
+        "label": "Image Invoice Container ID Required",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Yes",
+          "No"
+        ],
+        "sourceQuote": "Select Yes or No in the list.\n    \n    If Yes, the invoice image processor must enter a Receipt Container ID value into the Image Invoice Container ID field for each invoice scanned.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-a-scan-configuration-f86f03da.md",
+        "notes": "When set to Yes, drives a required Image Invoice Container ID field for the invoice image processor on the (separate) Process Images page.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.scanconfigsave",
+        "pageId": "page.image-handling",
+        "name": "scanConfigSave",
+        "label": "Save",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click Save. The new configuration appears on the page.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-a-scan-configuration-f86f03da.md",
+        "notes": "Commits a new scan configuration row.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.scanconfigrowedit",
+        "pageId": "page.image-handling",
+        "name": "scanConfigRowEdit",
+        "label": "(select a scan configuration row to edit)",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "Click on the desired scan configuration to edit it.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/managing-scan-configurations-84e1601a.md",
+        "notes": "List-level row-select control for modifying an existing scan configuration on the Scan Configurations tab.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.scanconfigdelete",
+        "pageId": "page.image-handling",
+        "name": "scanConfigDelete",
+        "label": "Delete",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click on the desired scan configuration, and then click Delete.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/managing-scan-configurations-84e1601a.md",
+        "notes": "List-level control on the Scan Configurations tab.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.policyscanconfiguration",
+        "pageId": "page.policies",
+        "name": "policyScanConfiguration",
+        "label": "Scan Configuration",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Select the appropriate scan configuration name from the Scan Configuration list. This is the name that you created on the Scan Configuration page in Image Handling.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-scan-configuration-to-a-policy-634c76ba.md",
+        "notes": "Cross-page relationship: this Policies page (Modify Policy) dropdown is populated from Scan Configurations defined on the Image Handling page; each policy can use only one scan configuration, though one configuration can serve multiple policies. Also documented as a policy component: 'Scan Configuration: Companies that track paper invoices manually by using barcode technology can select a configuration to utilize this functionality.' (components-of-the-policy-3bf075f8.md) and 'Imaging Configuration: Companies that track received invoice images can select a configuration to utilize this functionality.' (same file) confirms Policies references both an Imaging Configuration and a Scan Configuration set up on Image Handling. RE-HOMED 2026-08-31 (Group 4 critic): this is a Policies (Modify Policy) dropdown populated from Scan Configurations defined on Image Handling. Bound to Policies.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.digitaltaxinvoicecfdistatus",
+        "pageId": "page.image-handling",
+        "name": "digitalTaxInvoiceCfdiStatus",
+        "label": "Digital Tax Invoice (CFDi) validation status",
+        "fieldType": "unknown",
+        "validValues": [
+          "Not validated",
+          "Valid",
+          "Valid with warnings",
+          "Invalid"
+        ],
+        "sourceQuote": "The status may be\n\n-   Not validated\n    \n-   Valid\n    \n-   Valid with warnings\n    \n-   Invalid",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md",
+        "notes": "Status shown when hovering over the CFDi icon on an invoice, set by a third-party validator using the Digital Tax Invoice web service (exception code INVXMLST raised until validated).",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.timestampstatus",
+        "pageId": "page.image-handling",
+        "name": "timestampStatus",
+        "label": "Timestamp Status",
+        "fieldType": "unknown",
+        "validValues": [
+          "Timestamp: NotRequested",
+          "Received",
+          "Pending",
+          "Requested",
+          "Ineligible",
+          "Invalid"
+        ],
+        "sourceQuote": "| \n\nTimestamp: NotRequested\n\n | \n\nThe user has not yet requested a timestamp for the invoice.\n\n |",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/timestamp-status-f0082cf2.md",
+        "notes": "Full table confirmed via grep -c '<table' = 0 (markdown pipe table, not raw HTML). Status displayed at the bottom of the invoice image page after upload. NOTE bound: 'To be eligible for an e-Bunsho timestamp, images must be more than 200dpi (scanner) or 3.88M pixels (smartphone/digital camera) and at least 24-bit color for RGB.'",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.supportedimagefiletypesadmin",
+        "pageId": "page.image-handling",
+        "name": "supportedImageFileTypesAdmin",
+        "label": "Supported Image File Types (upload/email)",
+        "fieldType": "unknown",
+        "validValues": [
+          "TIF",
+          "TIFF",
+          "JPEG",
+          "JPG",
+          "PNG",
+          "PDF (with XFA; with embedded fonts)",
+          "Word file (DOC; DOCX)",
+          "Excel file (XLS; XLSX – not supported: XLTS)",
+          "EML (File saved using Microsoft Outlook)",
+          "CSV"
+        ],
+        "sourceQuote": "The following file and image types are supported when uploading or emailing invoices:\n\n-   TIF, TIFF\n    \n-   JPEG, JPG\n    \n-   PNG\n    \n-   PDF (with XFA; with embedded fonts)\n    \n-   Word file (DOC; DOCX)\n    \n-   Excel file (XLS; XLSX – not supported: XLTS)\n    \n-   EML (File saved using Microsoft Outlook)\n    \n-   CSV",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/supported-image-file-types-b33c9e00.md",
+        "notes": "Admin-guides version. A companion, near-identical topic exists in tools-guides (supported-image-file-types-ecf7cc56.md) with one additional item 'CFDi (tax information with PDF)' and 'Excel file (XLS; XLSX)' without the XLTS exclusion note — see next field.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.supportedimagefiletypestools",
+        "pageId": "page.image-handling",
+        "name": "supportedImageFileTypesTools",
+        "label": "Supported Image File Types (Process Images / Tools Guide variant)",
+        "fieldType": "unknown",
+        "validValues": [
+          "TIF",
+          "TIFF",
+          "JPEG",
+          "JPG",
+          "PNG",
+          "PDF (with XFA; with embedded fonts)",
+          "Word file (DOC; DOCX)",
+          "Excel file (XLS; XLSX)",
+          "EML (File saved using Microsoft Outlook)",
+          "CSV",
+          "CFDi (tax information with PDF)"
+        ],
+        "sourceQuote": "-   TIF, TIFF\n    \n-   JPEG, JPG\n    \n-   PNG\n    \n-   PDF (with XFA; with embedded fonts)\n    \n-   Word file (DOC; DOCX)\n    \n-   Excel file (XLS; XLSX)\n    \n-   EML (File saved using Microsoft Outlook)\n    \n-   CSV\n    \n-   CFDi (tax information with PDF)",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/supported-image-file-types-ecf7cc56.md",
+        "notes": "Sibling topic to the admin-guides version, worth flagging as a near-duplicate-but-not-identical list (adds CFDi type, drops the XLTS-not-supported caveat).",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.formatsofemailsanduploads",
+        "pageId": "page.image-handling",
+        "name": "formatsOfEmailsAndUploads",
+        "label": "Formats of Emails and Uploads (narrower list, incl. HTML)",
+        "fieldType": "unknown",
+        "validValues": [
+          "PNG",
+          "JPG",
+          "JPEG",
+          "PDF",
+          "TIF",
+          "TIFF",
+          "HTML (no double-byte characters)"
+        ],
+        "sourceQuote": "Uploaded or emailed, the file format must be PNG, JPG, JPEG, PDF, TIF, or TIFF files. HTML files are also supported but may not include double-byte characters.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/formats-of-emails-and-uploads-b3783618.md",
+        "notes": "A narrower/different enumeration than the 'Supported Image File Types' topic (omits Word/Excel/EML/CSV); both exist in the corpus verbatim, capturing both rather than reconciling.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.imagingtabselector",
+        "pageId": "page.image-handling",
+        "name": "imagingTabSelector",
+        "label": "Invoice Imaging / Vendor Imaging (tabs)",
+        "fieldType": "unknown",
+        "validValues": [
+          "Invoice Imaging",
+          "Vendor Imaging"
+        ],
+        "sourceQuote": "Click the Invoice Imaging tab.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "Top-level tab control on the Image Handling window (Administration > Invoice (sub-menu) > Image Handling (left menu)); determines whether the configuration being created/modified applies to invoices or vendors. Documented as step 3 'Either:' — the two tabs are mutually exclusive alternatives ('– or –'); the sibling tab is quoted verbatim in the same step as 'Click the Vendor Imaging tab.' Both quotes were confirmed present with grep -F / grep -Fz (the longer 8-space-indented multi-line form also matches; the short single-line quote is used here as the safer anchor).",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.imagingconfigrowselect",
+        "pageId": "page.image-handling",
+        "name": "imagingConfigRowSelect",
+        "label": "New / default row (list-level control)",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click the default row to edit the existing default configuration.\n        \n        – or –\n        \n    -   Click New to create a new configuration. A new row appears.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md",
+        "notes": "List-level control on the Invoice Imaging / Vendor Imaging tab of the Image Handling window. Two documented, mutually exclusive actions (step 4 'Either:' … '– or –'): click the existing default row to edit it, or click New to add a configuration row. 'New' is a button label, not an enumerated value, so validValues is empty. Quote verified with grep -Fz (match count 1), preserving the file's 8-space continuation indents and en-dashes.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.ebunshotimestampconfigurationlist",
+        "pageId": "page.policies",
+        "name": "eBunshoTimestampConfigurationList",
+        "label": "Timestamp Configuration",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Japan e-Bunsho"
+        ],
+        "sourceQuote": "Select Japan e-Bunsho from the Timestamp Configurationlist.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md",
+        "notes": "NOT an Image Handling control. The field lives on the Policies page: invoice-admin-experience-840503f4.md states 'On the Administration >Invoice > Policies page, when Invoice Admins modify a policy, the admin will see the Timestamp Configuration field.' Selecting the value is step 1 of enabling e-Bunsho for a policy group; the remaining steps run on Administration > Invoice > Group Configurations (Policies column > Modify > Is Active for Group / Is Default Policy). Only one option is named anywhere in the corpus — thin coverage kept thin, do not assume other values. sourceQuote reproduces SAP's HTML-to-markdown run-together 'Configurationlist' verbatim (no space); do not silently correct it. RE-HOMED 2026-08-31 (Group 4 critic): the field node said Image Handling while its own notes and the ConfigStep both place it on Policies. Bound to Policies.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.uploadimagesessionlimit",
+        "pageId": "page.image-handling",
+        "name": "uploadImageSessionLimit",
+        "label": "Upload Image window — maximum files per session (system limit, 10)",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "No more than 10 files may be uploaded in a single session",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/about-uploaded-images-fc1f44bb.md",
+        "notes": "Read-only system constraint on the end-user Upload Image window, NOT an admin-settable numeric input — a runtime crawler should not expect a number field. Bound: max 10 files per session. The limit is repeatable: 'To upload more than 10, simple upload the first 10 and then upload another 10, until done' and 'Multiple sessions can be initiated for a single invoice or vendor request; files are appended to prior uploads for a given invoice'. Companion recommendation: 'When scanning, the images should be scanned at 300 dpi or lower to reduce file size'. The per-file size limit is displayed only in the UI and is NOT stated numerically in the corpus: 'There is a size limit for each image file; the Upload Image window (shown below) displays that limit'. FLAGGED 2026-08-31 (Group 4 critic): end-user runtime constraint on the Upload Image window, not admin-settable config. Retained because a crawler needs the constraint, but it is not a control on this admin page.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.image-handling.imagehandlingexceptionshelperpane",
+        "pageId": "page.image-handling",
+        "name": "imageHandlingExceptionsHelperPane",
+        "label": "Exceptions helper pane",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "From the Exceptions helper pane within the Audit Rules tool, Workflows tool, Image Handling tool, and Invoice Processor",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "The only Image-Handling-bound control here: exception codes can be added from the Exceptions helper pane reachable inside the Image Handling tool (the same pane shared with Audit Rules, Workflows, and Invoice Processor); the alternative entry point is 'From within the Exceptions tool'. The four exception attributes (Exception Code / Exception Level / Message / Editable By Group(s)) are NOT Image Handling fields — they are documented on the New Exception tab of the Exceptions tool ('Select Exceptions  New.' / 'The New Exception tab appears') in this same file's Exception Fields table, and each would need its own row quote. Visibility caveat, verbatim: 'Group administrators can only add exceptions if given create rights for the Invoice Configuration Administrator. If the administrator does not have permissions, the New link does not appear.' For reference, the Exceptions tool bounds documented in this file include Exception Code 'Type a unique one to eight alphanumeric character code in all capital letters, without any spaces.' and Exception Level 'Type any number between 0 and 99.'",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.units-of-measure.defaultgoods",
+        "pageId": "page.units-of-measure",
+        "name": "defaultGoods",
+        "label": "Default Goods",
+        "fieldType": "checkbox",
+        "validValues": [],
+        "sourceQuote": "The administrator can specify a unit type that will always appear as the default choice by checking the box in the Default Goods or Default Services column.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md",
+        "notes": "Checkbox column on the Units of Measure list; checking it makes that unit the default choice offered when a user of the corresponding spend type (Goods) creates an item. Column name is not shown as a distinct verbatim UI label beyond this sentence's phrasing.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.units-of-measure.defaultservices",
+        "pageId": "page.units-of-measure",
+        "name": "defaultServices",
+        "label": "Default Services",
+        "fieldType": "checkbox",
+        "validValues": [],
+        "sourceQuote": "The administrator can specify a unit type that will always appear as the default choice by checking the box in the Default Goods or Default Services column.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md",
+        "notes": "Checkbox column on the Units of Measure list, parallel to Default Goods but scoped to the Services spend type.",
+        "uiVariant": "undifferentiated"
+      },
+      {
+        "id": "field.units-of-measure.spendtype",
+        "pageId": "page.units-of-measure",
+        "name": "spendType",
+        "label": "Spend Type",
+        "fieldType": "unknown",
+        "validValues": [
+          "Goods",
+          "Services",
+          "Both"
+        ],
+        "sourceQuote": "Units are associated with a spend type (Goods, Services, or Both).",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md",
+        "notes": "Each unit of measure record is tagged with one of these three spend-type values; the corpus does not name this as a discrete labeled UI control (dropdown vs. radio is not stated), so fieldType is left unknown rather than guessed. This is the one genuinely enumerated value set on the page.",
         "uiVariant": "undifferentiated"
       }
     ],
@@ -4119,6 +5047,1026 @@
         "condition": "The groups offered in Editable By Group(s) are constrained by the administrator's own place in the group hierarchy defined in Group Configurations: only groups beneath them, and Global Group only if they administer it.",
         "sourceQuote": "Depending on your rights, you may not be able to select Global Group. You are only allowed to select groups beneath you.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+      },
+      {
+        "id": "dep.g4.001",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "Task Processor (Client Managed Verification option)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "Verification and Document Separation task definition options",
+          "resolved": false
+        },
+        "condition": "the Client Managed Verification option for the Task Processor field must be selected first, or the admin will not see either the Verification or Document Separation options at all",
+        "sourceQuote": "It is critical that these settings be configured prior to use. For example, the Client Managed Verification option for the Task Processor field must be selected, or the admin will not see either the Verification or Document Separation options.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/using-the-capture-processing-admin-tool-8b2ae77c.md"
+      },
+      {
+        "id": "dep.g4.002",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": "field.capture-processing-admin.instruction-text",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "instruction_text",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "Instructions display",
+          "resolved": false
+        },
+        "condition": "when Instruction Text is populated, the configured text appears under Instructions on the Verification tab",
+        "sourceQuote": "When populated, the text appears under Instructions in the Verification tab.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md"
+      },
+      {
+        "id": "dep.g4.003",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": "field.capture-processing-admin.capture-attention-to",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "capture_attention_to",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Capture Processing > Verification tab (Invoice Details section)",
+          "field": "Assign Invoice To",
+          "resolved": false
+        },
+        "condition": "setting Capture Attention To to Yes adds the optional Assign Invoice To field to the Invoice Details section of the Verification tab",
+        "sourceQuote": "The Capture Attention To option adds the optional Assign Invoice To field to the Invoice Details section of the Verification tab, which is useful whenever you need to manually search for and assign the invoice to the invoice owner or let Concur Invoice assign a vendor owner automatically.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md"
+      },
+      {
+        "id": "dep.g4.004",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "Assign Invoice To (auto-population with Vendor Owner)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin; Vendor Manager > Vendor Mapping List",
+          "field": "capture_attention_to AND Vendor Mapping List employee-to-vendor mapping",
+          "resolved": false
+        },
+        "condition": "auto-population occurs only when BOTH the Capture Attention To feature in Task Definitions is configured AND the employee is mapped to the vendor on Vendor Manager > Vendor Mapping List",
+        "sourceQuote": "The Assign Invoice To field is automatically populated with a Vendor Owner name if the Vendor Manager has configured both the Capture Attention To feature in Task Definitions, and the mapping of employee to vendor using options in the Vendor Manager > Vendor Mapping List page.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md"
+      },
+      {
+        "id": "dep.g4.005",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": "field.capture-processing-admin.capture-attention-to",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "capture_attention_to",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Routing Configuration",
+          "field": "auto-routing configuration",
+          "resolved": false
+        },
+        "condition": "if the client uses Routing Configuration auto-routing, Capture Attention To is not required and should be disabled (No); Routing Configuration takes precedence",
+        "sourceQuote": "If the client is using the auto-routing features available using the Routing Configuration tool, the Capture Attention To option is not required and in fact should be disabled (No). The Routing Configuration takes precedence, and when enabled is usually considered the more accurate and easily maintainable assignment option.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md"
+      },
+      {
+        "id": "dep.g4.006",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": "field.capture-processing-admin.disable-task-definition-doc-separation",
+        "targetId": "field.capture-processing-admin.disable-task-definition-auto-doc-separation",
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "disable_task_definition_doc_separation",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "disable_task_definition_auto_doc_separation",
+          "resolved": true
+        },
+        "condition": "to switch from manual to automated separation, Document Separation must be set to Yes (disabled) in conjunction with setting Automated Document Separation to No (enabled) — the two task definitions must be changed together so exactly one separation method is active",
+        "sourceQuote": "select Yes (disabled) in conjunction with selecting No in the Automated Document Separation definition to have the system perform automated (not manual) separation of document pages to processing-ready state.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md"
+      },
+      {
+        "id": "dep.g4.007",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "verification_header_form, verification_line_item_form, verification_vendor_form",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin > Forms and Fields tab",
+          "field": "form field configuration",
+          "resolved": false
+        },
+        "condition": "the Header, Line Item and Vendor forms selectable in the Verification task definition draw their fields from what is configured on the Forms and Fields tab",
+        "sourceQuote": "NOTE: Fields for these forms are configured using options in the Forms and Fields tab.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md"
+      },
+      {
+        "id": "dep.g4.008",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Forms and Fields",
+          "field": "Invoice Admin > Forms and Fields tool field configuration",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin > Forms and Fields tab",
+          "field": "fields available on the Capture Processing forms",
+          "resolved": false
+        },
+        "condition": "fields are created in the Invoice Admin Forms and Fields tool, NOT on the Capture Processing Forms and Fields tab; they flow one-way into Capture Processing where only limited fine-tuning (e.g. renaming, Client-Managed Capture Verifier access rights) is available",
+        "sourceQuote": "Fields are configured using the Invoice Admin > Forms and Fields tool (that is, not using options on the Forms and Fields tab in Capture Processing). Fields configured using the Concur Invoice tool are made available \"one-way\" to the Capture Processing forms and fields module for additions to that feature’s forms.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/use-invoice-for-field-preparation-of-capture-processing-fields-617e72f7.md"
+      },
+      {
+        "id": "dep.g4.009",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin > Forms and Fields tab",
+          "field": "Custom field value on a captured invoice",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Routing Configuration",
+          "field": "invoice owner auto-assignment",
+          "resolved": false
+        },
+        "condition": "a Custom field is configured in the Routing Configuration tool so that, dependent on its value, the invoice is routed (assigned) to the correct owner's invoice queue without user intervention",
+        "sourceQuote": "Using the Invoice Routing Configuration tool, a Custom field is configured so that, dependent on value, the invoice is routed (assigned) to the correct owner’s invoice queue.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/use-invoice-for-field-preparation-of-capture-processing-fields-617e72f7.md"
+      },
+      {
+        "id": "dep.g4.010",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "Dual Support feature activation",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "add_email_capture_type / capture type assignment options on batches",
+          "resolved": false
+        },
+        "condition": "when Dual Support is enabled, additional options appear that let the admin assign a capture type to one or more batches",
+        "sourceQuote": "Dual Support lets a client process their emailed or uploaded batches using either capture method. When this feature is enabled, additional options appear that let the admin assign a capture type to one or more batches.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/dual-support-using-both-capture-processing-methods-971a2a14.md"
+      },
+      {
+        "id": "dep.g4.011",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": "field.capture-processing-admin.add-email-capture-type",
+        "sourceRef": {
+          "page": "Configuration/Feature Activation",
+          "field": "SAP Concur activation of Dual Support",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "add_email_capture_type",
+          "resolved": true
+        },
+        "condition": "the client must contact SAP Concur to activate Dual Support (possibly for a fee) before the capture-type options exist; absence of the field means the feature is not activated",
+        "sourceQuote": "Clients will need to contact SAP Concur to activate this feature. There may be a fee for this service.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/dual-support-using-both-capture-processing-methods-971a2a14.md"
+      },
+      {
+        "id": "dep.g4.012",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": "field.capture-processing-admin.additional-ocr-language",
+        "targetId": "field.capture-processing-admin.default-language",
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "additional_ocr_language",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "default_language",
+          "resolved": true
+        },
+        "condition": "the alias-level None (Latin-based) OCR language setting is superseded whenever a language is configured in the Content Extraction task's Modify Task Definition > Default Language",
+        "sourceQuote": "NOTE: The None setting is superseded if a language is configured in Modify Task Definition \\> Default Language.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md"
+      },
+      {
+        "id": "dep.g4.013",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "add_email_address (first batch sent to the address)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "email address visibility on the Email Administration tab",
+          "resolved": false
+        },
+        "condition": "a minimum of one batch must be sent to the newly configured address before that address is exposed in the Email Administration tab",
+        "sourceQuote": "WARNING At this time, send a minimum of one batch to the email address configured for the client to expose the email address in the Email Administration tab of the Capture Processing Admin tool.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-email-address-5073fd51.md"
+      },
+      {
+        "id": "dep.g4.014",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": "field.capture-processing-admin.capture-attention-to",
+        "sourceRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "Invoice-level owner override (supersedes Batch-level assignment)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "capture_attention_to",
+          "resolved": true
+        },
+        "condition": "a user can supersede the batch-level owner assignment at the invoice level only if the Capture Attention To feature has been activated for Capture Processing",
+        "sourceQuote": "The user can supersede any assignment at the Batch level by assigning or changing the owner. The Capture Attention To feature must be activated for Capture Processing for this to work.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/ownership-assignment-order-of-assignment-638460cb.md"
+      },
+      {
+        "id": "dep.g4.015",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Routing Configuration",
+          "field": "Routing Configuration invoice ownership assignment",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Invoice Settings",
+          "field": "Assign Invoice to Purchase Request Owner",
+          "resolved": false
+        },
+        "condition": "Routing Configuration's assignment (priority 2 in the ownership order) is only used if the Purchase Request Owner set in Invoice Settings is either not activated or not found",
+        "sourceQuote": "User defined and only used if the Purchase Request Owner is either not activated or not found",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/ownership-assignment-order-of-assignment-638460cb.md"
+      },
+      {
+        "id": "dep.g4.016",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": "field.capture-processing-admin.owner-assignment",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "owner_assignment",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Invoice Settings; Routing Configuration",
+          "field": "Assign Invoice to Purchase Request Owner (Invoice Settings) and Routing Configuration assignment",
+          "resolved": false
+        },
+        "condition": "routing an emailed invoice to its sender via the email alias (priority 3) takes effect only if the higher-priority Purchase Request Owner and Routing Configuration steps are not activated",
+        "sourceQuote": "User defined and takes effect if the steps detailed above are not activated",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/ownership-assignment-order-of-assignment-638460cb.md"
+      },
+      {
+        "id": "dep.g4.017",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": "field.capture-processing-admin.owner-assignment",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "owner_assignment",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "invoice owner (sender of the email)",
+          "resolved": false
+        },
+        "condition": "when an email alias has Owner Assignment set to Sender, all emails associated with that alias are routed directly to the sender, identified from the From address",
+        "sourceQuote": "Create an email alias and set the Owner Assignment to \"Sender\", all emails associated with the alias are routed directly to the sender.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/ownership-assignment-order-of-assignment-638460cb.md"
+      },
+      {
+        "id": "dep.g4.018",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing (OCR extraction)",
+          "field": "system-detected PO Number on a captured invoice",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Policies",
+          "field": "policy type assignment",
+          "resolved": false
+        },
+        "condition": "if the system detects a PO number on the invoice, it changes that invoice's policy to a PO policy",
+        "sourceQuote": "Conversely, if the system detects a PO number, it will change to a PO policy for that invoice.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/setting-up-a-default-language-and-policy-to-an-email-alias-a63ab073.md"
+      },
+      {
+        "id": "dep.g4.019",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Policies",
+          "field": "Purchase Order (PO) policy type",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "PO Number field required status",
+          "resolved": false
+        },
+        "condition": "when a PO policy is invoked, the PO Number field becomes a Required field type",
+        "sourceQuote": "Note that, if a PO policy is invoked, the PO Number field is a Required field type as this number is essential to processing a purchase order.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/setting-up-a-default-language-and-policy-to-an-email-alias-a63ab073.md"
+      },
+      {
+        "id": "dep.g4.020",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing Admin",
+          "field": "default_policy_upload / default_policy_email",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "Policy field on the batch",
+          "resolved": false
+        },
+        "condition": "the default policy set per sending method (upload vs. email) populates the Policy field for those batches on the Verification page, and the batch inherits that policy's attributes",
+        "sourceQuote": "By setting the policy here, that same policy will populate the Policy field for emailed and uploaded batches in the Verification page.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md"
+      },
+      {
+        "id": "dep.g4.021",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": "field.capture-processing-admin.exception-email-address",
+        "sourceRef": {
+          "page": "Capture Processing (email intake)",
+          "field": "unprocessable supplier email (unsupported document type; credit memos)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "exception_email_address",
+          "resolved": true
+        },
+        "condition": "when the system cannot process an incoming email, the original email is converted to a single PDF and attached to an exception notification sent to the address in Exception Email Address",
+        "sourceQuote": "When the system encounters an email that cannot be processed (unsupported document type; credit memos), the original email is formatted into a single PDF document that is sent as an attachment in the exception email notification to the recipient specified in Exception Email Address.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md"
+      },
+      {
+        "id": "dep.g4.022",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": "field.capture-processing-admin.enable-vendor-segregation",
+        "sourceRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "vendors available during OCR and manual vendor change",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "enable_vendor_segregation",
+          "resolved": true
+        },
+        "condition": "associating email addresses to a single email alias and assigning that alias to a group of vendors restricts the vendors available during the OCR step and when changing vendors manually during verification; a default policy and language attribute may be set the same way",
+        "sourceQuote": "By associating email addresses to a single email alias, and then assigning the alias to a group of vendors, only those vendors are available during the OCR step, and when changing vendors manually during the verification step.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md"
+      },
+      {
+        "id": "dep.g4.023",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": "field.capture-processing-admin.enable-vendor-segregation",
+        "sourceRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "list of available vendors (Vendor Information, Verifier)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "enable_vendor_segregation",
+          "resolved": true
+        },
+        "condition": "when the Vendor Segregation feature is enabled, the vendor list the Verifier can choose from is limited to the vendors associated with the receiving email address",
+        "sourceQuote": "If the Vendor Segregation feature is enabled, the list of available vendors will be limited to those associated with the email address as per the feature.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/working-with-vendors-c5919dc3.md"
+      },
+      {
+        "id": "dep.g4.024",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Capture Processing > Verification tab",
+          "field": "vendor search criteria available to the Verifier",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Group Configurations",
+          "field": "banking information entry status (Hidden; Required; Optional) by role",
+          "resolved": false
+        },
+        "condition": "the search criteria available when filtering the vendor master list depend on the Hidden/Required/Optional status applied to banking-information entry for the role, which is set with the Group Configurations tool",
+        "sourceQuote": "Be aware that the available search criteria is dependent on the status (Hidden; Required; Optional) applied to the entry of banking information by roles using the Group Configurations tool.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/working-with-vendors-c5919dc3.md"
+      },
+      {
+        "id": "dep.g4.025",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Vendor Manager > Manage Vendors",
+          "field": "Exclude from Capture (Actions menu)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing Admin",
+          "field": "Capture Processing feature enablement",
+          "resolved": false
+        },
+        "condition": "the Exclude from Capture option is only available to companies using Capture Processing and does not appear unless SAP Concur staff have enabled the feature",
+        "sourceQuote": "This option is only available to companies using Capture Processing and does not appear if SAP Concur staff have not enabled this feature.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/including-or-excluding-vendor-in-capture-processing-085f8aeb.md"
+      },
+      {
+        "id": "dep.g4.026",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Vendor Manager > Vendor Mapping List",
+          "field": "Default Invoice Owner mapped to a vendor",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Capture Processing (Content Extraction)",
+          "field": "automatic Invoice Owner assignment on extraction",
+          "resolved": false
+        },
+        "condition": "when an employee is mapped to a vendor, that employee is automatically assigned the invoice created on extraction whenever Capture Processing detects that vendor",
+        "sourceQuote": "When you map an employee to a vendor, that employee is automatically assigned the invoice created on extraction in Capture Processing. This is done systematically by Concur Invoice when it detects that an owner exists for the vendor found in the invoice.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/assigning-a-default-invoice-owner-for-a-vendor-efe8bbbb.md"
+      },
+      {
+        "id": "dep.g4.027",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Concur Invoice",
+          "field": "System Received Date visibility (Preferences Column Label list / Query Builder)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Forms and Fields",
+          "field": "System Received Date field on the Payment Request Header form",
+          "resolved": false
+        },
+        "condition": "the Capture Processing received-timestamp is only visible if the admin has first added the System Received Date field to the Payment Request Header form",
+        "sourceQuote": "You can see the exact time when Concur Invoice received an invoice provided the admin has added the System Received Date field to the Payment Request Header form.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/view-when-concur-invoice-received-an-invoice-db9456c1.md"
+      },
+      {
+        "id": "dep.g4.028",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": "field.vendor-search-admin.searchable",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Vendor Search Admin",
+          "field": "searchable",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Vendor Search Admin",
+          "field": "quick search and advanced search field availability",
+          "resolved": false
+        },
+        "condition": "a field becomes usable in quick search and advanced search only when its Searchable flag is Yes; all added fields appear as vendor row grid columns regardless",
+        "sourceQuote": "Note that while all fields can be added as columns in the vendor row grid, only selected fields can be used for the quick search and advanced search functionalities. This is represented as a _Yes_ or _No_ variable under the Searchable column on the Vendor Form page.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/adding-and-removing-vendor-search-fields-e7023558.md"
+      },
+      {
+        "id": "dep.g4.029",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": "field.vendor-search-admin.vendorsearchfieldname",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Vendor Search Admin",
+          "field": "vendorSearchFieldName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Vendor Search Admin (end-user experience)",
+          "field": "fields visible in the end-user Search list, Advanced search window and vendor row grid",
+          "resolved": false
+        },
+        "condition": "users see only the set of fields the administrator adds with the Vendor Search Admin tool; qualified (searchable) fields appear in the Search list",
+        "sourceQuote": "The user will see only the set of fields the administrator adds using the Vendor Search Admin tool (_Tax Type_ shown below). Qualified (searchable) fields appear in the Search list.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/user-experience-217e2941.md"
+      },
+      {
+        "id": "dep.g4.030",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Invoice Settings",
+          "field": "Limit processors, approvers or managers to use invoice owners vendor list",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Vendor Employee Access",
+          "field": "Vendor Employee Access feature enablement",
+          "resolved": false
+        },
+        "condition": "the Invoice Settings restriction requires the Vendor Employee Access feature to be enabled for the company",
+        "sourceQuote": "Use the Limit processors, approvers or managers to use invoice owners vendor list setting to restrict vendor selection to the vendors authorized for each employee. This setting requires the Vendor Employee Access feature to be enabled.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/limit-match-vendors-for-processor-approver-and-manager-to-employee-s-vendor-list-e0b41037.md"
+      },
+      {
+        "id": "dep.g4.031",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Invoice Settings",
+          "field": "Limit processors, approvers or managers to use invoice owners vendor list",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Invoice Processor",
+          "field": "vendor list available when changing a vendor",
+          "resolved": false
+        },
+        "condition": "when enabled, a processor changing a vendor sees the vendor list filtered to the same set available to the invoice's employee owner",
+        "sourceQuote": "When a processor changes a vendor, this feature filters the vendor list to the same set available to the employee.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/limit-match-vendors-for-processor-approver-and-manager-to-employee-s-vendor-list-e0b41037.md"
+      },
+      {
+        "id": "dep.g4.032",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Forms and Fields",
+          "field": "Vendor Form Name field added to the Payment Vendor form",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Vendor Manager",
+          "field": "Vendor Manager visibility of vendors across different policy groups / vendor forms",
+          "resolved": false
+        },
+        "condition": "the Vendor Form Name field must first be added to the Payment Vendor form using the Forms and Fields tool; configuring it is what enables Vendor Managers to see and work with vendors belonging to different policy groups",
+        "sourceQuote": "To enable the Vendor Form Name option, use the Forms and Fields tool to add the field to the Payment Vendor form.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-feature-activation-d2263c26.md"
+      },
+      {
+        "id": "dep.g4.033",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": "field.image-handling.imagingconfigname",
+        "sourceRef": {
+          "page": "Administration > Imaging Settings",
+          "field": "Imaging Settings (unique company ID and public key)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Image Handling",
+          "field": "imagingConfigName",
+          "resolved": true
+        },
+        "condition": "the unique company ID and public key must be supplied in the Imaging Settings section of Administration before an Invoice or Vendor Imaging Configuration is created in Image Handling",
+        "sourceQuote": "Provide the unique company ID and public key by using the Imaging Settings section in Administration of Concur Invoice.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/imaging-configuration-8b314b9a.md"
+      },
+      {
+        "id": "dep.g4.034",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": "field.image-handling.imagingconfigname",
+        "sourceRef": {
+          "page": "Administration > Imaging Settings",
+          "field": "Imaging service included in the subscription",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Image Handling",
+          "field": "imagingConfigName",
+          "resolved": true
+        },
+        "condition": "step 1 of the imaging configuration chain: verify with the Concur Invoice administrator that the Imaging service is part of the standard subscription before configuring imaging",
+        "sourceQuote": "Contact your Concur Invoice administrator to verify that the Imaging service is included in your standard subscription service.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/imaging-configuration-8b314b9a.md"
+      },
+      {
+        "id": "dep.g4.035",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": "field.image-handling.imagingconfigname",
+        "targetId": "field.policies.imaging-configuration",
+        "sourceRef": {
+          "page": "Image Handling",
+          "field": "imagingConfigName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Policies",
+          "field": "Imaging Configuration",
+          "resolved": true
+        },
+        "condition": "an imaging configuration must exist in Image Handling before it can be selected as the policy's Imaging Configuration",
+        "sourceQuote": "You create imaging configurations in the Image Handling area of the Expense Configuration Administrator.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
+      },
+      {
+        "id": "dep.g4.036",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": "field.policies.imaging-configuration",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Policies",
+          "field": "Imaging Configuration",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Policies",
+          "field": "imaging functionality active for the policy",
+          "resolved": false
+        },
+        "condition": "there is no default; imaging functionality is inactive for the policy unless an imaging configuration is selected",
+        "sourceQuote": "Select an imaging configuration to be associated with this policy. There is no default value assigned; if you do not select a configuration, the imaging functionality will not be active for the policy.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
+      },
+      {
+        "id": "dep.g4.037",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": "field.image-handling.scanconfigurationname",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Image Handling",
+          "field": "scanConfigurationName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Policies",
+          "field": "policyScanConfiguration",
+          "resolved": false
+        },
+        "condition": "a scan configuration must be created on the Scan Configurations page in Image Handling before it can be assigned to a policy",
+        "sourceQuote": "You create scan configurations on the Scan Configurations page in Image Handling.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
+      },
+      {
+        "id": "dep.g4.038",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Policies",
+          "field": "policyScanConfiguration",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Policies",
+          "field": "scan functionality active for the policy",
+          "resolved": false
+        },
+        "condition": "there is no default; scan functionality is inactive for the policy unless a scan configuration is selected",
+        "sourceQuote": "Select a scan configuration to be associated with this policy. There is no default value assigned; if you do not select a configuration, the scan functionality will not be active for the policy.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
+      },
+      {
+        "id": "dep.g4.039",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Policies",
+          "field": "policyScanConfiguration",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Image Handling",
+          "field": "scan configuration assignment scope (per policy, not per group; one per policy)",
+          "resolved": false
+        },
+        "condition": "scan configurations are assigned to policies rather than groups, so any group assigned to that policy inherits it; multiple scan configurations may exist but only one can be used per policy",
+        "sourceQuote": "Scan configuration settings are not based on groups; they are assigned to specific policies enabling alerts and conditions to be configured for each policy. Therefore, any group assigned to a policy can use a scan configuration. An administrator can set up multiple scan configurations; however, only one scan configuration can be used per policy.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/scan-configuration-settings-b7756de3.md"
+      },
+      {
+        "id": "dep.g4.040",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": "field.image-handling.scanconfigurationname",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Image Handling",
+          "field": "scanConfigurationName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "User Permissions",
+          "field": "Invoice Image Processor role capability (update Image Received information)",
+          "resolved": false
+        },
+        "condition": "once the Configuration admin has added a scan configuration, an employee assigned the Invoice Image Processor role can update the Image Received information for invoices in the groups the configuration applies to",
+        "sourceQuote": "When the Configuration admin has added a scan configuration, an employee assigned the Invoice Image Processor role updates the Image Received information associated with an invoice.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/scan-configuration-and-the-invoice-image-processor-role-51c9d888.md"
+      },
+      {
+        "id": "dep.g4.041",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Image Handling",
+          "field": "Third-party digital tax invoice validator contract and SAP Concur feature enablement",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "workflow and audit rules for digital tax invoice validation",
+          "resolved": false
+        },
+        "condition": "the client must contract with the validator and work with SAP Concur support to enable the feature before any workflow or audit rules for it can be configured",
+        "sourceQuote": "The client must contract with the validator, and work with SAP Concur support to enable the feature and configure any desired workflow or audit rules.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md"
+      },
+      {
+        "id": "dep.g4.042",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Image Handling",
+          "field": "digitalTaxInvoiceCfdiStatus (not validated)",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Exceptions",
+          "field": "INVXMLST exception",
+          "resolved": false
+        },
+        "condition": "with a third-party validation service in use, any invoice with an attached XML file not validated as valid raises exception code INVXMLST, against which workflow rules can require processor review",
+        "sourceQuote": "When a third-party validation service is in use, the processor will see an exception for any invoice with an attached XML file that has not been validated and determined to be valid. This exception uses the exception code INVXMLST, so workflow rules can be written to ensure that any invoice with this exception requires processor review.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md"
+      },
+      {
+        "id": "dep.g4.043",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Configuration/Feature Activation",
+          "field": "e-Bunsho Timestamp feature enablement for Japan",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Policies",
+          "field": "eBunshoTimestampConfigurationList / policy group timestamp requirement",
+          "resolved": false
+        },
+        "condition": "only when the e-Bunsho Timestamp feature for Japan is enabled can an Invoice Admin configure policy groups that require members to timestamp invoice images",
+        "sourceQuote": "When the e-Bunsho Timestamp feature for Japan is enabled, an Invoice Admin can configure policy groups that require group members to timestamp invoice images before the related invoice is submitted for approval.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/e-bunsho-timestamp-8b310f28.md"
+      },
+      {
+        "id": "dep.g4.044",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Policies",
+          "field": "eBunshoTimestampConfigurationList",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Group Configurations",
+          "field": "Is Active for Group / Is Default Policy",
+          "resolved": false
+        },
+        "condition": "the e-Bunsho Timestamp Configuration is selected on the policy first, and only then is that policy activated (and optionally made default) for a group on Group Configurations",
+        "sourceQuote": "To enable the e-Bunsho Timestamp feature for a policy and to activate the policy for a group:",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md"
+      },
+      {
+        "id": "dep.g4.045",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Group Configurations",
+          "field": "e-Bunsho timestamp requirement on the policy group",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Workflows",
+          "field": "invoice submission for approval",
+          "resolved": false
+        },
+        "condition": "an invoice in an e-Bunsho policy group cannot be submitted for approval until its image has been successfully timestamped",
+        "sourceQuote": "the invoice cannot be submitted for approval until the Invoice image has been successfully timestamped",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/e-bunsho-timestamp-8b310f28.md"
+      },
+      {
+        "id": "dep.g4.046",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": "field.image-handling.allowemployeeuploadimagefiles",
+        "sourceRef": {
+          "page": "Image Handling",
+          "field": "Upload Image link in the Actions menu",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Image Handling",
+          "field": "allowEmployeeUploadImageFiles",
+          "resolved": true
+        },
+        "condition": "the Upload Image link appears to the employee only when the Allow employee to upload image files check box is selected on the imaging configuration",
+        "sourceQuote": "Select this check box if you want the Upload Image link to appear to the user in the Actions menu. Doing this allows the employee to click the link and upload images using the Upload Image window.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md"
+      },
+      {
+        "id": "dep.g4.047",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "depends_on",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Supplier Invoice Creation",
+          "field": "line item unit of measure on an imported/created supplier invoice",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Units Of Measure",
+          "field": "unit of measure record",
+          "resolved": false
+        },
+        "condition": "error code 7001 (Invalid Unit of measure) is raised when the line item's unit of measure has not been added to the database, i.e. does not exist as a configured unit on the Units Of Measure page",
+        "sourceQuote": "Line item unit of measure not added in database.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/error-messages-3b8339b0.md"
+      },
+      {
+        "id": "dep.g4.048",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "triggers",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Units Of Measure",
+          "field": "defaultGoods / defaultServices",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Units Of Measure",
+          "field": "default Unit of Measure value on a new item",
+          "resolved": false
+        },
+        "condition": "checking the box in the Default Goods or Default Services column makes that unit the default choice offered when a user of the matching spend type creates an item",
+        "sourceQuote": "The administrator can specify a unit type that will always appear as the default choice by checking the box in the Default Goods or Default Services column.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md"
+      },
+      {
+        "id": "dep.g4.049",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Units Of Measure",
+          "field": "Units of Measure list",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Forms and Fields",
+          "field": "Unit of Measure field on Item forms (Purchase Request, PO, Payment Request)",
+          "resolved": false
+        },
+        "condition": "units are defined on the Units Of Measure page and the Unit of Measure field may then be added to any of the Item forms, where it offers those units",
+        "sourceQuote": "The Unit of Measure field may be added to any of the Item forms (Purchase Request, PO, and Payment Request)",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md"
+      },
+      {
+        "id": "dep.g4.050",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Units Of Measure",
+          "field": "Units of Measure list",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "Unit of Measure condition field",
+          "resolved": false
+        },
+        "condition": "the Unit of Measure field may be included in PO matching rules and audit rules, so the units configured here are what those rules evaluate (it appears in the Detail-level field list on the Audit Rules Condition page)",
+        "sourceQuote": "The field may be included in PO matching rules and audit rules",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md"
+      },
+      {
+        "id": "dep.g4.051",
+        "group": "Group 4 — Capture & Vendors",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": null,
+        "sourceRef": {
+          "page": "Units Of Measure",
+          "field": "Units of Measure list",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "PO or Payment Request Import",
+          "field": "Unit of Measure code in the import file",
+          "resolved": false
+        },
+        "condition": "units must exist on the Units Of Measure page before they can be supplied as values in a PO or Payment Request import",
+        "sourceQuote": "The field may be included in a PO or Payment Request import",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md"
       }
     ],
     "configSteps": [
@@ -5210,6 +7158,493 @@
             "action": "Verify the same mapping from the path side by segment",
             "field": "segment_1_3",
             "rationale": "'You can elect to search for the mapping by typing in any of the first three segments mappings. For example, if the mapping is Company > Sales > North, and you only remember North, select the correct sequence (Segment 3 in this example) and input North in the Begins With search field.' (tools-guides/search-for-hierarchy-mappings-1dea6bb6.md). Searching the path independently of the owner is what catches short-code errors from order 4 that still imported cleanly — the row exists, but under a path the AP user will never select. Note the corpus documents fallback behaviour rather than an error when the owner later leaves: 'If the specified user is not found (is promoted; transfers), the system will \"walk\" up the hierarchy to the very next logical employee and assign it to them.' (tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md), which is why a Global Group default is advised: 'By designating a default, Global Group employee under the hierarchy, that employee will always be available to assign the invoice to.' (tools-guides/use-hierarchy-mappings-in-invoice-4fc3dff2.md)."
+          }
+        ]
+      },
+      {
+        "id": "cp-forms-and-verification-task",
+        "group": "Group 4 — Capture & Vendors",
+        "name": "Build the Capture Processing forms and bind them to the Verification task",
+        "goal": "Stand up the Header, Line Item, and Vendor forms that OCR populates, then point the Verification task definition at them so a client-managed capture batch lands in a usable verification queue.",
+        "pages": [
+          "Capture Processing Admin"
+        ],
+        "fields": [
+          "capture_processing_admin_tabs",
+          "captured_header_fields_catalog",
+          "captured_line_item_fields_catalog",
+          "vendor_form_field",
+          "task_definitions_edit_button",
+          "task_def_name",
+          "verification_header_form",
+          "verification_line_item_form",
+          "verification_vendor_form",
+          "disable_task_definition_verification",
+          "instruction_text",
+          "capture_attention_to"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Capture Processing Admin",
+            "action": "navigate and confirm landing tab",
+            "field": "capture_processing_admin_tabs",
+            "rationale": "Path is 'Administration > Invoice > Capture Processing Admin' and the corpus states 'The page opens to the Capture Processing view of the Forms and Fields tab.' Starting here is not a preference — the whole tool is gated on a stated prerequisite: 'It is critical that these settings be configured prior to use. For example, the Client Managed Verification option for the Task Processor field must be selected, or the admin will not see either the Verification or Document Separation options.' If that activation is missing, later entries in this sequence have no controls to act on and the writer should abort rather than improvise. Note the tab is written 'Task Definition' here and 'Task Definitions' elsewhere in the same 2026_08 corpus — treat both spellings as the same tab."
+          },
+          {
+            "order": 2,
+            "page": "Capture Processing Admin",
+            "action": "copy a default Header form and add/rename fields on the Forms and Fields tab",
+            "field": "captured_header_fields_catalog",
+            "rationale": "Forms must exist before the Verification task can select them: 'The client will copy one or more default forms and rename them, after which each copied form is available for selection in the Task Definitions tab.' This is an explicit corpus ordering statement, not inference. Constrain additions against the enumerated auto-capture catalog (Vendor Name, Invoice Date, Invoice Number, Currency, Total Amount, Shipping, Tax, PO Number, Invoice Owner is configured, Vat 1, Vat Amount 1-4) because 'Fields may be added to the form but will require manual entry and coding by the Client-Managed Capture Verifier role' — a field added outside the catalog silently becomes manual labor, not automation."
+          },
+          {
+            "order": 3,
+            "page": "Capture Processing Admin",
+            "action": "copy a default Line Item form and place VAT fields deliberately",
+            "field": "captured_line_item_fields_catalog",
+            "rationale": "Same Forms-and-Fields-before-Task-Definitions dependency as order 2. Do the Line Item form in the same pass as the Header form because VAT placement across the two forms changes arithmetic, not just layout: 'If both the header and line item VAT fields have non-zero values, then the line item VAT placement has precedence and that will be considered for calculation, (header VAT values will be ignored in that case).' Deciding placement after the Header form is already bound risks a silent totals change on invoices already in flight."
+          },
+          {
+            "order": 4,
+            "page": "Capture Processing Admin",
+            "action": "configure the Vendor form and stop at Vendor Code",
+            "field": "vendor_form_field",
+            "rationale": "Third of the three forms the Verification task binds, so it belongs before order 5. Hard stop documented: 'The Capture Processing vendor form features a single field, Vendor Code, which is the only field that will be identified and captured when processing. Adding fields will not result in data in these fields being captured by the system.' Adding vendor fields here produces empty fields, not extra capture."
+          },
+          {
+            "order": 5,
+            "page": "Capture Processing Admin",
+            "action": "open the Task Definitions tab, select Verification, click Edit",
+            "field": "task_definitions_edit_button",
+            "rationale": "Corpus procedure: '1. In Capture Processing, click the Task Definitions tab. 2. Select the definition and click Edit. 3. In the Modify Task Definition window, select options as detailed in the table below.' This is the only documented route to the form selectors and the disable flag, so it must precede orders 6-10."
+          },
+          {
+            "order": 6,
+            "page": "Capture Processing Admin",
+            "action": "confirm or set the task name in the Modify Task Definition window",
+            "field": "task_def_name",
+            "rationale": "Present on every task-definition row ('Task Def Name: The name of the task.'), so the writer should assert which definition is open before touching any repeated control. Necessary here because Disable Task Definition appears identically on four different definitions with different defaults — the task name is the only in-window evidence of which one is being edited."
+          },
+          {
+            "order": 7,
+            "page": "Capture Processing Admin",
+            "action": "select the Header form",
+            "field": "verification_header_form",
+            "rationale": "Corpus: 'Forms (appear in Verification tab) — Header: Specify the header form to use' with the bound NOTE 'Fields for these forms are configured using options in the Forms and Fields tab.' The dropdown can only offer the copied form created at order 2, which is why the form build precedes selection."
+          },
+          {
+            "order": 8,
+            "page": "Capture Processing Admin",
+            "action": "select the Line Item form",
+            "field": "verification_line_item_form",
+            "rationale": "'Line Item: Specify the line item form to use' — same Forms-and-Fields dependency as order 7, consuming the form built at order 3. Selecting before the copy exists leaves the default form in place and the VAT placement decision unapplied."
+          },
+          {
+            "order": 9,
+            "page": "Capture Processing Admin",
+            "action": "select the Vendor form",
+            "field": "verification_vendor_form",
+            "rationale": "'Vendor: Specify the vendor form to use' — consumes the Vendor form from order 4. Grouping all three selectors before the disable flag is inference on my part; the corpus lists the three forms and the disable flag inside one table cell without ordering them."
+          },
+          {
+            "order": 10,
+            "page": "Capture Processing Admin",
+            "action": "verify Disable Task Definition remains No for Verification",
+            "field": "disable_task_definition_verification",
+            "rationale": "'Disable Task Definition: No (enabled) by default; select Yes (disabled) to disable verification.' Verified last in the window because it is the switch that makes everything above reachable — confirming it after the forms are bound means the writer never leaves a half-built form set attached to a disabled task. This is a read-and-confirm, not a change, unless the site is deliberately turning verification off."
+          },
+          {
+            "order": 11,
+            "page": "Capture Processing Admin",
+            "action": "enter Instruction Text for the Verifier",
+            "field": "instruction_text",
+            "rationale": "Location is version-sensitive and the writer must not look for it on Other Settings: revision history states 'The Instruction Text and Capture Attention To task settings are moved to the Task Definitions tab, under the Verification task definition.' It sits after the forms because its stated purpose is guidance for handling what the forms cannot capture — 'The Client Managed Capture Verifier role may need guidance when handling credit memos or other attachments.'"
+          },
+          {
+            "order": 12,
+            "page": "Capture Processing Admin",
+            "action": "set Capture Attention To (Yes/No)",
+            "field": "capture_attention_to",
+            "rationale": "Last in this step because the correct value depends on a decision made on another page already in the graph: 'If the client is using the auto-routing features available using the Routing Configuration tool, the Capture Attention To option is not required and in fact should be disabled (No). The Routing Configuration takes precedence.' Setting Yes adds surface area to the Verification tab — 'The Capture Attention To option adds the optional Assign Invoice To field to the Invoice Details section of the Verification tab' — so check Routing Configuration state first, then set this."
+          }
+        ]
+      },
+      {
+        "id": "cp-supplier-email-intake-channel",
+        "group": "Group 4 — Capture & Vendors",
+        "name": "Stand up an email capture channel for a supplier intake stream",
+        "goal": "Create the alias that carries policy, language, and ownership attributes, hang a concursolutions.com capture address off it, set the fallback policies and exception recipient, then take control of how Concur answers that supplier's mail.",
+        "pages": [
+          "Capture Processing Admin"
+        ],
+        "fields": [
+          "manage_email_alias_action",
+          "alias_name",
+          "alias_policy_name",
+          "additional_ocr_language",
+          "owner_assignment",
+          "add_email_address",
+          "add_email_capture_type",
+          "default_policy_email",
+          "default_policy_upload",
+          "exception_email_address",
+          "enable_vendor_segregation",
+          "edit_email_button",
+          "block_incoming_emails",
+          "send_email_acknowledgement"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Capture Processing Admin",
+            "action": "open Actions > Manage Email Alias > Add Alias from the Email Administration tab",
+            "field": "manage_email_alias_action",
+            "rationale": "Verbatim procedure: '1. Click Administration > Invoice > Capture Processing Admin > Email Administration tab. 2. Click Actions > Manage Email Alias > Add Alias.' The alias is built first because the alias is the attribute carrier — 'An email alias can be used to apply attributes to a group of email addresses associated with the alias' — and an address created before its alias exists has nothing to inherit from."
+          },
+          {
+            "order": 2,
+            "page": "Capture Processing Admin",
+            "action": "type the alias name",
+            "field": "alias_name",
+            "rationale": "Step 3 of the same procedure: 'Type the name in Alias Name, and set the following optional attributes.' The name must be committed before the three optional attributes below, since they are described as attributes of this alias record."
+          },
+          {
+            "order": 3,
+            "page": "Capture Processing Admin",
+            "action": "select Policy Name for the alias",
+            "field": "alias_policy_name",
+            "rationale": "'Policy Name: Select the policy that will be associated to invoices included in any batch emailed using this alias.' Depends on the Policies page (already in the graph) — the policy must exist there before it can be picked here. Watch the documented side effect: 'if a PO policy is invoked, the PO Number field is a Required field type as this number is essential to processing a purchase order' — choosing a PO policy type retroactively makes a Header field mandatory, so it interacts with the form built in step 1."
+          },
+          {
+            "order": 4,
+            "page": "Capture Processing Admin",
+            "action": "select Additional OCR Language",
+            "field": "additional_ocr_language",
+            "rationale": "Enumerated as None / Japanese / Chinese with character-set precedence per option. Set here rather than later because of a stated override: 'The None setting is superseded if a language is configured in Modify Task Definition > Default Language.' If Default Language is configured in step 3 of this graph, leaving this at None does not mean Latin-only — the writer must not treat these two controls as independent."
+          },
+          {
+            "order": 5,
+            "page": "Capture Processing Admin",
+            "action": "set Owner Assignment to Sender if the sender should own the invoice",
+            "field": "owner_assignment",
+            "rationale": "'Owner Assignment: Select Sender to have the system automatically assign the invoice to the user sending the invoices via their From email address.' Corpus closes the alias procedure with 'Click Save, then click Close' — so all alias attributes are committed in one save, which is why orders 2-5 sit together before the address is created. Only Sender is documented as a value; do not invent others."
+          },
+          {
+            "order": 6,
+            "page": "Capture Processing Admin",
+            "action": "add the capture email address in the Add Email window",
+            "field": "add_email_address",
+            "rationale": "Comes after the alias so the address can be associated to it: 'The Email Administration tab includes options that let the admin add email addresses and associate these email addresses to an email alias.' Format is not free-form — 'The email requires the following format, with no spaces: CompanyName + InvoiceCapture + @concursolutions.com - OR - Domain + InvoiceCapture + @concursolutions.com'. Also note the activation trap that blocks later steps: 'WARNING At this time, send a minimum of one batch to the email address configured for the client to expose the email address in the Email Administration tab of the Capture Processing Admin tool.'"
+          },
+          {
+            "order": 7,
+            "page": "Capture Processing Admin",
+            "action": "select the capture type for the address",
+            "field": "add_email_capture_type",
+            "rationale": "Dual-support control on the same Add Email page, set in the same pass as the address: 'With both capture types available, the admin can add an email, then specify the capture type they want matched to the address' — the word 'then' is the corpus's own ordering. Consequence if skipped: 'batches are pre-set to the capture type based entirely on the email address the batch was sent to', so an unset capture type mis-sorts every batch on that channel."
+          },
+          {
+            "order": 8,
+            "page": "Capture Processing Admin",
+            "action": "set Default Policy for Email on the Other Settings tab",
+            "field": "default_policy_email",
+            "rationale": "Placed after the alias policy because it is the fallback, not the primary: the alias policy applies to batches emailed using that alias, while this sets the tab-level default that 'will populate the Policy field for emailed and uploaded batches in the Verification page.' Ordering the specific (alias) before the general (tab default) is my inference — the corpus documents both but never states which to configure first."
+          },
+          {
+            "order": 9,
+            "page": "Capture Processing Admin",
+            "action": "set Default Policy for Upload on the Other Settings tab",
+            "field": "default_policy_upload",
+            "rationale": "Sibling control on the same tab, covering the other sending method: 'The default policy options let the administrator set a default policy under which each of the batches, based on the sending method (upload and email), will inherit their policy attributes.' Set alongside order 8 so email and upload channels cannot drift onto different policies by omission."
+          },
+          {
+            "order": 10,
+            "page": "Capture Processing Admin",
+            "action": "enter the Exception Email Address (semicolon-separated)",
+            "field": "exception_email_address",
+            "rationale": "Corpus procedure step 1 on this tab: 'On the Other Settings tab, type an email address in Exception Email Address. To add multiple email addresses, separate the additional email addresses using a semi-colon.' Do this before the channel goes live, because unprocessable mail is silently discarded from the operator's view otherwise — 'When the system encounters an email that cannot be processed (unsupported document type; credit memos), the original email is formatted into a single PDF document that is sent as an attachment in the exception email notification to the recipient specified in Exception Email Address.' Corpus TIP: 'Create a dedicated email alias (email distribution list) that includes all AP department/Verifiers.'"
+          },
+          {
+            "order": 11,
+            "page": "Capture Processing Admin",
+            "action": "set Enable Vendor Segregation to Yes",
+            "field": "enable_vendor_segregation",
+            "rationale": "Strictly after orders 1-7, because segregation is built on the alias-to-address association created there: 'By associating email addresses to a single email alias, and then assigning the alias to a group of vendors, only those vendors are available during the OCR step, and when changing vendors manually during the verification step.' Turning it on before the alias and address exist yields a filter with nothing to filter by. Activation instruction: 'To activate this feature, select Yes from the Enable Vendor Segregation list.' Only Yes is enumerated in the corpus."
+          },
+          {
+            "order": 12,
+            "page": "Capture Processing Admin",
+            "action": "search the address on Supplier Email Administration and click Edit Email",
+            "field": "edit_email_button",
+            "rationale": "Last position is forced by the warning at order 6 — the address is not exposed in the tool until at least one batch has been sent to it, so this control cannot be reached on a brand-new channel. Corpus route: 'The admin searches for the email by its address, and then clicks Edit Email to open the Edit Email window.'"
+          },
+          {
+            "order": 13,
+            "page": "Capture Processing Admin",
+            "action": "set Block Incoming Emails",
+            "field": "block_incoming_emails",
+            "rationale": "'Block Incoming Emails: (Default = No) Capture Processing will prevent a supplier email from being received or displayed based on the email address associated with that supplier.' Only reachable via the Edit Email window opened at order 12. Leave at No for a channel being stood up; the documented uses are to 'temporarily disable selected emails, archive, and accept a different email address from a supplier changing location or domain, block spam.'"
+          },
+          {
+            "order": 14,
+            "page": "Capture Processing Admin",
+            "action": "set Send Email Acknowledgement",
+            "field": "send_email_acknowledgement",
+            "rationale": "Same Edit Email window, so it follows order 12. Corpus wording is internally awkward and the writer should record the default rather than reason about the prose: 'Send Email Acknowledgement: (Default = No) Capture Processing will send an acknowledgement to the supplier on receipt of their email unless the admin selects No to prevent this email from being generated and sent.' Decide it last because it is the only control here that emits outbound mail to the supplier — do not flip it before the intake channel is confirmed working."
+          }
+        ]
+      },
+      {
+        "id": "cp-separation-language-and-reference-data",
+        "group": "Group 4 — Capture & Vendors",
+        "name": "Switch to automated document separation and settle the verifier's coding defaults",
+        "goal": "Flip the paired separation task definitions together, set extraction language and default ledger so Capture Processing output codes correctly, then make vendors findable and units of measure coherent for the manual work that remains.",
+        "pages": [
+          "Capture Processing Admin",
+          "Vendor Search Admin",
+          "Units Of Measure"
+        ],
+        "fields": [
+          "task_definitions_edit_button",
+          "disable_task_definition_doc_separation",
+          "disable_task_definition_auto_doc_separation",
+          "disable_task_definition_content_extraction",
+          "default_language",
+          "default_ledger",
+          "vendorSearchFieldName",
+          "searchable",
+          "spendType",
+          "defaultGoods",
+          "defaultServices"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Capture Processing Admin",
+            "action": "open the Task Definitions tab and edit the Document Separation definition",
+            "field": "task_definitions_edit_button",
+            "rationale": "Same documented entry point as step 1 ('Select the definition and click Edit'). The corpus warns this is not a default-accepting area: 'In most situations, the administrator should accept the default settings as they support full use of the feature. However, if a site wishes to change the separation task from manual to automatic, selected definitions must be configured to do so.'"
+          },
+          {
+            "order": 2,
+            "page": "Capture Processing Admin",
+            "action": "set Disable Task Definition to Yes on Document Separation",
+            "field": "disable_task_definition_doc_separation",
+            "rationale": "Half of a mandatory pair: 'Disable Task Definition: No (enabled) by default; select Yes (disabled) in conjunction with selecting No in the Automated Document Separation definition to have the system perform automated (not manual) separation of document pages to processing-ready state.' The corpus states the pairing ('in conjunction with') but never states which of the two to change first — putting manual-off before automated-on is my inference, chosen so the writer never leaves both separation methods enabled simultaneously. The corpus is explicit that these two are one control surface: 'the separation tasks work in tandem by requiring that both separation definitions be modified to change the functionality of the separation overall.'"
+          },
+          {
+            "order": 3,
+            "page": "Capture Processing Admin",
+            "action": "set Disable Task Definition to No on Automated Document Separation",
+            "field": "disable_task_definition_auto_doc_separation",
+            "rationale": "The other half, and it must not be left undone: 'Disable Task Definition: Yes (disabled) by default; select No (enabled) in conjunction with selecting Yes in the Document Separation definition.' Note the inverted default versus its sibling — same control name, opposite starting value, which is exactly the trap a writer walks into if it treats the two rows as identical. Operational precondition to surface before enabling: this task 'requires the use of separator pages between invoices', so enabling it without the physical separator pages breaks batches rather than automating them."
+          },
+          {
+            "order": 4,
+            "page": "Capture Processing Admin",
+            "action": "confirm Disable Task Definition remains No on Content Extraction",
+            "field": "disable_task_definition_content_extraction",
+            "rationale": "'Disable Task Definition: No (enabled) by default; select Yes (disabled) to disable content extraction.' Checked before setting Default Language because Default Language is a field of the Content Extraction definition — configuring a language on a disabled extraction task is a no-op the UI will still accept."
+          },
+          {
+            "order": 5,
+            "page": "Capture Processing Admin",
+            "action": "set Default Language on the Content Extraction definition",
+            "field": "default_language",
+            "rationale": "'Default Language: Set the default language used on extraction.' Deliberately sequenced after the alias work in the previous step because this control silently outranks it: 'The None setting is superseded if a language is configured in Modify Task Definition > Default Language.' A writer that sets this first and the alias language second will produce a configuration whose alias-level None is misleading."
+          },
+          {
+            "order": 6,
+            "page": "Capture Processing Admin",
+            "action": "select Default Ledger on the Other Settings tab",
+            "field": "default_ledger",
+            "rationale": "'Clients using more than one ledger at their company can specify which ledger they want associated with the invoice output generated by Capture Processing.' Position it after separation and extraction are settled because it governs the output those tasks produce, and the failure mode is silent and accounting-visible: 'Doing this prevents incorrect account codes from being unintentionally associated with invoices created in Capture Processing.' Applies only where more than one ledger exists; skip otherwise rather than guessing a value."
+          },
+          {
+            "order": 7,
+            "page": "Vendor Search Admin",
+            "action": "add or remove vendor search fields via Administration > Invoice > Vendor Search Admin (left menu)",
+            "field": "vendorSearchFieldName",
+            "rationale": "Placed after Enable Vendor Segregation (previous step) because segregation decides which vendors a verifier may pick and this page decides how they find them — the pairing is my inference; the corpus documents no dependency between the two pages. Purpose, verbatim: 'This page is used to add or remove the fields that will appear for the user when searching for vendors.' Be aware the entire admin reference for this page lives in the Tools Guides deliverable; no admin-guide topic covers it in 2026_08."
+          },
+          {
+            "order": 8,
+            "page": "Vendor Search Admin",
+            "action": "confirm the Searchable Yes/No value for each field added",
+            "field": "searchable",
+            "rationale": "Immediately after adding a field, because adding is not the same as making it searchable: 'Note that while all fields can be added as columns in the vendor row grid, only selected fields can be used for the quick search and advanced search functionalities. This is represented as a Yes or No variable under the Searchable column on the Vendor Form page.' A writer that stops at order 7 produces grid columns the verifier cannot search on. Note the attribute is documented as living on the Vendor Form page; the corpus does not state that page and Vendor Search Admin are the same grid, so treat it as a second location to visit."
+          },
+          {
+            "order": 9,
+            "page": "Units Of Measure",
+            "action": "add or edit units and set their spend type",
+            "field": "spendType",
+            "rationale": "Reached at Administration > Invoice > Units Of Measure. Units must exist before anything can reference them — the corpus lists three downstream consumers: 'The Unit of Measure field may be added to any of the Item forms (Purchase Request, PO, and Payment Request)', 'The field may be included in PO matching rules and audit rules', and 'The field may be included in a PO or Payment Request import'. Ordering this before Audit Rules (already in the graph) is inference: the corpus states the field may be used in audit rules but does not state a configuration sequence. Values are enumerated: 'Units are associated with a spend type (Goods, Services, or Both).' This page is also open to the Restricted role, unlike most of Group 4."
+          },
+          {
+            "order": 10,
+            "page": "Units Of Measure",
+            "action": "check Default Goods on the unit that should preselect for Goods items",
+            "field": "defaultGoods",
+            "rationale": "After order 9, because a unit must exist and carry a spend type before it can be the default for that type: 'The administrator can specify a unit type that will always appear as the default choice by checking the box in the Default Goods or Default Services column.' Effect is at item-entry time — 'the default selection for Goods is the one specified as the default in Units of Measure above.'"
+          },
+          {
+            "order": 11,
+            "page": "Units Of Measure",
+            "action": "check Default Services on the unit that should preselect for Services items",
+            "field": "defaultServices",
+            "rationale": "Parallel control for the other spend type, from the same sentence as order 10. Set both in one pass so Goods and Services do not end up with one defaulted and one not; the corpus notes 'Units of measure appear when a PR item is added and vary depending on the spend type', so a missing default on one type shows up only for that type's users."
+          }
+        ]
+      },
+      {
+        "id": "img-attach-and-track-scanned-invoices",
+        "group": "Group 4 — Capture & Vendors",
+        "name": "Configure image handling so uploaded and scanned invoices attach and are trackable",
+        "goal": "Create the imaging configuration a policy can consume, allow employee uploads, then add a scan configuration for barcode-tracked paper and bind it to the policy that governs those invoices.",
+        "pages": [
+          "Image Handling",
+          "Policies"
+        ],
+        "fields": [
+          "imagingTabSelector",
+          "imagingConfigRowSelect",
+          "imagingConfigName",
+          "acrobatReaderDownloadUrl",
+          "markInvoicesReceivedOnSuccessfulImageCheck",
+          "supportedImageFileTypesAdmin",
+          "allowEmployeeUploadImageFiles",
+          "imagingConfigSave",
+          "uploadImageSessionLimit",
+          "scanConfigurationsTab",
+          "scanConfigNew",
+          "scanConfigurationName",
+          "imageInvoiceContainerIdRequired",
+          "scanConfigSave",
+          "policyScanConfiguration",
+          "eBunshoTimestampConfigurationList",
+          "imageHandlingExceptionsHelperPane"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Image Handling",
+            "action": "navigate and pick Invoice Imaging or Vendor Imaging",
+            "field": "imagingTabSelector",
+            "rationale": "Route: 'Click Administration > Invoice (on the sub-menu). Click Image Handling (left menu). The Image Handling window appears.' The tab choice is first and mutually exclusive — the corpus writes it as 'Either: Click the Invoice Imaging tab. – or – Click the Vendor Imaging tab.' The configuration row created next belongs to whichever tab is active, so picking after creating the row is not possible. For vendor-side setup the corpus also names a separate page entirely: '...or, for vendors, Administration > Invoice > Vendor Handling.'"
+          },
+          {
+            "order": 2,
+            "page": "Image Handling",
+            "action": "click the default row to edit, or click New for a fresh configuration",
+            "field": "imagingConfigRowSelect",
+            "rationale": "Step 4 of the procedure, again an either/or: 'Click the default row to edit the existing default configuration. – or – Click New to create a new configuration. A new row appears.' Editing the default silently changes every policy already pointing at it, whereas New leaves existing policies untouched — the writer must decide this before typing a name, not after. Multiple configurations are expected: 'Since a configuration is assigned to a policy, several configurations can be created to be used depending on geographical region, etc.'"
+          },
+          {
+            "order": 3,
+            "page": "Image Handling",
+            "action": "enter the configuration Name",
+            "field": "imagingConfigName",
+            "rationale": "First field in the row and the one the downstream page consumes: 'Enter a unique name for the configuration. This name will appear as an option when setting up policies.' Uniqueness is required here (unlike scan configuration names), and the name is the only handle the Policies page has on this record."
+          },
+          {
+            "order": 4,
+            "page": "Image Handling",
+            "action": "enter the Acrobat Reader Download URL",
+            "field": "acrobatReaderDownloadUrl",
+            "rationale": "'Enter the link to the Adobe Web site where the employee can download the software. The link appears in the error message that displays when the system checks to see if Adobe Reader is installed.' Set before enabling uploads (order 7) because it is the recovery path shown to the employee at the exact moment the check fails — an empty value turns a solvable error into a dead end."
+          },
+          {
+            "order": 5,
+            "page": "Image Handling",
+            "action": "set the Mark invoices received on successful image check checkbox",
+            "field": "markInvoicesReceivedOnSuccessfulImageCheck",
+            "rationale": "'Select this check box if you want the system to note the invoices as received when they have transmitted successfully.' Decide it in the same row edit as the other fields, before Save. Bound caveat that should be reflected to the operator: 'NOTE: The employee must verify the clarity and accuracy of the successful transmission of invoices' — the automatic received marking is a transmission signal, not a quality signal."
+          },
+          {
+            "order": 6,
+            "page": "Image Handling",
+            "action": "confirm the accepted file types before opening upload to employees",
+            "field": "supportedImageFileTypesAdmin",
+            "rationale": "A verification entry, not a settable control — checked before order 7 so the rollout message matches reality. The admin-guides list enumerates TIF, TIFF, JPEG, JPG, PNG, PDF (with XFA; with embedded fonts), Word file (DOC; DOCX), Excel file (XLS; XLSX – not supported: XLTS), EML (File saved using Microsoft Outlook), CSV. Flag the discrepancy rather than reconciling it: the tools-guides sibling topic adds 'CFDi (tax information with PDF)' and drops the XLTS caveat, and a third corpus list covering emails and uploads is narrower still (PNG, JPG, JPEG, PDF, TIF, TIFF, HTML with no double-byte characters)."
+          },
+          {
+            "order": 7,
+            "page": "Image Handling",
+            "action": "select Allow employee to upload image files",
+            "field": "allowEmployeeUploadImageFiles",
+            "rationale": "'Select this check box if you want the Upload Image link to appear to the user in the Actions menu. Doing this allows the employee to click the link and upload images using the Upload Image window.' This is the control that exposes the feature to end users, so it goes after the supporting fields at orders 4-6 are populated. Blocking condition the writer must report rather than work around: 'Note: If this option is not displayed, submit a service request to have this feature turned on.'"
+          },
+          {
+            "order": 8,
+            "page": "Image Handling",
+            "action": "click Save on the imaging configuration",
+            "field": "imagingConfigSave",
+            "rationale": "Procedure step 6, 'Click Save.' Mandatory before any policy work: the umbrella guide orders the whole feature as 'Create an Invoice Imaging Configuration in Administration > Invoice > Image Handling as the Invoice Configuration Administrator' then 'Assign an imaging configuration to a policy in Administration > Invoice > Policies.' An unsaved row does not appear in the Policies list."
+          },
+          {
+            "order": 9,
+            "page": "Image Handling",
+            "action": "record the Upload Image session limit as an operator note, do not attempt to set it",
+            "field": "uploadImageSessionLimit",
+            "rationale": "Explicitly a read-only runtime constraint on the end-user Upload Image window — a writer that treats it as a numeric admin input will fail looking for a field that does not exist. Bound facts: the limit is 10 files per session, it is repeatable ('To upload more than 10, simple upload the first 10 and then upload another 10, until done'), sessions accumulate ('Multiple sessions can be initiated for a single invoice or vendor request; files are appended to prior uploads for a given invoice'), and the per-file size cap is never stated numerically in the corpus — 'There is a size limit for each image file; the Upload Image window (shown below) displays that limit.' Companion guidance worth passing on: 'When scanning, the images should be scanned at 300 dpi or lower to reduce file size.'"
+          },
+          {
+            "order": 10,
+            "page": "Image Handling",
+            "action": "click the Scan Configurations tab",
+            "field": "scanConfigurationsTab",
+            "rationale": "Separate sub-feature on the same page, started only after the imaging configuration is saved so the two records are not half-built at once. Corpus route: 'Click Image Handling (left menu). The Image Handling page appears. Click the Scan Configurations tab.' Skip this entire block for sites that do not track paper — scan configuration exists for 'Companies that track paper invoices manually by using barcode technology.'"
+          },
+          {
+            "order": 11,
+            "page": "Image Handling",
+            "action": "click New to add a scan configuration row",
+            "field": "scanConfigNew",
+            "rationale": "'Click New. A new row appears ready for input.' The row must exist before its two fields can be typed, and before Policies can offer it at order 15."
+          },
+          {
+            "order": 12,
+            "page": "Image Handling",
+            "action": "enter the Configuration Name",
+            "field": "scanConfigurationName",
+            "rationale": "'This is the name of the scan configuration. The name does not need to be unique for each configuration; however, SAP Concur recommends that you use names that are easy to understand and to recognize in the list.' Note the contrast with order 3 — uniqueness is required for the imaging configuration name and explicitly not required here, so name collisions are possible and only the writer's discipline prevents an ambiguous Policies list."
+          },
+          {
+            "order": 13,
+            "page": "Image Handling",
+            "action": "set Image Invoice Container ID Required to Yes or No",
+            "field": "imageInvoiceContainerIdRequired",
+            "rationale": "'Select Yes or No in the list.' Decide before Save because Yes imposes work on a different role on a different page: 'If Yes, the invoice image processor must populate the Image Invoice Container ID field for invoices associated with this scan configuration on the Process Images page.' Setting Yes without briefing that role stalls image processing."
+          },
+          {
+            "order": 14,
+            "page": "Image Handling",
+            "action": "click Save on the scan configuration",
+            "field": "scanConfigSave",
+            "rationale": "'Click Save. The new configuration appears on the page.' The corpus then states the binding requirement outright: 'Once you have created a scan configuration, you must it assign it to a policy' — so Save is the hinge between this page and order 15, and an unsaved row cannot be assigned."
+          },
+          {
+            "order": 15,
+            "page": "Policies",
+            "action": "select the policy, click Modify, and pick the scan configuration",
+            "field": "policyScanConfiguration",
+            "rationale": "Explicit corpus ordering (Step 2 follows Step 1): 'Click Administration > Invoice. Click Policies (left menu)... Select the desired policy. Click Modify... Select the appropriate scan configuration name from the Scan Configuration list. This is the name that you created on the Scan Configuration page in Image Handling.' Cardinality constrains how many times this runs: 'One configuration can be used by multiple policies; however, each policy can only use a single scan configuration.' Assignment is per policy, not per group — 'Scan configuration settings are not based on groups; they are assigned to specific policies.'"
+          },
+          {
+            "order": 16,
+            "page": "Policies",
+            "action": "select the Timestamp Configuration value if e-Bunsho timestamping is in scope",
+            "field": "eBunshoTimestampConfigurationList",
+            "rationale": "Optional and Japan-specific, and it is NOT an Image Handling control despite belonging to the imaging story — 'On the Administration >Invoice > Policies page, when Invoice Admins modify a policy, the admin will see the Timestamp Configuration field.' Grouped here with order 15 because both are policy-level bindings and the writer is already in Modify Policy. Only one value is named anywhere in the corpus (Japan e-Bunsho); do not assume others. Downstream work continues on Group Configurations (Policies column > Modify > Is Active for Group / Is Default Policy), and image eligibility is physical: 'To be eligible for an e-Bunsho timestamp, images must be more than 200dpi (scanner) or 3.88M pixels (smartphone/digital camera) and at least 24-bit color for RGB.'"
+          },
+          {
+            "order": 17,
+            "page": "Image Handling",
+            "action": "open the Exceptions helper pane to add an image-related exception code",
+            "field": "imageHandlingExceptionsHelperPane",
+            "rationale": "Last because exceptions describe failures of the pipeline built at orders 1-15 — defining them before the configurations exist means guessing at what can fail. The pane is reachable from inside the Image Handling tool (shared with Audit Rules, Workflows, and Invoice Processor), the alternative entry being 'From within the Exceptions tool'. Visibility gate the writer must check before reporting failure: 'Group administrators can only add exceptions if given create rights for the Invoice Configuration Administrator. If the administrator does not have permissions, the New link does not appear.' The exception attributes themselves are Exceptions-tool fields, not Image Handling fields, and are not configured from this sequence."
           }
         ]
       }

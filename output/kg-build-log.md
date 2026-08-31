@@ -256,3 +256,109 @@ Tab naming is unstable across all of it: "Custom page", "Custom tab", "Custom Ru
 
 Group 4 (Capture & Vendors). Ship the Repair phase first — it is now the highest-value change to
 the method, and Group 2 lost at least two real fields to its absence.
+
+---
+
+## 2026-08-31 — Group 4: Capture & Vendors
+
+**Pages:** Capture Processing Admin · Vendor Search Admin · Image Handling · Units Of Measure
+**Cost:** 2,158,659 subagent tokens · 318 tool calls · 26min · 27/27 agents, 0 errors
+**New this run:** the **Repair phase** — a three-way `keep`/`repair`/`drop` disposition replacing
+the keep/drop binary that silently deleted two real fields in Group 2.
+
+### Node counts
+
+| | This group | Cumulative |
+|---|---|---|
+| ConfigPage | 4 | 10 |
+| ConfigField | 60 (13 salvaged by Repair) | 193 |
+| ConfigDependency | 51 | 164 |
+| ConfigStep | 4 | 12 |
+
+Per page: Capture Processing Admin 32 (26 clean + 6 repaired) · Image Handling 23 (18+5) ·
+Units Of Measure 3 · Vendor Search Admin 2 (0 clean + **2 repaired**).
+
+### The Repair phase works — verdict: keep it
+
+**13 of 13 attempted repairs succeeded**, every one with its new quote proven by `grep -F` before
+acceptance. The critic re-checked all 13 against the cited files and found **no over-admission** —
+repair did not become a back door for weak fields. Two examples of it working as designed:
+
+- `enable_vendor_segregation` — repair correctly *narrowed* validValues to `Yes` alone, because
+  the corpus only ever writes *"select Yes from the Enable Vendor Segregation list"*. Restraint,
+  not invention.
+- `timestampStatus` — all six values verified exact, including the odd-looking
+  `Timestamp: NotRequested`, which the critic suspected was a label bleed and confirmed is real.
+
+**Vendor Search Admin would have had zero fields without Repair.** Both survivors came through it.
+Under the Group 2 pipeline that page would have entered the graph empty.
+
+### Raw-HTML-table fix — tested at last, and it parses correctly
+
+Group 4 is the first group whose pages actually use raw HTML tables. Exactly two files in scope:
+
+| File | Outcome |
+|---|---|
+| `admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md` | **captured** — the header and line-item captured-field catalogs are in the graph |
+| `tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md` | **missed** |
+
+**The parser works; discovery is the weak link.** The missed file was never opened — it lives in
+`tools-guides`, and the search skewed to `admin-guides`. The `fromRawHtmlTable` flag is now also
+trustworthy: the critic re-ran `grep -c '<table'` on every flagged file and **all flags were
+accurate**, including correct `0`s. That is a clean reversal of Group 2, where 4 of 5 were false.
+
+**Fix for Group 5:** search both guide directories with equal weight. Group 5 (Data Structure &
+Accounting) is the largest group and the most table-heavy — this matters most there.
+
+### New defect — a missing verdict drops a field with no judgment recorded
+
+`requireHardcopyReceipts` was dropped with `"refuter": "no verdict"`. The fail-closed rule
+(no verdict ⇒ drop) is correct as a safety default, but it discards the field **without any
+judgment having been made**, and nothing surfaces that difference. The field is real:
+*"On the Workflow page, admin will see the Require Hardcopy Receipts option"*, and enabling it
+exposes the **Hold for Invoice Hard Copy** step. It belongs to **Workflows** — correctly excluded
+from Image Handling, but it should have become a cross-page dependency edge instead of vanishing.
+The graph currently has **no Workflows edge at all**.
+
+### Corrections applied — `bin/apply-corrections.py`
+
+The critic found `fields[]` and `steps[]` disagreeing about page binding on three records; the
+steps were right. Corrected, idempotently and with the justification recorded in each note:
+
+- `eBunshoTimestampConfigurationList` → **Policies** (its own notes opened *"NOT an Image Handling control"*)
+- `policyScanConfiguration` → **Policies** (a Modify Policy dropdown populated from Image Handling)
+- `uploadImageSessionLimit` → flagged as an end-user runtime constraint, not admin config; retained
+  because a crawler needs the constraint
+
+Re-run this script after any merge — merges rebuild nodes from raw results and drop the fixes.
+
+### Coverage findings
+
+- **Vendor Search Admin is genuinely thin, and that is the corpus's fault, not ours.** The phrase
+  *"Vendor Search Admin"* appears in **exactly two files corpus-wide**, both in `tools-guides`.
+  **Zero** admin-guide topics document this page. Two fields is close to exhaustive. The field
+  picker, the add/remove widget, and the available-field catalog exist only in the live UI.
+  **Highest value per minute of spot-checking in the whole group.**
+- **Capture Processing Admin has five tabs** — Forms and Fields (default landing), Task
+  Definitions, Email Administration, Supplier Email Administration, Other Settings.
+- **Image Handling is not one self-contained screen.** Tabs: Invoice Imaging, Vendor Imaging, Scan
+  Configurations. Its Scan Configuration function reaches into **Policies** and **Workflows**, and
+  vendor-side imaging setup lives on a separate page, **Vendor Handling** — a page absent from the
+  reconstructed 37-page map entirely.
+- **Units Of Measure** is a flat grid; the unit name/identifier control is missing from the corpus.
+  It is one of the few pages naming the **Restricted** admin role variant alongside Unrestricted.
+- **No New Experience variant exists for any Group 4 page** — checked; the `new-ui`/`legacy-ui`/
+  "New Experience" greps return nothing for all four.
+
+### Thin — live-UI spot check (ranked)
+
+1. **Vendor Search Admin** — the field picker and available-field catalog. Best return in the group.
+2. **Units Of Measure** — the unit name/identifier control; confirm soft-delete behaviour.
+3. **Capture Processing Admin → Task Definitions tab** — thinnest of the five tabs.
+4. **Image Handling → Vendor Imaging tab** vs the separate **Vendor Handling** page — are these two
+   surfaces or one?
+
+### Next
+
+Audit Rules deep-dive (condition editor + ConfigValueSets + both UI variants), then the New
+Experience retrofit, then Group 5.
