@@ -1861,7 +1861,7 @@
     ],
     "configDependencies": [
       {
-        "id": "dep.033",
+        "id": "dep.g1.001",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-po-policy",
@@ -1881,7 +1881,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.034",
+        "id": "dep.g1.002",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-po-policy",
@@ -1901,7 +1901,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md"
       },
       {
-        "id": "dep.035",
+        "id": "dep.g1.003",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-purchase-request-policy",
@@ -1921,7 +1921,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md"
       },
       {
-        "id": "dep.036",
+        "id": "dep.g1.004",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.allocation-form",
@@ -1941,7 +1941,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/components-of-the-policy-3bf075f8.md"
       },
       {
-        "id": "dep.037",
+        "id": "dep.g1.005",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.auto-submit-conditions",
@@ -1961,7 +1961,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/setting-the-automatic-submission-conditions-for-submit-action-88fe4a03.md"
       },
       {
-        "id": "dep.038",
+        "id": "dep.g1.006",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.activate",
@@ -1981,7 +1981,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.039",
+        "id": "dep.g1.007",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.policy-status",
@@ -2001,7 +2001,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/expense-types-and-policies-a01e2537.md"
       },
       {
-        "id": "dep.040",
+        "id": "dep.g1.008",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.editable-by-group-s",
@@ -2021,7 +2021,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
       },
       {
-        "id": "dep.041",
+        "id": "dep.g1.009",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.editable-by-group-s",
@@ -2041,7 +2041,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
       },
       {
-        "id": "dep.042",
+        "id": "dep.g1.010",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.copy-policy",
@@ -2061,7 +2061,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.043",
+        "id": "dep.g1.011",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.can-request-a-new-vendor",
@@ -2081,7 +2081,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.044",
+        "id": "dep.g1.012",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.imaging-configuration",
@@ -2101,7 +2101,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/assign-to-a-policy-a12befe1.md"
       },
       {
-        "id": "dep.045",
+        "id": "dep.g1.013",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.timestamp-configuration",
@@ -2121,7 +2121,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/timestamp-button-1512c7b5.md"
       },
       {
-        "id": "dep.046",
+        "id": "dep.g1.014",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.timestamp-configuration",
@@ -2141,7 +2141,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/timestamp-button-1512c7b5.md"
       },
       {
-        "id": "dep.047",
+        "id": "dep.g1.015",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.auto-submit-conditions",
@@ -2161,7 +2161,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/components-of-the-policy-3bf075f8.md"
       },
       {
-        "id": "dep.048",
+        "id": "dep.g1.016",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.enable-concur-receiving",
@@ -2181,7 +2181,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md"
       },
       {
-        "id": "dep.049",
+        "id": "dep.g1.017",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.enable-concur-receiving",
@@ -2201,7 +2201,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md"
       },
       {
-        "id": "dep.050",
+        "id": "dep.g1.018",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-purchase-request-policy",
@@ -2221,7 +2221,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md"
       },
       {
-        "id": "dep.051",
+        "id": "dep.g1.019",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.remove",
@@ -2241,7 +2241,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-policy-700569c5.md"
       },
       {
-        "id": "dep.052",
+        "id": "dep.g1.020",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.print-format",
@@ -2261,7 +2261,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-print-format-7ba7e0ff.md"
       },
       {
-        "id": "dep.053",
+        "id": "dep.g1.021",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.invoice-workflow",
@@ -2281,7 +2281,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md"
       },
       {
-        "id": "dep.054",
+        "id": "dep.g1.022",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2301,7 +2301,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.055",
+        "id": "dep.g1.023",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2321,7 +2321,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.056",
+        "id": "dep.g1.024",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2341,7 +2341,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.057",
+        "id": "dep.g1.025",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2361,7 +2361,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md"
       },
       {
-        "id": "dep.058",
+        "id": "dep.g1.026",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2381,7 +2381,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-15992497.md"
       },
       {
-        "id": "dep.059",
+        "id": "dep.g1.027",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2401,7 +2401,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-activation-d6d0ff0e.md"
       },
       {
-        "id": "dep.060",
+        "id": "dep.g1.028",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2421,7 +2421,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/assign-to-a-policy-a12befe1.md"
       },
       {
-        "id": "dep.061",
+        "id": "dep.g1.029",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2441,7 +2441,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-expense-types-97cac818.md"
       },
       {
-        "id": "dep.062",
+        "id": "dep.g1.030",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2461,7 +2461,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/assigning-a-print-format-to-an-existing-policy-cb5f4b75.md"
       },
       {
-        "id": "dep.063",
+        "id": "dep.g1.031",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2481,7 +2481,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md"
       },
       {
-        "id": "dep.064",
+        "id": "dep.g1.032",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2501,7 +2501,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md"
       },
       {
-        "id": "dep.065",
+        "id": "dep.g1.033",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
@@ -2521,7 +2521,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-expense-types-97cac818.md"
       },
       {
-        "id": "dep.066",
+        "id": "dep.g1.034",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -2541,7 +2541,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/considerations-for-policy-configuration-075053ac.md"
       },
       {
-        "id": "dep.067",
+        "id": "dep.g1.035",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
@@ -2561,7 +2561,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/e-bunsho-timestamp-8b310f28.md"
       },
       {
-        "id": "dep.068",
+        "id": "dep.g1.036",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.policy-name",
@@ -2581,7 +2581,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/assign-a-policy-to-a-group-f9adaed6.md"
       },
       {
-        "id": "dep.069",
+        "id": "dep.g1.037",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-active-for-group",
@@ -2601,7 +2601,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/accessing-and-viewing-policies-within-the-policies-tool-f3260f23.md"
       },
       {
-        "id": "dep.070",
+        "id": "dep.g1.038",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-inheritable",
@@ -2621,7 +2621,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
       },
       {
-        "id": "dep.071",
+        "id": "dep.g1.039",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.timestamp-configuration",
@@ -2641,7 +2641,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md"
       },
       {
-        "id": "dep.072",
+        "id": "dep.g1.040",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-active-for-group",
@@ -2661,7 +2661,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.073",
+        "id": "dep.g1.041",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.is-active-for-group",
@@ -2681,7 +2681,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.074",
+        "id": "dep.g1.042",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-active-for-group",
@@ -2701,7 +2701,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/implementation-guidelines-for-policies-0c35d480.md"
       },
       {
-        "id": "dep.075",
+        "id": "dep.g1.043",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.is-active-for-group",
@@ -2721,7 +2721,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.076",
+        "id": "dep.g1.044",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.is-inheritable",
@@ -2741,7 +2741,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.077",
+        "id": "dep.g1.045",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.group",
@@ -2761,7 +2761,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.078",
+        "id": "dep.g1.046",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.group-configurations.new",
@@ -2781,7 +2781,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/access-the-group-configurations-tool-6f974fe5.md"
       },
       {
-        "id": "dep.079",
+        "id": "dep.g1.047",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.in-use",
@@ -2801,7 +2801,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md"
       },
       {
-        "id": "dep.080",
+        "id": "dep.g1.048",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.delete-selected-rows",
@@ -2821,7 +2821,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md"
       },
       {
-        "id": "dep.081",
+        "id": "dep.g1.049",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.delete-selected-rows",
@@ -2841,7 +2841,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md"
       },
       {
-        "id": "dep.082",
+        "id": "dep.g1.050",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.allow-users-to-upload-cfdi-attachments",
@@ -2861,7 +2861,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.083",
+        "id": "dep.g1.051",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.allow-users-to-upload-cfdi-attachments",
@@ -2881,7 +2881,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-enable-by-invoice-group-ebe8724b.md"
       },
       {
-        "id": "dep.084",
+        "id": "dep.g1.052",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.select-whether-vendor-banking-information-is-hidden-required",
@@ -2901,7 +2901,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/enabling-the-vendor-manager-to-enter-the-vendor-s-banking-information-fcb8fbdd.md"
       },
       {
-        "id": "dep.085",
+        "id": "dep.g1.053",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.select-whether-vendor-banking-information-is-hidden-required",
@@ -2921,7 +2921,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/enabling-the-vendor-manager-to-enter-the-vendor-s-banking-information-fcb8fbdd.md"
       },
       {
-        "id": "dep.086",
+        "id": "dep.g1.054",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.attendee-list-form",
@@ -2941,7 +2941,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-the-view-02135608.md"
       },
       {
-        "id": "dep.087",
+        "id": "dep.g1.055",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
@@ -2961,7 +2961,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/access-the-group-configurations-tool-6f974fe5.md"
       },
       {
-        "id": "dep.088",
+        "id": "dep.g1.056",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
@@ -2981,7 +2981,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md"
       },
       {
-        "id": "dep.089",
+        "id": "dep.g1.057",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.group-configurations.group",
@@ -3001,7 +3001,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md"
       },
       {
-        "id": "dep.090",
+        "id": "dep.g1.058",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.group",
@@ -3021,7 +3021,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md"
       },
       {
-        "id": "dep.091",
+        "id": "dep.g1.059",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.group",
@@ -3041,7 +3041,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
       },
       {
-        "id": "dep.092",
+        "id": "dep.g1.060",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.group-name",
@@ -3061,7 +3061,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/overview-group-assignment-and-availability-of-vendors-to-user-511dd249.md"
       },
       {
-        "id": "dep.093",
+        "id": "dep.g1.061",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
@@ -3081,7 +3081,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md"
       },
       {
-        "id": "dep.094",
+        "id": "dep.g1.062",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
@@ -3101,7 +3101,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-feature-activation-5fe44fe7.md"
       },
       {
-        "id": "dep.095",
+        "id": "dep.g1.063",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -3121,7 +3121,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-feature-activation-5fe44fe7.md"
       },
       {
-        "id": "dep.096",
+        "id": "dep.g1.064",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
@@ -3141,7 +3141,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/fields-that-regulate-duplicate-invoices-b3b75abd.md"
       },
       {
-        "id": "dep.097",
+        "id": "dep.g1.065",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
@@ -3161,7 +3161,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/fields-that-regulate-duplicate-invoices-b3b75abd.md"
       },
       {
-        "id": "dep.098",
+        "id": "dep.g1.066",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
@@ -3181,7 +3181,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/is-duplicate-b431f510.md"
       },
       {
-        "id": "dep.099",
+        "id": "dep.g1.067",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.allow-payment-manager-to-change-banking-information",
@@ -3201,7 +3201,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/restricting-changes-to-bank-information-by-import-cc193986.md"
       },
       {
-        "id": "dep.100",
+        "id": "dep.g1.068",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.invoice-settings.allow-payment-manager-to-change-banking-information",
@@ -3221,7 +3221,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/updating-vendor-information-6da87d89.md"
       },
       {
-        "id": "dep.101",
+        "id": "dep.g1.069",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
@@ -3241,7 +3241,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/notifying-vendors-when-payment-has-been-made-24ae0b9c.md"
       },
       {
-        "id": "dep.102",
+        "id": "dep.g1.070",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
@@ -3261,7 +3261,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/email-remittance-notifications-ec277e48.md"
       },
       {
-        "id": "dep.103",
+        "id": "dep.g1.071",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
@@ -3281,7 +3281,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/email-remittance-notifications-ec277e48.md"
       },
       {
-        "id": "dep.104",
+        "id": "dep.g1.072",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
@@ -3301,7 +3301,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/feature-activation-04b47637.md"
       },
       {
-        "id": "dep.105",
+        "id": "dep.g1.073",
         "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.invoice-settings.enable-peppol-integration",
@@ -3321,7 +3321,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md"
       },
       {
-        "id": "dep.106",
+        "id": "dep.g1.074",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.enable-peppol-integration",
@@ -3341,7 +3341,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-a-new-ledger-1ef1c514.md"
       },
       {
-        "id": "dep.107",
+        "id": "dep.g1.075",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.allow-invoice-users-to-delete-images-on-payment-requests-cre",
@@ -3361,7 +3361,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/prevent-deletion-of-images-associated-with-an-invoice-a0521ec4.md"
       },
       {
-        "id": "dep.108",
+        "id": "dep.g1.076",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.allow-processor-users-to-change-vendor-on-requests-pending-p",
@@ -3381,7 +3381,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md"
       },
       {
-        "id": "dep.109",
+        "id": "dep.g1.077",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.default-payment-term-days",
@@ -3401,7 +3401,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understanding-default-payment-terms-e71743f2.md"
       },
       {
-        "id": "dep.110",
+        "id": "dep.g1.078",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.default-payment-term-days",
@@ -3421,7 +3421,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md"
       },
       {
-        "id": "dep.111",
+        "id": "dep.g1.079",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
@@ -3441,7 +3441,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-down-of-po-allocation-lines-f14c45e4.md"
       },
       {
-        "id": "dep.112",
+        "id": "dep.g1.080",
         "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
@@ -3461,7 +3461,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-down-of-po-allocation-lines-f14c45e4.md"
       },
       {
-        "id": "dep.113",
+        "id": "dep.g1.081",
         "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
@@ -3481,7 +3481,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-down-line-allocations-from-po-based-invoice-5ac42ce8.md"
       },
       {
-        "id": "dep.082",
+        "id": "dep.g2.001",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.routing-configuration.employee-id",
@@ -3501,7 +3501,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
       },
       {
-        "id": "dep.083",
+        "id": "dep.g2.002",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.routing-configuration.level-1-10-code",
@@ -3521,7 +3521,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
       },
       {
-        "id": "dep.084",
+        "id": "dep.g2.003",
         "group": "Group 2 — Routing & Approval",
         "type": "precedes",
         "sourceId": null,
@@ -3541,7 +3541,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md"
       },
       {
-        "id": "dep.085",
+        "id": "dep.g2.004",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.routing-configuration.level-1-10-code",
@@ -3561,7 +3561,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md"
       },
       {
-        "id": "dep.086",
+        "id": "dep.g2.005",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.routing-configuration.employee-id",
@@ -3581,7 +3581,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/custom-routing-field-32424721.md"
       },
       {
-        "id": "dep.087",
+        "id": "dep.g2.006",
         "group": "Group 2 — Routing & Approval",
         "type": "precedes",
         "sourceId": "field.routing-configuration.import-button",
@@ -3601,7 +3601,7 @@
         "sourceFile": "concur-invoice-professional-edition-tools-guides/populate-the-routing-configuration-page-by-using-the-hierarchy-import-15601ce7.md"
       },
       {
-        "id": "dep.088",
+        "id": "dep.g2.007",
         "group": "Group 2 — Routing & Approval",
         "type": "precedes",
         "sourceId": "field.exceptions.exceptioncode",
@@ -3621,7 +3621,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md"
       },
       {
-        "id": "dep.089",
+        "id": "dep.g2.008",
         "group": "Group 2 — Routing & Approval",
         "type": "precedes",
         "sourceId": "field.exceptions.exceptioncode",
@@ -3641,7 +3641,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md"
       },
       {
-        "id": "dep.090",
+        "id": "dep.g2.009",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.exceptioncode",
@@ -3661,7 +3661,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md"
       },
       {
-        "id": "dep.091",
+        "id": "dep.g2.010",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.conditionfieldvalue",
@@ -3681,7 +3681,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/general-concepts-about-audit-rules-af640263.md"
       },
       {
-        "id": "dep.092",
+        "id": "dep.g2.011",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.exceptionlevel",
@@ -3701,7 +3701,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
       },
       {
-        "id": "dep.093",
+        "id": "dep.g2.012",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.exceptionlevel",
@@ -3721,7 +3721,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md"
       },
       {
-        "id": "dep.094",
+        "id": "dep.g2.013",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.exceptionlevel",
@@ -3741,7 +3741,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md"
       },
       {
-        "id": "dep.095",
+        "id": "dep.g2.014",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.exceptionlevel",
@@ -3761,7 +3761,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
       },
       {
-        "id": "dep.096",
+        "id": "dep.g2.015",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.exceptionlevel",
@@ -3781,7 +3781,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/exceptions-f29472a5.md"
       },
       {
-        "id": "dep.097",
+        "id": "dep.g2.016",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.event",
@@ -3801,7 +3801,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
       },
       {
-        "id": "dep.098",
+        "id": "dep.g2.017",
         "group": "Group 2 — Routing & Approval",
         "type": "triggers",
         "sourceId": "field.audit-rules.validationevent",
@@ -3821,7 +3821,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-7977f6ee.md"
       },
       {
-        "id": "dep.099",
+        "id": "dep.g2.018",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.conditionoperator",
@@ -3841,7 +3841,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
       },
       {
-        "id": "dep.100",
+        "id": "dep.g2.019",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.conditionfieldvalue",
@@ -3861,7 +3861,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
       },
       {
-        "id": "dep.101",
+        "id": "dep.g2.020",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.conditionfieldvalue",
@@ -3881,7 +3881,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
       },
       {
-        "id": "dep.102",
+        "id": "dep.g2.021",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.event",
@@ -3901,7 +3901,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
       },
       {
-        "id": "dep.103",
+        "id": "dep.g2.022",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.validationrulename",
@@ -3921,7 +3921,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/activation-of-validation-rules-module-and-site-setting-option-required-8a3dc2f7.md"
       },
       {
-        "id": "dep.104",
+        "id": "dep.g2.023",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.fromfieldname",
@@ -3941,7 +3941,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
       },
       {
-        "id": "dep.105",
+        "id": "dep.g2.024",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.tofieldname",
@@ -3961,7 +3961,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
       },
       {
-        "id": "dep.106",
+        "id": "dep.g2.025",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.fromdatasource",
@@ -3981,7 +3981,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
       },
       {
-        "id": "dep.107",
+        "id": "dep.g2.026",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.todatasource",
@@ -4001,7 +4001,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
       },
       {
-        "id": "dep.108",
+        "id": "dep.g2.027",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.randomactivate",
@@ -4021,7 +4021,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md"
       },
       {
-        "id": "dep.109",
+        "id": "dep.g2.028",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.appliesto",
@@ -4041,7 +4041,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
       },
       {
-        "id": "dep.110",
+        "id": "dep.g2.029",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.audit-rules.editableby",
@@ -4061,7 +4061,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
       },
       {
-        "id": "dep.111",
+        "id": "dep.g2.030",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.exceptions.removebutton",
@@ -4081,7 +4081,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
       },
       {
-        "id": "dep.112",
+        "id": "dep.g2.031",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.exceptions.modifybutton",
@@ -4101,7 +4101,7 @@
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
       },
       {
-        "id": "dep.113",
+        "id": "dep.g2.032",
         "group": "Group 2 — Routing & Approval",
         "type": "depends_on",
         "sourceId": "field.exceptions.editablebygroups",

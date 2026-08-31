@@ -80,15 +80,17 @@ def main(src_path, group):
             n['configFields'].append(entry)
             index[(p['name'].lower(), f['name'].strip().lower())] = fid
 
-    start = len(n['configDependencies'])
+    # group-scoped, deterministic ids: stable across re-merges and diffable across builds
+    gnum = re.search(r'Group (\d+)', group)
+    gtag = gnum.group(1) if gnum else slug(group)
     unresolved = 0
-    for i, d in enumerate(r['dependencies'], start + 1):
+    for i, d in enumerate(r['dependencies'], 1):
         s = index.get((str(d['sourcePage']).lower(), str(d['sourceField']).strip().lower()))
         t = index.get((str(d['targetPage']).lower(), str(d['targetField']).strip().lower()))
         if not s or not t:
             unresolved += 1
         n['configDependencies'].append({
-            'id': 'dep.%03d' % i, 'group': group, 'type': d['type'],
+            'id': 'dep.g%s.%03d' % (gtag, i), 'group': group, 'type': d['type'],
             'sourceId': s, 'targetId': t,
             'sourceRef': {'page': d['sourcePage'], 'field': d['sourceField'], 'resolved': bool(s)},
             'targetRef': {'page': d['targetPage'], 'field': d['targetField'], 'resolved': bool(t)},
@@ -99,7 +101,7 @@ def main(src_path, group):
         owner = index.get((str(v.get('appliesToPage', '')).lower(),
                            str(v.get('appliesToField', '')).strip().lower()))
         n['configValueSets'].append({
-            'id': 'vset.%s.%s' % (slug(v.get('appliesToField', 'unknown')), slug(v.get('context', str(i)))),
+            'id': 'vset.g%s.%s.%s' % (gtag, slug(v.get('appliesToField', 'unknown')), slug(v.get('context', str(i)))),
             'group': group,
             'appliesToFieldId': owner,
             'appliesToRef': {'page': v.get('appliesToPage'), 'field': v.get('appliesToField'),
