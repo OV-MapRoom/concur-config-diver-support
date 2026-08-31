@@ -6,8 +6,10 @@ _Last updated: 2026-08-31_
 
 1. `docs/2026-08-31_HANDOFF-KG-BUILD-v2.md` — authoritative: schema, method, prompt rules, the
    blind-build constraint, open debt.
-2. `docs/RESUME-PROMPT.md` — paste-ready prompt for a fresh session.
-3. This file — current state only.
+2. `docs/2026-08-31_HANDOFF-WORKFLOWS.md` — the next group's brief, and what changed in the
+   method since v2. **Run a page recon before building Workflows; its "13 pages" is not trusted.**
+3. `docs/RESUME-PROMPT.md` — paste-ready prompt for a fresh session.
+4. This file — current state only.
 
 ## Status
 
