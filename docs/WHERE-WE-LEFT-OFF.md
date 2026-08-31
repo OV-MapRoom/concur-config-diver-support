@@ -48,11 +48,55 @@ validValue lists fully found in source; zero dangling dependency endpoints.
 
 ## Next
 
-**Group 3 — PO Matching**, 11 pages. Build **new-first**: it has a documented New Experience
-variant, and `policies-the-purchase-order-policy-new-experience-*` (15,800 bytes) beside its legacy
-twin (1,490 bytes) is the trap that damaged Groups 1–2.
-Then: Workflows (13 pages, from the lost slice), Group 6 (Peppol / Shipping / Localization), then
-the remediation sweep.
+**Group 3 — PO Matching is TWO pages, not eleven.** The lost map's 11 was a count of *surfaces*,
+not pages. A dedicated recon (2026-08-31, `workflows/2026-08-31_kg-group3-page-recon.mjs`, run
+`wf_a2215035-e91`) re-derived the roster: six blind sweeps converged with no dissent, the
+page-hood critic could refute neither survivor, and the completeness critic found no third page.
+Full report in `output/reports/2026-08-31_group3-recon/`.
+
+| Page | Files | Body bytes | Basis | Est. fields |
+|---|---|---|---|---|
+| Purchase Order Matching Rules | 45 | 64,431 | rich | ~40 |
+| Purchase Order Configuration | 7 | ~10,000 | moderate | ~18 |
+
+The other nine are dialogs and tabs with no independent click path, two conditional sections on
+the already-built Policies page, and two settings tables (`Purchase Order Settings`,
+`Purchase Request Settings`) the corpus places on **Workflows**, not Invoice Settings. All 34
+rejected surfaces are listed with reasons in the roster. **Do not re-open this roster** without
+new evidence — and note the one caveat the recon refused to paper over: this is a 2026_08 crawl,
+and it cannot rule out that SAP retired a surface the original map saw. It found no positive
+evidence of that (zero release-note hits, no orphaned page label), but a live-UI pass is the only
+real tiebreaker.
+
+**`Purchase Order Policy` resolved AGAINST a new page** — it is a policy *type* on the built
+Policies page; no click path anywhere reaches a Purchase Order Policy page. So the 15,800-byte
+`policies-the-purchase-order-policy-new-experience-*` file is **Group 1/5 New Experience debt**
+(item 3 below), not a Group 3 source. Related correction: that file and
+`configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md` (10,109 B) are **one
+debt, not two** — 16 of 19 paragraphs of the smaller file are verbatim substrings of the larger,
+and all five HTML tables are byte-identical. The debt is 15,800 B, not ~26 KB.
+
+Then: **Workflows (13 pages — now the largest remaining build)**, Group 6 (Peppol / Shipping /
+Localization), then the remediation sweep.
+
+### Corpus defect found by the recon — affects `concur-corpus`, not just this project
+
+`concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md`
+is **truncated**: its body ends with a bare line containing only `x`. It is the only file
+corpus-wide that does (`grep -rl '^x$'` over both guide dirs returns exactly 1). Content was
+dropped during the 2026-08-29 crawl, on a Group 3 seed. Not yet re-crawled — `--manifest-key`
+re-crawls a whole deliverable (~1,209 files), so a single-topic fetch is the cheaper fix.
+
+### Two text traps the recon added
+
+- **Indented markdown tables.** SAP indents tables nested inside numbered steps, so a census
+  anchored on `^|` under-counts badly: `step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md`
+  returns **0** for `grep -c '^| '` and **22** for `grep -cP '^\s+\|'`. Every `^|`-anchored count
+  this project has run is suspect.
+- **`deliverable_id` is a per-directory constant** — 41460672 on all 1,209 admin-guides files,
+  41460673 on all 650 tools-guides. It carries zero discriminating information, and the handoff's
+  own text-trap rule told every group to use it as the UI-variant test. **Corrected in the
+  workflow template 2026-08-31**: `loio` is the discriminator.
 
 ## Method as of Group 5B
 
@@ -107,3 +151,34 @@ Full list in the handoff and in the Group 5B section of `output/kg-build-log.md`
    zero role-gate edges against the graph's own `dep.g1.033/034/055/056` precedent.
 6. **Catalog ranges** — the Audit Rules catalog's true size is 492, not 278; 15 bullets are
    compressed ranges and nothing records that they expand.
+7. **PO controls stranded on closed groups — 8 named, scoped, and NOT built.** Found by the Group 3
+   page recon (2026-08-31). Each was verified absent from the graph by grep, so deferring them
+   silently would be deletion, not deferral.
+   - → **Invoice Settings** (Group 1): `Enable Change Order`
+     (`enable-the-po-change-order-feature-7dd5dcd4.md`); line identification "based on data
+     attributes" (`line-identification-for-purchase-order-matching-3c7c8336.md` +
+     `purchase-order-line-identification-8b356b0e.md`, two distinct topics carrying a control-type
+     and default-state discrepancy — do NOT collapse them); allow PR owners to **edit** their own
+     POs (`allow-purchase-request-owners-to-edit-their-own-purchase-orders-4a3f8202.md`); allow PR
+     owners to **transmit** their own POs
+     (`allow-purchase-request-owners-to-transmit-their-own-purchase-orders-636950b7.md`).
+   - → **Forms and Fields** (Group 5): `Purchase Order Number` on the Payment Request Line Item
+     Details form (this is how the Multiple PO feature is activated); `Delivery Slip Number`
+     (`delivery-slip-number-field-for-three-way-matching-b0d3f1ca.md`); `Receipt Type` on the PR
+     header form (`adding-receipt-type-field-to-the-purchase-request-header-form-ba26762e.md`);
+     custom fields for receipts of goods (`adding-custom-fields-for-receipts-of-goods-469bd9d3.md`).
+
+   **Why it was NOT attached to the Group 3 run** (Luke's call, 2026-08-31): `bin/merge-group.py`
+   `--patch` **replaces** a page's fields wholesale — it strips every field whose `pageId` is
+   touched and whose `sourceGroup` matches, then rebuilds from the result (`merge-group.py:60-64`;
+   all 13 Invoice Settings fields carry `sourceGroup: Group 1 — Policy & Scope`, all 40 Forms and
+   Fields carry `Group 5`). A PO-angled patch would therefore return ~4 fields and **delete the 13
+   good ones**. And the file that would make such a patch safe —
+   `available-invoice-settings-8b3411f0.md`, 8,368 B — is not a Group 3 source, so no agent in that
+   run would have opened it.
+
+   **What this job actually is: a page REBUILD, not a top-up.** Invoice Settings holds 13 fields
+   against a source documenting roughly 34 — it is under-read by about two-thirds, which is the
+   sharpened form of open-debt item 4. Scope a run with its own Map phase over the FULL Invoice
+   Settings and Forms and Fields source sets, then `--patch` is correct behaviour rather than a
+   hazard. Do not scope it as "add the 8".
