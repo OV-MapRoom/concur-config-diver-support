@@ -2,64 +2,49 @@
 
 _Last updated: 2026-08-31_
 
-## Status: Groups 1 and 2 built and pushed. 2 of 7 done (3 of 7 counting the lost Group 3).
+## Start here
 
-Repo: **https://github.com/OV-MapRoom/concur-config-diver-support** (`main`, public).
-`output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`
+1. `docs/2026-08-31_HANDOFF-KG-BUILD-v2.md` — authoritative: schema, method, prompt rules, the
+   blind-build constraint, open debt.
+2. `docs/RESUME-PROMPT.md` — paste-ready prompt for a fresh session.
+3. This file — current state only.
 
-| Node type | Cumulative |
-|---|---|
-| ConfigPage | 6 |
-| ConfigField | 133 |
-| ConfigDependency | 113 |
-| ConfigStep | 8 |
+## Status
 
-Per-group detail, findings and defects: `output/kg-build-log.md`.
-Full unedited agent reports (critic, nav taxonomy, raw JSON): `output/reports/`.
+**14 of 37 pages · 337 fields · 278 dependencies · 22 steps · 30 value sets (410 values).**
+`output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Validator: ERROR-clean.**
 
-## Method
+Built: Group 1 (Policy & Scope), Group 2 (Routing & Approval, incl. an Audit Rules deep-dive that
+took that page 36 → 91 fields), Group 4 (Capture & Vendors), Group 5A (Expense Types, Forms and
+Fields, Accounting Administration, Map Invoice Concept Fields).
 
-Each group = one workflow: Map → Extract (pages × 3 lenses) → Verify (double, fail-closed) →
-Synthesize → Critic. Result merged with `bin/merge-group.py` (idempotent; re-resolves cross-group
-dependency edges each run).
-
-Model tiers (standing authorization from Luke): Map/Extract/grounding on `sonnet`, adversarial
-refuter + synthesis + critic on `opus`. Cut Group 2's cost 27% vs Group 1 with no quality loss.
-
-## Open defects in the method
-
-1. **~~No repair path~~ — FIXED for Group 4 onward.** Verification was binary keep/drop, so refuter
-   verdicts of *"real field, just trim the quote"* deleted it. Cost Group 2 at least two real
-   fields (`Exceptions.exceptionLevel`, `Audit Rules.ValidationAction`). Groups 1 and 2 were built
-   without the fix and both need a remediation pass.
-2. **`fromRawHtmlTable` flag is unreliable** — 4 of 5 were false positives in Group 2. The raw-HTML
-   extraction fix itself is still **untested**: no Group 2 page had an HTML table. 186 files
-   corpus-wide do (31 in admin-guides). Group 5 is the likely real test.
-
-## Known content gaps to remediate
-
-- **Audit Rules Condition Editor is half-built** — Data Object column (10 values) missing, and
-  Table 2's ~250-name per-object field catalog is entirely absent. Biggest single gap in the graph.
-- **Validation Rules condition semantics unrepresented** — `validation-conditional-expressions-67302876.md`.
-- **Group 1**: `Exclude Attendee Types`, `Default Attendee Type`, `Require PO Matching?`, the `Save`
-  control, 5 settings in `invoice-settings-cace748d.md` (raw HTML table).
-- **Exceptions severity rows** are assigned to Audit Rules instead of their owning page.
-
-## Also open
-
-- **The prior vertical slice is still missing** — Groups 2-Workflows and 3-PO Matching (24 pages /
-  145 fields) were built on the corporate device. Copying them over beats rebuilding.
-  `INVOICE-CONFIG-MAP.md` here is a partial reconstruction — 22 of 37 pages.
-- **New Experience UI is real and confirmed.** `configure-custom-audit-rules-new-ui-*` and
-  `-legacy-ui-*` are sibling parents, both `2026_08`. Create vs New; wizard vs Quick View panel.
-  The graph models neither variant. Needs a decision: which UI is the config writer targeting?
-- **Undetermined by the documentation** — ranked lists per group in the build log. These are
-  corpus ambiguities, not a validation backlog: the Custom audit rule Event list appears as 6 in
-  one topic and 17 in another, which is most likely module-dependent rather than a doc error.
-  The graph records the documented range and that it varies. It is NOT resolved by looking at a
-  configured tenant — that would import one instance's configuration as structural truth.
+Quality: **337/337 sourceQuotes verify verbatim** against their cited corpus file; 336/337
+validValue lists fully found in source; zero dangling dependency endpoints.
 
 ## Next
 
-Group 4 (Capture & Vendors) — running with the Repair phase. Then Group 5, Group 6, then
-remediation sweep over Groups 1-2.
+**Group 5B** — Tax Administration, Budget Configuration, List Management, Company Locations.
+Merge with `--patch` (Group 5A already owns the "Group 5" label).
+Then: Group 3 PO Matching (new-first), Workflows, Group 6, then the remediation sweep.
+
+## Standing decisions
+
+- **Blind build from documentation.** Never validated against or inferred from a configured
+  tenant. Corpus gaps are properties of the docs, not a validation backlog.
+- **New Experience is the primary UI target** — most customers run it (Luke). `uiVariant: both`
+  is a positive verification claim; `undifferentiated` means nobody checked. 299 of 337 fields are
+  currently `undifferentiated`, which is the honest size of the retrofit debt.
+- **Model tiers are Claude's call** (standing authorization). Cheap tier for clerical fan-out,
+  `opus` for the adversarial refuter, Repair, synthesis and the critic. Never cheapen the last two.
+- **Accuracy over token cost.**
+
+## Open debt
+
+Full list in the handoff. Highest-value first:
+
+1. **Repair can add fields** — constrain to one record per input; additions never face the refuter.
+2. **Audit Rules alias collapse** — 91 entries encode ~68 real controls.
+3. **Catalog ranges** — the true catalog is 492 names, not 278; 15 bullets are compressed ranges.
+4. **New Experience retrofit** over Groups 1–2 — the PO Policy New Experience doc is 10× richer
+   than the legacy stub we built from.
+5. **Group 1 / 2 remediation** — both built before the Repair phase existed.
