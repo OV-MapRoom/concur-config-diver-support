@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
-"""Merge one group's workflow result into output/kg-invoice-config.json.
+"""Merge a workflow result into output/kg-invoice-config.json.
 
-Usage:  python3 bin/merge-group.py <workflow-output.json> "<Group label>"
+Usage:
+  python3 bin/merge-group.py <workflow-output.json> "<Group label>"
+  python3 bin/merge-group.py <workflow-output.json> "<Group label>" --patch
+
+Normal mode replaces every node belonging to the named group.
+--patch mode replaces ONLY the pages present in the result, leaving the group's other pages
+intact. Use it for a single-page rebuild (e.g. the Audit Rules deep-dive, which sits inside
+Group 2 alongside Routing Configuration and Exceptions).
 
 Append-only: existing pages/fields/dependencies/steps are preserved. Re-running for a group
 already present replaces just that group's nodes, so a remediation pass is safe.
@@ -26,7 +33,7 @@ def load_result(path):
     d = json.load(open(path))
     return d['result'] if 'result' in d and 'summary' in d else d
 
-def main(src_path, group):
+def main(src_path, group, patch=False):
     r = load_result(src_path)
     kg = json.load(open(KG)) if os.path.exists(KG) else {
         'meta': {'version': '0.1.0', 'status': 'IN_PROGRESS'},
@@ -36,13 +43,22 @@ def main(src_path, group):
     n = kg['nodes']
     n.setdefault('configValueSets', [])
 
-    # drop any prior nodes for this group so a re-run replaces rather than duplicates
-    old_pages = {p['id'] for p in n['configPages'] if p.get('group') == group}
-    n['configPages'] = [p for p in n['configPages'] if p.get('group') != group]
-    n['configFields'] = [f for f in n['configFields'] if f['pageId'] not in old_pages]
-    n['configSteps'] = [s for s in n['configSteps'] if s.get('group') != group]
-    n['configDependencies'] = [d for d in n['configDependencies'] if d.get('group') != group]
-    n['configValueSets'] = [v for v in n['configValueSets'] if v.get('group') != group]
+    # drop prior nodes so a re-run replaces rather than duplicates
+    if patch:
+        # only the pages this result actually rebuilds
+        touched = {'page.' + p['id'] for p in r['pages']}
+        tag = r.get('patchPage', sorted(touched)[0])
+        n['configPages'] = [p for p in n['configPages'] if p['id'] not in touched]
+        n['configFields'] = [f for f in n['configFields'] if f.get('sourceGroup') != tag]
+        n['configSteps'] = [s for s in n['configSteps'] if s.get('patch') != tag]
+        n['configDependencies'] = [d for d in n['configDependencies'] if d.get('patch') != tag]
+        n['configValueSets'] = [v for v in n['configValueSets'] if v.get('patch') != tag]
+    else:
+        n['configPages'] = [p for p in n['configPages'] if p.get('group') != group]
+        n['configFields'] = [f for f in n['configFields'] if f.get('sourceGroup') != group]
+        n['configSteps'] = [s for s in n['configSteps'] if s.get('group') != group]
+        n['configDependencies'] = [d for d in n['configDependencies'] if d.get('group') != group]
+        n['configValueSets'] = [v for v in n['configValueSets'] if v.get('group') != group]
 
     # index every field already in the graph so cross-group edges can resolve
     page_name_by_id = {p['id']: p['name'] for p in n['configPages']}
@@ -74,6 +90,7 @@ def main(src_path, group):
                 'fieldType': f['fieldType'], 'validValues': f['validValues'],
                 'sourceQuote': f['sourceQuote'], 'sourceFile': f['sourceFile'], 'notes': f['notes'],
                 'uiVariant': f.get('uiVariant', 'undifferentiated'),
+                'sourceGroup': (ptag if patch else group),
             }
             if f.get('fromRawHtmlTable'):
                 entry['fromRawHtmlTable'] = True
@@ -83,6 +100,9 @@ def main(src_path, group):
     # group-scoped, deterministic ids: stable across re-merges and diffable across builds
     gnum = re.search(r'Group (\d+)', group)
     gtag = gnum.group(1) if gnum else slug(group)
+    ptag = r.get('patchPage')
+    if patch and ptag:
+        gtag = '%s%s' % (gtag, ''.join(w[0] for w in slug(ptag).split('-'))[:3])
     unresolved = 0
     for i, d in enumerate(r['dependencies'], 1):
         s = index.get((str(d['sourcePage']).lower(), str(d['sourceField']).strip().lower()))
@@ -90,7 +110,7 @@ def main(src_path, group):
         if not s or not t:
             unresolved += 1
         n['configDependencies'].append({
-            'id': 'dep.g%s.%03d' % (gtag, i), 'group': group, 'type': d['type'],
+            'id': 'dep.g%s.%03d' % (gtag, i), 'group': group, 'patch': (ptag if patch else None), 'type': d['type'],
             'sourceId': s, 'targetId': t,
             'sourceRef': {'page': d['sourcePage'], 'field': d['sourceField'], 'resolved': bool(s)},
             'targetRef': {'page': d['targetPage'], 'field': d['targetField'], 'resolved': bool(t)},
@@ -102,7 +122,7 @@ def main(src_path, group):
                            str(v.get('appliesToField', '')).strip().lower()))
         n['configValueSets'].append({
             'id': 'vset.g%s.%s.%s' % (gtag, slug(v.get('appliesToField', 'unknown')), slug(v.get('context', str(i)))),
-            'group': group,
+            'group': group, 'patch': (ptag if patch else None),
             'appliesToFieldId': owner,
             'appliesToRef': {'page': v.get('appliesToPage'), 'field': v.get('appliesToField'),
                              'resolved': bool(owner)},
@@ -115,10 +135,19 @@ def main(src_path, group):
 
     for s in r['steps']:
         n['configSteps'].append({
-            'id': s['id'], 'group': group, 'name': s['name'], 'goal': s['goal'],
+            'id': s['id'], 'group': group, 'patch': (ptag if patch else None), 'name': s['name'], 'goal': s['goal'],
             'pages': s['pages'], 'fields': s['fields'],
             'sequence': sorted(s['sequence'], key=lambda x: x['order']),
         })
+
+    seen_edges, deduped = set(), []
+    for d in n['configDependencies']:
+        k = (d['type'], str(d['sourceRef']).lower(), str(d['targetRef']).lower(), (d.get('sourceQuote') or '')[:120])
+        if k in seen_edges:
+            continue
+        seen_edges.add(k); deduped.append(d)
+    dropped_dupes = len(n['configDependencies']) - len(deduped)
+    n['configDependencies'] = deduped
 
     # re-resolve every edge now that new fields exist — later groups fill earlier forward refs
     reresolved = 0
@@ -149,10 +178,13 @@ def main(src_path, group):
     vs = [v for v in n['configValueSets'] if v.get('group') == group]
     if vs:
         print('  value sets: %d carrying %d enumerated values' % (len(vs), sum(len(v['values']) for v in vs)))
+    if dropped_dupes:
+        print('  duplicate edges removed: %d' % dropped_dupes)
     print('  unresolved endpoints in this group: %d | earlier edges newly resolved: %d' % (unresolved, reresolved))
     print('  status: %s | groups complete: %d' % (kg['meta']['status'], len(done)))
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    if len(args) != 2:
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2])
+    main(args[0], args[1], patch='--patch' in sys.argv)
