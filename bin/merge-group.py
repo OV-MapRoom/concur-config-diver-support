@@ -159,13 +159,18 @@ def main(src_path, group, patch=False):
     page_name_by_id = {p['id']: p['name'] for p in n['configPages']}
     index = {(page_name_by_id[f['pageId']].lower(), f['name'].strip().lower()): f['id']
              for f in n['configFields'] if f['pageId'] in page_name_by_id}
+    # ALWAYS re-derive endpoint ids from the textual ref. Field ids change when a page is
+    # rebuilt (the Audit Rules patch replaced 36 nodes with 91 new ids); the {page, field} ref is
+    # the stable identity. Trusting a stored id left 22 edges pointing at deleted nodes.
     for d in n['configDependencies']:
         for side, key in (('sourceRef', 'sourceId'), ('targetRef', 'targetId')):
             ref = d[side]
-            if not ref['resolved']:
-                hit = index.get((str(ref['page']).lower(), str(ref['field']).strip().lower()))
-                if hit:
-                    d[key] = hit; ref['resolved'] = True; reresolved += 1
+            hit = index.get((str(ref['page']).lower(), str(ref['field']).strip().lower()))
+            was = d.get(key)
+            d[key] = hit
+            ref['resolved'] = bool(hit)
+            if hit and not was:
+                reresolved += 1
 
     done = sorted({p['group'] for p in n['configPages']})
     kg['meta'].update({

@@ -1480,10 +1480,10 @@
         ],
         "sourceQuote": "If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
-        "notes": "Only 'Global Group' is a named fixed option in the text; all other selectable values are the client's own hierarchy group names (e.g. 'Global Group>United States'), not a corpus-enumerated set — omitted per rule 6/5.",
+        "notes": "Only 'Global Group' is a named fixed option in the text; all other selectable values are the client's own hierarchy group names (e.g. 'Global Group>United States'), not a corpus-enumerated set — omitted per rule 6/5. Corrected 2026-08-31: fromRawHtmlTable flag cleared — the cited file contains no <table> element. The value came from a markdown pipe table.",
         "uiVariant": "undifferentiated",
         "sourceGroup": "Group 2 — Routing & Approval",
-        "fromRawHtmlTable": true
+        "fromRawHtmlTable": false
       },
       {
         "id": "field.exceptions.newbutton",
@@ -1792,12 +1792,11 @@
         "label": "Block Incoming Emails",
         "fieldType": "radio",
         "validValues": [
-          "No",
-          "Yes"
+          "No"
         ],
         "sourceQuote": "Block Incoming Emails: (Default = No) Capture Processing will prevent a supplier email from being received or displayed based on the email address associated with that supplier.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-in-the-supplier-email-administration-tab-d3b9a9b4.md",
-        "notes": "Edit Email window field.",
+        "notes": "Edit Email window field. Corrected 2026-08-31: \"Yes\" was removed — it appears nowhere in the cited file. The corpus documents only the No option (\"unless the admin selects No\"). The complementary state is undocumented; do not assume the control is a Yes/No pair.",
         "uiVariant": "undifferentiated",
         "sourceGroup": "Group 4 — Capture & Vendors"
       },
@@ -1808,12 +1807,11 @@
         "label": "Send Email Acknowledgement",
         "fieldType": "radio",
         "validValues": [
-          "No",
-          "Yes"
+          "No"
         ],
         "sourceQuote": "Send Email Acknowledgement: (Default = No) Capture Processing will send an acknowledgement to the supplier on receipt of their email unless the admin selects No to prevent this email from being generated and sent.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/working-with-options-in-the-supplier-email-administration-tab-d3b9a9b4.md",
-        "notes": "Edit Email window field.",
+        "notes": "Edit Email window field. Corrected 2026-08-31: \"Yes\" was removed — not present in the cited file. The corpus gives \"(Default = No)\" and describes only selecting No. The opposite state is undocumented.",
         "uiVariant": "undifferentiated",
         "sourceGroup": "Group 4 — Capture & Vendors"
       },
@@ -2324,12 +2322,11 @@
           "JPEG",
           "PDF",
           "TIF",
-          "TIFF",
-          "HTML (no double-byte characters)"
+          "TIFF"
         ],
         "sourceQuote": "Uploaded or emailed, the file format must be PNG, JPG, JPEG, PDF, TIF, or TIFF files. HTML files are also supported but may not include double-byte characters.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/formats-of-emails-and-uploads-b3783618.md",
-        "notes": "A narrower/different enumeration than the 'Supported Image File Types' topic (omits Word/Excel/EML/CSV); both exist in the corpus verbatim, capturing both rather than reconciling.",
+        "notes": "A narrower/different enumeration than the 'Supported Image File Types' topic (omits Word/Excel/EML/CSV); both exist in the corpus verbatim, capturing both rather than reconciling. Corrected 2026-08-31: \"HTML (no double-byte characters)\" was removed — that phrasing appears nowhere in the cited file, and the only \"double-byte\" text in the corpus is in an unrelated topic about email message character limits. Conflated from another context.",
         "uiVariant": "undifferentiated",
         "sourceGroup": "Group 4 — Capture & Vendors"
       },
@@ -5584,7 +5581,7 @@
         "patch": null,
         "type": "precedes",
         "sourceId": "field.exceptions.exceptioncode",
-        "targetId": "field.audit-rules.exceptioncode",
+        "targetId": null,
         "sourceRef": {
           "page": "Exceptions",
           "field": "exceptionCode",
@@ -5593,7 +5590,7 @@
         "targetRef": {
           "page": "Audit Rules",
           "field": "ExceptionCode",
-          "resolved": true
+          "resolved": false
         },
         "condition": "An exception must first be created on the Exceptions page before it is selectable as an existing exception on the Exception step of the Custom Audit Rule wizard.",
         "sourceQuote": "All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.",
@@ -5625,17 +5622,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "triggers",
-        "sourceId": "field.audit-rules.exceptioncode",
-        "targetId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ExceptionCode",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "condition": "Selecting an existing exception on the Exception step auto-populates the Exception Code, Exception Level, and Exception Text fields at the top of the page; Exception Level is not typed independently in that path.",
         "sourceQuote": "To use an existing exception, select the desired exception. It appears in the Exception Code, Exception Level, and Exception Text fields at the top of the page.",
@@ -5646,17 +5643,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "triggers",
-        "sourceId": "field.audit-rules.conditionfieldvalue",
-        "targetId": "field.audit-rules.exceptioncode",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ConditionFieldValue",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ExceptionCode",
-          "resolved": true
+          "resolved": false
         },
         "condition": "A custom audit rule is an if/then statement: when the conditions built in the Condition Editor evaluate true, the exception assigned on the Exception step is created.",
         "sourceQuote": "Custom audit rules are if/then statements. If the defined conditions are met, then an exception is created.",
@@ -5667,12 +5664,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "triggers",
-        "sourceId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
         "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Invoice Settings",
@@ -5688,12 +5685,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "triggers",
-        "sourceId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
         "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Purchase Request Settings",
@@ -5709,12 +5706,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "triggers",
-        "sourceId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
         "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Purchase Order Settings",
@@ -5730,12 +5727,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
         "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Workflows",
@@ -5751,12 +5748,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
         "targetId": "field.audit-rules.randomruletype",
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
@@ -5773,7 +5770,7 @@
         "patch": null,
         "type": "triggers",
         "sourceId": "field.audit-rules.event",
-        "targetId": "field.audit-rules.exceptionlevel",
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "Event",
@@ -5782,7 +5779,7 @@
         "targetRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "condition": "With Event set to Payment Request Submit, any exception the custom rule generates above the configured exception level limit stops the invoice from being submitted and from entering the first workflow step.",
         "sourceQuote": "Payment Request Submit: The rule is triggered when the invoice is submitted. If there are exceptions generated that are above the exception level limit (that is, prevents invoice submission; described in Exceptions in this guide), then the invoice will not be submitted and will not enter the first step of a workflow.",
@@ -5793,17 +5790,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "triggers",
-        "sourceId": "field.audit-rules.validationevent",
-        "targetId": "field.audit-rules.exceptionlevel",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ValidationEvent",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ExceptionLevel",
-          "resolved": true
+          "resolved": false
         },
         "condition": "With a validation rule's Event set to Payment Request Submit, exceptions generated above the exception level limit stop the invoice from being submitted and from entering the first workflow step.",
         "sourceQuote": "Payment Request Submit: The rule is triggered when the invoice is submitted. If there are exceptions generated that are above the exception level limit (that is, prevents invoice submission; described in Exceptions in this guide), then the invoice will not be submitted and will not enter the first step of a workflow.",
@@ -5814,17 +5811,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.conditionoperator",
-        "targetId": "field.audit-rules.conditionfieldvalue",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ConditionOperator",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ConditionFieldValue",
-          "resolved": true
+          "resolved": false
         },
         "condition": "The set of comparison operators offered in column D of the Condition Editor changes according to the data type of the field selected in the Field/Value column.",
         "sourceQuote": "An operator is one of several pre-defined comparison operators (equals, not equals, is greater than, and so on). The list of operators changes depending on the type of data the system is comparing.",
@@ -5835,17 +5832,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.conditionfieldvalue",
-        "targetId": "field.audit-rules.conditionfieldvalue",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ConditionFieldValue",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ConditionFieldValue",
-          "resolved": true
+          "resolved": false
         },
         "condition": "When a condition compares two fields rather than a field against a constant, the second Field/Value selection (column F) must be of the same data type as the first (column C).",
         "sourceQuote": "If the condition uses a second field, its data type must match that of the first field.",
@@ -5856,12 +5853,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.conditionfieldvalue",
+        "sourceId": null,
         "targetId": "field.audit-rules.event",
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ConditionFieldValue",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
@@ -5878,7 +5875,7 @@
         "patch": null,
         "type": "depends_on",
         "sourceId": "field.audit-rules.event",
-        "targetId": "field.audit-rules.conditionfieldvalue",
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "Event",
@@ -5887,7 +5884,7 @@
         "targetRef": {
           "page": "Audit Rules",
           "field": "ConditionFieldValue",
-          "resolved": true
+          "resolved": false
         },
         "condition": "The event a rule actually fires on is widened by its condition contents: a rule set to Payment Request Details Save also fires at Payment Request Save whenever its condition references a request field.",
         "sourceQuote": "If a rule that is triggered at Payment Request Details Save contains a request field in its condition, then the rule is also triggered at Payment Request Save.",
@@ -5898,12 +5895,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.validationrulename",
+        "sourceId": null,
         "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ValidationRuleName",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Site Settings",
@@ -5919,17 +5916,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.fromfieldname",
-        "targetId": "field.audit-rules.fromdatasource",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "FromFieldName",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "FromDataSource",
-          "resolved": true
+          "resolved": false
         },
         "condition": "The list of fields offered in From Field Name on the validation rule Actions page is filtered by the From Data Source selection.",
         "sourceQuote": "The field from the Data Source that will be used to update the Invoice field. The list of fields displayed will change depending on the Data Source selected.",
@@ -5940,17 +5937,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.tofieldname",
-        "targetId": "field.audit-rules.todatasource",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ToFieldName",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ToDataSource",
-          "resolved": true
+          "resolved": false
         },
         "condition": "The list of fields offered in To Field Name on the validation rule Actions page is filtered by the To Data Source selection.",
         "sourceQuote": "The Concur Invoice field that will be updated. The list of fields displayed will change depending on the Data Source selected.",
@@ -5961,17 +5958,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.fromdatasource",
-        "targetId": "field.audit-rules.validationevent",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "FromDataSource",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ValidationEvent",
-          "resolved": true
+          "resolved": false
         },
         "condition": "Which sources (Constant, Validation Table, Employee, Request) are offered in From Data Source changes according to the event selected for the validation rule.",
         "sourceQuote": "The source of the fields that will be used for the update. The available sources will change depending on the event selected.",
@@ -5982,17 +5979,17 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.todatasource",
-        "targetId": "field.audit-rules.validationevent",
+        "sourceId": null,
+        "targetId": null,
         "sourceRef": {
           "page": "Audit Rules",
           "field": "ToDataSource",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
           "field": "ValidationEvent",
-          "resolved": true
+          "resolved": false
         },
         "condition": "The options offered in To Data Source change according to the event type selected for the rule.",
         "sourceQuote": "NOTE: The options available will change depending on the event type selected for the audit rule.",
@@ -6003,12 +6000,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.randomactivate",
+        "sourceId": null,
         "targetId": "field.audit-rules.randomappliesto",
         "sourceRef": {
           "page": "Audit Rules",
           "field": "RandomActivate",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Audit Rules",
@@ -6024,12 +6021,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.appliesto",
+        "sourceId": null,
         "targetId": "field.group-configurations.group",
         "sourceRef": {
           "page": "Audit Rules",
           "field": "AppliesTo",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Group Configurations",
@@ -6045,12 +6042,12 @@
         "group": "Group 2 — Routing & Approval",
         "patch": null,
         "type": "depends_on",
-        "sourceId": "field.audit-rules.editableby",
+        "sourceId": null,
         "targetId": "field.group-configurations.group",
         "sourceRef": {
           "page": "Audit Rules",
           "field": "EditableBy",
-          "resolved": true
+          "resolved": false
         },
         "targetRef": {
           "page": "Group Configurations",

@@ -40,6 +40,50 @@ VALUESET_OWNER = {
 RENAME_BY_VARIANT = {'rule_name_link'}
 
 
+# validate-graph.py findings, 2026-08-31. Each is a value or flag the corpus does not support —
+# the exact class of quiet invention a blind build exists to prevent.
+VALUE_FIXES = {
+    'field.capture-processing-admin.block-incoming-emails': (
+        ['No'],
+        'Corrected 2026-08-31: "Yes" was removed — it appears nowhere in the cited file. The '
+        'corpus documents only the No option ("unless the admin selects No"). The complementary '
+        'state is undocumented; do not assume the control is a Yes/No pair.'),
+    'field.capture-processing-admin.send-email-acknowledgement': (
+        ['No'],
+        'Corrected 2026-08-31: "Yes" was removed — not present in the cited file. The corpus gives '
+        '"(Default = No)" and describes only selecting No. The opposite state is undocumented.'),
+    'field.image-handling.formatsofemailsanduploads': (
+        ['PNG', 'JPG', 'JPEG', 'PDF', 'TIF', 'TIFF'],
+        'Corrected 2026-08-31: "HTML (no double-byte characters)" was removed — that phrasing '
+        'appears nowhere in the cited file, and the only "double-byte" text in the corpus is in an '
+        'unrelated topic about email message character limits. Conflated from another context.'),
+}
+CLEAR_RAWHTML_FLAG = {
+    # flagged fromRawHtmlTable but grep -c '<table' on the cited file returns 0
+    'field.exceptions.editablebygroups':
+        'Corrected 2026-08-31: fromRawHtmlTable flag cleared — the cited file contains no <table> '
+        'element. The value came from a markdown pipe table.',
+}
+
+
+def fix_values(kg):
+    changed = 0
+    for f in kg['nodes']['configFields']:
+        fx = VALUE_FIXES.get(f['id'])
+        if fx and f.get('validValues') != fx[0]:
+            f['validValues'] = list(fx[0])
+            if fx[1] not in (f.get('notes') or ''):
+                f['notes'] = ((f.get('notes') or '').rstrip() + ' ' + fx[1]).strip()
+            changed += 1
+        note = CLEAR_RAWHTML_FLAG.get(f['id'])
+        if note and f.get('fromRawHtmlTable'):
+            f['fromRawHtmlTable'] = False
+            if note not in (f.get('notes') or ''):
+                f['notes'] = ((f.get('notes') or '').rstrip() + ' ' + note).strip()
+            changed += 1
+    return changed
+
+
 def wire_value_sets(kg):
     changed = 0
     ids = {f['id'] for f in kg['nodes']['configFields']}
@@ -89,6 +133,7 @@ def main():
         if new_page and f['pageId'] != new_page:
             f['pageId'] = new_page; changed += 1
             print('  re-homed %s -> %s' % (fid, new_page))
+    changed += fix_values(kg)
     changed += wire_value_sets(kg)
     changed += disambiguate_names(kg)
     if changed:

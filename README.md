@@ -36,3 +36,17 @@ BUILD_DATE=YYYY-MM-DD python3 bin/merge-group.py <workflow-output.json> "Group N
 
 Re-running a group replaces just that group's nodes (idempotent), and every merge re-resolves
 cross-group dependency edges that earlier groups left dangling.
+
+## Validating the graph
+
+```bash
+python3 bin/validate-graph.py [--verbose]
+```
+
+Deterministic — no model involved. Re-checks every claim in the graph against the corpus on disk:
+every `sourceQuote` is a verbatim substring of its cited file, every `validValue` appears in that
+file, no selectors leaked in, no duplicate field names within a page, every ConfigValueSet is
+wired to a field that exists, and every dependency endpoint either resolves or is honestly marked
+as awaiting an unbuilt page. Exits non-zero on any ERROR.
+
+Run it after every merge, and after `bin/apply-corrections.py`.
