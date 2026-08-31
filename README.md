@@ -1,18 +1,27 @@
 # concur-config-diver-support
 
-Working repo for **Concur Config Diver** support work — notes, research, briefs, and HTML artifacts.
+Knowledge graph of the **Concur Invoice admin configuration surface** — the prerequisite
+artifact for a future Chromium "config writer" that can drive Concur's admin UI to a target state.
 
-Docs/artifact workspace. No build, no deploy, no tests.
+Local file-only project. No build, no deploy.
 
 ## Layout
 
 | Path | What lives here |
 |---|---|
-| `docs/` | Durable reference: scope, method, decisions. Start at `docs/WHERE-WE-LEFT-OFF.md`. |
-| `notes/` | Session/working notes, dated. |
-| `artifacts/` | Deliverables — HTML artifacts, decks, one-pagers. |
+| `docs/2026-08-31_HANDOFF-KG-BUILD.md` | Authoritative spec — schema, 7 config groups, rules of engagement |
+| `docs/WHERE-WE-LEFT-OFF.md` | Current state. Read first. |
+| `output/kg-invoice-config.json` | The graph artifact (append-only) |
+| `output/kg-build-log.md` | Build record per group |
+| `notes/` | Dated working notes |
+| `artifacts/` | Deliverables (HTML, decks, one-pagers) |
 
-## Conventions
+## Corpus
 
-- Every loose file gets a `YYYY-MM-DD_` prefix (e.g. `2026-08-31_config-diver-scope.md`).
-- Related corpora: `PROJECTS/concur-corpus` (Concur Docs Genie, 8,588 articles) and `PROJECTS/concur-capstone` (Cadence AP Control).
+`PROJECTS/concur-corpus/CONCUR_INVOICE/` — 2,230 Concur Invoice articles on disk
+(1,209 admin guides). Used directly; the `concur-docs-genie` MCP is not connected here.
+
+## Status
+
+Scaffold only. Prior vertical slice (Groups 2 partial + 3, 24 pages / 145 fields) was built
+on a different machine and **its artifacts are not present here** — see `docs/WHERE-WE-LEFT-OFF.md`.
