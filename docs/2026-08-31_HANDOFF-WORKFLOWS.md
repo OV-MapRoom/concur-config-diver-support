@@ -17,6 +17,11 @@ not repeat either.
 Built: Groups 1, 2, 3, 4, 5A, 5B. Remaining: **Workflows**, **Group 6** (Peppol / Shipping /
 Localization), then the remediation sweep. Group 7 (Ops) stays deferred unless Luke asks.
 
+Repo is **pushed and current at `22c47c7`** — working tree clean, nothing local-only. The
+session's methodology learnings are also filed as a Crumb in Notion (🍞 Claude Convo Crumbs,
+2026-08-31, *"KG building — the roster was never verified"*) if you want the narrative rather
+than the procedure.
+
 ---
 
 ## The job: Workflows — and DO NOT trust the number 13
@@ -38,7 +43,18 @@ Every field is filed under a page. Page mis-assignment is the one defect class
 `bin/validate-graph.py` **cannot** catch — it checks quotes against files, never controls against
 pages. Five groups were built against rosters inherited from the lost map with nothing verifying
 the roster itself. Group 3 is the first that was checked, and the check moved the answer by 9
-pages. Nine agents of recon avoided roughly 65 agents of building pages that do not exist.
+pages.
+
+**The economics are not close.** Group 3's recon cost 9 agents and ~1.9M tokens. The build it
+replaced was budgeted at ~73 agents and 3–4 hours; the build that actually ran was 20 agents. So
+the recon cost roughly a tenth of what it saved — and it *improved* the build it fed, because its
+critics found six admin-relevant files the roster had missed, one of which held a 6-value catalog
+that would otherwise have been lost. Recon is not overhead on top of the build; it is the cheapest
+part of it.
+
+A second-order benefit worth knowing about: the recon produces the `documentedBasis` and richness
+estimates that let you tier models sensibly per page, instead of spending `opus`/`high` uniformly
+on a page the corpus barely documents.
 
 ### The recon template
 
@@ -167,6 +183,25 @@ documented buttons on Purchase Order Configuration reported in `splitsProposed` 
 - **Accuracy over token cost.** Never cheapen the refuters or the critics.
 - **Thin stays thin**, and a thin page must carry `documentedBasis` + `verifyNotes` saying why.
 - Date-prefix any new loose file `YYYY-MM-DD_`. No customer PII, pricing, or deal data.
+
+---
+
+## Sanity checks while you run — what "going well" looks like
+
+Group 3's numbers, so you can tell early if something is off rather than at the merge:
+
+| Checkpoint | Group 3 | What a bad number means |
+|---|---|---|
+| Recon sweeps agreeing on the page count | 6 of 6, no dissent | Split sweeps = the roster is genuinely ambiguous; do not pick, investigate |
+| `agents_error` on any run | **0** | A failed agent inside a "completed" workflow is invisible — resume before trusting anything downstream |
+| Assembler `quotes verbatim` | 51 ok / 0 bad | Any bad quote is a build defect, not a validator problem |
+| Pre-merge problems | 1 real (+1 tooling false alarm) | Many = a lens misunderstood the file shape |
+| `must-read never cited` | 19 on the rich page | High is normal and is the completeness critic's job to adjudicate — but read its verdict, don't wave it through |
+| Validator after merge + corrections | **exit 0, ERROR none** | Never commit on a non-zero exit |
+
+Expect the critics to disagree, expect roughly a third of candidates to be dropped or repaired,
+and expect at least one finding that is cross-group and must NOT be fixed by re-homing onto a new
+page. All three happened on Group 3 and all three were the process working.
 
 ---
 
