@@ -2,36 +2,55 @@
 
 _Last updated: 2026-08-31_
 
-## Status: SCAFFOLD ONLY — build blocked on missing prior artifacts
+## Status: Group 1 built and pushed. 1 of 7 groups done.
 
-Project created 2026-08-31 and the handoff spec filed. No graph nodes built here yet.
+Repo is live and public: **https://github.com/OV-MapRoom/concur-config-diver-support**
+(branch `main`). The corporate machine can clone it directly.
 
-## Two things the handoff assumes that are NOT true on this machine
+`output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`
 
-1. **The prior vertical slice is missing.** The handoff says Groups 2 (partial) and 3 are
-   complete — 24 ConfigPages, 145 ConfigFields, 44 dependencies, 6 steps in
-   `output/kg-invoice-config.json` (157KB, 2026-08-29). None of these files exist here:
-   - `output/kg-invoice-config.json`
-   - `output/kg-build-log.md`
-   - `INVOICE-CONFIG-MAP.md`  ← the 37-page / 7-group taxonomy, a build input
-   - `RESUME-2026-08-29-KG-2.md`
-   - `CONFIG-VALUES.md`
+| Node type | Count |
+|---|---|
+| ConfigPage | 3 |
+| ConfigField | 79 (32 dropped in verification) |
+| ConfigDependency | 81 (56 are forward refs into unbuilt groups) |
+| ConfigStep | 4 |
 
-   They live on the **corporate device** (paths in the handoff resolve under
-   `/mnt/c/Users/I867525`, not `manci`). They must be copied over, or the vertical slice
-   gets rebuilt from scratch.
+Full detail, findings and defects: `output/kg-build-log.md`.
 
-2. **The `concur-docs-genie` MCP is not connected in this session.** No `concur_search_docs`
-   / `concur_get_doc` tools. **Not a blocker** — the same corpus is on disk at
-   `PROJECTS/concur-corpus/CONCUR_INVOICE/` (2,230 .md; 1,209 admin guides). Extract by
-   grep/read instead. Cheaper than MCP round-trips.
+## Two decisions carried forward
 
-## Next step — Luke's call
+1. **Corpus is read from disk, not MCP.** `concur-docs-genie` is not connected on this machine.
+   `PROJECTS/concur-corpus/CONCUR_INVOICE/` (2,230 files, all `2026_08`, Professional Edition,
+   crawled 2026-08-29) is the source. Cheaper and equivalent.
+2. **`sourceFile` added to ConfigField and ConfigDependency.** The handoff locks the schema but
+   requires verifiers to re-read the cited doc — with no citation key that is impossible. One
+   additive string per node.
 
-- **A.** Copy the 5 files above from the corporate device into this repo, then resume at Group 1.
-- **B.** Rebuild from scratch here, starting with Group 1 (Policy & Scope), accepting that
-  Groups 2/3 get redone later.
+## Fix before Group 2 runs
 
-Either way the build is a fan-out job (extract → verify → synthesize → merge per group) and
-needs explicit opt-in before agents are spawned. Handoff cost guidance: cheap model for
-extraction, single-vote verify (not per-field fan-out), one group per run.
+- **Extractor blind spot:** 32 corpus files carry settings in raw `<table>` HTML rather than
+  markdown pipe tables. The Group 1 extractors missed all of them. Add an explicit instruction
+  to read raw HTML tables.
+- **Refuter calibration:** 11 rows of the canonical Invoice Settings table were killed by the
+  verifier, not missed by search. The adversarial prompt is too aggressive on table rows.
+- **Model tiers:** run extraction on `sonnet` at `effort: low`, keep the adversarial verifier,
+  synthesis and critic on `opus`. Luke gave standing authorization to pick per-agent tiers.
+
+## Also open
+
+- **Group 1 remediation pass** — the critic named specific missed fields (`Exclude Attendee Types`,
+  `Default Attendee Type`, `Require PO Matching?`, the `Save` control, 5 settings in
+  `invoice-settings-cace748d.md`). Worth one small workflow before moving on, or fold into a
+  later sweep.
+- **The prior vertical slice is still missing** (Groups 2-partial and 3 — 24 pages / 145 fields
+  built on the corporate device). Copying `output/kg-invoice-config.json`,
+  `INVOICE-CONFIG-MAP.md`, `RESUME-2026-08-29-KG-2.md` and `CONFIG-VALUES.md` off that machine
+  would save rebuilding them. `INVOICE-CONFIG-MAP.md` here is a partial reconstruction — 22 of 37 pages.
+- **"New Experience" UI variant** exists in the corpus and the graph has no concept of it. If the
+  target tenant runs New Experience, the modelled Policies layout may be legacy.
+- **Live-UI spot check** — 13 ranked thin items in the build log. Luke runs these, not a session.
+
+## Next step
+
+Group 2 remainder: Routing Configuration, Audit Rules, Exceptions.
