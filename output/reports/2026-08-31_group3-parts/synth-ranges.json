@@ -1,0 +1,72 @@
+{
+  "compressedRanges": [
+    {
+      "id": "range.g3.001",
+      "group": "Group 3 — PO Matching",
+      "label": "Custom 1–24",
+      "expandsTo": [
+        "Custom 1",
+        "Custom 2",
+        "Custom 3",
+        "Custom 4",
+        "Custom 5",
+        "Custom 6",
+        "Custom 7",
+        "Custom 8",
+        "Custom 9",
+        "Custom 10",
+        "Custom 11",
+        "Custom 12",
+        "Custom 13",
+        "Custom 14",
+        "Custom 15",
+        "Custom 16",
+        "Custom 17",
+        "Custom 18",
+        "Custom 19",
+        "Custom 20",
+        "Custom 21",
+        "Custom 22",
+        "Custom 23",
+        "Custom 24"
+      ],
+      "count": 24,
+      "appliesTo": {},
+      "sourceQuote": "<p class=\"p\">Custom 1–24</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md",
+      "notes": "PO Header column of the raw <table> that lists the fields available as Copy Down Sources. SOURCE CHARACTERS: 'Custom', one space, '1', an EN DASH (U+2013) with NO surrounding spaces, '24'. THE EXPANSION IS MECHANICAL, NOT QUOTED - the cited file never spells any member out, and none of 'Custom 2' through 'Custom 24' appears anywhere in it; an automation must resolve the on-screen names from the rendered page rather than typing these expansions. appliesTo is deliberately EMPTY: this control belongs to the purchase order copy-down configuration on Forms and Fields / the Purchase Order Policy section of Policies, both of which are ALREADY BUILT in the graph, and homing it to either Group 3 page would re-home a field. Recorded here only because the range was found inside the Group 3 evidence set and rule 8 requires compressed ranges to be captured. The identical table line appears byte-for-byte in concur-invoice-professional-edition-admin-guides/policies-the-purchase-order-policy-new-experience-5a1ba7ef.md (verified by md5 of the line); the two topics carry distinct loios but republish one table, so ONE node is emitted, not two."
+    },
+    {
+      "id": "range.g3.002",
+      "group": "Group 3 — PO Matching",
+      "label": "Custom 1–20",
+      "expandsTo": [
+        "Custom 1",
+        "Custom 2",
+        "Custom 3",
+        "Custom 4",
+        "Custom 5",
+        "Custom 6",
+        "Custom 7",
+        "Custom 8",
+        "Custom 9",
+        "Custom 10",
+        "Custom 11",
+        "Custom 12",
+        "Custom 13",
+        "Custom 14",
+        "Custom 15",
+        "Custom 16",
+        "Custom 17",
+        "Custom 18",
+        "Custom 19",
+        "Custom 20"
+      ],
+      "count": 20,
+      "appliesTo": {},
+      "sourceQuote": "<p class=\"p\">Custom 1–20</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md",
+      "notes": "PO Line Item column of the same raw <table>. SOURCE CHARACTERS: 'Custom', one space, '1', an EN DASH (U+2013) with NO surrounding spaces, '20'. Note the header family runs to 24 and the line-item family only to 20 - the counts genuinely differ between the two columns and must not be normalised. THE EXPANSION IS MECHANICAL, NOT QUOTED - the cited file spells out no member. appliesTo is deliberately EMPTY for the same reason as range.g3.001: the control belongs to already-built pages (Forms and Fields / the Purchase Order Policy section of Policies), not to either Group 3 page. The identical table line appears byte-for-byte in concur-invoice-professional-edition-admin-guides/policies-the-purchase-order-policy-new-experience-5a1ba7ef.md; ONE node is emitted, not two."
+    }
+  ]
+}

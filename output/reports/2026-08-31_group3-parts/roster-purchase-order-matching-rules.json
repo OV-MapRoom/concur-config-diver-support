@@ -1,0 +1,595 @@
+{
+ "pageId": "purchase-order-matching-rules",
+ "pageName": "Purchase Order Matching Rules",
+ "url": "",
+ "coverage": "good",
+ "uiVariant": "both",
+ "fields": [
+  {
+   "name": "rule_set_name",
+   "label": "Rule Set Name",
+   "fieldType": "table",
+   "validValues": [],
+   "sourceQuote": "Rule Set Name: The name of the rule set.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+   "notes": "List-page column on the Purchase Order Matching Rules page; row is the selection target for Edit/Copy. Selecting a row under this column is the first step of every edit/copy/unlock procedure (edit-purchase-order-matching-rules-604d1e31.md: 'select the rule set row under Rule Set Name').",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "in_use",
+   "label": "In Use",
+   "fieldType": "table",
+   "validValues": [
+    "Yes",
+    "No"
+   ],
+   "sourceQuote": "In Use: Shows if the matching rule set has been applied against any active invoice (Yes) or has not yet applied (No) in the system.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+   "notes": "Both values are explicitly enumerated in the same clause, not a completed guess. GATE: a rule set with In Use = Yes cannot be modified in any way; the admin must Copy it first, or unlock it by breaking the rule set's association to every invoice. THE UNLOCK CONTROL IS OFF THIS PAGE and is therefore NOT emitted as a field of this page (see dropped/change_to_non_po_action): it is the Actions-menu item on the My Invoices end-user page - 'In the Actions menu, click Change to Non-PO.' (tools-guides/change-a-po-based-invoice-policy-to-a-non-po-based-invoice-policy-12786d77.md), full sequence My Invoices > select one or more PO-based invoices > Actions > Change to Non-PO > Select a Policy window > choose a non-PO policy > OK, possibly plus reassignment via Assign. Treat it as an outbound prerequisite dependency of this column. LABEL CONTRADICTION 2:1, NOT RECONCILED: 'Change to Non-PO' (test-and-change-match-rule-sets-49f57319.md and tools-guides 12786d77.md) vs 'Change to Non PO Invoice option in the Actions menu' (purchase-order-matching-rules-new-experience-6c8fb80f.md). Copy-then-repoint-the-policy is the other documented workaround.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "associated_policies",
+   "label": "Associated Policies",
+   "fieldType": "table",
+   "validValues": [],
+   "sourceQuote": "Associated Policies: Shows what Invoice PO policy has been configured to include this PO matching rule set. You select a rule set using the PO Matching Ruleset option in Policies.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+   "notes": "Read-only display column showing which Policies (Group 1, already-built page) reference this rule set via the PO Matching Ruleset field there. Outbound dependency only - never re-home PO Matching Ruleset to this page.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "copy_button",
+   "label": "Copy",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "In Purchase Order Matching Rules, select an existing rule set under Rule Set Name, and then click Copy.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md",
+   "notes": "Only documented way to start a new rule set - there is NO 'New' button attested anywhere in the corpus for this page. Also the prescribed workaround for editing a locked (In Use=Yes) rule set (access-purchase-order-matching-rules-8407c500.md: 'use the Copy button to create a copy, edit the rule set as needed'). Full documented sequence (step-1): select under Rule Set Name > Copy > click the 'Copy of...' entry > Rename > type name > press Enter > Done; copy-purchase-order-matching-rules-c6d4106a.md states the copy procedure is identical to Step 1 and adds nothing further (thin, and that is the correct answer). Second-level corroboration that Copy also operates on a selected rule CONDITION, not only a rule set: 'Select an existing rule condition (for example, \"Services Under $5000\"), and then select Edit, Copy, Delete, or Rename to perform those functions' (match-rules-and-rule-sets-87e69410.md, which also carries the scoping caveat 'These instructions cover the new receipt related functions only.'). MERGE NOTE: the fuller sourceQuote from the dropped cross-lens twin ruleSetCopy was adopted here because it names the containing page; both quotes were grep-verified verbatim.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "rename_button",
+   "label": "Rename",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "click Rename and type a descriptive name for the matching rule set, pressing Enter when you are done.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md",
+   "notes": "Renames the auto-generated 'Copy of...' entry produced by Copy. Step 2 of the only documented creation sequence (Copy > Rename > Done). The commit is a KEYSTROKE, not a button - 'pressing Enter when you are done' - which a driver must perform explicitly. Also listed among the actions available on a selected rule condition in match-rules-and-rule-sets-87e69410.md.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "done_button",
+   "label": "Done",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "3.  Click Done.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md",
+   "notes": "Terminal step of the Copy -> Rename -> Done rule-set-creation wizard (Step 1). Distinct from the final rule-set Save at the end of Steps 2/3.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "edit_button",
+   "label": "Edit",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "On the Purchase Order Matching Rules page, select the rule set, and then click Edit.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+   "notes": "Opens the rule set for editing (loosely called 'Purchase Order Matching Set' in edit-purchase-order-matching-rules-604d1e31.md: 'Click Edit to open Purchase Order Matching Set.'). Only available when In Use = No; also becomes available again after the Change to Non-PO unlock action (test-and-change-match-rule-sets-49f57319.md: 'the rule set has a status of No and can be edited using the Edit button'). NOT to be confused with the 'Edit' link inside the Exception Message dialog (see exception_message) which edits a saved message, not the rule set. ALTERNATE OPEN PATH not to be missed by a driver: configure-three-way-matching-c043e5c8.md documents 'Double-click the rule you want to use, and then, in the Rule Groups list, select a rule group and click Edit Rules.' - i.e. a double-click on the rule-set row substitutes for the Edit button. Try both.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "edit_rules_button",
+   "label": "Edit Rules",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "in the Rule Groups list, select a rule group and click Edit Rules. The Purchase Order Matching Rule Group rules window appears.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "Opens the 'Purchase Order Matching Rule Group rules window' which contains the Rules and Life to Date tabs. CONTRADICTION - TAB DEPTH: step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md never mentions Edit Rules and instead places the Rules tab one level up ('In Purchase Order Matching Set, click the Rules tab.'). See contradiction 'tab-depth-rules-life-to-date' below; majority tree (2 of 3 topics) is page > Edit > select rule group > Edit Rules > [Rules | Life to Date]. Also used in Step 4 for condition-based sub-rules ('select the new condition, and then click Edit Rules to specify what should happen').",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "rules_tab",
+   "label": "Rules",
+   "fieldType": "unknown",
+   "validValues": [],
+   "sourceQuote": "In Purchase Order Matching Set, click the Rules tab.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "Corpus type unattested as tab vs. window heading - recorded as 'unknown' rather than guessing. Holds the field-to-field (one-to-one) matching rules, the Tolerance controls, Exception Message, and Allow Submit/Approve. Part of contradiction 'tab-depth-rules-life-to-date'.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "life_to_date_tab",
+   "label": "Life to Date",
+   "fieldType": "unknown",
+   "validValues": [],
+   "sourceQuote": "Click the Life to Date tab, then select the check box next to the rule type to activate using the table below:",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+   "notes": "Holds the 6-row Life to Date rule-type checkbox table (see life_to_date_rule_selection) and the Overage Tolerance controls. Part of contradiction 'tab-depth-rules-life-to-date'.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "currency_field",
+   "label": "Currency",
+   "fieldType": "dropdown",
+   "validValues": [],
+   "sourceQuote": "Currency: Choose the base currency your company uses. Conversions for alternate currencies used on incoming invoices will be calculated automatically and applied by the system.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+   "notes": "Listed as a 4th tolerance option in step-3's reading of the Tolerance contradiction ('Currency: Choose the base currency...'). Underlying exchange-rate activation is NOT a control on this page - it is on by default and configured via the Expense Admin module (see dependencyCandidate 'exchange-rates-off-page'). No enumerated currency list found in the corpus. MERGED FROM THE DROPPED CROSS-LENS TWIN (toleranceCurrency): on the Life to Date tab step-2 pairs Currency with Value ('Value AND Currency, - OR - Percentage'), whereas step-3 lists Currency as a FOURTH tolerance option - that is one contested half of the recorded tolerance contradiction, which is why this record carries the neutral name 'currency_field' rather than 'toleranceCurrency'; naming it after one reading would silently reconcile a live contradiction. No currency roster is published anywhere in the corpus, so validValues stays empty.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "change_button",
+   "label": "Change",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "Click Change and add a message by clicking New, or edit an existing message by selecting it and clicking Edit, then click Save.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "Opens the Exception Message editor/list from the Rules or Life to Date tab. First step of the fifth dialog sequence. Attested twice in configure-three-way-matching-c043e5c8.md (steps 5 and 10, i.e. from the Rules tab AND the Life to Date tab) and again in step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md. SUB-DIALOG SCOPE: this is not a control on the rule-set list page - it sits in the rule-group rules window and opens a nested editor.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "new_button",
+   "label": "New",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "add a message by clicking New, or edit an existing message by selecting it and clicking Edit, then click Save.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "Creates a new exception message inside the Exception Message editor opened via Change. SCOPE, so this never drifts up the tree: there is NO New button for creating a rule SET on this page - creation is Copy > Rename > Done. GAP RECORDED, NOT FABRICATED: the editor's third control, Edit ('edit an existing message by selecting it and clicking Edit'), is attested in the same sentence but was emitted by no lens and is therefore absent from this roster; a driver told to modify an existing exception message has no record to drive.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "save_button",
+   "label": "Save",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "9.  Click Save.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "Generic Save control that recurs across this page's procedures: final Save of the rule set (Step 3 ends '9. Click Save.'; Step 2 similarly ends its own tolerance/exception-message configuration and proceeds to Step 3), Save inside the Exception Message editor ('then click Save'), and Save at the end of the condition-based rule group workflow (step-4: 'Click Insert to add any addition conditions, and then click Save when you are done.' and 'Add any additional rules, clicking Update after each new rule to add it to the row, then click Save.'). Consolidated as one control since the corpus never distinguishes it by a different label; context is noted here rather than duplicating the field.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "add_button",
+   "label": "Add",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "Click Add to insert this rule into the rows under Rules.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "Same-labeled Add button recurs in multiple contexts on this page: inserts a completed field-to-field rule into the Rules list (Step 3, and configure-three-way step 7: '7. Click Add.'); adds a condition-based rule group under a named rules group (step-4: 'Select the named rule group within which the condition-based rule set will be included, then click Add.'); and, in the confirmation-type sub-configuration, adds a new rule condition (match-rules-and-rule-sets-87e69410.md: 'Add a new rule condition by selecting the Rule Set (for example \"Default\"), and then selecting Add').",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "insert_button",
+   "label": "Insert",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "Click Insert to add any addition conditions, and then click Save when you are done.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md",
+   "notes": "Adds another condition row inside the Purchase Order Matching Rules Group Conditions dialog. SAP typo preserved: 'any addition conditions' for 'any additional conditions'.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "update_button",
+   "label": "Update",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "Click Update to add the rule to the row.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md",
+   "notes": "Commits a condition-based rule (created via Edit Rules) into its row within the named rules group; repeat then final Save.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "delete_button",
+   "label": "Delete",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "delete the rule by selecting and clicking Delete.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "Deletes a default or added rule row from the Rules tab. Also documented as an action for a rule condition in the confirmation-type sub-configuration: 'select Edit, Copy, Delete, or Rename to perform those functions' (match-rules-and-rule-sets-87e69410.md).",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "edit_confirmation_button",
+   "label": "Edit Confirmation",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "Do this by clicking Edit Confirmation to open the Select Confirmation Type window, choosing a confirmation type based on the rule group.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md",
+   "notes": "Opens the Select Confirmation Type window (see confirmation_type). Corroborated in match-rules-and-rule-sets-87e69410.md, applied to either the Rule Set itself or a rule condition: 'select an existing Rule Set (\"Default\") or rule condition (\"Services Under $5000\"), and then select Edit Confirmation to create or change the confirmation type.' MERGED FROM THE DROPPED CROSS-LENS TWIN (editConfirmation): note match-rules-and-rule-sets-87e69410.md's scoping caveat 'These instructions cover the new receipt related functions only.'; the confirmation type can be driven by Spend Category, Capital Expense Status and Amount Threshold; and the instructional TEXT for each type is NOT edited here - it is edited in the Localization tool, a page not yet in this graph, so that dependency legitimately stays unresolved.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "rule_groups_list",
+   "label": "Rule Groups",
+   "fieldType": "table",
+   "validValues": [],
+   "sourceQuote": "in the Rule Groups list, select a rule group and click Edit Rules. The Purchase Order Matching Rule Group rules window appears.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "The selectable list of named rules groups inside an opened rule set. No enumerated membership beyond 'Default' and any condition-based groups the admin has added. DEFAULT IS A VALUE HERE, NOT A CONTROL (candidate default_rule_group_select was dropped for that reason and its evidence folded in): 'Select Default, then click Edit Rules (this named rules group is the basis for your new rules group).' (step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md) - Default is the shipped, pre-seeded named rules group and every worked procedure starts from it. AMBIGUITY LEFT OPEN DELIBERATELY: 'Default' names TWO different objects in this corpus - the shipped named rules GROUP (the step-2 quote above) and the shipped rule SET ('A Default rule set is provided', create-purchase-order-matching-rules-adb700f9.md - a TRUNCATED file; 'Copy the Default rule set', test-and-change-match-rule-sets-49f57319.md). The corpus does not disambiguate them and this record does not either. Membership beyond Default is tenant-built and is never enumerated, so validValues stays empty.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "life_to_date_rule_selection",
+   "label": "Selection",
+   "fieldType": "checkbox",
+   "validValues": [
+    "Gross Amount",
+    "Net Amount",
+    "Line Item Total",
+    "Line Item Quantity",
+    "Match against Received Quantity",
+    "Line Item Tax"
+   ],
+   "sourceQuote": "Click the Life to Date tab, then select the check box next to the rule type to activate using the table below:",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+   "notes": "THE PRIMARY SETTINGS TABLE OF THIS PAGE. A 6-row two-column markdown table (Selection | Description) on the Life to Date tab; all six rows enumerated here and again, with their descriptions, in valueSetCandidates. INDENTED-TABLE TRAP: this table is nested inside a numbered step, so grep -c '^| ' returns 0 while grep -cP '^\\s*\\|' returns 22 - a census anchored on '^|' would have missed it entirely. 'Selection' is the literal column header the corpus gives; the corpus never states a separate on-screen label for the control, and the control is a set of check boxes ('select the check box next to the rule type'), so more than one value may be active at once ('Repeat by selecting a check box for each option you want to include.'). Label drift on the fifth row: the table and configure-three-way-matching L60 write 'Match against Received Quantity' while configure-three-way-matching L27 writes 'Matched against Received Quantity' - recorded as a contradiction, not reconciled.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "purchase_order_field",
+   "label": "Purchase Order",
+   "fieldType": "dropdown",
+   "validValues": [],
+   "sourceQuote": "Under Purchase Order, select the PO field to match to the invoice (they will change depending on the field selected in the step above).",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "On the Rules tab, paired with Payment Request. validValues EMPTY for the same reason: the corpus explicitly says the options change with the Payment Request selection above it and never publishes the catalog. The only enumerated case is the Line Item – Receipt pair ('Line Quantity and Received Quantity' / 'Receipt Associated and Receipt Associated'), held as a valueSetCandidate.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "overage_tolerance",
+   "label": "Overage Tolerance",
+   "fieldType": "radio",
+   "validValues": [
+    "Value",
+    "Percentage"
+   ],
+   "sourceQuote": "In the Overage Tolerance section, select Value or Percentage.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "ONLY attestation of the label 'Overage Tolerance' in the corpus; it appears on the Life to Date tab after selecting Match against Received Quantity. Exactly two options are enumerated. This is in tension with step-2, which describes the Life to Date tolerance refinement as UNLABELLED and offers a THIRD option (Currency, paired with Value) - recorded as a contradiction. The worked semantics are documented: Value is an absolute threshold ('if the Value is 100 and the Quantity Received on this PO line is 1000, invoice(s) at or above 1100 will trigger the exception'); Percentage is relative. fieldType 'radio' is inferred from 'select Value or Percentage' being mutually exclusive - the corpus never names a widget.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "exception_message",
+   "label": "Exception Message",
+   "fieldType": "button",
+   "validValues": [],
+   "sourceQuote": "Exception Message: Click Change and add a message by clicking New, or edit an existing message by selecting it and clicking Edit, then click Save.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "Lives in the Exception Message area of the rule-group rules window, on the Rules tab ('The Exception Message option is available on the Rules tab and will only display when the user triggers the configured rule.', refine-the-rules-include-an-exception-message-c174b2b6.md). This is the FIFTH dialog of the page: Change opens a message editor with its own New / Edit / Save controls, and a driver cannot set an exception message without traversing it. Corroborated cross-directory by how-to-deal-with-exceptions-using-matching-rules-options-171867ad.md. The message text itself is free text - the corpus enumerates no values. The identical instruction also appears in step-2, i.e. the editor is reachable from both the Rules and Life to Date tabs.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "allow_submit_approve",
+   "label": "Allow Submit/Approve",
+   "fieldType": "checkbox",
+   "validValues": [],
+   "sourceQuote": "Allow Submit/Approve: Select this check box to allow submission and processing of the invoice even if an exception is triggered.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "In the Options section of the Rules tab ('This \"override\" action is selected by using the Allow Submit/Approve feature in the Options section of the Rules tab.', refine-the-rules-allow-submission-despite-tolerance-9b96d467.md); also offered alongside Exception Message on the Life to Date tab per step-2. validValues is EMPTY ON PURPOSE: the corpus documents only the selected state ('Select this check box to allow...'). It never enumerates or names a cleared/unselected value, so no No/Off/Cleared value is invented here - completing the pair is exactly the defect this project has already paid for twice.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "confirmation_type",
+   "label": "Confirmation Type",
+   "fieldType": "dropdown",
+   "validValues": [
+    "None",
+    "Invoice",
+    "Receipt Central",
+    "Receipt Individual"
+   ],
+   "sourceQuote": "These outcomes are called confirmation types, and there are four types:",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/confirmation-types-b4a94761.md",
+   "notes": "Set in the Select Confirmation Type window, reached from the rule-group roster: 'Do this by clicking Edit Confirmation to open the Select Confirmation Type window, choosing a confirmation type based on the rule group.' (step-5). The four values come from the numbered prose catalog in confirmation-types-b4a94761.md; step-5's 3-row markdown table gives the same three non-None types WITH THE INTERNAL CODES INVC / RIND / RCEN, which appear nowhere else in the corpus, plus their default message text - both catalogs are enumerated in full as separate valueSetCandidates. A fifth documented state exists for rule CONDITIONS only, not for the rule set: 'Parent choice displays for rule conditions only, and indicates the choice made for the parent Rule Set will be used.' - deliberately NOT added to validValues because the corpus scopes it to conditions and never lists it among the types. HARD GATE from another surface: unless Is Receipt Required is Yes on the PO line, none of this is evaluated.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "named_rules_group_name",
+   "label": "Name",
+   "fieldType": "text",
+   "validValues": [],
+   "sourceQuote": "In Purchase Order Matching Rules, type a descriptive name for the new rule in Name.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+   "notes": "REPAIRED (merge of the cross-lens twins name_field / named_rules_group_name / namedRulesGroupName - one control, one record; name_field is listed in dropped). Free-text name typed in the rule-group rules window after clicking Edit Rules on a selected group. AMBIGUITY RECORDED, NOT SETTLED - this is the repair the refuter demanded: the cited sentence says 'type a descriptive name for the new rule in Name', i.e. the corpus says RULE. The reading that Name names the new NAMED RULES GROUP is INFERRED from the preceding step of the same procedure ('Select Default, then click Edit Rules (this named rules group is the basis for your new rules group).') and from the glossary ('Named Rules Group: Any rule existing within (\"under\") the Matching Rule Set, for example, a condition-based rule group.', terminology-d3b9f043.md). The corpus does not disambiguate whether this Name names the new rule or the new named rules group; a driver should expect either. The record name retains the 'named_rules_group' wording only as a page-scoped identifier - it is NOT an assertion; the graph already holds six other fields labelled 'Name' (Policies, Image Handling, Audit Rules x2, Expense Types, Company Locations), so a bare 'Name' identifier was rejected. Distinct from Rule Set Name (the read-only list column on the page itself, set via Rename). A naming CONVENTION, not a validation rule, is documented for the rule set: 'the best practice naming convention is something similar to \"Test – Rule Set V1\"' (test-and-change-match-rule-sets-49f57319.md) - note the EN DASH in that convention string. No length, character or uniqueness constraint exists anywhere in the corpus.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "value_percentage_radio",
+   "label": "Value or Percentage",
+   "fieldType": "radio",
+   "validValues": [
+    "Value",
+    "Percentage"
+   ],
+   "sourceQuote": "If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+   "notes": "REPAIRED (merge of the cross-lens twins value_percentage_radio / toleranceBasis - one control, one record; toleranceBasis is listed in dropped). QUOTE UPGRADED: the fuller line from the same file was adopted because it LOCATES the control 'in the Tolerance section' - which matters, because a near-identical Value/Percentage pair exists in the Overage Tolerance section on the Life to Date tab (see overage_tolerance). Both quotes were grep-verified verbatim; the shorter one was a strict substring. Secondary refinement shown after a Tolerance choice other than None. Value = 'Specify a number at or above that at which the rule set will trigger an exception.' Percentage = 'Choose a percent above which the rule set will trigger a flag.' Both options are enumerated inside the cited clause, so nothing is inferred; fieldType 'radio' is inferred from the mutually exclusive 'select Value or Percentage' - the corpus never names the widget. The LABEL is derived from the two option names: the corpus never gives this control a name of its own. Corroborated generically by amounts-and-tolerances-ab795b1f.md ('this can be refined by including tolerance levels applying to the absolute currency value, or to a percentage', which also states multiple rules may run on the same field), and refine-the-rules-combine-the-life-to-date-and-rules-rule-types-2b46973f.md documents a tolerance value of ZERO as legitimate.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "level_field",
+   "label": "Level",
+   "fieldType": "dropdown",
+   "validValues": [
+    "Header",
+    "Vendor",
+    "Line Item",
+    "Line Item - Receipt"
+   ],
+   "sourceQuote": "Select a value from Level (Header, Vendor, Line Item, Line Item - Receipt), so the matching rule operates for the field(s) you want compared.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "REPAIRED (merge of the three cross-lens twins level_field / level / ruleLevel - one control, one record; level and ruleLevel are listed in dropped). The quote and validValues agree exactly and reproduce THIS file's ASCII-hyphen spelling byte-for-byte. CONTRADICTION - FOUR DIFFERENT ENUMERATIONS ACROSS FOUR TOPICS, RECORDED NOT RECONCILED: (A) FOUR values in the cited step-3 step - Header, Vendor, Line Item, Line Item - Receipt; (B) THREE values in step-3's OWN intro paragraph, same file, same topic - 'Rules-type matching rule sets are based on levels of Vendor, Header, and Line Item'; (C) THREE values in tools-guides/match-rules-and-match-status-8cc2c56b.md - 'They can be specified at the Header, Vendor, or Line Item level, and can be applied on a one-to-one basis between the current invoice and the PO' (that file contains no occurrence of the word 'receipt' at all); (D) four lowercase values in the TRUNCATED create-purchase-order-matching-rules-adb700f9.md. The four-value list is emitted because it is the superset AND because it is the reading whose quote enumerates it; the omissions are likely provisioning-dependent (the receipt level exists only where three-way matching / Concur Receiving is provisioned), but the corpus never says so and this record does not claim it. GROUNDING LANDMINE - THE FOURTH VALUE IS SPELLED THREE WAYS: 'Line Item - Receipt' (ASCII HYPHEN, step-3), 'Line Item – Receipt' (EN DASH, configure-three-way-matching-c043e5c8.md x2 and tools-guides/exceptions-and-three-way-matching-rules-65d52687.md), and 'Line Item-Receipt' (no spaces, final line of that same tools topic). A retyped dash will fail grep -F. Changing Level repopulates the dependent dropdowns: 'As different levels are chosen in Level, different field sets will populate the selections available in Payment Request and Purchase Order.' IDENTIFIER NOTE: the page-scoped name level_field was kept over the bare 'level' to avoid needless collision with the existing page.accounting-administration field labelled 'Level' (segment_level, the account-code hierarchy level) - a different control on a different page that must never be merged with this one.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "payment_request_field",
+   "label": "Payment Request",
+   "fieldType": "dropdown",
+   "validValues": [],
+   "sourceQuote": "In the Payment Request list, select the request field to match to the same field in the PO.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "REPAIRED. The procedure-lens variant's notes asserted a falsehood - 'no enumerated option list found for any Level value' - which would have told a driver nothing is documented when two conditional enumerations are. That sentence is STRUCK; the tables-lens wording is adopted and both value sets are named explicitly below. On the Rules tab. validValues is deliberately EMPTY: the corpus states the list is repopulated by the Level selection ('As different levels are chosen in Level, different field sets will populate the selections available in Payment Request and Purchase Order') and NEVER enumerates the full catalog for any level. Only two conditional enumerations exist and both are recorded as valueSetCandidates: the Line Item – Receipt pair options, and the source-declared PARTIAL amount-based field list from amounts-and-tolerances ('Line Item Total, Quantity, Tax, Shipping, etc.' - the source itself writes 'etc.'). Field names seen in worked examples elsewhere (Unit Price, Remit Address, Shipping, Quantity, Custom field) are illustrative, not a documented list, and are NOT promoted to values. THE TWO DOCUMENTED CONDITIONAL ENUMERATIONS, spelled out so they cannot be lost again: (1) at the Line Item – Receipt level (EN DASH in the governing Level value there), configure-three-way-matching-c043e5c8.md says 'In the Level list, select Line Item – Receipt, and then, in the Payment Request and Purchase Order lists, select one of the following options:' and enumerates 'Line Quantity and Received Quantity (compares the quantity of the invoice line with the available quantity on the associated receipts)' and 'Receipt Associated and Receipt Associated (checks if the line item is associated with a purchase order line but does not have a receipt associated with it)'. These are PAIRS spanning both dropdowns, and the value set is contextField = Level. (2) the SOURCE-DECLARED PARTIAL amount-based list in amounts-and-tolerances-ab795b1f.md - 'Line Item Total, Quantity, Tax, Shipping, etc.' - where the 'etc.' is the source's own, so that set must stay flagged non-exhaustive and must never be promoted to validValues. validValues stays EMPTY: the full catalog is genuinely never published and is level- and provisioning-dependent by the corpus's own account.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "group_conditions_dialog",
+   "label": "Purchase Order Matching Rules Group Conditions",
+   "fieldType": "unknown",
+   "validValues": [],
+   "sourceQuote": "In Purchase Order Matching Rules Group Conditions, configure the conditions that the system will detect and then execute the matching rule set on",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md",
+   "notes": "REPAIRED (merge of the cross-lens twins group_conditions_dialog / ruleGroupConditions - one object, one record; ruleGroupConditions is listed in dropped). The name is kept in its '_dialog' form deliberately, because it encodes the containment the refuters required to survive the merge: this is a NESTED WINDOW of this page, not a surface on the rule-set list, and it has no independent click path from Administration. fieldType stays 'unknown' - the corpus never says whether it renders as a grid, a form or a window, though what an admin does there is populate condition rows. ONLY ATTESTATION of this dialog name in the corpus. It is where custom field conditions (e.g. vendor = 'Brooks') that make a Named Rules Group into a condition-based sub-rule are configured. No enumerated field/operator/value list is given - thin is correct here. Reached by: select rule set > Edit > select named rule group > Add. MERGED FROM THE TWIN: conditions are added with Insert and committed with Save; then select the new condition > Edit Rules > (build the rule) > Update > Save. Adding condition groups under a named group is what makes the set a 'Multiple Matching Rule Set'. Condition-based rules run as subsets of the parent rule, and if no condition is met the default rules run (refine-the-rules-include-condition-based-rules-in-a-rule-set-ad7b0d65.md). Tools-guides corroborates the concept: 'Match Rules are configurable, similar to Audit and Workflow rules and can include condition-based rule groups within the overall matching rule set.' HARD WARNING CARRIED FORWARD: the condition operand/field/value catalog is NOT documented for this dialog. Do NOT borrow the 288-bullet catalog from the-condition-page-5d4ea870.md - that is the AUDIT RULES Condition page, a different page already in the graph. Thin is the correct answer here.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "tolerance",
+   "label": "Tolerance",
+   "fieldType": "dropdown",
+   "validValues": [],
+   "sourceQuote": "(Optional depending on field choice) Determine what tolerance you will allow when the rule is triggered using options under Tolerance.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "REPAIRED. The crosscut variant populated validValues with ONE side of a contradiction the build forbids reconciling (['None','Within (+/-)','Custom','Currency'] - step-3's reading only). validValues is now EMPTY and BOTH readings are recorded with their own verbatim quotes. The Tolerance section of the Rules tab. validValues is deliberately EMPTY because the corpus gives TWO IRRECONCILABLE LISTS for this one control - four options here (None / Within (+/-) / Custom / Currency) and three in configure-three-way-matching (None / Within / Custom). Both are emitted in full as separate valueSetCandidates and the disagreement is recorded as a contradiction; picking one would be reconciling. Note the spelling difference on the second option ('Within (+/-)' vs 'Within') as well as the presence or absence of Currency. The corpus also marks the whole section conditional - 'Optional depending on field choice' - so a driver must not assume Tolerance is present for every field pair. READING A (four options) - step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md: 'Choose one tolerance:' followed by None / 'Within (+/-)' / Custom / Currency. READING B (three options) - configure-three-way-matching-c043e5c8.md: 'If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.' - three options, 'Within' with no (+/-) suffix, and no Currency; that topic treats Currency as no tolerance option at all. Both quotes grep-verified. A merged record showing only the four-value list would send a driver hunting for a Currency option that one documented reading does not have. fieldType: the corpus never states whether the choice renders as a dropdown or a radio group; 'dropdown' here is inherited from the tables lens and is NOT attested - treat it as unknown.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "matching_rule_type",
+   "label": "Matching rule type",
+   "fieldType": "unknown",
+   "validValues": [
+    "Life to Date",
+    "Rules"
+   ],
+   "sourceQuote": "There are two matching rule types that you can include in the overall rule set and associate with the policy:",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md",
+   "notes": "REPAIRED AND DEMOTED - READ THIS BEFORE DRIVING ANYTHING FROM IT. This is a TAXONOMY, not an attested control: no on-screen label and no selector is documented for the pair, and its two members are the two tabs already modelled on this page as rules_tab and life_to_date_tab. The original record's synthetic slash label 'Life to Date / Rules' and fieldType 'table' are both removed; the label written here is descriptive, not a UI string, and fieldType is 'unknown'. A driver must NOT look for a third control - it should read this as the enumeration that decides which tab a given rule belongs on, and act on rules_tab / life_to_date_tab. The two definitions exist nowhere else and are the reason this record was repaired rather than deleted: 'Life to Date: This rule set is a one-to-many comparison between all associated invoices and the PO.' and 'Rules: This rule set includes a one-to-one comparison between the current invoice and the PO.' The two rule types are also the two tabs of the rule-group editor. CORPUS DEFECT - the cited file is TRUNCATED: its body terminates on a bare line containing only 'x' (the only file corpus-wide that does), so content was dropped in the 2026-08-29 crawl and this enumeration must not be treated as complete or exhaustive. The two names are intact before the cut: 'Life to Date' is a one-to-many comparison across all invoices sharing a PO number; 'Rules' is a one-to-one comparison between the current invoice and the PO. No on-screen label is documented for the pair as a control - the label given here is the two tab names as the corpus writes them.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "match_status",
+   "label": "Match Status",
+   "fieldType": "unknown",
+   "validValues": [
+    "Matched",
+    "Does Not Match",
+    "Waiting for PO",
+    "Pending Match",
+    "Missing PO Number",
+    "No Match Required"
+   ],
+   "sourceQuote": "Match Status displays on the My Invoices, Approve Invoice, Assign Invoice, and Processor List pages. The table below shows all possible Match Status types.",
+   "sourceFile": "concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md",
+   "notes": "REPAIRED, AND THE REPAIR IS A WARNING: MATCH STATUS IS NOT RENDERED OR SETTABLE ON THIS PAGE. It is a read-only runtime attribute of an invoice - 'Match Status is an attribute of an invoice' - and the cited file states where it actually appears: 'Match Status displays on the My Invoices, Approve Invoice, Assign Invoice, and Processor List pages.' None of those is an admin configuration page, and no topic anywhere documents a control that SETS it; it is computed from PO association plus exceptions. fieldType was 'table' (which asserted a list column ON this page) and is corrected to 'unknown'; the better-scoped quote from the dropped cross-lens twin matchStatusOutcome was adopted because it carries the placement statement in the quote itself. IT IS RETAINED HERE, RATHER THAN DELETED, SOLELY AS THE OUTCOME VOCABULARY PRODUCED BY THE RULE SETS CONFIGURED ON THIS PAGE - both refuters agreed the 6-value catalog must survive attached to this page node, and the roster shape has no other slot for a page-level enumeration. Treat it as an observed-effect enumeration, not a configField. AMBIGUOUS BY DESIGN AND FLAGGED AS SUCH: Match Status is a READ-ONLY RUNTIME ATTRIBUTE of an invoice, not an admin-settable configuration field, and it displays on end-user surfaces ('Match Status displays on the My Invoices, Approve Invoice, Assign Invoice, and Processor List pages'). It is emitted here rather than dropped because it is the exhaustive outcome catalog of the rules configured on this page - a config writer cannot reason about a rule set without it - and because the corpus publishes it as a closed list ('all possible Match Status types'). All six rows are enumerated, with their cause descriptions, in valueSetCandidates. This 6-row table lives ONLY in the 2528-byte tools-guides topic; its 2078-byte sibling match-rules-and-match-status-8cc2c56b.md does NOT carry it. The status is written to the Audit Trail whenever it changes. Note the existing graph already carries 'PO Match Status' as a VALUE inside vset.g2ar.field-value.request on the Audit Rules page - that is a different node and this record must not be merged with it.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  },
+  {
+   "name": "rulesGrid",
+   "label": "Rules (rule rows)",
+   "fieldType": "table",
+   "validValues": [],
+   "sourceQuote": "Then, as each rule is added using the Add button, they will appear at the bottom of the Rules window in rows.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+   "notes": "REPAIRED - INTRA-PAGE LABEL COLLISION FIXED. This record's label was 'Rules', identical to rules_tab's label, leaving two different objects with one label on one page: the TAB you click, and the ROW GRID at the bottom of the 'Purchase Order Matching Rule Group rules window' where added rules land. The label is disambiguated to 'Rules (rule rows)'; the parenthetical is descriptive, not a UI string. The quote proves the two are different objects: rules 'will appear at the bottom of the Rules window in rows'. CONTAINMENT: it lives inside the rules window opened by Edit Rules, it is populated by add_button, and existing rows are edited in place or removed there via delete_button. The Rules tab grid. Existing default rules can be edited in place or removed: 'You can either change a default rule by selecting and updating, or delete the rule by selecting and clicking Delete. Be sure to clear the default rule set if you do not intend to use them.' The shipped default rule set is documented by example as Unit Price and Remit Address. Multiple rules may target the same field (e.g. Shipping by both amount and percentage). The shipped-default example (Unit Price and Remit Address) is an EXAMPLE in the corpus, not a documented default roster - it is illustrative and must not be promoted to values.",
+   "fromRawHtmlTable": false,
+   "uiVariant": "undifferentiated"
+  }
+ ],
+ "dropped": [
+  {
+   "name": "life_to_date_rule_type_checkboxes",
+   "reason": "Both refuters: intra-page duplication of the one Life to Date checkbox table; its quote is a strict substring of the survivor's full sentence and its name embeds the widget type. All six values and descriptions survive on the winner.",
+   "duplicateOf": "life_to_date_rule_selection"
+  },
+  {
+   "name": "tolerance_field",
+   "reason": "Both refuters: same Tolerance section on the Rules tab, same file. Its quote ('Choose one tolerance:') is a bare lead-in that does not name the control; the survivor's quote names it and preserves the conditionality '(Optional depending on field choice)'. Its correct contradiction handling (both value lists kept separate) was merged into the survivor.",
+   "duplicateOf": "tolerance"
+  },
+  {
+   "name": "overage_tolerance_section",
+   "reason": "Both refuters: byte-identical quote and file as the survivor, differing only by a '_section' suffix. 'Overage Tolerance' has exactly one attestation corpus-wide, so there is one control here, not a section plus a control.",
+   "duplicateOf": "overage_tolerance"
+  },
+  {
+   "name": "exception_message_field",
+   "reason": "Both refuters: same control, file and quote as the survivor, which additionally carries the cross-directory corroboration from tools-guides/171867ad. The fifth-dialog sequence (Change > New/Edit > Save) is preserved on the survivor and on change_button / new_button.",
+   "duplicateOf": "exception_message"
+  },
+  {
+   "name": "allow_submit_approve_checkbox",
+   "reason": "Both refuters: identical quote and file as the survivor, which is better evidenced (Options section of the Rules tab per refine-the-rules-...-9b96d467.md, tools-guides corroboration, and documented on the Life to Date tab too).",
+   "duplicateOf": "allow_submit_approve"
+  },
+  {
+   "name": "purchase_order_field_select",
+   "reason": "Both refuters: literal duplicate of the survivor - same file, same label, byte-identical quote - differing only by a '_select' widget suffix.",
+   "duplicateOf": "purchase_order_field"
+  },
+  {
+   "name": "confirmation_type_field",
+   "reason": "Both refuters: same control and four values as the survivor, but its label 'Select Confirmation Type' is the WINDOW TITLE, not the field label (hard-won rule 7). The survivor uses the attested label and cites the numbered four-type catalog directly. The step-5 INVC/RIND/RCEN codes and default message text live in the extraction's value sets and are referenced on the survivor.",
+   "duplicateOf": "confirmation_type"
+  },
+  {
+   "name": "ruleLevel",
+   "reason": "Both refuters: third name for the Level list, and the weakest record - its quote enumerates only THREE levels while its validValues carry FOUR, so the fourth value is unsupported by its own cited file (grep -i 'receipt' on match-rules-and-match-status-8cc2c56b.md returns zero lines). The partial-list disagreement is preserved as READING C on the survivor.",
+   "duplicateOf": "level_field"
+  },
+  {
+   "name": "toleranceCurrency",
+   "reason": "Both refuters: identical file and quote as the survivor. The name commits to one contested half of the tolerance contradiction (Currency as a fourth tolerance option), which would reconcile a live contradiction inside a field name. Its Life-to-Date pairing note and off-page exchange-rate warning were merged into the survivor.",
+   "duplicateOf": "currency_field"
+  },
+  {
+   "name": "lifeToDateRuleType",
+   "reason": "Both refuters: third name for the same six-row catalog, and its label 'Life to Date' collides intra-page with life_to_date_tab. The survivor's label 'Selection' is the attested table column header.",
+   "duplicateOf": "life_to_date_rule_selection"
+  },
+  {
+   "name": "matchAgainstReceivedQuantity",
+   "reason": "Both refuters: promotes a VALUE to a FIELD - it is row 5 of the six-row Life to Date table, and the record's own notes concede 'Not a second control: do not count it twice against the Life to Date catalog.' Its distinguishing facts survive elsewhere: Overage Tolerance appears only after this option is selected (on overage_tolerance), and the same-file label drift 'Matched against Received Quantity' (configure-three-way L27) vs 'Match against Received Quantity' (L60) is recorded as a contradiction.",
+   "duplicateOf": "life_to_date_rule_selection"
+  },
+  {
+   "name": "editConfirmation",
+   "reason": "Both refuters: identical file and quote as the survivor; cross-lens naming duplicate. Its extra scope facts (Rule Set vs rule-condition assignment with 'Parent choice' inheritance, Spend Category / Capital Expense Status / Amount Threshold drivers, the Localization boundary, and the constraint that received quantity must arrive from the ERP via Receipt Import because 'There is no interface available to directly enter quantities in Concur Invoice.') were merged forward.",
+   "duplicateOf": "edit_confirmation_button"
+  },
+  {
+   "name": "addRule",
+   "reason": "Both refuters: identical file and quote as the survivor. The survivor's generic name is also safer because Add demonstrably appears at three levels on this page, all three enumerated in its notes.",
+   "duplicateOf": "add_button"
+  },
+  {
+   "name": "matchStatusOutcome",
+   "reason": "Both refuters: same read-only attribute, file and six values as match_status; keeping both would put the same non-control on this page twice. Its better-scoped quote and its fieldType 'unknown' were adopted into the surviving repaired record.",
+   "duplicateOf": "match_status",
+   "correctPage": "My Invoices / Approve Invoice / Assign Invoice / Processor List (end-user and processor list surfaces) - not an admin configuration page"
+  },
+  {
+   "name": "unlockRuleSet",
+   "reason": "Both refuters: dropped twice over - same file and quote as change_to_non_po_action, and the control is on My Invoices, not this page ('NOT A CONTROL ON THIS PAGE' in its own notes). Its finding is preserved: it is the tie-breaking third attestation making the label 'Change to Non-PO' 2:1 over 'Change to Non PO Invoice', and the whole unlock sequence is re-filed as an outbound prerequisite in the notes on in_use.",
+   "duplicateOf": "change_to_non_po_action",
+   "correctPage": "My Invoices (invoice list, Actions menu) - an end-user/processor surface outside the Invoice admin configuration graph"
+  },
+  {
+   "name": "ruleSetCopy",
+   "reason": "Both refuters: same file, button and step as copy_button; survivor chosen for naming consistency with its five sibling button records. AS BOTH REFUTERS DIRECTED, its fuller verbatim quote ('In Purchase Order Matching Rules, select an existing rule set under Rule Set Name, and then click Copy.') was adopted as copy_button's sourceQuote, along with its full sequence note.",
+   "duplicateOf": "copy_button"
+  },
+  {
+   "name": "name_field",
+   "reason": "REPAIR-BUCKET INPUT RESOLVED BY MERGE - the two refuters split on which of the two identical records survives (refuter 1 kept named_rules_group_name; refuter 2 kept name_field and asked for a rename to matching_rule_name, which the roster contract does not permit since only input names may be emitted). One control, one record: named_rules_group_name survives, carrying refuter 2's substantive repair verbatim - the group reading is now recorded as INFERRED and the corpus ambiguity ('the new rule' vs 'this named rules group') is stated rather than settled. Nothing is lost.",
+   "duplicateOf": "named_rules_group_name"
+  },
+  {
+   "name": "toleranceBasis",
+   "reason": "REPAIR-BUCKET INPUT RESOLVED BY MERGE - the refuters split on which of the two identical Value/Percentage records survives. One control, one record: value_percentage_radio survives AND adopts this record's fuller, grep-verified quote, which is the one that locates the control 'in the Tolerance section' and so distinguishes it from the Value/Percentage pair inside Overage Tolerance. This record's extra evidence (amounts-and-tolerances corroboration, zero as a legitimate tolerance value) was merged forward.",
+   "duplicateOf": "value_percentage_radio"
+  },
+  {
+   "name": "level",
+   "reason": "REPAIR-BUCKET INPUT RESOLVED BY MERGE - the refuters split on which of the identical Level records survives. One control, one record: level_field survives, because the page-scoped identifier avoids needless reuse of the bare name 'level' against the existing page.accounting-administration field labelled 'Level' (segment_level). EVERY WORD OF THIS RECORD'S ANALYSIS WAS MERGED FORWARD - all four corpus enumerations, the provisioning hypothesis, and the three dash spellings.",
+   "duplicateOf": "level_field"
+  },
+  {
+   "name": "ruleGroupConditions",
+   "reason": "REPAIR-BUCKET INPUT RESOLVED BY MERGE - the refuters split on which of the identical Group Conditions records survives. One object, one record: group_conditions_dialog survives, because its name encodes the nested-window containment refuter 2 explicitly required to survive, and its full reach path, Insert/Save ownership, Multiple Matching Rule Sets definition and the do-not-borrow-Audit-Rules warning were all merged forward.",
+   "duplicateOf": "group_conditions_dialog"
+  },
+  {
+   "name": "default_rule_group_select",
+   "reason": "NOT A CONTROL - both refuters converge (refuter 1: drop; refuter 2: repair by re-modelling it as a value of rule_groups_list, which is the same outcome in a roster whose only slot is 'fields'). 'Select Default, then click Edit Rules (this named rules group is the basis for your new rules group)' is an operation of the Rule Groups list; there is no documented 'Default' widget, and emitting it as a field would promote a value to a field. All of it - Default as the shipped pre-seeded group, the corroboration 'A Default rule set is provided', and the UNRESOLVED ambiguity that 'Default' names both a named rules group and a rule set - is carried in the notes on rule_groups_list.",
+   "duplicateOf": "rule_groups_list"
+  },
+  {
+   "name": "change_to_non_po_action",
+   "reason": "WRONG PAGE. The only topic documenting the control places it elsewhere: 'In the My Invoices page, select one or more PO-based invoices to be changed.' then 'In the Actions menu, click Change to Non-PO.' (tools-guides/change-a-po-based-invoice-policy-to-a-non-po-based-invoice-policy-12786d77.md). The two admin topics that mention it say only 'the Actions menu' and never place it on this page; the record's own notes concede 'NOT a control physically on the Purchase Order Matching Rules page itself'. Refuter 2 dropped it on page ownership; refuter 1's repair offered 're-file as a dependency/prerequisite node' as the corrected record, which is what has been done - as a field of this page it would send a Chromium driver hunting for a button that is not there. IT IS NOT LOST: the full unlock sequence (My Invoices > select PO-based invoice(s) > Actions > Change to Non-PO > Select a Policy > OK, plus possible reassignment via Assign) and the 2:1 label contradiction ('Change to Non-PO' x2 vs 'Change to Non PO Invoice' x1) are recorded as an outbound prerequisite dependency in the notes on in_use.",
+   "correctPage": "My Invoices (invoice list, Actions menu) - an end-user/processor surface outside the Invoice admin configuration graph"
+  },
+  {
+   "name": "ruleSetActionButtons",
+   "reason": "MALFORMED BUNDLE - both refuters converge (refuter 1: repair by dissolving it into the existing per-button fields; refuter 2: drop). One record labelled 'Add / Edit / Copy / Delete / Rename / Edit Confirmation' is six controls behind a synthetic string that appears nowhere in the corpus, and all six already exist as properly-labelled records on this page (add_button, edit_button, copy_button, delete_button, rename_button, edit_confirmation_button). A driver cannot click a roster. ITS ADDITIVE EVIDENCE WAS MERGED FORWARD onto those buttons: match-rules-and-rule-sets-87e69410.md is the only topic documenting these buttons operating on RULE CONDITIONS as well as rule sets ('Select an existing rule condition (for example, \"Services Under $5000\"), and then select Edit, Copy, Delete, or Rename to perform those functions'), plus the 'Parent choice' inheritance note and the scoping caveat 'These instructions cover the new receipt related functions only.' Its correct negative finding also survives on copy_button: NO New/Create button for a rule set is documented anywhere in the corpus.",
+   "duplicateOf": "copy_button"
+  }
+ ],
+ "splitsProposed": [
+  {
+   "fromField": "save_button",
+   "intoFields": [
+    "save (rule-set / rules window)",
+    "save (Exception Message editor)",
+    "save (Group Conditions dialog)"
+   ],
+   "why": "The documentation shows Save committing three different scopes: the rules window at the end of a rule ('9.  Click Save.', step-3 step 9 and configure-three-way step 11); the Exception Message editor ('...edit an existing message by selecting it and clicking Edit, then click Save.'); and the Group Conditions sequence ('Click Insert to add any addition conditions, and then click Save when you are done.', step-4). NOT SPLIT, per the roster contract: the corpus never gives them distinguishing labels, so splitting would assert three controls SAP does not name separately, and records created during Repair never face the adversarial refuter. Emitted as one record whose notes enumerate all three contexts.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md"
+  },
+  {
+   "fromField": "add_button",
+   "intoFields": [
+    "add (insert a rule into the Rules rows)",
+    "add (add a condition-based rule group under a named rules group)",
+    "add (add a rule condition under a Rule Set)"
+   ],
+   "why": "Add is documented at three different depths of this page: 'Click Add to insert this rule into the rows under Rules.' (step-3); 'Select the named rule group within which the condition-based rule set will be included, then click Add.' (step-4, which opens the Group Conditions dialog); and 'Add a new rule condition by selecting the Rule Set (for example \"Default\"), and then selecting Add' (match-rules-and-rule-sets-87e69410.md). NOT SPLIT: one attested label, three contexts, all enumerated in the single record's notes so a driver knows the label is level-dependent.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md"
+  },
+  {
+   "fromField": "matching_rule_type",
+   "intoFields": [
+    "rules_tab",
+    "life_to_date_tab"
+   ],
+   "why": "'There are two matching rule types that you can include in the overall rule set and associate with the policy:' is a taxonomy whose two members ARE the two tabs, which already exist as their own records. The honest resolution is not a split into new controls but a demotion: the record is kept as a concept enumeration (fieldType 'unknown', no slash label) wired to the two existing tab records. Reported here so the human can decide whether the graph should carry it as a concept node instead of a field. Note the source file is TRUNCATED (its body ends on a bare 'x'), so the enumeration cannot be treated as complete.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md"
+  },
+  {
+   "fromField": "exception_message",
+   "intoFields": [
+    "exception_message (the option on the tab)",
+    "change_button",
+    "new_button",
+    "edit (inside the Exception Message editor)",
+    "save (inside the Exception Message editor)"
+   ],
+   "why": "One sentence documents a whole nested editor: 'Exception Message: Click Change and add a message by clicking New, or edit an existing message by selecting it and clicking Edit, then click Save.' Change and New already exist as their own records and Save is consolidated; the editor's EDIT control is attested in the same sentence but no lens emitted it, so there is no record for modifying an existing exception message. NOT CREATED HERE - a record invented during Repair would never face the adversarial refuter. Reported as a genuine coverage gap for the human to commission.",
+   "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+  }
+ ],
+ "verifyNotes": "ASSEMBLED PROGRAMMATICALLY FROM THE THREE EXTRACTION FILES (python3, no retyping); only the nine repaired records were hand-authored, and every sourceQuote in the roster - carried or hand-authored - was re-verified mechanically against ROOT/<sourceFile> with a str.count containment check equivalent to grep -F -c. RESULT: 35/35 quotes verbatim, 0 failures; 35/35 sourceFile paths carry the correct '<guide-dir>/<filename>.md' shape (none repeats the CONCUR_INVOICE/ prefix defect); fromRawHtmlTable is false on all 35 and correct (grep -c '<table' = 0 on every cited file). No duplicate name and no duplicate LABEL survives on this page. COUNTS: 42 inputs (26 keep + 16 repair) -> 35 records out. 26 keeps carried through; 9 repairs emitted; 7 repair-bucket inputs moved to dropped (4 of them because the two refuters split on which of a pair of identical records survives, so the pair was merged into one; 3 because both refuters agreed the item is not a field of this page). NOTHING WAS SPLIT: 0 records were created during repair, per the hard constraint - four genuine split candidates are reported in splitsProposed instead. THE TWO REFUTERS DISAGREED FIVE TIMES AND EACH DISAGREEMENT WAS RESOLVED BY MERGE, NOT BY PICKING A WINNER'S RECORD WHOLE. name_field vs named_rules_group_name: named_rules_group_name survives (refuter 2's rename to matching_rule_name is not permissible - only input names may be emitted) but carries refuter 2's SUBSTANTIVE repair, so the 'named rules group' reading is now stated as INFERRED and the corpus ambiguity ('a descriptive name for the new rule' vs 'this named rules group') is recorded rather than settled. value_percentage_radio vs toleranceBasis: value_percentage_radio survives AND adopts toleranceBasis's fuller quote, the one that locates the control 'in the Tolerance section' and so distinguishes it from the Value/Percentage pair inside Overage Tolerance. level_field vs level: level_field survives (page-scoped identifier, avoids needless reuse against page.accounting-administration's 'Level'), carrying every word of level's four-enumeration analysis and the three dash spellings. group_conditions_dialog vs ruleGroupConditions: group_conditions_dialog survives because its name encodes the nested-window containment refuter 2 required to survive, with the twin's reach path, Insert/Save ownership and do-not-borrow-Audit-Rules warning merged in. change_to_non_po_action and match_status split the refuters on page ownership: change_to_non_po_action is DROPPED as a field (its only documenting topic opens 'In the My Invoices page...' - a field here would send a driver hunting for a button that is not there) with the full unlock sequence and the 2:1 label contradiction re-filed as an outbound prerequisite in the notes on in_use, exactly as refuter 1's corrected record specified; match_status is REPAIRED and KEPT because both refuters demanded its 6-value catalog stay attached to this page node and this roster shape has no page-level enumeration slot - it is emitted with fieldType corrected from 'table' to 'unknown', the better-scoped quote adopted, and its notes OPEN with the warning that it is not rendered or settable on this page. THAT IS THE ONE RECORD IN THIS ROSTER A HUMAN SHOULD LOOK AT: it is deliberately not a control. NO INVENTED VALUES ENTERED THE ROSTER. The single unsupported value the refuters found corpus-wide (ruleLevel's 'Line Item - Receipt', absent from its cited tools-guides file, which contains no occurrence of 'receipt' at all) was dropped with that record. No No/Yes pair was completed: in_use enumerates Yes and No inside its one cited clause, and allow_submit_approve keeps validValues EMPTY on purpose because only the selected state is documented. tolerance was REPAIRED from a four-value list to validValues [] because populating it picked one side of the contradiction the brief forbids reconciling; both readings are now recorded with their own verbatim quotes (step-3: 'Choose one tolerance:' -> None / Within (+/-) / Custom / Currency; configure-three-way L31: 'If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.'). LONG CATALOGS - NOTHING SAMPLED OR TRUNCATED. Life to Date selection: 6 rows in source (the indented-table trap holds - grep -c '^| ' = 0, grep -cP '^\\s*\\|' = 22), 6 in the record with all six descriptions. Match Status: 6 values, all present. Confirmation types: 4 from the numbered prose catalog, with step-5's 3-row INVC/RIND/RCEN table correctly explained as excluding None rather than treated as a contradiction. Level: all four corpus enumerations preserved as a recorded contradiction. UI VARIANT 'both' IS EARNED, RE-VERIFIED IN THIS PASS, NOT INHERITED: I diffed the twins myself. Distinct loios (8b357dbb70891014bbdd65f9448c9095 vs 6c8fb80f969d446d88d994c0ed3444cb) on the same deliverable_loio, so this is a genuine variant pair and not a gerund/imperative republish; bodies are identical through line 36 except the '(New Experience)' title, and the New Experience file then appends material that already exists standalone (test-and-change-match-rule-sets, activate-exchange-rates). It contributes NO unique control, so no control is double-counted across the twins and every field record stays uiVariant 'undifferentiated'. Its only unique wording is the minority unlock label 'Change to Non PO Invoice option in the Actions menu', recorded as a 2:1 contradiction on in_use rather than reconciled. CONTRADICTIONS PRESERVED, NOT RECONCILED, in the records that carry them: tolerance 4-vs-3; tab depth (step-3 places the Rules tab one level up with no Edit Rules step, step-2 and configure-three-way place both tabs two levels down - majority tree is two levels down and a driver must probe both, recorded on edit_rules_button, rules_tab and life_to_date_tab); the three dash spellings of 'Line Item - Receipt'; the same-file label drift 'Matched against Received Quantity' (configure-three-way L27) vs 'Match against Received Quantity' (L60); the unlock label 2:1; Overage Tolerance's two options versus step-2's unlabelled three-option refinement on the same Life to Date tab. CORPUS DEFECT FLAGGED ON EVERYTHING TAKEN FROM IT: create-purchase-order-matching-rules-adb700f9.md is TRUNCATED (its body ends on a bare line containing only 'x', the only file corpus-wide that does), so matching_rule_type carries an explicit incompleteness warning and rule_groups_list flags the 'A Default rule set is provided' corroboration as coming from that file. COVERAGE GAPS REPORTED, NOT FABRICATED. (1) The Exception Message editor's EDIT control is attested in the same sentence as Change, New and Save but no lens emitted it, so a driver told to modify an EXISTING exception message has no record to drive - recorded on new_button and in splitsProposed. (2) The alternate open path 'Double-click the rule you want to use' is now recorded on edit_button; it is the only non-Edit-button way documented to open a rule set. (3) Rename commits with a KEYSTROKE ('pressing Enter when you are done'), not a button - now called out on rename_button. Neither refuter fabricated records for these and neither did I. OUTBOUND DEPENDENCIES LEFT OUTBOUND, NONE RE-HOMED: PO Matching Ruleset -> Policies (built); Delivery Slip Number and Purchase Order Number -> Forms and Fields (built); Is Purchase Order line Associated / Is Receipt Associated -> Audit Rules (built); 'Allow system to associate invoice lines to Purchase Order lines based on data attributes' -> Invoice Settings (built); receipt confirmation instructional text -> Localization (NOT built - this dependency legitimately stays unresolved); exchange rates -> Expense Admin module (outside Invoice entirely); Is Receipt Required -> set via PO Import, and it is the hard gate ('Unless the Receipt Required field is set to Yes, no receipt confirmation logic configured in Concur Invoice will be evaluated for that line.') carried in the notes on confirmation_type. VALUE SETS AND DEPENDENCIES ARE NOT IN THIS ROSTER'S SHAPE and must be taken from the three extraction files at merge time; the records here name the ones that must ride with them - notably the Line Item – Receipt pair set (contextField Level, EN DASH in the governing value) and the source-declared-partial amount-based set ('Line Item Total, Quantity, Tax, Shipping, etc.' - the 'etc.' is SAP's own) on payment_request_field, the two tolerance readings, the six Life to Date rows with descriptions, the six Match Status rows with cause descriptions, and step-5's INVC / RIND / RCEN codes with default message text on confirmation_type. NAVIGATION, unchanged from the map phase and not re-litigated: Administration > Invoice > Purchase Order Matching Rules, the only PO label in the corpus ever written with '(left menu)'; the middle nav node 'Invoice Processing Admin' is UNATTESTED for this page though documented for ~20 siblings on the same menu, so a driver must be prepared to try both. COVERAGE 'good' is my honest judgement, not inherited: 14 distinct corpus files carry a field-level sourceQuote and control-level documentation is dense and multi-topic (three enumerated list columns, a 6-row Life to Date table, a 4-value Level list, two tolerance lists, a 4-value confirmation-type catalog, Value/Percentage refinements, thirteen distinct buttons across five nested windows). The remaining must-read files are behavioural and conceptual rather than control-level and are consumed as corroboration, contradictions, dependencies and value sets - thin field yield from a rich prose topic is the right answer, not a miss. MUST-READ SKIPPED: none skipped for this lens; the page-level refuter findings confirm all 50 were consumed by at least one of the three lenses plus the two refutation passes, and I read the two New Experience/legacy twins directly in this pass to re-earn the uiVariant claim.",
+ "cleanCount": 26,
+ "repairedCount": 9
+}

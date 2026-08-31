@@ -1,0 +1,812 @@
+{
+  "summary": "Concur Invoice KG - Group 3: Purchase Order Matching Rules, Purchase Order Configuration",
+  "agentCount": 20,
+  "logs": [
+    "Group 3 - mapping 2 pages: Purchase Order Matching Rules, Purchase Order Configuration",
+    "Purchase Order Matching Rules: basis=rich, mustRead=50 files, rawTables=16",
+    "Purchase Order Configuration: basis=moderate, mustRead=5 files, rawTables=2",
+    "Purchase Order Configuration: 21 candidate controls from 3 lenses -> 2 refuters",
+    "Purchase Order Matching Rules: 58 candidate controls from 3 lenses -> 2 refuters",
+    "Purchase Order Configuration: dispositions -> keep 7 | repair 13 | drop 1",
+    "Purchase Order Matching Rules: dispositions -> keep 26 | repair 16 | drop 16",
+    "Purchase Order Matching Rules: roster 35 fields, 23 dropped, 9 repaired, coverage good",
+    "Purchase Order Configuration: roster 16 fields, 5 dropped, 9 repaired, coverage partial",
+    "Synthesis: valueSets=16 dependencies=40 steps=12 contradictions=6",
+    "Critic input: 51 fields across 2 pages; 19 must-read files never cited"
+  ],
+  "result": {
+    "group": "Group 3 — PO Matching",
+    "corpusVersion": "2026_08",
+    "partsDir": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts",
+    "files": {
+      "mapNavigationMd": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/map-navigation.md",
+      "mapInventoryMd": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/map-inventory.md",
+      "rosters": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/roster-purchase-order-matching-rules.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/roster-purchase-order-configuration.json"
+      ],
+      "extracts": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-matching-rules-procedure.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-matching-rules-tables.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-matching-rules-crosscut.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-configuration-procedure.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-configuration-tables.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-configuration-crosscut.json"
+      ],
+      "valueSets": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-valuesets.json",
+      "dependencies": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-dependencies.json",
+      "steps": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-steps.json",
+      "contradictions": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-contradictions.json",
+      "ranges": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-ranges.json",
+      "criticCompleteness": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/critic-completeness.md",
+      "criticCorrectness": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/critic-correctness.md"
+    },
+    "pages": [
+      {
+        "page": "Purchase Order Matching Rules",
+        "documentedBasis": "rich",
+        "coverage": "good",
+        "uiVariant": "both",
+        "fields": 35,
+        "dropped": 23,
+        "repaired": 9,
+        "splitsProposed": 4,
+        "mustReadNeverCited": [
+          "concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-8b357dbb.md",
+          "concur-invoice-professional-edition-admin-guides/edit-purchase-order-matching-rules-604d1e31.md",
+          "concur-invoice-professional-edition-admin-guides/copy-purchase-order-matching-rules-c6d4106a.md",
+          "concur-invoice-professional-edition-admin-guides/refine-the-rules-allow-submission-despite-tolerance-9b96d467.md",
+          "concur-invoice-professional-edition-admin-guides/refine-the-rules-include-an-exception-message-c174b2b6.md",
+          "concur-invoice-professional-edition-admin-guides/refine-the-rules-include-condition-based-rules-in-a-rule-set-ad7b0d65.md",
+          "concur-invoice-professional-edition-admin-guides/refine-the-rules-combine-the-life-to-date-and-rules-rule-types-2b46973f.md",
+          "concur-invoice-professional-edition-admin-guides/receipt-central-confirmation-type-a30f804b.md",
+          "concur-invoice-professional-edition-admin-guides/receipt-individual-confirmation-type-56fd62f1.md",
+          "concur-invoice-professional-edition-admin-guides/invoice-confirmation-type-3142509d.md",
+          "concur-invoice-professional-edition-admin-guides/how-receipt-confirmation-exceptions-appear-9d67250d.md",
+          "concur-invoice-professional-edition-admin-guides/match-rule-set-per-policy-8b14149d.md",
+          "concur-invoice-professional-edition-admin-guides/general-notes-ced8d7d0.md",
+          "concur-invoice-professional-edition-admin-guides/audit-trail-c1a37524.md",
+          "concur-invoice-professional-edition-admin-guides/before-you-begin-dc5d817c.md",
+          "concur-invoice-professional-edition-admin-guides/overview-8b37481c.md",
+          "concur-invoice-professional-edition-admin-guides/required-roles-ec6fae13.md",
+          "concur-invoice-professional-edition-admin-guides/best-practices-129dae61.md",
+          "concur-invoice-professional-edition-tools-guides/overview-8b4fd062.md"
+        ],
+        "lensHeadlines": [
+          "procedures-and-controls: Extracted 34 procedural controls, 4 value sets, 9 dependencies, and 8 contradiction nodes for the Purchase Order Matching Rules page (Lens A). All 66 sourceQuotes verified as true verbatim substrings via Python exact-match (not just grep -F, which has an OR-pattern loophole on embedded newlines that I caught and fixed on one quote). Key findings: the tolerance-value-list and tab-depth contradictions from the brief are both recorded as ConfigContradiction nodes with 2-3 independently grounded readings each; the \"Change to Non-PO\" unlock-action label drift got a third tie-breaking source (tools-guides/12786d77) beyond the two the brief named; and I surfaced two additional contradictions beyond the brief's list (a 3-vs-4-value Level partial-list disagreement, and a self-contradictory \"three rules... use both\" cardinality claim in exceptions-and-three-way-matching-rules-65d52687.md).",
+          "tables: The mechanical sweep's headline is a negative: grep -c '<table' returns ZERO on all 55 files read for this page, so fromRawHtmlTable is false everywhere as a verified fact rather than a default - and a whitespace-tolerant pipe census (grep -cP '^\\s*\\|') finds markdown tables in only SEVEN of the 55 files, of which just FOUR are settings tables. All four are extracted row-complete with nothing sampled: step-2's 6-row Life to Date table (the indented-table trap - 0 hits for '^| ', 22 for '^\\s*\\|'), step-5's 3-row Confirmation Type table carrying the codes INVC/RIND/RCEN found nowhere else in the corpus, the tools-guides 6x4 Concur Receiving roles matrix, and the tools-guides 6-row Match Status catalog; the other three pipe tables are revision histories with zero configuration content and are skipped as metadata. compressedRanges is empty and that is the honest answer - I searched for Custom nn-nn, Org Unit n-n and any numeric/en-dash range form and this page compresses nothing, so there is no range node to make.",
+          "C: 24 fields, 8 value sets, 13 dependencies and 8 contradictions, all 64 quotes grep -F verified, with 10 of 26 cited files (38%) from tools-guides against the 23-of-337 baseline this lens exists to correct. The brief's claim (5) is contradicted by the corpus: the New Experience twin contributes no unique procedure at all — its unlock text is word-for-word the standalone admin topic's except for the control label (\"Change to Non PO Invoice\" vs \"Change to Non-PO\"), which a tools-guides procedure breaks 2:1 toward the hyphenated form, so I emitted that as a label-drift contradiction and left every field uiVariant \"undifferentiated\" rather than claim a fourth unearned \"both\". Both tolerance lists, both Level lists, both quantity-receipt-route counts and all three \"Line Item – Receipt\" dash spellings are recorded as contradictions with per-file quotes, and compressedRanges is honestly empty because nothing on this page is written in compressed form."
+        ]
+      },
+      {
+        "page": "Purchase Order Configuration",
+        "documentedBasis": "moderate",
+        "coverage": "partial",
+        "uiVariant": "undifferentiated",
+        "fields": 16,
+        "dropped": 5,
+        "repaired": 9,
+        "splitsProposed": 2,
+        "mustReadNeverCited": [],
+        "lensHeadlines": [
+          "procedures-and-controls: Extracted 14 controls from Purchase Order Configuration, all traced to the single load-bearing roster file (configure-purchase-orders-8128725e.md) plus four independently-attested and nine adjacency-only page bindings, exactly as the recon flagged. No numbered wizard procedure or Save/Cancel button exists anywhere in the corpus for this tool — every control is described declaratively in prose, so this lens is honestly thin: coverage is partial because the largest control (Fields to Appear on Purchase Orders) is unenumerated and most bindings rest on guide-section adjacency alone, not because any file was skipped. All 14 field quotes and 6 dependency quotes verified individually via grep -F -c (not just a random sample) — 100% pass.",
+          "tables: From the tables-and-catalogs lens this page is genuinely empty, and that is the finding: the mandatory sweep returns grep -c '<table' = 0 and indentation-tolerant grep -cP '^\\s*\\|' = 0 on all five must-read files, so fromRawHtmlTable is false on every record and exactly ONE value set exists on the entire surface (the .png/.jpg/.gif logo formats). The twelve \"named settings sections\" are prose headings, not an enumeration — the earlier longCatalogs:1 score is retracted by measurement. The real catch was a near-miss I refused to home: configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md line 122 holds a genuine raw-<table> copy-down source roster carrying two EN-DASH compressed ranges, \"Custom 1–24\" and \"Custom 1–20\", which the live graph's ten configCompressedRanges do NOT cover — it belongs to the already-built Forms and Fields page, not to \"Fields to Appear on Purchase Orders\", so it is flagged for a follow-up pass rather than mis-homed here.",
+          "crosscut: 15 fields, 9 dependencies, 1 contradiction, 0 value sets, 0 compressed ranges — all 26 quotes grep -F verified against their own files, JSON valid. The load-bearing finding is negative and structural: only FOUR of the twelve settings (Company Address, Supporting Documents, Company Branding Logo, Company Name Without Address) are bound to this page by name, and two of those four come from a revision-history table rather than body prose; every other field's note states it is ADJACENCY-ONLY. Tools-guides was exhausted first and holds exactly three files on this surface — preview-a-purchase-order (the only cross-directory nav path plus the immutable _DoNotReply suffix) and manage-images (the sole corroboration of Supporting Documents and the only statement anywhere that admin and user PO attachments accumulate rather than replace) — plus company-locations corroborating the bill-to email prerequisite; validValues is empty on all 15 because the corpus enumerates not one value, and \"Fields to Appear on Purchase Orders\" is left unenumerated on purpose."
+        ]
+      }
+    ],
+    "synthesis": {
+      "valueSets": {
+        "kind": "valueSets",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-valuesets.json",
+        "jsonValid": true,
+        "count": 16,
+        "unresolvedCount": 10,
+        "headline": "16 value sets (55 values) built for Group 3 — 15 on Purchase Order Matching Rules, 1 on Purchase Order Configuration — all quotes and all individual value strings mechanically verified verbatim (0 errors), all appliesToField/contextField names confirmed against the on-disk rosters. Four contradictions emitted as parallel sets rather than reconciled: tolerance (4 vs 3 options), level_field (four readings differing in count, order, case and dash character), overage_tolerance (step-2's Value AND Currency OR Percentage vs configure-three-way-matching's Value/Percentage), and confirmation_type (4-type definitional catalog vs 3-row table catalog, plus the INVC/RIND/RCEN codes attested exactly once corpus-wide). The corpus's only conditional field-pair enumeration — the Line Item – Receipt pairs — is wired to both payment_request_field and purchase_order_field with contextField level_field, pairs kept whole rather than split. Purchase Order Configuration is legitimately thin: .png/.jpg/.gif on company_branding_logo is the page's sole enumeration, and the tables-lens candidate's rule-7 defect (appliesToField was the UI label \"Company Branding Logo\") is repaired. validValuesAdditions is deliberately empty — every field left at [] is empty for a documented reason. 10 orphan candidates including three explicit rejections (the source-marked-partial amount-based field list, the \"such as\" confirmation-type drivers, and the Email Message Replacement Tokens table, which belongs to Email Reminders and must not be wired to the PO transmittal email fields whose tooltip token list SAP never publishes), plus the full 6x4 Concur Receiving roles matrix from tools-guides."
+      },
+      "dependencies": {
+        "kind": "dependencies",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-dependencies.json",
+        "jsonValid": true,
+        "count": 40,
+        "unresolvedCount": 10,
+        "headline": "40 Group 3 ConfigDependencies (23 depends_on / 11 precedes / 6 triggers; 31 anchored on Purchase Order Matching Rules, 9 on Purchase Order Configuration, 21 cross-page). All 40 quotes verified verbatim by grep -F -c against the cited file. THE ANCHOR EDGE RESOLVES: rule_set_name -> Policies/\"PO Matching Ruleset\" on \"You select a rule set using the PO Matching Ruleset option in Policies.\" Other resolved cross-group endpoints: Policies/\"Enable Concur Receiving\" -> life_to_date_rule_selection (Receiving must be activated on Policies before receipt data exists for three-way rules); Audit Rules/field_value -> rulesGrid (Is Purchase Order line Associated / Is Receipt Associated); Group Configurations/\"Group\" -> group_selector (page-wide scope precondition); Company Locations/emailAddress -> use_email_as_bill_to (exact existing node name). CONTRADICTION RECORDED NOT RECONCILED: two edges on the same level_field -> Forms and Fields/\"Delivery Slip Number\" pair - admin-guides says matching falls back to sequential receipt order when the DSN field is absent, tools-guides says that when a DSN is present but no GRN matches it, Concur Invoice does NOT revert to sequential and leaves the invoice unassociated. Both emitted, neither picked. 10 edges have an endpoint on a page not yet built or not an admin page at all: My Invoices/\"Change to Non-PO\" (x2, the only documented In Use unlock), Localization/\"Invoice Receipt Confirmations\", Purchase Order Import/\"Is Receipt Required\" (the hard gate on all receipt-confirmation logic), Expense: Currency Admin/\"Exchange Rates\", Purchase Order Receipt Import/\"Quantity Receipt file\", Invoice runtime state, and 3 to the processor-side Preview Purchase Order window. 4 further edges resolve at page level but name a field the built page does not model: Forms and Fields/\"Delivery Slip Number\" (x2) and /\"Use Email as Bill-To\" - Forms and Fields is modelled generically with no per-invoice-field nodes - and Invoice Settings/\"Allow system to associate invoice lines to Purchase Order lines based on data attributes\", which is a genuine COVERAGE GAP on the built Invoice Settings page worth a repair pass. THIN-IS-CORRECT FINDINGS: no Exceptions-page edge exists - match-rule exception messages are authored inside the rule dialog and the corpus never links them to Exceptions tool exception codes; no Image Handling edge exists - nothing states any shared file-type or upload-permission constraint between PO supporting documents and Image Handling; and no edge ties the PO Configuration Policy list to the Policies page, which the corpus never states. The Expense Types touchpoint is recorded only as its documented NEGATIVE (rule sets tie to policy attributes such as Region or Country, so rules cannot vary per expense type or account code) and is therefore carried on the Policies-targeted edge, not as an Expense Types edge. Every Group 3 field name is drawn from the two authoritative rosters (checked programmatically - zero illegal names). Text traps carried into condition text: \"clickingAdministration\" with no space, \"Polices\" misspelling in configure-concur-receiving, and the \"line time fields\" typo for \"line item fields\"."
+      },
+      "steps": {
+        "kind": "contradictions",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-contradictions.json",
+        "jsonValid": true,
+        "count": 12,
+        "unresolvedCount": 1,
+        "headline": "21 raw records deduped to 12 contradictions (9 on Purchase Order Matching Rules, 3 on Purchase Order Configuration); all 38 sourceQuotes verified verbatim, every non-empty appliesTo.field bound to a legal roster name, 1 node left unresolved on purpose (Quantity Receipt ingestion routes is an off-page precondition). Compressed ranges: all six extraction lenses reported zero; a direct sweep of the 80 cited files found only Custom 1–24 and Custom 1–20 in the PO copy-down source-field table, which is byte-identical across two loios and belongs to already-built pages, so 2 range nodes were emitted with empty appliesTo and neither Group 3 page has a compressed range of its own."
+      },
+      "contradictions": {
+        "kind": "steps",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-steps.json",
+        "jsonValid": true,
+        "count": 6,
+        "unresolvedCount": 0,
+        "headline": "6 grp3- ConfigSteps / 104 sequence entries written; 121 file-anchored quotes verified verbatim (0 misses), all page+field names validated against the two Group 3 rosters and the 18-page graph (0 misses). Spine is CORPUS-STATED: the PO Matching guide's own step-1..step-5 hand-offs (\"Continue to Step 2, Step 3, and Step 4...\", \"Proceed to Step 3...\") supply the ordering, plus role gates quoted for both pages. Steps: (1) rule set end-to-end Copy>Rename>Done > Life to Date > Rules > bind via PO Matching Ruleset on Policies; (2) three-way matching + receipt confirmation crossing Forms and Fields and Audit Rules; (3) condition-based rule group; (4) replace an In Use-locked rule set; (5) group-aware PO Configuration; (6) Use Email as Bill-To across Forms and Fields > Company Locations > PO Configuration. Nine contradictions carried inline unreconciled (tab depth, Tolerance 4-vs-3, Overage Tolerance 2-vs-3, Level enumerated four ways, three dash spellings of Line Item - Receipt, Match vs Matched, 3-vs-2 receipt import routes, \"all three\" vs \"both\", sender-prefix ownership). unresolvedCount=0 is a deliberate call: the Localization, PO Import Is Receipt Required, My Invoices Change to Non-PO and Invoice Settings line-identification legs are real but land on surfaces with no roster, so they are carried as flagged open legs inside rationales rather than as sequence entries with invented field names."
+      }
+    },
+    "critics": {
+      "completeness": {
+        "lens": "completeness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/critic-completeness.md",
+        "findingCount": 8,
+        "severeFindings": [
+          {
+            "title": "`Receipt Type` is absent from the entire deliverable AND the entire graph — the twin gate to `Receipt Required`, with four conflicting value vocabularies",
+            "detail": "`grep -c \"Receipt Type\" *.json` over all 13 Group 3 artifacts returns 0 in every file; `json.dumps(graph).count('Receipt Type')` = 0; `.count('Quantity Receipt')` = 0. The corpus documents it in 8 files. `concur-invoice-professional-edition-admin-guides/adding-receipt-type-field-to-the-purchase-request-header-form-ba26762e.md` was never opened by any lens (`grep -c ba26762e *.json` = 0 across all 13). It states the hard gate at L23 — \"For receipt matching rules to apply, the Receipt Type at the purchase order line item level needs to be Quantity Receipt.\" — a Forms and Fields dependency at L25 (\"The Receipt Type field needs to be added to the Purchase Request Header form\"), and a 2-value default rule at L29, corroborated cross-directory by tools-guides/concur-receiving-8b4f0098.md:33. This is structurally identical to is-receipt-required-value-on-po-line-item-896466e1.md, which the build DID capture and DID emit as a dependency. It also carries an unrecorded four-way contradiction: UI labels `Quantity Receipt`/`None` (2); numeric `0`/`1`/`2` at purchase-order-import-web-service-8b355806.md:25; header mnemonics `NONE`/`RCON`/`WQTY` at purchase-order-request-header-record-type-200-format-46f69dcc.md:597; line-item mnemonics `NONE`/`WQTY` only (RCON omitted) at purchase-order-line-item-record-type-300-format-11a7a2be.md:351. All quotes grep -F -c = 1. Fix: no field on either Group 3 page; emit two dependencies (→ Forms and Fields | Receipt Type, → Purchase Order Import | Receipt Type) plus one contradiction node with all four vocabularies."
+          },
+          {
+            "title": "Invoice Settings still carries 13 of 24 documented rows — and one of the 11 missing rows is the target of a dependency this run emits",
+            "detail": "`available-invoice-settings-8b3411f0.md` (admin-guides, 8368 B, mdtbl=101) is a 3-column Setting|Description|Default Status table. A row-opener scan gives 25 openers = 1 header + 24 data rows. Graph `page.invoice-settings` = 13 fields, all matching rows from this table. 24 − 13 = 11 missing: lines 40, 55, 68, 111, 124, 137, 150, 163, 176, 215, 228. Hard-won rule 6 records that an early refuter killed 11 of 24 rows of a canonical settings table — this is that table, and the kill was never reversed. Row 228 is `Allow system to associate Invoice lines to Purchase Order lines based on data attributes`, which is exactly the target of the Group 3 edge `Purchase Order Matching Rules | level_field → Invoice Settings | Allow system to associate invoice lines to Purchase Order lines based on data attributes`. `graph.count('associate invoice lines')` = 0 — the edge merges onto a phantom. Note the capitalisation trap: the canonical table writes `Invoice lines` (capital I), the Group 3 dependency writes `invoice lines`, so a naive join fails even after restoration. A 25th setting exists outside the table entirely: `Enable Change Order` at enable-the-po-change-order-feature-7dd5dcd4.md:25 (never read, graph count 0), so the 24-row table is itself incomplete."
+          },
+          {
+            "title": "`concur-receiving-roles-099f375f.md` — the admin-guides twin of the extracted roles matrix — was never opened, and the two twins materially disagree",
+            "detail": "Census signature identical to the tools file the build DID extract: bytes=2690, lines=151, rawtbl=0, mdtbl=36 (vs required-roles-ef2c2901.md mdtbl=36). Title `Concur Receiving Roles`, distinct loio 099f375f613145e5a31f4e5a34208257. Both carry the same 6 rows (admin lines 44/61/78/95/112/131, tools 48/65/82/99/116/135). A full body diff yields 15 hunks; 14 are punctuation, 1 is substantive: admin L90 \"Alternatively, the user must also have the Receipt User role.\" vs tools L94 \"Alternatively, the user can have the Receipt User role.\" — mandatory vs optional on a role prerequisite. A third reading breaks toward the tools form: tools-guides/concur-receiving-8b4f0098.md:27 \"...option in Invoice Settings or added the Receipt User role in User Permissions\". All three grep -F -c = 1. The admin twin also LACKS the sentence \"Only the Invoice Configuration administrator can access and configure the Purchase Order Matching Rules feature.\" that the tools twin carries, so the role gate has three attestations, not two. Emit a contradiction with three readings; do not pick."
+          },
+          {
+            "title": "A real raw-<table> catalog was dismissed as \"a pencils example\" on <tr> count alone — 21 entries + 2 EN-DASH ranges, duplicated across two files and missed in both",
+            "detail": "The map's headline §0.1 declared \"Not one of them is a field/value source... a pencils example... Measured, not eyeballed\" for configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md on the strength of grep -c '<table'=5 / grep -c '<tr'=5. Tables 1–4 (lines 43/47/54/58) genuinely are the pencils example. Table 5 (line 65) is a Copy Down Source catalog that packs its entire payload into ONE <tr> as 25 `<p class=\"p\">` cells — the same under-count trap as the indented-markdown-table trap already in the brief. Contents: PO Header column 11 entries (`Custom 1–24` EN DASH no spaces, Currency, Description, Discount Percentage, Discount Terms, Name, Net Payment Terms, Order Date, Requested Delivery Date, Shipping, Tax); PO Line Item column 10 entries (`Custom 1–20`, Account Code Description, External ID, `Line Number Expense Type`, Quantity, `Requested`, `Delivery Date`, Supplier Part ID, Tax, Unit Price); PO Distributions 4 statements. Byte-identical at policies-the-purchase-order-policy-new-experience-5a1ba7ef.md:122. Nothing in the 437-field graph carries it — the only related node, vset.g5.copy-down-source.appears-only-if-default-value-type-copy-down, holds 4 FORM names (Employee/Purchase Order Header/Payment Vendor/Purchase Request Details), a different axis. It is Forms and Fields-owned, so correctly not homed on a Group 3 page, but synth-ranges.json emits its two Custom ranges with `appliesTo: {}` — an unowned range node is a merge hazard. Home them on page.forms-and-fields via the existing `patch` mechanism (precedent: vset.g2ar.* carries \"patch\": \"Audit Rules\")."
+          },
+          {
+            "title": "`purchase-order-processor-experience-8b507c54.md` was ruled out on a partial read — it is the only tools-guides attestation of group-aware PO Configuration and its attribute list disagrees with the admin topic",
+            "detail": "The map ruled it out on one quote about the processor role. Lines 27–31 are a section headed `Purchase Order Configuration is Group-Aware`, a cross-directory twin of purchase-order-configuration-is-group-aware-b603f04b.md. L29: \"This configuration may include region- or subsidiary-specific attributes, including supporting documents, logos, and email addresses.\" vs admin b603f04b.md:23: \"you can refine the company name, logo, email address, and other details\". Both grep -F -c = 1. Two open three-item lists agreeing on logo and email address but disagreeing on the third member (company name vs supporting documents). Unrecorded. It also strengthens the currently ADJACENCY-ONLY binding of `supporting_documents` to the Group, which the page-binding table lists as one of only four independently-attested-by-name sections."
+          },
+          {
+            "title": "Page-level `uiVariant: \"both\"` on Purchase Order Matching Rules is contradicted by this build's own evidence and by all 35 of its own fields",
+            "detail": "roster-purchase-order-matching-rules.json sets uiVariant \"both\" at page level while `Counter(f['uiVariant'] for f in fields)` = {'undifferentiated': 35}. I diffed the twins independently: purchase-order-matching-rules-new-experience-6c8fb80f.md (4804 B) vs purchase-order-matching-rules-8b357dbb.md (2404 B) — bodies 1–30 identical apart from the \" (New Experience)\" title suffix; lines 31–70 inline four sections that all exist as standalone topics already in the reading list (Before You Begin, Test and Change, Unlock, Activate Exchange Rates); the only divergent string is `Change to Non PO Invoice`, already recorded as contr.g3.008 and already broken 2:1 AGAINST the NE twin by test-and-change-match-rule-sets-49f57319.md:40 and tools-guides/change-a-po-based-invoice-policy-...-12786d77.md:29. The map's own headline #2 and the crosscut lens both state the twin contributes zero unique substantive content. Set the page to `undifferentiated` or produce a genuinely variant-specific field; as it stands the graph asserts a UI variant no field in it can express."
+          },
+          {
+            "title": "Six documented, groundable buttons on Purchase Order Configuration remain outside the graph on a process technicality",
+            "detail": "The roster self-reported both splits and then declined to create the records because a record created during Repair never faces the adversarial refuter. Defensible process, but the standing consequence is that a Chromium driver cannot address any of them. All four quotes grep -F -c = 1 in configure-purchase-orders-8128725e.md: \"click Upload in the Company Branding Logo section.\"; \"You can view or remove a logo by clicking View or Remove respectively.\"; \"In the Supporting Document section, you can upload documents that support the purchase order transmittal.\"; \"You can also view and remove documents.\" The schema already models 121 fields of fieldType `button`, so buttons are in scope. Note the label drift a split must carry: singular `Supporting Document` in the body prose, plural `Supporting Documents` in the manage-images-03021850.md section heading. This needs a decision, not a third deferral."
+          },
+          {
+            "title": "Two settings tables and a click path belong to unbuilt groups and are named nowhere in this run — flag before they are lost",
+            "detail": "(a) `purchase-request-settings-b0bce285.md` (admin-guides, 3735 B, mdtbl=13) is a 3-row Setting|Description table (`Allow users to select their own approver for purchase requests`, `Display purchase request approval links to approvers on the home page`, `Prevent purchase request submission when exception level exceeds X`). It is the sibling of purchase-order-settings-a5a997b4.md (1 row) that the recon retired as Workflows-owned — i.e. it is the second of \"the two settings tables the corpus places on Workflows\", and no Group 3 artifact names it. Both carry a prose numeric range, `Type a number from one to 99`, which no digit-based range regex will find. (b) step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md lines 102–110 carry a complete 6-step Localization click path — `Click Localization (left menu).` → Category column → `Invoice Receipt Confirmations` → `Click Modify. The Edit Localization page appears.` → Message column → `Click Save`. Localization is on the not-yet-built list and this run's dependency `confirmation_type → Localization | Invoice Receipt Confirmations` points at it; the executable steps and the page name `Edit Localization page` should be handed to that group rather than rediscovered."
+          }
+        ],
+        "verdict": "DO NOT MERGE AS-IS. The two page nodes themselves are honest, well-grounded, and free of truncation — I could not break the raw-table census (31 admin + 1 tools reproduced exactly), the catalog row counts (6/3/6/6/4/4/4/6/7/3/4 all row-complete), the INVC/RIND/RCEN uniqueness claim, the twin diffs, the 19 never-cited must-read skip declarations, or the empty compressedRanges verdict. But three gaps would change the graph and one would corrupt it: `Receipt Type` — the twin gate to the captured `Receipt Required` — is absent from all 13 artifacts and all 437 fields despite 8 corpus files and four conflicting value vocabularies; the canonical Invoice Settings table still stands at 13 of 24 rows, and this run emits a dependency onto one of the 11 missing rows, so the edge merges onto a phantom; a never-opened admin-guides twin of the roles matrix disagrees with its extracted tools twin on whether the Receipt User role is mandatory; and a genuine 21-entry raw-<table> catalog, duplicated byte-for-byte across two files, was dismissed as illustrative on a <tr> count while its two EN-DASH Custom ranges sit in synth-ranges.json with an empty owner. Fix items 1–4, resolve the uiVariant inconsistency in item 6, decide item 7, and hand item 8 to the unbuilt groups. Items 2, 4 and 8 are cross-group and must not be resolved by re-homing anything onto a Group 3 page."
+      },
+      "correctness": {
+        "lens": "correctness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/critic-correctness.md",
+        "findingCount": 9,
+        "severeFindings": [
+          {
+            "title": "match_status is filed on Purchase Order Matching Rules but the corpus places it on four end-user pages",
+            "detail": "Field [33] `match_status` in roster-purchase-order-matching-rules.json, cited to concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md. Four independent proofs it does not belong: (1) its own sourceQuote names the owning pages and this is not one of them — 'Match Status displays on the My Invoices, Approve Invoice, Assign Invoice, and Processor List pages.'; (2) grep -c \"Purchase Order Matching Rules\" on the cited file = 0; (3) the file frames it as a derived runtime attribute — 'Match Status is an attribute of an invoice, and is determined by: Successful association to a PO ... Presence of any match exceptions' — with no setter anywhere in the corpus; (4) the build already knew: its dropped twin `matchStatusOutcome` (dropped[13]) carries correctPage = 'My Invoices / Approve Invoice / Assign Invoice / Processor List (end-user and processor list surfaces) - not an admin configuration page', and valueSets[14].context says 'Read-only runtime attribute, not a configurable list'. This is internally inconsistent with the build's own best work: `change_to_non_po_action` was correctly DROPPED (dropped[21]) on identical grounds ('as a field of this page it would send a Chromium driver hunting for a button that is not there') and re-filed as a dependency. FIX: drop the field; move valueSets[14] (6 values: Matched, Does Not Match, Waiting for PO, Pending Match, Missing PO Number, No Match Required) to orphanCandidates or keep it as a value set with a null owner — the catalogue is genuinely valuable as the closed set of outcomes a rule set produces. Do NOT create a page node for My Invoices."
+          },
+          {
+            "title": "Page uiVariant \"both\" on Purchase Order Matching Rules is unearned and contradicts the roster's own declared evidence",
+            "detail": "roster-purchase-order-matching-rules.json sets page uiVariant='both' while all 35 fields are 'undifferentiated' (Counter({'undifferentiated': 35})). Four reasons it must become 'undifferentiated': (1) In the live graph the ONLY page marked 'both' is Audit Rules, and it backs the claim with 27 'both' + 6 'legacy' + 5 'new' fields; every other page is 'undifferentiated' with 100% undifferentiated fields. A 'both' page with zero differentiated fields matches no precedent. (2) The roster's own mustReadSkipsDeclared entry for purchase-order-matching-rules-8b357dbb.md reads: 'The read was load-bearing: it is the evidence for NOT claiming uiVariant both.' (3) Lens C explicitly declined it in its headline: 'left every field uiVariant undifferentiated rather than claim a fourth unearned both.' (4) 'Both' means someone read both variants and they MATCHED — they do not. diff of lines 16-200 of the two twins shows the New Experience topic (loio 6c8fb80f...) is a 40-line SUPERSET of the legacy twin (loio 8b357dbb...), adding a whole 'Before You Begin' section (Test and Change Match Rule Sets, the In-Use unlock procedure, Activate Exchange Rates), and writing 'Change to Non PO Invoice' where standalone topics write 'Change to Non-PO'. That one genuine difference is ALREADY captured as contr.g3.008 (label-drift, 3 readings, 2:1 toward the hyphenated form), so flipping the page loses nothing. FIX: set \"uiVariant\": \"undifferentiated\"."
+          },
+          {
+            "title": "dep[24] asserts a DSN contradiction that does not exist — the two sources are complementary, not conflicting",
+            "detail": "synth-dependencies.json dependencies[24] (level_field -> Forms and Fields::Delivery Slip Number) opens its condition with 'CONTRADICTION WITH THE EDGE ABOVE - BOTH RECORDED, NEITHER RECONCILED.' The two cited files cover DIFFERENT cases and never disagree. admin-guides/delivery-slip-number-field-for-three-way-matching-b0d3f1ca.md (dep 23): 'If the admin does not add the Delivery Slip Number field to the form, Concur Invoice will perform the matching sequentially by receipt.' — the field-not-added case. tools-guides/receipt-association-and-three-way-matching-12b976a5.md (dep 24): 'If Concur Invoice does not find a GRN with the same DSN, it will not revert to the sequential association logic but will instead leave the invoice unassociated to the GRNs.' — the field-added-but-no-matching-GRN case, on which b0d3f1ca is SILENT. Case matrix: field not added -> sequential (both agree); DSN matches a GRN -> match that GRN (both agree); DSN specified but no GRN matches -> only 12b976a5 speaks. Recording a phantom conflict is as damaging as reconciling a real one — it tells the next builder there is an unresolved disagreement to adjudicate when there is none. FIX: rewrite dependencies[24].condition to describe the DSN-miss case on its own terms and drop the contradiction language. Both quotes verify and stay as they are."
+          },
+          {
+            "title": "Two existing Group 1 dependencies will still dangle after this merge because the field name does not match",
+            "detail": "dep.g1.057 and dep.g1.058 in output/kg-invoice-config.json already target {page: 'Purchase Order Configuration', field: 'PO Configuration', resolved: false}. This merge creates that page, but the roster contains no field named 'PO Configuration' — so both edges stay unresolved and a reader will wrongly assume they resolved once the page landed. The intended endpoint is unambiguous: dep.g1.057's sourceQuote is BYTE-IDENTICAL to the new group_selector field's sourceQuote — 'Each PO configuration you create is based on the Group you select before creating the configuration.' — same file (purchase-order-configuration-is-group-aware-b603f04b.md), same sentence; and this run's own dependencies[31] encodes the same relationship in the opposite direction (group_selector -> Group Configurations::Group). This is exactly the 'mistyped endpoint silently fails to resolve' class. FIX: at merge, repoint dep.g1.057 and dep.g1.058 targetRef.field to 'group_selector', or carry an alias."
+          },
+          {
+            "title": "matching_rule_type is a taxonomy duplicating two existing tab records, with a label that appears nowhere in the corpus",
+            "detail": "Roster [32] `matching_rule_type`, fieldType 'unknown', label 'Matching rule type' — grep -rlF over both guide directories returns 0 files for that string (the corpus writes only the plural prose 'matching rule types'). Its two validValues, 'Life to Date' and 'Rules', ALREADY EXIST as the records life_to_date_tab and rules_tab. A driver told to set 'Matching rule type = Rules' has no control to act on; the real action is clicking a tab. The roster's own splitsProposed concedes this and asks a human to decide. Two corrections in the build's favour: (a) its claim that the enumeration 'cannot be treated as complete' because create-purchase-order-matching-rules-adb700f9.md is truncated is over-cautious — I read the file in full, both bullets ('Life to Date:' and 'Rules:') are intact and the truncation is a trailing bare 'x' AFTER the list, so the values are properly attested and this is NOT an invention; (b) it anchors contr.g3.010 (kind=cardinality, 2 readings), so if dropped that contradiction must be re-homed to rules_tab or life_to_date_tab or it becomes a dangling owner. FIX: demote to a concept node or relabel to something attested; preserve contr.g3.010."
+          },
+          {
+            "title": "valueSets[9] and [10] assert paired strings as literal dropdown options; only the notes carry the correct reading",
+            "detail": "synth-valuesets.json valueSets[9] (payment_request_field) and valueSets[10] (purchase_order_field) both carry the identical array ['Line Quantity and Received Quantity', 'Receipt Associated and Receipt Associated'], derived from one sentence in configure-three-way-matching-c043e5c8.md. SAP writes these as PAIRS spanning two lists — the parenthetical proves it: 'Line Quantity and Received Quantity (compares the quantity of the invoice line with the available quantity on the associated receipts)' means Payment Request = 'Line Quantity' and Purchase Order = 'Received Quantity'. The notes state this correctly and at length ('a driver reading this set should take Line Quantity / Receipt Associated for Payment Request and Received Quantity / Receipt Associated for Purchase Order'). But the machine-readable `values` array asserts the combined string is selectable in BOTH lists, and any consumer reading `values` without the prose will drive a string that exists in neither dropdown. Refusing to split is defensible blind-build discipline; leaving the misleading array as the only machine-readable form is not. FIX: keep the pair strings but flag the set (a knownGap or pairwise marker) so no consumer treats the array as literal option labels."
+          }
+        ],
+        "verdict": "MERGE AFTER FIXING #1 AND #2 — both are one-line edits supported by the build's own declared evidence, and neither loses information. This build is materially cleaner than its predecessor: the three defect classes that sank the last run are all absent, verified mechanically. (a) QUOTE FIDELITY: 417/417 sourceQuotes across all 13 artifacts pass an EXACT substring test — stricter than validate-graph.py, which normalizes dashes/quotes/whitespace/case. Zero CONCUR_INVOICE/ prefix defects (the 18-node bug is not repeated); a key census confirmed sourceQuote is the only quote-bearing key, so 417 is the complete population. (b) VALUE-SET WIRING: 16/16 wired, appliesToField exactly matching a roster name — the predecessor's 16-of-18-unwired failure fully corrected, and it matters because unwired-value-set is a hard validator ERROR, not a warning. (c) INVENTED VALUES: none in the merge inputs. Exactly one Yes/No pair exists (in_use) and BOTH halves are literally in its own quote — '(Yes) or has not yet applied (No)'. The 40 synth-ranges misses are declared mechanical expansions of Custom 1-24/1-20 with appliesTo deliberately empty, matching graph precedent (range.g5g5.001). (d) REPAIR DISCIPLINE: 0 roster names absent from the lens extracts on either page; the apparent 25-name shortfall is entirely camelCase/TitleCase normalizing to snake_case. All six splitsProposed were reported, not executed, each citing that a Repair-created record would never face the refuter — correct. (e) fromRawHtmlTable: 0 flags, and the reverse check passes too — grep -c '<table' = 0 on all 12 distinct cited files, so false is measured, not defaulted. (f) DUPLICATES: no duplicate names or labels within either page or across them; done_button/new_button collisions with Audit Rules and Expense Types are convention, since the validator's uniqueness invariant is per-page. (g) DROPS: I would reverse none of all 28. Twenty name their surviving twin and hand it the better verbatim quote — the exact inverse of the predecessor's reformatted-survivor defect. I verified the two load-bearing drop claims by grep rather than accepting them. (h) STEPS: all 6 grp3- prefixed, all 104 sequence entries marked CORPUS-STATED or INFERRED, zero unresolvable page or field references; the three Policies endpoints a mistype would silently break are exact name matches. (i) CONTRADICTIONS: all 12 validator-clean — valid kinds, >=2 readings, no duplicate readings, no dangling owners — and both tolerance lists, all four Level readings and three dash spellings are recorded WITHOUT reconciliation, which is the standard the brief asks for. Zero selector leaks. Remaining tail after the six above: fabricated labels 'Rules (rule rows)' and 'Matching rule type' (0 corpus hits each, unusable by a label-matching driver); dep[26]'s quote mentions both endpoints without stating the dependency; valueSets[13] has a self-referential contextField and a 6-character quote '(INVC)' where 'Receipt Individual (RIND)' is available. One finding is upstream and report-only: dep[25] correctly names the Invoice Settings option 'Allow system to associate invoice lines to Purchase Order lines based on data attributes', which is documented as living on that page but is absent from the built 13-field Invoice Settings node — a Group 1 coverage gap, not a Group 3 defect. Every claim in the report names the file, the field, the exact string and the command, so nothing needs re-deriving."
+      }
+    },
+    "navPages": [
+      {
+        "id": "purchase-order-matching-rules",
+        "name": "Purchase Order Matching Rules",
+        "documentedBasis": "rich",
+        "coverageGuess": "good",
+        "uiVariant": "both",
+        "navPathEvidence": [
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Matching Rules"
+            ],
+            "sourceQuote": "Click Purchase Order Matching Rules (left menu). The Purchase Order Matching Rules page appears.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice"
+            ],
+            "sourceQuote": "1.  Click Administration > Invoice.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Matching Rules"
+            ],
+            "sourceQuote": "Click Administration > Invoice > Purchase Order Matching Rules (left menu).",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Matching Rules"
+            ],
+            "sourceQuote": "Admins create these rules by going to Administration > Invoice > Purchase Order Matching Rules.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-8b357dbb.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Matching Rules"
+            ],
+            "sourceQuote": "Admins create these rules by going to Administration > Invoice > Purchase Order Matching Rules.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-new-experience-6c8fb80f.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Matching Rules"
+            ],
+            "sourceQuote": "Receipt confirmation is part of the PO Matching feature set. As such, it is configured by going to",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b37481c.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Matching Rules",
+              "select rule set",
+              "Edit"
+            ],
+            "sourceQuote": "On the Purchase Order Matching Rules page, select the rule set, and then click Edit.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md"
+          }
+        ],
+        "aliases": [
+          "Purchase Order Matching Rules",
+          "Purchase Order Matching Set",
+          "Purchase Order Matching Rules (New Experience)",
+          "PO matching rules",
+          "matching rule set",
+          "Match Rules",
+          "PO Matching Rules"
+        ],
+        "roleGates": [
+          {
+            "role": "Invoice Configuration Administrator",
+            "sourceQuote": "Only the user with the Invoice Configuration Administrator role can access and configure the Purchase Order Matching Rules feature.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/required-roles-ec6fae13.md"
+          },
+          {
+            "role": "Invoice Configuration administrator",
+            "sourceQuote": "Only the Invoice Configuration administrator can access and configure the Purchase Order Matching Rules feature.",
+            "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md"
+          },
+          {
+            "role": "Invoice Configuration Administrator",
+            "sourceQuote": "Only accessible by users with the Invoice Configuration Administrator role.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b35a33f.md"
+          }
+        ],
+        "identityNotes": "PAGE-HOOD CONFIRMED by two independent topics that both use the word 'page': access-purchase-order-matching-rules-8407c500.md ('The Purchase Order Matching Rules page appears.') and step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md ('On the Purchase Order Matching Rules page...'). FIVE distinct documented click paths, all Administration > Invoice > Purchase Order Matching Rules; the canonical access topic is the only two-step form. THIRD NAV ATTESTATION HAS AN NBSP TRAP: overview-8b37481c.md writes the path with U+00A0 separators and NO '>' characters at all ('Administration  Invoice  Purchase Order Matching Rules'), invisible to any grep keyed on 'Administration > Invoice'; the emitted quote is the ASCII-only lead-in because a normalised U+00A0 in transport would fail the deterministic validator and break the build. MIDDLE NAV NODE 'Invoice Processing Admin' is UNATTESTED for this page - it is documented for a dozen sibling pages on the same menu (Exceptions, Policies, Workflows, Forms and Fields, Company Locations, Peppol Configuration, etc.) but NEVER in front of this label; treat as unattested, not absent, and have the driver try both. This is the ONLY PO label in the corpus ever written with '(left menu)'. RECON CLAIM (a) CONFIRMED: 'Purchase Order Matching Set' is an ALIAS, not a second page - edit-purchase-order-matching-rules-604d1e31.md says 'In Purchase Order Matching Set, select the rule set row under Rule Set Name.' and then 'Click Edit to open Purchase Order Matching Set.' You cannot be in a thing and then open it; the label is applied loosely to both the list and the editor. No click path anywhere reaches a 'Purchase Order Matching Set' page. RECON CLAIM (b) CONFIRMED: grep for 'Purchase Order Policy' intersected with click/nav language over both guide dirs returns ZERO lines - it is a policy TYPE on the already-built Policies page, not a page. RECON CLAIM (c) CONFIRMED: the Rules and Life to Date tabs and the Group Conditions ('In Purchase Order Matching Rules Group Conditions, configure the conditions', step-4), Select Confirmation Type ('Do this by clicking Edit Confirmation to open the Select Confirmation Type window', step-5) and Exception Message dialogs all belong to this page - none has an independent path from Administration. FIFTH DIALOG confirmed present and load-bearing: the Exception Message editor, 'Exception Message: Click Change and add a message by clicking New, or edit an existing message by selecting it and clicking Edit, then click Save.' (configure-three-way-matching-c043e5c8.md, twice; also step-2). CONTRADICTION - TAB DEPTH, RECORDED NOT RECONCILED: step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md places the Rules tab ONE level up with no Edit Rules step ('In Purchase Order Matching Set, click the Rules tab.'); step-2-...-dc296ae6.md and configure-three-way-matching-c043e5c8.md place both tabs TWO levels down after Edit Rules ('Select Default, then click Edit Rules...' then 'Click the Life to Date tab...'; and 'in the Rule Groups list, select a rule group and click Edit Rules. The Purchase Order Matching Rule Group rules window appears.' then 'Click the Life to Date tab, and then select the Match against Received Quantity option.'). MAJORITY TREE (2 topics to 1) is the two-level-down form: page > select rule set > Edit > select rule group > Edit Rules > [Rules | Life to Date]. The driver must probe both depths. RELATED CONTRADICTION for the field pass: Tolerance has two documented value lists - step-3 line 45 'Choose one tolerance:' enumerates FOUR (None, Within (+/-), Custom, Currency) while configure-three-way-matching line 46 'in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.' enumerates THREE. Emit both. UI VARIANT 'both' IS EARNED, NOT ASSUMED: I diffed purchase-order-matching-rules-8b357dbb.md against purchase-order-matching-rules-new-experience-6c8fb80f.md line by line; the bodies are byte-identical except title/heading plus one appended block, and the New Experience file contributes exactly ONE unique substantive procedure ('\"Unlock\" a Matching Rule Set From Its In-Use Status'); the rest restates topics that already exist standalone (test-and-change-match-rule-sets-49f57319.md, activate-exchange-rates-for-matching-rule-sets-c51af31c.md). Do NOT double-count a control because it appears in both twins. ALIAS TRAP - 'PO Matching Ruleset' IS NOT AN ALIAS FOR THIS PAGE: it is a FIELD on the already-built Policies page ('You select a rule set using the PO Matching Ruleset option in Policies.', access-...-8407c500.md; also components-of-the-policy-3bf075f8.md, create-a-new-policy-dd9549c0.md, purchase-order-policy-fields-4aa0ac1b.md, policies-the-purchase-order-policy-new-experience-5a1ba7ef.md). NEVER re-home it. 'Match Rules' is a concept label in tools-guides (match-rules-and-match-status-8cc2c56b.md, when-are-match-rules-run-f835a01e.md), never a click target. 'PO Matching Rules' in title case is NOT attested as a page label - only lowercase prose 'PO matching rules'. CORPUS DEFECT: create-purchase-order-matching-rules-adb700f9.md IS TRUNCATED - its body ends with a bare line containing only 'x', the only file corpus-wide that does; content was dropped in the 2026-08-29 crawl. It still yields the two rule TYPES (Life to Date, Rules) intact before the cut but must never be treated as complete or exhaustive. DUPLICATE-CONSTRAINT WARNING: general-notes-ced8d7d0.md and not-possible-to-base-rule-set-on-expense-type-or-account-code-e98c9b2c.md publish THE SAME constraint (rule sets tied to policy attributes, cannot differ per expense type/account code) - one field, not two. BOUNDARIES: Delivery Slip Number field-add goes to Forms and Fields (already built); Is Purchase Order line Associated / Is Receipt Associated go to Audit Rules (already built); receipt confirmation instructional text goes to Localization (NOT YET BUILT - a dependency here will legitimately stay unresolved, step-5-...-5328a8e1.md: 'Click Localization (left menu).'); exchange rates for matching rule sets are accessed via the Expense Admin module and are OUT OF SCOPE for this graph. documentedBasis 'rich' because control-level documentation is dense and multi-topic: a 6-row Life to Date selection table (Gross Amount, Net Amount, Line Item Total, Line Item Quantity, Match against Received Quantity, Line Item Tax), a Level value list (Header, Vendor, Line Item, Line Item - Receipt), two tolerance lists, a 3-row confirmation-type table with default message text, Value/Percentage/Currency refinements, Exception Message and Allow Submit/Approve, plus a 6-value Match Status catalog in tools-guides."
+      },
+      {
+        "id": "purchase-order-configuration",
+        "name": "Purchase Order Configuration",
+        "documentedBasis": "moderate",
+        "coverageGuess": "partial",
+        "uiVariant": "undifferentiated",
+        "navPathEvidence": [
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Configuration"
+            ],
+            "sourceQuote": "To view this tool, click Administration > Invoice > Purchase Order Configuration.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/use-the-purchase-order-configuration-tool-51009c8c.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Purchase Order Configuration"
+            ],
+            "sourceQuote": "the Invoice Configuration administrator uses the Purchase Order Configuration tool (Administration > Invoice > Purchase Order Configuration).",
+            "sourceFile": "concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md"
+          }
+        ],
+        "aliases": [
+          "Purchase Order Configuration",
+          "Purchase Order Configuration tool",
+          "Purchase Order Configuration window",
+          "PO Configuration",
+          "PO configuration"
+        ],
+        "roleGates": [
+          {
+            "role": "Invoice Configuration administrator",
+            "sourceQuote": "The Purchase Order Configuration tool is available to the Invoice Configuration administrator for setting default information for purchase orders.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/use-the-purchase-order-configuration-tool-51009c8c.md"
+          },
+          {
+            "role": "Invoice Configuration administrator",
+            "sourceQuote": "the Invoice Configuration administrator uses the Purchase Order Configuration tool",
+            "sourceFile": "concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md"
+          }
+        ],
+        "identityNotes": "PAGE-HOOD CONFIRMED, but on structurally weaker evidence than PO Matching Rules. Two distinct click paths, one from EACH guide directory - the tools-guides path (preview-a-purchase-order-846396e1.md) is genuine cross-directory corroboration and an admin-guides-only sweep would have left the page resting on a single line. IMPORTANT DISTINCTION: the corpus calls this a 'tool' and a 'window' and NEVER a 'page' - no topic anywhere says 'the Purchase Order Configuration page appears'. It is nonetheless a real admin surface reached by clicking off Administration > Invoice. MIDDLE NAV NODE 'Invoice Processing Admin' is UNATTESTED here too - zero occurrences in front of this label anywhere in the corpus, while it is documented for a dozen sibling pages on the same menu; the driver must be prepared to try both. THE LOAD-BEARING DEFECT: configure-purchase-orders-8128725e.md carries ALL TWELVE settings sections and is essentially the whole page, yet grep -c \"Purchase Order Configuration\" on it returns ZERO (verified). It names neither the page nor a nav path. The only near-hit is line 89, lowercase and incidental ('The logo is group-aware in the same way as the purchase order configuration'). ALL twelve sections bind to this page by GUIDE-SECTION ADJACENCY ALONE. INDEPENDENT ATTESTATION BY NAME EXISTS FOR ONLY FOUR: (1) Company Name Without Address - purchase-request-and-purchase-order-8b36ae07.md line 209 names the field in the Purchase Order Configuration window; (2) Company Branding Logo - line 89 of the roster file ties the logo to 'the purchase order configuration' and its group-awareness; (3) Company Address - preview-a-purchase-order-846396e1.md ties Body text/address/Instructions to the Purchase Order Configuration tool; (4) Supporting Documents - tools manage-images-03021850.md, 'The PO configuration associated with a Group may also include supporting documents.' and 'Administrators who configure purchase orders in PO Configuration'. THE OTHER EIGHT ARE ADJACENCY-ONLY: PO Number Generation, Message to Include on Transmitted Purchase Orders, Default Email Subject When Transmitting Purchase Orders, Default Email Message When Transmitting Purchase Orders, Default Sender Email, Fields to Appear on Purchase Orders, Ship To Without Requestor Name, Use Email as Bill-To. Every field node on this page MUST say in its notes which of the two it is. Adjacency is not attestation, and the deterministic validator cannot see this class of defect - it checks quotes against files, never controls against pages. UNENUMERATED FIELD LIST: 'Fields to Appear on Purchase Orders' - 'The header and line time fields you select will appear on the purchase order.' The selectable header and line-item roster is never enumerated anywhere in the corpus. Mark it unenumerated; do not guess. SAP TYPO TRAP: 'line time fields' is written for 'line item fields' in configure-purchase-orders-8128725e.md - an extractor keyed on 'line item' misses it. NO LONG CATALOG ON THIS PAGE - measured: grep -c '^| ' = 0, grep -c '^-   ' = 0, grep -c '<table' = 0. The twelve are PROSE SECTION HEADINGS, not an enumeration. What makes the page tractable is that each carries a stated limit or constraint (9-char PO number, 3200-char message, 500-char email subject, .png/.jpg/.gif logo at 55px high / <=200px long / <=100KB, and a PurchaseOrder_DoNotReply@ConcurSolutions.com suffix that cannot be changed). GROUP SCOPE IS A PRECONDITION, NOT A FIELD: purchase-order-configuration-is-group-aware-b603f04b.md - 'Each PO configuration you create is based on the Group you select before creating the configuration.' and 'Groups with no PO configuration assigned use the Global Group configuration by default.' Corroborated cross-directory by manage-images-03021850.md, which is also the ONLY statement anywhere of how admin-uploaded and user-uploaded PO attachments interact. UI VARIANT: the corpus holds exactly five *-new-experience-* files (end-user-experience-85c2652b, policies-the-purchase-order-policy-5a1ba7ef, purchase-order-matching-rules-6c8fb80f, using-the-invoice-manager-page-f83ba5fa, using-the-unassigned-invoice-page-072e2f18) and NONE is PO Configuration. No variant labelling exists in either direction, hence 'undifferentiated' - do NOT claim 'new' or 'both'. TWO EXCLUDED SEEDS CONFIRMED EXCLUDED: purchase-order-processor-experience-8b507c54.md is an end-user processor topic that only points elsewhere for the tool, and purchase-order-setup-process-9f253ce7.md never names this tool at all (it is a setup-flow stop list, evidence about ordering, not a field source). Neither may be re-added. BOUNDARIES: 'Use Email as Bill-To' has prerequisites on Forms and Fields (the field must be added to the Purchase Order Header form) and Company Locations (a bill-to email address must be entered) - both already built, do not re-home. documentedBasis 'moderate' because real field-level documentation exists (twelve named settings, each with a stated limit or constraint, plus group scope and a cross-directory role gate) but the gaps are obvious and structural: eight of twelve are adjacency-only, the largest control is an unenumerated list, and there is no catalog, table, or value enumeration anywhere on the surface. coverageGuess 'partial' is driven by the unenumerated field list and the adjacency-only binding, not by missing files."
+      }
+    ],
+    "navNarrative": "# Group 3 — Map / Page Identity and Navigation Survey\n\nCorpus: `/mnt/c/Users/manci/PROJECTS/concur-corpus/CONCUR_INVOICE`, SAP version 2026_08, Professional Edition, crawled 2026-08-29.\nScope: the two Group 3 pages only — **Purchase Order Matching Rules** and **Purchase Order Configuration**.\nEvery quote below was verified with `grep -F -c` against its cited file before being written down (36/36 passed, 0 failures).\n\n---\n\n## 1. Purchase Order Matching Rules\n\n**Verdict: it is a real admin page. Confirmed, not assumed.**\nTwo independent pieces of evidence establish page-hood rather than mere feature-hood:\n`access-purchase-order-matching-rules-8407c500.md` says the click produces a page —\n\"Click Purchase Order Matching Rules (left menu). The Purchase Order Matching Rules page appears.\" —\nand `step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md` independently refers to\n\"On the Purchase Order Matching Rules page, select the rule set, and then click Edit.\"\nTwo different guide topics, both using the word *page*, both anchored to the same label.\n\n### 1.1 Documented click paths (five distinct, six quotes)\n\n| # | navPath | File | Quote |\n|---|---|---|---|\n| 1 | Administration › Invoice › Purchase Order Matching Rules | admin `access-purchase-order-matching-rules-8407c500.md` | `Click Purchase Order Matching Rules (left menu). The Purchase Order Matching Rules page appears.` |\n| 2 | Administration › Invoice (first two segments only) | admin `access-purchase-order-matching-rules-8407c500.md` | `1.  Click Administration > Invoice.` |\n| 3 | Administration › Invoice › Purchase Order Matching Rules | admin `configure-three-way-matching-c043e5c8.md` | `Click Administration > Invoice > Purchase Order Matching Rules (left menu).` |\n| 4 | Administration › Invoice › Purchase Order Matching Rules | admin `purchase-order-matching-rules-8b357dbb.md` (legacy twin) | `Admins create these rules by going to Administration > Invoice > Purchase Order Matching Rules.` |\n| 5 | Administration › Invoice › Purchase Order Matching Rules | admin `purchase-order-matching-rules-new-experience-6c8fb80f.md` (New Experience twin) | same sentence, different file — an independent attestation, not a duplicate |\n| 6 | Administration › Invoice › Purchase Order Matching Rules | admin `overview-8b37481c.md` | NBSP-separated variant (see 1.2) |\n\nThe **canonical access topic (`8407c500`) is the only two-step form**: step 1 `Click Administration > Invoice.`, step 2\n`Click Purchase Order Matching Rules (left menu).` Everything else is the collapsed one-line form.\n\n### 1.2 TEXT TRAP — `overview-8b37481c.md` uses NON-BREAKING SPACES as the menu separator\n\nThat file writes the path with **no `>` characters at all** and U+00A0 between segments:\n`it is configured by going to \\xa0\\xa0Administration\\xa0\\xa0Invoice\\xa0\\xa0Purchase Order Matching Rules.`\nRendered, that looks like `Administration  Invoice  Purchase Order Matching Rules`. Any grep or extractor\nkeyed on `Administration > Invoice` **misses this file entirely** — it is a third nav attestation invisible to the\nobvious search.\n\n**Emission decision:** the NBSP-bearing string *does* pass `grep -F` (verified), but a single U+00A0 normalised\nanywhere in JSON transport would fail the deterministic validator and take the build down with it. So the emitted\nsourceQuote for this attestation is the ASCII-only lead-in\n`Receipt confirmation is part of the PO Matching feature set. As such, it is configured by going to`\nand the NBSP variant is recorded here in prose instead. The attestation is preserved; the build risk is not taken.\n\n### 1.3 The \"Invoice Processing Admin\" middle node is UNATTESTED for this page\n\nCorpus-wide, `Invoice Processing Admin` is documented as the middle nav node for Email Reminders, Exceptions,\nGroup Configurations, Workflows, Expense Types, Policies, Invoice Settings, Change Log, Forms and Fields,\nRouting Configuration, Company Locations, and Peppol Configuration. **It is never written in front of\nPurchase Order Matching Rules.** All five documented paths go straight Administration › Invoice › Purchase Order\nMatching Rules. Treat the middle segment as **UNATTESTED, not absent** — a driver should be prepared to try both.\n\nNote also that this page is the **only PO label in the corpus ever written with \"(left menu)\"** — it appears in\n`8407c500` and in `configure-three-way-matching-c043e5c8.md`, and nowhere else on any PO surface.\n\n### 1.4 Aliases (what the corpus actually calls it)\n\n| Alias | Attested? | Where / caveat |\n|---|---|---|\n| Purchase Order Matching Rules | canonical | page name, menu label, topic titles |\n| Purchase Order Matching Set | **yes, as an alias for the same surface** | `edit-purchase-order-matching-rules-604d1e31.md`: `In Purchase Order Matching Set, select the rule set row under Rule Set Name.` and `step-3-...-64eb1c47.md`: `In Purchase Order Matching Set, click the Rules tab.` |\n| Purchase Order Matching Rules (New Experience) | yes | title of `6c8fb80f` |\n| PO matching rules / matching rule set | yes, lowercase prose only | never used as a menu label |\n| Match Rules | yes, as a **concept** in tools-guides | `match-rules-and-match-status-8cc2c56b.md`, `when-are-match-rules-run-f835a01e.md` — never a click target |\n| PO Matching Rules (title case) | **NOT attested as a page label** | see the trap below |\n\n**TRAP — \"PO Matching Ruleset\" is a FIELD ON THE ALREADY-BUILT POLICIES PAGE, NOT AN ALIAS FOR THIS PAGE.**\n`access-purchase-order-matching-rules-8407c500.md`: \"You select a rule set using the PO Matching Ruleset option in\nPolicies.\" It also appears in `components-of-the-policy-3bf075f8.md`, `create-a-new-policy-dd9549c0.md`,\n`purchase-order-policy-fields-4aa0ac1b.md`, and `policies-the-purchase-order-policy-new-experience-5a1ba7ef.md`.\nDo not re-home it. The near-miss is real: the string that most looks like a short alias for this page is in fact\na control on someone else's page.\n\n### 1.5 Recon findings — CONFIRMED against the corpus\n\n**(a) \"Pu",
+    "inventoryNarrative": "## Group 3 MAP — exhaustive inventory complete\n\nReport: `/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/map-inventory.md` (422 lines)\n\n**Totals:** page 1 `purchase-order-matching-rules` = **50 mustRead** (39 admin-guides, 11 tools-guides) — beats the 45-file recon floor by 5, three of the additions from tools-guides. Page 2 `purchase-order-configuration` = **5 mustRead**, unchanged from the critic-corrected seed set (the small, dense page is genuinely small; padding it would be a defect).\n\n### What this run found that the recon and its critic did not\n\n1. **The brief's claim (5) is wrong, and the correction is a contradiction, not a cleanup.** The \"Unlock a Matching Rule Set From Its In-Use Status\" procedure is NOT unique to the New Experience twin — it exists in full in `test-and-change-match-rule-sets-49f57319.md`, and the two disagree on the control label: `Change to Non PO Invoice option in the Actions menu` (`purchase-order-matching-rules-new-experience-6c8fb80f.md:71`) vs `Change to Non-PO option in the Actions menu` (`test-and-change-match-rule-sets-49f57319.md:40`). A third file breaks the tie 2:1 — `tools-guides/change-a-po-based-invoice-policy-to-a-non-po-based-invoice-policy-12786d77.md:29` → `In the Actions menu, click Change to Non-PO.` That tools file is new to the candidate set and carries the concrete step sequence a driver needs. **Net: the New Experience twin contributes zero unique substantive procedures.**\n\n2. **New cross-directory twin contradiction — Quantity Receipt ingestion routes.** Distinct loios, so a real twin pair: admin `quantity-receipt-import-for-three-way-matching-1fc33cab.md` says FTP **or API or Concur Receiving** (three); tools `…-8b4fe385.md` says FTP **or API** (two) and adds a unique SAE-extract claim. Both added to mustRead.\n\n3. **A grounding landmine that would have failed the validator.** The same `Level` value is spelled three ways: `Line Item – Receipt` (EN DASH), `Line Item - Receipt` (ASCII hyphen, `step-3`), `Line Item-Receipt` (no spaces). Likewise `Matched against Received Quantity` vs `Match against Received Quantity` — and `configure-three-way-matching-c043e5c8.md` uses **both**, at lines 27 and 60.\n\n4. **`PO Configuration` is an alias collision that would have mis-homed a field.** `configure-concur-receiving-1ececc23.md:33` says \"In the **PO Configuration section** of the page that appears, select the Enable Concur Receiving option\" — but line 29 establishes the page is **Policies** (Group 1, already built). `Enable Concur Receiving` must not land on Purchase Order Configuration.\n\n### Two clean negatives worth publishing\n\n- **Raw `<table>` census closes with zero risk for both pages.** All 32 raw-table files corpus-wide are enumerated in the report. The two PO-adjacent ones (`configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md`, `policies-the-purchase-order-policy-new-experience-5a1ba7ef.md`) each carry 5 `<table>` elements but **5 `<tr>` rows total** — illustrative examples, not catalogs, and both owned by already-built pages.\n- **No long catalog exists on Purchase Order Configuration.** Re-verified: `configure-purchase-orders-8128725e.md` returns 0 for `^| `, 0 for indentation-tolerant `^\\s*\\|`, 0 for `^-   `, and 0 for `<table`. The twelve settings are prose headings. The recon's `longCatalogs: 1` score is retracted.\n\nFive long catalogs *were* confirmed for page 1, the two largest in tools-guides: the 6-row × 4-column Concur Receiving roles matrix (`tools-guides/required-roles-ef2c2901.md`) and the 6-value Match Status table (`tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md`).\n\n### Guarded against three known defect classes\n\n- **Guide covers are not field sources.** Five PO files have 58–130 pipe-table lines that are pure Revision History with zero configuration content (`purchase-order-matching-8b351a47.md`, `purchase-request-and-purchase-order-8b36ae07.md`, `purchase-order-matching-8b4f2662.md`, `purchase-order-8b43cd30.md`, `receipt-confirmation-8b370deb.md`). Ranked alsoRelevant with an explicit \"corroboration only\" note — `purchase-request-and-purchase-order-8b36ae07.md` is nonetheless the only place that binds `Company Name without address` and the company logo to the Purchase Order Configuration window by name.\n- **The 288-bullet trap.** `the-condition-page-5d4ea870.md` (11,176 B, 71 pipe lines, 288 bullets) is the biggest catalog any sweep surfaced. It is the **Audit Rules** Condition page (Group 2, already built) and nothing in the corpus binds it to PO matching. Ruled out explicitly so nobody re-discovers it and mis-homes 288 bullets.\n- **`purchase-order-settings-a5a997b4.md` is Workflows-owned** — `preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md` places its one setting on `Administration  Invoice  Workflows  Settings tab`. One of the two settings tables the roster already retired.\n\n### Verified independently\n\n- `create-purchase-order-matching-rules-adb700f9.md` truncation confirmed by reading the file end — body terminates on a bare `x`.\n- Both tolerance lists confirmed at the stated lines: `step-3…64eb1c47.md:45` `Choose one tolerance:` (four values) and `configure-three-way-matching-c043e5c8.md:46` `select None, Within, or Custom` (three).\n- `grep -c \"Purchase Order Configuration\"` on `configure-purchase-orders-8128725e.md` = **0**; `grep -ci configuration` = 3. Section §3.3 of the report gives the required per-field ATTESTED / ADJACENCY-ONLY table — four attested (Company Name Without Address, Company Branding Logo, Company Address, Supporting Documents), eight adjacency-only.\n- `Invoice Processing Admin` absent from all five nav-bearing topics across both pages (direct grep), while documented for ~20 siblings — UNATTESTED, not absent.\n- Nine `grep -F -c` spot-checks on quotes the extractors will want, all returned ≥ 1.\n"
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Map"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Extract"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 4,
+      "title": "Repair"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 5,
+      "title": "Synthesize"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 6,
+      "title": "Critic"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "map:navigation",
+      "phaseIndex": 1,
+      "phaseTitle": "Map",
+      "agentId": "a97552bffb737c8e1",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788211977215,
+      "queuedAt": 1788211977195,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "# Group 3 — Map / Page Identity and Navigation Survey Corpu…",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788212466570,
+      "tokens": 120437,
+      "toolCalls": 23,
+      "durationMs": 489340,
+      "resultPreview": "{\"narrativeMarkdown\":\"# Group 3 — Map / Page Identity and Navigation Survey\\n\\nCorpus: `/mnt/c/Users/manci/PROJECTS/concur-corpus/CONCUR_INVOICE`, SAP version 2026_08, Professional Edition, crawled 2026-08-29.\\nScope: the two Group 3 pages only — **Purchase Order Matching Rules** and **Purchase Order Configuration**.\\nEvery quote below was verified with `grep -F -c` against its cited file before b…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "map:inventory",
+      "phaseIndex": 1,
+      "phaseTitle": "Map",
+      "agentId": "a14c2e8ec2d6c294a",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788211977229,
+      "queuedAt": 1788211977196,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01…",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213062327,
+      "tokens": 212257,
+      "toolCalls": 52,
+      "durationMs": 1085094,
+      "resultPreview": "{\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/map-inventory.md\",\"narrativeMarkdown\":\"## Group 3 MAP — exhaustive inventory complete\\n\\nReport: `/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/map-inventory.md` (422 lines)\\n\\n**Totals:** page 1 `purchase-order-matching-rules` = **50 mustRead** (3…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "extract:purchase-order-matching-rules:procedure",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "adeeacc39de576f24",
+      "model": "claude-sonnet-5",
+      "state": "done",
+      "startedAt": 1788213062371,
+      "queuedAt": 1788213062342,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-matching-rules",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213672468,
+      "tokens": 184426,
+      "toolCalls": 32,
+      "durationMs": 610090,
+      "resultPreview": "{\"pageId\":\"purchase-order-matching-rules\",\"lens\":\"procedures-and-controls\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-matching-rules-procedure.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md\",\"concur-invoice-professional-edition-admin-gu…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "extract:purchase-order-matching-rules:tables",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "ac5a8c2b34df20a02",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213062374,
+      "queuedAt": 1788213062343,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-matching-rules",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213832450,
+      "tokens": 174894,
+      "toolCalls": 31,
+      "durationMs": 770069,
+      "resultPreview": "{\"pageId\":\"purchase-order-matching-rules\",\"lens\":\"tables\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-matching-rules-tables.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md\",\"concur-invoice-professional-edition-admin-guides/step-1-create-t…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "extract:purchase-order-matching-rules:crosscut",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a240df28b89d383e9",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213062376,
+      "queuedAt": 1788213062343,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-matching-rules",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213548913,
+      "tokens": 147847,
+      "toolCalls": 16,
+      "durationMs": 486531,
+      "resultPreview": "{\"pageId\":\"purchase-order-matching-rules\",\"lens\":\"C\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-matching-rules-crosscut.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md\",\"concur-invoice-professional-edition-admin-guides/step-1-create-the-…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "extract:purchase-order-configuration:procedure",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a6e406dd35eda093b",
+      "model": "claude-sonnet-5",
+      "state": "done",
+      "startedAt": 1788213062420,
+      "queuedAt": 1788213062418,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-configuration",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213201917,
+      "tokens": 86860,
+      "toolCalls": 12,
+      "durationMs": 137665,
+      "resultPreview": "{\"pageId\":\"purchase-order-configuration\",\"lens\":\"procedures-and-controls\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-configuration-procedure.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md\",\"concur-invoice-professional-edition-admin-guides/…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "extract:purchase-order-configuration:tables",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "aa2d8f17a10f91a65",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213062422,
+      "queuedAt": 1788213062418,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-configuration",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213551511,
+      "tokens": 133789,
+      "toolCalls": 19,
+      "durationMs": 487505,
+      "resultPreview": "{\"pageId\":\"purchase-order-configuration\",\"lens\":\"tables\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-configuration-tables.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md\",\"concur-invoice-professional-edition-admin-guides/use-the-purchase-ord…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "extract:purchase-order-configuration:crosscut",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "ac6f64df8e7090647",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213062424,
+      "queuedAt": 1788213062418,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-configuration",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213301170,
+      "tokens": 93719,
+      "toolCalls": 15,
+      "durationMs": 237245,
+      "resultPreview": "{\"pageId\":\"purchase-order-configuration\",\"lens\":\"crosscut\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/extract-purchase-order-configuration-crosscut.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md\",\"concur-invoice-professional-edition-tools-guides/manage-images-030…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "verify:purchase-order-configuration:grounding",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "ab9fc3932844750f2",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213551563,
+      "queuedAt": 1788213551521,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-configuration",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788213959151,
+      "tokens": 117432,
+      "toolCalls": 18,
+      "durationMs": 407584,
+      "resultPreview": "{\"pageId\":\"purchase-order-configuration\",\"refuter\":\"grounding-and-control-identity (refuter 1 of 2)\",\"pageLevelFindings\":\"GROUNDING SWEEP RESULT: I ran grep -F -c on ALL 45 field sourceQuotes across the three lens files (14 procedure + 15 tables + 15 crosscut) plus the single valueSetCandidate quote. EVERY ONE returns exactly 1. Zero quote defects on this page; no candidate needed verbatimVariantI…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "verify:purchase-order-configuration:ownership",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a478a5c8079620bbf",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213551565,
+      "queuedAt": 1788213551522,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-configuration",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788214020524,
+      "tokens": 126258,
+      "toolCalls": 29,
+      "durationMs": 467493,
+      "resultPreview": "{\"pageId\":\"purchase-order-configuration\",\"refuter\":\"page-ownership-duplication-scope (refuter 2 of 2)\",\"pageLevelFindings\":\"EVIDENCE RUN. I read all five mustRead files in full (configure-purchase-orders-8128725e.md line-numbered end to end, use-the-purchase-order-configuration-tool-51009c8c.md, purchase-order-configuration-is-group-aware-b603f04b.md, preview-a-purchase-order-846396e1.md, manage-i…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 11,
+      "label": "verify:purchase-order-matching-rules:grounding",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a59642a42f15b9d9f",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213832472,
+      "queuedAt": 1788213832462,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-matching-rules",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788214469144,
+      "tokens": 178035,
+      "toolCalls": 29,
+      "durationMs": 636666,
+      "resultPreview": "{\"pageId\":\"purchase-order-matching-rules\",\"refuter\":\"refuter-1: grounding and control identity\",\"verdicts\":[{\"fieldName\":\"rule_set_name\",\"disposition\":\"keep\",\"verbatimVariantIndex\":0,\"reason\":\"grep -F 'Rule Set Name: The name of the rule set.' access-purchase-order-matching-rules-8407c500.md = 1 (both variants cite the same sentence). Read the whole file: it is one of the three bullets under 'Each…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 12,
+      "label": "verify:purchase-order-matching-rules:ownership",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a74c821ccb36c858a",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788213832476,
+      "queuedAt": 1788213832463,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-matching-rules",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788214511376,
+      "tokens": 153769,
+      "toolCalls": 25,
+      "durationMs": 678895,
+      "resultPreview": "{\"pageId\":\"purchase-order-matching-rules\",\"refuter\":\"page-ownership-duplication-scope (refuter 2 of 2)\",\"pageLevelFindings\":\"GROUNDING BASELINE (ran first, all 73 emitted records across the three lens files): every sourceQuote is a verbatim substring of its cited file. `grep -F -c` returned >=1 for all 73; not one FAIL, not one missing file. So verbatimVariantIndex is 0 for all 58 candidates and N…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 13,
+      "label": "repair:purchase-order-configuration",
+      "phaseIndex": 4,
+      "phaseTitle": "Repair",
+      "agentId": "a06ab021fea653ff0",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788214020575,
+      "queuedAt": 1788214020538,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-configuration",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788214328668,
+      "tokens": 142526,
+      "toolCalls": 13,
+      "durationMs": 308092,
+      "resultPreview": "{\"pageId\":\"purchase-order-configuration\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/roster-purchase-order-configuration.json\",\"jsonValid\":true,\"inputCount\":21,\"finalFieldNames\":[\"po_number_next_sequence\",\"po_number_prefix\",\"po_number_postfix\",\"message_to_include_on_transmitted_purchase_orders\",\"default_email_subject_when_transmitting_pur…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 14,
+      "label": "repair:purchase-order-matching-rules",
+      "phaseIndex": 4,
+      "phaseTitle": "Repair",
+      "agentId": "a2db371ebe7df5f97",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788214511394,
+      "queuedAt": 1788214511389,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "purchase-order-matching-rules",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788214994963,
+      "tokens": 192476,
+      "toolCalls": 19,
+      "durationMs": 483569,
+      "resultPreview": "{\"pageId\":\"purchase-order-matching-rules\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/roster-purchase-order-matching-rules.json\",\"jsonValid\":true,\"inputCount\":42,\"finalFieldNames\":[\"rule_set_name\",\"in_use\",\"associated_policies\",\"copy_button\",\"rename_button\",\"done_button\",\"edit_button\",\"edit_rules_button\",\"rules_tab\",\"life_to_date_tab\",\"cu…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 15,
+      "label": "synth:valueSets",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a40c7c0f2280b7ff0",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788214995034,
+      "queuedAt": 1788214994979,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "valueSets",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788215622426,
+      "tokens": 166151,
+      "toolCalls": 50,
+      "durationMs": 627385,
+      "resultPreview": "{\"kind\":\"valueSets\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-valuesets.json\",\"jsonValid\":true,\"count\":16,\"unresolvedCount\":10,\"headline\":\"16 value sets (55 values) built for Group 3 — 15 on Purchase Order Matching Rules, 1 on Purchase Order Configuration — all quotes and all individual value strings mechanically verified verbatim…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 16,
+      "label": "synth:dependencies",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a169da452a11a8375",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788214995036,
+      "queuedAt": 1788214994980,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "dependencies",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788215579221,
+      "tokens": 166209,
+      "toolCalls": 43,
+      "durationMs": 582761,
+      "resultPreview": "{\"kind\":\"dependencies\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-dependencies.json\",\"jsonValid\":true,\"count\":40,\"unresolvedCount\":10,\"headline\":\"40 Group 3 ConfigDependencies (23 depends_on / 11 precedes / 6 triggers; 31 anchored on Purchase Order Matching Rules, 9 on Purchase Order Configuration, 21 cross-page). All 40 quotes ver…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 17,
+      "label": "synth:contradictions",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "ac4f454e20f6a51a8",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788214995038,
+      "queuedAt": 1788214994980,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "contradictions",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788215512716,
+      "tokens": 143193,
+      "toolCalls": 33,
+      "durationMs": 516252,
+      "resultPreview": "{\"kind\":\"contradictions\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-contradictions.json\",\"jsonValid\":true,\"count\":12,\"unresolvedCount\":1,\"headline\":\"21 raw records deduped to 12 contradictions (9 on Purchase Order Matching Rules, 3 on Purchase Order Configuration); all 38 sourceQuotes verified verbatim, every non-empty appliesTo.fi…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 18,
+      "label": "synth:steps",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "ac48ce9a55a58f736",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788214995040,
+      "queuedAt": 1788214994980,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "steps",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788215688985,
+      "tokens": 178408,
+      "toolCalls": 42,
+      "durationMs": 692520,
+      "resultPreview": "{\"kind\":\"steps\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/synth-steps.json\",\"jsonValid\":true,\"count\":6,\"unresolvedCount\":0,\"headline\":\"6 grp3- ConfigSteps / 104 sequence entries written; 121 file-anchored quotes verified verbatim (0 misses), all page+field names validated against the two Group 3 rosters and the 18-page graph (0 misses).…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 19,
+      "label": "critic:completeness",
+      "phaseIndex": 6,
+      "phaseTitle": "Critic",
+      "agentId": "aba9b863d9e464f23",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788215689028,
+      "queuedAt": 1788215689007,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "completeness",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788216804816,
+      "tokens": 261033,
+      "toolCalls": 83,
+      "durationMs": 1115785,
+      "resultPreview": "{\"lens\":\"completeness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/critic-completeness.md\",\"findingCount\":8,\"severeFindings\":[{\"title\":\"`Receipt Type` is absent from the entire deliverable AND the entire graph — the twin gate to `Receipt Required`, with four conflicting value vocabularies\",\"detail\":\"`grep -c \\\"Receipt Type\\\" *.json` over …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 20,
+      "label": "critic:correctness",
+      "phaseIndex": 6,
+      "phaseTitle": "Critic",
+      "agentId": "a3eef8f29df8e8f4a",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788215689031,
+      "queuedAt": 1788215689008,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "correctness",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788216608282,
+      "tokens": 227722,
+      "toolCalls": 51,
+      "durationMs": 917816,
+      "resultPreview": "{\"lens\":\"correctness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/1c189ac8-e070-426a-be01-c36742d928ed/scratchpad/g3-parts/critic-correctness.md\",\"findingCount\":9,\"severeFindings\":[{\"title\":\"match_status is filed on Purchase Order Matching Rules but the corpus places it on four end-user pages\",\"detail\":\"Field [33] `match_status` in roster-purchase-order-matching-rules.json, cited to concur-invo…"
+    }
+  ],
+  "totalTokens": 3207441,
+  "totalToolCalls": 635
+}

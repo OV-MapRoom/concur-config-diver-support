@@ -1,0 +1,364 @@
+{
+  "valueSets": [
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "life_to_date_rule_selection",
+      "contextField": "",
+      "context": "The complete 6-row Selection | Description settings table on the Life to Date tab. UNCONDITIONAL - every row is offered whenever the Life to Date tab is open, and any combination may be activated ('Repeat by selecting a check box for each option you want to include.'). It is filed as a value set rather than left as the roster's flat array because each row carries a Description cell that tells a driver what the rule actually compares; the flat array carries names only.",
+      "values": [
+        "Gross Amount",
+        "Net Amount",
+        "Line Item Total",
+        "Line Item Quantity",
+        "Match against Received Quantity",
+        "Line Item Tax"
+      ],
+      "sourceQuote": "Click the Life to Date tab, then select the check box next to the rule type to activate using the table below:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+      "notes": "ALL SIX ROWS, NOTHING SAMPLED. Values are the Selection cells verbatim, in source order. The Description cell for each, verbatim: Gross Amount = 'Compares the purchase order gross amount to the cumulative gross sums of all invoices with this purchase order number.'; Net Amount = 'Compares the purchase order net amount to the cumulative net sum of all invoices with this purchase order number.'; Line Item Total = 'For each associated line item, compares the purchase order line item total to the cumulative line item totals of all invoices sharing this purchase order number.'; Line Item Quantity = 'For each associated line item, compares the purchase order quantity to the cumulative quantities of all invoices sharing this purchase order number.'; Match against Received Quantity = 'For each line item of the associated PO, this rule compares the total quantities invoiced (based on quantities matched) against the total quantities on associated receipts.'; Line Item Tax = 'For each associated line item, compares the purchase order tax to the cumulative taxes of all invoices sharing this purchase order number.' INDENTED-TABLE CASE: the whole table sits inside numbered step 4, so a '^|' census returns 0 for this file and 22 with leading whitespace allowed. LABEL DRIFT on the fifth value: configure-three-way-matching-c043e5c8.md writes the past-tense 'Matched against Received Quantity' in its overview bullet ('the admin can select the Line Item ' + EN-DASH + ' Receipt rule in the Rules tab and the Matched against Received Quantity rule in the Life to Date tab') and the present-tense 'Match against Received Quantity' in its own numbered step 33 lines later; the canonical settings table quoted here uses the present tense. Do not assert either as the UI string. Published with the table: 'The system uses the Line Item Number to associate line items on the PO and invoice.' Corroborated in prose by the TRUNCATED create-purchase-order-matching-rules-adb700f9.md ('comparing Gross, Net, Line item total, Line item quantity, if matched against received quantities, and/or Line item tax') - that file's body ends on a bare 'x', so treat it as incomplete."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "overage_tolerance",
+      "contextField": "life_to_date_rule_selection",
+      "context": "READING A of the Life to Date tolerance refinement - the THREE options step-2 offers after a Life to Date check box is selected. Conditional on the check box, and the three are NOT flat alternatives: the source binds Value and Currency with '- AND -' and separates that pair from Percentage with '- OR -'.",
+      "values": [
+        "Value",
+        "Currency",
+        "Percentage"
+      ],
+      "sourceQuote": "As you select each check box, options appear that let you refine the tolerance.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+      "notes": "CONTRADICTS READING B (the next set), which is the same control on the same tab labelled 'Overage Tolerance' with only two options and no Currency. NOT RECONCILED - both are emitted. Step-2 never gives this section a label at all; the label 'Overage Tolerance' exists only in configure-three-way-matching-c043e5c8.md, which is why the roster field is named overage_tolerance and why attaching Reading A here is a wiring decision, not a corpus claim. Verbatim option text: Value = 'Specify a number at or above that at which the rule set will trigger an exception. For example, if the Value is 100 and the PO amount is 1000, invoice(s) at or above 1100 will trigger the exception.'; Currency = 'Choose the base currency your company uses. Conversions for alternate currencies used on incoming invoices will be calculated automatically and applied by the system.'; Percentage = 'Choose a percent above which the rule set will trigger a flag. For example, if the Percentage is 1 and the PO amount is 1000, invoice(s) above 1010 will trigger the exception.' The AND/OR structure is literal in the source: Value, then '- AND -', then Currency, then '- OR -', then Percentage - so a driver must not treat these as three mutually exclusive radio options. No currency roster is published anywhere in the corpus, so the Currency option's own list stays unenumerated (see field currency_field). Exchange-rate activation is NOT a control on this page: concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-new-experience-6c8fb80f.md states 'Exchange rates that allow currency conversion are on by default.' and 'As reference, this feature is accessed using the Expense Admin module.' - the Expense Admin module is out of scope for this graph."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "overage_tolerance",
+      "contextField": "life_to_date_rule_selection",
+      "context": "READING B of the same Life to Date tolerance refinement - TWO options under a section this topic names 'Overage Tolerance', reached after selecting the Match against Received Quantity option on the Life to Date tab. Currency is absent.",
+      "values": [
+        "Value",
+        "Percentage"
+      ],
+      "sourceQuote": "In the Overage Tolerance section, select Value or Percentage.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "This is the ONLY attestation of the label 'Overage Tolerance' anywhere in the corpus. Do not merge with Reading A: this topic offers two options where step-2 offers three, and gives the section a name step-2 withholds. HYPOTHESIS ONLY, stated as such: Currency may be provisioning-dependent (visible only where multi-currency conversion is in play), or this topic may simply be scoped to the three-way-matching path. The corpus states neither. Worked semantics published here, verbatim: Value = 'Specify a number at or above that at which the rule set will trigger an exception. For example, if the Value is 100 and the Quantity Received on this PO line is 1000, invoice(s) at or above 1100 will trigger the exception.'; Percentage = 'Choose a percent above which the rule set will trigger a flag. For example, if the Percentage is 1 and the Quantity Received is 1000, invoice(s) above 1010 will trigger the exception.' Note the worked example differs from step-2's: here the baseline is the Quantity Received on the PO line, there it is the PO amount."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "tolerance",
+      "contextField": "",
+      "context": "READING A of the Rules-tab Tolerance control - the FOUR-option bullet run under the heading 'Choose one tolerance:'. Complete and in source order. The roster deliberately leaves this field's validValues empty because two irreconcilable lists exist; both are emitted here as separate sets.",
+      "values": [
+        "None",
+        "Within (+/-)",
+        "Custom",
+        "Currency"
+      ],
+      "sourceQuote": "Within (+/-): Choose this to specify a balanced amount of tolerance equal above and below that of the PO field being matched to the same request field",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "CONTRADICTS READING B (next set): four options here versus three there, 'Within (+/-)' here versus 'Within' there, and Currency present here and absent there. NOT RECONCILED. The quote deliberately carries the two discriminating features - the '(+/-)' suffix and the option's existence as an independent bullet in a four-item list. Full source text of the other three: 'None: Choose this to trigger the rule if any deviation is detected between the fields - no tolerance is permitted'; 'Custom: Choose this to create an asymmetrical amount of tolerance above and below that of the PO field being matched to the same request field'; 'Currency: Choose the base currency your company uses. Conversions for alternate currencies used on incoming invoices will be calculated automatically and applied by the system.' Currency is arguably a different axis from None/Within/Custom - the source nevertheless lists all four under one 'Choose one tolerance:' heading, and that is recorded as found, not corrected. The whole section is marked conditional at the step level: '(Optional depending on field choice) Determine what tolerance you will allow when the rule is triggered using options under Tolerance.' - so a driver must not assume Tolerance is present for every Payment Request / Purchase Order field pair. CONSEQUENCE FOR A DRIVER: probe the four-option list first; if only three appear, match on the prefix 'Within' rather than the exact string 'Within (+/-)', and do not fail the step because Currency is missing."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "tolerance",
+      "contextField": "",
+      "context": "READING B of the same Rules-tab Tolerance control - the THREE-option inline list in the three-way matching procedure, written without the '(+/-)' suffix and without Currency, and followed by a SECOND control (Value or Percentage) that Reading A never mentions at Rules-tab level.",
+      "values": [
+        "None",
+        "Within",
+        "Custom"
+      ],
+      "sourceQuote": "If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "Complete as written in this topic. DO NOT MERGE with Reading A. The trailing 'and then select Value or Percentage' is the roster field value_percentage_radio, a distinct secondary refinement whose own options are enumerated in the same step: Value = 'Specify a number at or above that at which the rule set will trigger an exception.'; Percentage = 'Choose a percent above which the rule set will trigger a flag.' HYPOTHESIS ONLY: this topic is scoped to the Line Item – Receipt level, where Currency may not apply, or 'Within (+/-)' may be a relabel between document revisions. The corpus states neither; do not reconcile."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "level_field",
+      "contextField": "",
+      "context": "READING A of the Level list - FOUR values, ASCII HYPHEN, given inline in the numbered step that actually selects it. This is the superset reading and the one the roster's flat validValues reproduces; the three disagreeing readings follow as their own sets.",
+      "values": [
+        "Header",
+        "Vendor",
+        "Line Item",
+        "Line Item - Receipt"
+      ],
+      "sourceQuote": "Select a value from Level (Header, Vendor, Line Item, Line Item - Receipt), so the matching rule operates for the field(s) you want compared.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "ASCII HYPHEN in 'Line Item - Receipt' here, reproduced byte-for-byte; a retyped en dash would fail grep -F. Level is the context field for the Payment Request and Purchase Order lists: 'As different levels are chosen in Level, different field sets will populate the selections available in Payment Request and Purchase Order.' GROUNDING LANDMINE - the fourth value is spelled three ways across the corpus: 'Line Item - Receipt' (ASCII hyphen, this file), 'Line Item – Receipt' (EN DASH, configure-three-way-matching-c043e5c8.md twice and tools-guides/exceptions-and-three-way-matching-rules-65d52687.md), and 'Line Item-Receipt' (no spaces, tools-guides/exceptions-and-three-way-matching-rules-65d52687.md: 'then the Line Item-Receipt rule will throw an exception'). NEVER match this option on an exact string - normalise dashes and whitespace, or match on the tokens 'Line Item' and 'Receipt'."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "level_field",
+      "contextField": "",
+      "context": "READING B of the Level list - THREE values in a DIFFERENT ORDER, stated in the intro paragraph of the SAME file that gives four in its numbered step. An internal disagreement inside a single topic, not a cross-topic one.",
+      "values": [
+        "Vendor",
+        "Header",
+        "Line Item"
+      ],
+      "sourceQuote": "Rules-type matching rule sets are based on levels of Vendor, Header, and Line Item, and are applied by the system on a one-to-one basis between the current, incoming invoice and the PO.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "Same file as Reading A, different quote, so this is an independently grounded reading and not a duplicate record. The receipt level is absent. Order differs too (Vendor first). NOT RECONCILED with Reading A."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "level_field",
+      "contextField": "",
+      "context": "READING C of the Level list - THREE values, cross-directory corroboration from tools-guides. The receipt level is absent from this topic entirely.",
+      "values": [
+        "Header",
+        "Vendor",
+        "Line Item"
+      ],
+      "sourceQuote": "They can be specified at the Header, Vendor, or Line Item level",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/match-rules-and-match-status-8cc2c56b.md",
+      "notes": "The word 'receipt' does not occur anywhere in this file. Recorded, not reconciled. HYPOTHESIS ONLY: the receipt level may be provisioned only where three-way matching / Concur Receiving is enabled, which would make the three-value and four-value lists both correct for different sites - the corpus never says so. Searched in tools-guides deliberately: an admin-guides-skewed search would miss this reading and would report the four-value list as uncontested."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "level_field",
+      "contextField": "",
+      "context": "READING D of the Level list - FOUR values in lowercase prose with an EN DASH and yet another order, from the TRUNCATED create topic.",
+      "values": [
+        "header",
+        "line item",
+        "line item – receipt",
+        "vendor"
+      ],
+      "sourceQuote": "It is run based on the choice of header, line item, line item – receipt, and/or vendor level for comparisons such as Quantity to Quantity, Request Total to Total, receipt on received quantities, PR lines associated to PO lines, or even Custom field to Custom field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md",
+      "notes": "EN DASH (U+2013), lowercase, and a different order again. CORPUS DEFECT: this file's body ends on a bare 'x', so it is truncated and the enumeration may be incomplete even though four values survive the cut. The same sentence gestures at comparison pairs (Quantity to Quantity, Request Total to Total, Custom field to Custom field) but as examples, not a list, so they are NOT promoted to values for payment_request_field or purchase_order_field."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "payment_request_field",
+      "contextField": "level_field",
+      "context": "The ONLY conditional field enumeration in the corpus for any Level value: the two options offered once Level is set to Line Item – Receipt. The roster leaves payment_request_field.validValues empty because the general catalog is never published and because the list is repopulated by Level; this set is the one documented slice.",
+      "values": [
+        "Line Quantity and Received Quantity",
+        "Receipt Associated and Receipt Associated"
+      ],
+      "sourceQuote": "In the Level list, select Line Item – Receipt, and then, in the Payment Request and Purchase Order lists, select one of the following options:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "EN DASH in the governing Level value here. Each value is a PAIR spanning both lists as SAP writes it - 'X and Y', where by the sentence's own grammar the left side is chosen in the Payment Request list and the right side in the Purchase Order list. The pair form is preserved rather than split, because splitting would be an interpretation the source does not spell out; a driver reading this set should take 'Line Quantity' / 'Receipt Associated' for Payment Request and 'Received Quantity' / 'Receipt Associated' for Purchase Order. The same set is filed again against purchase_order_field, since both lists are genuinely governed by it. Full source text: 'Line Quantity and Received Quantity (compares the quantity of the invoice line with the available quantity on the associated receipts)' and 'Receipt Associated and Receipt Associated (checks if the line item is associated with a purchase order line but does not have a receipt associated with it)'. NOTE the near-duplicate caveat in step-3, which describes the plain Line Item level in almost the same words: 'The Line Item level rule compares the quantity of the invoice line with the available quantity on the associated receipts and throws an exception if there are not enough received quantities within the associated receipts to fill the invoice.' - do not read that as a fifth Level value."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "purchase_order_field",
+      "contextField": "level_field",
+      "context": "The Purchase Order list half of the same conditional pair enumeration, offered once Level is set to Line Item – Receipt. Filed separately because purchase_order_field is its own roster field and would otherwise carry no documented options at all.",
+      "values": [
+        "Line Quantity and Received Quantity",
+        "Receipt Associated and Receipt Associated"
+      ],
+      "sourceQuote": "In the Level list, select Line Item – Receipt, and then, in the Payment Request and Purchase Order lists, select one of the following options:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "SAME SOURCE SENTENCE as the payment_request_field set - this is not a second, independent enumeration and must not be counted as corroboration. The pair strings are kept whole exactly as SAP writes them; the right-hand half ('Received Quantity', 'Receipt Associated') is what a driver selects in the Purchase Order list, per the sentence's grammar. purchase_order_field.validValues is otherwise empty for a documented reason: 'Under Purchase Order, select the PO field to match to the invoice (they will change depending on the field selected in the step above).' - the options depend on the Payment Request selection above them, and that catalog is never published."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "confirmation_type",
+      "contextField": "",
+      "context": "CATALOG A - the four confirmation types with their full definitions, published as a numbered prose list (not a table). Complete, in source order. Filed as a set rather than left flat because the definitions are what decide which type a rule should produce.",
+      "values": [
+        "None",
+        "Invoice",
+        "Receipt Central",
+        "Receipt Individual"
+      ],
+      "sourceQuote": "These outcomes are called confirmation types, and there are four types:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/confirmation-types-b4a94761.md",
+      "notes": "Verbatim definitions: None = 'No receipt confirmation is required. This is appropriate for spend requiring only a two-way match between invoice and PO.'; Invoice = 'Presenting and confirming the invoice overall, within Concur Invoice, is sufficient to confirm receipt. This is especially appropriate for some types of Service spend.' (the source continues with a routine-cleaning-services illustration); Receipt Central = 'The receipt (quantity) will be entered centrally and stored in the ERP, then passed to Concur Invoice. This is appropriate for goods received at a central warehouse, where the PO/Invoice Owner has no part in answering the question of Receipt.'; Receipt Individual = 'The receipt (quantity) will be entered by the PO/Invoice Owner in the ERP, then passed to Concur Invoice. This is appropriate for goods received directly by an individual at a home or regional office, or partial receipt of hours-based services.' HARD CONSTRAINT published with this catalog and easy to miss: 'Quantity received must be entered or stored in the ERP, and then passed to Concur Invoice through the Receipt Import. There is no interface available to directly enter quantities in Concur Invoice.' - Receipt Central and Receipt Individual are inert without an ERP feed. The type is chosen through the Edit Confirmation button: 'Do this by clicking Edit Confirmation to open the Select Confirmation Type window, choosing a confirmation type based on the rule group.'"
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "confirmation_type",
+      "contextField": "",
+      "context": "CATALOG B - the Confirmation Type column of the 3-row Confirmation Type | Default Message Text | Intent settings table. SAME control as Catalog A but a DIFFERENT list: three rows in a different order, because the table excludes None.",
+      "values": [
+        "Invoice",
+        "Receipt Individual",
+        "Receipt Central"
+      ],
+      "sourceQuote": "Concur Invoice provides three confirmation types, with a fourth (None) assigned to those that should not have any text.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md",
+      "notes": "NOT A CONTRADICTION with Catalog A - the quoted sentence states outright why None is missing (it carries no message text), so this is a table-scope difference. Row order differs from Catalog A (Individual before Central) and is preserved. Each row also carries an internal code, filed as its own set below because those codes appear nowhere else in the corpus. CELL FORMATTING CAVEAT: in the Invoice row the source puts the code on its own line, so the literal file text is 'Invoice' then a blank line then '(INVC)'; the Receipt rows are written on one line as 'Receipt Individual (RIND)' and 'Receipt Central (RCEN)'. Values above are the type names alone so that every entry is a verbatim contiguous substring of the file."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "confirmation_type",
+      "contextField": "confirmation_type",
+      "context": "The internal CODE carried by each row of the same 3-row table, in the same source order as Catalog B (Invoice, Receipt Individual, Receipt Central). Filed as its own set because these codes appear NOWHERE ELSE IN THE CORPUS and would be lost if left in prose.",
+      "values": [
+        "INVC",
+        "RIND",
+        "RCEN"
+      ],
+      "sourceQuote": "(INVC)",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md",
+      "notes": "Positional mapping, source order: INVC = Invoice, RIND = Receipt Individual, RCEN = Receipt Central. Literal file spellings: '(INVC)' on its own line inside the Invoice cell; 'Receipt Individual (RIND)'; 'Receipt Central (RCEN)'. There is no code for None because None has no row. The codes are attested exactly once in the corpus (grep for INVC/RIND/RCEN returns this file only), so a future run must not conclude they are undocumented if it searches only the confirmation-types topic. No statement anywhere says whether these codes are visible in the UI or are back-end identifiers - do not assume either."
+    },
+    {
+      "appliesToPage": "Purchase Order Matching Rules",
+      "appliesToField": "match_status",
+      "contextField": "",
+      "context": "The complete 6-row Status Name | Description table - the closed catalog of outcomes a configured rule set can produce. Read-only runtime attribute, not a configurable list; filed as a set because the Description cells carry the cause of each status, which is what a driver needs to verify a configuration took effect.",
+      "values": [
+        "Matched",
+        "Does Not Match",
+        "Waiting for PO",
+        "Pending Match",
+        "Missing PO Number",
+        "No Match Required"
+      ],
+      "sourceQuote": "The table below shows all possible Match Status types.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md",
+      "notes": "ALL SIX ROWS, NOTHING SAMPLED, source order. Verbatim descriptions: Matched = 'The invoice is associated to a PO and has no exceptions (note that several invoices can match a single PO).'; Does Not Match = 'The invoice is associated to a PO and has one or more exceptions (note that several invoices can match a single PO).'; Waiting for PO = 'The invoice is using a PO policy but the PO number on the invoice does not match any corresponding number on a PO.'; Pending Match = 'The invoice is using a PO policy and is associated to a PO, but not assigned to a user.'; Missing PO Number = 'The invoice is using a PO policy but is missing the PO number that associates it to a PO.'; No Match Required = 'The invoice uses a non-PO policy or has been deleted.' Three rows carry a SECOND explanatory paragraph in the same cell, not reproduced in the values: Waiting for PO adds 'This can happen when the PO Number value in a PO-based invoice is changed, causing the invoice association to a PO to be broken, and a new association not yet made.'; Pending Match adds 'This can happen if the invoice is newly created and not yet assigned, or if an existing invoice is assigned to a user without adequate policy rights'; Missing PO Number adds 'This can happen when the Payment Request import record has a value for External ID specified, but the purchase order number (PO #) field is blank in the feed.' Determination rule published with the table: Match Status 'is determined by' successful association to a PO - AND - presence of any match exceptions. Display surfaces named: 'Match Status displays on the My Invoices, Approve Invoice, Assign Invoice, and Processor List pages.' TOOLS-GUIDES ONLY - this catalog does not exist in admin-guides."
+    },
+    {
+      "appliesToPage": "Purchase Order Configuration",
+      "appliesToField": "company_branding_logo",
+      "contextField": "",
+      "context": "The complete, closed enumeration of image file formats accepted for the company branding logo upload. UNCONDITIONAL - stated in a Note attached to the Company Branding Logo section, not conditioned on any other field. This is THE ONLY enumerated value list anywhere on the Purchase Order Configuration page.",
+      "values": [
+        ".png",
+        ".jpg",
+        ".gif"
+      ],
+      "sourceQuote": "You can upload a .png, .jpg, or .gif file. The image should be 55 pixels high and no more than 200 pixels in length and 100 KB in size.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "WIRING REPAIR APPLIED (rule 7): the tables-lens candidate carried appliesToField 'Company Branding Logo', which is a UI LABEL and owns no field; it is re-pointed here to the roster field NAME company_branding_logo, confirmed present in roster-purchase-order-configuration.json. The three formats are verbatim, with the leading dot, in source order. No .jpeg, .bmp, .svg or .webp variant appears anywhere in the corpus and none may be added by inference. The same sentence carries three constraints recorded on the field rather than as values: 55 pixels high, no more than 200 pixels in length, no more than 100 KB. SAP phrases the dimensions as 'should be' (a recommendation, not a stated reject rule) and writes 'length' where a UI would normally say width - reproduce SAP's wording rather than normalising it. DO NOT CONFLATE with the Image Handling page's supportedImageFileTypesAdmin / formatsOfEmailsAndUploads lists - different control, different page, different list. Group scope: 'The logo is group-aware in the same way as the purchase order configuration and clients can only update one company logo per invoice group.' Adjacent controls named in the same section: Upload, View, Remove. PAGE-BINDING CAVEAT inherited from the roster: configure-purchase-orders-8128725e.md returns grep -c 'Purchase Order Configuration' = 0 and names neither the page nor a nav path, so this control's placement on the page rests on guide-section adjacency plus the independent by-name attestation in purchase-request-and-purchase-order-8b36ae07.md ('Added information about the ability to add a company logo in PO Configuration')."
+    }
+  ],
+  "validValuesAdditions": [],
+  "orphanCandidates": [
+    {
+      "enumerates": "Concur Receiving roles matrix - the complete 6-row x 4-column Role | What the User Can/Cannot Do | Where? | Conditions table published in this page's own tools-guides Required Roles topic.",
+      "values": [
+        "Purchase Order Processor || Can add, edit, and delete receipts and receipt images. || In the transmitted purchase order. || None.",
+        "Invoice Processor || Can add, edit, and delete receipts and receipt images. || In Purchase Order tab of the opened invoice. || None.",
+        "Purchase Request User || Can add, edit, and delete receipts and receipt images || In the transmitted purchase order. || The admin must have selected (enabled) the Allow Purchase Request Owners to Edit their own Purchase Orders option in Invoice Settings. Alternatively, the user can have the Receipt User role.",
+        "Invoice User || Can add, edit, and delete receipts and receipt images. || In the Purchase Order tab of the opened invoice. || None.",
+        "Central Receiver || Can add, edit, and delete receipts and receipt images for all purchase orders in their group. Cannot transmit and process purchase orders or invoices. || In the transmitted purchase order. || The Concur Receiving feature must be activated.",
+        "Receipt User || Can add, edit, and delete receipts and receipt images. Can only add, edit, and delete receipt data for their own purchase orders. || In the transmitted purchase order. || The Concur Receiving feature must be activated."
+      ],
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md",
+      "whyNoOwner": "None of these six roles is a control on either Group 3 page - role assignment happens in user administration, which is not a page in this graph. Attaching the matrix to rule_set_name (as one extraction lens did, defensively) would be a wrong owner: rule_set_name is a list-page column, not a role picker. ALL SIX ROWS AND ALL FOUR COLUMNS are reproduced above so the catalog is not silently lost; the ' || ' separator is MINE, added to keep one row per array entry, and every string between separators is verbatim except that the Purchase Request User's second cell genuinely lacks a trailing period in the source. Two multi-sentence cells (Central Receiver, Receipt User) are joined from two source paragraphs within one cell. Anchoring quote in the file: 'This table shows roles in Concur Invoice working with Concur Receiving and what they can and cannot do.' Also published in the same topic and worth carrying forward: 'Only the Invoice Configuration administrator can access and configure the Purchase Order Matching Rules feature.' and a Note that a user with the Purchase Order Processor or Purchase Order Processor (Audit) role can reach imported POs on entities without Purchase Request enabled. TOOLS-GUIDES ONLY - an admin-guides-skewed search loses this table entirely.",
+      "whatWouldFixIt": "A Concur Receiving / Purchase Order page node (or a roles/permissions node) with a field that owns the role roster. The Purchase Request User row also carries a real cross-page dependency to the already-built Invoice Settings page, via the 'Allow Purchase Request Owners to Edit their own Purchase Orders' option - if a field of that name exists on Invoice Settings, this row can be wired as a dependency without inventing an owner here."
+    },
+    {
+      "enumerates": "The default instructional message text shipped for each receipt confirmation type - the Default Message Text column of the 3-row table in step-5.",
+      "values": [
+        "The payment request's receipt of the product/service has not been confirmed.",
+        "Not all associated purchase order line items have been marked as received. Please update the receipt status before submitting/approving the request.",
+        "Not all associated purchase order line items have been marked as received. Please contact your processor for updating the receipt status."
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md",
+      "whyNoOwner": "These are not values of confirmation_type - they are the message strings paired with it, and no field on either Group 3 page owns message text. The corpus is explicit that they are edited elsewhere: 'This text can be customized from the default text and localized into other languages by clickingAdministration > Invoice > Localization to access this tool.' (note the missing space in 'clickingAdministration', a corpus typo). Localization is NOT yet a page in this graph. Attaching them to confirmation_type would make three message strings look like selectable confirmation types. Source order matches the table rows: Invoice (INVC), Receipt Individual (RIND), Receipt Central (RCEN). Rows 2 and 3 SHARE their first sentence and differ only in the remedy sentence - a driver comparing on-screen text must read the whole string, not the prefix. The Intent column, verbatim: Invoice = 'Owner, confirm everything was received satisfactorily (overall invoice).'; Receipt Individual = 'Owner, confirm receipt in your ERP \\\\[instructions to do this\\\\] so this invoice can be released.' (the corpus escapes the square brackets as backslash-bracket; reproduce the escapes or a grep -F will miss); Receipt Central = 'his invoice cannot move forward until central receiving has completed/been processed.' - SAP TYPO preserved, the leading T is missing in the corpus.",
+      "whatWouldFixIt": "A Localization page node with a message-item field (the procedure names the path: Administration > Invoice > Localization, then select a language, then the 'Invoice Receipt Confirmations' message item in the Category column, then Modify). Once that field exists, this set wires to it with contextField confirmation_type."
+    },
+    {
+      "enumerates": "The three documented DRIVERS a matching rule can key on to produce a confirmation-type outcome. EXPLICITLY AN OPEN LIST - the source frames it with 'such as'.",
+      "values": [
+        "Spend Category",
+        "Capital Expense Status",
+        "Amount Threshold"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/match-rules-and-rule-sets-87e69410.md",
+      "whyNoOwner": "These are rule CRITERIA, not values of confirmation_type, and no roster field on either Group 3 page is a criteria picker - the condition editor (group_conditions_dialog) is documented in step-4 without any enumeration of the fields or operators it offers. Filing them as confirmation_type values, as one extraction lens did, would have put three criteria names into a four-value outcome list. The source itself closes the door on treating this as a catalog: 'Rules are flexible and almost any categories can be created, based on any criteria.' Anchoring quote: 'The rule-based logic in Concur Invoice allows the confirmation type to be based on key factors such as:'. Scope caveat published in the same topic: 'These instructions cover the new receipt related functions only.' Its worked Category example (narrowed to Services and Goods) is explicitly illustrative - 'To keep things simple, the Category example has been narrowed down to Services and Goods here.' - and is deliberately NOT extracted as values.",
+      "whatWouldFixIt": "Nothing in this corpus. It would need a documented condition-editor field roster for Purchase Order Matching Rules Group Conditions, equivalent to the Audit Rules condition editor's Data Object / Field catalog. step-4 describes the dialog and its Insert / Save / Edit Rules / Update flow but never enumerates a single selectable field, so the enumeration a driver needs does not exist. Reporting that absence is the finding."
+    },
+    {
+      "enumerates": "Amount-based fields that generate an exception when invoice totals exceed the PO. The SOURCE ITSELF marks the list as partial by ending it with 'etc.'",
+      "values": [
+        "Line Item Total",
+        "Quantity",
+        "Tax",
+        "Shipping"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/amounts-and-tolerances-ab795b1f.md",
+      "whyNoOwner": "Tempting to hang on payment_request_field, and one extraction lens did - but the corpus never states that these four appear as options in the Payment Request list, only that fields of this kind trigger exceptions. Wiring an explicitly non-exhaustive list into a field whose validValues are empty for a documented reason ('they will change depending on the field selected in the step above') would tell a driver four options exist where the real list is Level-dependent and unpublished. An honest null is the right answer. Anchoring quote: 'Amount-based fields (Line Item Total, Quantity, Tax, Shipping, etc.) will generate an exception whenever the invoice(s) amount totals exceed the PO amount.' Scope: the same sentence's follow-on states 'This is true for both rules types, Life to Date and Rules.' Also published here and easy to miss: 'multiple rules can be run on the same field', so a driver must not assume one rule per field.",
+      "whatWouldFixIt": "A documented Payment Request / Purchase Order field catalog for at least one Level value. Only one exists in the whole corpus (the Line Item – Receipt pair), and it is already emitted as a value set. Nothing else would justify promoting these four to values."
+    },
+    {
+      "enumerates": "The actions available on a selected Rule Set row or rule condition, gathered from the three-bullet 'Configure Business Logic' list.",
+      "values": [
+        "Add",
+        "Edit",
+        "Copy",
+        "Delete",
+        "Rename",
+        "Edit Confirmation"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/match-rules-and-rule-sets-87e69410.md",
+      "whyNoOwner": "Every one of these six is ALREADY its own button field in the Purchase Order Matching Rules roster (add_button, edit_button, copy_button, delete_button, rename_button, edit_confirmation_button). Filing them again as 'values of rule_set_name' would duplicate six real fields as strings inside a seventh, which is exactly the re-homing this build forbids. Anchoring quotes: 'Add a new rule condition by selecting the Rule Set (for example \"Default\"), and then selecting Add'; 'and then select Edit, Copy, Delete, or Rename to perform those functions'; 'and then select Edit Confirmation to create or change the confirmation type'. NOTE WHAT IS ABSENT: no New button is documented on this action list - step-1 creates a rule set by Copy, then Rename, then Done. Buttons attested on nested surfaces and NOT in this roster: Edit Rules, Insert, Update, Save, Change, New.",
+      "whatWouldFixIt": "A page-level 'row actions' or context-menu construct in the schema, or a set of dependency edges from rule_set_name to each button field. As values it has no legitimate owner."
+    },
+    {
+      "enumerates": "The three matching METHODS the page's rule sets implement - a closed three-item catalog with definitions.",
+      "values": [
+        "Two-Way Matching: Matching between invoices and purchase orders (no receipt)",
+        "Three-Way Matching: Matching between invoices and purchase orders and received quantities",
+        "Receipt Confirmation: Matching between invoices and purchase orders (including receipt confirmation that the order has been fully received)"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b35a33f.md",
+      "whyNoOwner": "NO CONTROL ANYWHERE IN THE CORPUS is labelled with these three names. They are the conceptual frame - achieved by which rules you switch on - not a dropdown, and the closest real field, matching_rule_type, has a different two-value list (Life to Date, Rules). Kept because it is a complete enumerated catalog and because it disambiguates the page's vocabulary for a driver. Anchoring quote: 'Concur Invoice offers three types of matching methods:'. Each of the three values above is verbatim, in source order. The tools-guides twin overview-8b4fd062.md republishes the same list nearly verbatim (differing only by 'Invoice does not check quantity' for 'Concur Invoice does not check quantity', a capitalised 'Suppliers', a missing abstract line and italics) - a cross-deliverable republish, NOT a UI variant, so it is not double-counted.",
+      "whatWouldFixIt": "Nothing - and that is the finding. It should stay unwired unless SAP later documents a control that selects a matching method by name."
+    },
+    {
+      "enumerates": "The 6-term terminology glossary for this page's objects, published as a bullet run.",
+      "values": [
+        "Concur Receiving: The ability for users to add quantity receipt data manually in Concur Invoice.",
+        "Purchase Order Payment Request: An invoice associated with a PO by the unique number associated with the PO.",
+        "Life to Date: The complete span of all invoices associated with their purchase order.",
+        "Associate: The relationship created when an invoice is linked to a PO by entering the unique PO number in the request header form.",
+        "Matching Rule Set: The combination of rules that is executed for every PO request matched under a given policy.",
+        "Named Rules Group: Any rule existing within (\"under\") the Matching Rule Set, for example, a condition-based rule group."
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/terminology-d3b9f043.md",
+      "whyNoOwner": "A glossary is not a field's option list. These are the authoritative object names for the page's node graph, not values an admin selects. Anchoring quote: 'The following terms are used throughout this document and within Invoice.' All six terms, verbatim and complete, in source order; the Matching Rule Set entry is cut at its first sentence, the source continuing 'Can be a simple, single rule, or more complex multiple match rule that includes \"nested\" condition-based rules run against custom fields that differentiate by spend type, project, or division as examples.' TERMINOLOGY TENSION worth flagging for a driver: 'Life to Date' is simultaneously a glossary concept, a tab name (life_to_date_tab) and a rule-type value (matching_rule_type), so a text match on those three words is ambiguous.",
+      "whatWouldFixIt": "A glossary or vocabulary node type in the schema. It should never be wired to a field."
+    },
+    {
+      "enumerates": "The four events that RE-RUN an already-configured match rule set, and - separately - the three invoice states in which match rules CANNOT run at all.",
+      "values": [
+        "On Header save and Line Item delete, save, and line sequence change",
+        "Changing Invoice Owner, Vendor, or reassigning an invoice",
+        "Upon PO import, if the import identifies a matching invoice in Concur Invoice that had not been previously associated to a PO",
+        "Upon receipt import for invoices associated to the PO",
+        "Has been extracted",
+        "Is part of a payment demand",
+        "Has a status of _Unassigned_"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/when-are-match-rules-run-f835a01e.md",
+      "whyNoOwner": "Runtime timing and eligibility, not a field's option list - no control on either Group 3 page selects when rules run. Kept in full because a driver needs it to predict when its configuration takes effect and why a correctly configured rule set can appear to do nothing. The two lists are concatenated in one record and are distinguishable by position: entries 1-4 are the re-run triggers, entries 5-7 the blocking states. Anchoring quotes: 'When these two things are true, rules are re-run whenever relevant changes are made to the invoice or to the PO. This includes:' and 'Has been extracted'. The seventh value keeps the source's markdown emphasis characters ('_Unassigned_') so it stays a verbatim substring. FIRST-RUN preconditions are separate and BOTH required: successful association to a PO - AND - the invoice in an assigned state; three-way matching adds association to received quantities. Published caveat: 'Rules are rerun for the changes listed above regardless of workflow status.' TOOLS-GUIDES ONLY.",
+      "whatWouldFixIt": "A behaviour/trigger node type. As field values it has no owner and must not be given one."
+    },
+    {
+      "enumerates": "The four documented sources of documents that end up attached to a transmitted purchase order.",
+      "values": [
+        "Administrators who configure purchase orders in PO Configuration",
+        "Users who create purchase requests and select the Include in PO Transmission option",
+        "Approvers who approve purchase requests and select the Include in PO Transmission option",
+        "PO processors who process purchase requests and select the Include in PO Transmission option"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md",
+      "whyNoOwner": "This is provenance, not an option list: the Supporting Document control on Purchase Order Configuration (roster field supporting_documents) is an upload/view/remove control with no enumerated values, and only the FIRST of these four entries is that control at all. Wiring all four to supporting_documents would assert that an admin picks a document source from a list, which the corpus never says. All four are verbatim and complete, in source order. This is the topic that independently attests the page by name and gives its nav path: 'the Invoice Configuration administrator uses the Purchase Order Configuration tool (Administration > Invoice > Purchase Order Configuration)' - valuable because the settings topic configure-purchase-orders-8128725e.md returns grep -c 'Purchase Order Configuration' = 0. Corroborated cross-directory by manage-images-03021850.md: 'The PO configuration associated with a Group may also include supporting documents.' and 'These documents apply to all PO transmissions performed by the PO Processor for that Group and are included alongside any documents added by the user.'",
+      "whatWouldFixIt": "A field named 'Include in PO Transmission' on whichever page owns the purchase request / PO processing forms - not yet built. Three of the four entries would then be dependencies on that field rather than values here."
+    },
+    {
+      "enumerates": "Email Message Replacement Tokens - the 4-row Variable | Label Name | Description table. LISTED HERE AS A REJECTED NEAR-MISS, not as a candidate for wiring.",
+      "values": [
+        "%1%",
+        "%2%",
+        "%3%",
+        "%4%"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+      "whyNoOwner": "DELIBERATELY REJECTED. Purchase Order Configuration's default_email_subject_when_transmitting_purchase_orders field is documented as offering tokens - 'When the admin clicks the Default Email Subject When Transmitting Purchase Orders field, they will see a tool tip with information (tokens) about how to enter text in the field.' - but that tooltip's token list is NEVER published anywhere in the corpus. This table is a DIFFERENT feature: it belongs to reminder emails on the Add Email Reminder page ('When creating an email message for a reminder, you can add dynamic text to the subject line and the email message body text.'), and its tokens are scoped to reminder-rule queries. Wiring it to a PO transmittal field would be a wrong owner of exactly the kind this build has been burned by. Recorded so a later run does not rediscover it and wire it. Label Name and Description per row, verbatim: %1% = Logon URL, 'The URL for the Concur Sign In page.'; %2% = User Name, 'The primary recipient of the email in this format: First-name Last-name. This does not pertain to any Copy To recipients, such as approvers.'; %3% = Number of Records, 'The number of applicable object records, such as number of invoices, found by the reminder rule query, which is based on the Reminder Type.'; %4% = List of Records, 'A list of the applicable object records found by the reminder rule query, based on pre-defined formats. This variable is not supported in the Email Subject field.' Constraint on all four: 'You cannot select any of these replacement token variables from the Helper pane to have them appear automatically in the Email Subject or Email Message fields. You must type the variables manually.'",
+      "whatWouldFixIt": "SAP publishing the PO transmittal tooltip's own token roster, or an Email Reminders page node that owns this table properly. Until one exists, default_email_subject_when_transmitting_purchase_orders stays unenumerated and that is the correct answer."
+    }
+  ]
+}

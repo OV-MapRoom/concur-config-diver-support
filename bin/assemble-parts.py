@@ -128,8 +128,26 @@ def norm_field(f):
     return out
 
 
-def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Accounting',
-         patch_page='Group 5B'):
+def group_tag(group, patch_page=None):
+    """Step-id prefix for a group label. 'Group 3 — PO Matching' -> 'grp3-'.
+
+    A patch into an existing group label appends the patch initials, matching how
+    merge-group.py builds its gtag: Group 5 + 'Group 5B' -> 'grp5b-'.
+    """
+    m = re.search(r'Group (\d+)', group or '')
+    tag = m.group(1) if m else slug(group or 'x')
+    if patch_page:
+        pm = re.search(r'Group\s*(\d+\s*[A-Za-z]?)', patch_page)
+        if pm:
+            tag = pm.group(1).replace(' ', '').lower()
+    return 'grp%s-' % tag
+
+
+def main(parts, out_path, journal=None, group=None, patch_page=None):
+    if not group:
+        sys.exit('--group is required: the group label as it must appear in the graph, '
+                 'e.g. --group "Group 3 — PO Matching"')
+    step_prefix = group_tag(group, patch_page)
     nav = nav_from_journal(journal)
     rosters = sorted(glob.glob(os.path.join(parts, 'roster-*.json')))
     if not rosters:
@@ -378,9 +396,12 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
             problems.append(('VALUE-SET-ID-COLLISION', '/'.join(k), 'two sets would mint the same node id'))
         seen_vs[k] = True
 
+    # The step-id prefix is per-group and MUST be derived, never hard-coded: this check
+    # read 'grp5b-' until Group 3, where it flagged all six correctly-prefixed ids. Mirrors
+    # the gtag derivation in merge-group.py so the two can never disagree.
     for s in steps:
-        if not s['id'].startswith('grp5b-'):
-            problems.append(('STEP-ID-NOT-PREFIXED', s['id'], ''))
+        if not s['id'].startswith(step_prefix):
+            problems.append(('STEP-ID-NOT-PREFIXED', s['id'], 'expected prefix %r from group %r' % (step_prefix, group)))
 
     mapping = '\n\n---\n\n'.join(x for x in [read_text(os.path.join(parts, 'map-navigation.md')),
                                              read_text(os.path.join(parts, 'map-inventory.md'))] if x)
@@ -451,6 +472,8 @@ if __name__ == '__main__':
     def opt(name, default=None):
         f = '--' + name
         return sys.argv[sys.argv.index(f) + 1] if f in sys.argv else default
+    # No defaults for group / patch-page. They previously defaulted to Group 5B's values,
+    # so a Group 3 run silently produced a result carrying patchPage 'Group 5B' — which
+    # merge-group.py --patch would have used to tag and strip nodes under the wrong group.
     sys.exit(main(a[0], a[1], journal=opt('journal'),
-                  group=opt('group', 'Group 5 — Data Structure & Accounting'),
-                  patch_page=opt('patch-page', 'Group 5B')))
+                  group=opt('group'), patch_page=opt('patch-page')))

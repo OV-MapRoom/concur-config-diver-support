@@ -1,0 +1,807 @@
+{
+  "pageId": "purchase-order-matching-rules",
+  "pageName": "Purchase Order Matching Rules",
+  "lens": "C",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+    "concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md",
+    "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+    "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+    "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md",
+    "concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md",
+    "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-8b357dbb.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-new-experience-6c8fb80f.md",
+    "concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md",
+    "concur-invoice-professional-edition-admin-guides/edit-purchase-order-matching-rules-604d1e31.md",
+    "concur-invoice-professional-edition-admin-guides/copy-purchase-order-matching-rules-c6d4106a.md",
+    "concur-invoice-professional-edition-admin-guides/test-and-change-match-rule-sets-49f57319.md",
+    "concur-invoice-professional-edition-admin-guides/amounts-and-tolerances-ab795b1f.md",
+    "concur-invoice-professional-edition-admin-guides/refine-the-rules-allow-submission-despite-tolerance-9b96d467.md",
+    "concur-invoice-professional-edition-admin-guides/refine-the-rules-include-an-exception-message-c174b2b6.md",
+    "concur-invoice-professional-edition-admin-guides/refine-the-rules-include-condition-based-rules-in-a-rule-set-ad7b0d65.md",
+    "concur-invoice-professional-edition-admin-guides/refine-the-rules-combine-the-life-to-date-and-rules-rule-types-2b46973f.md",
+    "concur-invoice-professional-edition-admin-guides/confirmation-types-b4a94761.md",
+    "concur-invoice-professional-edition-admin-guides/receipt-central-confirmation-type-a30f804b.md",
+    "concur-invoice-professional-edition-admin-guides/receipt-individual-confirmation-type-56fd62f1.md",
+    "concur-invoice-professional-edition-admin-guides/invoice-confirmation-type-3142509d.md",
+    "concur-invoice-professional-edition-admin-guides/confirmation-message-configuration-65b79d9c.md",
+    "concur-invoice-professional-edition-admin-guides/how-receipt-confirmation-exceptions-appear-9d67250d.md",
+    "concur-invoice-professional-edition-admin-guides/match-rules-and-rule-sets-87e69410.md",
+    "concur-invoice-professional-edition-admin-guides/match-rule-set-per-policy-8b14149d.md",
+    "concur-invoice-professional-edition-admin-guides/activate-exchange-rates-for-matching-rule-sets-c51af31c.md",
+    "concur-invoice-professional-edition-admin-guides/not-possible-to-base-rule-set-on-expense-type-or-account-code-e98c9b2c.md",
+    "concur-invoice-professional-edition-admin-guides/general-notes-ced8d7d0.md",
+    "concur-invoice-professional-edition-admin-guides/audit-trail-c1a37524.md",
+    "concur-invoice-professional-edition-admin-guides/terminology-d3b9f043.md",
+    "concur-invoice-professional-edition-admin-guides/before-you-begin-dc5d817c.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b35a33f.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b37481c.md",
+    "concur-invoice-professional-edition-admin-guides/required-roles-ec6fae13.md",
+    "concur-invoice-professional-edition-admin-guides/best-practices-129dae61.md",
+    "concur-invoice-professional-edition-admin-guides/is-receipt-required-value-on-po-line-item-896466e1.md",
+    "concur-invoice-professional-edition-admin-guides/delivery-slip-number-field-for-three-way-matching-b0d3f1ca.md",
+    "concur-invoice-professional-edition-admin-guides/quantity-receipt-import-for-three-way-matching-1fc33cab.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md",
+    "concur-invoice-professional-edition-tools-guides/when-are-match-rules-run-f835a01e.md",
+    "concur-invoice-professional-edition-tools-guides/overview-8b4fd062.md",
+    "concur-invoice-professional-edition-tools-guides/match-rules-and-match-status-8cc2c56b.md",
+    "concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md",
+    "concur-invoice-professional-edition-tools-guides/how-to-deal-with-exceptions-using-matching-rules-options-171867ad.md",
+    "concur-invoice-professional-edition-tools-guides/exceptions-and-three-way-matching-rules-65d52687.md",
+    "concur-invoice-professional-edition-tools-guides/receipt-association-and-three-way-matching-12b976a5.md",
+    "concur-invoice-professional-edition-tools-guides/understanding-line-item-match-rule-application-7a56d0c5.md",
+    "concur-invoice-professional-edition-tools-guides/quantity-receipt-import-for-three-way-matching-8b4fe385.md",
+    "concur-invoice-professional-edition-tools-guides/change-a-po-based-invoice-policy-to-a-non-po-based-invoice-policy-12786d77.md",
+    "concur-invoice-professional-edition-tools-guides/enabling-and-disabling-line-item-level-po-ef3f19cd.md",
+    "concur-invoice-professional-edition-tools-guides/resolve-exceptions-09eb0af1.md",
+    "concur-invoice-professional-edition-tools-guides/processor-resolve-exceptions-54f71448.md",
+    "concur-invoice-professional-edition-tools-guides/associate-po-to-invoice-by-using-capture-processing-dfe82411.md",
+    "concur-invoice-professional-edition-tools-guides/po-based-invoices-that-should-not-be-matched-8b4f5ef2.md",
+    "concur-invoice-professional-edition-tools-guides/po-association-and-policy-8b4f71b2.md",
+    "concur-invoice-professional-edition-tools-guides/matching-summary-tab-a7ac0851.md"
+  ],
+  "fields": [
+    {
+      "name": "allowSubmitApprove",
+      "label": "Allow Submit/Approve",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Both options are available to the Invoice administration on the Rules tab when configuring the matching rule set.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/how-to-deal-with-exceptions-using-matching-rules-options-171867ad.md",
+      "notes": "TOOLS-GUIDES corroboration that the allow-submit option and the custom exception message both live on the Rules tab. Admin-guides locates it more precisely: 'This \"override\" action is selected by using the Allow Submit/Approve feature in the Options section of the Rules tab.' (admin-guides/refine-the-rules-allow-submission-despite-tolerance-9b96d467.md). configure-three-way-matching-c043e5c8.md documents it on BOTH the Rules tab (step 6) and the Life to Date tab (step 10), so it is not Rules-tab-exclusive. Corpus enumerates only the selected state ('Select this check box to allow submission') - the cleared state is NOT documented, so no validValues are asserted.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "exceptionMessage",
+      "label": "Exception Message",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Matching rule sets can be configured to include options that let you submit a PO even if it has an exception, and to create a rule-specific custom message that displays when the exception occurs.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/how-to-deal-with-exceptions-using-matching-rules-options-171867ad.md",
+      "notes": "Opens the FIFTH dialog (the Exception Message editor), which the recon click tree omitted and without which a driver cannot set a message: 'Exception Message: Click Change and add a message by clicking New, or edit an existing message by selecting it and clicking Edit, then click Save.' (admin-guides/configure-three-way-matching-c043e5c8.md, twice; also step-2-...-dc296ae6.md). Admin-guides adds that it 'will only display when the user triggers the configured rule' (refine-the-rules-include-an-exception-message-c174b2b6.md). Documented on both the Rules tab and the Life to Date tab. The message text itself is free text; no enumerated values.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "ruleLevel",
+      "label": "Level",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Header",
+        "Vendor",
+        "Line Item",
+        "Line Item - Receipt"
+      ],
+      "sourceQuote": "They can be specified at the Header, Vendor, or Line Item level, and can be applied on a one-to-one basis between the current invoice and the PO",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/match-rules-and-match-status-8cc2c56b.md",
+      "notes": "CROSS-DIRECTORY PARTIAL-LIST DISAGREEMENT, recorded not reconciled. The cited tools-guides quote enumerates only THREE levels (Header, Vendor, Line Item); admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md enumerates FOUR: 'Select a value from Level (Header, Vendor, Line Item, Line Item - Receipt)'. validValues carry the four-value admin list because it is the superset, but the tools omission is real and likely provisioning-dependent (Line Item - Receipt is a three-way-matching level, so a site without receipt import may not see it). Changing Level repopulates the Payment Request and Purchase Order lists. LABEL SPELLED THREE WAYS in the corpus - see contradictions.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "paymentRequestField",
+      "label": "Payment Request",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "In the Payment Request list, select the request field to match to the same field in the PO.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "The corpus NEVER enumerates the full contents of this list - it is populated dynamically by the Level selection ('As different levels are chosen in Level, different field sets will populate the selections available in Payment Request and Purchase Order.'). Only scattered example members appear across topics (Unit Price, Shipping, Quantity, Line Quantity, Receipt Associated, Remit Address, Request Total, Custom field). validValues deliberately left empty - a partial list would be worse than none. For the Line Item - Receipt level, configure-three-way-matching-c043e5c8.md names two documented pairings; see the valueSet.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "purchaseOrderField",
+      "label": "Purchase Order",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Under Purchase Order, select the PO field to match to the invoice (they will change depending on the field selected in the step above).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "Cascades off BOTH Level and the Payment Request selection. Never enumerated corpus-wide. Emitted empty deliberately.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "tolerance",
+      "label": "Tolerance",
+      "fieldType": "radio",
+      "validValues": [
+        "None",
+        "Within (+/-)",
+        "Custom",
+        "Currency"
+      ],
+      "sourceQuote": "Choose one tolerance:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "TWO DOCUMENTED VALUE LISTS - BOTH EMITTED AS A CONTRADICTION, NOT RECONCILED. This four-value list is step-3's; configure-three-way-matching-c043e5c8.md gives THREE ('select None, Within, or Custom, and then select Value or Percentage'), spells the second option 'Within' without the (+/-) suffix, and treats Currency not as a tolerance option but as a downstream refinement. See contradictions and both valueSetCandidates. The control is optional and field-dependent: '(Optional depending on field choice)'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "toleranceBasis",
+      "label": "Value or Percentage",
+      "fieldType": "radio",
+      "validValues": [
+        "Value",
+        "Percentage"
+      ],
+      "sourceQuote": "If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "Refines a tolerance once one is chosen. Value = an absolute number at or above which an exception fires; Percentage = a percent above which a flag fires. amounts-and-tolerances-ab795b1f.md corroborates the pair generically: 'this can be refined by including tolerance levels applying to the absolute currency value, or to a percentage', and states multiple rules can run on the same field. refine-the-rules-combine-the-life-to-date-and-rules-rule-types-2b46973f.md documents a tolerance value of zero as legitimate. Appears on the Rules tab, the Life to Date tab, and inside Overage Tolerance.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "toleranceCurrency",
+      "label": "Currency",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Currency: Choose the base currency your company uses. Conversions for alternate currencies used on incoming invoices will be calculated automatically and applied by the system.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+      "notes": "Paired with Value (Value AND Currency, - OR - Percentage) on the Life to Date tab. step-3 lists Currency as a fourth TOLERANCE option rather than a Value refinement - see the tolerance contradiction. The currency list itself is never enumerated. The underlying exchange-rate feature is on by default and is administered OUTSIDE this page, in the Expense Admin module - do not look for a toggle here.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "overageTolerance",
+      "label": "Overage Tolerance",
+      "fieldType": "radio",
+      "validValues": [
+        "Value",
+        "Percentage"
+      ],
+      "sourceQuote": "In the Overage Tolerance section, select Value or Percentage.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "ONLY attestation in the corpus. Appears on the Life to Date tab after selecting Match against Received Quantity. Worked examples given: Value 100 with Quantity Received 1000 triggers at 1100; Percentage 1 with Quantity Received 1000 triggers above 1010. Whether 'Overage Tolerance' is a distinct control or this topic's name for the same Tolerance section on the Life to Date tab is UNDETERMINED from the corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "lifeToDateRuleType",
+      "label": "Life to Date",
+      "fieldType": "checkbox",
+      "validValues": [
+        "Gross Amount",
+        "Net Amount",
+        "Line Item Total",
+        "Line Item Quantity",
+        "Match against Received Quantity",
+        "Line Item Tax"
+      ],
+      "sourceQuote": "Click the Life to Date tab, then select the check box next to the rule type to activate using the table below:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+      "notes": "LONG CATALOG, complete, in source order, from the 6-row INDENTED markdown table (grep -c '^| ' returns 0 on this file; grep -cP '^\\s*\\|' returns 22). Multi-select: 'Repeat by selecting a check box for each option you want to include.' Each selection reveals its own tolerance refinement. Life to Date is the one-to-many rule type (cumulative across all invoices sharing a PO number); Rules is the one-to-one type. The system uses Line Item Number to associate PO and invoice line items.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "matchAgainstReceivedQuantity",
+      "label": "Match against Received Quantity",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Click the Life to Date tab, and then select the Match against Received Quantity option.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "Emitted separately from lifeToDateRuleType because it is the specific three-way-matching gate and is the only Life to Date member with its own dedicated procedure and its own tolerance control (Overage Tolerance). LABEL DRIFT: the SAME FILE writes it 'Matched against Received Quantity' at its rule-list bullet and 'Match against Received Quantity' at its step 8 - see contradictions. Not a second control: do not count it twice against the Life to Date catalog.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "ruleSetName",
+      "label": "Rule Set Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Rule Set Name: The name of the rule set.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+      "notes": "First of three columns on the landing list, and the selection target for Edit/Copy. Set via Rename, not via a New button - there is NO documented New/Create button for a rule set; creation is Copy an existing set, Rename it, then Done. Naming convention guidance (a testing-lane best practice, not a system constraint): 'Test - Rule Set V1' style names, incremented per iteration, with 'Test' dropped for the production copy.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "inUse",
+      "label": "In Use",
+      "fieldType": "text",
+      "validValues": [
+        "Yes",
+        "No"
+      ],
+      "sourceQuote": "In Use: Shows if the matching rule set has been applied against any active invoice (Yes) or has not yet applied (No) in the system.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+      "notes": "READ-ONLY status column, not an editable control - emitted because it is the hard gate on every write to this page: 'A rule set with an In Use status of Yes cannot be modified in any way.' Yes/No are BOTH explicitly enumerated in the cited sentence, so this is not an invented toggle pair. Clearing it requires breaking every invoice association (see the unlockRuleSet dependency).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "associatedPolicies",
+      "label": "Associated Policies",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Associated Policies: Shows what Invoice PO policy has been configured to include this PO matching rule set.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md",
+      "notes": "READ-ONLY column. The association is NOT made here - it is made on the already-built Policies page via the PO Matching Ruleset option. Never re-home that field. PO Matching Rule Sets (including Receipt Confirmation outcomes) can differ per policy.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "namedRulesGroupName",
+      "label": "Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "In Purchase Order Matching Rules, type a descriptive name for the new rule in Name.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+      "notes": "Names a Named Rules Group inside the rule set. Glossary definition: 'Named Rules Group: Any rule existing within (\"under\") the Matching Rule Set, for example, a condition-based rule group.' A shipped group called Default exists and is the documented basis for new groups.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "ruleGroupConditions",
+      "label": "Purchase Order Matching Rules Group Conditions",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "In Purchase Order Matching Rules Group Conditions, configure the conditions that the system will detect and then execute the matching rule set on",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md",
+      "notes": "ONLY attestation of this dialog. Reached from the page via: select rule set > Edit > select named rule group > Add. Conditions are added with Insert and committed with Save; then select the new condition > Edit Rules > (build rule) > Update > Save. Adding condition groups under a group is what makes the set a 'Multiple Matching Rule Set'. Condition-based rules run as subsets of the parent rule; if no condition is met the default rules run. Tools-guides corroborates the concept: 'Match Rules are configurable, similar to Audit and Workflow rules and can include condition-based rule groups within the overall matching rule set.' The condition operand catalog is NOT documented for this dialog - do NOT borrow the Audit Rules Condition page catalog, which is a different page already in the graph.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "confirmationType",
+      "label": "Confirmation Type",
+      "fieldType": "dropdown",
+      "validValues": [
+        "None",
+        "Invoice",
+        "Receipt Central",
+        "Receipt Individual"
+      ],
+      "sourceQuote": "These outcomes are called confirmation types, and there are four types:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/confirmation-types-b4a94761.md",
+      "notes": "Set through Edit Confirmation, which opens the Select Confirmation Type window; assignable at the Rule Set level or at an individual rule-condition level, with 'Parent choice' displayed for rule conditions to inherit the Rule Set's choice. Codes INVC / RIND / RCEN appear only in step-5's table; None carries no code and no message. Confirmation type can be driven by Spend Category, Capital Expense Status, and Amount Threshold. HARD CONSTRAINT: received quantity must come from the ERP via Receipt Import - 'There is no interface available to directly enter quantities in Concur Invoice.' GATE: unless the PO line's Is Receipt Required is Yes, none of this logic is evaluated at all.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "editConfirmation",
+      "label": "Edit Confirmation",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Do this by clicking Edit Confirmation to open the Select Confirmation Type window, choosing a confirmation type based on the rule group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md",
+      "notes": "Operable on either an existing Rule Set or an existing rule condition: 'Select an existing Rule Set (\"Default\") or rule condition (\"Services Under $5000\"), and then select Edit Confirmation to create or change the confirmation type' (match-rules-and-rule-sets-87e69410.md). Note that topic's scoping caveat: 'These instructions cover the new receipt related functions only.' The instructional TEXT shown for each type is NOT edited here - it is edited in the Localization tool (page not yet in this graph).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "ruleSetActionButtons",
+      "label": "Add / Edit / Copy / Delete / Rename / Edit Confirmation",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select an existing rule condition (for example, \"Services Under $5000\"), and then select Edit, Copy, Delete, or Rename to perform those functions",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/match-rules-and-rule-sets-87e69410.md",
+      "notes": "The button roster for the rule-set/rule-condition tree on this page. Add creates a new rule condition under a selected Rule Set. Other topics add Done (finishes a Copy+Rename), Edit Rules (opens the rules window), Insert (adds a further condition), Update (commits a rule into the rows) and Save. Emitted as ONE roster record rather than six fields because the corpus documents them as one selection-scoped toolbar, and splitting them would inflate the field count without adding drivable detail.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addRule",
+      "label": "Add",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Click Add to insert this rule into the rows under Rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "Distinct from the Add on the rule-set tree (which opens Group Conditions): this Add commits the Level/Payment Request/Purchase Order/Tolerance combination into the rules grid. Step-4 uses Update rather than Add for the same commit inside a condition-based group - an unexplained divergence the driver should be prepared for. configure-three-way-matching-c043e5c8.md also ends its Rules-tab sequence with 'Click Add.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "rulesGrid",
+      "label": "Rules",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "Then, as each rule is added using the Add button, they will appear at the bottom of the Rules window in rows.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "The Rules tab grid. Existing default rules can be edited in place or removed: 'You can either change a default rule by selecting and updating, or delete the rule by selecting and clicking Delete. Be sure to clear the default rule set if you do not intend to use them.' The shipped default rule set is documented by example as Unit Price and Remit Address. Multiple rules may target the same field (e.g. Shipping by both amount and percentage).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "matchStatusOutcome",
+      "label": "Match Status",
+      "fieldType": "unknown",
+      "validValues": [
+        "Matched",
+        "Does Not Match",
+        "Waiting for PO",
+        "Pending Match",
+        "Missing PO Number",
+        "No Match Required"
+      ],
+      "sourceQuote": "Match Status displays on the My Invoices, Approve Invoice, Assign Invoice, and Processor List pages. The table below shows all possible Match Status types.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md",
+      "notes": "NOT AN ADMIN CONTROL - emitted deliberately and flagged, per the instruction to surface rather than silently drop an ambiguous item. This is the READ-ONLY invoice attribute that the rules configured on this page produce, displayed on four END-USER pages. It is recorded here so the 6-value catalog (the corpus's complete documented outcome vocabulary, in source order, from a mdtbl=22 pipe table) is preserved and so no future pass mistakes it for a configurable list on this page. Its 2078-byte sibling match-rules-and-match-status-8cc2c56b.md does NOT carry the catalog. The status is written to the Audit Trail whenever it changes.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "unlockRuleSet",
+      "label": "Change to Non-PO",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "In the Actions menu, click Change to Non-PO.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/change-a-po-based-invoice-policy-to-a-non-po-based-invoice-policy-12786d77.md",
+      "notes": "NOT A CONTROL ON THIS PAGE - it lives in the Actions menu of the My Invoices end-user page - but it is emitted because it is the ONLY documented way to clear the In Use lock that blocks every edit here, and a driver cannot execute an edit-in-place plan without it. LABEL CONTRADICTION 2:1 - see contradictions. Full sequence from this tools topic: My Invoices > select one or more PO-based invoices > Actions > Change to Non-PO > Select a Policy window > choose a non-PO policy > OK. FOUND BY MY OWN SWEEP, not in the recon or the critic list; it is the tie-breaking third attestation of the label.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "ruleSetCopy",
+      "label": "Copy",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "In Purchase Order Matching Rules, select an existing rule set under Rule Set Name, and then click Copy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md",
+      "notes": "Copy is the ONLY documented creation path for a rule set; no New/Create button is attested anywhere in the corpus. Full sequence: select under Rule Set Name > Copy > click the 'Copy of...' entry > Rename > type name > Enter > Done. copy-purchase-order-matching-rules-c6d4106a.md states the copy procedure is identical to this one and adds nothing else (thin, and that is the correct answer). Copy is also the documented workaround for an In Use rule set.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "tolerance",
+      "contextField": "",
+      "context": "READING A of a two-list contradiction: step-3's four-option bullet run, introduced by 'Choose one tolerance:'. Emitted alongside reading B, not reconciled with it.",
+      "values": [
+        "None",
+        "Within (+/-)",
+        "Custom",
+        "Currency"
+      ],
+      "sourceQuote": "Within (+/-): Choose this to specify a balanced amount of tolerance equal above and below that of the PO field being matched to the same request field",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "Complete and in source order. Definitions: None = trigger on any deviation; Within (+/-) = symmetric tolerance; Custom = asymmetric tolerance above and below; Currency = the company base currency, with automatic conversion for alternate invoice currencies."
+    },
+    {
+      "appliesToField": "tolerance",
+      "contextField": "",
+      "context": "READING B of the same contradiction: configure-three-way-matching's three-option inline list, with 'Within' written WITHOUT the (+/-) suffix and Currency absent, Value/Percentage following as a second choice.",
+      "values": [
+        "None",
+        "Within",
+        "Custom"
+      ],
+      "sourceQuote": "If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "Complete as written in this topic. Do not merge with reading A. The likeliest cause is that this topic is scoped to the Line Item - Receipt level, where Currency may not apply - stated as a hypothesis, not a finding."
+    },
+    {
+      "appliesToField": "ruleLevel",
+      "contextField": "",
+      "context": "The full four-value Level list as step-3 writes it inline in a procedure step (ASCII HYPHEN spelling).",
+      "values": [
+        "Header",
+        "Vendor",
+        "Line Item",
+        "Line Item - Receipt"
+      ],
+      "sourceQuote": "Select a value from Level (Header, Vendor, Line Item, Line Item - Receipt), so the matching rule operates for the field(s) you want compared.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md",
+      "notes": "Superset list. The tools-guides topic match-rules-and-match-status-8cc2c56b.md gives only Header, Vendor, Line Item - see the contradiction record. create-purchase-order-matching-rules-adb700f9.md (TRUNCATED FILE) independently names all four in lowercase prose: 'header, line item, line item - receipt, and/or vendor level'."
+    },
+    {
+      "appliesToField": "lifeToDateRuleType",
+      "contextField": "",
+      "context": "The complete 6-row Life to Date selection table, source order, from an INDENTED markdown table that a '^|' census misses entirely.",
+      "values": [
+        "Gross Amount",
+        "Net Amount",
+        "Line Item Total",
+        "Line Item Quantity",
+        "Match against Received Quantity",
+        "Line Item Tax"
+      ],
+      "sourceQuote": "Compares the purchase order gross amount to the cumulative gross sums of all invoices with this purchase order number.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md",
+      "notes": "Each row pairs a Selection with a Description; all six are cumulative comparisons across every invoice sharing the PO number, except Match against Received Quantity, which compares total quantities invoiced against total quantities on associated receipts. The truncated create-purchase-order-matching-rules-adb700f9.md corroborates the same six in prose ('comparing Gross, Net, Line item total, Line item quantity, if matched against received quantities, and/or Line item tax') - treat that file as incomplete regardless."
+    },
+    {
+      "appliesToField": "confirmationType",
+      "contextField": "",
+      "context": "The four confirmation types with definitions, from a numbered prose list rather than a table.",
+      "values": [
+        "None",
+        "Invoice",
+        "Receipt Central",
+        "Receipt Individual"
+      ],
+      "sourceQuote": "Admins can configure rules based on spend categories, amount thresholds, and more, to achieve different ways to confirm receipt.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/confirmation-types-b4a94761.md",
+      "notes": "step-5's table carries only three (Invoice/INVC, Receipt Individual/RIND, Receipt Central/RCEN) plus their default message text, with None named in the surrounding prose as the fourth 'assigned to those that should not have any text'. The two topics agree; this is a table-scope difference, not a contradiction. Runtime effects (admin-guides): Invoice blocks submit until the user selects Confirm then Yes; Receipt Individual blocks submit until the receipt exception clears; Receipt Central allows submit but blocks processor approval and exposes a Send to Purchasing button."
+    },
+    {
+      "appliesToField": "paymentRequestField",
+      "contextField": "ruleLevel",
+      "context": "The ONLY documented field pairings for any Level value: the two Payment Request / Purchase Order pairs available when Level is Line Item - Receipt.",
+      "values": [
+        "Line Quantity and Received Quantity",
+        "Receipt Associated and Receipt Associated"
+      ],
+      "sourceQuote": "In the Level list, select Line Item – Receipt, and then, in the Payment Request and Purchase Order lists, select one of the following options:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md",
+      "notes": "NOT the whole Payment Request list - only the pairings this topic enumerates for one Level value; the general list is never enumerated anywhere in the corpus. Line Quantity/Received Quantity compares invoice line quantity to available quantity on associated receipts; Receipt Associated/Receipt Associated checks whether a line associated to a PO line lacks an associated receipt. The Level label here uses an EN DASH."
+    },
+    {
+      "appliesToField": "matchStatusOutcome",
+      "contextField": "",
+      "context": "Complete 6-value Match Status catalog, source order, from the mdtbl=22 pipe table. Read-only outcome vocabulary, not a configurable list.",
+      "values": [
+        "Matched",
+        "Does Not Match",
+        "Waiting for PO",
+        "Pending Match",
+        "Missing PO Number",
+        "No Match Required"
+      ],
+      "sourceQuote": "The invoice is associated to a PO and has one or more exceptions (note that several invoices can match a single PO).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md",
+      "notes": "Causes per the table: Matched = associated with no exceptions; Does Not Match = associated with one or more exceptions; Waiting for PO = PO policy but the invoice PO number matches no PO; Pending Match = PO policy, associated, but not assigned to a user; Missing PO Number = PO policy but no PO number (import had External ID but blank PO #); No Match Required = non-PO policy or deleted."
+    },
+    {
+      "appliesToField": "confirmationType",
+      "contextField": "",
+      "context": "The three documented DRIVERS a rule can key on to produce a confirmation-type outcome. These are the criteria, not the outcomes.",
+      "values": [
+        "Spend Category",
+        "Capital Expense Status",
+        "Amount Threshold"
+      ],
+      "sourceQuote": "The rule-based logic in Concur Invoice allows the confirmation type to be based on key factors such as:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/match-rules-and-rule-sets-87e69410.md",
+      "notes": "The quote's 'such as' plus the follow-on 'Rules are flexible and almost any categories can be created, based on any criteria' means this is EXPLICITLY an open, non-exhaustive list - it must not be treated as a closed enumeration. Most clients must map spend to expense types/GL codes or create a Spend Category custom field coded on the invoice or the PO."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "ruleSetName",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "PO Matching Ruleset",
+      "targetPage": "Policies",
+      "condition": "A rule set built here has no effect until a PO policy selects it via the PO Matching Ruleset option on the Policies page; that same option is the documented way to swap in a replacement copy of an In Use rule set. Policies is already in the graph - never re-home this field.",
+      "sourceQuote": "You select a rule set using the PO Matching Ruleset option in Policies.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "unlockRuleSet",
+      "sourcePage": "My Invoices",
+      "targetField": "inUse",
+      "targetPage": "Purchase Order Matching Rules",
+      "condition": "An In Use rule set cannot be modified in any way. The only documented unlock is to break every invoice association, which is done from the Actions menu on My Invoices, after which In Use reads No and Edit becomes available.",
+      "sourceQuote": "A matching rule set with a status of In Use can be unlocked by breaking its association with all invoices it is associated with.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/test-and-change-match-rule-sets-49f57319.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "confirmationType",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Is Receipt Required",
+      "targetPage": "Purchase Order Import (not an admin UI page in this graph)",
+      "condition": "THE GATE. No receipt confirmation logic configured on this page is evaluated for a PO line unless that line's Is Receipt Required value is Yes. The value is set by PO Import, not by any control on this page. SAP recommends setting it to Yes for all lines and letting the matching rules decide the outcome (including None).",
+      "sourceQuote": "Unless the Receipt Required field is set to Yes, no receipt confirmation logic configured in Concur Invoice will be evaluated for that line.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/is-receipt-required-value-on-po-line-item-896466e1.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "confirmationType",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Invoice Receipt Confirmations",
+      "targetPage": "Localization",
+      "condition": "The instructional text a confirmation type shows the user is customized and localized in the Localization tool, NOT here: Administration > Invoice > Localization > select language > Category column > Invoice Receipt Confirmations > Modify > Message column > Save. Localization is NOT yet in this graph, so this dependency legitimately stays unresolved.",
+      "sourceQuote": "Admins configure messages in the Localization tool.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/confirmation-message-configuration-65b79d9c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "ruleLevel",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Delivery Slip Number",
+      "targetPage": "Forms and Fields",
+      "condition": "Whether three-way matching associates by delivery slip or sequentially is decided by whether the Delivery Slip Number field was added to the Payment Request Header form in Forms and Fields (already in the graph). With the field present, matching targets the GRN carrying the same DSN; without it, matching is sequential by receipt.",
+      "sourceQuote": "If the admin does not add the Delivery Slip Number field to the form, Concur Invoice will perform the matching sequentially by receipt.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delivery-slip-number-field-for-three-way-matching-b0d3f1ca.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "ruleLevel",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Allow system to associate invoice lines to Purchase Order lines based on data attributes",
+      "targetPage": "Invoice Settings",
+      "condition": "Line Item level rules can only fire correctly if line identification is right. Concur Invoice identifies lines either by sequence or by data attributes, and the setting that chooses between them lives on Invoice Settings (already in the graph), not here.",
+      "sourceQuote": "Concur Invoice can perform line item identification in two different ways, either by sequence or by data attributes.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/understanding-line-item-match-rule-application-7a56d0c5.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "ruleSetActionButtons",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Allow Purchase Request Owners to Edit their own Purchase Orders",
+      "targetPage": "Invoice Settings",
+      "condition": "CROSS-CUTTING FIND from the tools-guides roles matrix: whether a Purchase Request User can maintain the receipt data that three-way matching rules consume depends on this Invoice Settings option (or on the user instead holding the Receipt User role). Invoice Settings is already in the graph.",
+      "sourceQuote": "The admin must have selected (enabled) the Allow Purchase Request Owners to Edit their own Purchase Orders option in Invoice Settings.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "matchAgainstReceivedQuantity",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Quantity Receipt Import",
+      "targetPage": "Purchase Order Receipt Import (file interface, not an admin UI page)",
+      "condition": "Three-way matching cannot be configured usefully until the Quantity Receipt file is imported. The two guide directories DISAGREE on the available routes (three vs two) - see contradictions.",
+      "sourceQuote": "Before clients can start to use the Three-Way Matching feature, they need to import the Quantity Receipt file, which they can do through an FTP import, through the API, or by entering receipt data using Concur Receiving.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/quantity-receipt-import-for-three-way-matching-1fc33cab.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "rulesGrid",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Is Purchase Order line Associated",
+      "targetPage": "Audit Rules",
+      "condition": "Optional companion configuration: audit rules built on the Is Purchase Order line Associated and Is Receipt Associated fields complement three-way matching rules, and are available on the Payment Request Detail Save and Payment Request Detail Submit events. Audit Rules is already in the graph - never re-home these.",
+      "sourceQuote": "The admin can create rules by using the Is Purchase Order line Associated or Is Receipt Associated fields in the Audit Rules tool.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "toleranceCurrency",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Exchange rates",
+      "targetPage": "Expense Admin module (outside Concur Invoice)",
+      "condition": "Currency tolerance relies on exchange rates, which are ON BY DEFAULT and administered in the Expense Admin module. There is NO exchange-rate toggle on this page - do not invent one.",
+      "sourceQuote": "Exchange rates that allow currency conversion are on by default. As reference, this feature is accessed using the Expense Admin module.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activate-exchange-rates-for-matching-rule-sets-c51af31c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "rulesGrid",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Invoice assignment state",
+      "targetPage": "(runtime precondition, no admin page)",
+      "condition": "CONSTRAINT ON WHEN CONFIGURATION TAKES EFFECT, from tools-guides. Rules first run only when an invoice is BOTH successfully associated to a PO AND in an assigned state, and cannot run at all if the invoice has been extracted, is part of a payment demand, or has a status of Unassigned. Re-runs fire on header save, line item delete/save/sequence change, owner/vendor change or reassignment, PO import that newly matches, and receipt import - regardless of workflow status.",
+      "sourceQuote": "Rules _cannot_ be run if an invoice:",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/when-are-match-rules-run-f835a01e.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "ruleSetName",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Policy attributes (Region, Country)",
+      "targetPage": "Policies",
+      "condition": "SCOPING LIMITATION, published twice in the corpus (general-notes-ced8d7d0.md restates it) and emitted ONCE here as instructed: a rule set is bound to a policy and its policy-specific attributes, so rules cannot be varied per expense type or account code.",
+      "sourceQuote": "Rule sets are tied to their policy by selection as well as any attributes (such as Region or Country) that are specific to policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/not-possible-to-base-rule-set-on-expense-type-or-account-code-e98c9b2c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "matchAgainstReceivedQuantity",
+      "sourcePage": "Purchase Order Matching Rules",
+      "targetField": "Delivery Slip Number",
+      "targetPage": "Forms and Fields",
+      "condition": "HARD NEGATIVE from tools-guides that a driver cannot infer: once the Delivery Slip Number field is in play, Concur Invoice does NOT fall back to sequential GRN association when no GRN carries a matching DSN - it leaves the invoice unassociated, and unassociated lines cannot satisfy a received-quantity rule. Also: the detail-level DSN is read-only and copies down from the header (SAP typo in source: 'header DNS field'), so every line of an invoice must share one DSN.",
+      "sourceQuote": "If Concur Invoice does not find a GRN with the same DSN, it will not revert to the sequential association logic but will instead leave the invoice unassociated to the GRNs.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/receipt-association-and-three-way-matching-12b976a5.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "option-list",
+      "topic": "How many tolerance options the Tolerance control offers, and whether Currency is one of them",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "tolerance"
+      },
+      "readings": [
+        {
+          "summary": "step-3 enumerates FOUR options as a bullet run - None, Within (+/-), Custom, Currency - with Currency presented as a peer tolerance choice.",
+          "sourceQuote": "Currency: Choose the base currency your company uses. Conversions for alternate currencies used on incoming invoices will be calculated automatically and applied by the system. This functions as for other rule sets, including audit rules.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md"
+        },
+        {
+          "summary": "configure-three-way-matching enumerates THREE inline - None, Within, Custom - drops the (+/-) suffix, omits Currency entirely, and makes Value/Percentage the immediate next choice.",
+          "sourceQuote": "If applicable, in the Tolerance section, select None, Within, or Custom, and then select Value or Percentage.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+        }
+      ],
+      "consequenceForWriter": "Probe for four options first; if the control offers only three, treat Currency as a downstream refinement of Value rather than a missing option and continue. Never write 'Within (+/-)' as the literal selector without also trying 'Within'. Do not fail a run because Currency is absent at the Line Item - Receipt level.",
+      "notes": "HYPOTHESIS, not a finding: the offered list is probably level- or provisioning-dependent, with Currency surfacing only where a currency conversion is meaningful (amount-based rules). configure-three-way is scoped entirely to the Line Item - Receipt level, which may explain the shorter list. The corpus never states a rule, so no reconciliation is possible."
+    },
+    {
+      "kind": "structure",
+      "topic": "How deep the Rules and Life to Date tabs sit under the Purchase Order Matching Rules page",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "rulesGrid"
+      },
+      "readings": [
+        {
+          "summary": "step-3 places the Rules tab ONE level down - straight inside Purchase Order Matching Set, with no Edit Rules step at all.",
+          "sourceQuote": "In Purchase Order Matching Set, click the Rules tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md"
+        },
+        {
+          "summary": "step-2 places both tabs TWO levels down: select the rule set and Edit, then select Default and Edit Rules, and only then click the Life to Date tab.",
+          "sourceQuote": "Select Default, then click Edit Rules (this named rules group is the basis for your new rules group).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md"
+        },
+        {
+          "summary": "configure-three-way-matching agrees with step-2: Edit Rules opens a named rules window, and the Life to Date tab is inside that window.",
+          "sourceQuote": "Double-click the rule you want to use, and then, in the Rule Groups list, select a rule group and click Edit Rules. The Purchase Order Matching Rule Group rules window appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+        }
+      ],
+      "consequenceForWriter": "Drive the MAJORITY tree (2 topics to 1): page > select rule set > Edit > select rule group > Edit Rules > [Rules | Life to Date]. If no Edit Rules control is present after opening the rule set, fall back to looking for the Rules tab one level up before failing. Note also that the two majority topics disagree on HOW the rule set is opened - Edit button versus double-click.",
+      "notes": "HYPOTHESIS: step-3 is written as a continuation of step-2 and simply elides the two navigation steps its predecessor already performed, rather than describing a different UI. Cannot be confirmed from the corpus, so the driver must probe both depths."
+    },
+    {
+      "kind": "option-list",
+      "topic": "Whether the Level list has three values or four",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "ruleLevel"
+      },
+      "readings": [
+        {
+          "summary": "tools-guides names only three levels - Header, Vendor, Line Item.",
+          "sourceQuote": "They can be specified at the Header, Vendor, or Line Item level, and can be applied on a one-to-one basis between the current invoice and the PO",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/match-rules-and-match-status-8cc2c56b.md"
+        },
+        {
+          "summary": "admin-guides step-3 names four, adding Line Item - Receipt.",
+          "sourceQuote": "Select a value from Level (Header, Vendor, Line Item, Line Item - Receipt), so the matching rule operates for the field(s) you want compared.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md"
+        }
+      ],
+      "consequenceForWriter": "Expect four; treat a three-value list as a site without three-way matching provisioned rather than as a documentation error, and fail any Line Item - Receipt rule request explicitly with that diagnosis rather than silently substituting Line Item.",
+      "notes": "HYPOTHESIS: Line Item - Receipt exists only where receipt data (Quantity Receipt Import / Concur Receiving) is in play, so the tools topic - which is a general description of match rules, not a three-way-matching topic - may simply predate or exclude it. Provisioning-dependence is the more likely cause than an error."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The label of the Actions-menu command that unlocks an In Use rule set",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "unlockRuleSet"
+      },
+      "readings": [
+        {
+          "summary": "The New Experience twin writes it 'Change to Non PO Invoice' - no hyphen, with the word Invoice appended.",
+          "sourceQuote": "it might be feasible to use the Change to Non PO Invoice option in the Actions menu to remove the matching rule set from all relevant invoices",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-new-experience-6c8fb80f.md"
+        },
+        {
+          "summary": "The standalone admin topic writes it 'Change to Non-PO' - hyphenated, no trailing Invoice.",
+          "sourceQuote": "it might be feasible to use the Change to Non-PO option in the Actions menu to remove the matching rule set from all relevant invoices",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/test-and-change-match-rule-sets-49f57319.md"
+        },
+        {
+          "summary": "A tools-guides procedure breaks the tie in favour of 'Change to Non-PO' and gives the concrete click sequence.",
+          "sourceQuote": "In the Actions menu, click Change to Non-PO.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-a-po-based-invoice-policy-to-a-non-po-based-invoice-policy-12786d77.md"
+        }
+      ],
+      "consequenceForWriter": "Probe 'Change to Non-PO' first (2 attestations to 1, and the only one inside an executable procedure); fall back to 'Change to Non PO Invoice'. Better still, match the Actions-menu item on a case-insensitive substring of 'non' plus 'po' rather than an exact string.",
+      "notes": "HYPOTHESIS: prose drift in the New Experience republish rather than a genuine relabelling in the new UI - the two admin passages are otherwise word-for-word identical, which is what an editing slip looks like. This directly qualifies the brief's claim that the New Experience twin contributes a unique procedure: the procedure is not unique, only the label differs."
+    },
+    {
+      "kind": "requirement",
+      "topic": "How many routes exist for importing the Quantity Receipt file that three-way matching depends on",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "admin-guides names THREE routes: FTP import, API, or entering receipt data using Concur Receiving.",
+          "sourceQuote": "they need to import the Quantity Receipt file, which they can do through an FTP import, through the API, or by entering receipt data using Concur Receiving",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/quantity-receipt-import-for-three-way-matching-1fc33cab.md"
+        },
+        {
+          "summary": "tools-guides names only TWO - FTP or API - and instead adds a claim about extract availability.",
+          "sourceQuote": "they need to import the Quantity Receipt file, which they can do through an FTP import or through the API",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/quantity-receipt-import-for-three-way-matching-8b4fe385.md"
+        }
+      ],
+      "consequenceForWriter": "Do not assume manual receipt entry is available. Treat Concur Receiving as a separately activated capability (the roles matrix confirms 'The Concur Receiving feature must be activated' for Central Receiver and Receipt User) and verify it before planning a manual-entry path.",
+      "notes": "HYPOTHESIS: the tools topic predates the Concur Receiving manual-entry capability, or is scoped to file-interface work only. Distinct loios, so this is a genuine cross-directory divergence, not a republish. Corroborating third source: configure-three-way-matching-c043e5c8.md also names all three routes."
+    },
+    {
+      "kind": "cardinality",
+      "topic": "How many three-way purchase order matching rules exist and how many a client should use",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "rulesGrid"
+      },
+      "readings": [
+        {
+          "summary": "tools-guides says THREE rules are available but then recommends using 'both' of them, and documents only one of the three by heading.",
+          "sourceQuote": "With three-way matching, three purchase order matching rules are available. SAP Concur recommends that clients use both these rules to get the most out of this feature.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/exceptions-and-three-way-matching-rules-65d52687.md"
+        },
+        {
+          "summary": "admin-guides names three specific rules across two tabs and recommends using all three.",
+          "sourceQuote": "To use three-way matching, the admin can select the Line Item – Receipt rule in the Rules tab and the Matched against Received Quantity rule in the Life to Date tab. SAP Concur recommends that clients use all three of these rules for three-way matching.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+        }
+      ],
+      "consequenceForWriter": "Configure all three: on the Rules tab, Level = Line Item - Receipt with the Line Quantity/Received Quantity pairing AND with the Receipt Associated/Receipt Associated pairing; on the Life to Date tab, Match against Received Quantity. Ignore the tools topic's 'both' - it is internally inconsistent with its own sentence.",
+      "notes": "HYPOTHESIS: the tools sentence was edited from two rules to three without updating 'both'. Note the admin quote is ALSO internally odd - it names two rules in the sentence then says 'all three of these' - so the third is only recoverable from step 3's two Payment Request/Purchase Order pairings. Neither topic lists three headings; the tools topic supplies only 'The Line Item – Receipt: Line Quantity Rule'."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "How the Life to Date received-quantity rule is spelled",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "matchAgainstReceivedQuantity"
+      },
+      "readings": [
+        {
+          "summary": "configure-three-way-matching writes it in the past tense, 'Matched against Received Quantity', in its overview bullet - and then writes it WITHOUT the -ed in its own step 8.",
+          "sourceQuote": "the Matched against Received Quantity rule in the Life to Date tab",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+        },
+        {
+          "summary": "The canonical Life to Date selection table writes it 'Match against Received Quantity'.",
+          "sourceQuote": "Match against Received Quantity",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md"
+        }
+      ],
+      "consequenceForWriter": "Match on 'atch against Received Quantity' (substring) rather than an exact label. The table form 'Match against Received Quantity' is the better first probe - it is the one in the authoritative catalog and is also used by the same file's own procedure step.",
+      "notes": "HYPOTHESIS: prose slip in a summary bullet, not a UI variant - the same file uses both forms, which rules out a per-UI difference."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "How the fourth Level value is punctuated",
+      "appliesTo": {
+        "page": "Purchase Order Matching Rules",
+        "field": "ruleLevel"
+      },
+      "readings": [
+        {
+          "summary": "configure-three-way-matching uses an EN DASH with spaces.",
+          "sourceQuote": "In the Level list, select Line Item – Receipt",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md"
+        },
+        {
+          "summary": "step-3 uses an ASCII HYPHEN with spaces.",
+          "sourceQuote": "Line Item, Line Item - Receipt)",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md"
+        },
+        {
+          "summary": "tools-guides uses a hyphen with NO surrounding spaces.",
+          "sourceQuote": "then the Line Item-Receipt rule will throw an exception",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/exceptions-and-three-way-matching-rules-65d52687.md"
+        }
+      ],
+      "consequenceForWriter": "Never match this option by exact string. Normalise dashes and whitespace before comparing, or match on 'Receipt' scoped to the Level list. A grep -F or an equality test on a retyped dash WILL fail.",
+      "notes": "HYPOTHESIS: typographic inconsistency across SAP authoring passes, not three different labels. Recorded because it is the single most likely cause of a silent automation miss on this page."
+    }
+  ],
+  "compressedRanges": [],
+  "coverageVerdict": "good",
+  "notes": "LENS C (tools-guides and cross-cutting). Coverage 'good': 24 fields, 9 value sets, 13 dependencies, 8 contradictions. TOOLS-GUIDES WEIGHT: I exhausted concur-invoice-professional-edition-tools-guides/ before opening admin-guides, and 10 of the 26 cited files (38%) are tools-guides - against the 23-of-337 baseline this lens exists to correct. UI VARIANT: I read BOTH twins in full and did NOT claim 'both' on any field. purchase-order-matching-rules-8b357dbb.md and purchase-order-matching-rules-new-experience-6c8fb80f.md are byte-identical through their capability bullet list; the New Experience file then inlines four topics that all exist standalone (test-and-change-match-rule-sets, activate-exchange-rates, before-you-begin) and contributes NO unique control. It does differ on ONE label - 'Change to Non PO Invoice' vs 'Change to Non-PO' - which is emitted as a contradiction, not as a variant, because a tools-guides procedure attests the hyphenated form 2:1 and the surrounding prose is otherwise word-for-word identical, which is what an editing slip looks like rather than a relabelled UI. Every field is therefore 'undifferentiated'. This CONFIRMS-BY-CONTRADICTION the brief's claim (5): the twin's unlock procedure is not unique to it. COULD NOT DETERMINE: (1) the contents of the Payment Request and Purchase Order field lists - the corpus NEVER enumerates them for any Level except Line Item - Receipt, only scattering example members (Unit Price, Shipping, Quantity, Remit Address, Request Total, Custom field) across topics; I left validValues empty rather than assemble a partial list. (2) whether 'Overage Tolerance' is a distinct control or configure-three-way-matching's name for the Life to Date tab's Tolerance section - single attestation, no corroboration. (3) the condition operand catalog for the Purchase Order Matching Rules Group Conditions dialog - step-4 is the only attestation and shows no list; I deliberately did NOT borrow the Audit Rules Condition page catalog (the-condition-page-5d4ea870.md, 288 bullets), which belongs to a different, already-built page. (4) whether the rule set is opened by Edit or by double-click - step-2 says Edit, configure-three-way says double-click, both at the same depth. (5) the cleared state of Allow Submit/Approve - only 'select this check box' is documented, so no Yes/No pair is asserted. NO COMPRESSED RANGES: nothing on this page is written in compressed form ('Custom 01 - 20' style). The only dash-ranges in the corpus for this page are step ranges ('Repeat steps 1-3'), which are not configuration ranges, so compressedRanges is honestly empty rather than padded. TOOLS-GUIDES ROLES MATRIX (required-roles-ef2c2901.md, 6 rows x 4 columns) enumerated here rather than emitted as a value set, because no role-assignment control lives on THIS page: Purchase Order Processor (add/edit/delete receipts and receipt images, in the transmitted purchase order, no conditions); Invoice Processor (same, in the Purchase Order tab of the opened invoice, no conditions); Purchase Request User (same, in the transmitted purchase order, conditional on the Invoice Settings option 'Allow Purchase Request Owners to Edit their own Purchase Orders' or on holding the Receipt User role); Invoice User (same, in the Purchase Order tab of the opened invoice, no conditions); Central Receiver (add/edit/delete receipts for all POs in their group but cannot transmit or process POs or invoices, in the transmitted purchase order, requires Concur Receiving activated); Receipt User (add/edit/delete receipts, own purchase orders only, in the transmitted purchase order, requires Concur Receiving activated). The one control this matrix reaches into is emitted as a dependency on Invoice Settings. MATCH STATUS emitted deliberately as a flagged non-control (matchStatusOutcome) so the complete 6-value catalog is preserved without anyone later mistaking it for a configurable list; the same reasoning applies to unlockRuleSet, which sits on My Invoices but is the only documented way to clear the In Use lock that gates every write here. CORPUS DEFECT ACKNOWLEDGED: create-purchase-order-matching-rules-adb700f9.md is TRUNCATED (body ends on a bare 'x'). I took NOTHING from it as a primary source; it appears only as corroboration in two notes, each flagging the truncation. DUPLICATE CONSTRAINT: general-notes-ced8d7d0.md and not-possible-to-base-rule-set-on-expense-type-or-account-code-e98c9b2c.md publish the same limitation; emitted ONCE, as a dependency on Policies. OWNERSHIP DISCIPLINE: PO Matching Ruleset stays on Policies; Delivery Slip Number and Purchase Order Number stay on Forms and Fields; the data-attribute line association option and the Purchase Request Owner edit option stay on Invoice Settings; Is Purchase Order line Associated / Is Receipt Associated stay on Audit Rules; instructional text stays on Localization (not yet built, dependency legitimately unresolved); exchange rates stay in the Expense Admin module, outside this graph. BEYOND THE INVENTORY: my own tools-guides sweeps (grep -ril 'matching rule' and a UI-variant sweep) surfaced seven further tools files I read - enabling-and-disabling-line-item-level-po-ef3f19cd, resolve-exceptions-09eb0af1, processor-resolve-exceptions-54f71448, associate-po-to-invoice-by-using-capture-processing-dfe82411, po-based-invoices-that-should-not-be-matched-8b4f5ef2, po-association-and-policy-8b4f71b2, matching-summary-tab-a7ac0851. All describe END-USER surfaces (My Invoices, Matching Summary tab, Side-by-Side Editor, Invoice Capture Verification page), so none yielded an admin control and none is emitted. Worth recording as a negative: the UI-variant sweep found NO 'new experience' or 'legacy' file in tools-guides touching PO matching at all, which is why no tools-guides evidence could support a 'both' claim."
+}

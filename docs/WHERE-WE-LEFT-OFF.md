@@ -11,81 +11,93 @@ _Last updated: 2026-08-31_
 
 ## Status
 
-**18 of 37 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets (749 values) ·
-24 contradictions (74 readings) · 10 compressed ranges (62 members).**
+**20 of ~24 pages · 486 fields · 375 dependencies · 34 steps · 80 value sets (850 values) ·
+36 contradictions (110 readings) · 12 compressed ranges (106 members).**
 `output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Validator: ERROR-clean, exit 0.**
 
 Built: Group 1 (Policy & Scope), Group 2 (Routing & Approval, incl. an Audit Rules deep-dive that
-took that page 36 → 91 fields), Group 4 (Capture & Vendors), Group 5A (Expense Types, Forms and
-Fields, Accounting Administration, Map Invoice Concept Fields), **Group 5B (Tax Administration,
-Budget Configuration, List Management, Company Locations)**.
+took that page 36 → 91 fields), **Group 3 (PO Matching — 2 pages, not the 11 the lost map claimed)**,
+Group 4 (Capture & Vendors), Group 5A + 5B (Data Structure & Accounting).
 
-Quality: **437/437 sourceQuotes verify verbatim** against their cited corpus file; 436/437
+Quality: **486/486 sourceQuotes verify verbatim** against their cited corpus file; 485/486
 validValue lists fully found in source; zero dangling dependency endpoints.
+
+> The denominator moved. The old "37 pages" came from the lost map, which counted *surfaces*
+> rather than pages — Group 3's "11" re-derived to 2. Treat any remaining page count from that
+> map as an upper bound, Workflows' 13 especially.
 
 | Page | Fields | Coverage | Group |
 |---|---|---|---|
 | Audit Rules | 91 | good | 2 |
-| Tax Administration | 59 | good | 5B |
+| Tax Administration | 59 | good | 5 |
 | Policies | 46 | good | 1 |
-| Forms and Fields | 40 | good | 5A |
+| Forms and Fields | 40 | good | 5 |
+| Purchase Order Matching Rules | 33 | good | 3 |
 | Capture Processing Admin | 32 | good | 4 |
-| Expense Types | 31 | good | 5A |
-| Company Locations | 27 | good | 5B |
+| Expense Types | 31 | good | 5 |
+| Company Locations | 27 | good | 5 |
 | Group Configurations | 22 | good | 1 |
 | Image Handling | 21 | good | 4 |
-| Accounting Administration | 18 | good | 5A |
-| List Management | 14 | thin | 5B |
+| Accounting Administration | 18 | good | 5 |
+| Purchase Order Configuration | 16 | partial | 3 |
+| List Management | 14 | thin | 5 |
 | Invoice Settings | 13 | good | 1 |
 | Routing Configuration | 10 | good | 2 |
 | Exceptions | 8 | good | 2 |
 | Units Of Measure | 3 | thin | 4 |
 | Vendor Search Admin | 2 | thin | 4 |
-| Map Invoice Concept Fields | 0 | thin | 5A |
-| Budget Configuration | 0 | thin | 5B |
+| Map Invoice Concept Fields | 0 | thin | 5 |
+| Budget Configuration | 0 | thin | 5 |
 
-`uiVariant`: 399 undifferentiated · 27 both · 6 legacy · 5 new.
+`uiVariant`: 448 undifferentiated · 27 both · 6 legacy · 5 new.
 
 ## Next
 
-**Group 3 — PO Matching is TWO pages, not eleven.** The lost map's 11 was a count of *surfaces*,
-not pages. A dedicated recon (2026-08-31, `workflows/2026-08-31_kg-group3-page-recon.mjs`, run
-`wf_a2215035-e91`) re-derived the roster: six blind sweeps converged with no dissent, the
-page-hood critic could refute neither survivor, and the completeness critic found no third page.
-Full report in `output/reports/2026-08-31_group3-recon/`.
+**Group 3 — PO Matching is DONE (2026-08-31).** Two pages, 49 fields, validator exit 0. Details in
+`output/kg-build-log.md`; the page recon that retired the 11-page figure is in
+`output/reports/2026-08-31_group3-recon/`.
 
-| Page | Files | Body bytes | Basis | Est. fields |
-|---|---|---|---|---|
-| Purchase Order Matching Rules | 45 | 64,431 | rich | ~40 |
-| Purchase Order Configuration | 7 | ~10,000 | moderate | ~18 |
+**Next up: Workflows.** The lost map called it 13 pages — under ONE left-menu entry, which is the
+same surfaces-vs-pages error Group 3 just disproved. **Run a page recon first**
+(`workflows/2026-08-31_kg-group3-page-recon.mjs` is the reusable template — change the domain
+terms, the sweep charters and the reconciliation target). Do not budget 13 pages until a recon
+says so. It is still the largest remaining build.
 
-The other nine are dialogs and tabs with no independent click path, two conditional sections on
-the already-built Policies page, and two settings tables (`Purchase Order Settings`,
-`Purchase Request Settings`) the corpus places on **Workflows**, not Invoice Settings. All 34
-rejected surfaces are listed with reasons in the roster. **Do not re-open this roster** without
-new evidence — and note the one caveat the recon refused to paper over: this is a 2026_08 crawl,
-and it cannot rule out that SAP retired a surface the original map saw. It found no positive
-evidence of that (zero release-note hits, no orphaned page label), but a live-UI pass is the only
-real tiebreaker.
+Then: Group 6 (Peppol / Shipping / Localization — a complete 6-step Localization click path is
+already sitting in `step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md`
+lines 102–110), then the remediation sweep.
 
-**`Purchase Order Policy` resolved AGAINST a new page** — it is a policy *type* on the built
-Policies page; no click path anywhere reaches a Purchase Order Policy page. So the 15,800-byte
-`policies-the-purchase-order-policy-new-experience-*` file is **Group 1/5 New Experience debt**
-(item 3 below), not a Group 3 source. Related correction: that file and
-`configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md` (10,109 B) are **one
-debt, not two** — 16 of 19 paragraphs of the smaller file are verbatim substrings of the larger,
-and all five HTML tables are byte-identical. The debt is 15,800 B, not ~26 KB.
+Set `meta.status = "COMPLETE"` only when every non-deferred group is in and
+`bin/validate-graph.py` exits 0.
 
-Then: **Workflows (13 pages — now the largest remaining build)**, Group 6 (Peppol / Shipping /
-Localization), then the remediation sweep.
+### Two tooling defects fixed during Group 3 — they would have hit every future group
 
-### Corpus defect found by the recon — affects `concur-corpus`, not just this project
+- **`bin/assemble-parts.py` hard-coded the step-id prefix `grp5b-`**, so it flagged all six
+  correctly-prefixed `grp3-` ids as errors. Now DERIVED from the group label via `group_tag()`,
+  mirroring `merge-group.py`'s gtag so the two cannot drift. Backwards-compatible.
+- **The same script defaulted `--group` and `--patch-page` to Group 5B's values**, so a Group 3
+  run produced a result carrying `patchPage: "Group 5B"`. Harmless without `--patch`, but
+  `--patch` would have used it to tag and strip nodes under the wrong group. Defaults removed;
+  `--group` is now required.
+
+### The "truncated file" is NOT a crawl defect — SAP published it that way
 
 `concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md`
-is **truncated**: its body ends with a bare line containing only `x`. It is the only file
-corpus-wide that does (`grep -rl '^x$'` over both guide dirs returns exactly 1). Content was
-dropped during the 2026-08-29 crawl, on a Group 3 seed. Not yet re-crawled — `--manifest-key`
-re-crawls a whole deliverable (~1,209 files), so a single-topic fetch is the cheaper fix.
+ends with a bare line containing only `x`, and it is the only file corpus-wide that does
+(`grep -rl '^x$'` returns exactly 1). The recon's completeness critic inferred content had been
+dropped in the crawl. **That inference was wrong, and it was checked and disproved 2026-08-31.**
+
+Re-fetching the live source
+(`help.sap.com/http.svc/pagecontent?deliverable_id=41460672&file_path=adb700f910b84d6294619e8991dcd0fb.html`)
+returns `<p class="p">x</p>` in SAP's own HTML, immediately before `</section>`. Re-converting
+that HTML through the crawler's exact turndown config reproduces the corpus file byte-for-byte.
+**The crawl is faithful; the `x` is SAP's editorial stub.** The topic is also semantically
+complete — it describes both matching rule types in full. Do not re-crawl it, and do not treat
+the file as partial.
+
+The same applies to the indented-table trap below: tables nested inside numbered steps are
+indented because that is **correct** markdown for a table inside a list item. Turndown is right;
+naive `^|` censuses are wrong. Neither finding is a crawler bug.
 
 ### Two text traps the recon added
 
@@ -98,7 +110,7 @@ re-crawls a whole deliverable (~1,209 files), so a single-topic fetch is the che
   own text-trap rule told every group to use it as the UI-variant test. **Corrected in the
   workflow template 2026-08-31**: `loio` is the discriminator.
 
-## Method as of Group 5B
+## Method as of Group 3
 
 Same six phases — Map → Extract (pages × 3 lenses) → Verify → Repair → Synthesize → Critic — with
 four changes that are now the standard:
@@ -182,3 +194,25 @@ Full list in the handoff and in the Group 5B section of `output/kg-build-log.md`
    sharpened form of open-debt item 4. Scope a run with its own Map phase over the FULL Invoice
    Settings and Forms and Fields source sets, then `--patch` is correct behaviour rather than a
    hazard. Do not scope it as "add the 8".
+
+8. **Group 3 deferred findings** — cross-group by construction; the completeness critic was
+   explicit that none may be resolved by re-homing onto a Group 3 page. Full detail in the Group 3
+   section of `output/kg-build-log.md`.
+   - **`Receipt Type` is absent from the whole graph** — the twin gate to the captured
+     `Receipt Required`, in 8 corpus files with four conflicting value vocabularies. Belongs to
+     Forms and Fields (item 7). Its gate on matching is Group-3-relevant and should become a
+     dependency when that debt is worked.
+   - **A Group 3 edge points at a phantom**: `level_field → Invoice Settings :: Allow system to
+     associate invoice lines to Purchase Order lines based on data attributes`. That row is one of
+     the 11-of-24 missing from Invoice Settings — item 7 biting exactly where predicted.
+   - **`concur-receiving-roles-099f375f.md` never opened.** The admin twin of the extracted tools
+     roles matrix, and they disagree: admin *"the user must also have the Receipt User role"* vs
+     tools *"can have"* — mandatory vs optional on a role prerequisite. Wants a contradiction node.
+   - **A 21-entry copy-down catalog** in `f926eac7` was dismissed as illustrative on a `<tr>` count.
+     It packs its payload into ONE `<tr>` as 25 `<p>` cells — the same under-count trap as indented
+     markdown tables. Carries two EN-DASH ranges. Groups 1/5 debt.
+   - **`purchase-request-settings-b0bce285.md`** (3 rows + the prose range *"Type a number from one
+     to 99"*, which no digit regex finds) belongs to the unbuilt Workflows group.
+   - Six documented buttons on Purchase Order Configuration were reported in `splitsProposed` and
+     deliberately not created — a Repair-created record never faces the adversarial refuter. The
+     schema already models 121 `button` fields, so this needs a decision, not a third deferral.

@@ -883,3 +883,95 @@ byte-identical to what was merged.
 ### Next
 
 Group 3 — PO Matching, 11 pages, new-first.
+
+---
+
+## Group 3 — PO Matching (2026-08-31)
+
+**20 agents · 0 errors · 3.21M tokens · 80 min · 49 fields · validator exit 0.**
+
+Two pages, not the eleven the lost map recorded. See the page recon
+(`output/reports/2026-08-31_group3-recon/`, run `wf_a2215035-e91`) — six blind sweeps converged
+with no dissent, both critics endorsed the roster, and the count reconciles as *surfaces* counted
+where the map claimed pages.
+
+| Page | Fields | Coverage | Basis | uiVariant | Dropped | Repaired |
+|---|---|---|---|---|---|---|
+| Purchase Order Matching Rules | 33 | good | rich | undifferentiated | 25 | 9 |
+| Purchase Order Configuration | 16 | partial | moderate | undifferentiated | 5 | 9 |
+
+Also landed: 26 value sets (101 values, 10 knownGap), 40 dependencies, 6 steps, 12 contradictions
+(36 readings), 2 compressed ranges (44 names). Graph now **20 pages · 486 fields · 486/486 quotes
+verbatim · ERROR-clean**.
+
+### What the critics caught, and what was done
+
+The correctness critic said *merge after fixing 1 and 2*; the completeness critic said *do not
+merge as-is*. Both were right about different things. Every claim acted on was re-verified by hand
+first — one of them (#5 below) was overstated by the critic and was corrected in the other
+direction.
+
+Applied via `bin/apply-corrections.py` (idempotent, re-run after every merge):
+
+1. **Page `uiVariant` "both" → "undifferentiated".** Flagged independently by BOTH critics — the
+   strongest signal available. The page claimed "both" while all 35 of its own fields were
+   `undifferentiated`, and the roster's own skip note said the legacy twin "is the evidence for
+   NOT claiming uiVariant both". The only page in the graph legitimately marked "both" is Audit
+   Rules, which backs it with 27 both + 6 legacy + 5 new fields.
+2. **Dropped `match_status`** — a derived runtime attribute, not a control here. Its own quote
+   names its owners and this page is not among them: *"Match Status displays on the My Invoices,
+   Approve Invoice, Assign Invoice, and Processor List pages."* `grep -c "Purchase Order Matching
+   Rules"` on the cited file returns 0. **Its 6-value catalog was retained as a `knownGap` value
+   set** — rule 11: unwired and deleted are different answers.
+3. **Dropped `matching_rule_type`** — its label appears in **zero** corpus files (verified
+   `grep -rlF` over both directories) and its two values already exist as `life_to_date_tab` and
+   `rules_tab`. A driver told to set it has no control to act on; the real action is clicking a tab.
+4. **Re-pointed `dep.g1.057` / `dep.g1.058`.** Both targeted `{Purchase Order Configuration,
+   "PO Configuration"}` — the PAGE name written into a field slot, so they would have kept dangling
+   while *looking* like this merge should have resolved them. `dep.g1.057`'s sourceQuote is
+   byte-identical to `group_selector`'s, same file and sentence. **Two Group 1 edges that had
+   dangled since Group 1 now resolve.**
+5. **Repaired the Concur Receiving roles value set.** Six `||`-joined 4-column table rows reduced
+   to the six role names, each verbatim. The assembler's pre-merge check caught this, not a model.
+
+### Two tooling defects found and fixed — both would have hit every future group
+
+- **`assemble-parts.py` hard-coded the step-id prefix `grp5b-`** (line 382), so it flagged all six
+  correctly-prefixed `grp3-` ids. The prefix is now DERIVED from the group label, mirroring
+  `merge-group.py`'s gtag so the two cannot disagree. Verified backwards-compatible:
+  `Group 5 + patch "Group 5B"` still yields `grp5b-`.
+- **`assemble-parts.py` defaulted `--group` and `--patch-page` to Group 5B's values.** A Group 3
+  run silently produced a result carrying `patchPage: "Group 5B"`. Harmless here because the merge
+  ran without `--patch`, but `merge-group.py --patch` would have used it to tag and strip nodes
+  under the wrong group. Both defaults removed; `--group` is now required.
+- `apply-corrections.py`'s new `drop_fields` clears contradiction and range owners when it drops a
+  field. The validator caught the dangling owner the first time — an empty `appliesTo` is valid,
+  a dangling one is a hard ERROR.
+
+### Deferred — cross-group, deliberately NOT resolved here
+
+Per the scope decision, nothing already-built was rebuilt. The completeness critic was explicit
+that items 2, 4 and 8 must not be resolved by re-homing onto a Group 3 page, and they were not.
+
+- **`Receipt Type` is absent from the graph entirely** — the twin gate to the captured
+  `Receipt Required`, documented in 8 corpus files with four conflicting value vocabularies.
+  `adding-receipt-type-field-to-the-purchase-request-header-form-ba26762e.md` was never opened by
+  any lens. It belongs to Forms and Fields (open-debt item 7). Its *gate* on matching
+  (*"For receipt matching rules to apply, the Receipt Type at the purchase order line item level
+  needs to be Quantity Receipt."*) is Group-3-relevant and should be picked up as a dependency
+  when that debt is worked.
+- **A Group 3 edge targets a phantom.** `level_field → Invoice Settings :: Allow system to
+  associate invoice lines to Purchase Order lines based on data attributes` cannot resolve: that
+  row is one of the **11 of 24** rows missing from Invoice Settings. This is open-debt item 7
+  biting exactly where predicted. The edge is retained as an honest forward reference.
+- **`concur-receiving-roles-099f375f.md` never opened** — the admin twin of the extracted tools
+  roles matrix. They disagree substantively: admin *"the user must also have the Receipt User
+  role"* vs tools *"the user can have"* — mandatory vs optional. A third source breaks toward
+  "can". Should be a contradiction node; not added because the admin twin was not read in this run.
+- **A 21-entry raw-`<table>` copy-down catalog** in `f926eac7` was dismissed as illustrative on a
+  `<tr>` count — it packs its payload into ONE `<tr>` as 25 `<p>` cells, the same under-count trap
+  as the indented-markdown-table one. It carries two EN-DASH ranges (`Custom 1–24`, `Custom 1–20`).
+  That file is Groups 1/5 debt, not Group 3.
+- **`purchase-request-settings-b0bce285.md`** (3 rows, plus a prose range *"Type a number from one
+  to 99"* that no digit regex finds) belongs to the unbuilt Workflows group.
+- **A complete 6-step Localization click path** sits in `step-5-...-5328a8e1.md` for Group 6.

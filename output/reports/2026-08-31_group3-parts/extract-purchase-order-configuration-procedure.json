@@ -1,0 +1,240 @@
+{
+  "pageId": "purchase-order-configuration",
+  "pageName": "Purchase Order Configuration",
+  "lens": "procedures-and-controls",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+    "concur-invoice-professional-edition-admin-guides/use-the-purchase-order-configuration-tool-51009c8c.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md",
+    "concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md",
+    "concur-invoice-professional-edition-tools-guides/manage-images-03021850.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-request-and-purchase-order-8b36ae07.md",
+    "concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-setup-process-9f253ce7.md",
+    "concur-invoice-professional-edition-tools-guides/purchase-order-processor-experience-8b507c54.md"
+  ],
+  "fields": [
+    {
+      "name": "group_selector",
+      "label": "Group",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Each PO configuration you create is based on the Group you select before creating the configuration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md",
+      "notes": "PRECONDITION, not a settings field: every configuration on this page is created against a Group chosen beforehand. Groups with no PO configuration assigned fall back to the Global Group configuration ('Groups with no PO configuration assigned use the Global Group configuration by default.'). ADJACENCY-ONLY page binding for the mechanism as a whole (this topic never names the tool by its full title, only 'PO configuration'), but corroborated cross-directory by manage-images-03021850.md ('The PO configuration associated with a Group may also include supporting documents.'). No enumerated list of Group values exists in the corpus for this control - Group membership is governed by Group Configurations (already-built page), not enumerated here.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "po_number_next_sequence",
+      "label": "Next Sequence",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "What you enter in the Next Sequence field will be the starting number, which can be altered once the system is in use only by using a number \"further along\" the numbering sequence in use (for 1000, use 1001 as an example.) The character limit is 9 for the PO number.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding: this section ('PO Number Generation') sits inside configure-purchase-orders-8128725e.md, which never names 'Purchase Order Configuration' or a nav path (grep -c on the page name in this file = 0). Constraint: 9-character limit on the generated PO number. Once live, the starting number can only be moved forward, never backward. TIP in source: plan the test sequence so the production starting number is intentional after testing completes.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "po_number_postfix",
+      "label": "Postfix",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Typically, the Postfix value is the initials of the purchasing agents.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding (same file as po_number_next_sequence; 'Postfix' appears nowhere else in either guide directory per corpus-wide grep). Part of the PO Number Generation section, appended after the sequence number. Corroborated (still within the same file) that prefix/postfix are case-insensitive: 'The prefix and postfix of the PO number do not distinguish between uppercase and lowercase.' A corresponding Prefix control is implied by the same note but is never separately named or described as its own field label in this file - only 'prefix' as a lowercase common noun alongside postfix; not emitted as a distinct field to avoid inventing an unattested control (see the Default Sender Email prefix, which IS separately named, for contrast).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "transmitted_po_message",
+      "label": "Message to Include on Transmitted Purchase Orders",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter instructions you want the vendor to note and follow.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding (field name found nowhere else in either directory). Constraint: 'This field is limited to 3200 characters.' Free-text instructions shown to the vendor on the transmitted PO.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "default_email_subject",
+      "label": "Default Email Subject When Transmitting Purchase Orders",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The text entered in the Default Email Subject When Transmitting Purchase Orders field will appear in the subject field of the email sent to the vendor (the admin can customize this field).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding. Constraint: 'This field is limited to 500 characters.' The corpus adds that clicking the field surfaces a tooltip listing available tokens: 'When the admin clicks the Default Email Subject When Transmitting Purchase Orders field, they will see a tool tip with information (tokens) about how to enter text in the field.' The tokens themselves are never enumerated - unattested list, do not guess.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "default_email_message",
+      "label": "Default Email Message When Transmitting Purchase Orders",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The text entered in the Default Email Message When Transmitting Purchase Orders field will appear in the body of the email sent to the vendor (note that this can be changed as you review the PO prior to transmittal):",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding. Default body text for the transmittal email; the PO processor can override it per-transmittal at review time (see preview-a-purchase-order-846396e1.md: 'To change default text (Body text, address, Instructions, etc.) the Invoice Configuration administrator uses the Purchase Order Configuration tool ... To change any PO data presented in the PDF, the PO Processor opens the actual PO and edits the fields.'). No character-limit note given for this field (unlike the 3200/500 limits on the other two text fields) - undetermined.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "company_address",
+      "label": "Company Address",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter your company address in the Company Address field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "INDEPENDENTLY ATTESTED BY NAME - preview-a-purchase-order-846396e1.md ties 'Body text, address, Instructions, etc.' to 'the Invoice Configuration administrator uses the Purchase Order Configuration tool (Administration > Invoice > Purchase Order Configuration)'. Group-aware per purchase-order-configuration-is-group-aware-b603f04b.md, which lists company name, logo, and email address (not literally 'address' but implies the group-varying company details) as the group-varying fields.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "supporting_documents",
+      "label": "Supporting Documents",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "In the Supporting Document section, you can upload documents that support the purchase order transmittal. These documents will be included when the supplier receives the PO. You can also view and remove documents.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "INDEPENDENTLY ATTESTED BY NAME AND CROSS-DIRECTORY - manage-images-03021850.md section 'Support Images and the PO Configuration Supporting Documents Feature': 'The PO configuration associated with a Group may also include supporting documents. These documents apply to all PO transmissions performed by the PO Processor for that Group and are included alongside any documents added by the user.' This is the only statement anywhere of how admin-uploaded (via PO Configuration) and user/approver/processor-uploaded (via the end-user 'Include in PO Transmission' checkbox, see preview-a-purchase-order-846396e1.md) PO attachments interact: they combine, not replace. Controls named on this row: upload, view, remove.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "company_branding_logo",
+      "label": "Company Branding Logo",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "To upload the company logo into Invoice, so that vendors viewing purchase order PDFs will see the company logo, click Upload in the Company Branding Logo section.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "INDEPENDENTLY ATTESTED BY NAME - purchase-request-and-purchase-order-8b36ae07.md release-note line: 'Added information about the ability to add a company logo in PO Configuration and updated images to the enhanced user interface.' Controls: Upload, View, Remove ('You can view or remove a logo by clicking View or Remove respectively.'). Constraint: '.png, .jpg, or .gif file. The image should be 55 pixels high and no more than 200 pixels in length and 100 KB in size.' Group-aware, one logo per invoice group: 'The logo is group-aware in the same way as the purchase order configuration and clients can only update one company logo per invoice group.' This is also the file's only near-miss mention of the page name itself, lowercase and incidental.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "default_sender_email_prefix",
+      "label": "Default Sender Email",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "To enter a default sender address for purchase order transmission emails, type in a desired prefix in the Default Sender Email field. The default email address will be PurchaseOrder\\_DoNotReply@ConcurSolutions.com and admins will be able to change the prefix (set to \"PurchaseOrder\" by default) before the \\_DoNotReply part of the email address.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding for the admin edit topic, but the constraint that the suffix cannot be changed is CROSS-DIRECTORY CORROBORATED: preview-a-purchase-order-846396e1.md, 'The processor can change the prefix for the From address but cannot change the suffix of the address from \"\\_DoNotReply@ConcurSolutions.com\".' Default prefix is 'PurchaseOrder'. If left blank, the system falls back to the requestor's email as the From address, which SAP Concur explicitly does not recommend: 'If the prefix is left blank, the system will use the requestor's email address as the \"From\" address. SAP Concur does not recommended this since it increases the risk of the PO email being treated as spam by the supplier's email system.' (source has the typo \"recommended\" for \"recommend\").",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "fields_to_appear_on_purchase_orders",
+      "label": "Fields to Appear on Purchase Orders",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "The header and line time fields you select will appear on the purchase order. Ensure that you have selected the correct policy in the Policy list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding. UNENUMERATED: the selectable header and line-item field roster is never listed anywhere in the corpus - mark unenumerated, do not guess. SAP TYPO TRAP: 'line time fields' is written for 'line item fields' (grep -rn 'line time' corpus-wide = 1 hit, this file). The instruction also names a dependency on a 'Policy list' selection ('Ensure that you have selected the correct policy in the Policy list') - the field roster this control offers apparently varies by the selected Policy, but which policy list, and how selection changes the roster, is not further described here. Recorded as a dependencyCandidate pointing at Policies (already-built page).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "ship_to_without_requestor_name",
+      "label": "Ship To without Requestor Name",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Instead, they can use the Ship To without Requestor Name header field, whereby the requestor\u2019s name is omitted.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding (field name found nowhere else in either directory). A header field selectable within the (unenumerated) Fields to Appear on Purchase Orders roster; described separately here because the corpus gives it its own explanatory paragraph and use case (requestor ordering items shipped directly to a client). Purpose: omits the Purchase Requestor's name from the ship-to address on the PO PDF.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "company_name_without_address",
+      "label": "Company Name without address",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Admins can select the Company Name without address header field for users who create purchase orders across countries and want to remove the purchase requester\u2019s company address that is displayed on the transmitted purchase order.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "INDEPENDENTLY ATTESTED BY NAME - purchase-request-and-purchase-order-8b36ae07.md release note: 'Added information about the Company Name without address field in the Purchase Order Configuration window.' This is also the corpus's only place that calls this surface a 'window' by that exact phrase alongside the field name. A header field selectable within the (unenumerated) Fields to Appear on Purchase Orders roster; purpose is cross-country PO creation where the company address should not display.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "use_email_as_bill_to",
+      "label": "Use Email as Bill-To",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Provided the admin has added the Use Email as Bill-To field to the Purchase Order Header form in the Forms and Fields tool and entered an email address in the bill-to email address field in the Company Locations tool, admins can select the Use Email as Bill-To header field so that purchase order processors can specify that the PO invoice from a vendor be sent to the email address included in the bill-to that is used on their purchase orders.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+      "notes": "ADJACENCY-ONLY page binding. TWO STATED PREREQUISITES, both on already-built pages, not to be re-homed here: (1) the Use Email as Bill-To field must first be added to the Purchase Order Header form in Forms and Fields; (2) a bill-to email address must first be entered in the Company Locations tool. If unconfigured, the PO falls back to the physical address: 'If clients have not configured this feature, the purchase order will use the physical address as it does today.' Capture-service clients may use their capture email address as the bill-to: 'Clients who use the capture service can use their capture email address as the bill-to address.' Effect: 'The bill-to address on the PO PDF that the vendor receives is an email address which notifies the vendor to send the PO to the specified email address.' A header field selectable within the (unenumerated) Fields to Appear on Purchase Orders roster.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [],
+  "dependencyCandidates": [
+    {
+      "type": "precedes",
+      "sourceField": "group_selector",
+      "sourcePage": "Purchase Order Configuration",
+      "targetField": "po_number_next_sequence",
+      "targetPage": "Purchase Order Configuration",
+      "condition": "A Group must be selected before a PO configuration (any of its settings, including PO Number Generation, messaging, address, logo, or field selections) can be created.",
+      "sourceQuote": "Each PO configuration you create is based on the Group you select before creating the configuration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "fields_to_appear_on_purchase_orders",
+      "sourcePage": "Purchase Order Configuration",
+      "targetField": "policy",
+      "targetPage": "Policies",
+      "condition": "The header/line-item field roster available to select depends on choosing the correct policy in a Policy list before selecting fields.",
+      "sourceQuote": "Ensure that you have selected the correct policy in the Policy list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "use_email_as_bill_to",
+      "sourcePage": "Purchase Order Configuration",
+      "targetField": "purchase_order_header_form_fields",
+      "targetPage": "Forms and Fields",
+      "condition": "The Use Email as Bill-To header field must first be added to the Purchase Order Header form in the Forms and Fields tool before it can be selected here.",
+      "sourceQuote": "Provided the admin has added the Use Email as Bill-To field to the Purchase Order Header form in the Forms and Fields tool",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "use_email_as_bill_to",
+      "sourcePage": "Purchase Order Configuration",
+      "targetField": "bill_to_email_address",
+      "targetPage": "Company Locations",
+      "condition": "A bill-to email address must first be entered in the Company Locations tool before Use Email as Bill-To can function.",
+      "sourceQuote": "entered an email address in the bill-to email address field in the Company Locations tool",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "supporting_documents",
+      "sourcePage": "Purchase Order Configuration",
+      "targetField": "include_in_po_transmission",
+      "targetPage": "Purchase Order Configuration",
+      "condition": "Admin-uploaded supporting documents on a Group's PO configuration are included alongside (not instead of) any documents a user, approver, or PO processor adds via the end-user Include in PO Transmission checkbox at PO creation/review time.",
+      "sourceQuote": "These documents apply to all PO transmissions performed by the PO Processor for that Group and are included alongside any documents added by the user.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/manage-images-03021850.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "default_email_message",
+      "sourcePage": "Purchase Order Configuration",
+      "targetField": "po_body_text_review_override",
+      "targetPage": "Purchase Order Configuration",
+      "condition": "The admin-set default email body/address/instructions text is what a PO processor sees at transmittal review time and may override per-transmittal there; the processor edits the actual PO fields, not this configuration tool.",
+      "sourceQuote": "To change default text (Body text, address, Instructions, etc.) the Invoice Configuration administrator uses the Purchase Order Configuration tool (Administration > Invoice > Purchase Order Configuration). To change any PO data presented in the PDF, the PO Processor opens the actual PO and edits the fields.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md"
+    }
+  ],
+  "contradictions": [],
+  "compressedRanges": [],
+  "coverageVerdict": "partial",
+  "notes": "THIN IS THE CORRECT ANSWER HERE, and coverage is honestly PARTIAL rather than good: this lens found no procedures beyond the single roster file's twelve prose sections plus the two access/scoping topics and the two cross-directory corroborations already flagged by recon. No NEW/step-by-step wizard exists in the corpus for this tool - there is no numbered procedure ('To configure a purchase order: 1. ... 2. ...') anywhere; every control is described declaratively in prose, so buttons/steps could only be extracted for the two controls that explicitly name them (Supporting Documents: upload/view/remove; Company Branding Logo: Upload/View/Remove). No Save/Done/Cancel/Next/Previous button is ever named for this page in the corpus - undetermined, not assumed. mustReadSkipped is empty; all five mustRead files were read and cited. Two files from alsoRelevant (purchase-order-setup-process-9f253ce7.md, purchase-order-processor-experience-8b507c54.md) were re-checked per the recon's exclusion and confirmed to carry no page-specific control - purchase-order-setup-process-9f253ce7.md never names this tool (grep -ci configuration = 0) and is ordering evidence only; purchase-order-processor-experience-8b507c54.md is an end-user processor topic describing Requests > Purchase Requests > Process Purchase Orders, not this admin tool. configure-concur-receiving-1ececc23.md and purchase-order-settings-a5a997b4.md were checked and confirmed OUT OF SCOPE per the inventory notes (Enable Concur Receiving belongs to Policies; the exception-level setting belongs to Workflows) - no fields emitted from either. PAGE-BINDING DISCIPLINE APPLIED THROUGHOUT: every field's notes state explicitly whether its binding to this page is independently attested by name (4 of 13 emitted fields: Company Address, Supporting Documents, Company Branding Logo, Company Name without address) or adjacency-only (the remaining 9, including the Group selector precondition, PO Number Generation's two sub-controls, the two email templates, Default Sender Email, the unenumerated field roster, and its two named header-field members Ship To without Requestor Name and Use Email as Bill-To). No role gate beyond 'Invoice Configuration administrator' (the tool-level gate) is stated for any individual field. No UI-variant differentiation exists for this page (no new-experience twin), so uiVariant is 'undifferentiated' on every field, matching the map phase. Group selector was emitted as a field (fieldType dropdown) despite being described as a precondition rather than a settings field, because it is a control a human must operate before anything else on this page can be touched by a driver - flagged clearly in its notes as a precondition, not a setting."
+}
