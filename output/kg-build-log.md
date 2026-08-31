@@ -1,5 +1,15 @@
 # KG Build Log
 
+> **Scope note.** This is a **blind build from documentation.** Every node is a structural claim
+> backed by a verbatim quote from the SAP 2026_08 corpus. Nothing here is derived from, or
+> validated against, any specific tenant's configured system — that would turn a config
+> observation into a structural fact and defeat the point of the build.
+>
+> Sections headed *"Undetermined by the documentation"* list places where the corpus contradicts
+> itself, goes silent, or describes behaviour that varies by provisioning. Those are recorded as
+> **properties of the documentation**, not as a validation backlog. Where a value list is
+> module-dependent, the honest graph carries the documented range and says it varies.
+
 ## 2026-08-31 — Group 1: Policy & Scope
 
 **Corpus:** `concur-corpus` @ `d838939` · SAP `2026_08` · Professional Edition · crawled 2026-08-29T12:14:11.751Z
@@ -78,7 +88,7 @@ on the Modify Policy General page — all documented with quotable text in files
 was lifted from the Expense Types page, where the labels differ ("Add New Attendees button" vs
 "New Attendee button"). They need Expense-Types-primary modelling with a Policies alias.
 
-### Thin — needs a live-UI spot check (ranked)
+### Undetermined by the documentation (ranked)
 
 1. **Auto Submit Conditions editor (Policies)** — corpus gives `Insert`, `Apply Auto Submit to Assignment`, `Save` and nothing else. No operators, no operands. A writer cannot author a condition from this graph.
 2. **Purchase Request Configuration group (Policies)** — named as existing, not one field enumerated. Probably 3–5 unknown fields.
@@ -234,7 +244,7 @@ are sibling section parents, **both `version: 2026_08`**. Substantive difference
 Tab naming is unstable across all of it: "Custom page", "Custom tab", "Custom Rules page",
 "Custom Rules tab", "Custom Audit Rule List page" all appear in 2026_08.
 
-### Thin — needs a live-UI spot check (ranked)
+### Undetermined by the documentation (ranked)
 
 1. **Custom tab Event dropdown: 6 values or 18?** The field table lists 6; the reference topic
    `events-triggers-72339a13.md` lists 18 *for custom audit rules*, adding all the PO/PR events.
@@ -337,8 +347,8 @@ Re-run this script after any merge — merges rebuild nodes from raw results and
 - **Vendor Search Admin is genuinely thin, and that is the corpus's fault, not ours.** The phrase
   *"Vendor Search Admin"* appears in **exactly two files corpus-wide**, both in `tools-guides`.
   **Zero** admin-guide topics document this page. Two fields is close to exhaustive. The field
-  picker, the add/remove widget, and the available-field catalog exist only in the live UI.
-  **Highest value per minute of spot-checking in the whole group.**
+  picker, the add/remove widget, and the available-field catalog are not documented anywhere
+  in the corpus. Structurally undetermined.
 - **Capture Processing Admin has five tabs** — Forms and Fields (default landing), Task
   Definitions, Email Administration, Supplier Email Administration, Other Settings.
 - **Image Handling is not one self-contained screen.** Tabs: Invoice Imaging, Vendor Imaging, Scan
@@ -350,7 +360,7 @@ Re-run this script after any merge — merges rebuild nodes from raw results and
 - **No New Experience variant exists for any Group 4 page** — checked; the `new-ui`/`legacy-ui`/
   "New Experience" greps return nothing for all four.
 
-### Thin — live-UI spot check (ranked)
+### Undetermined by the documentation (ranked)
 
 1. **Vendor Search Admin** — the field picker and available-field catalog. Best return in the group.
 2. **Units Of Measure** — the unit name/identifier control; confirm soft-delete behaviour.

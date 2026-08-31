@@ -85,9 +85,28 @@ Groups 1 and 2 were built before this field existed and cite **zero** New Experi
 all 133 of their fields are `undifferentiated`. Reclassifying them is the New Experience retrofit
 pass; until it runs, the count of `undifferentiated` fields is the honest size of that debt.
 
+## Blind build — the governing constraint
+
+This graph is derived **only** from the SAP 2026_08 documentation corpus. It is a model of what
+the product's configuration surface *is*, not of how any tenant has configured it.
+
+- No value enters the graph because a system was observed to have it. Every value is enumerated
+  in a documented list, with the quote attached.
+- Where the corpus gives different lists in different topics, both are recorded with the
+  contradiction stated. Many such differences are **provisioning-dependent** — what a screen
+  offers varies with the modules a site has enabled — so a single observed instance would answer
+  the wrong question while looking like an answer.
+- `coverage: thin` and the "Undetermined by the documentation" sections are statements about the
+  **corpus**, not a to-do list against a running system.
+
+The `uiVariant` dimension is not an exception to this: New Experience vs legacy is a distinction
+SAP draws **in the documentation**, and targeting `new` is a decision about which documented
+variant matters most — not an observation imported from any tenant.
+
 ## Rules that hold across every node
 
 - No CSS selectors, DOM ids, or XPaths. The graph says page/field/value; the crawler resolves the
   element at runtime.
 - No tenant-specific or BestRun-sandbox configured values. Structural knowledge only.
-- Nothing in this graph has been validated against the live Concur UI.
+- Nothing in this graph is derived from or validated against any configured system. It is a
+  documentation-derived model, and that is deliberate — see **Blind build** above.

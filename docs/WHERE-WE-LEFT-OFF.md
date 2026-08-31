@@ -53,8 +53,11 @@ refuter + synthesis + critic on `opus`. Cut Group 2's cost 27% vs Group 1 with n
 - **New Experience UI is real and confirmed.** `configure-custom-audit-rules-new-ui-*` and
   `-legacy-ui-*` are sibling parents, both `2026_08`. Create vs New; wizard vs Quick View panel.
   The graph models neither variant. Needs a decision: which UI is the config writer targeting?
-- **Live-UI spot checks** — 13 ranked items from Group 1, 8 from Group 2, in the build log.
-  Top of the list: does the Custom audit rule Event dropdown have 6 values or 18?
+- **Undetermined by the documentation** — ranked lists per group in the build log. These are
+  corpus ambiguities, not a validation backlog: the Custom audit rule Event list appears as 6 in
+  one topic and 17 in another, which is most likely module-dependent rather than a doc error.
+  The graph records the documented range and that it varies. It is NOT resolved by looking at a
+  configured tenant — that would import one instance's configuration as structural truth.
 
 ## Next
 
