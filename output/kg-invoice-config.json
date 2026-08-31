@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "IN_PROGRESS",
     "lastUpdated": "2026-08-31",
     "corpusVersion": "2026_08",
@@ -8,10 +8,10 @@
     "corpusCrawledAt": "2026-08-29T12:14:11.751Z",
     "corpusEdition": "Professional Edition",
     "groupsComplete": [
-      "Group 1 — Policy & Scope"
+      "Group 1 — Policy & Scope",
+      "Group 2 — Routing & Approval"
     ],
     "groupsRemaining": [
-      "Group 2 — Routing & Approval",
       "Group 3 — PO Matching",
       "Group 4 — Capture & Vendors",
       "Group 5 — Data Structure & Accounting",
@@ -82,6 +82,64 @@
         ],
         "url": "/expense/admin/invoice/invoiceSettings.asp",
         "group": "Group 1 — Policy & Scope",
+        "coverage": "good"
+      },
+      {
+        "id": "page.routing-configuration",
+        "name": "Routing Configuration",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Invoice Processing Admin",
+          "Routing Configuration"
+        ],
+        "navPathSourceQuote": "1.  Click Administration  Invoice.\n    \n2.  From the Invoice Processing Admin menu, click Routing Configuration.\n    \n    The Routing Configuration page appears.",
+        "navPathSourceFile": "concur-invoice-professional-edition-tools-guides/access-hierarchy-mappings-import-708f5fdc.md",
+        "navPathAlternates": [
+          "Administration > Invoice > Routing Configuration",
+          "Routing Configuration > Import Hierarchy Mappings tab"
+        ],
+        "url": "/expense/admin/invoice/routingConfig.asp",
+        "group": "Group 2 — Routing & Approval",
+        "coverage": "good"
+      },
+      {
+        "id": "page.audit-rules",
+        "name": "Audit Rules",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Audit Rules (left menu)",
+          "Random"
+        ],
+        "navPathSourceQuote": "...2. Select Audit Rules (left menu)... 3. Select the Random tab.",
+        "navPathSourceFile": "concur-invoice-professional-edition-admin-guides/access-random-audit-da5f6693.md",
+        "navPathAlternates": [
+          "Administration > Invoice > Audit Rules",
+          "Administration > Invoice > Audit Rules (left menu)",
+          "Administration > Invoice > Audit Rules (left menu) > Validation"
+        ],
+        "url": "/expense/admin/invoice/auditRules.asp",
+        "group": "Group 2 — Routing & Approval",
+        "coverage": "good"
+      },
+      {
+        "id": "page.exceptions",
+        "name": "Exceptions",
+        "navPath": [
+          "Administration",
+          "Invoice",
+          "Invoice Processing Admin",
+          "Exceptions"
+        ],
+        "navPathSourceQuote": "Select Administration  Invoice.",
+        "navPathSourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md",
+        "navPathAlternates": [
+          "Administration > Invoice > Workflows > Settings",
+          "Exceptions > New"
+        ],
+        "url": "/expense/admin/invoice/exceptionList.asp",
+        "group": "Group 2 — Routing & Approval",
         "coverage": "good"
       }
     ],
@@ -995,6 +1053,671 @@
         "sourceQuote": "Use the For purchase order-based invoices, from where should the Invoice Line allocation be copied? setting on the Invoice Settings page to control whether allocation fields on invoice lines are copied from the associated purchase order line or from the existing copy-down configuration.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-down-line-allocations-from-po-based-invoice-5ac42ce8.md",
         "notes": "Both options are literally enumerated as a bulleted list in this file and again in the master table. Default is \"From the associated purchase order line\". ADMIN/copy-down-of-po-allocation-lines-f14c45e4.md renders the second option without the hyphen as \"From the copydown configurations\" — tolerate both spellings. The corpus calls it a list, hence dropdown."
+      },
+      {
+        "id": "field.routing-configuration.search-routing-mappings",
+        "pageId": "page.routing-configuration",
+        "name": "search_routing_mappings",
+        "label": "Search Routing Mappings",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "input the search criteria into the Search Routing Mappings search box as follows:",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md",
+        "notes": "Search box on the Hierarchy Mapping List screen; accepts Employee Last Name or Segment 1-3 criteria (see related fields)."
+      },
+      {
+        "id": "field.routing-configuration.employee-last-name",
+        "pageId": "page.routing-configuration",
+        "name": "employee_last_name",
+        "label": "Employee Last Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Employee Last Name: Type the last name of the employee who is associated with the hierarchy mapping that you want to display. For example, if Ken Brown is associated with the mapping, type \"Brown\" in the Begins With search field.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md",
+        "notes": "One of the search criteria options within Search Routing Mappings; uses a Begins With match."
+      },
+      {
+        "id": "field.routing-configuration.segment-1-3",
+        "pageId": "page.routing-configuration",
+        "name": "segment_1_3",
+        "label": "Segment 1 - 3",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Segment 1 - 3: You can elect to search for the mapping by typing in any of the first three segments mappings. For example, if the mapping is Company > Sales > North, and you only remember North, select the correct sequence (Segment 3 in this example) and input North in the Begins With search field.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md",
+        "notes": "Search by any of the first three hierarchy path segments; requires selecting the matching segment sequence."
+      },
+      {
+        "id": "field.routing-configuration.delete-flag",
+        "pageId": "page.routing-configuration",
+        "name": "delete_flag",
+        "label": "Delete?",
+        "fieldType": "checkbox",
+        "validValues": [
+          "Y",
+          "N"
+        ],
+        "sourceQuote": "Used to indicate if this record should be deleted from the hierarchy mapping list.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+        "notes": "Import template field, 1 character, Y (Yes) or N (No), not required."
+      },
+      {
+        "id": "field.routing-configuration.employee-id",
+        "pageId": "page.routing-configuration",
+        "name": "employee_id",
+        "label": "Employee ID",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "The exact Employee ID of the employee to whom the record is to be assigned.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+        "notes": "Import template field, required unless Delete? is used; max 48 characters, case insensitive."
+      },
+      {
+        "id": "field.routing-configuration.level-1-10-code",
+        "pageId": "page.routing-configuration",
+        "name": "level_1_10_code",
+        "label": "Level 1 Code - Level 10 Code",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "The hierarchy path, in levels (segments) on selection of which will cause the associated user in Employee ID to be selected as the default Invoice owner when the AP user assigns the invoice.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+        "notes": "Import template fields Level 1 Code through Level 10 Code; max 32 characters, case insensitive; values are List Item Short Codes."
+      },
+      {
+        "id": "field.routing-configuration.browse-button",
+        "pageId": "page.routing-configuration",
+        "name": "browse_button",
+        "label": "Browse",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "On the Import Hierarchy Mappings page, click Browse.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md",
+        "notes": "File-picker trigger on the Import Hierarchy Mappings tab to select the populated template file."
+      },
+      {
+        "id": "field.routing-configuration.import-button",
+        "pageId": "page.routing-configuration",
+        "name": "import_button",
+        "label": "Import",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Click Import.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md",
+        "notes": "Submits the uploaded file; triggers the Import Summary window."
+      },
+      {
+        "id": "field.routing-configuration.download-template-button",
+        "pageId": "page.routing-configuration",
+        "name": "download_template_button",
+        "label": "Download Template",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "On the Import Hierarchy Mappings page, click Download Template.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-download-hierarchy-mappings-template-excel-spreadsheet-d981b372.md",
+        "notes": "Downloads the pre-populated Excel template with correct column headings."
+      },
+      {
+        "id": "field.routing-configuration.import-details-type-filter",
+        "pageId": "page.routing-configuration",
+        "name": "import_details_type_filter",
+        "label": "Type",
+        "fieldType": "dropdown",
+        "validValues": [
+          "All",
+          "Error",
+          "Warning",
+          "Info"
+        ],
+        "sourceQuote": "you can filter the information that displays using the Type list that includes the following options:\n\n-   All: The error, warning, and information text all appear\n    \n-   Error: Filters to display only the errors generated during import\n    \n-   Warning: Filters to display only the warnings generated during import\n    \n-   Info: Filters to display only the number of records imported",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-review-import-details-414c8cd5.md",
+        "notes": "Filter dropdown in the Import Details window, reached via View Import Details action."
+      },
+      {
+        "id": "field.audit-rules.name",
+        "pageId": "page.audit-rules",
+        "name": "Name",
+        "label": "Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Type a unique name.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Custom Audit Rule wizard, Audit Rule step, field table row 'Name'."
+      },
+      {
+        "id": "field.audit-rules.event",
+        "pageId": "page.audit-rules",
+        "name": "Event",
+        "label": "Event",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Allocation Save",
+          "Payment Request Details Save",
+          "Payment Request Details Submit",
+          "Payment Request Save",
+          "Payment Request Submit",
+          "Payment Post Request Submit"
+        ],
+        "sourceQuote": "Select the event that triggers the rule:\n\n-   Allocation Save: Though this type of rule is triggered when the allocation is saved, the exception icon and message appear on the Processor List page or within the invoice. The message and icon do not appear on the Distribute Selected Items page.\n    \n-   Payment Request Details Save\n    \n-   Payment Request Details Submit\n    \n-   Payment Request Save\n    \n-   Payment Request Submit\n    \n-   Payment Post Request Submit",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Custom Audit Rule wizard event picker — the field/control that determines when the rule evaluates."
+      },
+      {
+        "id": "field.audit-rules.editableby",
+        "pageId": "page.audit-rules",
+        "name": "EditableBy",
+        "label": "Editable By",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "This field defaults to your access rights. Change it if necessary.\n\nSelect the field; the associated helper pane appears. Select the appropriate group(s).",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Group-picker helper-pane control defining who can edit the rule."
+      },
+      {
+        "id": "field.audit-rules.appliesto",
+        "pageId": "page.audit-rules",
+        "name": "AppliesTo",
+        "label": "Applies To",
+        "fieldType": "unknown",
+        "validValues": [
+          "Inherited",
+          "Not Inherited"
+        ],
+        "sourceQuote": "Select the field; the associated helper pane appears. Select the appropriate group(s).\n\nToggle Inherited/Not Inherited to indicate whether this rule will apply to the group(s) below this one in the hierarchical structure.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Group-scope picker plus Inherited/Not Inherited toggle — this is the rule's scope-by-group control."
+      },
+      {
+        "id": "field.audit-rules.active",
+        "pageId": "page.audit-rules",
+        "name": "Active",
+        "label": "Active",
+        "fieldType": "radio",
+        "validValues": [
+          "Yes"
+        ],
+        "sourceQuote": "Select Yes to activate the rule upon completion.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Active/inactive state control on the Audit Rule step. Only 'Yes' value is verbatim in the corpus (implicit No/blank is the alternative but not quoted as a labeled value)."
+      },
+      {
+        "id": "field.audit-rules.exceptionvisibility",
+        "pageId": "page.audit-rules",
+        "name": "ExceptionVisibility",
+        "label": "Exception Visibility",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Invoice Owner, Approver, and Invoice Processor",
+          "Approver and Invoice Processor",
+          "Invoice Processor"
+        ],
+        "sourceQuote": "From the Exception Visibility list, select the users who are able to see the exception message by selecting:\n\n-   For expense-related rules:\n    \n-   Invoice Owner, Approver, and Invoice Processor\n    \n-   Approver and Invoice Processor\n    \n-   Invoice Processor",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Exception step of the Custom Audit Rule wizard — controls who can see the raised exception (severity/visibility control)."
+      },
+      {
+        "id": "field.audit-rules.exceptioncode",
+        "pageId": "page.audit-rules",
+        "name": "ExceptionCode",
+        "label": "Exception Code",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Use an existing exception. To use an existing exception, select the desired exception. It appears in the Exception Code, Exception Level, and Exception Text fields at the top of the page.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Auto-populated read field on the Exception step when an existing exception is selected."
+      },
+      {
+        "id": "field.audit-rules.exceptionlevel",
+        "pageId": "page.audit-rules",
+        "name": "ExceptionLevel",
+        "label": "Exception Level",
+        "fieldType": "number",
+        "validValues": [],
+        "sourceQuote": "Type any number between 0 and 99. Typically, the number goes in ascending order for severity, such as 0 is non-urgent, and 10 is extremely urgent.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "Exception Level field, defined in the New Exception dialog reached from the Audit Rules Exception step; this is the severity control the task asked about."
+      },
+      {
+        "id": "field.audit-rules.exceptioncode-new",
+        "pageId": "page.audit-rules",
+        "name": "ExceptionCode_New",
+        "label": "Exception Code",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Type a unique one to eight alphanumeric character code in all capital letters, without any spaces. This code is determined by the client's internal coding system and is not localized.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "New Exception dialog field definition (create-new-exception path from within Audit Rules)."
+      },
+      {
+        "id": "field.audit-rules.exceptionmessage",
+        "pageId": "page.audit-rules",
+        "name": "ExceptionMessage",
+        "label": "Message",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "This message appears wherever the exception is visible and can be localized.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "New Exception dialog — the exception text raised by the rule."
+      },
+      {
+        "id": "field.audit-rules.exceptioneditablebygroups",
+        "pageId": "page.audit-rules",
+        "name": "ExceptionEditableByGroups",
+        "label": "Editable By Group(s)",
+        "fieldType": "unknown",
+        "validValues": [
+          "Global Group"
+        ],
+        "sourceQuote": "Select the group rights that an administrator must have in order to modify this exception.\n\n-   If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "New Exception dialog group-scope control."
+      },
+      {
+        "id": "field.audit-rules.randomrulename",
+        "pageId": "page.audit-rules",
+        "name": "RandomRuleName",
+        "label": "Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Use the first line (yellow background) in the grid to add a new rule. Select in the Name field, and then enter the rule name.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Random tab of Audit Rules grid."
+      },
+      {
+        "id": "field.audit-rules.randomruletype",
+        "pageId": "page.audit-rules",
+        "name": "RandomRuleType",
+        "label": "Type",
+        "fieldType": "radio",
+        "validValues": [
+          "Percentage",
+          "Sequential"
+        ],
+        "sourceQuote": "Select either:\n\n-   Percentage and then enter the appropriate percentage\n    \n-   Sequential and then enter the appropriate number",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Rule Type window on the Random Audit Rules tab — defines how invoices are selected for random audit."
+      },
+      {
+        "id": "field.audit-rules.randomruleevent",
+        "pageId": "page.audit-rules",
+        "name": "RandomRuleEvent",
+        "label": "Event",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Payment Request Submit",
+          "Payment Post Request Submit"
+        ],
+        "sourceQuote": "In the Event field, select either:\n\n-   Payment Request Submit\n    \n-   Payment Post Request Submit",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Random Audit Rule's evaluation-trigger field."
+      },
+      {
+        "id": "field.audit-rules.randomexceptioncode",
+        "pageId": "page.audit-rules",
+        "name": "RandomExceptionCode",
+        "label": "Exception Code",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "Select the Exception Code field. The Exceptions window appears.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Opens the Exceptions window (existing or new exception) for the random rule."
+      },
+      {
+        "id": "field.audit-rules.randomeditableby",
+        "pageId": "page.audit-rules",
+        "name": "RandomEditableBy",
+        "label": "Editable By",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "In the Editable By field, select the group configuration(s) that can edit this rule.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Random rule scope-by-group edit control."
+      },
+      {
+        "id": "field.audit-rules.randomappliesto",
+        "pageId": "page.audit-rules",
+        "name": "RandomAppliesTo",
+        "label": "Applies To",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "In the Applies To field, select the appropriate group configuration(s) to which this rule applies.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Random rule scope-by-group applies-to control."
+      },
+      {
+        "id": "field.audit-rules.randomactivate",
+        "pageId": "page.audit-rules",
+        "name": "RandomActivate",
+        "label": "Activate",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "With the rule selected, select Activate.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
+        "notes": "Activate control for a Random Audit Rule (active/inactive state)."
+      },
+      {
+        "id": "field.audit-rules.validationrulename",
+        "pageId": "page.audit-rules",
+        "name": "ValidationRuleName",
+        "label": "Validation Rule Name",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Type the name of the rule.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule wizard, step 1 field table."
+      },
+      {
+        "id": "field.audit-rules.validationevent",
+        "pageId": "page.audit-rules",
+        "name": "ValidationEvent",
+        "label": "Event",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Payment Request Allocation Save",
+          "Payment Post Request Submit",
+          "Payment Request Manual Assign",
+          "Payment Request Save",
+          "Payment Request Submit",
+          "Payment Request Import Assign",
+          "Payment Request Details Save",
+          "Payment Request Details Submit",
+          "Payment Request Distribution Save",
+          "Purchase Request Save",
+          "Purchase Request Submit",
+          "Purchase Request Item Save"
+        ],
+        "sourceQuote": "Select either:\n\n-   Payment Request Allocation Save: This rule is triggered when each invoice allocation is saved.\n    \n-   Payment Post Request Submit: This rule is triggered <need information – what is this action?\n    \n-   Payment Request Manual Assign: This rule is triggered when the invoice is manually assigned by an AP User to an employee (as an example).\n    \n-   Payment Request Save: This rule is triggered immediately after the invoice header information is saved whether by the employee, approver, or processor.\n    \n-   Payment Request Submit: The rule is triggered when the invoice is submitted.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rules tab (a sub-brand of Audit Rules per taxonomy) event/trigger picker."
+      },
+      {
+        "id": "field.audit-rules.executeactionwhen",
+        "pageId": "page.audit-rules",
+        "name": "ExecuteActionWhen",
+        "label": "Execute action when validation condition is:",
+        "fieldType": "radio",
+        "validValues": [
+          "True",
+          "False"
+        ],
+        "sourceQuote": "This field controls when the action for the rule is executed. When the condition is:\n\n-   True\n    \n-   False",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule wizard field controlling when the rule's action fires relative to condition evaluation."
+      },
+      {
+        "id": "field.audit-rules.validationeditablebygroups",
+        "pageId": "page.audit-rules",
+        "name": "ValidationEditableByGroups",
+        "label": "Editable By Groups",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "Click the link; the associated helper pane appears. Select the appropriate group(s).",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule wizard scope-by-group edit control."
+      },
+      {
+        "id": "field.audit-rules.validationappliestogroups",
+        "pageId": "page.audit-rules",
+        "name": "ValidationAppliesToGroups",
+        "label": "Applies To Groups",
+        "fieldType": "unknown",
+        "validValues": [],
+        "sourceQuote": "Click the link; the associated helper pane appears. Select the appropriate group(s).",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule wizard scope-by-group applies-to control (second occurrence of same quote text, distinct field row)."
+      },
+      {
+        "id": "field.audit-rules.validationactive",
+        "pageId": "page.audit-rules",
+        "name": "ValidationActive",
+        "label": "Active",
+        "fieldType": "radio",
+        "validValues": [
+          "Yes"
+        ],
+        "sourceQuote": "Select Yes (if necessary) to activate the rule upon completion.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule active/inactive state control."
+      },
+      {
+        "id": "field.audit-rules.fromdatasource",
+        "pageId": "page.audit-rules",
+        "name": "FromDataSource",
+        "label": "From Data Source",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Constant",
+          "Validation Table",
+          "Employee",
+          "Request"
+        ],
+        "sourceQuote": "The source of the fields that will be used for the update. The available sources will change depending on the event selected. They include:\n\n-   Constant\n    \n-   Validation Table\n    \n-   Employee\n    \n-   Request",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule Actions page field-update source control."
+      },
+      {
+        "id": "field.audit-rules.fromfieldname",
+        "pageId": "page.audit-rules",
+        "name": "FromFieldName",
+        "label": "From Field Name",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "The field from the Data Source that will be used to update the Invoice field. The list of fields displayed will change depending on the Data Source selected.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule Actions page field-update source field."
+      },
+      {
+        "id": "field.audit-rules.todatasource",
+        "pageId": "page.audit-rules",
+        "name": "ToDataSource",
+        "label": "To Data Source",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Concur Request"
+        ],
+        "sourceQuote": "The Data Source of the field to be updated:\n\n-   Concur Request",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule Actions page target data source."
+      },
+      {
+        "id": "field.audit-rules.tofieldname",
+        "pageId": "page.audit-rules",
+        "name": "ToFieldName",
+        "label": "To Field Name",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "The Concur Invoice field that will be updated. The list of fields displayed will change depending on the Data Source selected.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule Actions page target field."
+      },
+      {
+        "id": "field.audit-rules.validationexceptionvisibility",
+        "pageId": "page.audit-rules",
+        "name": "ValidationExceptionVisibility",
+        "label": "Exception Visibility",
+        "fieldType": "dropdown",
+        "validValues": [
+          "Invoice Owner, Approver and Invoice Processor",
+          "Approver and Invoice Processor",
+          "Invoice Processor"
+        ],
+        "sourceQuote": "Select the users who are able to see the exception message by selecting:\n\n-   Invoice Owner, Approver and Invoice Processor\n    \n-   Approver and Invoice Processor\n    \n-   Invoice Processor",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
+        "notes": "Validation Rule Exception page control.",
+        "fromRawHtmlTable": true
+      },
+      {
+        "id": "field.audit-rules.conditionleftparenthesis",
+        "pageId": "page.audit-rules",
+        "name": "ConditionLeftParenthesis",
+        "label": "Left Parenthesis",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Select zero to three parentheses, depending on the complexity of the condition.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+        "notes": "Condition Editor (shared by Audit Rules per this doc: 'similar to the Condition Editor page used in the Audit Rules tool'), column A."
+      },
+      {
+        "id": "field.audit-rules.conditionfieldvalue",
+        "pageId": "page.audit-rules",
+        "name": "ConditionFieldValue",
+        "label": "Field/Value",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Select an item from the helper pane that appears. The information that appears in this pane is based upon the selection made in the Data Object list.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+        "notes": "Condition Editor column C/F."
+      },
+      {
+        "id": "field.audit-rules.conditionoperator",
+        "pageId": "page.audit-rules",
+        "name": "ConditionOperator",
+        "label": "Operator",
+        "fieldType": "dropdown",
+        "validValues": [],
+        "sourceQuote": "Select an item from the helper pane that appears. The information that appears in this pane is based upon previous choices.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+        "notes": "Condition Editor column D — the operator control of the field/operator/value editor."
+      },
+      {
+        "id": "field.audit-rules.conditionandor",
+        "pageId": "page.audit-rules",
+        "name": "ConditionAndOr",
+        "label": "And/Or",
+        "fieldType": "radio",
+        "validValues": [
+          "And",
+          "Or"
+        ],
+        "sourceQuote": "Select either option to join the current condition to the next condition; this line appears when there are multiple conditions, and only between conditions, never after the final condition.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+        "notes": "Condition Editor column H, joins multiple conditions."
+      },
+      {
+        "id": "field.audit-rules.insertcondition",
+        "pageId": "page.audit-rules",
+        "name": "InsertCondition",
+        "label": "Insert",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "using Insert to add conditions and Remove to delete conditions",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Conditions step control to add a new condition row."
+      },
+      {
+        "id": "field.audit-rules.removecondition",
+        "pageId": "page.audit-rules",
+        "name": "RemoveCondition",
+        "label": "Remove",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "using Insert to add conditions and Remove to delete conditions",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+        "notes": "Conditions step control to delete a condition row."
+      },
+      {
+        "id": "field.audit-rules.ruleactiveinactiveaction",
+        "pageId": "page.audit-rules",
+        "name": "ruleActiveInactiveAction",
+        "label": "Activate/Deactivate action (post-creation)",
+        "fieldType": "button",
+        "validValues": [
+          "Deactivate",
+          "Activate"
+        ],
+        "sourceQuote": "To deactivate/activate a custom audit rule:\n\n1.  On the Custom tab, select the rule you want to affect.\n    \n2.  Choose Deactivate or Activate, whichever applies.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/deactivate-activate-a-custom-audit-rule-e9ad1047.md",
+        "notes": "Toggle button on the rule list rather than a form field; equivalent topic exists for Random Audit Rules (deactivate-activate-a-random-audit-rule-622ed1bf.md)."
+      },
+      {
+        "id": "field.exceptions.exceptioncode",
+        "pageId": "page.exceptions",
+        "name": "exceptionCode",
+        "label": "Exception Code",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "Type a unique one to eight alphanumeric character code in all capital letters, without any spaces. This code is determined by the client's internal coding system and is not localized. Using the Exception Code, an invoice can be queried in Invoice Processor using a custom query.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "Required field on the New Exception tab. Unique 1-8 alphanumeric chars, all caps, no spaces. Not localized."
+      },
+      {
+        "id": "field.exceptions.message",
+        "pageId": "page.exceptions",
+        "name": "message",
+        "label": "Message",
+        "fieldType": "text",
+        "validValues": [],
+        "sourceQuote": "This message appears wherever the exception is visible and can be localized.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "The exception's display/description text; localizable."
+      },
+      {
+        "id": "field.exceptions.editablebygroups",
+        "pageId": "page.exceptions",
+        "name": "editableByGroups",
+        "label": "Editable By Group(s)",
+        "fieldType": "multiselect",
+        "validValues": [
+          "Global Group"
+        ],
+        "sourceQuote": "If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "Only 'Global Group' is a named fixed option in the text; all other selectable values are the client's own hierarchy group names (e.g. 'Global Group>United States'), not a corpus-enumerated set — omitted per rule 6/5.",
+        "fromRawHtmlTable": true
+      },
+      {
+        "id": "field.exceptions.newbutton",
+        "pageId": "page.exceptions",
+        "name": "newButton",
+        "label": "New",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Select Exceptions  New.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "Opens the New Exception tab. Note: 'If the administrator does not have permissions, the New link does not appear.'"
+      },
+      {
+        "id": "field.exceptions.savebutton",
+        "pageId": "page.exceptions",
+        "name": "saveButton",
+        "label": "Save",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Select Save.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
+        "notes": "Commits the new or modified exception; result note: 'The Exceptions page appears with the new exception listed.'"
+      },
+      {
+        "id": "field.exceptions.modifybutton",
+        "pageId": "page.exceptions",
+        "name": "modifyButton",
+        "label": "Modify",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Choose Modify to open the Modify Exception window.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-exceptions-1c6e5030.md",
+        "notes": "Opens the Modify Exception window for the selected exception row; read-only if the admin lacks create rights."
+      },
+      {
+        "id": "field.exceptions.removebutton",
+        "pageId": "page.exceptions",
+        "name": "removeButton",
+        "label": "Remove",
+        "fieldType": "button",
+        "validValues": [],
+        "sourceQuote": "Select Remove.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-exceptions-aa2889cc.md",
+        "notes": "Deletes the checked exception row(s); Group admins can only remove exceptions they created, only Global admins can delete/modify all ('If you are a Group Invoice Configuration Administrator, you cannot delete exceptions that you have not created. Only Global Invoice Configuration Administrators can delete or modify all exceptions.')."
+      },
+      {
+        "id": "field.exceptions.exceptionrowcheckbox",
+        "pageId": "page.exceptions",
+        "name": "exceptionRowCheckbox",
+        "label": "(row selection checkbox)",
+        "fieldType": "checkbox",
+        "validValues": [],
+        "sourceQuote": "select the check box beside the desired exception",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-exceptions-aa2889cc.md",
+        "notes": "Per-row checkbox on the Exceptions list used before Remove."
       }
     ],
     "configDependencies": [
@@ -2617,6 +3340,646 @@
         "condition": "PRECEDENCE, distinct from the deferral rule above. Set to From the associated purchase order line, this Invoice Settings value overrides the Forms and Fields copydown configuration for PO-based invoices - so a Forms and Fields change will appear to have no effect.",
         "sourceQuote": "With this setting, clients can copy down PO allocation lines regardless of the copydown configuration.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-down-line-allocations-from-po-based-invoice-5ac42ce8.md"
+      },
+      {
+        "id": "dep.082",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.routing-configuration.employee-id",
+        "targetId": "field.routing-configuration.delete-flag",
+        "sourceRef": {
+          "page": "Routing Configuration",
+          "field": "employee_id",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Routing Configuration",
+          "field": "delete_flag",
+          "resolved": true
+        },
+        "condition": "On the hierarchy mapping import template, Employee ID is mandatory only when the Delete? column is not used; populating Delete? removes that requirement.",
+        "sourceQuote": "Required field only if the Delete? field is not used.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+      },
+      {
+        "id": "dep.083",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.routing-configuration.level-1-10-code",
+        "targetId": "field.routing-configuration.employee-id",
+        "sourceRef": {
+          "page": "Routing Configuration",
+          "field": "level_1_10_code",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Routing Configuration",
+          "field": "employee_id",
+          "resolved": true
+        },
+        "condition": "Selecting the hierarchy path made up of the Level 1-10 Code segments causes the employee named in Employee ID on that imported row to be set as the default Invoice Owner.",
+        "sourceQuote": "The hierarchy path, in levels (segments) on selection of which will cause the associated user in Employee ID to be selected as the default Invoice owner when the AP user assigns the invoice.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+      },
+      {
+        "id": "dep.084",
+        "group": "Group 2 — Routing & Approval",
+        "type": "precedes",
+        "sourceId": null,
+        "targetId": "field.routing-configuration.level-1-10-code",
+        "sourceRef": {
+          "page": "Feature Hierarchies",
+          "field": "Source list",
+          "resolved": false
+        },
+        "targetRef": {
+          "page": "Routing Configuration",
+          "field": "level_1_10_code",
+          "resolved": true
+        },
+        "condition": "A source list must be specified on the Invoice Routing hierarchy in Feature Hierarchies before the hierarchy path segments imported as Level 1-10 Code on Routing Configuration can be mapped.",
+        "sourceQuote": "A source list is required to map the hierarchy path segments for use.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md"
+      },
+      {
+        "id": "dep.085",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.routing-configuration.level-1-10-code",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Routing Configuration",
+          "field": "level_1_10_code",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "List Management",
+          "field": "List Management lists",
+          "resolved": false
+        },
+        "condition": "Auto-assigning an invoice by hierarchy mapping relies on the Routing Configuration import together with the List Management and Feature Hierarchy modules; the level segments cannot resolve without those lists in place.",
+        "sourceQuote": "This feature relies on the Routing Configuration and associated import, List Management, and Feature Hierarchy modules of Concur Invoice.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md"
+      },
+      {
+        "id": "dep.086",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.routing-configuration.employee-id",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Routing Configuration",
+          "field": "employee_id",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Forms and Fields",
+          "field": "Custom field on the Verification form",
+          "resolved": false
+        },
+        "condition": "The Routing Configuration list of values mapped to Invoice Owners only produces straight-through auto-assignment when the corresponding Custom field (Store Number, etc.) is also included on the Verification form.",
+        "sourceQuote": "The Routing Configuration feature allows clients to maintain a list of values mapped to Invoice Owners. When combining this feature with the inclusion of the relevant Custom field (Store Number, etc.) on the Verification form, an auto-assignment or \"straight-through processing\" affect can be achieved.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/custom-routing-field-32424721.md"
+      },
+      {
+        "id": "dep.087",
+        "group": "Group 2 — Routing & Approval",
+        "type": "precedes",
+        "sourceId": "field.routing-configuration.import-button",
+        "targetId": "field.routing-configuration.search-routing-mappings",
+        "sourceRef": {
+          "page": "Routing Configuration",
+          "field": "import_button",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Routing Configuration",
+          "field": "search_routing_mappings",
+          "resolved": true
+        },
+        "condition": "Hierarchy mappings only exist to be searched on the Hierarchy Mapping List after the data has been imported from the Import Hierarchy Mappings tab.",
+        "sourceQuote": "Mappings appear in the Routing Configuration page after importing the data using options on the Import Hierarchy Mappings page.",
+        "sourceFile": "concur-invoice-professional-edition-tools-guides/populate-the-routing-configuration-page-by-using-the-hierarchy-import-15601ce7.md"
+      },
+      {
+        "id": "dep.088",
+        "group": "Group 2 — Routing & Approval",
+        "type": "precedes",
+        "sourceId": "field.exceptions.exceptioncode",
+        "targetId": "field.audit-rules.exceptioncode",
+        "sourceRef": {
+          "page": "Exceptions",
+          "field": "exceptionCode",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionCode",
+          "resolved": true
+        },
+        "condition": "An exception must first be created on the Exceptions page before it is selectable as an existing exception on the Exception step of the Custom Audit Rule wizard.",
+        "sourceQuote": "All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md"
+      },
+      {
+        "id": "dep.089",
+        "group": "Group 2 — Routing & Approval",
+        "type": "precedes",
+        "sourceId": "field.exceptions.exceptioncode",
+        "targetId": "field.audit-rules.randomexceptioncode",
+        "sourceRef": {
+          "page": "Exceptions",
+          "field": "exceptionCode",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "RandomExceptionCode",
+          "resolved": true
+        },
+        "condition": "An exception must first be created on the Exceptions page before it is selectable in the Exceptions window opened from a Random Audit Rule's Exception Code field.",
+        "sourceQuote": "All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md"
+      },
+      {
+        "id": "dep.090",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.exceptioncode",
+        "targetId": "field.audit-rules.exceptionlevel",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionCode",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "condition": "Selecting an existing exception on the Exception step auto-populates the Exception Code, Exception Level, and Exception Text fields at the top of the page; Exception Level is not typed independently in that path.",
+        "sourceQuote": "To use an existing exception, select the desired exception. It appears in the Exception Code, Exception Level, and Exception Text fields at the top of the page.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md"
+      },
+      {
+        "id": "dep.091",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.conditionfieldvalue",
+        "targetId": "field.audit-rules.exceptioncode",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ConditionFieldValue",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionCode",
+          "resolved": true
+        },
+        "condition": "A custom audit rule is an if/then statement: when the conditions built in the Condition Editor evaluate true, the exception assigned on the Exception step is created.",
+        "sourceQuote": "Custom audit rules are if/then statements. If the defined conditions are met, then an exception is created.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/general-concepts-about-audit-rules-af640263.md"
+      },
+      {
+        "id": "dep.092",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.exceptionlevel",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Invoice Settings",
+          "field": "Prevent this payment request submission when exception level exceeds X",
+          "resolved": false
+        },
+        "condition": "When the level on the exception raised by the rule is at or above the number configured in this Invoice Settings threshold, the employee is blocked from submitting the invoice.",
+        "sourceQuote": "Any invoice that meets the criteria for an exception with this level or above prevents the employee from submitting the invoice. The employee must then make the necessary changes before being able to submit the invoice.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+      },
+      {
+        "id": "dep.093",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.exceptionlevel",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Purchase Request Settings",
+          "field": "Prevent purchase request submission when exception level exceeds X",
+          "resolved": false
+        },
+        "condition": "When the level on the exception raised against a purchase request is at or above this configured threshold, the employee is blocked from submitting the PR.",
+        "sourceQuote": "Any purchase request that meets the criteria for an exception with this level or above prevents the employee from submitting the PR.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md"
+      },
+      {
+        "id": "dep.094",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.exceptionlevel",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Purchase Order Settings",
+          "field": "Prevent purchase order transmission when exception level exceeds X",
+          "resolved": false
+        },
+        "condition": "When the level on the exception raised against a purchase order is at or above this configured threshold, the PO is blocked from being transmitted to the vendor once created from its purchase request.",
+        "sourceQuote": "Any purchase order that meets the criteria for an exception with this level or above prevents the PO from being transmitted once it is created from its associated purchase request (PR).",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md"
+      },
+      {
+        "id": "dep.095",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.exceptionlevel",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Workflows",
+          "field": "Settings",
+          "resolved": false
+        },
+        "condition": "The exception level number assigned on a rule has no blocking effect on its own; whether that level actually prevents submission is decided by a separate workflow setting.",
+        "sourceQuote": "A workflow setting exists that prevents an invoice from being submitted if it has an exception of a certain level.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+      },
+      {
+        "id": "dep.096",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.exceptionlevel",
+        "targetId": "field.audit-rules.randomruletype",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "RandomRuleType",
+          "resolved": true
+        },
+        "condition": "Submission blocking via exception level is available only on Custom audit rules; a rule defined on the Random tab (Percentage or Sequential) can never block submission no matter what level is assigned.",
+        "sourceQuote": "Custom audit rules can be configured to prevent invoice submission. Random audit rules cannot.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/exceptions-f29472a5.md"
+      },
+      {
+        "id": "dep.097",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.event",
+        "targetId": "field.audit-rules.exceptionlevel",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "Event",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "condition": "With Event set to Payment Request Submit, any exception the custom rule generates above the configured exception level limit stops the invoice from being submitted and from entering the first workflow step.",
+        "sourceQuote": "Payment Request Submit: The rule is triggered when the invoice is submitted. If there are exceptions generated that are above the exception level limit (that is, prevents invoice submission; described in Exceptions in this guide), then the invoice will not be submitted and will not enter the first step of a workflow.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
+      },
+      {
+        "id": "dep.098",
+        "group": "Group 2 — Routing & Approval",
+        "type": "triggers",
+        "sourceId": "field.audit-rules.validationevent",
+        "targetId": "field.audit-rules.exceptionlevel",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ValidationEvent",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ExceptionLevel",
+          "resolved": true
+        },
+        "condition": "With a validation rule's Event set to Payment Request Submit, exceptions generated above the exception level limit stop the invoice from being submitted and from entering the first workflow step.",
+        "sourceQuote": "Payment Request Submit: The rule is triggered when the invoice is submitted. If there are exceptions generated that are above the exception level limit (that is, prevents invoice submission; described in Exceptions in this guide), then the invoice will not be submitted and will not enter the first step of a workflow.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-7977f6ee.md"
+      },
+      {
+        "id": "dep.099",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.conditionoperator",
+        "targetId": "field.audit-rules.conditionfieldvalue",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ConditionOperator",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ConditionFieldValue",
+          "resolved": true
+        },
+        "condition": "The set of comparison operators offered in column D of the Condition Editor changes according to the data type of the field selected in the Field/Value column.",
+        "sourceQuote": "An operator is one of several pre-defined comparison operators (equals, not equals, is greater than, and so on). The list of operators changes depending on the type of data the system is comparing.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
+      },
+      {
+        "id": "dep.100",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.conditionfieldvalue",
+        "targetId": "field.audit-rules.conditionfieldvalue",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ConditionFieldValue",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ConditionFieldValue",
+          "resolved": true
+        },
+        "condition": "When a condition compares two fields rather than a field against a constant, the second Field/Value selection (column F) must be of the same data type as the first (column C).",
+        "sourceQuote": "If the condition uses a second field, its data type must match that of the first field.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
+      },
+      {
+        "id": "dep.101",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.conditionfieldvalue",
+        "targetId": "field.audit-rules.event",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ConditionFieldValue",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "Event",
+          "resolved": true
+        },
+        "condition": "The Data Object list in the Condition Editor (columns B and E), which in turn determines what the Field/Value helper pane offers, is populated from the event that triggers the rule; changing Event changes the selectable condition fields.",
+        "sourceQuote": "The choices that appear in this list are based on the event that triggers the rule:",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
+      },
+      {
+        "id": "dep.102",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.event",
+        "targetId": "field.audit-rules.conditionfieldvalue",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "Event",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ConditionFieldValue",
+          "resolved": true
+        },
+        "condition": "The event a rule actually fires on is widened by its condition contents: a rule set to Payment Request Details Save also fires at Payment Request Save whenever its condition references a request field.",
+        "sourceQuote": "If a rule that is triggered at Payment Request Details Save contains a request field in its condition, then the rule is also triggered at Payment Request Save.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
+      },
+      {
+        "id": "dep.103",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.validationrulename",
+        "targetId": null,
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ValidationRuleName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Site Settings",
+          "field": "Enable Validation Rules",
+          "resolved": false
+        },
+        "condition": "The Validation tab (and therefore every validation rule field on it) only appears on the Audit Rules page once the Enable Validation Rules site setting is turned on.",
+        "sourceQuote": "In addition, the Enable Validation Rules setting must be enabled for the tab to appear.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/activation-of-validation-rules-module-and-site-setting-option-required-8a3dc2f7.md"
+      },
+      {
+        "id": "dep.104",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.fromfieldname",
+        "targetId": "field.audit-rules.fromdatasource",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "FromFieldName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "FromDataSource",
+          "resolved": true
+        },
+        "condition": "The list of fields offered in From Field Name on the validation rule Actions page is filtered by the From Data Source selection.",
+        "sourceQuote": "The field from the Data Source that will be used to update the Invoice field. The list of fields displayed will change depending on the Data Source selected.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
+      },
+      {
+        "id": "dep.105",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.tofieldname",
+        "targetId": "field.audit-rules.todatasource",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ToFieldName",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ToDataSource",
+          "resolved": true
+        },
+        "condition": "The list of fields offered in To Field Name on the validation rule Actions page is filtered by the To Data Source selection.",
+        "sourceQuote": "The Concur Invoice field that will be updated. The list of fields displayed will change depending on the Data Source selected.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
+      },
+      {
+        "id": "dep.106",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.fromdatasource",
+        "targetId": "field.audit-rules.validationevent",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "FromDataSource",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ValidationEvent",
+          "resolved": true
+        },
+        "condition": "Which sources (Constant, Validation Table, Employee, Request) are offered in From Data Source changes according to the event selected for the validation rule.",
+        "sourceQuote": "The source of the fields that will be used for the update. The available sources will change depending on the event selected.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
+      },
+      {
+        "id": "dep.107",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.todatasource",
+        "targetId": "field.audit-rules.validationevent",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "ToDataSource",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "ValidationEvent",
+          "resolved": true
+        },
+        "condition": "The options offered in To Data Source change according to the event type selected for the rule.",
+        "sourceQuote": "NOTE: The options available will change depending on the event type selected for the audit rule.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
+      },
+      {
+        "id": "dep.108",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.randomactivate",
+        "targetId": "field.audit-rules.randomappliesto",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "RandomActivate",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Audit Rules",
+          "field": "RandomAppliesTo",
+          "resolved": true
+        },
+        "condition": "Only one random audit rule should be active per group configuration; activating a second random rule scoped to the same Applies To group configuration is permitted by the system but produces unreliable selection.",
+        "sourceQuote": "Your company should have only one active random audit rule for each group configuration. The system may let you activate more than one random rule, but the results will be unreliable.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md"
+      },
+      {
+        "id": "dep.109",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.appliesto",
+        "targetId": "field.group-configurations.group",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "AppliesTo",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Group Configurations",
+          "field": "Group",
+          "resolved": true
+        },
+        "condition": "The scope of a rule's Applies To selection resolves against the group hierarchy built on the Group Configurations page; with Inherited, the rule also covers every group beneath the selected group.",
+        "sourceQuote": "If inheritance applies, then the configuration applies to the group(s) listed in the Group column of the Group Configurations page, and all groups that are beneath the identified group, in the hierarchical structure.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
+      },
+      {
+        "id": "dep.110",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.audit-rules.editableby",
+        "targetId": "field.group-configurations.group",
+        "sourceRef": {
+          "page": "Audit Rules",
+          "field": "EditableBy",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Group Configurations",
+          "field": "Group",
+          "resolved": true
+        },
+        "condition": "The groups selectable in Editable By are limited by the administrator's own position in the group hierarchy: only their own group and groups beneath it, never the Global group unless they administer it.",
+        "sourceQuote": "Depending on your rights, you may not be able to select the Global group. This means you are only allowed to select your group or groups that fall below your group in the hierarchy.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md"
+      },
+      {
+        "id": "dep.111",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.exceptions.removebutton",
+        "targetId": "field.exceptions.editablebygroups",
+        "sourceRef": {
+          "page": "Exceptions",
+          "field": "removeButton",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Exceptions",
+          "field": "editableByGroups",
+          "resolved": true
+        },
+        "condition": "Whether Remove is usable on an exception row is gated by the Editable By Group(s) value set on that exception; administrators at lower hierarchy levels can only copy it, not delete it.",
+        "sourceQuote": "If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group. All other administrators assigned at lower levels in the hierarchy can copy this exception, but not edit or delete it.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+      },
+      {
+        "id": "dep.112",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.exceptions.modifybutton",
+        "targetId": "field.exceptions.editablebygroups",
+        "sourceRef": {
+          "page": "Exceptions",
+          "field": "modifyButton",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Exceptions",
+          "field": "editableByGroups",
+          "resolved": true
+        },
+        "condition": "Editable By Group(s) defines the group rights an administrator must hold to modify the exception; without them the Modify window opens read-only.",
+        "sourceQuote": "Select the group rights that an administrator must have in order to modify this exception.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+      },
+      {
+        "id": "dep.113",
+        "group": "Group 2 — Routing & Approval",
+        "type": "depends_on",
+        "sourceId": "field.exceptions.editablebygroups",
+        "targetId": "field.group-configurations.group",
+        "sourceRef": {
+          "page": "Exceptions",
+          "field": "editableByGroups",
+          "resolved": true
+        },
+        "targetRef": {
+          "page": "Group Configurations",
+          "field": "Group",
+          "resolved": true
+        },
+        "condition": "The groups offered in Editable By Group(s) are constrained by the administrator's own place in the group hierarchy defined in Group Configurations: only groups beneath them, and Global Group only if they administer it.",
+        "sourceQuote": "Depending on your rights, you may not be able to select Global Group. You are only allowed to select groups beneath you.",
+        "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
       }
     ],
     "configSteps": [
@@ -3248,6 +4611,466 @@
             "action": "select the check box",
             "field": "Enable Peppol Integration",
             "rationale": "Last, and gated by two things outside this page — which is exactly why it cannot be attempted earlier. SAP Concur staff must enable the feature via a service request first, and this box only unlocks it: the real configuration happens on the separate Peppol Configuration page under Invoice Processing Admin, whose own Peppol Integration Enablement field is a distinct Active/Inactive selector. Disabled (cleared) by default. SOURCE: \"Select (enable) this check box to allow Peppol Integration and configure the feature in Concur Invoice.\" — concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md; prerequisite \"The Peppol Integration feature for Concur Invoice must be enabled by SAP Concur staff. Clients must initiate a service request with SAP Concur support.\" — concur-invoice-professional-edition-admin-guides/feature-activation-04b47637.md"
+          }
+        ]
+      },
+      {
+        "id": "g2-blocking-exception-audit-rule",
+        "group": "Group 2 — Routing & Approval",
+        "name": "Author a custom audit rule that raises a blocking exception on invoice submission",
+        "goal": "Stand up a reusable exception code, then wire a Custom Audit Rule that fires on Payment Request Submit and raises that exception at a severity high enough for the Workflows submission-blocking threshold to stop the invoice.",
+        "pages": [
+          "Exceptions",
+          "Audit Rules"
+        ],
+        "fields": [
+          "newButton",
+          "exceptionCode",
+          "message",
+          "editableByGroups",
+          "saveButton",
+          "Name",
+          "Event",
+          "EditableBy",
+          "AppliesTo",
+          "Active",
+          "InsertCondition",
+          "ConditionFieldValue",
+          "ConditionOperator",
+          "ConditionAndOr",
+          "ExceptionVisibility",
+          "ExceptionCode",
+          "ExceptionLevel"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Exceptions",
+            "action": "Open the New Exception tab (Administration > Invoice > Invoice Processing Admin > Exceptions, then New)",
+            "field": "newButton",
+            "rationale": "The exception must exist before the rule can reference it: 'All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.' (admin-guides/access-exceptions-90e45318.md). Also a hard gate on the writer's own rights — 'If the administrator does not have permissions, the New link does not appear.' (admin-guides/add-exceptions-7b73d8f0.md) — so if this control is absent, abort here rather than proceeding into the rule wizard and discovering there is nothing to select."
+          },
+          {
+            "order": 2,
+            "page": "Exceptions",
+            "action": "Type the unique exception code",
+            "field": "exceptionCode",
+            "rationale": "First required field on the New Exception tab, and it is format-constrained: 'Type a unique one to eight alphanumeric character code in all capital letters, without any spaces.' (admin-guides/add-exceptions-7b73d8f0.md). A collision or a lowercase/spaced value fails here, before any rule work is invested. It is also the downstream query key — 'Using the Exception Code, an invoice can be queried in Invoice Processor using a custom query.' (same file) — so the value cannot be casually changed later."
+          },
+          {
+            "order": 3,
+            "page": "Exceptions",
+            "action": "Set the exception severity level (0-99) that governs blocking",
+            "field": "ExceptionLevel",
+            "rationale": "This is the load-bearing value for the whole step and it must be decided here, not after the rule exists: 'A workflow setting exists that prevents an invoice from being submitted if it has an exception of a certain level.' and 'Type any number between 0 and 99.' (admin-guides/add-exceptions-7b73d8f0.md). The rule does not carry the blocking threshold — the exception does. Set it below the Workflows threshold and the rule will fire, display, and let the invoice through anyway. Note on the field's binding: the verified field set attaches ExceptionLevel to the Audit Rules New Exception dialog; the identical field definition is documented on the Exceptions page in add-exceptions-7b73d8f0.md, so the same value can be authored from either entry point."
+          },
+          {
+            "order": 4,
+            "page": "Exceptions",
+            "action": "Type the exception message text",
+            "field": "message",
+            "rationale": "'This message appears wherever the exception is visible and can be localized.' (admin-guides/add-exceptions-7b73d8f0.md). Ordered after code and level because it is the only localizable field of the three — a translation pass keys off a code that is already fixed."
+          },
+          {
+            "order": 5,
+            "page": "Exceptions",
+            "action": "Select the group(s) permitted to edit this exception",
+            "field": "editableByGroups",
+            "rationale": "'Select the group rights that an administrator must have in order to modify this exception.' (admin-guides/add-exceptions-7b73d8f0.md). Must be set before Save because it is what makes the exception editable afterward: 'If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group. All other administrators assigned at lower levels in the hierarchy can copy this exception, but not edit or delete it.' (same file). Set too high and a group admin can never correct the level from step 3."
+          },
+          {
+            "order": 6,
+            "page": "Exceptions",
+            "action": "Save the exception",
+            "field": "saveButton",
+            "rationale": "Commit point — 'The Exceptions page appears with the new exception listed.' (admin-guides/add-exceptions-7b73d8f0.md). Until this succeeds the code is not in the Audit Rules selection list, so every later action in this sequence would have to fall back to the inline create-new path."
+          },
+          {
+            "order": 7,
+            "page": "Audit Rules",
+            "action": "Open the Custom tab and start a new rule, then type a unique rule name",
+            "field": "Name",
+            "rationale": "'On the Custom page, select New. The Audit Rule step appears.' then 'Type a unique name.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md). Naming is step 1 of the documented process: 'Names the rule' is item 1 of the summary (admin-guides/summary-the-basic-process-of-creating-custom-audit-rules-ee41da4e.md). Note the corpus carries two variants of this topic — one says 'select Create' on the 'Custom Rules page' (add-a-custom-audit-rule-0f1d320e.md) — treat Create and New as the same control across UI versions."
+          },
+          {
+            "order": 8,
+            "page": "Audit Rules",
+            "action": "Select the triggering event (Payment Request Submit for a submission block)",
+            "field": "Event",
+            "rationale": "Item 2 of the documented order: 'Identifies the event that triggers the rule' (admin-guides/summary-the-basic-process-of-creating-custom-audit-rules-ee41da4e.md). It sits before conditions because the event scopes what is evaluable — the sibling Validation wizard states the dependency explicitly ('The available sources will change depending on the event selected.', admin-guides/add-a-validation-rule-0b31c4c0.md), and the same coupling is why Allocation Save behaves differently: 'Though this type of rule is triggered when the allocation is saved, the exception icon and message appear on the Processor List page or within the invoice.' Picking Payment Request Save instead of Payment Request Submit produces an exception that never gates submission."
+          },
+          {
+            "order": 9,
+            "page": "Audit Rules",
+            "action": "Set the group(s) that may edit this rule",
+            "field": "EditableBy",
+            "rationale": "Item 3 of the documented order (summary-the-basic-process-of-creating-custom-audit-rules-ee41da4e.md). 'This field defaults to your access rights. Change it if necessary.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md) — leaving the default silently narrows who can maintain the rule later, and per admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md a lower-level admin can then 'copy the information but may not edit or delete it.' Group Configurations (Group 1) must already contain the target groups; the corpus points the group assignment work at that tool: 'the administrator uses the Groups tool to assign the policy to a group.' (same file)."
+          },
+          {
+            "order": 10,
+            "page": "Audit Rules",
+            "action": "Set the group(s) the rule applies to and toggle Inherited / Not Inherited",
+            "field": "AppliesTo",
+            "rationale": "Item 4 of the documented order (summary-the-basic-process-of-creating-custom-audit-rules-ee41da4e.md). 'Toggle Inherited/Not Inherited to indicate whether this rule will apply to the group(s) below this one in the hierarchical structure.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md). Getting this wrong is the classic silent failure: 'If inheritance does not apply, then the configuration ONLY applies to the group(s) listed in the column.' (admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md) — the rule saves clean and simply never fires for the child groups."
+          },
+          {
+            "order": 11,
+            "page": "Audit Rules",
+            "action": "Set Active to Yes",
+            "field": "Active",
+            "rationale": "'Select Yes to activate the rule upon completion.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md). Ordered here by inference, not by an explicit corpus statement: the corpus lists Active in the Audit Rule step field table, all of which is completed before 'Select Next. The Conditions step appears.', so the control is only reachable on that first wizard step — but it has no effect until the wizard is finished, which is why activation is safe to set now rather than last."
+          },
+          {
+            "order": 12,
+            "page": "Audit Rules",
+            "action": "Advance to the Conditions step and insert a condition row",
+            "field": "InsertCondition",
+            "rationale": "'Select Next. The Conditions step appears.' then 'Select Insert. The new blank row appears.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md). Row creation precedes row population, and row position is chosen at insert time, not after: 'If you simply select Insert, a new condition appears at the bottom.' / 'To insert the new condition between existing conditions, select the condition that will be below the new condition.' (same file). For a multi-condition rule, inserting in the wrong order forces a rebuild."
+          },
+          {
+            "order": 13,
+            "page": "Audit Rules",
+            "action": "Choose the field/value on the condition row, then the operator",
+            "field": "ConditionFieldValue",
+            "rationale": "Item 5 of the documented order — 'Defines the conditions using the Audit Rules condition editor' (summary-the-basic-process-of-creating-custom-audit-rules-ee41da4e.md). Field selection precedes operator selection because the operator list is field-typed; the corpus documents this editor as shared with Validation Rules ('similar to the Condition Editor page used in the Audit Rules tool'), so the same column sequence applies in both tools."
+          },
+          {
+            "order": 14,
+            "page": "Audit Rules",
+            "action": "Set the comparison operator for the condition row",
+            "field": "ConditionOperator",
+            "rationale": "Completes the field/operator/value triple that constitutes the 'if' half of the rule: 'Custom audit rules are if/then statements. If the defined conditions are met, then an exception is created.' (admin-guides/general-concepts-about-audit-rules-af640263.md). An incomplete row means the rule saves but the 'then' never evaluates."
+          },
+          {
+            "order": 15,
+            "page": "Audit Rules",
+            "action": "Set And / Or between condition rows (only when more than one row exists)",
+            "field": "ConditionAndOr",
+            "rationale": "Positioned after at least two rows exist by inference from the control's own purpose — the verified note describes it as the Condition Editor column that 'joins multiple conditions'; there is nothing to join on a single-row rule. The corpus states the rows are finished as a set before advancing: 'When all conditions have been added, select Next. The Exception step appears.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md)."
+          },
+          {
+            "order": 16,
+            "page": "Audit Rules",
+            "action": "On the Exception step, set Exception Visibility",
+            "field": "ExceptionVisibility",
+            "rationale": "Item 6 of the documented order, and the corpus puts visibility before exception selection in the numbered procedure: step 8 'From the Exception Visibility list, select the users who are able to see the exception message' precedes step 9 'For the exception, you can: Use an existing exception... Create a new exception.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md). Visibility is per-use, not per-exception — 'This is not attached to the exception itself, but can be generated individually each time the exception is used, such as within the Audit Rules tool.' (admin-guides/exception-helper-within-the-audit-rules-and-workflow-tools-07dfd781.md) — so it cannot be inherited from the Exceptions page work in orders 1-6 and must be set on every rule."
+          },
+          {
+            "order": 17,
+            "page": "Audit Rules",
+            "action": "Select the exception created in orders 1-6, then confirm the auto-populated code/level/text and finish the wizard",
+            "field": "ExceptionCode",
+            "rationale": "Closes the loop on the whole sequence: 'To use an existing exception, select the desired exception. It appears in the Exception Code, Exception Level, and Exception Text fields at the top of the page.' then 'Select Done.' (admin-guides/add-a-custom-audit-rule-43e3f9aa.md). This is the verification point for the blocking intent — the level that appears here is the value written in order 3, and it is the level, not the rule, that the Workflows submission threshold compares against. Had orders 1-6 been skipped, the writer would be forced down the inline 'Select New. The New Exception window appears.' path, producing a code that exists only for this rule instead of one shared with the Workflows tool."
+          }
+        ]
+      },
+      {
+        "id": "g2-validation-rule-update-then-exception",
+        "group": "Group 2 — Routing & Approval",
+        "name": "Author a Validation Rule that corrects a field and then flags the invoice",
+        "goal": "Use the Validation tab of Audit Rules to run an 'Update, then exception' rule — writing a derived value into an invoice field and raising an exception when the condition is met — after confirming the tab is actually enabled for the tenant.",
+        "pages": [
+          "Audit Rules"
+        ],
+        "fields": [
+          "ValidationRuleName",
+          "ValidationEvent",
+          "ExecuteActionWhen",
+          "ValidationEditableByGroups",
+          "ValidationAppliesToGroups",
+          "ValidationActive",
+          "ConditionFieldValue",
+          "ConditionOperator",
+          "FromDataSource",
+          "FromFieldName",
+          "ToDataSource",
+          "ToFieldName",
+          "ValidationExceptionVisibility"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Audit Rules",
+            "action": "Navigate to Administration > Invoice > Audit Rules (left menu) and confirm the Validation tab is present before doing anything else",
+            "field": "(no field written — availability precheck only)",
+            "rationale": "This is a genuine hard prerequisite and it is not self-service: 'A service request must be submitted to SAP Concur support to enable the Validation Rules module of Audit Rules.' and 'In addition, the Enable Validation Rules setting must be enabled for the tab to appear.' (admin-guides/activation-of-validation-rules-module-and-site-setting-option-required-8a3dc2f7.md). The tab is reached by 'Select Audit Rules (left menu). The Audit Rules page appears.' then 'Select Validation.' (admin-guides/access-validation-rules-5f8dbf9e.md). If the tab is missing, no amount of retry on the following orders will help — the gate is a support ticket plus a site setting, and per the same file that setting lives under Concur Expense site settings, which the invoice admin may not be able to reach ('If the administrator does not have permission to access the Concur Expense site settings, they must contact the SAP Concur Administrator for assistance.')."
+          },
+          {
+            "order": 2,
+            "page": "Audit Rules",
+            "action": "On the Validation page select New, then type the validation rule name",
+            "field": "ValidationRuleName",
+            "rationale": "'On the Validation page, select New. The page refreshes into a four-step wizard, starting with the Validation Rule page:' then 'Type the name of the rule.' (admin-guides/add-a-validation-rule-0b31c4c0.md). Knowing it is a four-step wizard up front matters for the rest of this sequence: the Actions page only appears after Conditions, and the Exception page only appears conditionally at the end."
+          },
+          {
+            "order": 3,
+            "page": "Audit Rules",
+            "action": "Select the triggering event",
+            "field": "ValidationEvent",
+            "rationale": "Must precede the Actions page work in orders 8-11 because the event determines what data is even offered there: 'The available sources will change depending on the event selected.' and, on To Data Source, 'The options available will change depending on the event type selected for the audit rule.' (admin-guides/add-a-validation-rule-0b31c4c0.md). Event choice also decides whether the rule can block at all — 'Payment Request Submit: The rule is triggered when the invoice is submitted. If there are exceptions generated that are above the exception level limit (that is, prevents invoice submission; described in Exceptions in this guide), then the invoice will not be submitted and will not enter the first step of a workflow.' (same file). A Save-family event can never block."
+          },
+          {
+            "order": 4,
+            "page": "Audit Rules",
+            "action": "Set 'Execute action when validation condition is' to True or False",
+            "field": "ExecuteActionWhen",
+            "rationale": "'This field controls when the action for the rule is executed.' (admin-guides/add-a-validation-rule-0b31c4c0.md). It sits before the Conditions page by wizard construction, and it inverts the meaning of everything written there — the same condition set with False selected fires on the complement. Authoring conditions first and this flag afterwards is how a rule ends up firing on exactly the population it was meant to exempt."
+          },
+          {
+            "order": 5,
+            "page": "Audit Rules",
+            "action": "Set the group(s) that may edit this rule",
+            "field": "ValidationEditableByGroups",
+            "rationale": "'Click the link; the associated helper pane appears. Select the appropriate group(s).' (admin-guides/add-a-validation-rule-0b31c4c0.md). Same maintenance consequence as the custom-rule path: per admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md, an admin without rights to every listed group can only view and copy the rule, never fix it. The groups themselves come from Group Configurations (Group 1) and must exist before this pane can offer them."
+          },
+          {
+            "order": 6,
+            "page": "Audit Rules",
+            "action": "Set the group(s) the rule applies to",
+            "field": "ValidationAppliesToGroups",
+            "rationale": "Second of the two group controls on the Validation Rule page (admin-guides/add-a-validation-rule-0b31c4c0.md). Scope has to be fixed before activation in order 7, otherwise the rule goes live against whatever the pane defaulted to."
+          },
+          {
+            "order": 7,
+            "page": "Audit Rules",
+            "action": "Set Active to Yes, then Next",
+            "field": "ValidationActive",
+            "rationale": "'Select Yes (if necessary) to activate the rule upon completion.' then 'Select Next. The Conditions page appears.' (admin-guides/add-a-validation-rule-0b31c4c0.md). As with the custom rule, activation is authored on the first wizard page but only takes effect when the wizard completes, so setting it here is safe and setting it later is impossible without reopening the rule. Ordered last on this page because it is the final field in the corpus field table."
+          },
+          {
+            "order": 8,
+            "page": "Audit Rules",
+            "action": "On the Conditions page, build the condition rows (field, then operator)",
+            "field": "ConditionFieldValue",
+            "rationale": "'Select Next. The Conditions page appears.' (admin-guides/add-a-validation-rule-0b31c4c0.md). The corpus states this editor is shared with the Custom tab — 'similar to the Condition Editor page used in the Audit Rules tool' — so the same field-before-operator ordering from step g2-blocking-exception-audit-rule applies here. Conditions must be complete before Next, because the Actions page is where the consequence is bound and there is no way to bind an action to a half-built condition."
+          },
+          {
+            "order": 9,
+            "page": "Audit Rules",
+            "action": "Set the comparison operator on each condition row",
+            "field": "ConditionOperator",
+            "rationale": "Completes each row of the condition expression (admin-guides/validation-conditional-expressions-67302876.md covers the expression form; the field table is the same Condition Editor). Only after the rows evaluate cleanly does the True/False flag set in order 4 mean what was intended."
+          },
+          {
+            "order": 10,
+            "page": "Audit Rules",
+            "action": "Select Next, choose the action type 'Update, then exception', then Next again",
+            "field": "(no field written — action-type selection)",
+            "rationale": "'Select Next. The Actions page appears.' and the three documented choices: 'Field update only: If the rule is triggered, it will update the specified field. The invoice will continue through the workflow.' / 'Exception only: If the rule is triggered, it will flag the line item or line item allocation. Depending on your exception level settings, it may prevent invoice submission.' / 'Update, then exception: If the rule is triggered, it will update the specified field and flag the entry.' (admin-guides/add-a-validation-rule-0b31c4c0.md). This choice is the branch point that decides which of the following orders even render: 'Select Next. If you selected a field update action, the Actions page refreshes with additional fields.' and 'Select Next. If you selected an action including an exception, the Exception page appears.' Choose 'Field update only' and orders 15 onward are unreachable; choose 'Exception only' and orders 11-14 are unreachable."
+          },
+          {
+            "order": 11,
+            "page": "Audit Rules",
+            "action": "Set the From Data Source for the field update",
+            "field": "FromDataSource",
+            "rationale": "'The source of the fields that will be used for the update.' (admin-guides/add-a-validation-rule-0b31c4c0.md). It is first of the four update fields because it filters the next one — 'The list of fields displayed will change depending on the Data Source selected.' Choosing the source after the field is not possible; the field list does not exist yet."
+          },
+          {
+            "order": 12,
+            "page": "Audit Rules",
+            "action": "Set the From Field Name",
+            "field": "FromFieldName",
+            "rationale": "'The field from the Data Source that will be used to update the Invoice field. The list of fields displayed will change depending on the Data Source selected.' (admin-guides/add-a-validation-rule-0b31c4c0.md). Changing FromDataSource after this point re-filters and clears the selection, which is why it is ordered strictly after order 11."
+          },
+          {
+            "order": 13,
+            "page": "Audit Rules",
+            "action": "Set the To Data Source",
+            "field": "ToDataSource",
+            "rationale": "'The Data Source of the field to be updated' (admin-guides/add-a-validation-rule-0b31c4c0.md). Same filter relationship on the target side as on the source side, and it is additionally constrained by the event chosen back in order 3: 'The options available will change depending on the event type selected for the audit rule.' If the intended target is not offered, the fault is the event, not this control."
+          },
+          {
+            "order": 14,
+            "page": "Audit Rules",
+            "action": "Set the To Field Name, then Next",
+            "field": "ToFieldName",
+            "rationale": "'The Concur Invoice field that will be updated. The list of fields displayed will change depending on the Data Source selected.' (admin-guides/add-a-validation-rule-0b31c4c0.md). Last of the four because it is filtered by order 13; completing it is what makes the update half of 'Update, then exception' well-formed before the Exception page opens."
+          },
+          {
+            "order": 15,
+            "page": "Audit Rules",
+            "action": "On the Exception page, set Exception Visibility, then select the existing exception code",
+            "field": "ValidationExceptionVisibility",
+            "rationale": "'Select Next. If you selected an action including an exception, the Exception page appears.' then 'Choose from an existing exception or decide to create a new exception by first choosing from Exception Visibility.' (admin-guides/add-a-validation-rule-0b31c4c0.md) — the corpus explicitly makes visibility the first choice on this page. Selecting the code authored in step g2-blocking-exception-audit-rule rather than creating a new one keeps one governed code shared across tools per admin-guides/access-exceptions-90e45318.md. Whether this rule actually stops the invoice is still decided by that exception's level, not by anything on this page: 'Depending on your exception level settings, it may prevent invoice submission.'"
+          }
+        ]
+      },
+      {
+        "id": "g2-random-audit-rule-percentage",
+        "group": "Group 2 — Routing & Approval",
+        "name": "Configure a percentage-based random audit rule for a group",
+        "goal": "Select a defined share of submitted invoices for manual audit by adding one Random Audit Rule scoped to a single group configuration, flagged with a dedicated exception, and activated last.",
+        "pages": [
+          "Exceptions",
+          "Audit Rules"
+        ],
+        "fields": [
+          "exceptionCode",
+          "RandomRuleName",
+          "RandomRuleType",
+          "RandomRuleEvent",
+          "RandomExceptionCode",
+          "RandomEditableBy",
+          "RandomAppliesTo",
+          "RandomActivate"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Exceptions",
+            "action": "Confirm (or author) a dedicated random-audit exception code on the Exceptions page",
+            "field": "exceptionCode",
+            "rationale": "Do this before opening the Random tab so the code is already selectable: 'All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.' (admin-guides/access-exceptions-90e45318.md). Use a distinct code from the compliance exception in step g2-blocking-exception-audit-rule — a random-audit flag is a sampling marker, and reusing a high-level blocking code here would stop a percentage of otherwise-clean invoices at submission, since the level on the exception is what gates submission (admin-guides/add-exceptions-7b73d8f0.md: 'A workflow setting exists that prevents an invoice from being submitted if it has an exception of a certain level.')."
+          },
+          {
+            "order": 2,
+            "page": "Audit Rules",
+            "action": "Select the Random tab and enter the rule name on the first grid line",
+            "field": "RandomRuleName",
+            "rationale": "'Select the Random tab.' (admin-guides/access-random-audit-da5f6693.md) then 'Use the first line (yellow background) in the grid to add a new rule. Select in the Name field, and then enter the rule name.' (admin-guides/add-a-random-audit-rule-3127d83a.md). Unlike Custom and Validation this is an inline grid row, not a wizard — nothing is committed until the Save in order 8, so the intermediate orders are all edits to one uncommitted row."
+          },
+          {
+            "order": 3,
+            "page": "Audit Rules",
+            "action": "Open the Type field and choose Percentage (or Sequential), enter the number, and save the Rule Type window",
+            "field": "RandomRuleType",
+            "rationale": "'Select the Type field. The Rule Type window appears.' then 'Select either: Percentage and then enter the appropriate percentage / Sequential and then enter the appropriate number' then 'Select Save.' (admin-guides/add-a-random-audit-rule-3127d83a.md). This is a sub-window with its own Save that must be closed before the grid row can continue — the numeric value has no meaning until the type is chosen, so type precedes number inside this dialog."
+          },
+          {
+            "order": 4,
+            "page": "Audit Rules",
+            "action": "Select the Event",
+            "field": "RandomRuleEvent",
+            "rationale": "'In the Event field, select either: Payment Request Submit / Payment Post Request Submit' (admin-guides/add-a-random-audit-rule-3127d83a.md). The random tab offers only these two, both submission-time — a narrower catalogue than the Custom tab's six. That is the constraint to check against intent: random selection cannot be sampled at save time."
+          },
+          {
+            "order": 5,
+            "page": "Audit Rules",
+            "action": "Open the Exception Code field and, in the Exceptions window, set Exception Visibility and pick the code from order 1",
+            "field": "RandomExceptionCode",
+            "rationale": "'Select the Exception Code field. The Exceptions window appears.' then 'From the Exception Visibility list, select the users who are able to see the exception message' and 'Using the exceptions list, you can: Use an existing exception. / Create a new exception.' (admin-guides/add-a-random-audit-rule-3127d83a.md) — visibility is chosen inside this window before the code, matching the Custom tab's ordering. For a random audit the usual choice is the Invoice Processor-only visibility, so the sampling flag is not surfaced to the submitter; the corpus enumerates the three options but states no default."
+          },
+          {
+            "order": 6,
+            "page": "Audit Rules",
+            "action": "Set Editable By",
+            "field": "RandomEditableBy",
+            "rationale": "'In the Editable By field, select the group configuration(s) that can edit this rule.' (admin-guides/add-a-random-audit-rule-3127d83a.md). The corpus wording here is explicitly 'group configuration(s)', i.e. the values come from the Group Configurations tool (Group 1) and must exist before this field can be completed."
+          },
+          {
+            "order": 7,
+            "page": "Audit Rules",
+            "action": "Set Applies To",
+            "field": "RandomAppliesTo",
+            "rationale": "'In the Applies To field, select the appropriate group configuration(s) to which this rule applies.' (admin-guides/add-a-random-audit-rule-3127d83a.md). This must be settled before activation because the one-rule constraint in order 8 is per group configuration, not per tenant — you cannot evaluate whether activating is safe until you know which groups the rule claims."
+          },
+          {
+            "order": 8,
+            "page": "Audit Rules",
+            "action": "Save the grid row, then with the rule selected choose Activate",
+            "field": "RandomActivate",
+            "rationale": "The corpus makes activation the final, separate action: 'Select Save.' then 'With the rule selected, select Activate.' (admin-guides/add-a-random-audit-rule-3127d83a.md) — Save alone does not start sampling. Before activating, check the tenant for a competing active rule on the same groups from order 7: 'Your company should have only one active random audit rule for each group configuration. The system may let you activate more than one random rule, but the results will be unreliable.' (same file). This is the failure the ordering exists to prevent — the UI permits it and gives no error, and the corrupted sampling is only visible in the audit results."
+          }
+        ]
+      },
+      {
+        "id": "g2-routing-hierarchy-import",
+        "group": "Group 2 — Routing & Approval",
+        "name": "Populate Routing Configuration so captured invoices default to the right Invoice Owner",
+        "goal": "Import hierarchy mappings so that when the AP user selects a hierarchy path on an invoice, the system defaults to the mapped employee as Invoice Owner — and verify the import landed before relying on it.",
+        "pages": [
+          "Invoice Settings",
+          "Routing Configuration"
+        ],
+        "fields": [
+          "download_template_button",
+          "employee_id",
+          "level_1_10_code",
+          "delete_flag",
+          "browse_button",
+          "import_button",
+          "import_details_type_filter",
+          "search_routing_mappings",
+          "employee_last_name",
+          "segment_1_3"
+        ],
+        "sequence": [
+          {
+            "order": 1,
+            "page": "Invoice Settings",
+            "action": "Inspect whether invoices are set to auto-assign to the Purchase Request Owner",
+            "field": "(no field written — Group 1 precheck, read only)",
+            "rationale": "Routing Configuration is second in the assignment precedence chain and is skipped entirely when the first rung is live: 'The ability to have invoices auto-assign to the Purchase Request Owner is available by selecting Assign Invoice to Purchase Request Owner check box in Invoice Settings' and, for Routing Configuration, 'User defined and only used if the Purchase Request Owner is either not activated or not found' (admin-guides/ownership-assignment-order-of-assignment-638460cb.md). Do this first because the entire import below can succeed perfectly and still appear to do nothing on any invoice that carries a Purchase Request Owner. No field is written here — this is a read to set expectations, not a change."
+          },
+          {
+            "order": 2,
+            "page": "Routing Configuration",
+            "action": "Open Administration > Invoice > Routing Configuration, select the Import Hierarchy Mappings tab, and click Download Template",
+            "field": "download_template_button",
+            "rationale": "'Click Routing Configuration. The Hierarchy Mapping List page appears' (tools-guides/access-the-routing-configuration-page-be1f9063.md), then 'On the Routing Configuration page, click on the Import Hierarchy Mappings tab.' and 'On the Import Hierarchy Mappings page, click Download Template.' (tools-guides/step-1-download-hierarchy-mappings-template-excel-spreadsheet-d981b372.md). Download rather than reuse an old file: 'To import the hierarchies, clients must use the correct template type... This template is pre-populated with the correct column headings.' (same file), and the loader is header-sensitive — 'The values in the spreadsheet header row must not be deleted.' / 'The \"Hierarchy Routing Import\" sheet must exist.' (tools-guides/step-2-populate-template-with-hierarchy-mappings-6f4fe850.md)."
+          },
+          {
+            "order": 3,
+            "page": "Routing Configuration",
+            "action": "In the downloaded template, enter the Employee ID for each mapping row",
+            "field": "employee_id",
+            "rationale": "'The exact Employee ID of the employee to whom the record is to be assigned.' and it is 'Required field only if the Delete? field is not used.' (tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md). Populate the owner column before the level columns because it is the row's anchor — the levels exist to resolve to this person: the path is 'in levels (segments) on selection of which will cause the associated user in Employee ID to be selected as the default Invoice owner when the AP user assigns the invoice.' (same file)."
+          },
+          {
+            "order": 4,
+            "page": "Routing Configuration",
+            "action": "Enter the hierarchy path across Level 1 Code through Level 10 Code using List Item Short Codes",
+            "field": "level_1_10_code",
+            "rationale": "The values are not free text: 'Maximum 32 characters; case insensitive' with the explicit note 'These are the List Item Short Codes.' (tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md). The short codes therefore have to already exist in List Management and the hierarchy has to already exist as a feature hierarchy — the corpus states the dependency outright: 'This feature relies on the Routing Configuration and associated import, List Management, and Feature Hierarchy modules of Concur Invoice.' (tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md). Typing display labels instead of short codes is the most common way this import produces rejected records. Also format the sheet before saving: 'If the cells are not formatted as text, the import will fail.' (tools-guides/step-2-populate-template-with-hierarchy-mappings-6f4fe850.md)."
+          },
+          {
+            "order": 5,
+            "page": "Routing Configuration",
+            "action": "Set the Delete? flag to Y only on rows being retired; leave N or blank otherwise",
+            "field": "delete_flag",
+            "rationale": "'Used to indicate if this record should be deleted from the hierarchy mapping list.' — '1 character, Y (Yes) or N (No), Not Required' (tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md). Sequenced after the add rows because it changes what the Employee ID column means for that row: with Delete? in use, Employee ID stops being required, so a stray Y on a row with a blank owner will silently pass validation and remove a mapping rather than create one."
+          },
+          {
+            "order": 6,
+            "page": "Routing Configuration",
+            "action": "Click Browse and select the populated template file",
+            "field": "browse_button",
+            "rationale": "'On the Import Hierarchy Mappings page, click Browse.' then 'In the Open window, select the hierarchy mapping template file you have populated and click Open.' (tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md). File selection is a separate action from submission — the file is staged here and nothing is processed yet, which is the last point at which a wrong file can be swapped out without generating rejected records."
+          },
+          {
+            "order": 7,
+            "page": "Routing Configuration",
+            "action": "Click Import, then read the Import Summary counts and close it",
+            "field": "import_button",
+            "rationale": "'Click Import.' → 'The system processes the data and the Import Summary window appears with the results of the import, including: Records Processed... Records Rejected...' then 'Review the information and then click Close. You will have the chance to review in detail the results displayed in this window in the next step.' (tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md). The summary gives counts only — it tells you something was rejected but not what — so closing it is expected, not a skip. Note the tenant may also be configured for an overnight import job (tools-guides/over-night-hierarchy-mapping-import-available-059c9571.md), in which case rows may not be visible immediately."
+          },
+          {
+            "order": 8,
+            "page": "Routing Configuration",
+            "action": "Open View Import Details from the Actions menu and set the Type filter to Error",
+            "field": "import_details_type_filter",
+            "rationale": "'From the Actions menu, click View Import Details.' then filter with 'the Type list' where 'Error: Filters to display only the errors generated during import' (tools-guides/step-4-review-import-details-414c8cd5.md). This is documented as the step after the import for a reason — it is the only place the per-row cause is exposed. Reading Error before Warning before Info is a triage choice, not a corpus-stated order; the corpus only enumerates All / Error / Warning / Info as filter options."
+          },
+          {
+            "order": 9,
+            "page": "Routing Configuration",
+            "action": "Return to the Hierarchy Mapping List and search the imported mappings",
+            "field": "search_routing_mappings",
+            "rationale": "'On the Hierarchy Mapping List page, input the search criteria into the Search Routing Mappings search box' then 'Click the magnifying glass () icon to begin the search.' (tools-guides/search-for-hierarchy-mappings-1dea6bb6.md). Verification belongs after the error review, not instead of it: a partially rejected import still shows rows here, so searching first would give false confidence."
+          },
+          {
+            "order": 10,
+            "page": "Routing Configuration",
+            "action": "Verify a known mapping by Employee Last Name",
+            "field": "employee_last_name",
+            "rationale": "'Type the last name of the employee who is associated with the hierarchy mapping that you want to display. For example, if Ken Brown is associated with the mapping, type \"Brown\" in the Begins With search field.' (tools-guides/search-for-hierarchy-mappings-1dea6bb6.md). This is the owner-side check — it confirms the Employee ID column from order 3 resolved to a real employee rather than importing as an orphan string."
+          },
+          {
+            "order": 11,
+            "page": "Routing Configuration",
+            "action": "Verify the same mapping from the path side by segment",
+            "field": "segment_1_3",
+            "rationale": "'You can elect to search for the mapping by typing in any of the first three segments mappings. For example, if the mapping is Company > Sales > North, and you only remember North, select the correct sequence (Segment 3 in this example) and input North in the Begins With search field.' (tools-guides/search-for-hierarchy-mappings-1dea6bb6.md). Searching the path independently of the owner is what catches short-code errors from order 4 that still imported cleanly — the row exists, but under a path the AP user will never select. Note the corpus documents fallback behaviour rather than an error when the owner later leaves: 'If the specified user is not found (is promoted; transfers), the system will \"walk\" up the hierarchy to the very next logical employee and assign it to them.' (tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md), which is why a Global Group default is advised: 'By designating a default, Global Group employee under the hierarchy, that employee will always be available to assign the invoice to.' (tools-guides/use-hierarchy-mappings-in-invoice-4fc3dff2.md)."
           }
         ]
       }
