@@ -1,0 +1,40 @@
+concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md	Click Purchase Order Matching Rules (left menu). The Purchase Order Matching Rules page appears.
+concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md	Click Administration > Invoice.
+concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md	Click Administration > Invoice > Purchase Order Matching Rules (left menu).
+concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-8b357dbb.md	Admins create these rules by going to Administration > Invoice > Purchase Order Matching Rules.
+concur-invoice-professional-edition-admin-guides/purchase-order-matching-rules-new-experience-6c8fb80f.md	Admins create these rules by going to Administration > Invoice > Purchase Order Matching Rules.
+concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md	On the Purchase Order Matching Rules page, select the rule set, and then click Edit.
+concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md	In Purchase Order Matching Rules, select an existing rule set under Rule Set Name, and then click Copy.
+concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md	Double-click the rule you want to use, and then, in the Rule Groups list, select a rule group and click Edit Rules.
+concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md	In Purchase Order Matching Set, click the Rules tab.
+concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md	Click the Life to Date tab, then select the check box next to the rule type to activate using the table below:
+concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md	Select the matching rule set in Purchase Order Matching Rules and then click Edit.
+concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md	Do this by clicking Edit Confirmation to open the Select Confirmation Type window
+concur-invoice-professional-edition-admin-guides/edit-purchase-order-matching-rules-604d1e31.md	Click Edit to open Purchase Order Matching Set.
+concur-invoice-professional-edition-admin-guides/required-roles-ec6fae13.md	Only the user with the Invoice Configuration Administrator role can access and configure the Purchase Order Matching Rules feature.
+concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md	Only the Invoice Configuration administrator can access and configure the Purchase Order Matching Rules feature.
+concur-invoice-professional-edition-admin-guides/overview-8b35a33f.md	Only accessible by users with the Invoice Configuration Administrator role.
+concur-invoice-professional-edition-admin-guides/use-the-purchase-order-configuration-tool-51009c8c.md	To view this tool, click Administration > Invoice > Purchase Order Configuration.
+concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md	the Invoice Configuration administrator uses the Purchase Order Configuration tool (Administration > Invoice > Purchase Order Configuration)
+concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md	Each PO configuration you create is based on the Group you select before creating the configuration.
+concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md	Ensure that you have selected the correct policy in the Policy list.
+concur-invoice-professional-edition-admin-guides/use-the-purchase-order-configuration-tool-51009c8c.md	The Purchase Order Configuration tool is available to the Invoice Configuration administrator for setting default information for purchase orders.
+concur-invoice-professional-edition-admin-guides/purchase-request-and-purchase-order-8b36ae07.md	Added information about the Company Name without address field in the Purchase Order Configuration window.
+concur-invoice-professional-edition-admin-guides/edit-purchase-order-matching-rules-604d1e31.md	In Purchase Order Matching Set, select the rule set row under Rule Set Name.
+concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md	Each rule set appears in a row that includes the following columns:
+concur-invoice-professional-edition-admin-guides/overview-8b37481c.md	Receipt confirmation is part of the PO Matching feature set.
+concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md	In the PO Configuration section of the page that appears, select the Enable Concur Receiving option.
+concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md	Select Administration > Invoice > Polices (left menu). The Policies page appears.
+concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md	Administrators who configure purchase orders in PO Configuration
+concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md	Groups with no PO configuration assigned use the Global Group configuration by default.
+concur-invoice-professional-edition-admin-guides/test-and-change-match-rule-sets-49f57319.md	once a match rule set is run against a PO associated invoice a status of In Use is assigned and the rule set is locked
+concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md	In Purchase Order Matching Rules Group Conditions, configure the conditions
+concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md	The Purchase Order Matching Rule Group rules window appears.
+concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md	In Purchase Order Matching Rules, type a descriptive name for the new rule in Name.
+concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md	The following settings apply globally to purchase orders (PO).
+concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md	The following settings apply globally to purchase requests (PR).
+concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md	The following settings apply globally to invoices.
+concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-51b11602.md	A setting in Workflows can be used to prevent PO transmission if the PO exceeds a specified exception level.
+concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md	Now the Is Purchase Request Policy check box is exposed and, when selected, displays the Purchase Request Configuration options (forms and workflow selections) as shown in the figure above.
+concur-invoice-professional-edition-admin-guides/purchase-order-policy-fields-4aa0ac1b.md	Is PO Policy: Select this option to define the policy as PO-related.
+concur-invoice-professional-edition-admin-guides/purchase-order-matching-8b351a47.md	Added new topics for the New Experience for Concur Invoice.
