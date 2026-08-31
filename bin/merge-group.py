@@ -30,9 +30,11 @@ def main(src_path, group):
     r = load_result(src_path)
     kg = json.load(open(KG)) if os.path.exists(KG) else {
         'meta': {'version': '0.1.0', 'status': 'IN_PROGRESS'},
-        'nodes': {'configPages': [], 'configFields': [], 'configDependencies': [], 'configSteps': []},
+        'nodes': {'configPages': [], 'configFields': [], 'configDependencies': [], 'configSteps': [],
+                  'configValueSets': []},
     }
     n = kg['nodes']
+    n.setdefault('configValueSets', [])
 
     # drop any prior nodes for this group so a re-run replaces rather than duplicates
     old_pages = {p['id'] for p in n['configPages'] if p.get('group') == group}
@@ -40,6 +42,7 @@ def main(src_path, group):
     n['configFields'] = [f for f in n['configFields'] if f['pageId'] not in old_pages]
     n['configSteps'] = [s for s in n['configSteps'] if s.get('group') != group]
     n['configDependencies'] = [d for d in n['configDependencies'] if d.get('group') != group]
+    n['configValueSets'] = [v for v in n['configValueSets'] if v.get('group') != group]
 
     # index every field already in the graph so cross-group edges can resolve
     page_name_by_id = {p['id']: p['name'] for p in n['configPages']}
@@ -58,6 +61,7 @@ def main(src_path, group):
             'navPathSourceFile': primary['sourceFile'] if primary else '',
             'navPathAlternates': sorted({' > '.join(k) for k in counts if k != best}),
             'url': p['url'], 'group': group, 'coverage': p['coverage'],
+            'uiVariant': p.get('uiVariant', 'both'),
         })
         for f in p['fields']:
             base, fid, i = 'field.%s.%s' % (p['id'], slug(f['name'])), None, 2
@@ -69,6 +73,7 @@ def main(src_path, group):
                 'id': fid, 'pageId': pid, 'name': f['name'], 'label': f['label'],
                 'fieldType': f['fieldType'], 'validValues': f['validValues'],
                 'sourceQuote': f['sourceQuote'], 'sourceFile': f['sourceFile'], 'notes': f['notes'],
+                'uiVariant': f.get('uiVariant', 'both'),
             }
             if f.get('fromRawHtmlTable'):
                 entry['fromRawHtmlTable'] = True
@@ -88,6 +93,22 @@ def main(src_path, group):
             'sourceRef': {'page': d['sourcePage'], 'field': d['sourceField'], 'resolved': bool(s)},
             'targetRef': {'page': d['targetPage'], 'field': d['targetField'], 'resolved': bool(t)},
             'condition': d['condition'], 'sourceQuote': d['sourceQuote'], 'sourceFile': d['sourceFile'],
+        })
+
+    for i, v in enumerate(r.get('valueSets', []), 1):
+        owner = index.get((str(v.get('appliesToPage', '')).lower(),
+                           str(v.get('appliesToField', '')).strip().lower()))
+        n['configValueSets'].append({
+            'id': 'vset.%s.%s' % (slug(v.get('appliesToField', 'unknown')), slug(v.get('context', str(i)))),
+            'group': group,
+            'appliesToFieldId': owner,
+            'appliesToRef': {'page': v.get('appliesToPage'), 'field': v.get('appliesToField'),
+                             'resolved': bool(owner)},
+            'context': v.get('context'),
+            'contextFieldRef': v.get('contextField'),
+            'values': v.get('values', []),
+            'sourceQuote': v.get('sourceQuote'), 'sourceFile': v.get('sourceFile'),
+            'notes': v.get('notes', ''),
         })
 
     for s in r['steps']:
@@ -123,6 +144,9 @@ def main(src_path, group):
     json.dump(kg, open(KG, 'w'), indent=2, ensure_ascii=False)
     tot = {k: len(v) for k, v in n.items()}
     print('merged %s -> %s' % (group, tot))
+    vs = [v for v in n['configValueSets'] if v.get('group') == group]
+    if vs:
+        print('  value sets: %d carrying %d enumerated values' % (len(vs), sum(len(v['values']) for v in vs)))
     print('  unresolved endpoints in this group: %d | earlier edges newly resolved: %d' % (unresolved, reresolved))
     print('  status: %s | groups complete: %d' % (kg['meta']['status'], len(done)))
 
