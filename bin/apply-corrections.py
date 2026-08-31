@@ -27,6 +27,55 @@ REHOME = {
         'it is not a control on this admin page.'),
 }
 
+# Audit Rules deep-dive critic: value sets carried appliesToField "Field/Value", which is the
+# column's LABEL, not any field's name — so every set failed to resolve. The catalog supplies the
+# options for BOTH Field/Value columns (C and F) of the condition editor; C is the canonical owner.
+VALUESET_OWNER = {
+    'Field/Value': ('field.audit-rules.condition-field-value-left',
+                    'field.audit-rules.condition-field-value-right'),
+}
+
+# The same critic: two records share the name `rule_name_link`, differing only by uiVariant.
+# Unique ids, colliding names — a consumer keying on name silently loses one.
+RENAME_BY_VARIANT = {'rule_name_link'}
+
+
+def wire_value_sets(kg):
+    changed = 0
+    ids = {f['id'] for f in kg['nodes']['configFields']}
+    for v in kg['nodes'].get('configValueSets', []):
+        if v.get('appliesToFieldId'):
+            continue
+        owner = VALUESET_OWNER.get(v.get('appliesToRef', {}).get('field') or v.get('appliesToField'))
+        if not owner:
+            continue
+        primary, also = owner
+        if primary in ids:
+            v['appliesToFieldId'] = primary
+            v['appliesToRef']['resolved'] = True
+            v['alsoAppliesToFieldId'] = also if also in ids else None
+            note = ('Wired 2026-08-31: the catalog supplies options for both Field/Value columns '
+                    '(C and F) of the condition editor; C is the canonical owner.')
+            if note not in (v.get('notes') or ''):
+                v['notes'] = ((v.get('notes') or '').rstrip() + ' ' + note).strip()
+            changed += 1
+    return changed
+
+
+def disambiguate_names(kg):
+    changed = 0
+    for f in kg['nodes']['configFields']:
+        if f['name'] in RENAME_BY_VARIANT and f.get('uiVariant') in ('new', 'legacy'):
+            newname = '%s_%s' % (f['name'], f['uiVariant'])
+            if f['name'] != newname:
+                f['notes'] = ((f.get('notes') or '').rstrip() +
+                              ' Renamed 2026-08-31 from "%s" to disambiguate the legacy/new pair, '
+                              'which collided on name.' % f['name']).strip()
+                f['name'] = newname
+                changed += 1
+    return changed
+
+
 def main():
     kg = json.load(open(KG))
     changed = 0
@@ -40,6 +89,8 @@ def main():
         if new_page and f['pageId'] != new_page:
             f['pageId'] = new_page; changed += 1
             print('  re-homed %s -> %s' % (fid, new_page))
+    changed += wire_value_sets(kg)
+    changed += disambiguate_names(kg)
     if changed:
         kg['meta'].setdefault('corrections', [])
         stamp = 'Group 4 critic: 3 page-binding corrections applied via bin/apply-corrections.py'

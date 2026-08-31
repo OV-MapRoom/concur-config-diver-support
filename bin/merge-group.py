@@ -43,13 +43,23 @@ def main(src_path, group, patch=False):
     n = kg['nodes']
     n.setdefault('configValueSets', [])
 
+    gnum = re.search(r'Group (\d+)', group)
+    gtag = gnum.group(1) if gnum else slug(group)
+    ptag = r.get('patchPage')
+    if patch and ptag:
+        gtag = '%s%s' % (gtag, ''.join(w[0] for w in slug(ptag).split('-'))[:3])
+
     # drop prior nodes so a re-run replaces rather than duplicates
     if patch:
         # only the pages this result actually rebuilds
         touched = {'page.' + p['id'] for p in r['pages']}
         tag = r.get('patchPage', sorted(touched)[0])
         n['configPages'] = [p for p in n['configPages'] if p['id'] not in touched]
-        n['configFields'] = [f for f in n['configFields'] if f.get('sourceGroup') != tag]
+        # remove fields that LIVE on a rebuilt page and originate from this group or a prior
+        # patch of it — but keep any re-homed here from another group by apply-corrections.py
+        n['configFields'] = [f for f in n['configFields']
+                             if not (f['pageId'] in touched
+                                     and f.get('sourceGroup') in (tag, group))]
         n['configSteps'] = [s for s in n['configSteps'] if s.get('patch') != tag]
         n['configDependencies'] = [d for d in n['configDependencies'] if d.get('patch') != tag]
         n['configValueSets'] = [v for v in n['configValueSets'] if v.get('patch') != tag]
@@ -98,11 +108,6 @@ def main(src_path, group, patch=False):
             index[(p['name'].lower(), f['name'].strip().lower())] = fid
 
     # group-scoped, deterministic ids: stable across re-merges and diffable across builds
-    gnum = re.search(r'Group (\d+)', group)
-    gtag = gnum.group(1) if gnum else slug(group)
-    ptag = r.get('patchPage')
-    if patch and ptag:
-        gtag = '%s%s' % (gtag, ''.join(w[0] for w in slug(ptag).split('-'))[:3])
     unresolved = 0
     for i, d in enumerate(r['dependencies'], 1):
         s = index.get((str(d['sourcePage']).lower(), str(d['sourceField']).strip().lower()))

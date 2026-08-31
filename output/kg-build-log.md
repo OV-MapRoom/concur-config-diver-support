@@ -362,3 +362,99 @@ Re-run this script after any merge — merges rebuild nodes from raw results and
 
 Audit Rules deep-dive (condition editor + ConfigValueSets + both UI variants), then the New
 Experience retrofit, then Group 5.
+
+---
+
+## 2026-08-31 — Audit Rules deep-dive (patch to Group 2)
+
+**Why:** the Group 2 build left this page half-built, and it is one of the highest-value config
+surfaces in Concur Invoice. Run as an exhaustive single-page rebuild, not a breadth-first sweep.
+**Cost:** 2,359,469 subagent tokens · 316 tool calls · 30min · 29 agents, 1 errored.
+
+### Result
+
+| | Before | After |
+|---|---|---|
+| Audit Rules ConfigField | 36 | **91** |
+| ConfigValueSet | 0 | **13, carrying 278 enumerated values** |
+| ConfigStep | 1 | 5 |
+
+Graph total: **10 pages · 248 fields · 221 dependencies · 17 steps · 13 value sets.**
+
+### The catalog is in — verified string by string, not by count
+
+The headline miss from Group 2 is closed. The critic counted `the-condition-page-5d4ea870.md`
+itself and compared against what was captured:
+
+**13 of 13 data objects, 278 of 278 field names, count-exact, zero truncation.**
+Attendee Totals 4 · Budget 15 · Detail 21 · Detail Allocation 5 · Employee 26 · Line Item
+Attendee 13 · Purchase Request 24 · PR Distribution 3 · PR Item 21 · Request 97 ·
+Request Exception 2 · Vendor Remittance Address 29 · Vendor Ship From Address 18.
+
+The critic correctly refused to certify this on counts alone — it was shown only per-set sizes and
+warned the strings themselves might not be stored, *"the headline deliverable still not delivered,
+just failing a layer deeper."* Checked directly against the graph: **all 278 literal strings are
+present**, zero empty or placeholder. The suspicion was an artifact of the summary it was given.
+
+### Condition editor: all 8 columns
+
+A Left Parenthesis · **B Data Object** (10 values, exact) · C Field/Value · D Operator ·
+E Data Object (empty — correct, the corpus does not enumerate E) · F Field/Value ·
+**G Right Parenthesis** · H And/Or. B was the column gating every other column; it is now present
+and correctly gated.
+
+The B-vs-Table-2 mismatch was **recorded, not silently reconciled** — Table 2 carries three
+Purchase Request objects absent from B's list of 10, and B says "Vendor Remittance" where Table 2
+says "Vendor Remittance Address". Correct call: that discrepancy is a live-UI question.
+
+### Validation semantics: 0% → 100%
+
+`validation-conditional-expressions-67302876.md` went from completely unrepresented to fully
+represented — all four hard constraints (Type + Id 01 required; equal-operator-only against
+Id/Type/Detail Allocation; Id fields in numeric order 1→n; Detail Allocation right-hand-side only),
+both Validation-only data objects, the List Validation Helper pane, and the worked AND example.
+
+### Random tab and list controls: present
+
+`RandomPercentage` (max 100 %) and `RandomSequentialCount` (max 999,999), both typed `number`,
+both gated on `RandomRuleType`, maxima quoted verbatim. All five missing list controls recovered,
+with the Custom-has-no-confirmation / Validation-has-one asymmetry flagged.
+
+### The missing-verdict fix earned its keep
+
+One agent failed outright (structured-output retry cap). **Zero fields were dropped across all
+seven extraction areas** — because a missing verdict now routes to Repair instead of silently
+deleting, which is exactly the Group 4 failure this run was built to close. Several areas came
+back almost entirely repaired (ui-variants 29 of 29, validation-semantics 14 of 15); under the
+Group 2 pipeline those fields would simply have vanished.
+
+### Corrections applied after merge
+
+- **Value sets were unwired.** All 13 carried `appliesToField: "Field/Value"` — the column's
+  *label*, not any field's name — so every set resolved to `null`. A perfect catalog attached to
+  nothing. Now wired to `condition_field_value_left` (canonical) with `alsoAppliesToFieldId`
+  pointing at the column F twin.
+- **`rule_name_link` collided on name** across its legacy and new records (unique ids, same name).
+  A consumer keying on name silently loses one. Renamed to `rule_name_link_legacy` / `_new`.
+- **Patch-mode bug:** the first patch left 36 stale Group 2 fields behind (127 instead of 91),
+  because patch cleared by origin group while the stale fields belonged to the group build. Patch
+  now clears fields that live on a rebuilt page AND originate from that group or a prior patch of
+  it — while preserving anything re-homed there from a different group.
+
+### Still open on this page
+
+- **~23 alias duplicates.** 91 entries encode roughly 68 real controls; the condition editor is
+  encoded three times over across extraction areas (`condition_field_value_left` vs `field_value`
+  vs `ConditionFieldValue`). Needs an alias-collapse pass — a consumer currently sees three
+  controls where the UI has one.
+- **15 of the 278 bullets are compressed ranges** ("Custom 01 - 20", "Org Unit 1 - 6"). Expanded,
+  the catalog is **492 field names**, not 278. Nothing in the graph records that ranges expand.
+- **Three `uiVariant: both` claims are unearned** — notably `custom_audit_rule_event`, whose 17
+  values come from a single-variant source.
+- **Event count settled at 17, not 6 or 18.** Three separate events-triggers files exist: custom
+  (17 events), validation, and random (2 events only). The 6-value list in the Add topic is a
+  subset. Still a live-UI confirmation item.
+
+### Next
+
+New Experience retrofit, then Group 5 (Data Structure & Accounting — largest and most table-heavy).
