@@ -1,0 +1,728 @@
+{
+  "steps": [
+    {
+      "id": "grp5b-tax-authority-vat-end-to-end",
+      "name": "Stand up a tax authority end to end (VAT fields, ship-to data, authority, rate types, rates)",
+      "goal": "A tax authority (usually a country) exists on the Tax Authorities tab with at least one tax rate type and one dated rate, AND the VAT it calculates has somewhere to land and something to resolve against. Three legs half-work silently if skipped: skip the Forms and Fields leg and the wizard still completes, but no VAT Amount/Rate/Tax Code field exists on the form for the calculated value to be written to; skip the Company Locations leg and the authority never matches a transaction, because the documented calculation identity is Tax Authority + Company Location (Ship To) + Expense Type (or Vendor); stop after the General step and the authority appears in the list with no rate at all, so every invoice it touches calculates zero without raising an error.",
+      "pages": [
+        "Forms and Fields",
+        "Company Locations",
+        "Tax Administration"
+      ],
+      "fields": [
+        "formType",
+        "addFieldsToFormsFieldSelector",
+        "addFieldsConfirmButton",
+        "shipToTab",
+        "locationName",
+        "tabTaxAuthorities",
+        "buttonNew",
+        "taxAuthorityName",
+        "taxAuthorityCountry",
+        "taxAuthorityStateProvince",
+        "taxAuthorityTaxName",
+        "buttonNext",
+        "taxRateTypeName",
+        "taxRateTypeCalculationMethod",
+        "buttonSave",
+        "taxRateRateType",
+        "taxRateEffectiveDate",
+        "taxRateTaxPercent",
+        "buttonDone",
+        "taxAuthoritiesList"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Forms and Fields",
+          "action": "Go to Administration > Invoice > Forms and Fields and, in the Form Type list, select the invoice form type that must carry the VAT fields",
+          "field": "formType",
+          "rationale": "CORPUS-STATED, and it is the ordering the whole feature hangs on: \"Client adds VAT fields to forms: Clients need to add VAT fields to the relevant forms before they start configuring the Tax Authority feature.\" (concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md). Run the Tax Administration wizard first and it completes without any error - the authority is simply inert because the calculated VAT has no field to write to. A hard capacity limit must also be known BEFORE choosing which fields to add, because it caps the whole design: \"Currently, in Tax Authority, Concur Invoice only supports one VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1).\" (concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md). Form-type selection precedes everything else on this page: \"In the Form Type list, select the relevant type of form to which you want to add VAT fields.\" (same file)."
+        },
+        {
+          "order": 2,
+          "page": "Forms and Fields",
+          "action": "Click the Forms tab and, in the Add Fields to Forms window, select the VAT fields",
+          "field": "addFieldsToFormsFieldSelector",
+          "rationale": "CORPUS-STATED: the selector does not exist as a page control - it only exists inside a window that the Forms tab opens, so the tab click has to happen first or there is nothing to select in: \"Click the Forms tab. The Add Fields to Forms window appears.\" (concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md). INFERRED from the same numbered procedure's order (Form Type list at step 3, Forms tab at step 4): the window is scoped to the form type chosen at order 1, so choosing the form type afterwards would add the fields to the wrong form."
+        },
+        {
+          "order": 3,
+          "page": "Forms and Fields",
+          "action": "Click Add Fields to commit the selected VAT fields onto the form",
+          "field": "addFieldsConfirmButton",
+          "rationale": "CORPUS-STATED: \"Select the VAT fields you want to add, and then click Add Fields.\" (concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md). Selection is not persistence. Leaving the window without this click leaves the form unchanged, and because the Tax Administration wizard never inspects the form, every remaining step of this procedure will succeed on top of a form that has no VAT field - the classic silent half-configuration this step exists to prevent."
+        },
+        {
+          "order": 4,
+          "page": "Company Locations",
+          "action": "Open Administration > Invoice > Company Locations, select the Ship To tab, and confirm at least one ship-to address exists for the geography the new authority will cover - create it first (see grp5b-company-locations-add-address) if it does not",
+          "field": "shipToTab",
+          "rationale": "CORPUS-STATED, and this is the leg most often skipped because the tax wizard never complains about it: \"Tax Authority + Company Location (Ship To) + Expense Type (or Vendor) = Calculation\" (concur-invoice-professional-edition-admin-guides/calculate-vat-and-required-criteria-89f97622.md). The Country and State/Province chosen at orders 8-9 are resolved against this data, not against anything on the Tax Administration page: \"Invoice will pull the ship-to information from the Company Locations page in Administration\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). The tax-service topic points at the same tool for the same reason: \"To add shipping information, click Invoice Admin > Company Locations.\" (concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md). Do this out of order and the authority saves cleanly and matches nothing."
+        },
+        {
+          "order": 5,
+          "page": "Tax Administration",
+          "action": "Go to Administration > Invoice > Tax Administration (left menu) and click the Tax Authorities tab",
+          "field": "tabTaxAuthorities",
+          "rationale": "ROLE GATE, CORPUS-STATED, and it fails as a missing page rather than a rejected save: \"Assign this role so that the user can see and work with the Tax Administration link.\" (concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md). The role is granted off this page entirely: \"Assign the Tax Administrator role: The Tax Administrator role is assigned to an employee by using options in User Permissions, which allows this user to access the Tax Administration tool.\" (concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md), concretely \"In the Available Roles list, select Invoice Tax Administrator, and then click Add.\" (concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b903b7c8.md). And the role itself does not exist until SAP Concur staff provision the feature: \"The Concur Administrator completes the steps outlined below to expose the Invoice Tax Administrator role in User Permissions\" (concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md). An automation that reaches here without the role finds no left-menu link at all."
+        },
+        {
+          "order": 6,
+          "page": "Tax Administration",
+          "action": "Click New to open the General step of the New Tax Authority wizard",
+          "field": "buttonNew",
+          "rationale": "CORPUS-STATED: \"On the Tax Authorities page, click New. The General step appears.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). None of the fields at orders 7-10 exist before this click. It also opens a three-step wizard whose later steps are reachable only by Next from here, so an authority created and abandoned at this point cannot later be given rate types or rates by re-entering through New - New always starts a new authority."
+        },
+        {
+          "order": 7,
+          "page": "Tax Administration",
+          "action": "Type a unique tax authority name, generally the country name",
+          "field": "taxAuthorityName",
+          "rationale": "CORPUS-STATED: \"Type a unique name (generally the country name) for the tax authority.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). INFERRED from the group wizards: this name is the only handle the rest of the tax surface has on this authority - both optional group procedures begin by picking it out of a list (\"On the Expense Types Group tab, select from the Tax Authority list.\", concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md), so a duplicated or ambiguous name makes every later group wizard target uncertain, and the corpus documents no rename path."
+        },
+        {
+          "order": 8,
+          "page": "Tax Administration",
+          "action": "Select the associated country",
+          "field": "taxAuthorityCountry",
+          "rationale": "CORPUS-STATED: \"Select the associated country.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). This is one half of the domestic-versus-foreign resolution performed against the Company Locations data confirmed at order 4: \"Invoice will pull the ship-to information from the Company Locations page in Administration\" (same file). It must be set before order 11, because Next advances the wizard and the corpus documents no route back to the General step within the same New flow."
+        },
+        {
+          "order": 9,
+          "page": "Tax Administration",
+          "action": "Select the associated states/provinces, or deliberately select none to make the authority country-wide",
+          "field": "taxAuthorityStateProvince",
+          "rationale": "CORPUS-STATED, and the empty case is a real setting rather than an omission: \"If the tax authority applies to the entire country, do not select any states/provinces.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). Choosing states here silently narrows the authority - transactions whose ship-to falls outside them stop matching with no error. The read-back at order 23 is where that decision is visible: \"This is the states/province associated with the tax authority. If the tax applies to an entire country, then no states/provinces are designated.\" (concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md)."
+        },
+        {
+          "order": 10,
+          "page": "Tax Administration",
+          "action": "Type the tax name (maximum five characters), for example the term users already know for this tax",
+          "field": "taxAuthorityTaxName",
+          "rationale": "CORPUS-STATED length cap that cannot be discovered later: \"Type a tax name, up to five characters maximum.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). It is also user-facing, so a wrong value is not an internal detail: \"The tax name is the name that the user and processor see in the Concur Invoice user interface.\" (same file). It must be right before Next, because the corpus documents no separate rename surface for it."
+        },
+        {
+          "order": 11,
+          "page": "Tax Administration",
+          "action": "Click Next to leave the General step and open the Tax Rate Types step",
+          "field": "buttonNext",
+          "rationale": "CORPUS-STATED: \"Click Next. The Tax Rate Types step appears.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). This is the point of no return for orders 7-10: Next is the only documented route forward and the corpus shows no route back, so anything left blank or wrong in the General step is baked into the authority."
+        },
+        {
+          "order": 12,
+          "page": "Tax Administration",
+          "action": "On the Tax Rate Types step, click New to open the Add Tax Rate Types Configuration window",
+          "field": "buttonNew",
+          "rationale": "CORPUS-STATED: \"On the Tax Rate Types step, click New. The Add Tax Rate Types Configuration window appears.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). INFERRED, and important for automation: New is NOT a page-global control here - the same label opens a different window on each wizard step (compare order 17). Firing New without first confirming which step is displayed creates the wrong kind of record."
+        },
+        {
+          "order": 13,
+          "page": "Tax Administration",
+          "action": "Type the tax rate type name, for example Standard or Reduced",
+          "field": "taxRateTypeName",
+          "rationale": "CORPUS-STATED: \"Type the name of the rate, for example, Standard or Reduced.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). Rate types MUST exist before the Tax Rates step and before any group wizard, because both of those surfaces only offer what already exists here: \"which displays the rate types available for the selected tax authority.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). Naming guidance, non-binding: \"It is recommended (but not required) that these names match the name published by the tax authority.\" (step-4 file)."
+        },
+        {
+          "order": 14,
+          "page": "Tax Administration",
+          "action": "Set the Calculation Method (the corpus documents only Percentage)",
+          "field": "taxRateTypeCalculationMethod",
+          "rationale": "CORPUS-STATED: \"Select Percentage. This is the default choice.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). This choice determines which rate field even exists two steps later: \"This field appears by default and is based on the Percentage calculation method. Enter the percentage here.\" (same file). BLIND-BUILD WARNING carried into the sequence: exactly ONE value is enumerated for this control anywhere in the corpus. Do not assume an amount/flat-rate alternative exists just because the control is a list."
+        },
+        {
+          "order": 15,
+          "page": "Tax Administration",
+          "action": "Click Save to commit the tax rate type, then repeat orders 12-15 for every rate type this authority needs",
+          "field": "buttonSave",
+          "rationale": "CORPUS-STATED: \"Click Save.\" then \"Add as many tax rate types as needed.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). An unsaved rate type never reaches the Rate Type list at order 18, and the loop has to be completed HERE: once Next is pressed at order 16 the corpus documents no way back to add a missing rate type within this wizard run."
+        },
+        {
+          "order": 16,
+          "page": "Tax Administration",
+          "action": "When every rate type has been saved, click Next to open the Tax Rates step",
+          "field": "buttonNext",
+          "rationale": "CORPUS-STATED: \"When done, click Next. The Tax Rates step appears.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). The wording \"When done\" is the ordering constraint - the Tax Rates step can only attach percentages to rate types that already exist, so advancing early strands whichever rate types were not created at orders 12-15."
+        },
+        {
+          "order": 17,
+          "page": "Tax Administration",
+          "action": "On the Tax Rates step, click New to open the Add Tax Rate Configuration window",
+          "field": "buttonNew",
+          "rationale": "CORPUS-STATED: \"On the Tax Rates step, click New. The Add Tax Rate Configuration window appears.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). Third distinct use of the New label in one procedure (orders 6, 12, 17), each opening a different surface - the automation must key on the displayed wizard step, not on the button label."
+        },
+        {
+          "order": 18,
+          "page": "Tax Administration",
+          "action": "Select the rate type this rate applies to",
+          "field": "taxRateRateType",
+          "rationale": "CORPUS-STATED, and it is a hard existence dependency rather than a preference: \"Once you select the type, the Tax Percent field appears.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). An automation that tries to fill Tax Percent first will not merely get a validation error - the control is not in the DOM yet. The list itself is populated from orders 12-15."
+        },
+        {
+          "order": 19,
+          "page": "Tax Administration",
+          "action": "Enter the Effective Date - the start date of the rate",
+          "field": "taxRateEffectiveDate",
+          "rationale": "CORPUS-STATED: \"Enter the start date for the rate.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). INFERRED from the group wizards' filter semantics: the Expense Type Groups and Vendor Groups tabs search by date range, \"(all currently active, or all tax authorities)\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md), so a rate dated in the future saves correctly but is invisible to a currently-active search later - the effective date, not the save, is what makes the rate findable."
+        },
+        {
+          "order": 20,
+          "page": "Tax Administration",
+          "action": "Enter the Tax Percent",
+          "field": "taxRateTaxPercent",
+          "rationale": "CORPUS-STATED: \"This field appears by default and is based on the Percentage calculation method. Enter the percentage here.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). Its very presence is downstream of two earlier decisions - the Percentage calculation method at order 14 and the rate-type selection at order 18 - which is why it cannot be the first thing filled in this window."
+        },
+        {
+          "order": 21,
+          "page": "Tax Administration",
+          "action": "Click Save to commit the rate, then repeat orders 17-21 for every rate this authority needs",
+          "field": "buttonSave",
+          "rationale": "CORPUS-STATED: \"Click Save.\" then \"Add as many rates as needed.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). This is the last point at which rates can be added inside the creation flow; Done at order 22 exits the wizard."
+        },
+        {
+          "order": 22,
+          "page": "Tax Administration",
+          "action": "Click Done to exit the wizard and publish the tax authority",
+          "field": "buttonDone",
+          "rationale": "CORPUS-STATED: \"Click Done. The new tax authority appears on the Tax Authorities page.\" (concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md). INFERRED: the corpus documents no other exit that makes the authority appear on the list, so abandoning the wizard after the final Save cannot be assumed to publish it - and an unpublished authority is exactly the failure mode that is invisible until an invoice calculates no VAT."
+        },
+        {
+          "order": 23,
+          "page": "Tax Administration",
+          "action": "Read back the new row on the Tax Authorities list and check the State/Province cell",
+          "field": "taxAuthoritiesList",
+          "rationale": "CORPUS-STATED: \"The following information appears for any existing tax authorities.\" (concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md). This grid is the ONLY documented surface on which the country-wide-versus-state-scoped decision made at order 9 is visible after the wizard closes - \"This is the states/province associated with the tax authority. If the tax applies to an entire country, then no states/provinces are designated.\" (same file) - so it must be read before any group wizard is run against this authority, not after."
+        }
+      ]
+    },
+    {
+      "id": "grp5b-expense-type-group-vat-treatment",
+      "name": "Attach VAT treatment to a group of expense types on an existing tax authority",
+      "goal": "A named, date-bounded expense type group hangs off one tax authority, carries its tax code and VAT-calculation switch, owns a specific set of expense types, and points at a rate type that actually exists on that authority. What half-works if legs are skipped: run this before the tax authority's rate types exist (grp5b-tax-authority-vat-end-to-end orders 12-15) and the Rate Type column at the end offers nothing meaningful, leaving the group on whatever default the wizard shows; skip the Search at order 4 and the expense types you planned to use may already be consumed by another group on the same authority, which the wizard reveals only after you have already named and dated the group. NOT COVERED HERE ON PURPOSE: the corpus documents a near-identical twin procedure for vendors (Vendor Groups tab, concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md) whose only structural differences are a Vendor Name step with a Tax Type list in place of the Expense Types step, and its own Unavailable Vendors pane. It is a distinct documented procedure, not a variant of this one.",
+      "pages": [
+        "Expense Types",
+        "Tax Administration"
+      ],
+      "fields": [
+        "expenseTypeName",
+        "expenseTypeStatusDisplay",
+        "tabExpenseTypesGroup",
+        "expenseTypeGroupTaxAuthorityFilter",
+        "expenseTypeGroupEffectiveDatesFilter",
+        "buttonSearchGroups",
+        "buttonNew",
+        "expenseTypeGroupName",
+        "expenseTypeGroupEffectiveDate",
+        "expenseTypeGroupEndDate",
+        "expenseTypeGroupAppliesTo",
+        "expenseTypeGroupTaxCode",
+        "expenseTypeGroupDisableVatCalculation",
+        "buttonNext",
+        "expenseTypeGroupExpenseTypes",
+        "expenseTypeGroupUnavailableExpenseTypes",
+        "expenseTypeGroupTaxCondition",
+        "expenseTypeGroupRateTypeColumn",
+        "buttonDone"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Expense Types",
+          "action": "On Administration > Invoice > Expense Types, confirm the expense types that will belong to this group exist and are active, and note their exact names",
+          "field": "expenseTypeName",
+          "rationale": "CORPUS-STATED: the group is assembled out of the tenant's own expense types, and not every one of them is even a candidate - \"Expense type: VAT applies to some—but not all—expense types\" (concur-invoice-professional-edition-admin-guides/requirements-to-calculate-vat-821a71ea.md), restated as a caution in the process overview: \"Not all expense types are eligible for VAT or reclaim.\" (concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md). The calculation identity makes the dependency structural rather than cosmetic: \"Tax Authority + Company Location (Ship To) + Expense Type (or Vendor) = Calculation\" (concur-invoice-professional-edition-admin-guides/calculate-vat-and-required-criteria-89f97622.md). Doing this after the wizard has started means discovering a missing expense type at the Expense Types step, with the group already named and dated."
+        },
+        {
+          "order": 2,
+          "page": "Expense Types",
+          "action": "Check the Status column of each of those expense types",
+          "field": "expenseTypeStatusDisplay",
+          "rationale": "INFERRED from the Expense Types roster and from order 1's requirement: the wizard's Expense Types column is a picker over the tenant's expense types, and the corpus never states that an inactive expense type is offered or excluded there. Checking status first is the cheap read that avoids building a group around an expense type that no invoice can select. Flagged INFERRED deliberately - the corpus does NOT document the interaction between expense type status and expense type group membership, and this graph must not invent one."
+        },
+        {
+          "order": 3,
+          "page": "Tax Administration",
+          "action": "Open the Expense Type Groups tab and select the target authority from the Tax Authority list",
+          "field": "expenseTypeGroupTaxAuthorityFilter",
+          "rationale": "CORPUS-STATED: \"On the Expense Types Group tab, select from the Tax Authority list.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). This selection silently determines the contents of the Rate Type list at the very end of the wizard - \"which displays the rate types available for the selected tax authority.\" (same file) - so an authority picked carelessly here does not fail, it just offers the wrong rates six steps later. NAME DRIFT WARNING for the automation: the tab is called \"Expense Type Groups tab\" in the process overview (concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md) and \"Expense Types Group tab\" in this procedure; the corpus is inconsistent and the graph records both."
+        },
+        {
+          "order": 4,
+          "page": "Tax Administration",
+          "action": "Set the date-range filter and click Search to list the groups that already exist on this authority",
+          "field": "buttonSearchGroups",
+          "rationale": "CORPUS-STATED, and this is the step whose omission costs rework: \"(Optional) Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, then click Search. The existing groups for the selected tax authority, if any, appear.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). The corpus marks it optional, but expense types are exclusive per authority - \"Any expense types that are already used for this tax authority appear in the Unavailable Expense Types pane with the name of the group.\" (same file) - so skipping it means the collision is discovered at order 12, after the group has been named, dated and tax-coded."
+        },
+        {
+          "order": 5,
+          "page": "Tax Administration",
+          "action": "Click New to open the Group Name step",
+          "field": "buttonNew",
+          "rationale": "CORPUS-STATED: \"Click New. The Group Name step appears.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). The new group inherits the Tax Authority selected at order 3 - the wizard never asks for it again - which is why order 3 cannot be corrected from inside this flow."
+        },
+        {
+          "order": 6,
+          "page": "Tax Administration",
+          "action": "Enter the group display name",
+          "field": "expenseTypeGroupName",
+          "rationale": "CORPUS-STATED: \"Enter the display name for the group.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). INFERRED: this name is what the Unavailable Expense Types pane shows to the NEXT administrator who tries to reuse one of these expense types (\"appear in the Unavailable Expense Types pane with the name of the group.\", concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md), so an unhelpful name here degrades every later collision diagnosis on this authority."
+        },
+        {
+          "order": 7,
+          "page": "Tax Administration",
+          "action": "Select the group's Effective Date",
+          "field": "expenseTypeGroupEffectiveDate",
+          "rationale": "CORPUS-STATED: \"Select the effective date of the group.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). INFERRED from order 4's own filter semantics: the tab's search offers \"all currently active\" as a range, so a group dated outside the current window exists but does not appear in the default search - the failure looks like a lost group rather than a dating error."
+        },
+        {
+          "order": 8,
+          "page": "Tax Administration",
+          "action": "Leave End Date blank unless a specific retirement date must be enforced",
+          "field": "expenseTypeGroupEndDate",
+          "rationale": "CORPUS-STATED, and the documented default is to leave it alone: \"Typically, the system will set this date when it is time to retire this group. Leave this blank unless there is a specific end date you want to enforce.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). Filling it speculatively creates a group that stops applying on a date nobody remembers setting, with no error at the moment it expires."
+        },
+        {
+          "order": 9,
+          "page": "Tax Administration",
+          "action": "Set Applies To - the Payment Request document type for which VAT is calculated",
+          "field": "expenseTypeGroupAppliesTo",
+          "rationale": "CORPUS-STATED: \"Select the Payment Request document type for which to calculate VAT for expense type groups.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). It must be settled here rather than reasoned about later because it is also a cross-wizard consistency constraint: \"Ensure that you are consistent if you configure expense type groups or vendor groups and define the VAT calculation mode.\" (same file) - an expense type group and a vendor group configured at different levels on the same authority is the documented inconsistency, and neither wizard detects it."
+        },
+        {
+          "order": 10,
+          "page": "Tax Administration",
+          "action": "Enter the Tax Code for this group (up to 20 characters)",
+          "field": "expenseTypeGroupTaxCode",
+          "rationale": "CORPUS-STATED, including the length cap and the fact that nobody downstream can fix a wrong value: \"The tax code can contain up to 20 characters. The Tax Code field is an arbitrary field and will be a read-only field for the user.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). Because it is arbitrary, nothing validates it against the financial system it feeds - a typo here propagates silently into the extract."
+        },
+        {
+          "order": 11,
+          "page": "Tax Administration",
+          "action": "Select Disable VAT calculation only where the vendor already supplies VAT amounts",
+          "field": "expenseTypeGroupDisableVatCalculation",
+          "rationale": "CORPUS-STATED: \"If this is the case, select the check box to disable VAT calculation.\" with the scope limit \"You can only disable VAT calculation for invoices.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). Setting it here rather than later matters because it makes the rate work at orders 14-15 decorative for this group: the rates are still stored, they simply stop being calculated - the most silent half-configuration on this page."
+        },
+        {
+          "order": 12,
+          "page": "Tax Administration",
+          "action": "Click Next, then on the Expense Types step select the desired expense types in the Expense Types column",
+          "field": "expenseTypeGroupExpenseTypes",
+          "rationale": "CORPUS-STATED: \"Click Next. The Expense Types step displays.\" and \"On the Expense Types step, select the desired expense types in the Expense Types column.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). This is the first point at which the plan made at order 1 meets the authority's actual availability, which is why orders 1 and 4 are placed before the wizard rather than inside it."
+        },
+        {
+          "order": 13,
+          "page": "Tax Administration",
+          "action": "Read the Unavailable Expense Types pane and note which group already owns each blocked expense type",
+          "field": "expenseTypeGroupUnavailableExpenseTypes",
+          "rationale": "CORPUS-STATED: \"Any expense types that are already used for this tax authority appear in the Unavailable Expense Types pane with the name of the group.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). This pane is the exclusivity rule made visible: an expense type belongs to at most one group per authority, so resolving a collision means editing the OTHER group, not this one - work that cannot be done from inside this wizard."
+        },
+        {
+          "order": 14,
+          "page": "Tax Administration",
+          "action": "Click Next to the Tax Rates step and note the default tax condition of Always",
+          "field": "expenseTypeGroupTaxCondition",
+          "rationale": "CORPUS-STATED: \"The Tax Rates step shows the default tax condition of Always which means that this tax rate will always apply.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). BLIND-BUILD WARNING: Always is the only tax condition the corpus names for this step. Do not assume a conditional alternative exists merely because the word default implies one."
+        },
+        {
+          "order": 15,
+          "page": "Tax Administration",
+          "action": "Click the field in the Rate Type column and select the rate type this group should use",
+          "field": "expenseTypeGroupRateTypeColumn",
+          "rationale": "CORPUS-STATED, and this is the hinge that makes the whole step depend on grp5b-tax-authority-vat-end-to-end having finished: \"To change the rate type, click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). Run this procedure against an authority whose Tax Rate Types step was never completed and there is nothing correct to choose - the group saves anyway."
+        },
+        {
+          "order": 16,
+          "page": "Tax Administration",
+          "action": "Click Done to exit the wizard and publish the group",
+          "field": "buttonDone",
+          "rationale": "CORPUS-STATED: \"Click Done to exit the wizard. You will now see the expense type groups that you created in the list.\" (concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md). Appearance in the list is the only documented confirmation; the group is not observable anywhere else on the page until this click."
+        }
+      ]
+    },
+    {
+      "id": "grp5b-predefined-tax-codes",
+      "name": "Predefine tax codes and make them editable for the end user",
+      "goal": "The VAT tax code fields become selectable lists on the invoice instead of read-only text, and the users who are supposed to choose from those lists can actually change the value. This is a two-page task that reads like a one-page task, which is exactly why it half-works: define the codes on Tax Administration alone and the fields turn into lists that the user still cannot edit, because modify rights live on Forms and Fields. Skip the Tax Administration leg entirely and the fields are not lists at all, regardless of rights.",
+      "pages": [
+        "Tax Administration",
+        "Forms and Fields"
+      ],
+      "fields": [
+        "tabTaxCode",
+        "buttonNew",
+        "taxCodeName",
+        "buttonSave",
+        "formType",
+        "fieldsTabList",
+        "accessRights"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Tax Administration",
+          "action": "Go to Administration > Invoice > Tax Administration (left menu) and click the Tax Code tab",
+          "field": "tabTaxCode",
+          "rationale": "CORPUS-STATED navigation and the reason the whole task exists: \"Select Administration > Invoice > Tax Administration (left menu).\" then \"Click the Tax Code tab.\" (concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md). The do-nothing outcome is documented, which is what makes this an ordering question rather than a preference: \"If the admin does not predefine tax codes, the user will see the tax codes in read-only fields and not in lists.\" (same file). ROLE GATE inherited from the page: the Tax Administration link is only visible to a holder of the Invoice Tax Administrator role - \"Assign this role so that the user can see and work with the Tax Administration link.\" (concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md)."
+        },
+        {
+          "order": 2,
+          "page": "Tax Administration",
+          "action": "Click New",
+          "field": "buttonNew",
+          "rationale": "CORPUS-STATED: \"Click New.\" (concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md). INFERRED, and worth carrying to the automation: unlike the Tax Authorities tab, New here opens no multi-step wizard - the very next documented action is typing a name and saving, so a driver that waits for a General/Next step on this tab will hang."
+        },
+        {
+          "order": 3,
+          "page": "Tax Administration",
+          "action": "Type the tax code name and click Save",
+          "field": "taxCodeName",
+          "rationale": "CORPUS-STATED: \"Type the name of the code and then click Save.\" (concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md). What this immediately changes for the user is also stated, and it is why order 4 becomes necessary rather than optional: \"The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.\" (same file). COMPRESSED RANGE, recorded rather than expanded silently: \"tax code fields (1-4)\" denotes four user-facing VAT tax code fields, but the Tax Authority feature itself is documented as supporting only the first triple - \"Currently, in Tax Authority, Concur Invoice only supports one VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1).\" (concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md). The corpus does not reconcile the two statements and neither does this graph."
+        },
+        {
+          "order": 4,
+          "page": "Tax Administration",
+          "action": "Click Save to commit the code, repeating orders 2-4 for every code the users must be able to pick",
+          "field": "buttonSave",
+          "rationale": "CORPUS-STATED, same sentence as order 3: \"Type the name of the code and then click Save.\" (concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md) INFERRED: the corpus gives no bulk or import path for predefined tax codes on this tab, so the full set must be entered one at a time BEFORE users are told the field is a list - a partially populated list is indistinguishable, to the user, from a wrong list."
+        },
+        {
+          "order": 5,
+          "page": "Forms and Fields",
+          "action": "Go to Administration > Invoice > Forms and Fields and select the form type carrying the VAT tax code fields",
+          "field": "formType",
+          "rationale": "CORPUS-STATED: the second half of this task is on another page entirely - \"To edit the VAT tax code fields, the admin needs to ensure the user has been given modify rights of these fields in the Forms and Fields tool.\" (concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md). Doing it before order 3 is possible but pointless: with no predefined codes the field is read-only text regardless of rights, so the rights change would appear to do nothing and be reverted."
+        },
+        {
+          "order": 6,
+          "page": "Forms and Fields",
+          "action": "Locate the VAT tax code field in the field list for that form",
+          "field": "fieldsTabList",
+          "rationale": "INFERRED from the two-page split: the tax code control the user sees is a FORM FIELD, not a Tax Administration object - Tax Administration only supplies the values it offers. The field must therefore already be on the form (see grp5b-tax-authority-vat-end-to-end orders 1-3) before rights can be granted on it; granting rights is not a way to add a missing field."
+        },
+        {
+          "order": 7,
+          "page": "Forms and Fields",
+          "action": "Set Access Rights so the intended users have modify rights on the VAT tax code field",
+          "field": "accessRights",
+          "rationale": "CORPUS-STATED, and it is the leg that turns a visible list into a usable one: \"To edit the VAT tax code fields, the admin needs to ensure the user has been given modify rights of these fields in the Forms and Fields tool.\" (concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md). Skipped, the configuration presents as complete on both pages - codes exist, the field renders as a list - and fails only in the user's hands."
+        }
+      ]
+    },
+    {
+      "id": "grp5b-create-and-populate-list",
+      "name": "Create a list in List Management, populate its items, and put it to work on a form",
+      "goal": "A named list (in a category) exists with every item entered and its codes recorded, and a form field actually consumes it. The list is inert on its own: List Management only creates values, so stopping after Done leaves a list nothing references. The reverse order is worse - the documented configuration process puts list creation BETWEEN adding fields to forms and modifying those fields' properties, so building the field first and the list second is correct, while trying to switch a field to a list before the list exists leaves nothing to select. The other silent failure is code drift: Item Code values are the join key for imports, connected lists and expense-type matching, and nothing validates them at entry time.",
+      "pages": [
+        "Forms and Fields",
+        "List Management"
+      ],
+      "fields": [
+        "formType",
+        "addFieldsButton",
+        "listManagementMenuLink",
+        "newListButton",
+        "listCategory",
+        "newListCategoryOption",
+        "addNewListCategory",
+        "listName",
+        "newListPageSaveButton",
+        "listSelection",
+        "listItemsNewButton",
+        "itemCode",
+        "itemName",
+        "saveAndAddButton",
+        "addSubLevels",
+        "doneButton",
+        "fieldsTabList",
+        "controlType",
+        "connectedListsTab"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Forms and Fields",
+          "action": "Confirm the form exists and the fields that will consume the list have already been added to it",
+          "field": "addFieldsButton",
+          "rationale": "CORPUS-STATED task order across exactly these two pages: \"You use the Forms and Fields and List Management pages to perform the following tasks, typically in the order shown.\" with \"Set the field default settings.\" and \"Add all required fields to your required forms.\" preceding \"Identify and create the lists needed for the invoice forms.\" (concur-invoice-professional-edition-admin-guides/forms-fields-lists-and-validations-configuration-process-76d94b3b.md). Field properties are changed only AFTER the list exists, at order 12. Inverting these two legs is the common failure: a field switched to a list type before the list is built has nothing to point at."
+        },
+        {
+          "order": 2,
+          "page": "List Management",
+          "action": "Go to Administration > Invoice and click List Management in the left menu",
+          "field": "listManagementMenuLink",
+          "rationale": "CORPUS-STATED: \"Click List Management (left menu). The List Management page appears.\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). ROLE GATE: \"This portion of the process requires the role of Invoice Admin.\" (concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md) - a lesser role does not see a disabled page, it does not reach this menu entry."
+        },
+        {
+          "order": 3,
+          "page": "List Management",
+          "action": "Click New to open the New List page",
+          "field": "newListButton",
+          "rationale": "CORPUS-STATED: \"Click New to open the New List page.\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). CONTRADICTION recorded rather than reconciled: the two topics disagree about what the New List page then asks for. The tools-guides procedure shows only a list name and Save - \"Provide a descriptive name for List Name, and then click Save (shown below).\" - while the admin-guides topic shows a list category decision first and then \"Fill out the remaining options, then select Save.\" (concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md). Both are recorded; the difference may be provisioning- or context-dependent and the automation must handle a New List page with OR without the category control."
+        },
+        {
+          "order": 4,
+          "page": "List Management",
+          "action": "Choose the list category - select an existing one, or select New List Category and name it in Add New List Category",
+          "field": "listCategory",
+          "rationale": "CORPUS-STATED: \"Choose Existing: Select an existing list category, such as Allocations, from the list\" and \"Create New: Select New List Category and, in Add New List Category, type a name and select Save.\" (concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md). The category has to be settled BEFORE the list is saved because it becomes part of the list's identity for the import that follows: \"When you define the list, make note of the category name and the list name; you will need them for the list import.\" (same file). The corpus documents no way to recategorise a saved list."
+        },
+        {
+          "order": 5,
+          "page": "List Management",
+          "action": "If no suitable category exists, select New List Category and type the new category name in Add New List Category, then save it",
+          "field": "addNewListCategory",
+          "rationale": "CORPUS-STATED: \"Create New: Select New List Category and, in Add New List Category, type a name and select Save.\" (concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md). This nested Save creates the category and must complete before the list itself is saved at order 7, or the list has no category to belong to. BLIND-BUILD NOTE: the corpus names exactly one example category, Allocations; it never enumerates the category list, so the automation must read the options at runtime rather than expect a known set. The related control newListCategoryOption is the option that opens this field, and the corpus never states its widget type."
+        },
+        {
+          "order": 6,
+          "page": "List Management",
+          "action": "Provide a descriptive List Name",
+          "field": "listName",
+          "rationale": "CORPUS-STATED: \"Provide a descriptive name for List Name, and then click Save (shown below).\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). The name is the handle every downstream surface uses - it is what gets selected as a feature hierarchy's source list (\"In the Source List, select the name of the list you created in Step 1\", concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md) and it must be recorded for the list import alongside the category. Renaming after those references exist is not documented."
+        },
+        {
+          "order": 7,
+          "page": "List Management",
+          "action": "Click Save to create the list",
+          "field": "newListPageSaveButton",
+          "rationale": "CORPUS-STATED: \"Provide a descriptive name for List Name, and then click Save (shown below).\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). Items cannot be added until the list is saved and selectable - the next documented action operates on a saved row: \"Select the list name, and then click New to begin creating the list items that will act as your source list\" (same file)."
+        },
+        {
+          "order": 8,
+          "page": "List Management",
+          "action": "Select the saved list by name, then click New to start entering items",
+          "field": "listItemsNewButton",
+          "rationale": "CORPUS-STATED, and the selection is what scopes the item editor: \"Select the list name, and then click New to begin creating the list items that will act as your source list\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). Clicking New without first selecting the list (field listSelection) is the documented way to end up entering items against the wrong list - the label New is reused for both the list and the item, exactly as on the Tax Administration wizard."
+        },
+        {
+          "order": 9,
+          "page": "List Management",
+          "action": "Enter the Item Code for the list item and write it down verbatim",
+          "field": "itemCode",
+          "rationale": "CORPUS-STATED, and this is the single most consequential value on the page because nothing downstream validates it: \"Record the Item Code values. You will use this exact reference when importing your vendor access values by their Vendor Code value.\" and \"The code format (EAST; NORTH) for each list item must be typed exactly as you have entered them here in your import.\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). A second, stricter constraint applies when an expense type is the first field of a connected list - the code must match the expense type's own code, \"matches that of the expense type you are using\" (concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md) - and the codes to match are obtained off this page entirely: \"To find the Item Code values, run a report from Cognos or export a list of system expense types by using the Localization page in Administration.\" (same file). That export therefore has to happen BEFORE this keystroke, not after."
+        },
+        {
+          "order": 10,
+          "page": "List Management",
+          "action": "Enter the Item Name",
+          "field": "itemName",
+          "rationale": "CORPUS-STATED naming constraint imposed from another surface: \"be sure the value you input for Item Name matches the Expense Type name exactly.\" (concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md), which the source topic ties to how the name renders in connected list audit rules. Nothing on this page enforces the match, so a near-miss here surfaces much later as an audit rule that reads wrong rather than as an error."
+        },
+        {
+          "order": 11,
+          "page": "List Management",
+          "action": "Click Save and Add for each item, repeating orders 9-11 until every item is entered",
+          "field": "saveAndAddButton",
+          "rationale": "CORPUS-STATED: \"Add each list item by clicking Save and Add.\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). The loop must be finished before Done at order 13. It also has a governance consequence outside this page: where the list is a vendor-access source list, \"The process of creating this list is equivalent to creating Groups since each item in the source list is in effect a group.\" (concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md) - so each Save and Add here effectively creates a group, and removing one later is done from this list, not from Group Configurations: \"To delete a group, remove the corresponding item from the Source List.\" (concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md)."
+        },
+        {
+          "order": 12,
+          "page": "List Management",
+          "action": "For a multi-level list, select an existing list item and add its sub-levels",
+          "field": "addSubLevels",
+          "rationale": "CORPUS-STATED, and the ordering is inherent - a sub-level is added by selecting a parent that must already exist: \"(Optional): For a multi-level connected list, select any of the list items and continue to add sub-levels as required.\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). Depth decided here binds a consumer that is not on this page: \"If a multi-level list was created, be sure to add additional levels and segments to match the list levels.\" (concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). Adding a level after the hierarchy is built silently leaves the two out of step."
+        },
+        {
+          "order": 13,
+          "page": "List Management",
+          "action": "Click Done when all list items have been added",
+          "field": "doneButton",
+          "rationale": "CORPUS-STATED: \"Click Done when all list items have been added.\" (concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md). The corpus's own phrasing makes completeness the precondition for the click, which is the ordering that matters: an early Done ends the entry session with a partial list that later reads as a data problem rather than an unfinished task."
+        },
+        {
+          "order": 14,
+          "page": "Forms and Fields",
+          "action": "Return to Forms and Fields and modify the field's properties so it consumes the new list - substituting a list for a text box, or a connected list, as required",
+          "field": "controlType",
+          "rationale": "CORPUS-STATED, and this is the closing leg the documented process explicitly places AFTER list creation: \"Add or modify any of the field properties to fit the forms. For example, you may wish to substitute a list for a text box; substitute a text box for a connected list; or change the maximum number of characters allowed in a field.\" (concur-invoice-professional-edition-admin-guides/forms-fields-lists-and-validations-configuration-process-76d94b3b.md). A hard sizing constraint lands here, not on List Management: \"If a field is configured as a simple list, the field displays a maximum of 500 items in the list:\" (concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md) - so a list built past that cap at orders 9-11 renders differently than intended, and the page that reveals it is this one. Use field fieldsTabList to reach the field before setting its control type."
+        },
+        {
+          "order": 15,
+          "page": "Forms and Fields",
+          "action": "If the list is a connected list, define the connected list on the Connected Lists tab, choosing the list built above",
+          "field": "connectedListsTab",
+          "rationale": "CORPUS-STATED page boundary - items are authored in List Management, the definition is authored here: \"Forms and Fields: The connected list created in List Management is chosen when defining the connected list for addition to the Payment Request Quantified Line Items form in Step 2\" (concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md). Two constraints make the order irreversible. Cardinality: \"Connected lists represent the association between two or more fields, so you must configure at least two fields to be associated connected list fields.\" (concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md). Single-use: \"The Expense Type List Item Key field can only be used in a single connected list definition, after which it is no longer available.\" and it must lead - \"The Expense Type List Item Key field must be the first item in the connected list for this feature to work.\" (use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md) - so spending that key on the wrong definition here cannot be undone by editing List Management afterwards. CONTRADICTION recorded, not resolved: concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md attributes connected list definition to a separately named tool operated by a different role - \"Shared Configuration administrator: Using the Connected List Definition tool to define the connected list fields and hierarchy\" - while concur-invoice-professional-edition-admin-guides/access-connected-lists-39dd2408.md places the work on this tab. Both readings exist in the corpus."
+        }
+      ]
+    },
+    {
+      "id": "grp5b-company-locations-add-address",
+      "name": "Add a company ship-to or bill-to address and make it selectable downstream",
+      "goal": "One correctly identified address exists on the right tab of Company Locations and the things that consume it - policy Bill To, a user's default shipping address, the PO import, and tax calculation - can all find it. Two identity values carry the whole load: Name is what humans and pickers search on, and Address Code is what machines match on. Get either wrong and nothing errors: the address saves, appears in the grid, and simply fails to be selected, matched or updated later. Choosing the wrong tab is the other silent failure, because two of the twelve fields only make sense on a bill-to address.",
+      "pages": [
+        "Company Locations",
+        "Policies"
+      ],
+      "fields": [
+        "shipToTab",
+        "billToTab",
+        "newButton",
+        "locationName",
+        "addressCode",
+        "address1",
+        "address2",
+        "address3",
+        "city",
+        "postalCode",
+        "countryCode",
+        "stateProvince",
+        "emailAddress",
+        "vatId",
+        "addAddressAsShipToLocationAsWell",
+        "saveButton",
+        "Bill To (Optional)"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Company Locations",
+          "action": "Go to Administration > Invoice > Company Locations and select the Ship To tab (or the Bill To tab for a billing address)",
+          "field": "shipToTab",
+          "rationale": "CORPUS-STATED: \"Select Company Locations (left menu).\" (concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md) then \"On the Company Locations page, select the Ship To tab.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). Every action on this page is tab-scoped, and the tab choice is not cosmetic: two of the window's twelve fields exist for the bill-to case only - \"This is only applicable on the bill-to address and required by some European countries.\" (VAT ID) and the copy-to-ship-to check box. Start on the wrong tab and those controls are meaningless or absent, and the record lands in the wrong set with no warning. ROLE GATE: \"To use the Company Locations tool, users must be assigned the Invoice Configuration administrator or Invoice Configuration (Restricted) administrator role.\" (concur-invoice-professional-edition-tools-guides/required-roles-476a5f62.md) - note this is a DIFFERENT role from the Invoice Tax Administrator that gates Tax Administration, so one operator may be able to reach only one of the two pages in this group."
+        },
+        {
+          "order": 2,
+          "page": "Company Locations",
+          "action": "Select New to open the Add New Ship To Location window",
+          "field": "newButton",
+          "rationale": "CORPUS-STATED: \"Select New to open the Add New Ship To Location window.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). The twelve fields below live in this window, not on the page. DOCUMENTED ASYMMETRY worth carrying: the corpus walks the Ship To case explicitly and never names an equivalent Add New Bill To Location window, even though the field table's VAT ID note proves the same form serves bill-to. The automation must not key on the window title alone."
+        },
+        {
+          "order": 3,
+          "page": "Company Locations",
+          "action": "Enter a unique Name for the address",
+          "field": "locationName",
+          "rationale": "CORPUS-STATED, and it is the human-facing join key: \"A unique name that identifies a specific address.\" with \"The system searches for your location by using the Name value.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). It has to be right at creation because it is what appears in two consumers that never see the address record itself: \"This is the value that displays when choosing a default shipping address in Profile > Profile Settings > Invoice Preferences, and when creating a policy and selecting the value for Bill To.\" (same file). A duplicate or cryptic Name produces an ambiguous picker downstream, not an error here."
+        },
+        {
+          "order": 4,
+          "page": "Company Locations",
+          "action": "Enter the Address Code - the external identifier used by the financial system",
+          "field": "addressCode",
+          "rationale": "CORPUS-STATED, and it is the machine-facing join key that three separate systems match on: \"This is the external identifier used by the customer's financial system to identify a specific address.\" and \"This value is identical to the External ID field used in the Bill To and Ship To record sets of the Purchase Order import.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). The consequence of getting it wrong is stated on the PO side: \"Identical records are those that share the same Address Code (in Company Locations) and External ID (within the associated record in the PO import).\" and \"When an import contains changes to an identical, existing record, the import action will update the address record in Company Locations.\" (concur-invoice-professional-edition-tools-guides/how-company-locations-works-with-the-purchase-order-import-ed09e36a.md) - a mismatched code therefore creates a duplicate address on the next PO import instead of updating this one. It is also the reactivation key after deletion: \"The address remains available and can be reactivated by entering the same Address Code. The system creates a new record.\" (concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md), and the Peppol match key: \"The company ship-to address code maintained in Company Locations in Concur Invoice must match the ship-to address code in the invoices coming from Peppol\" (concur-invoice-professional-edition-admin-guides/limitations-f5fac4b5.md)."
+        },
+        {
+          "order": 5,
+          "page": "Company Locations",
+          "action": "Complete the required address body: Address 1, City, Postal Code and Country Code",
+          "field": "address1",
+          "rationale": "CORPUS-STATED as the required set in the field table - Address 1, City, Postal Code and Country Code are each marked (Required), alongside optional Address 2, Address 3 and State/Province: \"Address 1 of the complete address.\", \"The city within which the address resides.\", \"The postal code of the address.\", \"The code of the country associated with the address.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). These must be complete before Save because Save is what validates the record; there is no partial-save path documented. Fields address2, address3 and stateProvince are optional and can be left empty without consequence."
+        },
+        {
+          "order": 6,
+          "page": "Company Locations",
+          "action": "Enter the Country Code, using the 2-character ISO code if this address will ever be maintained through the import template",
+          "field": "countryCode",
+          "rationale": "CORPUS-STATED conditional format rule: \"If you are using the import template to import company locations, you must use 2 character ISO code.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). Deciding the format at creation matters because the import is the update path (see grp5b-company-locations-import-addresses) - a hand-typed country value that is not ISO-2 will not round-trip. BLIND-BUILD WARNING: the corpus attaches NO enumerated code list to this field. The one large country-code catalog in the corpus scopes itself to the vendor import file, and wiring it to this control would be an unsupported inference, so the automation must read the accepted values at runtime."
+        },
+        {
+          "order": 7,
+          "page": "Company Locations",
+          "action": "On a bill-to address, enter the VAT ID where the country requires it",
+          "field": "vatId",
+          "rationale": "CORPUS-STATED, and it is the field that proves the two tabs are not interchangeable: \"The VAT of the buyer.\" with \"This is only applicable on the bill-to address and required by some European countries.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). It is nominally optional, so omitting it on a European bill-to address produces a saved, complete-looking record that is wrong for tax purposes - nothing on this page flags it."
+        },
+        {
+          "order": 8,
+          "page": "Company Locations",
+          "action": "On a bill-to address, select the Add address as a Ship To Location as well check box if the same address should also exist as a ship-to location",
+          "field": "addAddressAsShipToLocationAsWell",
+          "rationale": "CORPUS-STATED: \"Select (enable) this check box if you would like to populate the ship-to address with the same address information as the bill-to address.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). INFERRED, and the reason this sits before Save rather than after: the check box is a control inside the Add New window, and the corpus documents no post-save action that copies an existing bill-to address to the Ship To tab. Miss it and the only documented recovery is to create the ship-to address again by hand. BLIND-BUILD NOTE: no Yes/No value pair is documented - it is a single check box, and its unchecked behaviour is not stated."
+        },
+        {
+          "order": 9,
+          "page": "Company Locations",
+          "action": "Select Save and confirm the new row appears on the Company Locations page",
+          "field": "saveButton",
+          "rationale": "CORPUS-STATED: \"Select Save to enter the new address into Concur Invoice.\" followed by \"The new address appears as a row on the Company Locations page.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). The row's appearance is the only documented confirmation, and it must be observed before order 10, because the policy's Bill To picker draws on saved addresses only."
+        },
+        {
+          "order": 10,
+          "page": "Policies",
+          "action": "On the policy that should default to this address, set Bill To (Optional) to the new address by its Name",
+          "field": "Bill To (Optional)",
+          "rationale": "CORPUS-STATED cross-page consumption, and the direction of the dependency is explicit: the Company Locations Name is the value shown \"when creating a policy and selecting the value for Bill To.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). Run the policy work first - as grp1-s1-create-policy-and-activate-for-group does - and the Bill To list simply does not contain this address, leaving a policy that looks configured with an empty default. Search behaviour to drive the control correctly: \"The system searches for your location by using the Name value.\" (same file)."
+        }
+      ]
+    },
+    {
+      "id": "grp5b-company-locations-import-addresses",
+      "name": "Bulk-load shipping or billing addresses through the Company Locations import",
+      "goal": "Many addresses land on the correct tab in one pass, with a readable outcome. The whole procedure is tab-scoped and template-shaped, and both are easy to get wrong invisibly: the import runs against whichever tab is selected, and the corpus never publishes the template's column names anywhere, so an operator who skips the template download is guessing at headers. The country format rule is stated on the field, not in the import topic, so it is routinely missed. Finally, the Import Summary is transient - close it without reading and the only remaining record is the import history section.",
+      "pages": [
+        "Company Locations"
+      ],
+      "fields": [
+        "shipToTab",
+        "billToTab",
+        "exportAllButton",
+        "importButton",
+        "downloadImportTemplateLink",
+        "browseButton",
+        "openButton",
+        "importSubmitButton",
+        "importSummaryCloseButton",
+        "addressCode",
+        "countryCode"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Company Locations",
+          "action": "Select the tab the addresses must land on - Ship To or Bill To",
+          "field": "shipToTab",
+          "rationale": "CORPUS-STATED and it is step 1 of the documented procedure, before any file is touched: \"On the Company Locations page, select the Ship To tab.\" (concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md). The import window that opens at order 3 is named for the tab (Import Ship To Locations), so the tab, not the file, decides which record set is loaded. Importing bill-to data with the Ship To tab selected is not documented to be detected or rejected - use field billToTab for the billing case."
+        },
+        {
+          "order": 2,
+          "page": "Company Locations",
+          "action": "Select Export All first and keep the resulting spreadsheet as the before-picture of this tab",
+          "field": "exportAllButton",
+          "rationale": "INFERRED - the corpus does NOT sequence export before import, and this step is added on reasoning that must be labelled as such. The reasoning: \"An Excel spreadsheet is created containing all the ship-to or bill-to addresses on the Company Locations page.\" (concur-invoice-professional-edition-tools-guides/export-shipping-or-billing-addresses-59f051b2.md) makes Export All the only documented read-back of the existing set, and Address Code is known to be the identity key on which an existing record is updated rather than duplicated (\"Identical records are those that share the same Address Code (in Company Locations) and External ID (within the associated record in the PO import).\", concur-invoice-professional-edition-tools-guides/how-company-locations-works-with-the-purchase-order-import-ed09e36a.md). DOCUMENTED GAP, stated rather than papered over: the corpus never says what THIS page's import does on an Address Code collision - only what the PO import does. The export is therefore the operator's only defence, not a documented safeguard."
+        },
+        {
+          "order": 3,
+          "page": "Company Locations",
+          "action": "Select the Import button to open the Import Ship To Locations window",
+          "field": "importButton",
+          "rationale": "CORPUS-STATED: \"Select the Import button. The Import Ship To Locations window appears.\" (concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md). This button only opens the window - it does not import. The control that actually submits is a second, identically labelled Import inside the window (order 7), which is the highest-risk label collision on this page for an automation."
+        },
+        {
+          "order": 4,
+          "page": "Company Locations",
+          "action": "Select the Download the import template link and build the file from the downloaded headers",
+          "field": "downloadImportTemplateLink",
+          "rationale": "CORPUS-STATED as optional - \"Select Download the import template link if you want to download a template with the field names already filled in.\" (concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md) - but treated here as effectively mandatory because of a DOCUMENTED GAP: the corpus never lists this template's column names anywhere, in either guide directory. The Purchase Order import's 210 and 220 record formats are a different mechanism and must not be substituted for them. Skipping this download therefore leaves the header set unknowable from the documentation, and a header mismatch is discovered only in the Import Summary at order 7."
+        },
+        {
+          "order": 5,
+          "page": "Company Locations",
+          "action": "Before uploading, confirm the file's country column uses 2-character ISO codes",
+          "field": "countryCode",
+          "rationale": "CORPUS-STATED, but stated on the FIELD rather than in the import procedure, which is why it is routinely missed: \"If you are using the import template to import company locations, you must use 2 character ISO code.\" (concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md). This is the one format rule the corpus makes explicit for the import path, and it must be satisfied in the file before order 6 - there is no per-row correction step inside the import window."
+        },
+        {
+          "order": 6,
+          "page": "Company Locations",
+          "action": "Select Browse, locate the file, select it and select Open",
+          "field": "browseButton",
+          "rationale": "CORPUS-STATED as two consecutive documented actions: \"Select Browse and locate the file that you want to import.\" then \"Select the file and then select Open.\" (concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md). The second half (field openButton) is an operating-system file dialog rather than a Concur control, which matters to a browser automation: it cannot be driven through the page's DOM and must be handled as a file-chooser interaction."
+        },
+        {
+          "order": 7,
+          "page": "Company Locations",
+          "action": "Select Import inside the window to run the load, then read the Import Summary page",
+          "field": "importSubmitButton",
+          "rationale": "CORPUS-STATED: \"Select Import.\" followed by \"The Import Summary page appears.\" (concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md). This is the irreversible point - the corpus documents no undo, no preview and no validation stage before it, which is why the tab choice (order 1), the template (order 4) and the country format (order 5) all have to be settled beforehand. The Import Summary is the first and most detailed report of what happened; read it before order 8."
+        },
+        {
+          "order": 8,
+          "page": "Company Locations",
+          "action": "Click Close, then check the import history section of the Import Ship To Locations page for status",
+          "field": "importSummaryCloseButton",
+          "rationale": "CORPUS-STATED: \"Click Close.\" and \"The status of the imported information appears on the Ship To Locations import history section of the Import Ship To Locations page.\" (concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md). Order matters because the two surfaces are not equivalent: the Summary is transient and closing it is what returns the operator to the durable history section. INFERRED: the corpus does not state that the history reproduces the Summary's detail, so anything needed from the Summary must be captured before this click."
+        }
+      ]
+    }
+  ]
+}

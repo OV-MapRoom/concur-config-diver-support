@@ -1,0 +1,40 @@
+{
+  "pageId": "budget-configuration",
+  "pageName": "Budget Configuration",
+  "lens": "procedures-and-controls",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/budget-approval-59251c3b.md",
+    "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md",
+    "concur-invoice-professional-edition-admin-guides/vat-at-the-line-item-level-itemization-summary-only-a41e7ad6.md",
+    "concur-invoice-professional-edition-admin-guides/the-condition-page-5d4ea870.md",
+    "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
+  ],
+  "fields": [],
+  "valueSetCandidates": [],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Budget Configuration",
+      "targetField": "",
+      "targetPage": "Shared: Budget Setup Guide (external, not in this corpus)",
+      "condition": "Corpus explicitly defers all budget approval and budget workflow configuration to an external, out-of-corpus guide rather than documenting any control on this page.",
+      "sourceQuote": "For more information about budget approval and budget workflows, refer to the _Shared: Budget Setup Guide_.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/budget-approval-59251c3b.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Budget Configuration",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "A 'Payment Request Budget Submit' workflow event exists, but its configuration belongs to the not-yet-built Workflows page, not to this page.",
+      "sourceQuote": "Payment Request Budget Submit",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
+    }
+  ],
+  "contradictions": [],
+  "compressedRanges": [],
+  "coverageVerdict": "thin",
+  "notes": "NO DOCUMENTARY BASIS FOR THIS PAGE'S CONFIGURATION SURFACE WAS FOUND IN THIS CORPUS, under the Procedures-and-Controls lens or any other. I ran exhaustive case-insensitive searches for 'Budget Configuration', 'budgetConfiguration', and the bare token 'budget' across both admin-guides and tools-guides (22 files hit on 'budget' total) plus both release-note directories. Zero files describe a procedure, button, tab, wizard step, dialog control, list column, checkbox, or input field living on a page named Budget Configuration or reachable at /expense/admin/invoice/budgetConfiguration.asp. Only one file has 'budget' in its filename: budget-approval-59251c3b.md, and it contains no how-to/procedure content at all -- it is a two-paragraph concept topic that explicitly defers: 'For more information about budget approval and budget workflows, refer to the _Shared: Budget Setup Guide_.' That guide is a SHARED deliverable (per its own front matter reference), not part of this Concur Invoice Professional Edition corpus, so it cannot be read or cited here. The same deferral pattern repeats in approver-terminology-8559861c.md, which defines a 'Budget Approver' role ('Budget approvers approves invoice and purchase request transactions.') and again points outward: 'For more information, refer to the _Shared: Budget Setup Guide_.' vat-at-the-line-item-level-itemization-summary-only-a41e7ad6.md adds the provisioning fact 'The Budget feature is a purchased service,' confirming this is an optional module whose admin screens this corpus does not document. I deliberately did NOT harvest the Budget audit-rule data object (Budget Amount / Budget Name / Budget Remaining Amount / Budget Type / HasBudget) from the-condition-page-5d4ea870.md -- those are Audit Rules condition operands already built on a different page, and pulling them onto Budget Configuration would be exactly the page-mis-assignment failure mode this project has already paid for. I likewise did not harvest the 'Payment Request Budget Submit' workflow event from events-triggers-72339a13.md as a field here -- it belongs to the not-yet-built Workflows page; I recorded it only as a dependencyCandidate pointing there. No role gates, no ordering constraints, no raw HTML tables, and no long catalogs exist for this page in this corpus. RECOMMENDATION (repeating the Map phase's honest conclusion): this page has zero fields under every lens examined so far; if other lenses (Map/Refute/other) concur, the page node should either be omitted from the graph or retained only as an explicit zero-field marker naming the Shared: Budget Setup Guide as the true source of its configuration surface. Thin-with-zero-fields is the correct, deliberate answer for this lens -- not an extraction failure."
+}

@@ -1,0 +1,97 @@
+{
+  "pageId": "budget-configuration",
+  "pageName": "Budget Configuration",
+  "lens": "tools-guides-and-cross-cutting",
+  "filesRead": [
+    "concur-invoice-professional-edition-tools-guides/create-and-manage-allocation-favorites-4d3a7e54.md",
+    "concur-invoice-professional-edition-tools-guides/create-and-manage-allocation-favorites-22cb2e7c.md",
+    "concur-invoice-professional-edition-tools-guides/distribute-allocate-a-purchase-request-689dbc62.md",
+    "concur-invoice-professional-edition-tools-guides/select-for-different-vendors-and-project-and-event-based-requests-1f3c9d5b.md",
+    "concur-invoice-professional-edition-tools-guides/understand-conditional-expressions-db3d7418.md",
+    "concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md",
+    "concur-invoice-professional-edition-admin-guides/budget-approval-59251c3b.md",
+    "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md",
+    "concur-invoice-professional-edition-admin-guides/the-condition-page-5d4ea870.md",
+    "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md",
+    "concur-invoice-professional-edition-admin-guides/vat-at-the-line-item-level-itemization-summary-only-a41e7ad6.md",
+    "concur-invoice-professional-edition-admin-guides/benefits-of-using-cost-object-approval-ed5de5de.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-667cee21.md",
+    "concur-invoice-professional-edition-admin-guides/audit-rules-8b297db8.md",
+    "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+    "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-43e3f9aa.md",
+    "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md",
+    "concur-invoice-professional-edition-admin-guides/define-the-who-in-a-transaction-1488d041.md",
+    "concur-invoice-professional-edition-admin-guides/manage-allocation-favorites-9414be27.md",
+    "concur-invoice-professional-edition-admin-guides/manage-allocation-favorites-7c5a05d4.md",
+    "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-request-and-purchase-order-8b36ae07.md"
+  ],
+  "fields": [],
+  "valueSetCandidates": [],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Budget Configuration",
+      "targetField": "",
+      "targetPage": "Audit Rules",
+      "condition": "The Budget feature surfaces on Audit Rules, not here: the Condition page offers a Budget data object ('Budgets associated with an invoice or purchase request') whose operands are Actual Pending Consumption Percent, Actual Spent Consumption Percent, Alert Limit, Budget Amount, Budget Name, Budget Remaining Amount, Budget Type, Committed Pending Consumption Percent, Committed Spent Consumption Percent, Control Limit, HasBudget, Pending Consumption Percent, Period Type, Spent Consumption Percent. These are Audit Rules condition operands, already built there, and must NEVER be re-homed onto this page as if they were budget-configuration fields.",
+      "sourceQuote": "Budget: Budgets associated with an invoice or purchase request",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/the-condition-page-5d4ea870.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "",
+      "sourcePage": "Budget Configuration",
+      "targetField": "",
+      "targetPage": "Audit Rules",
+      "condition": "Audit rules can fire on a budget-related workflow event, but the corpus documents the event on the Audit Rules / Events and Triggers side only. No budget-side control is documented.",
+      "sourceQuote": "Payment Request Budget Submit: The rule is triggered when an invoice or purchase request is associated with a submitted budget.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Audit Rules",
+      "targetField": "",
+      "targetPage": "Budget Configuration",
+      "condition": "Even the audit-rule notification fields for Budget are not documented in this corpus - the Add a Custom Audit Rule procedure defers outward to the external Shared: Budget Setup Guide at exactly the point where budget notification fields would be enumerated. Same deferral appears verbatim in add-a-custom-audit-rule-43e3f9aa.md (the imperative/gerund twin, same deliverable content).",
+      "sourceQuote": "Complete the fields. (For audit rule notifications for Budget, refer to the Shared: Budget Setup Guide.)",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Budget Configuration",
+      "condition": "Budget approval is configured as a workflow step, not on a standalone budget screen the corpus describes. A budget workflow for purchase requests includes a budget approval step. Workflows is NOT yet built, so this dependency legitimately stays unresolved.",
+      "sourceQuote": "Clients who use the Budget feature can set up budget approval for both invoices and purchase requests.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/budget-approval-59251c3b.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Budget Configuration",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "Role/permission cross-reference: a Budget Approver role exists and approves invoice and purchase request transactions, but approver-terminology defers its configuration to the same external Shared: Budget Setup Guide. No role-assignment control on this page is documented.",
+      "sourceQuote": "Budget Approver: Budget approvers approves invoice and purchase request transactions.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Budget Configuration",
+      "targetField": "",
+      "targetPage": "Budget Configuration",
+      "condition": "PROVISIONING PREREQUISITE (the only prerequisite the corpus states for anything budget-related): the Budget feature is a purchased service, so this page may not exist on a site that has not purchased it. This is a provisioning gate, not a configurable control.",
+      "sourceQuote": "The Budget feature is a purchased service.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/vat-at-the-line-item-level-itemization-summary-only-a41e7ad6.md"
+    }
+  ],
+  "contradictions": [],
+  "compressedRanges": [],
+  "coverageVerdict": "thin",
+  "notes": "ZERO FIELDS IS THE CORRECT ANSWER AND I AM STATING IT EXPLICITLY: the configuration surface of the Budget Configuration page (/expense/admin/invoice/budgetConfiguration.asp) HAS NO DOCUMENTARY BASIS IN THIS CORPUS. THE CORPUS DEFERS TO AN EXTERNAL GUIDE NAMED 'Shared: Budget Setup Guide', WHICH IS NOT PRESENT HERE (this corpus is Concur Invoice Professional Edition only). That deferral is stated three separate times, in budget-approval-59251c3b.md ('For more information about budget approval and budget workflows, refer to the _Shared: Budget Setup Guide_.'), in approver-terminology-8559861c.md for the Budget Approver role, and in both copies of add-a-custom-audit-rule (0f1d320e / 43e3f9aa) at the exact point where budget notification fields would have been enumerated. WHAT I SEARCHED (both guide dirs AND both release-note dirs, all 2230 files): the literal strings 'Budget Configuration' and 'budgetConfiguration' return ZERO hits corpus-wide; so do 'Budget Admin', 'Budget Item', 'Budget Manager', 'Budget Viewer', 'Budget Category', 'Manage Budget'. A nav-shape search for '> Budget' or 'Budget >' returns zero, so there is NO navigation path to record. The two release-note directories contain ZERO occurrences of 'budget' in any form - that negative corroborates the absence rather than dating a UI variant, and no release note is cited as a sourceFile. LENS-C SPECIFIC FINDING - I EXHAUSTED TOOLS-GUIDES FIRST, AND THE RECON INVENTORY MISSED IT: recon listed no tools-guides files at all, but six tools-guides files do contain the token 'budget'. I read all six and every one is INCIDENTAL COMMON-NOUN PROSE, not the Budget feature: create-and-manage-allocation-favorites-4d3a7e54 and -22cb2e7c ('correctly identify and budget the expense to the accounting system', a verb); distribute-allocate-a-purchase-request-689dbc62 ('managing departmental budgets'); select-for-different-vendors-and-project-and-event-based-requests-1f3c9d5b ('budget appropriate'); understand-conditional-expressions-db3d7418 ('AmountRemaining for EuropeBudget', an invented example group name inside an audit-rule expression); workflow-and-approval-routing-8b4ff6c9 (a best-practice note about routing large PO-based invoices to give an approver 'budget insight' - Workflows advice, not a budget control). NONE yields a field, a value, or a role gate for this page. So the tools-guides skew this lens exists to correct genuinely has nothing to contribute here, which is itself the finding. NO REQUIRED-ROLES, LIMITATIONS, PREREQUISITES, IMPORT/EXPORT RECORD-LAYOUT, OR INTEGRATION TOPIC FOR THIS PAGE EXISTS IN EITHER GUIDE DIRECTORY. The single prerequisite-shaped statement anywhere is provisioning, not configuration: 'The Budget feature is a purchased service.' UI VARIANT: left 'undifferentiated'. I searched 'new experience', 'new ui', 'legacy', and 'current user interface' against every budget-bearing file and found no variant evidence; with zero documented controls there is nothing to have read twice, so a 'both' claim would be unearned - I am not adding a fourth. RAW <table> CENSUS: zero <table> elements in any budget-bearing file, so no HTML-table catalog was missed. LONG CATALOGS: the only enumeration in the vicinity is the 14-entry Budget data object operand list on the Condition page; I recorded it COMPLETE AND VERBATIM inside a dependencyCandidate condition rather than as fields, because it belongs to AUDIT RULES (already built) and re-homing it here would be exactly the mis-assignment failure this project has already paid for. Likewise 'Payment Request Budget Submit' belongs to Workflows (not yet built), 'Budget Center' in define-the-who-in-a-transaction-1488d041 is only an EXAMPLE accounting segment name under Accounting Administration (already built), the allocation files are Allocations, and the general-information-8b3b0308 / purchase-request-and-purchase-order-8b36ae07 / audit-rules-8b297db8 hits are revision-history lines. WHAT I COULD NOT DETERMINE: everything about this page's actual controls - whether it has budget name, budget type, period type, control/alert limit, or owner fields; whether the Condition-page operand names mirror on-page field labels (plausible, and therefore forbidden to assume); what roles gate it; and where it hangs in the nav tree. RECOMMENDATION TO THE MERGE: keep this page node as an explicit zero-field 'documented elsewhere' marker naming the Shared: Budget Setup Guide, or omit it. Do not let a later pass synthesise a plausible budget-configuration screen from the audit-rule operand list."
+}

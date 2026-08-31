@@ -1,0 +1,467 @@
+{
+  "pageId": "company-locations",
+  "pageName": "Company Locations",
+  "lens": "C",
+  "filesRead": [
+    "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+    "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md",
+    "concur-invoice-professional-edition-tools-guides/overview-8b494195.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-476a5f62.md",
+    "concur-invoice-professional-edition-tools-guides/edit-a-shipping-or-billing-address-c8138913.md",
+    "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+    "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+    "concur-invoice-professional-edition-tools-guides/export-shipping-or-billing-addresses-59f051b2.md",
+    "concur-invoice-professional-edition-tools-guides/how-company-locations-works-with-the-purchase-order-import-ed09e36a.md",
+    "concur-invoice-professional-edition-tools-guides/search-for-a-ship-to-or-bill-to-address-1d864cfe.md",
+    "concur-invoice-professional-edition-tools-guides/assign-or-select-a-default-shipping-address-bf0bdfe0.md",
+    "concur-invoice-professional-edition-tools-guides/company-locations-8b49554d.md",
+    "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-18a4dbb6.md",
+    "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-2c926795.md",
+    "concur-invoice-professional-edition-tools-guides/change-ship-to-address-564e516a.md",
+    "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md",
+    "concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md",
+    "concur-invoice-professional-edition-admin-guides/country-code-list-8b3e2eda.md",
+    "concur-invoice-professional-edition-admin-guides/limitations-f5fac4b5.md",
+    "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md",
+    "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+    "concur-invoice-professional-edition-admin-guides/step-4-additional-configuration-steps-37f6c7ba.md",
+    "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md",
+    "concur-invoice-professional-edition-admin-guides/create-an-invoice-with-tax-validation-a515e7a3.md",
+    "concur-invoice-professional-edition-admin-guides/shipping-configuration-and-shipping-terms-3429ee14.md"
+  ],
+  "fields": [
+    {
+      "name": "shipToTab",
+      "label": "Ship To",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "1.  On the Company Locations page, select the Ship To tab.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "One of the two attested tabs on the page. Corroborated in admin-guides: 'Add one or more shipping addresses by clicking Ship To and then New.' The tab scopes every action on the page (New / Modify / Remove / Import / Export All).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "billToTab",
+      "label": "Bill To",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "1.  On the Company Locations page, select the Ship To or Bill To tab.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "Second tab. The per-tab field set is NOT identical: VAT ID is documented as 'only applicable on the bill-to address', and the 'Add address as a Ship To Location as well' check box only makes sense on the bill-to form. The corpus never shows the bill-to add window separately - the 12-row field table is written from the ship-to path with bill-to-only annotations.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "newButton",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "2.  Select New to open the Add New Ship To Location window.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Opens the Add New Ship To Location window (the modal that carries the 12 address fields). The corpus never names the bill-to equivalent window.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "modifyButton",
+      "label": "Modify",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the address and select Modify",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/edit-a-shipping-or-billing-address-c8138913.md",
+      "notes": "Two documented paths to the same modal: select the row then Modify, or 'Double-click the address directly'. Opens the Modify Ship To Location window. Addresses that arrived via the Purchase Order import are editable here too: 'You can edit shipping and billing addresses that were created in Company Locations or imported through the Purchase Order import.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "removeButton",
+      "label": "Remove",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "3.  Select Remove. The following confirmation message appears:",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "Multi-select is supported ('Select the address or addresses.'). SOFT DELETE semantics, important for automation: 'The address remains available and can be reactivated by entering the same Address Code. The system creates a new record.' - so a re-add after a Remove does NOT restore the original row identity.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "removeConfirmation",
+      "label": "Remove selected Company Locations",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Remove selected Company Locations",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "Confirmation dialog raised by Remove. The only documented affirmative control is Yes: 'Select Yes to remove the address from the Company Locations page.' The corpus never names the negative control - do NOT assume a No/Cancel button; that half of the pair is undocumented here.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "importButton",
+      "label": "Import",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "2.  Select the Import button. The Import Ship To Locations window appears.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "Tab-scoped bulk load from an Excel file. Opens the Import Ship To Locations window; the run ends on an Import Summary page, then 'Click Close.' and 'The status of the imported information appears on the Ship To Locations import history section of the Import Ship To Locations page.' The bill-to equivalent window is never named.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "downloadImportTemplateLink",
+      "label": "Download the import template",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Download the import template link if you want to download a template with the field names already filled in.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "PUBLISHABLE DOCUMENTED GAP: the template's COLUMN LIST is nowhere in this corpus. The topic says only that the template arrives with 'the field names already filled in' and never enumerates them. The nearest documented column set is the Purchase Order import 210/220 record format, which is a DIFFERENT import - see contradictions. The Country Code row of the add-address table is the one hint that the template and the UI share fields ('If you are using the import template to import company locations, you must use 2 character ISO code.').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "browseButton",
+      "label": "Browse",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "4.  Select Browse and locate the file that you want to import.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "File picker inside the Import Ship To Locations window; followed by 'Select the file and then select Open.' then 'Select Import.' Marked 'English Only' in the source, which in this corpus flags a screenshot, not a language restriction on the control.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "exportAllButton",
+      "label": "Export All",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "2.  Select the Export All button.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/export-shipping-or-billing-addresses-59f051b2.md",
+      "notes": "Tab-scoped: 'An Excel spreadsheet is created containing all the ship-to or bill-to addresses on the Company Locations page.' No column layout for the export file is documented anywhere in this corpus, and no filtered/partial export is documented - Export All is the only export control attested.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "saveButton",
+      "label": "Save",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "4.  Select Save to enter the new address into Concur Invoice.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Commits the Add New Ship To Location window; the same Save commits the Modify Ship To Location window ('3.  Select Save.' in edit-a-shipping-or-billing-address-c8138913.md). Post-condition: 'The new address appears as a row on the Company Locations page.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "A unique name that identifies a specific address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED per the add-address table. This is the value the rest of the product keys off for human selection: 'This is the value that displays when choosing a default shipping address in Profile > Profile Settings > Invoice Preferences, and when creating a policy and selecting the value for Bill To.' Search tip in the same table: 'The system searches for your location by using the Name value.' CONTRADICTION with the PO import, where Name is Required? = N - see contradictions.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addressCode",
+      "label": "Address Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "This is the external identifier used by the customer's financial system to identify a specific address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED. The page's true identity key across three integrations: (1) 'This value is identical to the External ID field used in the Bill To and Ship To record sets of the Purchase Order import.' and the PO import matches on it; (2) the Employee Import 360-record set assigns a user's default shipping address by Address Code; (3) Peppol matches inbound invoices on the ship-to address code. Re-entering a removed Address Code reactivates the address as a NEW record.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "address1",
+      "label": "Address 1",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Address 1 of the complete address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED per the add-address table. No length limit is documented for the Company Locations UI field; the PO import's own Address 1 column is capped at 'Maximum 255 characters', but that limit is documented for the import record, not for this field.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "address2",
+      "label": "Address 2",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Address 2 of the complete address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional per the add-address table. Same description string appears in the PO 210 and 220 record formats; the quote is verified against the Company Locations file.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "address3",
+      "label": "Address 3",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Address 3 of the complete address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional per the add-address table.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "city",
+      "label": "City",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The city within which the address resides.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED per the add-address table.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "postalCode",
+      "label": "Postal Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The postal code of the address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED per the add-address table. No format or length rule documented for the UI field.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "countryCode",
+      "label": "Country Code",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "If you are using the import template to import company locations, you must use 2 character ISO code.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED. Described as 'The code of the country associated with the address.' The only constraint stated is the 2-character ISO rule, and it is stated FOR THE IMPORT TEMPLATE, not for the on-screen control - so the UI widget type is genuinely undetermined (text vs list). DELIBERATELY NOT WIRED to the 249-row country-code catalog in country-code-list-8b3e2eda.md: that catalog's documented scope is 'the country code list that you use when creating the vendor import file' and nothing in the corpus points it at Company Locations. Attaching it would be inference. See notes for where the catalog lives.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "stateProvince",
+      "label": "State/Province",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "The state or province within which the address resides.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "OPTIONAL per the add-address table. Widget type is undetermined in the current text; only the guide's revision history hints at a list ('Updated images to show that the State/Province field has changed to a list when creating a new ship-to or bill-to address.', March 18, 2016) - a revision-history line is dating evidence, not a documented enumeration, so no values are recorded. CONTRADICTION: the PO import 210/220 record formats mark State/Province Required? = Y.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "emailAddress",
+      "label": "Email Address",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The email address of the contact at the company location.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "OPTIONAL. Added April 2018 per the guide revision history ('Updated to accommodate the addition of the email address field to the add and modify ship-to and bill-to windows.'). CROSS-CUTTING CONSUMER: the Purchase Orders configuration topic requires a value here before the Use Email as Bill-To header field works - see dependencyCandidates. Note that topic calls it 'the bill-to email address field in the Company Locations tool', a different rendering of the same control.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vatId",
+      "label": "VAT ID",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "This is only applicable on the bill-to address and required by some European countries.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "OPTIONAL, described as 'The VAT of the buyer.' This is the one field that makes the two tabs structurally different - it is bill-to only. The corpus never enumerates which European countries require it. Added September 2016 per the guide revision history.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addAddressAsShipToLocationAsWell",
+      "label": "Add address as a Ship To Location as well",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Select (enable) this check box if you would like to populate the ship-to address with the same address information as the bill-to address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "OPTIONAL. Bill-to-side convenience that writes the same address into the ship-to tab. Only the enabled behaviour is documented; the cleared behaviour is NOT stated anywhere and is not inferred here. Added November 2016 per the guide revision history ('Added information about populating ship-to and bill-to address with the same company location information.').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "shipToAddressSearch",
+      "label": "Ship To Address",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "To search for a ship-to or bill-to address, start entering the company name in the Ship To Address or Bill To Address field.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-a-ship-to-or-bill-to-address-1d864cfe.md",
+      "notes": "AMBIGUOUS PAGE OWNERSHIP - EMITTED WITH THE CAVEAT, per the end-user/admin rule. The topic sits in the Company Locations guide set but never names the Company Locations page, and the same type-ahead is described in the purchase-request topics. Type-ahead behaviour: 'The list that appears shows the company name and the full address details. In addition, the list shows the default address.' Admin-guides corroborates the same search mechanic and adds an alternative: 'Alternatively, you can click the down arrow to return a list of all system addresses from which to choose.' AUTOMATION-CRITICAL: the search matches on the Name value, NOT the address text.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "billToAddressSearch",
+      "label": "Bill To Address",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The list that appears shows the company name and the full address details. In addition, the list shows the default address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-a-ship-to-or-bill-to-address-1d864cfe.md",
+      "notes": "Bill-to twin of shipToAddressSearch, same ambiguity caveat - the corpus describes the two fields in a single sentence and never states which page hosts them. Recorded separately only because the corpus names two distinct labels.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "addressCode",
+      "sourcePage": "Company Locations",
+      "targetField": "External ID",
+      "targetPage": "Purchase Order import (record types 210 and 220)",
+      "condition": "Address Code in Company Locations and External ID in the PO import 210/220 records are the same identifier; a PO import carrying a matching pair UPDATES the existing Company Locations row instead of creating a new one.",
+      "sourceQuote": "Identical records are those that share the same Address Code (in Company Locations) and External ID (within the associated record in the PO import).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/how-company-locations-works-with-the-purchase-order-import-ed09e36a.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "addressCode",
+      "sourcePage": "Company Locations",
+      "targetField": "Default Shipping Address",
+      "targetPage": "Employee Import (360-level record set)",
+      "condition": "The Employee Import assigns a user's default shipping address by quoting the Address Code of an address that must already exist in Company Locations.",
+      "sourceQuote": "To assign a user's preferred shipping address, use the 360-record set (Invoice Employee Import) in the Employee Import. Specify the Address Code of the preferred address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/assign-or-select-a-default-shipping-address-bf0bdfe0.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "name",
+      "sourcePage": "Company Locations",
+      "targetField": "Default Shipping Address",
+      "targetPage": "Profile > Invoice Preferences (end-user self-service)",
+      "condition": "The Name value is what appears in the user's default-shipping picker and in the policy Bill To picker, so it is the string any automation must supply downstream.",
+      "sourceQuote": "This is the value that displays when choosing a default shipping address in Profile > Profile Settings > Invoice Preferences, and when creating a policy and selecting the value for Bill To.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "name",
+      "sourcePage": "Company Locations",
+      "targetField": "Bill To",
+      "targetPage": "Policies",
+      "condition": "A policy's Bill To value is selected from addresses created in Company Locations; the Name is the selectable value.",
+      "sourceQuote": "Be sure to type in the name of the location whenever you are asked for a Bill To or Ship To address you create by using Company Locations.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "shipToTab",
+      "sourcePage": "Company Locations",
+      "targetField": "Country",
+      "targetPage": "Tax Administration (Tax Authorities)",
+      "condition": "Tax authority resolution reads the ship-to information maintained on Company Locations to decide whether a transaction is domestic or foreign; Company Locations must be populated first.",
+      "sourceQuote": "Invoice will pull the ship-to information from the Company Locations page in Administration to know where the expense incurred or the location to which the vendor will ship the goods or services.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "shipToTab",
+      "sourcePage": "Company Locations",
+      "targetField": "Default Shipping Address",
+      "targetPage": "Tax Validation configuration",
+      "condition": "Tax Validation names Company Locations a REQUIRED prerequisite: a Ship To value must exist here and be selected on the employee profile.",
+      "sourceQuote": "The Tax Validation feature requires that a Ship To value specified in Company Locations be selected in the employee’s Profile > Invoice Preferences > Default Shipping Address field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-additional-configuration-steps-37f6c7ba.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "addressCode",
+      "sourcePage": "Company Locations",
+      "targetField": "ship-to address code",
+      "targetPage": "Peppol Configuration",
+      "condition": "Hard integration constraint: the Company Locations ship-to address code must match the code on inbound Peppol invoices or invoice creation fails. Peppol Configuration is not yet built in this graph - dependency left open.",
+      "sourceQuote": "The company ship-to address code maintained in Company Locations in Concur Invoice must match the ship-to address code in the invoices coming from Peppol. If the address codes don't match, invoice creation fails.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/limitations-f5fac4b5.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "emailAddress",
+      "sourcePage": "Company Locations",
+      "targetField": "Use Email as Bill-To",
+      "targetPage": "Forms and Fields (Purchase Order Header form)",
+      "condition": "The Use Email as Bill-To header field only functions once the field has been added to the Purchase Order Header form AND an email address has been entered on the bill-to record in Company Locations.",
+      "sourceQuote": "Provided the admin has added the Use Email as Bill-To field to the Purchase Order Header form in the Forms and Fields tool and entered an email address in the bill-to email address field in the Company Locations tool",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "importButton",
+      "sourcePage": "Company Locations",
+      "targetField": "Ship To Locations import history",
+      "targetPage": "Company Locations",
+      "condition": "An import run posts its outcome to an on-page history section rather than to a separate admin tool - the automation's success check lives here.",
+      "sourceQuote": "The status of the imported information appears on the Ship To Locations import history section of the Import Ship To Locations page.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "topic": "State/Province required-vs-optional",
+      "readingA": "Company Locations UI: State/Province is marked '(Optional)' in the add-address field table, and the guide revision history records it being changed TO optional in September 2016.",
+      "readingB": "Purchase Order import: both the Bill-To 210 and Ship-To 220 record formats mark State/Province Required? = 'Y' with 'Maximum 255 characters'. Since 210/220 addresses land in Company Locations, the same logical address is optional by hand and mandatory by import. Not reconciled - these are two different entry paths and the corpus never addresses the discrepancy.",
+      "files": [
+        "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+        "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+      ]
+    },
+    {
+      "topic": "Name required-vs-optional",
+      "readingA": "Company Locations UI: Name is '(Required)' and is described as the value every downstream picker and search uses.",
+      "readingB": "Purchase Order import 210/220: Name is Required? = 'N', 'An optional name that can be used to identify a particular address.' So a PO-imported address can legally arrive with no Name, i.e. with nothing for a user to search on in the Profile or policy Bill To pickers.",
+      "files": [
+        "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+        "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+      ]
+    },
+    {
+      "topic": "Country Code length definition across the two PO address records",
+      "readingA": "Bill-To 210 defines Country Code as '2 characters'.",
+      "readingB": "Ship-To 220 defines the same column as 'Maximum 2 characters'. Minor, but the two twin tables are otherwise byte-identical in this column, so the difference is a documentation inconsistency, not a product difference. Neither statement is documented for the Company Locations UI field itself, which only carries the import-template ISO rule.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md",
+        "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+      ]
+    },
+    {
+      "topic": "Name of the external Company Locations guide",
+      "readingA": "'Concur Invoice: Company Locations Setup Guide' (understand-and-use-company-locations-377ff23e.md, and again in create-an-invoice-with-tax-validation-a515e7a3.md).",
+      "readingB": "'Concur Invoice: Company Locations User Guide' (set-a-default-shipping-and-billing-address-f772bed1.md) and 'Shared: Locations Setup Guide' (provide-a-location-for-the-tax-service-6ba2cb41.md). Three names for what is presumably one document; none of the three is present in this corpus.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md",
+        "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+      ]
+    },
+    {
+      "topic": "Navigation rendering and menu alias",
+      "readingA": "'Company Locations is accessible from the Invoice Processing Admin menu.' - a 4-hop path through the middle nav node, but the numbered steps in the same topic say only 'Go to Administration > Invoice.' then 'Select Company Locations (left menu).'",
+      "readingB": "Admin-guides renders it as a 3-hop 'Administration > Invoice > Company Locations' (and as the no-space escaped 'Administration\\> Invoice' in 377ff23e), while provide-a-location-for-the-tax-service-6ba2cb41.md roots the path at the alias 'Invoice Admin > Company Locations'. Both hops and both menu names are recorded rather than reconciled.",
+      "files": [
+        "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md",
+        "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md"
+      ]
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": "Ten unused reserved columns at the end of the Purchase Order Bill-To (210) record. Required? = N. 'The future\\_use fields are currently not in use. Please account for them in your import, but do not put any data into them. All data will be ignored.' Positional placeholders - an import file must still carry the ten empty columns. This belongs to the PO import record layout, not to the Company Locations import template.",
+      "count": 10,
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+    },
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": "Identical ten reserved columns at the end of the Purchase Order Ship-To (220) record, same Required? = N and same wording as the 210 twin.",
+      "count": 10,
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+    }
+  ],
+  "coverageVerdict": "good",
+  "notes": "SOURCE SKEW CONFIRMED - THE VENDOR SEARCH ADMIN PATTERN, AGAIN. Every procedural topic for this page (access, overview, required roles, add, edit, delete, import, export, search, default assignment, PO-import interaction) is in TOOLS-GUIDES; the eight admin-guides hits are cross-references from Purchase Orders, Tax Validation, Tax Authorities and Peppol. An admin-guides-first search recovers no field catalog at all. Of the 25 fields emitted here, 23 cite tools-guides. CENSUS TRAP REPRODUCED: add-a-shipping-or-billing-address-3b51c816.md scores grep -c '^|' = 0 because SAP indents the table inside numbered step 3; grep -cE '^ *\\|' = 39. Any pipeline anchoring tables at the line start will silently miss this page's entire 12-row field catalog.\n\nWHAT I COULD NOT DETERMINE. (1) The Company Locations IMPORT TEMPLATE COLUMN LIST is not documented anywhere in this corpus - 601c2549 says only that the template arrives with 'the field names already filled in'. The 210/220 PO record layouts are the nearest documented column set and are explicitly a DIFFERENT import, so they are recorded here as dependencies, contradictions and compressed ranges rather than as fields of this page. This gap is a publishable finding, not an extraction failure. (2) The export file's column layout is likewise undocumented. (3) Widget types for Country Code and State/Province are undetermined; only a 2016 revision-history line hints State/Province became a list, which is dating evidence, not an enumeration - no values invented. (4) The negative control on the 'Remove selected Company Locations' confirmation is never named; only Yes is documented, and the No/Cancel half was deliberately NOT completed. (5) The cleared state of 'Add address as a Ship To Location as well' is undocumented and not inferred. (6) The corpus never shows the bill-to add/modify windows separately - the field table is written from the ship-to path with bill-to-only annotations on VAT ID.\n\nCOUNTRY CODE CATALOG - DELIBERATELY NOT WIRED. country-code-list-8b3e2eda.md carries a 249-row Code/Country/Notes table (AF AFGHANISTAN through ZW ZIMBABWE, including AX ÅLAND ISLANDS and the retired YU YUGOSLAVIA) plus the rule 'It is important that you use capital letters (ALL CAPS) for the country code.' Its documented scope is verbatim: 'The following lists the country code list that you use when creating the vendor import file.' Nothing in the corpus points that list at Company Locations, whose Country Code row says only 'you must use 2 character ISO code'. Attaching it here would be inference, so valueSetCandidates is empty by design and the catalog is flagged for whichever vendor-import page claims it. (The second file country-code-list-8b3e41a4.md is that guide's revision-history cover topic and contains no codes - the two are NOT competing lists.)\n\nUI VARIANT. I searched every Company-Locations-bearing file for 'new experience', 'new ui', 'legacy', 'current user interface' and 'two user interfaces'. The ONLY hits are two revision-history rows in company-locations-8b49554d.md ('Added information about the two user interfaces', Sept 2014; 'Updated the screen shots to the enhanced UI', Jan 2015). Revision history is dating evidence only, and no variant-differentiated body text exists. Every field is therefore 'undifferentiated'. No 'both' claimed - I did not read two matching variants because none exist.\n\nMUST-READS READ BUT NOT EMITTED AS FIELDS OF THIS PAGE. The three change-address topics (18a4dbb6, 2c926795, 564e516a) are END-USER purchase-request/purchase-order actions, not admin configuration, and they are three genuinely DIFFERENT flows, not republished twins: 18a4dbb6 is a purchase REQUEST with a 'Change' link in the Ship To or Bill To section; 2c926795 is a purchase ORDER with an 'Edit' link opening a 'Change Address window'; 564e516a is the purchase request PROCESSOR path with a 'Change' link in the 'Ship To Address section'. Different objects, different controls, different actors - so no UI-variant claim and no fields on this page. company-locations-8b49554d.md is the guide cover and revision history: cited throughout these notes for dating, never as a field source.\n\nSELF-FOUND FILES beyond the inventory: I ran grep -rl 'Company Locations' across both guide directories and it returned exactly the 18 files the inventory predicted - no additional file. configure-purchase-orders-8128725e.md, listed only under ALSO RELEVANT, turned out to carry a real cross-cutting constraint on the Email Address field (Use Email as Bill-To) and is now cited. shipping-configuration-and-shipping-terms-3429ee14.md was read and yielded nothing about this page - Shipping Configuration is a separate, unbuilt tool sharing only the Invoice Configuration administrator role gate.\n\nUNRESOLVED DEPENDENCIES left open on purpose: Peppol Configuration, Purchase Order import / PO Matching, Employee Import, Tax Administration and Profile > Invoice Preferences are all unbuilt or out of scope."
+}

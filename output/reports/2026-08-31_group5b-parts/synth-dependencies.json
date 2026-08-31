@@ -1,0 +1,574 @@
+{
+  "dependencies": [
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityCountry",
+      "targetPage": "Company Locations",
+      "targetField": "shipToTab",
+      "condition": "The Country (and State/Province) chosen on the Tax Authorities tab is not evaluated in isolation: the system resolves it against the ship-to addresses maintained on the Company Locations Ship To tab to decide whether a transaction is domestic or foreign and therefore which authority/rate applies. Company Locations must hold ship-to rows for a tax authority to resolve.",
+      "sourceQuote": "When the admin selects Country and State/Province in the Tax Authorities tab, Invoice will pull the ship-to information from the Company Locations page in Administration",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityStateProvince",
+      "targetPage": "Company Locations",
+      "targetField": "stateProvince",
+      "condition": "The state/province recorded on the ship-to address changes the VAT calculation, so the State/Province value set on the tax authority only has effect in combination with the matching State/Province on the Company Locations address. INFERRED endpoint pairing: the quoted sentence is about the ship-to location's state or province and does not name either field control by its on-screen label; the two named endpoints are the fields that carry that value on each page.",
+      "sourceQuote": "In addition, the specific state or province may alter the calculation as well.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityName",
+      "targetPage": "Company Locations",
+      "targetField": "locationName",
+      "condition": "The documented calculation identity makes a tax authority inert on its own: VAT is computed from the three-part product of tax authority, company location (Ship To) and expense type or vendor. A tax authority configured with no matching Company Location produces no calculation.",
+      "sourceQuote": "Tax Authority + Company Location (Ship To) + Expense Type (or Vendor) = Calculation",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/calculate-vat-and-required-criteria-89f97622.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Company Locations",
+      "sourceField": "shipToTab",
+      "targetPage": "Tax Administration",
+      "targetField": "turnOnTaxValidation",
+      "condition": "Stated as a hard requirement of the Tax Validation feature: a Ship To value must already exist in Company Locations (and be selected on the employee profile) for tax validation to work, so Company Locations is populated before Tax Validation is switched on.",
+      "sourceQuote": "The Tax Validation feature requires that a Ship To value specified in Company Locations be selected in the employee’s Profile > Invoice Preferences > Default Shipping Address field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-additional-configuration-steps-37f6c7ba.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "fieldName",
+      "targetPage": "Tax Administration",
+      "targetField": "taxAuthorityName",
+      "condition": "Explicit ordering statement in the basic process for the Tax Authority feature: VAT fields are added to the relevant forms in Forms and Fields BEFORE any tax authority is configured.",
+      "sourceQuote": "Clients need to add VAT fields to the relevant forms before they start configuring the Tax Authority feature.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityName",
+      "targetPage": "Forms and Fields",
+      "targetField": "fieldName",
+      "condition": "Hard capability limit that constrains which Forms and Fields VAT fields a tax authority can drive: only the first VAT amount field triple is supported. Adding VAT Amount 2/3/4 fields on a form does not extend Tax Authority coverage.",
+      "sourceQuote": "Currently, in Tax Authority, Concur Invoice only supports one VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "expenseTypeGroupRateTypeColumn",
+      "targetPage": "Tax Administration",
+      "targetField": "taxRateTypeName",
+      "condition": "The Rate Type option list on the expense type group's Tax Rates step is not free entry - it is scoped to, and populated from, the Tax Rate Type Name values already created for the selected tax authority in the New Tax Authority wizard. Rate types must exist on the authority first.",
+      "sourceQuote": "To change the rate type, click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "vendorGroupRateTypeColumn",
+      "targetPage": "Tax Administration",
+      "targetField": "taxRateTypeName",
+      "condition": "Vendor-group twin of the expense-type-group rule: the Rate Type column on the vendor group Tax Rates step offers only the rate types defined for the selected tax authority. Republished sentence in the Step 6 topic, so it is corroboration on a different wizard, not a duplicate of one statement.",
+      "sourceQuote": "To change the rate type, click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityName",
+      "targetPage": "Tax Administration",
+      "targetField": "expenseTypeGroupTaxAuthorityFilter",
+      "condition": "The Expense Types Group tab begins by selecting an existing tax authority from a list, so a tax authority must be created in the New Tax Authority wizard before any expense type group can be added. INFERRED only in that the corpus does not restate that the list is populated from taxAuthorityName; the ordering itself is documented as step 1 of the Group Name step.",
+      "sourceQuote": "On the Expense Types Group tab, select from the Tax Authority list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityName",
+      "targetPage": "Tax Administration",
+      "targetField": "vendorGroupTaxAuthorityFilter",
+      "condition": "Vendor-group twin: the Vendor Groups tab likewise starts from a Tax Authority selection, so the authority must exist first.",
+      "sourceQuote": "On the Vendor Groups tab, select from the Tax Authority list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "buttonSearchGroups",
+      "targetPage": "Tax Administration",
+      "targetField": "expenseTypeGroupTaxAuthorityFilter",
+      "condition": "The group grid returned by Search is scoped by the Tax Authority selected in the filter above it - the search returns the existing groups for that authority only, not all groups on the page.",
+      "sourceQuote": "The existing groups for the selected tax authority, if any, appear.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "expenseTypeGroupExpenseTypes",
+      "targetPage": "Tax Administration",
+      "targetField": "expenseTypeGroupUnavailableExpenseTypes",
+      "condition": "One-group-per-tax-authority exclusivity: an expense type consumed by an existing group under the same tax authority is not selectable for a new group - it is shown instead in the read-only Unavailable Expense Types pane, annotated with the group that holds it. The selectable set therefore depends on what earlier groups already took.",
+      "sourceQuote": "Any expense types that are already used for this tax authority appear in the Unavailable Expense Types pane with the name of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "vendorGroupUnavailableVendors",
+      "targetPage": "Tax Administration",
+      "targetField": "vendorGroupTaxAuthorityFilter",
+      "condition": "Vendor twin of the exclusivity rule, and the reason the pane's contents change with the authority: which vendors are shown as unavailable is scoped to the tax authority selected for the group.",
+      "sourceQuote": "Any vendors that are already used for this tax authority appear in the Unavailable Vendors pane with the name of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "expenseTypeGroupEndDate",
+      "targetPage": "Tax Administration",
+      "targetField": "expenseTypeGroupEffectiveDate",
+      "condition": "End Date is not independent - it closes the range opened by Effective Date, and is optional. Left blank the system substitutes 12/31/9999 ('If no end date is specified, the system uses the date of 12/31/9999', understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md), so groups are chained by date rather than deleted.",
+      "sourceQuote": "(Optional) Select the end date for the group's effective date range.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "expenseTypeGroupDisableVatCalculation",
+      "targetPage": "Tax Administration",
+      "targetField": "expenseTypeGroupAppliesTo",
+      "condition": "The Disable VAT calculation check box is only honoured for the invoice document type, so its effect is conditioned by the Applies To document type selected for the group. The corpus names only 'Payment Request' as an Applies To document type and does not enumerate an option list.",
+      "sourceQuote": "You can only disable VAT calculation for invoices.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "tabVendorGroups",
+      "targetPage": "Tax Administration",
+      "targetField": "tabExpenseTypesGroup",
+      "condition": "Cross-tab consistency constraint: the VAT calculation mode chosen on the vendor group tab must agree with the one chosen on the expense type group tab. The two group wizards cannot be configured independently. The docs give the worked example 'if you select line item in the expense type group configuration, you should also select line item as a VAT calculation mode.'",
+      "sourceQuote": "Ensure that you are consistent if you configure expense type groups or vendor groups and define the VAT calculation mode.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "expenseTypeGroupExpenseTypes",
+      "targetPage": "Expense Types",
+      "targetField": "expenseTypeName",
+      "condition": "Expense type groups are assembled from the tenant's own configured expense types, and the expense type is one of the three inputs to the calculation - so the expense types must exist on the Expense Types page before a group can select them.",
+      "sourceQuote": "The unique combination of tax authority, company location, and expense type is used to calculate the tax.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/availability-of-expense-types-based-on-location-of-tax-authority-8485155d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxValidationExpenseTypes",
+      "targetPage": "Expense Types",
+      "targetField": "expenseTypeName",
+      "condition": "The Expense Types column on the Tax Validation tab is a read-only rendering of the tenant's client-defined expense types; nothing can be added or renamed here, only mapped to a commodity code. Its contents are wholly determined by the Expense Types page.",
+      "sourceQuote": "This list of expense types represents the client-defined expense types.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "unspscCommodityCode",
+      "targetPage": "Expense Types",
+      "targetField": "importExpenseTypeName",
+      "condition": "The expense-type-to-commodity-code mapping has two documented population paths - in-grid manual entry on this tab, or the Expense Type import - so an automation driving this grid must know whether the import already owns the mapping. Target field is the Expense Type import's key column; the corpus does not name a commodity-code column in the Expense Type import template.",
+      "sourceQuote": "This is done by either manually entering the proper code, or by using the Expense Type import.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-commodity-codes-in-this-view-f37c2a6e.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Tax Administration",
+      "sourceField": "unspscCommodityCode",
+      "targetPage": "Tax Administration",
+      "targetField": "turnOnTaxValidation",
+      "condition": "Explicit sequencing warning: the commodity-code mapping (and every other configuration step) must be finished before the activation check box is selected. Corroborated by the-basic-process-13c136d5.md: 'The feature is not active until the client selects (enables) the Turn On Tax Validation check box in the Tax Administration tool.'",
+      "sourceQuote": "Do not activate the service until all configuration steps, such as expense type to commodity code mapping, are finalized.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "turnOnTaxValidation",
+      "targetPage": "Tax Administration",
+      "targetField": "taxValidationType",
+      "condition": "The activation check box is scoped, not global: it turns validation on for whichever request type is selected in Tax Validation Type. That control has exactly one documented value, Payment Request Only.",
+      "sourceQuote": "Select (enable) to activate tax validation for the specified request type.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxCodeName",
+      "targetPage": "Forms and Fields",
+      "targetField": "controlType",
+      "condition": "Predefining tax codes on the Tax Code tab is what converts the end user's VAT tax code fields from read-only text into selectable lists; without predefined codes they stay read-only. CORPUS CONTRADICTION on scope: configure-predefined-tax-codes-6b42509f.md says the user sees 'the tax code fields (1-4) as a list', while step-7-optional-configure-predefined-tax-codes-be8bc5b8.md says the user sees 'the VAT Tax Code 1 field as a list'. Both are recorded; neither is reconciled.",
+      "sourceQuote": "If the admin does not predefine tax codes, the user will see the tax codes in read-only fields and not in lists.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxCodeName",
+      "targetPage": "Forms and Fields",
+      "targetField": "accessRights",
+      "condition": "Predefining a tax code is necessary but not sufficient for the user to change it: modify rights on the VAT tax code fields are granted separately in Forms and Fields.",
+      "sourceQuote": "To edit the VAT tax code fields, the admin needs to ensure the user has been given modify rights of these fields in the Forms and Fields tool.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxAuthorityName",
+      "targetPage": "Capture Processing Admin",
+      "targetField": "captured_header_fields_catalog",
+      "condition": "A tax authority silently overwrites values that Capture Processing extracted: when the captured VAT Amount 1 field (header or line item) is auto-updated by tax-authority-driven recalculation, an Audit Trail entry is written. Corroborated in tools-guides: 'an audit trail entry is created whenever the tax and VAT data changes due to processing and final assignments as described above.' (working-with-tax-and-vat-data-f690215c.md)",
+      "sourceQuote": "Whenever the Capture Processing VAT Amount 1 (header or line item) field, entered during Invoice Capture, is auto-updated by Tax Authority-based changes, the system will log a value in the Audit Trail of the invoice",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/sources-of-vat-amounts-27c4ff7a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "vendorGroupUnavailableVendors",
+      "targetPage": "Vendor Manager",
+      "targetField": "Vendor Name",
+      "condition": "FORWARD REFERENCE - the vendor master page is not built in this graph. Vendor records must exist before vendor groups can be assembled on the Vendor Groups tab. Related contradiction worth carrying: the Vendor Import template enumerates its OWN Tax Type list (DITX/DNTX/INTX) for vendor records (tools-guides/the-import-template-fields-and-descriptions-8b53850b.md) - that is a different control on a different surface and must never be copied onto the Tax Administration vendorGroupTaxType field, whose corpus wording ('international, domestic, taxable, etc.') is open-ended prose.",
+      "sourceQuote": "Vendor information is needed when vendor groups are configured for Tax Authority",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/requirements-to-calculate-vat-821a71ea.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Company Locations",
+      "sourceField": "locationName",
+      "targetPage": "Policies",
+      "targetField": "Bill To (Optional)",
+      "condition": "A policy's Bill To value is chosen from addresses that already exist in Company Locations, and the string offered is the address Name. The address must be created here before the policy can reference it. Corroborated: 'Be sure to type in the name of the location whenever you are asked for a Bill To or Ship To address you create by using Company Locations.' (same file)",
+      "sourceQuote": "This is the value that displays when choosing a default shipping address in Profile > Profile Settings > Invoice Preferences, and when creating a policy and selecting the value for Bill To.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "fieldName",
+      "targetPage": "Company Locations",
+      "targetField": "emailAddress",
+      "condition": "Two-sided precondition: the Use Email as Bill-To field on the Purchase Order Header form does nothing unless BOTH the field has been added in Forms and Fields AND an email address has been entered on the bill-to record in Company Locations. Adding the field alone is not enough.",
+      "sourceQuote": "Provided the admin has added the Use Email as Bill-To field to the Purchase Order Header form in the Forms and Fields tool and entered an email address in the bill-to email address field in the Company Locations tool",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Company Locations",
+      "sourceField": "addressCode",
+      "targetPage": "Peppol Configuration",
+      "targetField": "Ship To Address Code",
+      "condition": "FORWARD REFERENCE - Peppol Configuration is not yet built. Hard integration constraint with a failure mode named in the docs: the ship-to Address Code held here must match the code on inbound Peppol invoices, or invoice creation fails outright.",
+      "sourceQuote": "The company ship-to address code maintained in Company Locations in Concur Invoice must match the ship-to address code in the invoices coming from Peppol. If the address codes don't match, invoice creation fails.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/limitations-f5fac4b5.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Company Locations",
+      "sourceField": "addressCode",
+      "targetPage": "Purchase Order Import",
+      "targetField": "External ID",
+      "condition": "FORWARD REFERENCE - no page node exists for the Purchase Order import (record types 210 bill-to and 220 ship-to). Identity claim: the on-page Address Code and the import's External ID are the same identifier, so an automation must not allocate them independently.",
+      "sourceQuote": "This value is identical to the External ID field used in the Bill To and Ship To record sets of the Purchase Order import.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Purchase Order Import",
+      "sourceField": "External ID",
+      "targetPage": "Company Locations",
+      "targetField": "addressCode",
+      "condition": "FORWARD REFERENCE - no Purchase Order import page node. Distinct claim from the identity edge above: a PO import record carrying a matching pair UPDATES the existing Company Locations address row rather than creating a second one, so the import can silently rewrite rows a crawler just created.",
+      "sourceQuote": "Identical records are those that share the same Address Code (in Company Locations) and External ID (within the associated record in the PO import).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/how-company-locations-works-with-the-purchase-order-import-ed09e36a.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Company Locations",
+      "sourceField": "addressCode",
+      "targetPage": "Employee Import",
+      "targetField": "Default Shipping Address",
+      "condition": "FORWARD REFERENCE - the Employee Import (360-level record set) has no page node in this graph. A user's default shipping address is assigned by quoting the Address Code of an address that must already exist in Company Locations. The admin-side twin of the same rule: 'This field uses the unique location code provided by the client that identifies the default shipping address associated with the imported user' (admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md).",
+      "sourceQuote": "To assign a user's preferred shipping address, use the 360-record set (Invoice Employee Import) in the Employee Import. Specify the Address Code of the preferred address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/assign-or-select-a-default-shipping-address-bf0bdfe0.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Company Locations",
+      "sourceField": "addAddressAsShipToLocationAsWell",
+      "targetPage": "Company Locations",
+      "targetField": "shipToTab",
+      "condition": "Selecting this check box while entering a bill-to address causes a ship-to record to be populated with the same address information - one action writes rows on both tabs. The corpus does not resolve why the check box is documented inside a table introduced under the Ship To tab.",
+      "sourceQuote": "Select (enable) this check box if you would like to populate the ship-to address with the same address information as the bill-to address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Company Locations",
+      "sourceField": "vatId",
+      "targetPage": "Company Locations",
+      "targetField": "billToTab",
+      "condition": "The one row that makes the two tabs' field sets non-identical: VAT ID applies only on the bill-to side, and is required in some European countries. The corpus does not say which countries.",
+      "sourceQuote": "This is only applicable on the bill-to address and required by some European countries.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Company Locations",
+      "sourceField": "countryCode",
+      "targetPage": "Company Locations",
+      "targetField": "importButton",
+      "condition": "The accepted format of Country Code depends on the entry path: the 2-character ISO code is mandated only for the import template. The corpus never enumerates the accepted values for the on-page control, and the 249-row Country Code List catalog in the corpus is documented for the vendor import file, a different scope.",
+      "sourceQuote": "If you are using the import template to import company locations, you must use 2 character ISO code.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Company Locations",
+      "sourceField": "removeButton",
+      "targetPage": "Company Locations",
+      "targetField": "addressCode",
+      "condition": "Remove is a soft delete keyed on Address Code: the removed address stays available to existing requests, and re-entering the same Address Code reactivates it - but as a NEW record, not the original. An automation that re-creates a removed code will not restore the old row.",
+      "sourceQuote": "The address remains available and can be reactivated by entering the same Address Code. The system creates a new record.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "listName",
+      "targetPage": "Group Configurations",
+      "targetField": "Group",
+      "condition": "The strongest cross-page statement on this page: creating the source list here IS creating the groups that Group Configurations then configures, because each list item is in effect a group. Group Configurations cannot originate a group.",
+      "sourceQuote": "The process of creating this list is equivalent to creating Groups since each item in the source list is in effect a group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "itemName",
+      "targetPage": "Group Configurations",
+      "targetField": "Group Name",
+      "condition": "The named groups set up in Group Configurations must correspond one-for-one to the source list items created first in List Management - the worked example adds four Divisions matching the four list items.",
+      "sourceQuote": "In the following figure, four Divisions are added that match the source list items created in Step 1.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Group Configurations",
+      "sourceField": "Delete Selected Rows",
+      "targetPage": "List Management",
+      "targetField": "itemName",
+      "condition": "A group cannot be deleted from Group Configurations at all - deletion is performed by removing the corresponding item from the source list on List Management. The Group Configurations delete control does not reach group identity.",
+      "sourceQuote": "To delete a group, remove the corresponding item from the Source List.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "connectedListsTab",
+      "targetPage": "List Management",
+      "targetField": "listName",
+      "condition": "Page boundary between the two tools: the list itself (category, list, items) is built on List Management, and the connected list DEFINITION on the Forms and Fields Connected Lists tab then selects that already-created list.",
+      "sourceQuote": "The connected list created in List Management is chosen when defining the connected list for addition to the Payment Request Quantified Line Items form in Step 2",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "listName",
+      "targetPage": "Forms and Fields",
+      "targetField": "fieldsTabList",
+      "condition": "Documented task ordering across the two pages: fields are added to forms on Forms and Fields, then the lists needed for the invoice forms are identified and created on List Management ('Identify and create the lists needed for the invoice forms.'), then field properties are modified back on Forms and Fields to substitute a list for a text box. INFERRED in part: the corpus gives an ordered task list rather than stating this pairwise dependency in one sentence.",
+      "sourceQuote": "You use the Forms and Fields and List Management pages to perform the following tasks, typically in the order shown.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/forms-fields-lists-and-validations-configuration-process-76d94b3b.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "fieldsTabList",
+      "targetPage": "List Management",
+      "targetField": "itemName",
+      "condition": "Hard display cap that bounds how large a List Management list can usefully be: a field configured as a simple list renders at most 500 items. Above that the field degrades on the form, not on this page.",
+      "sourceQuote": "If a field is configured as a simple list, the field displays a maximum of 500 items in the list:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "connectedListsTab",
+      "targetPage": "List Management",
+      "targetField": "itemName",
+      "condition": "Connected-list counterpart of the 500-item cap: a connected list shows at most 500 items and lets the user search by either the list item text or its code, so the number of items created in List Management bounds what the form can render. Retargeted to itemName (the displayed text) to keep it distinct from the separate single-use constraint on itemCode.",
+      "sourceQuote": "If a field is defined as a connected list, it will display a maximum of 500 items in the connected list, and it will allow the user to search either by the list item text or code:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "connectedListsTab",
+      "targetPage": "List Management",
+      "targetField": "addSubLevels",
+      "condition": "The Connected Lists tab is the route for a list that was built with sub-levels in List Management; a single-level list does not need it. Which tab to use on Forms and Fields depends on whether sub-levels were added here.",
+      "sourceQuote": "Use the Connected Lists tab if you have created a multi-level vendor group list",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "List Management",
+      "sourceField": "itemCode",
+      "targetPage": "Expense Types",
+      "targetField": "expenseTypeName",
+      "condition": "When an expense type is used as the first field of a connected list, the Item Code entered here must EXACTLY match the code of that expense type. The expense type must therefore already exist and its code be known.",
+      "sourceQuote": "with an Item Code that _exactly_ matches that of the expense type you are using (example: Awards = \"AWRDS\")",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "List Management",
+      "sourceField": "itemName",
+      "targetPage": "Expense Types",
+      "targetField": "expenseTypeName",
+      "condition": "Conditional naming constraint, distinct from the Item Code rule: Item Name must match the Expense Type name exactly ONLY if the name is required to appear the same in connected list audit rules. The condition is inside the source sentence and must not be dropped.",
+      "sourceQuote": "be sure the value you input for Item Name matches the Expense Type name exactly.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "List Management",
+      "sourceField": "itemCode",
+      "targetPage": "Localization",
+      "targetField": "Export System Expense Types",
+      "condition": "FORWARD REFERENCE - Localization is not yet built. To learn the Item Code values that must be matched for SYSTEM expense types, the admin exports them from the Localization page (or runs a Cognos report); the codes are not discoverable from List Management or Expense Types.",
+      "sourceQuote": "To find the Item Code values, run a report from Cognos or export a list of system expense types by using the Localization page in Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "List Management",
+      "sourceField": "itemCode",
+      "targetPage": "Forms and Fields",
+      "targetField": "connectedListsTab",
+      "condition": "Ordering constraint enforced in the connected list definition, on items created here: the Expense Type List Item Key field must be FIRST in the connected list or the expense-type-as-first-field feature does not work.",
+      "sourceQuote": "The Expense Type List Item Key field must be the first item in the connected list for this feature to work.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Forms and Fields",
+      "sourceField": "connectedListsTab",
+      "targetPage": "List Management",
+      "targetField": "itemCode",
+      "condition": "SECOND, DISTINCT CONSTRAINT on the same pair, gating a different decision than the ordering rule: the Expense Type List Item Key field is single-use. Once one connected list definition consumes it, it is no longer offered - so which list gets it must be decided before any list is defined.",
+      "sourceQuote": "The Expense Type List Item Key field can only be used in a single connected list definition, after which it is no longer available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "itemCode",
+      "targetPage": "Routing Configuration",
+      "targetField": "level_1_10_code",
+      "condition": "The ten Level n Code columns of the hierarchy-mapping import template consumed by Routing Configuration ARE the List Management list item short codes, so the import file cannot be authored until the list items exist and their codes are recorded. Corroborated on the admin side: 'The list item Short Code representing the 1st segment level of the overall hierarchy path.' (admin-guides/import-settings-record-type-200-format-c244e3ab.md). COMPRESSED RANGE: Level 1 Code - Level 10 Code expands to ten columns; List Management itself is given no documented depth limit.",
+      "sourceQuote": "These are the List Item Short Codes.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "listName",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "Source List",
+      "condition": "FORWARD REFERENCE - Feature Hierarchies is not yet built. The list created and named here in Step 1 is the exact list selected as the Invoice Vendor Employee Access feature hierarchy's Source List in Step 2.",
+      "sourceQuote": "In the Source List, select the name of the list you created in Step 1",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "addSubLevels",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "Source List",
+      "condition": "FORWARD REFERENCE - Feature Hierarchies is not yet built. Cardinality rule: a multi-level source list forces matching additional levels and segments on the feature hierarchy, so the number of sub-levels added here determines the hierarchy's shape.",
+      "sourceQuote": "If a multi-level list was created, be sure to add additional levels and segments to match the list levels.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "itemCode",
+      "targetPage": "Vendor Employee Access Import",
+      "targetField": "Level 1 Code",
+      "condition": "FORWARD REFERENCE - no page node for the Vendor Employee Access import. Exact-match rule on the codes recorded here: the import file must reproduce them character for character. Corroborated on the template side: 'Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.' (tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md).",
+      "sourceQuote": "The code format (EAST; NORTH) for each list item must be typed exactly as you have entered them here in your import.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Check Configurations",
+      "sourceField": "Payment Group",
+      "targetPage": "List Management",
+      "targetField": "itemName",
+      "condition": "FORWARD REFERENCE - no page node for Invoice Pay check configurations / funding accounts; the corpus attributes their setup to the external Concur Invoice: Invoice Pay Setup Guide. The payment groups those configurations batch on are items in a List Management list, surfaced on the invoice header as a drop-down, so the list items bound the available payment groups.",
+      "sourceQuote": "Payments Groups are linked to items in a list from List Management and selected on an invoice from a drop-down list field in the Invoice Details (Header) section.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/working-with-multiple-check-configurations-e88666b1.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "listName",
+      "targetPage": "List Management",
+      "targetField": "listItemsNewButton",
+      "condition": "Internal two-stage ordering that a crawler must respect: the list must be created and saved first, then selected, before the second New button (which adds list ITEMS, not a list) is available. The two New buttons look identical on screen.",
+      "sourceQuote": "Select the list name, and then click New to begin creating the list items",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "List Management",
+      "sourceField": "listCategory",
+      "targetPage": "List Management",
+      "targetField": "listName",
+      "condition": "A list is created inside a category: on the New List page the admin either selects an existing list category or creates one via New List Category, and both the category name and the list name are then required by the list import. INFERRED ordering: the corpus documents the category choice as an earlier numbered step than the page Save, but never states the ordering as a rule. The corpus enumerates NO list categories - 'such as Allocations' is a single illustrative example.",
+      "sourceQuote": "When you define the list, make note of the category name and the list name; you will need them for the list import.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "expenseTypeGroupUnavailableExpenseTypes",
+      "targetPage": "Tax Administration",
+      "targetField": "expenseTypeGroupTaxAuthorityFilter",
+      "condition": "The contents of the Unavailable Expense Types pane are determined by the tax authority selected for the group: expense types already consumed by that authority appear there, annotated with the owning group, and cannot be selected again. Added 2026-08-31 from the Group 5B correctness critic to mirror the vendor-group edge, which the same sentence in step-6 already produced; without it the expense-type side of an identical rule was unmodelled.",
+      "sourceQuote": "Any expense types that are already used for this tax authority appear in the Unavailable Expense Types pane with the name of the group",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Tax Administration",
+      "sourceField": "taxRateTaxPercent",
+      "targetPage": "Tax Administration",
+      "targetField": "taxRateRateType",
+      "condition": "The Tax Percent field is not present on the Tax Rates step until a Rate Type has been selected - a conditional field appearance, not merely a disabled control. A crawler that looks for Tax Percent before setting Rate Type will not find it. Added 2026-08-31 from the Group 5B correctness critic.",
+      "sourceQuote": "Once you select the type, the Tax Percent field appears.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    }
+  ]
+}

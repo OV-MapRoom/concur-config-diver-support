@@ -1,0 +1,503 @@
+{
+  "pageId": "company-locations",
+  "pageName": "Company Locations",
+  "url": "/expense/admin/invoice/companyLocations.asp",
+  "coverage": "good",
+  "uiVariant": "undifferentiated",
+  "fields": [
+    {
+      "name": "shipToTab",
+      "label": "Ship To",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "On the Company Locations page, select the Ship To tab.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Tab control on the Company Locations page; every action on the page (New / Modify / Remove / Import / Export All) is scoped to the selected tab. REPAIRED IN MERGE: the crosscut lens typed this 'button'; set to 'unknown', the graph's settled convention for tabs (capture_processing_admin_tabs, scanConfigurationsTab, imagingTabSelector, validationsTab, connectedListsTab) - the corpus says only 'tab' and never states the widget category. Corroborated in admin-guides: 'Add one or more shipping addresses by clicking Ship To and then New.' (concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "billToTab",
+      "label": "Bill To",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "On the Company Locations page, select the Ship To or Bill To tab.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "Second tab, named alongside Ship To in the delete and export procedures ('On the Company Locations page, select the Ship To or Bill To tab.'). REPAIRED IN MERGE: the crosscut lens typed this 'button'; set to 'unknown' per the graph's tab convention. The per-tab field set is NOT identical: VAT ID is documented as 'This is only applicable on the bill-to address and required by some European countries.' The corpus never names an 'Add New Bill To Location' window - the 12-row field table is written from the ship-to path with bill-to-only annotations.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "newButton",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select New to open the Add New Ship To Location window.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Opens the Add New Ship To Location window (per admin-guides, also invoked for adding a bill-to address: 'Add one or more shipping addresses by clicking Ship To and then New.'). Role gate (tool-wide): requires Invoice Configuration administrator or Invoice Configuration (Restricted) administrator role (required-roles-476a5f62.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "modifyButton",
+      "label": "Modify",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the address and select Modify",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/edit-a-shipping-or-billing-address-c8138913.md",
+      "notes": "Two documented paths to the same modal: select the row then Modify, or 'Double-click the address directly'. Opens the Modify Ship To Location window. Addresses that arrived via the Purchase Order import are editable here too: 'You can edit shipping and billing addresses that were created in Company Locations or imported through the Purchase Order import.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "removeButton",
+      "label": "Remove",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Remove. The following confirmation message appears:",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "Supports selecting one or more addresses first ('Select the address or addresses.'). Deletion is a soft delete: 'The address remains available and can be reactivated by entering the same Address Code. The system creates a new record.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "removeConfirmYesButton",
+      "label": "Yes",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Yes to remove the address from the Company Locations page.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "Confirms the 'Remove selected Company Locations' confirmation dialog raised by the Remove button.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "importButton",
+      "label": "Import",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the Import button. The Import Ship To Locations window appears.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "Opens the Import Ship To Locations window. Distinct from importSubmitButton, the in-window button that actually performs the import.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "downloadImportTemplateLink",
+      "label": "Download the import template",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Download the import template link if you want to download a template with the field names already filled in.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "PUBLISHABLE DOCUMENTED GAP: the template's COLUMN LIST is nowhere in this corpus. The topic says only that the template arrives with 'the field names already filled in' and never enumerates them. The nearest documented column set is the Purchase Order import 210/220 record format, which is a DIFFERENT import - see contradictions. The Country Code row of the add-address table is the one hint that the template and the UI share fields ('If you are using the import template to import company locations, you must use 2 character ISO code.').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "browseButton",
+      "label": "Browse",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Browse and locate the file that you want to import.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "Opens a file picker; the next step ('Select the file and then select Open.') is the OS file-open dialog, not a Concur Invoice control, but is recorded as an admin-facing step in the numbered procedure.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "openButton",
+      "label": "Open",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the file and then select Open.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "SCOPE FLAG (first-class, not prose): this is the OPERATING-SYSTEM file chooser's Open button, NOT a control rendered by companyLocations.asp. It is retained because it is a verbatim-grounded step of the page's numbered import procedure ('Select Browse and locate the file that you want to import.' then 'Select the file and then select Open.'), but a Chromium automation must set the file input directly and will never see this dialog - do not treat it as a page element or a wait target. REFUTER SPLIT: refuter 1 kept it (the record already declared its own scope); refuter 2 would have dropped it as an OS control, citing page.routing-configuration, which records Browse and Download Template but deliberately records no Open. Repaired rather than deleted because this roster has no configSteps array to demote it into, so dropping would lose the documented step entirely.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "importSubmitButton",
+      "label": "Import",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Import.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "The in-window submit control of the Import Ship To Locations window (distinct from importButton, which only opens that window). Produces the Import Summary page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "importSummaryCloseButton",
+      "label": "Close",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Click Close.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md",
+      "notes": "Closes the Import Summary page. After closing, status appears in the 'Ship To Locations import history' section of the Import Ship To Locations page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "exportAllButton",
+      "label": "Export All",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the Export All button.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/export-shipping-or-billing-addresses-59f051b2.md",
+      "notes": "Available on both the Ship To and Bill To tabs ('select the Ship To or Bill To tab' precedes this step); produces an Excel spreadsheet of all addresses on the selected tab.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "saveButton",
+      "label": "Save",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Save to enter the new address into Concur Invoice.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Same control also documented in the edit procedure with the shorter phrasing 'Select Save.' (edit-a-shipping-or-billing-address-c8138913.md), used to commit the Add New / Modify Ship To Location window.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "removeConfirmation",
+      "label": "Remove selected Company Locations (confirmation message)",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "Remove selected Company Locations",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md",
+      "notes": "REPAIRED IN MERGE: this record was typed 'button' with the label 'Remove selected Company Locations', which asserts a clickable button carrying the text of a confirmation MESSAGE - an automation told to click a button by that name would fail. The corpus says 'Select Remove. The following confirmation message appears:' followed by that string, so fieldType is now 'unknown' (the graph has no dialog type) and the label states it is the message. Useful to a crawler only as proof the modal opened. The ONLY documented control inside the dialog is Yes ('Select Yes to remove the address from the Company Locations page.'), carried separately as removeConfirmYesButton - the two must not be merged. NO negative/Cancel control is documented anywhere in this corpus; that half of the pair must NOT be completed.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "locationName",
+      "label": "Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "A unique name that identifies a specific address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Required. Row 1 of the 12-row 'Field / Description/Comments' table in the Add New Ship To Location window. Note in the same cell: 'This is the value that displays when choosing a default shipping address in Profile > Profile Settings > Invoice Preferences, and when creating a policy and selecting the value for Bill To.' Tip in the same cell: 'The system searches for your location by using the Name value.' No length limit documented for this field on the page (the PO import 210/220 Name column is capped at 100 characters, but that is the import file, not the page).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addressCode",
+      "label": "Address Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "This is the external identifier used by the customer's financial system to identify a specific address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "REQUIRED. The page's true identity key across three integrations: (1) 'This value is identical to the External ID field used in the Bill To and Ship To record sets of the Purchase Order import.' and the PO import matches on it; (2) the Employee Import 360-record set assigns a user's default shipping address by Address Code; (3) Peppol matches inbound invoices on the ship-to address code. Re-entering a removed Address Code reactivates the address as a NEW record.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "address1",
+      "label": "Address 1",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Address 1 of the complete address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Required. Row 3. No length limit documented for the on-page field (the PO import 210/220 column is 'Maximum 255 characters').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "address2",
+      "label": "Address 2",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Address 2 of the complete address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional. Row 4.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "address3",
+      "label": "Address 3",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Address 3 of the complete address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional. Row 5.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "city",
+      "label": "City",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The city within which the address resides.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Required. Row 6.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "postalCode",
+      "label": "Postal Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The postal code of the address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Required. Row 7.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "countryCode",
+      "label": "Country Code",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "The code of the country associated with the address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Required. Row 8. Note in the same cell: 'If you are using the import template to import company locations, you must use 2 character ISO code.' The corpus does NOT enumerate the accepted values for this on-page field and does not point it at any list. The 249-row Country Code List catalog in country-code-list-8b3e2eda.md is documented for a different scope ('the country code list that you use when creating the vendor import file') and is therefore recorded as an UNWIRED value set, not as this field's validValues. fieldType left unknown: the corpus never states whether this is a text box or a list, and the guide revision history dated March 18, 2016 notes only that the State/Province field 'has changed to a list', not Country Code.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "stateProvince",
+      "label": "State/Province",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "The state or province within which the address resides.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional on the Company Locations page (row 9). CONTRADICTION with the PO import: both the 210 and 220 record formats mark State/Province Required? = Y. The guide revision history dates the page-side change: September 9, 2016 'State/Province field now an optional field', and March 18, 2016 'Updated images to show that the State/Province field has changed to a list when creating a new ship-to or bill-to address' — the list contents are never enumerated in this corpus, so validValues is empty and fieldType is left unknown rather than asserted as a dropdown.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "emailAddress",
+      "label": "Email Address",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The email address of the contact at the company location.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional. Row 10. Added per the guide revision history dated April 14, 2018 ('the addition of the email address field to the add and modify ship-to and bill-to windows'). Consumed by the Purchase Order Header 'Use Email as Bill-To' field configured on Forms and Fields — see dependencyCandidates.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vatId",
+      "label": "VAT ID",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The VAT of the buyer.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional. Row 11. Note in the same cell: 'This is only applicable on the bill-to address and required by some European countries.' This is the row that makes the Ship To and Bill To tab field sets non-identical. Added per the guide revision history dated September 9, 2016 ('VAT ID field in bill-to address'). The corpus does not say which European countries make it required.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addAddressAsShipToLocationAsWell",
+      "label": "Add address as a Ship To Location as well",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Select (enable) this check box if you would like to populate the ship-to address with the same address information as the bill-to address.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md",
+      "notes": "Optional. Row 12, the last row of the table. Explicitly typed as a check box by the source ('this check box'), so 'checkbox' here is documented, not inferred. Functionally a bill-to-side control (it copies the bill-to address into a ship-to record), although the table it lives in is introduced under 'select the Ship To tab' — the corpus does not resolve that tension. No default state is documented; no on/off value labels are enumerated, so validValues stays empty.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "dropped": [
+    {
+      "name": "poImport210BillTo_recordType",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: static value '210' (Record Type), Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_externalId",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 32 characters, Required? = Y; the PO-import counterpart of this page's addressCode. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_name",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 100 characters, Required? = N ('An optional name that can be used to identify a particular address.') - CONTRADICTS the page's Name, which is (Required). RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_address1",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_address2",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = N. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_address3",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = N. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_city",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_stateProvince",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = Y - CONTRADICTS the page's State/Province, which is (Optional). RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_postalCode",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 20 characters, Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_countryCode",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Definition '2 characters', Required? = Y - CONTRADICTS the 220 twin's 'Maximum 2 characters'. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport210BillTo_futureUse",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 210, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-bill-to-address-record-type-210-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: compressed range 'Future Use 1-10' = 10 reserved positional columns that must be present but empty; quote contains the literal backslash in 'future\\_use' and must not be cleaned up on re-home; also carried fieldType 'table', which should be 'unknown' when re-homed. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_recordType",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: static value '220' (Record Type), Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_externalId",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 32 characters, Required? = Y; wording differs from the 210 twin ('A unique value supplied by the customer to identify a particular address.') - preserve per file, do not merge. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_name",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 100 characters, Required? = N ('An optional name that can be given to the address.') - wording differs from the 210 twin. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_address1",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_address2",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = N. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_address3",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = N. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_city",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_stateProvince",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 255 characters, Required? = Y - ship-to half of the optional-vs-required contradiction. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_postalCode",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Maximum 20 characters, Required? = Y. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_countryCode",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: Definition 'Maximum 2 characters', Required? = Y - the 220 side of the 210-vs-220 wording difference. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "poImport220ShipTo_futureUse",
+      "reason": "MIS-HOMED (page ownership), not a grounding failure - the quote is verbatim. This is a COLUMN of the Purchase Order import record type 220, not a control on companyLocations.asp. Evidence: grep -c 'Company Locations' returns 0 in the cited file (purchase-order-ship-to-address-record-type-220-format-*.md), the file's own heading is a 'Data for record ID' table, its parent topics are purchase-order-import-8b446486.md / concur-invoice-purchase-order-import-specification-8b443eee.md, and the extraction record's own notes open 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE.' Keeping it here is actively harmful: Company Locations has its OWN import template whose column list is documented NOWHERE in this corpus, so a reader would reasonably mistake the 210/220 columns for that template. REFUTER SPLIT: refuter 1 (grounding) kept all 22 rows because no PO Import page exists yet and rule 2 protects long catalogs; refuter 2 (page ownership) dropped all 22 on the grep evidence above. Resolved in favour of refuter 2: rule 2 forbids sampling a catalog you are extracting, not homing it on the wrong page, and mis-assignment to the wrong page is exactly what the deterministic validator cannot catch. NOTHING IS LOST - the two source files are named, all 11 rows of each are intact in extract-company-locations-tables.json, and this row's documented facts are: compressed range 'Future Use 1-10' = 10 reserved positional columns; literal backslash in 'future\\_use' must be preserved; carried fieldType 'table', should be 'unknown' when re-homed. RE-HOME VERBATIM when the PO Import page is built.",
+      "correctPage": "Purchase Order Import (Concur Invoice: Purchase Order Import Specification; purchase-order-import-8b446486.md) - page not yet built"
+    },
+    {
+      "name": "shipToAddressSearch",
+      "reason": "PAGE OWNERSHIP REFUTED. The quote ('To search for a ship-to or bill-to address, start entering the company name in the Ship To Address or Bill To Address field.') is verbatim, so this is a placement call, not a grounding one. Evidence: grep -c 'Company Locations' on the source topic search-for-a-ship-to-or-bill-to-address-1d864cfe.md returns 0 (verified) - the topic never names a hosting page; every corpus file that DOES name a hosting page puts this label on the END-USER purchase request/order, not on the admin tool - complete-the-purchase-request-3dfd5f5c.md: 'When the user clicks the Ship To Address or Bill To Address field, a list of the available addresses (previously configured by the Invoice Configuration Administrator) appears and the user must select an address from the list.' (grep -F -c = 1, verified), and change-ship-to-address-564e516a.md: 'In the Ship To Address section, click the Change link.' (verified). Two behavioural tells confirm a SELECTOR rather than an admin list search: you type a company NAME to pick an address, and the type-ahead shows the DEFAULT address, a per-user concept meaningless when administering the master list. None of this page's six procedures (access/add/edit/delete/import/export) mentions a search box. REFUTER SPLIT: refuter 1 could neither confirm nor refute and routed to repair-with-a-flag; refuter 2 produced the affirmative counter-evidence above. Resolved in favour of refuter 2 - a flagged field is still a field, and this graph must not assert an admin control it cannot place. The useful constraint survives: the search-by-Name tip is already carried on locationName ('The system searches for your location by using the Name value.'), and the addresses this selector lists are the ones created here, which is a dependency out of locationName, not a field.",
+      "correctPage": "Purchase Request / Purchase Order (end-user runtime surface; complete-the-purchase-request-3dfd5f5c.md, change-ship-to-address-564e516a.md) - not an admin config page in this graph"
+    },
+    {
+      "name": "billToAddressSearch",
+      "reason": "PAGE OWNERSHIP REFUTED, same evidence and same resolution as shipToAddressSearch (the two labels appear in a single sentence in the page-agnostic source topic and were split by the crosscut lens). grep -rl 'Bill To Address' across BOTH guide directories returns exactly 3 files: the page-agnostic search topic, complete-the-purchase-request-3dfd5f5c.md (end-user purchase request) and error-messages-3b8339b0.md - nothing places a Bill To Address search field on the Company Locations page. SECOND, INDEPENDENT DEFECT recorded for the audit trail: refuter 1 found the cited quote verbatim-yet-irrelevant - 'The list that appears shows the company name and the full address details. In addition, the list shows the default address.' describes the type-ahead result list and never names the Bill To Address field, i.e. a quote lifted from an adjacent passage. Even repaired to the sentence that does name the control, the placement fails.",
+      "correctPage": "Purchase Request (end-user purchase request form; complete-the-purchase-request-3dfd5f5c.md) - not an admin config page in this graph"
+    },
+    {
+      "name": "addressSearchField",
+      "reason": "Both refuters dropped. Composite record merging two distinctly-labelled inputs ('Ship To Address / Bill To Address') into one field, which is worse for a Chromium driver that must target one labelled input; and, decisively, the same page-ownership refutation that removed shipToAddressSearch and billToAddressSearch applies - the labels belong to the end-user purchase request. Quote was verbatim; this is placement plus duplication, not grounding. The 'type the Name value, not the Address' constraint survives on locationName. CORRECTED 2026-08-31 (Group 5B correctness critic): this was logged as a duplicate of shipToAddressSearch, which was itself dropped on page-ownership grounds, leaving the pointer dangling. It is not a dedupe - it is the same PAGE OWNERSHIP refutation: the corpus places the Ship To / Bill To address search on the end-user purchase request, not on this admin page.",
+      "correctPage": "Purchase Request (end-user purchase request form; complete-the-purchase-request-3dfd5f5c.md)",
+      "duplicateOf": null
+    },
+    {
+      "name": "addressName",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - third of three lens spellings for the 'Name' row of the 12-row add-address table (addressName / locationName / name), same file and same verbatim quote 'A unique name that identifies a specific address.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "locationName"
+    },
+    {
+      "name": "name",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - third of three lens spellings for the same row; bare 'name' also collides with the record schema's own key and sits badly beside the PO-import *_name labels. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "locationName"
+    },
+    {
+      "name": "addressLine1",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same file, same verbatim quote 'Address 1 of the complete address.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "address1"
+    },
+    {
+      "name": "addressLine2",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same verbatim quote 'Address 2 of the complete address.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "address2"
+    },
+    {
+      "name": "addressLine3",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same verbatim quote 'Address 3 of the complete address.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "address3"
+    },
+    {
+      "name": "cityField",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same verbatim quote 'The city within which the address resides.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "city"
+    },
+    {
+      "name": "postalCodeField",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same verbatim quote 'The postal code of the address.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "postalCode"
+    },
+    {
+      "name": "countryCodeField",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row; its quote also clipped the in-cell Note to the fragment 'you must use 2 character ISO code', losing the conditional scope 'If you are using the import template to import company locations'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "countryCode"
+    },
+    {
+      "name": "stateProvinceField",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same verbatim quote 'The state or province within which the address resides.'; the survivor additionally carries the Optional-vs-PO-import-Required contradiction. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "stateProvince"
+    },
+    {
+      "name": "emailAddressField",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row, same verbatim quote 'The email address of the contact at the company location.'. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "emailAddress"
+    },
+    {
+      "name": "vatIdField",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row; the survivor carries both halves of the cell ('The VAT of the buyer.' and the bill-to-only restriction). The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "vatId"
+    },
+    {
+      "name": "addAsShipToLocationCheckbox",
+      "reason": "Both refuters dropped as an INTRA-PAGE DUPLICATE, on naming rather than grounding - procedure-lens spelling of the same row; the survivor's name reproduces the documented UI label exactly. Both correctly left validValues empty rather than inventing a selected/cleared pair. The control survives unchanged under the survivor name; nothing is deleted.",
+      "duplicateOf": "addAddressAsShipToLocationAsWell"
+    },
+    {
+      "name": "companyLocationTab",
+      "reason": "Both refuters dropped. Not a grounding failure - the quote and both values are attested - but this record collapses two separately clickable tabs into one compound selector whose label ('Ship To / Bill To') is a UI label, not a field name. Two tab records serve a Chromium driver better and match graph precedent (scanConfigurationsTab, validationsTab, connectedListsTab, capture_processing_admin_tabs). Its validValues ['Ship To','Bill To'] survive as the two tab records, and its 'per-tab field sets are NOT identical' observation is preserved on billToTab and vatId. MERGE CONSEQUENCE: the tables lens's 2-value configValueSet with appliesToField 'companyLocationTab' now dangles and must be DELETED, not re-wired.",
+      "duplicateOf": "shipToTab"
+    }
+  ],
+  "splitsProposed": [],
+  "verifyNotes": "INPUTS 51 (23 keep + 28 repair) -> 27 records out, 24 repair-bucket inputs moved to dropped, 0 records created. The 14 refuter-agreed drops are also recorded in 'dropped', so the array holds 38 auditable entries and every one of the 65 original candidates is accounted for. No record was split; splitsProposed is empty because nothing in the documentation shows one input to be genuinely several controls that is not already modelled as separate records (importButton vs importSubmitButton, removeConfirmation vs removeConfirmYesButton, shipToTab vs billToTab were all already split by the extractors). Refuter 2 explicitly judged the one plausible candidate - one Save serving both the Add New and Modify Ship To Location modals - to be the documented reading rather than two controls, and I did not override that.\n\nGROUNDING RE-VERIFIED MECHANICALLY: I re-ran grep -F -c on all 27 emitted sourceQuotes against their cited files. All 27 returned exactly 1. No sourceFile carries the bad CONCUR_INVOICE/ prefix (asserted in the build script). Every quote I hand-typed into a repaired record's notes was grep-verified too: 'Add one or more shipping addresses by clicking Ship To and then New.' (=1, set-a-default-shipping-and-billing-address-f772bed1.md), 'Select Yes to remove the address from the Company Locations page.' (=1), 'Select Remove. The following confirmation message appears:' (=1), 'Select the address or addresses.' (=1), 'Select the file and then select Open.' (=1), 'Select Browse and locate the file that you want to import.' (=1), 'This is only applicable on the bill-to address and required by some European countries.' (=1). Kept records were pulled programmatically out of the three extraction JSONs with python3 - nothing was retyped. VARIANT SELECTION: both refuters set verbatimVariantIndex 0 everywhere and every per-lens variant verified, so selection turned on content, not verbatimness. For the nine procedural buttons I took the unnumbered quote form the refuters themselves cited (procedure lens) rather than the crosscut lens's numbered-list form ('2.  Select New...'), which is verbatim but carries a markdown list marker into the quote; for modifyButton and downloadImportTemplateLink the two lenses share an identical quote, so I took the crosscut record for its strictly richer notes. For the 12-row address form I took the tables-lens records, which carry the row index and quote the in-cell Note/Tip; addressCode came from the crosscut lens, whose notes enumerate all three integrations (PO import External ID, Employee Import 360 default shipping, Peppol).\n\nNO INVENTED VALUES: every emitted record has validValues [] - verified programmatically. The two populated value lists in the candidate set ('210' and '220') left with the PO-import rows, and companyLocationTab's ['Ship To','Bill To'] left with that duplicate. Nobody completed a No/Yes pair: addAddressAsShipToLocationAsWell documents only the enabled behaviour and the cleared behaviour stays unrecorded; removeConfirmation records only the affirmative Yes and I have explicitly written into its notes that the negative/Cancel control must NOT be invented. countryCode stays fieldType 'unknown' with empty values and is NOT wired to the 249-row catalog in country-code-list-8b3e2eda.md, whose documented scope is 'the country code list that you use when creating the vendor import file' - a different import. stateProvince likewise stays 'unknown' with no values: the only hint of a list is a revision-history line, which is dating evidence, not a documented enumeration. fromRawHtmlTable is false on all 27 and is justified - grep -c '<table' = 0 on every cited file.\n\nREPAIRS ACTUALLY PERFORMED (4). (1) shipToTab and (2) billToTab: the crosscut lens typed both tabs 'button'; set to 'unknown' per the graph's settled tab convention (capture_processing_admin_tabs, scanConfigurationsTab, imagingTabSelector, validationsTab, connectedListsTab), and the corroborating admin-guides sentence plus the per-tab field-set difference (VAT ID is bill-to only) folded into notes so nothing from companyLocationTab's drop is lost. (3) removeConfirmation: was typed 'button' and labelled with the text of a confirmation MESSAGE, which would send an automation hunting for a button that does not exist; fieldType is now 'unknown', the label now says '(confirmation message)', and the notes state that the only documented control inside the dialog is Yes and that the negative half must not be completed. (4) openButton: refuters split keep/drop - refuter 1 kept it, refuter 2 argued it is the operating-system file chooser and a phantom page button is a crawler stall point. Repaired rather than deleted, because this roster has no configSteps array to demote the step into and dropping would lose a verbatim-grounded step of the page's own numbered procedure; its notes now carry the OS-dialog scope as a first-class warning telling an automation to set the file input directly. Both refuter positions are recorded on the record.\n\nTHE BIG CALL - 22 PO-IMPORT COLUMNS DROPPED, RESOLVING A DIRECT REFUTER SPLIT. Refuter 1 (grounding) kept all of poImport210BillTo_* and poImport220ShipTo_* on the argument that no PO Import page exists and rule 2 protects long catalogs. Refuter 2 (page ownership) dropped all 22 with affirmative evidence. I re-ran the decisive check myself: grep -c 'Company Locations' returns 0 in BOTH concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md and .../purchase-order-ship-to-address-record-type-220-format-d6da48d9.md. I resolved in favour of refuter 2. Reasoning: rule 2 forbids sampling or truncating a catalog you are extracting - it does not license homing a complete catalog on the wrong page; the records self-refute, their own notes opening 'NOT A CONTROL ON THE COMPANY LOCATIONS PAGE'; and the harm is concrete rather than theoretical, because Company Locations has its OWN import template whose column list is documented nowhere in this corpus, so 22 import columns sitting under this page node would be read as that template's columns. Mis-assignment to the wrong page is exactly the defect grep cannot catch, which is why this pass exists. THE CATALOG IS NOT LOST: both source files are named, all 11 rows of each survive intact in extract-company-locations-tables.json, each dropped entry records its own Definition and Required? value, and the three contradictions the rows anchor travel with them - (a) Name is Required on this page but Required? = N in both 210 and 220, (b) State/Province is Optional here but Required? = Y in both, (c) Country Code is defined as '2 characters' in the 210 and 'Maximum 2 characters' in the 220. Two further re-home instructions are recorded: the literal backslash in 'future\\_use' must not be cleaned up, and both futureUse rows carry fieldType 'table' which should become 'unknown' (that was refuter 1's named type defect, preserved rather than discarded). The page keeps the relationship as a dependency on addressCode: 'Identical records are those that share the same Address Code (in Company Locations) and External ID (within the associated record in the PO import).'\n\nSECOND SPLIT RESOLVED - THE TWO ADDRESS SEARCH FIELDS DROPPED. Refuter 1 could neither confirm nor refute page ownership and routed shipToAddressSearch and billToAddressSearch to repair-with-a-flag; refuter 2 produced affirmative counter-evidence. I verified it: grep -c 'Company Locations' = 0 in the source topic search-for-a-ship-to-or-bill-to-address-1d864cfe.md, while complete-the-purchase-request-3dfd5f5c.md (grep -F -c = 1) and change-ship-to-address-564e516a.md (grep -F -c = 1) both place these labels on the end-user purchase request/order. Behavioural tells agree - you type a company NAME to pick an address and the type-ahead shows the DEFAULT address, a per-user concept meaningless when administering the master list - and none of this page's six procedures mentions a search box. A flagged field is still a field in the graph, so I dropped rather than repaired. Refuter 1 also caught an independent defect on billToAddressSearch worth preserving in the audit trail: its quote was verbatim but lifted from an adjacent passage and never named the control. Nothing useful is lost - the search-by-Name constraint already lives on locationName ('The system searches for your location by using the Name value.').\n\nNAME HYGIENE: no two emitted records share a name (asserted in the build script). Checked against the existing graph's 330 field names: newButton, saveButton, modifyButton and removeButton already exist as field.exceptions.newbutton / savebutton / modifybutton / removebutton, but ids are page-namespaced and both sets are independently documented on their own pages, so these are distinct real controls sharing generic labels - do NOT dedupe across pages. None of my other 23 names occurs anywhere in the graph. One further confirmation that the bare 'name' spelling was correctly dropped in favour of locationName: field.policies.name already exists and means something else.\n\nMERGE ACTIONS REQUIRED DOWNSTREAM, or things will dangle silently. (1) DELETE the tables lens's configValueSet with appliesToField 'companyLocationTab' (values Ship To / Bill To) - its target is dropped and the pair survives as the two tab records; do not re-wire it. (2) RETARGET to locationName the four dependencies aimed at the dropped spellings: two from the procedure lens (Profile > Invoice Preferences > Default Shipping Address, and User Administration > Invoice Preferences) and two from the crosscut lens (Profile default shipping address, and Bill To @ Policies). (3) DROP the dependencies routed out of shipToTab by the crosscut lens (-> Country @ Tax Administration, -> Default Shipping Address @ Tax Validation) or retarget them to countryCode / stateProvince / locationName as the tables lens does - a tab is a poor dependency source. (4) The 249-row country-code catalog should not be parented to this page at all; it belongs to whichever page owns the VENDOR import. (5) Dependencies aimed at addressCode, countryCode, stateProvince, emailAddress and locationName all survive and need no work.\n\nCORRECTION TO THE MAP, CONFIRMED BY BOTH REFUTERS AND WORTH FIXING UPSTREAM: deliverable_id 41460673 is the entire Concur Invoice Professional Edition Tools Guides book, not a Company Locations grouping key - the three end-user purchase-request change-address topics carry the same id. It must not be used as evidence that a topic belongs to this page.\n\nPUBLISHABLE NEGATIVE FINDINGS CARRIED FORWARD. (a) The Company Locations import template's own COLUMN LIST is documented nowhere in either guide directory - import-shipping-or-billing-addresses-601c2549.md says only that the template arrives with 'the field names already filled in'. Thin is the correct answer; it must NOT be backfilled from the 210/220 record formats, which are a different import. This is recorded on downloadImportTemplateLink. (b) No export column layout is documented either, and Export All is the only export control attested - no filtered export exists in the corpus. (c) The address list/grid's COLUMNS are never enumerated. (d) The corpus is internally inconsistent about the import surface, calling it 'the Import Ship To Locations window' at step 2 and 'the Import Ship To Locations page' at step 7; importSubmitButton and importSummaryCloseButton therefore sit one and two modal layers deep and are flattened onto this page per existing graph precedent (page.forms-and-fields 'Modify Form Fields window'). No second page node should be spawned. (e) Soft-delete semantics are a real automation constraint and survive on removeButton: 'The address remains available and can be reactivated by entering the same Address Code. The system creates a new record.'\n\nCONTROLS THE THREE LENSES MISSED - not emitted, because creating records during Repair bypasses the adversarial refuters, but flagged for a top-up pass: (1) row selection on the address list, 'Select the address or addresses.' (delete-a-shipping-or-billing-address-ae7aef28.md, verified =1; precedent exists as page.exceptions exceptionRowCheckbox); (2) the address list/grid itself, 'The new address appears as a row on the Company Locations page.'; (3) the 'Ship To Locations import history' section named in 601c2549; (4) the down-arrow alternative on the address picker in f772bed1, which carries the same end-user-surface ownership doubt that removed the two search fields and should not be added without resolving it.\n\nQUOTE-AMBIGUITY WARNING FOR ANY FUTURE RE-VALIDATION: the strings 'Address 1 of the complete address.', 'The city within which the address resides.', 'The postal code of the address.', 'The state or province within which the address resides.' and 'The code of the country associated with the address.' are byte-identical between this page's field table and both PO import record tables. sourceFile is the only thing separating a page field from an import column; matching on quote text alone will conflate them.\n\nMUST-READ COVERAGE: nothing skipped for my lens. I worked from both refuters' full reads and independently re-read or re-grepped the decisive files: add-a-shipping-or-billing-address-3b51c816.md (the 12-row catalog, complete - all 12 rows are present as locationName, addressCode, address1-3, city, postalCode, countryCode, stateProvince, emailAddress, vatId and the check box), the delete/edit/import/export procedures, the two PO import record formats (grep -c 'Company Locations' = 0 on both), search-for-a-ship-to-or-bill-to-address-1d864cfe.md, complete-the-purchase-request-3dfd5f5c.md, change-ship-to-address-564e516a.md and set-a-default-shipping-and-billing-address-f772bed1.md. country-code-list-8b3e2eda.md (2336 lines) was not read row-by-row in this pass: its 249 rows are deliberately not this page's validValues, both refuters verified the row count and the scope sentence mechanically, and re-reading it could not change any disposition here.\n\nCOVERAGE JUDGEMENT 'good': the corpus documents this page at field level with a complete 12-row field table plus nine attested action controls, two tabs and a confirmation dialog, and both refuters found zero grounding defects across 91 variant records. The gaps that remain (import template columns, export layout, grid columns, the cleared state of the check box, the negative confirmation control) are genuine documentation gaps, recorded rather than filled.",
+  "cleanCount": 23,
+  "repairedCount": 4
+}

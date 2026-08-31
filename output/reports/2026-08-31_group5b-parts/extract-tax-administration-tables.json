@@ -1,0 +1,1163 @@
+{
+  "pageId": "tax-administration",
+  "pageName": "Tax Administration",
+  "lens": "reference-tables-and-long-catalogs",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/appendix-a-tax-amount-calculation-8b380a96.md",
+    "concur-invoice-professional-edition-admin-guides/apply-vat-to-expense-type-groups-0efbc573.md",
+    "concur-invoice-professional-edition-admin-guides/apply-vat-to-vendor-groups-bebd6efa.md",
+    "concur-invoice-professional-edition-admin-guides/australia-and-new-zealand-0bdf2180.md",
+    "concur-invoice-professional-edition-admin-guides/availability-of-expense-types-based-on-location-of-tax-authority-8485155d.md",
+    "concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md",
+    "concur-invoice-professional-edition-admin-guides/calculate-vat-and-required-criteria-89f97622.md",
+    "concur-invoice-professional-edition-admin-guides/client-responsibility-regarding-vat-969ec2ca.md",
+    "concur-invoice-professional-edition-admin-guides/configuration-overview-8b381d33.md",
+    "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+    "concur-invoice-professional-edition-admin-guides/configure-tax-authorities-8b383099.md",
+    "concur-invoice-professional-edition-admin-guides/configure-the-specify-tax-in-invoice-details-or-itemization-summary-feature-11c6df01.md",
+    "concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md",
+    "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+    "concur-invoice-professional-edition-admin-guides/configuring-the-tax-validation-feature-8b376eeb.md",
+    "concur-invoice-professional-edition-admin-guides/control-tax-amount-handling-8540cd38.md",
+    "concur-invoice-professional-edition-admin-guides/create-an-invoice-with-tax-validation-a515e7a3.md",
+    "concur-invoice-professional-edition-admin-guides/extract-vat-data-8b3996e0.md",
+    "concur-invoice-professional-edition-admin-guides/forms-and-fields-ensure-employees-account-for-all-tax-amounts-f362dd07.md",
+    "concur-invoice-professional-edition-admin-guides/image-handling-digital-tax-invoice-8b2fb78f.md",
+    "concur-invoice-professional-edition-admin-guides/prorated-vat-fields-070c3917.md",
+    "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md",
+    "concur-invoice-professional-edition-admin-guides/required-roles-81c8eace.md",
+    "concur-invoice-professional-edition-admin-guides/requirements-to-calculate-vat-821a71ea.md",
+    "concur-invoice-professional-edition-admin-guides/sources-of-vat-amounts-27c4ff7a.md",
+    "concur-invoice-professional-edition-admin-guides/specify-tax-in-invoice-details-or-itemization-summary-ee1951bb.md",
+    "concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md",
+    "concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md",
+    "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md",
+    "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b903b7c8.md",
+    "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+    "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+    "concur-invoice-professional-edition-admin-guides/step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md",
+    "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+    "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+    "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+    "concur-invoice-professional-edition-admin-guides/step-7-optional-configure-predefined-tax-codes-be8bc5b8.md",
+    "concur-invoice-professional-edition-admin-guides/supported-countries-for-vat-8b38bab8.md",
+    "concur-invoice-professional-edition-admin-guides/tax-administration-tool-0f5fff3c.md",
+    "concur-invoice-professional-edition-admin-guides/tax-administrator-experience-8b37bd88.md",
+    "concur-invoice-professional-edition-admin-guides/tax-authority-8b386a59.md",
+    "concur-invoice-professional-edition-admin-guides/tax-validation-8b37962d.md",
+    "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md",
+    "concur-invoice-professional-edition-admin-guides/the-basic-process-13c136d5.md",
+    "concur-invoice-professional-edition-admin-guides/the-tax-service-provider-05d51077.md",
+    "concur-invoice-professional-edition-admin-guides/track-vat-2e7fc9f0.md",
+    "concur-invoice-professional-edition-admin-guides/uk-example-applicable-to-all-single-level-vat-countries-ef37bb45.md",
+    "concur-invoice-professional-edition-admin-guides/understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md",
+    "concur-invoice-professional-edition-admin-guides/using-the-tax-field-at-both-the-invoice-and-line-item-levels-a55b90c8.md",
+    "concur-invoice-professional-edition-admin-guides/value-added-tax-vat-8b39be89.md",
+    "concur-invoice-professional-edition-admin-guides/vat-at-both-the-header-and-line-item-level-05e9bbd3.md",
+    "concur-invoice-professional-edition-admin-guides/vat-at-header-and-line-item-level-8b39f76e.md",
+    "concur-invoice-professional-edition-admin-guides/vat-at-the-header-level-invoice-details-only-9dcd3519.md",
+    "concur-invoice-professional-edition-admin-guides/vat-at-the-line-item-level-itemization-summary-only-a41e7ad6.md",
+    "concur-invoice-professional-edition-admin-guides/vat-fields-at-the-header-level-invoice-details-only-140f90df.md",
+    "concur-invoice-professional-edition-admin-guides/vat-fields-at-the-line-item-level-itemization-summary-only-87102840.md",
+    "concur-invoice-professional-edition-admin-guides/work-with-commodity-codes-in-this-view-f37c2a6e.md",
+    "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+    "concur-invoice-professional-edition-admin-guides/working-with-tax-fields-587e5641.md",
+    "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md",
+    "concur-invoice-professional-edition-tools-guides/keeping-track-on-vat-included-in-the-unit-price-e9669bed.md",
+    "concur-invoice-professional-edition-tools-guides/other-countries-84722445.md",
+    "concur-invoice-professional-edition-tools-guides/switch-tax-mode-dcd0a51d.md",
+    "concur-invoice-professional-edition-tools-guides/uk-us-japan-australia-0557084a.md",
+    "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+    "concur-invoice-professional-edition-tools-guides/working-with-tax-and-vat-data-f690215c.md"
+  ],
+  "fields": [
+    {
+      "name": "taxAuthoritiesGridTaxAuthority",
+      "label": "Tax Authority",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the name of the tax authority (usually a country name), as defined by the company.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 1 of 4 in the Tax Authorities tab listing table. Read-only display of the value entered as Tax Authority Name in the New Tax Authority wizard. Table enumerated in full: Tax Authority, Country, State/Province, Tax Name.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridCountry",
+      "label": "Country",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the country associated with the tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 2 of 4 in the Tax Authorities tab listing table. The topic adds the note that 'The tax authority and country will likely be the same.' No country list is enumerated anywhere in this corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridStateProvince",
+      "label": "State/Province",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the states/province associated with the tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 3 of 4 in the Tax Authorities tab listing table. Source adds 'If the tax applies to an entire country, then no states/provinces are designated.' and duplicates the 'column will likely be blank' note twice (once as prose, once as 'NOTE:The column will likely be blank .') - a corpus formatting artefact, not two controls.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridTaxName",
+      "label": "Tax Name",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "Examples of typical tax names are GST, MwST, and VAT.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 4 of 4 in the Tax Authorities tab listing table. GST / MwST / VAT are given explicitly as EXAMPLES, not as an option list - deliberately NOT harvested into validValues.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityName",
+      "label": "Tax Authority Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type a unique name (generally the country name) for the tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 1 of the 4-row General step field table (New Tax Authority wizard, reached by clicking New on the Tax Authorities tab). Must be unique. No length limit documented.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityCountry",
+      "label": "Country",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Select the associated country.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 2 of the General step field table. The corpus never enumerates the country list. Country + State/Province drive the ship-to lookup against Company Locations.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityStateProvince",
+      "label": "State/Province",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "Select the associated states/provinces in the list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 3 of the General step field table. Multi-select ('states/provinces ... in the list'). Documented empty-state semantics: 'If the tax authority applies to the entire country, do not select any states/provinces.' No state/province list is enumerated in this corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityTaxName",
+      "label": "Tax Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type a tax name, up to five characters maximum.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 4 of the General step field table. Hard documented constraint: five characters maximum. This is the string end users and processors see in the Concur Invoice UI.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateTypeName",
+      "label": "Tax Rate Type Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type the name of the rate, for example, Standard or Reduced.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 1 of the 2-row Tax Rate Types step field table (Add Tax Rate Types Configuration window). 'Standard' and 'Reduced' are given as EXAMPLES in a free-text field, not as an option list - NOT harvested into validValues. tax-administration-tool-0f5fff3c.md separately offers 'exempt, standard, or reduced' as examples; also not harvested.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateTypeCalculationMethod",
+      "label": "Calculation Method",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Percentage"
+      ],
+      "sourceQuote": "Select Percentage. This is the default choice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 2 of the 2-row Tax Rate Types step field table. Percentage is the ONLY value this corpus names, and it is named as the default. The wording 'This is the default choice' implies other choices exist but the corpus never enumerates them - do NOT invent a second value.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateRateType",
+      "label": "Rate Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Once you select the type, the Tax Percent field appears.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 1 of the 3-row Tax Rates step field table (Add Tax Rate Configuration window). The list is populated from the Tax Rate Type Name values created in the previous wizard step, so the option list is tenant-created and correctly absent from the docs. Selecting a value reveals Tax Percent.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateEffectiveDate",
+      "label": "Effective Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter the start date for the rate.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 2 of the 3-row Tax Rates step field table. Date entry; no format documented. Distinct from the Effective Date on the expense type / vendor group Group Name steps.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateTaxPercent",
+      "label": "Tax Percent",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "This field appears by default and is based on the Percentage calculation method.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 3 of the 3-row Tax Rates step field table. Conditionally rendered: appears only after Rate Type is selected, and its presence is tied to the Percentage calculation method.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupTaxAuthorityFilter",
+      "label": "Tax Authority",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "On the Expense Types Group tab, select from the Tax Authority list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Tab-level selector on the Expense Types Group tab; scopes every group listed and created below it. Options are the tax authorities the tenant created on the Tax Authorities tab, so no documented option list exists. TAB-LABEL CONTRADICTION: this topic calls the tab 'Expense Types Group'; the-basic-process-12a5686d.md calls it 'Expense Type Groups tab'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupEffectiveDatesFilter",
+      "label": "with effective dates",
+      "fieldType": "dropdown",
+      "validValues": [
+        "all currently active",
+        "all tax authorities"
+      ],
+      "sourceQuote": "Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, then click Search.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Optional search filter paired with a Search button on the Expense Types Group tab. Both values are enumerated verbatim inside the parenthetical. Note the second value reads 'all tax authorities' - an odd label for a DATE-range filter, but reproduced exactly as written; do not 'correct' it.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupName",
+      "label": "Group Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter the display name for the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 1 of the 6-row Group Name step field table (expense type group wizard). Identical row text appears in the vendor group twin d8b7786d.md.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupEffectiveDate",
+      "label": "Effective Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Select the effective date of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 2 of the 6-row Group Name step field table. Required. Semantics documented separately in understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md: 'The required effective date is the start date on which the system should begin using the group'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupEndDate",
+      "label": "End Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "(Optional) Select the end date for the group's effective date range.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 3 of the 6-row Group Name step field table. Optional. Documented default when left blank: 'If no end date is specified, the system uses the date of 12/31/9999' (understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupAppliesTo",
+      "label": "Applies To",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment Request"
+      ],
+      "sourceQuote": "Select the Payment Request document type for which to calculate VAT for expense type groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 4 of the 6-row Group Name step field table. 'Payment Request' is the only document type this corpus names for this control. CASE CONTRADICTION with the vendor group twin, which writes 'Payment request' (lowercase r). The setting also surfaces as a column on the Expense Type Groups page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupTaxCode",
+      "label": "Tax Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The tax code can contain up to 20 characters.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 5 of the 6-row Group Name step field table. Hard documented constraint: 20 characters. Documented as 'an arbitrary field and will be a read-only field for the user', and 'VAT tax codes are applicable to invoices only.' Distinct from the Tax Code TAB (predefined tax codes) on the same page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupDisableVatCalculation",
+      "label": "Disable VAT calculation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "If this is the case, select the check box to disable VAT calculation.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 6 of the 6-row Group Name step field table. Checkbox. Only the SELECTED state is documented ('select the check box to disable VAT calculation'); the corpus never states a default or names the cleared state, so no Yes/No pair is emitted. Constraint: 'You can only disable VAT calculation for invoices.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupExpenseTypes",
+      "label": "Expense Types",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "On the Expense Types step, select the desired expense types in the Expense Types column.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Step 2 of the expense type group wizard. The selectable list is the tenant's own expense types (owned by the Expense Types page), so no option catalog exists in the docs and none should be invented.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupUnavailableExpenseTypes",
+      "label": "Unavailable Expense Types",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "Any expense types that are already used for this tax authority appear in the Unavailable Expense Types pane with the name of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Read-only pane on the Expense Types step listing expense types already consumed by another group under the SAME tax authority, annotated with the consuming group name. Exclusivity rule corroborated by availability-of-expense-types-based-on-location-of-tax-authority-8485155d.md.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupTaxCondition",
+      "label": "Always",
+      "fieldType": "table",
+      "validValues": [
+        "Always"
+      ],
+      "sourceQuote": "The Tax Rates step shows the default tax condition of Always which means that this tax rate will always apply.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Documented default tax condition on the expense type group Tax Rates step. 'Always' is the only condition value enumerated in this corpus; whether other conditions can be chosen is UNDETERMINED. The vendor-group twin states the same default with an en-dash ('Always -') rather than 'which means'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupRateTypeColumn",
+      "label": "Rate Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "In-grid editable column on the expense type group Tax Rates step. Its option list is scoped by the selected tax authority and is populated from the Tax Rate Type Name values created in the New Tax Authority wizard - correctly undocumented as an enumeration.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxAuthorityFilter",
+      "label": "Tax Authority",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "On the Vendor Groups tab, select from the Tax Authority list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Tab-level selector on the Vendor Groups tab; twin of the Expense Types Group tab filter. Options are tenant-created tax authorities.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupEffectiveDatesFilter",
+      "label": "with effective dates",
+      "fieldType": "dropdown",
+      "validValues": [
+        "all currently active",
+        "all tax authorities"
+      ],
+      "sourceQuote": "Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, and then click Search.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Optional search filter on the Vendor Groups tab. Same two enumerated values as the expense-type-group twin; only the connective differs ('then click Search' vs 'and then click Search'), which is republication drift, not a UI variant.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupName",
+      "label": "Group Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter the display name for the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 1 of the 6-row Group Name step field table in the VENDOR group wizard. Read separately from the expense-type twin rather than assumed identical; row text matches exactly.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupEffectiveDate",
+      "label": "Effective Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Select the effective date of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 2 of the 6-row vendor group Group Name field table. Required; same effective/end-date semantics as expense type groups.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupEndDate",
+      "label": "End Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "(Optional) Select the end date for the group's effective date range.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 3 of the 6-row vendor group Group Name field table. Optional; documented blank default 12/31/9999.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupAppliesTo",
+      "label": "Applies To",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment request"
+      ],
+      "sourceQuote": "Select the Payment request document type for which to calculate VAT for vendor groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 4 of the 6-row vendor group Group Name field table. Reproduced VERBATIM: the vendor topic writes 'Payment request' (lowercase r) where the expense-type topic writes 'Payment Request'. Recorded as a contradiction rather than normalised. Oddity preserved: this topic also says the setting 'appears as a column on the Expense Type Groups page' - naming the WRONG page for a vendor group.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxCode",
+      "label": "Tax Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "You can associate a tax code to a relevant set of vendors.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 5 of the 6-row vendor group Group Name field table. Same 20-character limit, arbitrary-field and read-only-to-user notes, and invoices-only constraint as the expense-type twin.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupDisableVatCalculation",
+      "label": "Disable VAT calculation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "In countries where vendors already provide VAT amounts, for example in the UK, there might not be a need to perform VAT calculation.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 6 of the 6-row vendor group Group Name field table. Checkbox; only the selected state is documented. Constraint: 'You can only disable VAT calculation for invoices.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxType",
+      "label": "Tax Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "select a type of tax, international, domestic, taxable, etc., for this optional step, from the Tax Type list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Vendor Name step ONLY - there is no counterpart on the expense type group wizard, so the two wizards are NOT identical. The source names three values then writes 'etc.', so the enumeration is explicitly INCOMPLETE; the three named values are carried in a valueSetCandidate and deliberately left out of validValues here.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupUnavailableVendors",
+      "label": "Unavailable Vendors",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "Any vendors that are already used for this tax authority appear in the Unavailable Vendors pane with the name of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Read-only pane on the Vendor Name step; vendor twin of Unavailable Expense Types. Same one-group-per-tax-authority exclusivity.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxCondition",
+      "label": "Always",
+      "fieldType": "table",
+      "validValues": [
+        "Always"
+      ],
+      "sourceQuote": "The Tax Rates step shows the default tax condition of Always – meaning this tax rate will always apply.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Documented default tax condition on the vendor group Tax Rates step. NOTE THE EN-DASH (U+2013) after 'Always' - reproduced exactly; the expense-type twin uses 'which means' instead. 'Always' is the only condition value in the corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupRateTypeColumn",
+      "label": "Rate Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "To change the rate type, click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "In-grid editable column on the vendor group Tax Rates step; scoped by the selected tax authority.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "predefinedTaxCodeName",
+      "label": "",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type the name of the code and then click Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+      "notes": "AMBIGUOUS RECORD, emitted rather than dropped. The Tax Code tab's New action opens a single free-text input, but NEITHER topic gives it an on-screen label, so 'label' is left empty rather than guessed. Not a table, so it is at the edge of this lens; flagged here so a procedure lens can own it. Effect of saving is the subject of contradiction #5 below.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationPartnerAccountNumber",
+      "label": "Partner Account Number",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "This is the unique account number provided by a tax service provider to the client.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 1 of the 6-row Tax Validation tab field table. Reproduced exactly: the source renders this row's label as a bulleted item ('-   Partner Account Number') while the other five rows are plain text - a corpus formatting artefact, not a different control type. LABEL CONTRADICTION: work-with-the-tax-validation-page-options-c3fe1df5.md calls the same control 'Unique Tax Partner Number'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationType",
+      "label": "Tax Validation Type",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment Request Only"
+      ],
+      "sourceQuote": "Select Payment Request Only.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 2 of the 6-row Tax Validation tab field table. 'Payment Request Only' is the ONLY documented value and the source states the limitation explicitly: 'The request type is limited to the Payment Request Only option. Additional request types will be added in upcoming service releases.' The variant topic names the future value as 'The Purchase Request type' - a roadmap statement, not a present option, and therefore NOT in validValues.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationLevel",
+      "label": "Tax Validation Level",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Header",
+        "Line Item"
+      ],
+      "sourceQuote": "This defines on which level the tax validation should occur, either the Header or the Line Item level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 3 of the 6-row Tax Validation tab field table. Both values enumerated explicitly. LABEL CONTRADICTION: c3fe1df5.md calls this 'Form Level to Be Analyzed' and enumerates its values in lowercase as 'the header or line item details form'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "turnOnTaxValidation",
+      "label": "Turn On Tax Validation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Select (enable) to activate tax validation for the specified request type.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 4 of the 6-row Tax Validation tab field table. Checkbox; only the selected state is documented. This is the final activation gate for the whole feature. Documented sequencing warning: 'Do not activate the service until all configuration steps, such as expense type to commodity code mapping, are finalized.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationExpenseTypes",
+      "label": "Expense Types",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "It is provided to allow mapping to commodity codes and is read-only for this purpose.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 5 of the 6-row Tax Validation tab field table. READ-ONLY list rendered from the tenant's own expense types ('client-defined expense types'), so no option catalog exists in the docs. Pairs with UNSPSC Commodity Code to form the mapping grid.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "unspscCommodityCode",
+      "label": "UNSPSC Commodity Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "A Search link is provided to open a browser to the latest UN commodity codes for accurate input.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 6 of the 6-row Tax Validation tab field table. Editable in-grid text against each read-only expense type. Two documented population paths: the Expense Type import, or 'adjust by clicking the text box directly and manually entering a new value'. The UNSPSC code catalog itself is imported by SAP Concur and is NOT enumerated in this corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "uniqueTaxPartnerNumber",
+      "label": "Unique Tax Partner Number",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Entering the Unique Tax Partner Number: The tax service provider issues unique numbers to each of their clients so that they can identify the client.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "CONTRADICTION RECORD, not a second control. Same Tax Validation page input as taxValidationPartnerAccountNumber but under a different label in a different topic. Both are recorded per the no-reconciliation rule; a crawler should expect EITHER label.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "requestTypeToBeAnalyzed",
+      "label": "Request Type to be Analyzed",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment Request Only"
+      ],
+      "sourceQuote": "Deciding the Request Type to be Analyzed: At this time, only the Payment Request Only option is available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "CONTRADICTION RECORD. Same control as taxValidationType under a different label. Same single documented value. This topic adds the roadmap note 'The Purchase Request type will be added to this feature in an upcoming service release.' - deliberately NOT harvested as a value.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "formLevelToBeAnalyzed",
+      "label": "Form Level to Be Analyzed",
+      "fieldType": "dropdown",
+      "validValues": [
+        "header",
+        "line item details form"
+      ],
+      "sourceQuote": "Deciding the Form Level to Be Analyzed: Either the header or line item details form is analyzed by the tax validation service, and that choice is made on this page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "CONTRADICTION RECORD. Same control as taxValidationLevel under a different label AND with differently-written values ('header' / 'line item details form' vs 'Header' / 'Line Item'). Both value spellings are carried, unreconciled.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "taxRateTypeCalculationMethod",
+      "contextField": "",
+      "context": "Unconditional. The only calculation method this corpus names for a tax rate type.",
+      "values": [
+        "Percentage"
+      ],
+      "sourceQuote": "Select Percentage. This is the default choice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "1 value. Stated as the default, which implies but never enumerates alternatives. NO second value invented."
+    },
+    {
+      "appliesToField": "taxValidationType",
+      "contextField": "",
+      "context": "Unconditional, on the Tax Validation tab.",
+      "values": [
+        "Payment Request Only"
+      ],
+      "sourceQuote": "The request type is limited to the Payment Request Only option. Additional request types will be added in upcoming service releases.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "1 value, and the source states the limitation explicitly. Purchase Request is named elsewhere only as a future release item and is excluded."
+    },
+    {
+      "appliesToField": "taxValidationLevel",
+      "contextField": "",
+      "context": "Unconditional, on the Tax Validation tab.",
+      "values": [
+        "Header",
+        "Line Item"
+      ],
+      "sourceQuote": "This defines on which level the tax validation should occur, either the Header or the Line Item level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "2 values, title-cased as this topic writes them. Contradicts the c3fe1df5.md spelling - see the formLevelToBeAnalyzed set; both retained."
+    },
+    {
+      "appliesToField": "requestTypeToBeAnalyzed",
+      "contextField": "",
+      "context": "Variant topic's enumeration of the same Tax Validation control.",
+      "values": [
+        "Payment Request Only"
+      ],
+      "sourceQuote": "Deciding the Request Type to be Analyzed: At this time, only the Payment Request Only option is available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "1 value. Second half of the label contradiction pair with taxValidationType."
+    },
+    {
+      "appliesToField": "formLevelToBeAnalyzed",
+      "contextField": "",
+      "context": "Variant topic's enumeration of the same Tax Validation control, in different words and different case.",
+      "values": [
+        "header",
+        "line item details form"
+      ],
+      "sourceQuote": "Either the header or line item details form is analyzed by the tax validation service, and that choice is made on this page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "2 values, lowercase and phrased as forms rather than levels. DO NOT reconcile with the Header / Line Item set - both are recorded."
+    },
+    {
+      "appliesToField": "vendorGroupTaxType",
+      "contextField": "",
+      "context": "Vendor Name step of the vendor group wizard. Documented enumeration is EXPLICITLY INCOMPLETE.",
+      "values": [
+        "international",
+        "domestic",
+        "taxable"
+      ],
+      "sourceQuote": "select a type of tax, international, domestic, taxable, etc., for this optional step, from the Tax Type list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "3 values, then the source writes 'etc.' - so this list is known-partial and a crawler must not treat it as closed. No counterpart control exists on the expense type group wizard."
+    },
+    {
+      "appliesToField": "expenseTypeGroupEffectiveDatesFilter",
+      "contextField": "",
+      "context": "Search filter on the Expense Types Group tab.",
+      "values": [
+        "all currently active",
+        "all tax authorities"
+      ],
+      "sourceQuote": "Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, then click Search.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "2 values, verbatim from the parenthetical. The second value's wording ('all tax authorities') does not read like a date range; reproduced as written."
+    },
+    {
+      "appliesToField": "vendorGroupEffectiveDatesFilter",
+      "contextField": "",
+      "context": "Search filter on the Vendor Groups tab.",
+      "values": [
+        "all currently active",
+        "all tax authorities"
+      ],
+      "sourceQuote": "Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, and then click Search.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "2 values. Same enumeration as the expense-type-group twin."
+    },
+    {
+      "appliesToField": "expenseTypeGroupAppliesTo",
+      "contextField": "",
+      "context": "Group Name step of the expense type group wizard.",
+      "values": [
+        "Payment Request"
+      ],
+      "sourceQuote": "Select the Payment Request document type for which to calculate VAT for expense type groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "1 value. Only one document type is named. Case differs from the vendor group twin - see contradictions."
+    },
+    {
+      "appliesToField": "vendorGroupAppliesTo",
+      "contextField": "",
+      "context": "Group Name step of the vendor group wizard.",
+      "values": [
+        "Payment request"
+      ],
+      "sourceQuote": "Select the Payment request document type for which to calculate VAT for vendor groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "1 value, reproduced with the source's lowercase 'request'. Not normalised to the expense-type spelling."
+    },
+    {
+      "appliesToField": "expenseTypeGroupTaxCondition",
+      "contextField": "",
+      "context": "Tax Rates step of the expense type group wizard; documented default condition.",
+      "values": [
+        "Always"
+      ],
+      "sourceQuote": "The Tax Rates step shows the default tax condition of Always which means that this tax rate will always apply.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "1 value. Whether any other tax condition can be selected is UNDETERMINED from this corpus."
+    },
+    {
+      "appliesToField": "vendorGroupTaxCondition",
+      "contextField": "",
+      "context": "Tax Rates step of the vendor group wizard; documented default condition.",
+      "values": [
+        "Always"
+      ],
+      "sourceQuote": "The Tax Rates step shows the default tax condition of Always – meaning this tax rate will always apply.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "1 value. En-dash (U+2013) reproduced from source."
+    },
+    {
+      "appliesToField": "taxAuthorityCountry",
+      "contextField": "",
+      "context": "NOT the Country dropdown's option list. This is the documented scope of VAT SUPPORT, which constrains which countries a tax authority is meaningfully configured for.",
+      "values": [
+        "United Kingdom",
+        "Japan",
+        "Australia"
+      ],
+      "sourceQuote": "The primary countries supported for VAT in Concur Invoice are United Kingdom, Japan, and Australia.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/supported-countries-for-vat-8b38bab8.md",
+      "notes": "3 values (PRIMARY supported countries). The same topic names an unsupported set - US, Canada, India, and other multi-tax countries - which the tools-guides directly contradict; see contradictions. 'Secondary countries' are described only as a class ('countries that have one tax type that levy tax') and are NEVER enumerated, so no secondary list exists to harvest."
+    },
+    {
+      "appliesToField": "",
+      "contextField": "",
+      "context": "CROSS-PAGE CATALOG - these fields live on the Forms and Fields page (page.forms-and-fields, already built) and are cited here only because they are the tax-domain field catalog that Tax Administration configuration operates on. DO NOT re-home onto this page.",
+      "values": [
+        "VAT Amount 1",
+        "VAT Amount 2",
+        "VAT Amount 3",
+        "VAT Amount 4",
+        "VAT Rate 1",
+        "VAT Rate 2",
+        "VAT Rate 3",
+        "VAT Rate 4",
+        "VAT Tax Code 1",
+        "VAT Tax Code 2",
+        "VAT Tax Code 3",
+        "VAT Tax Code 4",
+        "Request Line Item VAT Amount",
+        "Request Amount Without VAT",
+        "Line Item VAT Amount 1",
+        "Line Item VAT Amount 2",
+        "Line Item VAT Amount 3",
+        "Line Item VAT Amount 4",
+        "Line Item VAT Rate 1",
+        "Line Item VAT Rate 2",
+        "Line Item VAT Rate 3",
+        "Line Item VAT Rate 4",
+        "Line Item Amount without VAT",
+        "Line Item VAT Tax Code 1",
+        "Line Item VAT Tax Code 2",
+        "Line Item VAT Tax Code 3",
+        "Line Item VAT Tax Code 4"
+      ],
+      "sourceQuote": "The following fields are available when working with VAT at the header and line item level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md",
+      "notes": "27 values - the COMPLETE Available VAT Fields table, every row, in source order, nothing sampled. appliesToField is deliberately EMPTY because the owning field is on Forms and Fields, not on Tax Administration; wiring it to a Tax Administration field would be a mis-home. Note the source's own inconsistent casing, reproduced exactly: 'Line Item Amount without VAT' (lowercase w) sits between the Rate and Tax Code blocks, out of numeric order. A separate constraint elsewhere in the corpus states that Tax Authority currently supports only ONE VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1)."
+    },
+    {
+      "appliesToField": "",
+      "contextField": "",
+      "context": "CROSS-PAGE CATALOG - Prorated VAT fields exposed through the Payment Request Account Extract (PRAE). Owned by Forms and Fields / the extract spec, not by Tax Administration. DO NOT re-home.",
+      "values": [
+        "Prorated VAT Amount 1",
+        "Prorated VAT Amount 2",
+        "Prorated VAT Amount 3",
+        "Prorated VAT Amount 4",
+        "Prorated VAT Tax Code 1",
+        "Prorated VAT Tax Code 2",
+        "Prorated VAT Tax Code 3",
+        "Prorated VAT Tax Code 4",
+        "Prorated VAT Rate 1",
+        "Prorated VAT Rate 2",
+        "Prorated VAT Rate 3",
+        "Prorated VAT Rate 4"
+      ],
+      "sourceQuote": "The following table describes the prorated VAT fields.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/extract-vat-data-8b3996e0.md",
+      "notes": "12 values - the COMPLETE Prorated VAT Fields table, every row, in source order. appliesToField empty for the same cross-page reason. Population depends on the VAT mode in use (header level, line item level, or the Specify Tax in setting)."
+    },
+    {
+      "appliesToField": "",
+      "contextField": "",
+      "context": "CROSS-PAGE CATALOG - the four VAT LABELS addable to the Payment Request Line Item Details form via Forms and Fields. Cited here because VAT Type's own content is the VAT amount fields 1-4. DO NOT re-home.",
+      "values": [
+        "VAT Amount",
+        "VAT Rate",
+        "VAT Tax Code",
+        "VAT Type"
+      ],
+      "sourceQuote": "This table describes the four new labels.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md",
+      "notes": "4 values - complete table. The source states 'The admin must add the VAT Type field as part of this configuration', making VAT Type mandatory when labels are used. Canada is given as an EXAMPLE of VAT Type content (GST / PST) - example, not an option list, so not harvested."
+    },
+    {
+      "appliesToField": "",
+      "contextField": "",
+      "context": "Digital tax invoice validation STATUS values shown to the processor on hover over the CFDi icon. Not an admin configuration control; enumerated here because it is a genuine documented value list in the tax domain.",
+      "values": [
+        "Not validated",
+        "Valid",
+        "Valid with warnings",
+        "Invalid"
+      ],
+      "sourceQuote": "The status may be",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md",
+      "notes": "4 values - complete bullet run. appliesToField empty: this is a runtime status, not a configurable field, and the configuration surface it implies (workflow / audit rules on exception code INVXMLST) lives on the Audit Rules and Workflows pages. Feature enablement is by SAP Concur support, not self-service."
+    },
+    {
+      "appliesToField": "",
+      "contextField": "",
+      "context": "CROSS-PAGE, TOOLS-GUIDES ONLY. Canada FOUR-field VAT labelling convention. A recommended field-labelling scheme applied on Forms and Fields, not a Tax Administration control. DO NOT re-home.",
+      "values": [
+        "VAT Amount 1 – GST",
+        "VAT Amount 2 – PST",
+        "VAT Amount 3 – HST",
+        "VAT Amount 4 – QST"
+      ],
+      "sourceQuote": "Implementation of all four VAT fields should be labeled as follows:",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md",
+      "notes": "4 values - complete bullet run, EN-DASH (U+2013) between field and tax name reproduced exactly, not a hyphen. Directly contradicts the admin-guides claim that Canada is not supported for VAT. The same topic warns that VAT Amount 3 and VAT Amount 4 values 'must be entered manually at this time' on Capture Processing forms."
+    },
+    {
+      "appliesToField": "",
+      "contextField": "",
+      "context": "CROSS-PAGE, TOOLS-GUIDES ONLY. Canada TWO-field VAT labelling convention - the alternative to the four-field scheme above. DO NOT re-home.",
+      "values": [
+        "For GST/HST use VAT Amount 1",
+        "For PST/QST use VAT Amount 2"
+      ],
+      "sourceQuote": "Implementation of two VAT fields should be labeled as follows:",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md",
+      "notes": "2 values - complete bullet run, reproduced as full clauses because that is how the source writes them. Chosen by clients operating in one province or preferring VAT Tax Code to distinguish tax types. Capture Processing extracts primary tax to VAT Amount 1 and provincial tax to VAT Amount 2 under this scheme."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "taxAuthorityCountry",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Company Locations",
+      "condition": "Country + State/Province selected on the Tax Authorities tab are resolved against Company Locations to obtain the ship-to location that determines the applicable tax authority and rates. Company Locations is not yet a page node in this graph, so this edge is expected to stay unresolved.",
+      "sourceQuote": "Invoice will pull the ship-to information from the Company Locations page in Administration",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "taxAuthorityName",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Company Locations",
+      "condition": "The VAT calculation itself is defined as a three-part product of Tax Authority, Company Location (Ship To), and Expense Type or Vendor - so a tax authority is inert without a company location.",
+      "sourceQuote": "Tax Authority + Company Location (Ship To) + Expense Type (or Vendor) = Calculation",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/calculate-vat-and-required-criteria-89f97622.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Forms and Fields",
+      "targetField": "taxAuthorityName",
+      "targetPage": "Tax Administration",
+      "condition": "VAT fields must be added to forms on Forms and Fields BEFORE the Tax Authority feature is configured. This is documented as the first action in the basic process.",
+      "sourceQuote": "Client adds VAT fields to forms: Clients need to add VAT fields to the relevant forms before they start configuring the Tax Authority feature.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "predefinedTaxCodeName",
+      "sourcePage": "Tax Administration",
+      "targetField": "VAT Tax Code 1",
+      "targetPage": "Forms and Fields",
+      "condition": "Saving a predefined tax code on the Tax Code tab converts downstream VAT tax code fields from read-only text into selectable lists. WHICH fields is contradicted between two topics - see contradiction #5. Modify rights on those fields must additionally be granted in Forms and Fields.",
+      "sourceQuote": "The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "taxValidationExpenseTypes",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Expense Types",
+      "condition": "The read-only Expense Types column on the Tax Validation tab is rendered from the tenant's own expense types; the commodity-code mapping is loaded through the Expense Type import.",
+      "sourceQuote": "This list of expense types represents the client-defined expense types.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "unspscCommodityCode",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Expense Types",
+      "condition": "UNSPSC codes are imported by SAP Concur, then mapped to the tenant's expense types either through the Expense Type import or by manual in-grid entry on this tab.",
+      "sourceQuote": "This is done by either manually entering the proper code, or by using the Expense Type import.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-commodity-codes-in-this-view-f37c2a6e.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Forms and Fields",
+      "targetField": "turnOnTaxValidation",
+      "targetPage": "Tax Administration",
+      "condition": "The Tax Validation feature is not active until the Turn On Tax Validation check box is selected, and the docs warn that it must not be activated until every prior configuration step (including expense-type-to-commodity-code mapping) is finished.",
+      "sourceQuote": "The feature is not active until the client selects (enables) the Turn On Tax Validation check box in the Tax Administration tool.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-13c136d5.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "expenseTypeGroupExpenseTypes",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Expense Types",
+      "condition": "Expense type groups select from the tenant's expense types, and an expense type consumed by one group is unavailable to any other group under the SAME tax authority.",
+      "sourceQuote": "The unique combination of tax authority, company location, and expense type is used to calculate the tax.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/availability-of-expense-types-based-on-location-of-tax-authority-8485155d.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Forms and Fields",
+      "targetField": "",
+      "targetPage": "Tax Administration",
+      "condition": "The Specify Tax in Invoice Details or Itemization Summary feature requires at least one VAT field at BOTH header and line item level, added on Forms and Fields; with only one it never appears. This gates how tax amounts entered against a tax authority can be handled.",
+      "sourceQuote": "The Specify Tax in Invoice Details or Itemization Summary feature will not appear if the admin has only selected one VAT field, either at the header or at the line item level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/control-tax-amount-handling-8540cd38.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Forms and Fields",
+      "targetField": "",
+      "targetPage": "Tax Administration",
+      "condition": "The Switch Tax Mode button appears on the Invoice page only when Tax fields exist at BOTH header and line item levels - a Forms and Fields configuration precondition, documented only in tools-guides. Constraint: only one Tax field, header or line item, may be used per invoice.",
+      "sourceQuote": "If a client configuration includes Tax fields added at both header and line item levels, a Switch Tax Mode button appears on the Invoice page",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/switch-tax-mode-dcd0a51d.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Tax Administration",
+      "targetField": "taxAuthorityName",
+      "targetPage": "Tax Administration",
+      "condition": "The Invoice Tax Administrator role does not exist in User Permissions until SAP Concur staff enable the feature; the role is then assigned in Company Admin / User Permissions before any tab on this page is reachable. PROVISIONING-DEPENDENT: the tab set a tenant actually sees follows from this.",
+      "sourceQuote": "The Invoice Tax Administrator role is available once SAP Concur staff enable the feature.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "taxAuthorityName",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Expense Types",
+      "condition": "The corpus enumerates five inputs the system needs before VAT can be calculated: Tax Authority, Expense type, Date, Location, Vendor. This 5-item list is the dependency spine for everything configured on this page.",
+      "sourceQuote": "VAT applies to some—but not all—expense types",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/requirements-to-calculate-vat-821a71ea.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "expenseTypeGroupEndDate",
+      "sourcePage": "Tax Administration",
+      "targetField": "",
+      "targetPage": "Tax Administration",
+      "condition": "Effective Date is required and End Date is optional on both group wizards; leaving End Date blank makes the system use the documented default 12/31/9999, so an expiring group and its successor are chained by date rather than deleted.",
+      "sourceQuote": "If no end date is specified, the system uses the date of 12/31/9999",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Forms and Fields",
+      "targetField": "",
+      "targetPage": "Tax Administration",
+      "condition": "The Specify Tax in Invoice Details or Itemization Summary feature is activated through an 11-step Forms and Fields procedure that adds VAT fields to BOTH the Payment Request Header and the Payment Request Line Item Details form types. An optional read-only Line Item VAT Amount roll-up field may be added to the header form.",
+      "sourceQuote": "The admin must add at least one VAT field at the header and at the line item level for the Specify Tax in Invoice Details or Itemization Summary feature to show on the Payment Request Header form of the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-the-specify-tax-in-invoice-details-or-itemization-summary-feature-11c6df01.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Tax Administration",
+      "targetField": "turnOnTaxValidation",
+      "targetPage": "Tax Administration",
+      "condition": "PROVISIONING GATE. The Invoice Tax Administrator role does not appear in User Permissions at all until SAP Concur staff enable the Tax Validation feature, so which tabs a tenant sees on this page is provisioning-dependent and cannot be inferred from the docs alone.",
+      "sourceQuote": "The Concur Administrator completes the steps outlined below to expose the Invoice Tax Administrator role in User Permissions",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "topic": "Country support for VAT: admin-guides declares US, Canada and India unsupported while tools-guides gives both of them full VAT field implementations",
+      "readingA": "supported-countries-for-vat-8b38bab8.md: 'Countries that are not supported for VAT in Concur Invoice are the US, Canada, India, and other multi-tax countries.' Primary supported = United Kingdom, Japan, Australia.",
+      "readingB": "canada-de22c9f9.md gives a four-field and a two-field Canadian VAT labelling scheme (GST/PST/HST/QST), and uk-us-japan-australia-0557084a.md says 'For the UK, the US, Japan, and Australia, use the VAT Amount 1 field, which is for primary tax.' Both are tools-guides-only. Not reconciled: most likely 'supported' means different things in the two guides (Tax Authority auto-calculation vs Capture Processing field capture), but the corpus never says so.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/supported-countries-for-vat-8b38bab8.md",
+        "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md",
+        "concur-invoice-professional-edition-tools-guides/uk-us-japan-australia-0557084a.md"
+      ]
+    },
+    {
+      "topic": "The two raw-<table> OCR/Capture field tables disagree about Canadian tax capture",
+      "readingA": "tools-guides what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md lists 'Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **' AND a separate cell 'Vat 2 (Secondary Tax – Canada PST/QST) *'.",
+      "readingB": "admin-guides configuring-forms-and-fields-in-capture-processing-7c14446c.md lists 'Vat 1 (Australia GST, US Tax, VAT UK/Japan) *' - Canada GST/HST removed from the Vat 1 description and NO Vat 2 row at all. Both files are raw <table> HTML. These tables belong to page.capture-processing-admin (already built) and are cited here only for the tax contradiction; no field is re-homed.",
+      "files": [
+        "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+        "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md"
+      ]
+    },
+    {
+      "topic": "Tax Validation tab control labels differ between the configuration topic and the options topic",
+      "readingA": "step-3-configure-the-service-14c3ef13.md field table: 'Partner Account Number', 'Tax Validation Type', 'Tax Validation Level' (values Header / Line Item).",
+      "readingB": "work-with-the-tax-validation-page-options-c3fe1df5.md prose: 'Unique Tax Partner Number', 'Request Type to be Analyzed', 'Form Level to Be Analyzed' (values header / line item details form). Different loio, same deliverable_id. Both label sets emitted as separate field records; a crawler must expect either.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+        "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+      ]
+    },
+    {
+      "topic": "Two different navigation paths for assigning the Invoice Tax Administrator role",
+      "readingA": "step-2-assign-the-tax-administrator-role-b7f391c8.md: 'Click User Administration > User Permissions > Invoice tab of the Company Admin tool.'",
+      "readingB": "step-2-assign-the-tax-administrator-role-b903b7c8.md: 'Click Administration > Company > Company Admin.' then 'Click User Permissions (left menu) and then click the Invoice tab.' Same title, different loio. Not reconciled.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md",
+        "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b903b7c8.md"
+      ]
+    },
+    {
+      "topic": "Predefined tax codes: which downstream fields become lists",
+      "readingA": "configure-predefined-tax-codes-6b42509f.md: 'The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.' - four fields.",
+      "readingB": "step-7-optional-configure-predefined-tax-codes-be8bc5b8.md: 'The user will now see the VAT Tax Code 1 field as a list in the Invoice Details and Itemization Summary sections of the invoice.' - one field. Different loio, same deliverable_id 41460672; the Select/Click difference elsewhere in these two topics IS the gerund/imperative republication pattern, but this sentence is a genuine substantive divergence, so it is recorded, not reconciled. A third topic states Tax Authority currently supports only one VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1), which leans toward reading B but does not settle it.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+        "concur-invoice-professional-edition-admin-guides/step-7-optional-configure-predefined-tax-codes-be8bc5b8.md"
+      ]
+    },
+    {
+      "topic": "Navigation alias drift for the Tax Administration page itself",
+      "readingA": "'Administration > Invoice > Tax Administration (left menu)' (configure-predefined-tax-codes-6b42509f.md, step-7) and 'Click Administration > Invoice.' then 'Click Tax Administration left menu.' (step-3-access-tax-authorities-2fae4ae3.md).",
+      "readingB": "'click Administration > Invoice Admin > Tax Administration' (step-3-configure-the-service-14c3ef13.md), and the-basic-process-13c136d5.md speaks of 'exposing the Tax Administration link in Invoice Admin'. 'Invoice Admin' is a live alias for 'Administration > Invoice'. Note also the menu entry is called the 'Tax Administration link' in one topic and the 'Tax Administrator link' in another.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+        "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+      ]
+    },
+    {
+      "topic": "Tab label for the expense type group tab",
+      "readingA": "the-basic-process-12a5686d.md: 'Administration > Invoice > Tax Administration > Expense Type Groups tab' (plural Groups).",
+      "readingB": "step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md: 'On the Expense Types Group tab, select from the Tax Authority list.' (plural Types, singular Group). Both retained.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md",
+        "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+      ]
+    },
+    {
+      "topic": "Applies To value casing differs between the expense type group and vendor group wizards",
+      "readingA": "step-5 (expense type groups): 'Select the Payment Request document type' - capital R.",
+      "readingB": "step-6 (vendor groups): 'Select the Payment request document type' - lowercase r. Both reproduced verbatim rather than normalised. step-6 additionally says its Applies To setting 'appears as a column on the Expense Type Groups page', naming the wrong page for a vendor group - recorded as-is.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+        "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+      ]
+    },
+    {
+      "topic": "Role name for the gate on this page",
+      "readingA": "'Invoice Tax Administrator' - step-2-assign-the-tax-administrator-role-b7f391c8.md, b903b7c8.md, and step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md.",
+      "readingB": "'Tax Administrator' - required-roles-81c8eace.md: 'To add and manage tax authorities, the user needs to have the Tax Administrator role.' the-basic-process-12a5686d.md also uses the bare 'Tax Administrator role'. Both retained.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md",
+        "concur-invoice-professional-edition-admin-guides/required-roles-81c8eace.md"
+      ]
+    },
+    {
+      "topic": "Default tax condition wording on the two group wizards' Tax Rates step",
+      "readingA": "step-5: 'the default tax condition of Always which means that this tax rate will always apply.'",
+      "readingB": "step-6: 'the default tax condition of Always – meaning this tax rate will always apply.' (EN-DASH U+2013). Same semantics, different punctuation; recorded because the exact source characters matter for grounding.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+        "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+      ]
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": "VAT Amount 1, VAT Amount 2, VAT Amount 3, VAT Amount 4 - the four header-level VAT amount fields supported for capture. Source characters: space-hyphen-space, NOT an en-dash, and 'Vat' not 'VAT'.",
+      "count": 4,
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md"
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": "VAT Amount 2, VAT Amount 3, VAT Amount 4 - the line-item-level range, which starts at 2 because 'Vat 1 (Primary Tax ...)' is listed as its own cell. Source characters: space-hyphen-space.",
+      "count": 3,
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md"
+    },
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": "VAT Amount 1, VAT Amount 2, VAT Amount 3, VAT Amount 4 - admin-guides twin of the tools OCR table; same range characters but the surrounding row set differs (no Vat 2 row).",
+      "count": 4,
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md"
+    },
+    {
+      "label": "the tax code fields (1-4)",
+      "expandsTo": "VAT Tax Code 1, VAT Tax Code 2, VAT Tax Code 3, VAT Tax Code 4 - what the corpus says becomes a list once predefined tax codes exist. Source characters: parenthesised '1-4' with a plain hyphen, no spaces. CONTRADICTED by step-7, which names only VAT Tax Code 1.",
+      "count": 4,
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+    },
+    {
+      "label": "the VAT amount fields 1-4",
+      "expandsTo": "Line Item VAT Amount 1, Line Item VAT Amount 2, Line Item VAT Amount 3, Line Item VAT Amount 4 - the content the VAT Type label displays, at line item level. Source characters: plain hyphen, no spaces.",
+      "count": 4,
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md"
+    }
+  ],
+  "coverageVerdict": "good",
+  "notes": "LENS B, Tax Administration. MECHANICAL SWEEP RUN FIRST, as required: grep -c '<table' plus grep -c '^ *|' over (a) every file whose NAME matches tax|vat in both guide directories and (b) every file whose CONTENT matches 'Tax Administration|Tax Authorit' in both guide directories. Result: ZERO raw <table> elements in any Tax Administration-owned file. Every field record here therefore carries fromRawHtmlTable:false, correctly. The only two raw <table> files in the tax neighbourhood (what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md and configuring-forms-and-fields-in-capture-processing-7c14446c.md) are owned by page.capture-processing-admin, which is already built; I read both in full and cite them ONLY for contradiction #2 and for compressed ranges. | TABLES ENUMERATED IN FULL, NO SAMPLING: Tax Authorities grid columns (4/4), New Tax Authority General step (4/4), Tax Rate Types step (2/2), Tax Rates step (3/3), Expense Type Group Name step (6/6), Vendor Group Name step (6/6), Tax Validation tab (6/6), Available VAT Fields (27/27), Prorated VAT Fields (12/12), VAT labels (4/4), digital tax invoice statuses (4/4), Canada four-field (4/4) and two-field (2/2) labelling. | ILLUSTRATIVE MATERIAL DELIBERATELY SKIPPED, and why: appendix-a-tax-amount-calculation-8b380a96.md and uk-example-applicable-to-all-single-level-vat-countries-ef37bb45.md are worked arithmetic examples (Net = 147.25/1.175 etc.) - a calculation demonstration, not a settings table, so no fields were extracted from them. tax-authority-8b386a59.md (64 pipe-table lines), tax-validation-8b37962d.md (49), image-handling-digital-tax-invoice-8b2fb78f.md (46) and value-added-tax-vat-8b39be89.md (13) were opened because the sweep flagged them; all four are REVISION HISTORY tables (Date | Notes/Comments/Changes) with zero configuration content, so they are cited nowhere. The Switch Tax Mode 'Example 1 / Example 2' figures are screenshot captions. | WHAT I COULD NOT DETERMINE: (1) whether Calculation Method has any value other than Percentage - it is called 'the default choice' but no alternative is ever named, and I refused to invent one; (2) whether any tax condition other than 'Always' can be chosen on either group wizard's Tax Rates step; (3) the option lists behind Country, State/Province, Rate Type, Expense Types and Vendors - all tenant-populated or SAP-imported, so their absence is correct, not a gap; (4) the UNSPSC code catalog, which is imported by SAP Concur and never enumerated here; (5) the cleared state and default of the three checkboxes (Disable VAT calculation x2, Turn On Tax Validation) - only the selected state is documented, and completing a No/Yes pair is exactly the defect this project already paid for; (6) the full Tax Type list on the Vendor Name step, which the source itself truncates with 'etc.'; (7) whether Tax Validation is a tab or a page - it is CLICKED as a tab ('Click the Tax Validation tab.') but then called 'the Tax Validation page' throughout. | WITHHOLDING TAX: grep for 'withholding' returns ZERO files across both guide directories. Withholding tax is not documented in this corpus at all; no control was invented for it. | SECONDARY VAT COUNTRIES: described only as a class ('countries that have one tax type that levy tax') and never listed. There is no secondary-country list to recover - other-countries-84722445.md defers to the Account Manager and to the Concur Invoice: VAT Setup Guide, which is NOT in this corpus. That is an honest boundary, not a thin extraction. | PAGE OWNERSHIP: five value sets carry an EMPTY appliesToField on purpose - Available VAT Fields, Prorated VAT Fields, VAT labels, and the two Canada labelling schemes describe fields owned by page.forms-and-fields (already built), and the digital tax invoice statuses are a runtime processor display. Wiring them to a Tax Administration field would be the mis-home failure mode; they are carried complete, with dependency edges instead. | BEYOND THE INVENTORY: my own sweep surfaced files the inventory did not list, and I read them - the-basic-process-13c136d5.md (the Tax Validation basic process, which supplied the Turn On Tax Validation activation gate and the 'Tax Administration link in Invoice Admin' alias), required-roles-81c8eace.md (the bare 'Tax Administrator' role contradiction), step-1-add-vat-fields-to-forms-6d93bfcd.md, the six vat-at-/vat-fields-at- level topics, australia-and-new-zealand-0bdf2180.md (invoice RETENTION guidance, not tax config - no fields taken), and vendor-information-for-vat-included-in-the-unit-price. None of them contained an unclaimed settings table."
+}

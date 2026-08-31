@@ -89,6 +89,13 @@ def main(src_path, group, patch=False):
             'url': p['url'], 'group': group, 'coverage': p['coverage'],
             'uiVariant': p.get('uiVariant', 'undifferentiated'),
         })
+        # A bare {name, url, coverage: thin} node is indistinguishable from a lazy miss - and one such
+        # node (Map Invoice Concept Fields) drew exactly that charge from the Group 5A critic. Carry the
+        # evidence forward when the build supplies it, so "thin" can be read as a finding about the
+        # corpus rather than a gap in the build. Absent keys leave older results byte-identical.
+        for key in ('documentedBasis', 'verifyNotes', 'roleGates', 'aliases', 'identityNotes'):
+            if p.get(key):
+                n['configPages'][-1][key] = p[key]
         for f in p['fields']:
             base, fid, i = 'field.%s.%s' % (p['id'], slug(f['name'])), None, 2
             fid = base
@@ -137,6 +144,10 @@ def main(src_path, group, patch=False):
             'sourceQuote': v.get('sourceQuote'), 'sourceFile': v.get('sourceFile'),
             'notes': v.get('notes', ''),
         })
+        # An accepted, documented gap must stay distinguishable from a fresh wiring regression:
+        # bin/validate-graph.py demotes an unwired set from ERROR to WARN only when knownGap is set.
+        if v.get('knownGap'):
+            n['configValueSets'][-1]['knownGap'] = True
 
     for s in r['steps']:
         n['configSteps'].append({

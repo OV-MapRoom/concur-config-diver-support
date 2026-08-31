@@ -1,0 +1,298 @@
+{
+  "pageId": "list-management",
+  "pageName": "List Management",
+  "lens": "B-reference-tables-and-long-catalogs",
+  "filesRead": [
+    "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+    "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+    "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md",
+    "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md",
+    "concur-invoice-professional-edition-admin-guides/forms-fields-lists-and-validations-configuration-process-76d94b3b.md",
+    "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+    "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-53a9a79c.md",
+    "concur-invoice-professional-edition-admin-guides/access-connected-lists-39dd2408.md",
+    "concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md",
+    "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md",
+    "concur-invoice-professional-edition-admin-guides/connected-list-overview-3fc65ecf.md",
+    "concur-invoice-professional-edition-admin-guides/work-with-connected-list-definitions-4dd05e1d.md",
+    "concur-invoice-professional-edition-admin-guides/create-hierarchy-and-import-connected-list-data-c6ab8a52.md",
+    "concur-invoice-professional-edition-admin-guides/not-using-custom-or-connected-lists-cdd84186.md",
+    "concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md",
+    "concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md",
+    "concur-invoice-professional-edition-admin-guides/import-allocations-5ca442db.md",
+    "concur-invoice-professional-edition-admin-guides/import-allocations-68020903.md",
+    "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md",
+    "concur-invoice-professional-edition-admin-guides/invoice-list-data-content-type-50e66a27.md",
+    "concur-invoice-professional-edition-admin-guides/overview-1470d2be.md",
+    "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md",
+    "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+    "concur-invoice-professional-edition-tools-guides/other-columns-4436522d.md",
+    "concur-invoice-professional-edition-tools-guides/search-queries-by-list-item-code-08d2dba9.md",
+    "concur-invoice-professional-edition-tools-guides/naming-conventions-used-in-this-document-986f1efb.md",
+    "concur-invoice-professional-edition-tools-guides/vendor-manager-terminology-8b54bff7.md",
+    "concur-invoice-professional-edition-tools-guides/creating-and-approving-a-new-vendor-fa0ecc4e.md",
+    "concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md",
+    "concur-invoice-professional-edition-tools-guides/working-with-multiple-check-configurations-e88666b1.md",
+    "concur-invoice-professional-edition-tools-guides/working-with-multiple-funding-accounts-baf93427.md",
+    "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md",
+    "concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md"
+  ],
+  "fields": [
+    {
+      "name": "listCategorySelector",
+      "label": "list category",
+      "fieldType": "dropdown",
+      "validValues": [
+        "New List Category"
+      ],
+      "sourceQuote": "Choose Existing: Select an existing list category, such as Allocations, from the list",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+      "notes": "The New List page carries a list-category selector with two documented branches: pick an existing category, or pick the literal option New List Category to create one. UNDETERMINED: the corpus never gives the on-screen LABEL of this control - only the act of selecting from it - so 'label' here is the corpus's own wording ('an existing list category ... from the list'), not a verified caption. 'Allocations' is given as an EXAMPLE of an existing category, not as an enumerated system value, and is therefore deliberately NOT placed in validValues: category names are tenant data. NO CATALOG of list categories exists anywhere in either guide directory. The identical two-branch text is republished verbatim in use-a-connected-list-1eaafd29.md (same wording, different topic) - corroboration, not a UI variant. Step 5 in both topics says 'Fill out the remaining options, then select Save.' - the corpus never says what those remaining options are, which is the single biggest documented gap on this page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addNewListCategory",
+      "label": "Add New List Category",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Create New: Select New List Category and, in Add New List Category, type a name and select Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+      "notes": "Free-text name entry that appears after New List Category is selected in the list-category control, followed by its own Save. UNDETERMINED: no length limit, no character restriction, no uniqueness rule is documented anywhere in this corpus. Republished verbatim in use-a-connected-list-1eaafd29.md.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "listItemCode",
+      "label": "Item Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Record the Item Code values. You will use this exact reference when importing your vendor access values by their Vendor Code value.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "The short code carried by each list item. This is the field every downstream import table in the corpus calls the 'List Item Short Code' (see compressedRanges and dependencyCandidates). FORMAT RULES, all quoted from three separate topics: (1) cc91aa73 - 'The code format (EAST; NORTH) for each list item must be typed exactly as you have entered them here in your import.' EAST/NORTH are ILLUSTRATIVE example codes from that guide's naming convention, NOT system values, so validValues stays empty. (2) e0c5f415 - when an expense type is the first field of a connected list, the Item Code must exactly match the expense type's code (example given: Awards = \"AWRDS\"). (3) Downstream import specs constrain the code to a maximum of 32 characters, case insensitive (8b4aa547) or '32 characters' (c244e3ab) - but BOTH of those constraints are stated about the IMPORT COLUMN, not about the List Management entry field, so they are recorded as dependencies and a contradiction rather than as a validated limit on this control. import-allocations-5ca442db.md adds the consuming rule: 'It is critical that import values be the list item code, and not the list item name (the display name) value.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "listItemName",
+      "label": "Item Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "be sure the value you input for Item Name matches the Expense Type name exactly.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md",
+      "notes": "The display name of a list item, paired with Item Code. The only documented constraint is conditional: when the list item stands for an expense type and the name must read the same for connected list audit rules, Item Name must match the Expense Type name exactly. The full source sentence is 'If the name is to appear the same for connected list audit rules, be sure the value you input for Item Name matches the Expense Type name exactly.' UNDETERMINED: length limit, uniqueness, and whether Item Name is required are documented nowhere in this corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "listCategorySelector",
+      "contextField": "",
+      "context": "The only option name the corpus ever enumerates for the list-category control on the New List page. It is a two-branch choice - reuse an existing category, or select the literal entry New List Category to create one - so the enumerable half is a single value. Emitted as a value set rather than left implicit because a config writer must know that 'create a category' is done by choosing an entry inside this same control, not by a separate button.",
+      "values": [
+        "New List Category"
+      ],
+      "sourceQuote": "Create New: Select New List Category and, in Add New List Category, type a name and select Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+      "notes": "BLIND-BUILD DISCIPLINE: 'Allocations' is deliberately excluded - the corpus offers it as an example of an existing category ('such as Allocations'), which is tenant data, not a documented system enumeration. No complete catalog of list categories exists in either guide directory. This same two-branch text appears verbatim in use-a-connected-list-1eaafd29.md; because the wording is identical it is corroboration, not a competing list, so only one value set is emitted."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "precedes",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "Source List",
+      "targetPage": "Feature Hierarchies",
+      "condition": "The source list built in List Management is the thing the Invoice Vendor Employee Access feature hierarchy is pointed at; if the list is multi-level, the hierarchy's levels and segments must be added to match the list levels.",
+      "sourceQuote": "In the Source List, select the name of the list you created in Step 1 (for our example, this is VendorEmployeeAccess).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "listItemName",
+      "sourcePage": "List Management",
+      "targetField": "Source List",
+      "targetPage": "Feature Hierarchies",
+      "condition": "Creating the source list in List Management is equivalent to creating Groups - each item in the source list is in effect a group - so the list items must exist before the feature hierarchy can be associated.",
+      "sourceQuote": "In List Management, you create the source list associated with the feature hierarchies.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "listItemName",
+      "sourcePage": "List Management",
+      "targetField": "Group",
+      "targetPage": "Group Configurations",
+      "condition": "The named vendor groups set up in Group Configurations must match the source list items created in List Management.",
+      "sourceQuote": "In the following figure, four Divisions are added that match the source list items created in Step 1.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "listCategorySelector",
+      "sourcePage": "List Management",
+      "targetField": "fieldsTabList",
+      "targetPage": "Forms and Fields",
+      "condition": "In the documented configuration order, the lists needed for the invoice forms are identified and created on the List Management page BETWEEN adding required fields to forms and modifying field properties on Forms and Fields - so list creation precedes substituting a list for a text box on a form field.",
+      "sourceQuote": "Identify and create the lists needed for the invoice forms.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/forms-fields-lists-and-validations-configuration-process-76d94b3b.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "Expense Type Code",
+      "targetPage": "Expense Types",
+      "condition": "When an expense type is used as the first field of a connected list, the List Management Item Code must exactly match the code of that expense type.",
+      "sourceQuote": "matches that of the expense type you are using (example: Awards = \"AWRDS\")",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "system expense type Item Codes",
+      "targetPage": "Localization",
+      "condition": "To learn the Item Code values that must be matched, the administrator exports the list of system expense types from the Localization page (or runs a Cognos report). Localization is not yet in this graph, so this dependency stays unresolved.",
+      "sourceQuote": "To find the Item Code values, run a report from Cognos or export a list of system expense types by using the Localization page in Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemName",
+      "sourcePage": "List Management",
+      "targetField": "data_object_list_validation",
+      "targetPage": "Audit Rules",
+      "condition": "For a name to appear the same in connected list audit rules, the List Management Item Name must match the Expense Type name exactly - a naming constraint imposed on this page by the audit-rule surface.",
+      "sourceQuote": "be sure the value you input for Item Name matches the Expense Type name exactly.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "connectedListsTab",
+      "targetPage": "Forms and Fields",
+      "condition": "The Expense Type List Item Key field must be the first item in the connected list definition for the expense-type-first-field feature to work - a constraint enforced in the connected list definition (Forms and Fields), on list items created in List Management.",
+      "sourceQuote": "The Expense Type List Item Key field must be the first item in the connected list for this feature to work.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "connectedListsTab",
+      "targetPage": "Forms and Fields",
+      "condition": "SECOND, DISTINCT CONSTRAINT on the same pair: the Expense Type List Item Key field is single-use - once consumed by one connected list definition it is no longer offered. Recorded separately because it gates a different config decision (which single connected list gets the expense-type key) than the ordering rule above.",
+      "sourceQuote": "The Expense Type List Item Key field can only be used in a single connected list definition, after which it is no longer available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "Level 1 Code - Level 10 Code",
+      "targetPage": "Import/Extract Administrator - Hierarchy Mappings import (not in this graph)",
+      "condition": "The ten Level n Code columns of the hierarchy-mapping import template ARE the List Management list item short codes; the import cannot be authored until the list items exist and their codes are recorded.",
+      "sourceQuote": "These are the List Item Short Codes.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "Level 1 Code",
+      "targetPage": "Import/Extract Administrator - Vendor Employee Access import (not in this graph)",
+      "condition": "Each Level n Code column of the Vendor Employee Access import template resolves to level n of the List Management source list attached to the Invoice Vendor Employee Access feature hierarchy.",
+      "sourceQuote": "Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "Level 1 Code",
+      "targetPage": "Import/Extract Administrator - Import Settings Record Type 200 (not in this graph)",
+      "condition": "The Record Type 200 import format calls each of its ten Level n Code columns 'the list item Short Code representing the nth segment level of the overall hierarchy path'.",
+      "sourceQuote": "The list item Short Code representing the 1st segment level of the overall hierarchy path.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemName",
+      "sourcePage": "List Management",
+      "targetField": "Payment Group",
+      "targetPage": "Invoice Pay - check configuration / funding account (not in this graph)",
+      "condition": "Payment groups are items in a List Management list, surfaced on the invoice as a drop-down; each active check configuration and each active funding account must have a unique Country/Region + Currency + Payment Group(s) set, so the List Management list items bound the available payment groups.",
+      "sourceQuote": "Payments Groups are linked to items in a list from List Management and selected on an invoice from a drop-down list field in the Invoice Details (Header) section.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/working-with-multiple-check-configurations-e88666b1.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "listItemCode",
+      "sourcePage": "List Management",
+      "targetField": "fieldsTabList",
+      "targetPage": "Forms and Fields",
+      "condition": "Display behaviour of a list-typed field is capped by item count: a simple list renders at most 500 items and above that degrades to a text field with search wheel; a connected list renders at most 500 items and lets the user search by list item text OR code. This bounds how large a List Management list can usefully be, but the setting lives on Forms and Fields.",
+      "sourceQuote": "If a field is configured as a simple list, the field displays a maximum of 500 items in the list:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "topic": "Where connected list DEFINITIONS are authored - Forms and Fields tab vs a separately named 'Connected List Definition tool'",
+      "readingA": "access-connected-lists-39dd2408.md and connected-list-overview-3fc65ecf.md place the work on a tab inside the already-built Forms and Fields page: 'On the Forms and Fields page, in the Form Type list, select the desired form type.' then 'Click the Connected Lists tab.', and 'You can use the Connected Lists tab to add new connected list definitions and modify existing connected list definitions.' work-with-connected-list-definitions-4dd05e1d.md adds that the tab is conditionally enabled: 'The Connected Lists tab is available only when you select a form that supports this feature; otherwise, it is disabled.'",
+      "readingB": "use-a-connected-list-1eaafd29.md splits the same feature across two differently-named tools under two different roles - 'Invoice Admin or Invoice: Using the List Management tool to create a new list category (or use an existing one) and create a new list within the category' and 'Shared Configuration administrator: Using the Connected List Definition tool to define the connected list fields and hierarchy'. The name 'Connected List Definition tool' appears nowhere else in either guide directory. NOT RECONCILED. It may be a provisioning-dependent surface or a legacy name, but the corpus never says so. The practical consequence for automation: reading B implies a role handoff (Invoice Admin, then Shared Configuration administrator) that reading A does not.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/access-connected-lists-39dd2408.md",
+        "concur-invoice-professional-edition-admin-guides/connected-list-overview-3fc65ecf.md",
+        "concur-invoice-professional-edition-admin-guides/work-with-connected-list-definitions-4dd05e1d.md",
+        "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md"
+      ]
+    },
+    {
+      "topic": "Role required to operate List Management - three different gates named",
+      "readingA": "use-a-custom-list-f3fc8bee.md: 'This portion of the process requires the role of Invoice Admin.' use-a-connected-list-1eaafd29.md raises it to a pair: 'This portion of the process requires the roles of Invoice Admin and Shared Configuration administrator.'",
+      "readingB": "required-roles-53a9a79c.md names a different role entirely - 'Invoice Configuration Administrator: Will configure the Concur Invoice modules, such as List Management, Group Configurations, and Employee form' - and overview-of-steps-37e3c289.md generalises it to 'All tasks require the Invoice Configuration administrator role unless'. NOT RECONCILED; the two guide directories simply use different role vocabularies for the same page.",
+      "files": [
+        "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+        "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md",
+        "concur-invoice-professional-edition-tools-guides/required-roles-53a9a79c.md",
+        "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md"
+      ]
+    },
+    {
+      "topic": "Name of the external guide this corpus defers to for List Management",
+      "readingA": "'List Management: The _Shared: List Management Setup Guide_' - the SHARED-guide name, used in additional-documentation-a105a5d7.md and repeated in use-a-custom-list-f3fc8bee.md, use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md, field-configuration-information-5813462a.md, connected-list-overview-3fc65ecf.md, create-hierarchy-and-import-connected-list-data-c6ab8a52.md, step-1-create-the-source-list-in-list-management-cc91aa73.md, step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md, other-columns-4436522d.md and creating-and-approving-a-new-vendor-fa0ecc4e.md.",
+      "readingB": "step-4-add-the-custom-field-to-the-employee-form-da376eef.md calls it a Concur Invoice guide instead: 'For more information, refer to _Concur Invoice: List Management Setup Guide_.' NEITHER guide is present in this corpus. This matters because it is the single deferral target for every control on this page that the corpus does not document - so the gap cannot be closed from inside CONCUR_INVOICE at all.",
+      "files": [
+        "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md",
+        "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md"
+      ]
+    },
+    {
+      "topic": "Format constraint on the list item short code, as stated by three different import tables",
+      "readingA": "the-import-template-fields-and-descriptions-8b4aa547.md compresses the ten columns into one row 'Level 1 Code - Level 10 Code' and gives the format as 'Maximum 32 characters; case insensitive', with the note 'These are the List Item Short Codes.'",
+      "readingB": "import-settings-record-type-200-format-c244e3ab.md enumerates all ten as separate rows with the bare format '32 characters' and no case-sensitivity statement, while the-import-template-fields-and-descriptions-8b51ca3d.md also enumerates all ten as separate rows but leaves the Format cell EMPTY for every one of them. Three tables, three different format statements for what all three describe as the same list item short code. NOT RECONCILED - and note that all three constrain the IMPORT COLUMN; no topic in this corpus states the length or case rule for the Item Code field on the List Management page itself.",
+      "files": [
+        "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+        "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md",
+        "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md"
+      ]
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Level 1 Code - Level 10 Code",
+      "expandsTo": "Level 1 Code, Level 2 Code, Level 3 Code, Level 4 Code, Level 5 Code, Level 6 Code, Level 7 Code, Level 8 Code, Level 9 Code, Level 10 Code. Each is the List Management list item short code for one segment level of the hierarchy path - the source topic states outright 'These are the List Item Short Codes.' SEPARATOR CHARACTER REPRODUCED EXACTLY: a plain ASCII hyphen-minus surrounded by single spaces (space, U+002D, space) - NOT an en-dash. Format given for the whole compressed range: 'Maximum 32 characters; case insensitive'. CROSS-REFERENCE: the identical ten columns are written out UNCOMPRESSED, one row each, in two other tables - the-import-template-fields-and-descriptions-8b51ca3d.md ('Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.' through 'Level 10 ...') and import-settings-record-type-200-format-c244e3ab.md ('The list item Short Code representing the 1st segment level of the overall hierarchy path.' through 'the 10th segment level'). All ten rows of both uncompressed tables were read; none was sampled or elided.",
+      "count": 10,
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+    }
+  ],
+  "coverageVerdict": "thin",
+  "notes": "THIN IS THE HONEST ANSWER FOR THIS LENS, AND IT IS A FINDING, NOT A GAP IN THE SEARCH. MECHANICAL SWEEP, RUN FIRST AND RUN WIDE: (a) grep -c '<table' over every must-read file returned 0 for all twelve; (b) grep -rl -i 'List Management' across BOTH guide directories returned exactly 20 files, and grep -c '<table' returned 0 for every single one of them; (c) a second, wider sweep on grep -rlE 'list item|item code|list categor|New List' returned 30 files, of which only three carry any raw <table> at all (invoice-text-content-type-02b21c13, sample-record-type-410-157e0ab8, sample-record-type-420-85d647a0) and none of the three concerns List Management; (d) grep -c '^ *|' found the markdown pipe tables, all of which were opened. CONCLUSION: THERE IS NO SETTINGS TABLE, NO FIELD-DEFINITION TABLE, NO TERMINOLOGY TABLE, NO OPTION CATALOG AND NO RAW <table> ELEMENT FOR THE LIST MANAGEMENT PAGE ANYWHERE IN EITHER GUIDE DIRECTORY. fromRawHtmlTable is false on every record in this file, correctly. The page's whole documented surface in this corpus is a handful of procedural steps; the substance is deferred to an external guide that is not in the corpus (see contradiction 3). ILLUSTRATIVE TABLES SKIPPED, AND WHY: (1) naming-conventions-used-in-this-document-986f1efb.md carries a 4-row Source List Name / Group Name-Group Path / Level <#> Code table (East, North, South, West Division; EAST/NORTH/SOUTH/WEST) plus a vendor-naming table. Its own lead-in says 'Source List and Vendor Access Group names and codes used in examples in this document are shown in the following table.' - these are the guide's worked example, not system values, so importing them would have invented four tenant list items out of thin air. Deliberately skipped. The same four Divisions recur as figure captions in cc91aa73 and abf369db - also skipped, same reason. (2) The EAST; NORTH pair inside cc91aa73's code-format note is the same example, recorded as a format rule in listItemCode notes but NOT as validValues. TABLES READ IN FULL AND CORRECTLY HOMED ELSEWHERE (every row read, nothing sampled): the-import-template-fields-and-descriptions-8b51ca3d.md (14 rows: Vendor Code, Address Code, Level 1-10 Code enumerated individually, Action) and 8b4aa547.md (3 rows: Delete?, Employee ID*, Level 1 Code - Level 10 Code) and import-settings-record-type-200-format-c244e3ab.md - all three are IMPORT specs owned by Import/Extract Administrator, which is not a page in this graph; their list-item-code columns are emitted here only as dependencyCandidates and one compressedRange. The Action column value set (A = Add - Default, M = Move, D = Delete) is a real enumerated option list but belongs to the Vendor Employee Access import, NOT to List Management, so it is deliberately NOT emitted as a valueSetCandidate here; likewise 'Future Use 1 - Future Use 10' is a compressed range in c244e3ab but belongs to the Record Type 200 import spec and is logged here only so nothing downstream mis-homes it to this page. RECON FALSE LEADS CONFIRMED AND REJECTED: invoice-list-data-content-type-50e66a27.md (40 pipe lines) is the PRINT-FORMAT List Data content type and would have produced five bogus List Management fields; invoice-lists-e7e47e19.md is the end-user My Invoice grid. list-of-spend-categories-8b2de886.md and list-of-spend-category-names-and-codes-8b4a094d.md are large genuine catalogs but belong to Expense Types / Accounting Administration, not here. PAGE-IDENTITY BOUNDARY HELD: add-a-new-connected-list-definition-fc9f852a.md (25 pipe lines: Field Name, Data Type, Default Value Type, Field Default Value, Copy Down Source, Field, Access Rights, plus the Copy Down / None / Constant value set) and field-configuration-information-5813462a.md were read but NOT re-homed - both are page.forms-and-fields, already built. TWO CONTROLS SEEN AND DELIBERATELY NOT EMITTED AS FIELDS OF THIS PAGE: the Display List Code check box ('In the Query Builder, select (enable) the Display List Code check box.', search-queries-by-list-item-code-08d2dba9.md) lives in the Query Builder and is gated on the processor role - it consumes list item codes but is not a List Management control, and the corpus does not say which admin page hosts that Query Builder, so no dependencyCandidate was fabricated for it; and the site setting TOP_VALUE_ON_MRU ('Setting this value to 0 disables the Most Recently Used functionality.') is an internal site setting on the Forms-and-Fields field surface, not a List Management control. WHAT COULD NOT BE DETERMINED: the columns of the List Management grid itself; whether lists or list items can be deleted, deactivated, or reordered from this page; any Active/Inactive state on a list item; the length, character set, and uniqueness rules for List Name, Item Code and Item Name as entered HERE (only the downstream IMPORT column limits are documented, and those three disagree - see contradiction 4); how many sub-levels a multi-level list supports (cc91aa73 says only 'continue to add sub-levels as required' while every downstream import table stops at Level 10, which is suggestive but is NOT a documented limit on this page and is therefore not asserted); and what 'Fill out the remaining options' on the New List page actually means. All of that is deferred to the Shared: List Management Setup Guide, which is not in this corpus."
+}

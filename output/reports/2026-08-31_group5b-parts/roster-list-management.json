@@ -1,0 +1,236 @@
+{
+  "pageId": "list-management",
+  "pageName": "List Management",
+  "url": "/expense/admin/invoice/listManagement.asp",
+  "coverage": "thin",
+  "uiVariant": "undifferentiated",
+  "fields": [
+    {
+      "name": "listManagementMenuLink",
+      "label": "List Management",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Click List Management (left menu). The List Management page appears.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Left-menu nav item under Administration > Invoice that opens the List Management page. Same wording (Click) in cc91aa73; the two admin-guides procedures (f3fc8bee, 1eaafd29) use the imperative 'Select List Management (left menu). The List Management page appears.' instead - gerund/imperative variant of the identical instruction, not a UI difference. No quote anywhere routes this through the 'Invoice Processing Admin' middle nav node - it is only ever reached directly as a left-menu item after Administration > Invoice.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "listName",
+      "label": "List Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Provide a descriptive name for List Name, and then click Save (shown below).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Text input on the New List page for naming the list itself (distinct from the List Category). Consumed downstream: Feature Hierarchies Step 2 selects this exact list by name in its Source List field (see dependencyCandidates).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "newListPageSaveButton",
+      "label": "Save",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Provide a descriptive name for List Name, and then click Save (shown below).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Saves the new list. f3fc8bee gives a second, more elaborate version of this same control after the category choice: 'Fill out the remaining options, then select Save' - implying additional New List page options exist beyond List Name and List Category that the corpus never enumerates (thin coverage).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "listSelection",
+      "label": "list",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "Select the list name, and then click New to begin creating the list items",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "After a list has been saved, the admin selects it (presumably from a list-of-lists on the List Management landing page) before adding items to it. The corpus does not describe this selection control's shape (row click vs dropdown) beyond 'select the list name'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "listItemsNewButton",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the list name, and then click New to begin creating the list items that will act as your source list",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Second, distinct use of a New button within the same procedure: begins adding list ITEMS to an already-selected list (as opposed to newButton, which creates a new LIST). Same on-screen label as newButton but a different target - kept as a separate record per the no-duplicate-name rule.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "saveAndAddButton",
+      "label": "Save and Add",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Add each list item by clicking Save and Add.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Saves the current list item and keeps the entry control open for the next one.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "doneButton",
+      "label": "Done",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Click Done when all list items have been added.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Closes out the list-items entry procedure once all items (and sub-levels) are added.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addNewListCategory",
+      "label": "Add New List Category",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Create New: Select New List Category and, in Add New List Category, type a name and select Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+      "notes": "Free-text name entry that appears after New List Category is selected in the list-category control, followed by its own Save. UNDETERMINED: no length limit, no character restriction, no uniqueness rule is documented anywhere in this corpus. Republished verbatim in use-a-connected-list-1eaafd29.md.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "newListButton",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "3.  Click New to open the New List page.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Top-level New on the List Management page; opens the New List page. The admin-guides twins word it 'Select New to open the New List page.' (use-a-custom-list-f3fc8bee.md, use-a-connected-list-1eaafd29.md) - Click vs Select is a docs-style difference, not evidence of a UI variant. Distinct from the second New used to add list items (see listItemsNewButton). MERGE NOTE (refuters split): refuter-1 kept this record and dropped the twin 'newButton'; refuter-2 kept 'newButton' and dropped this one. Both quotes are verbatim, so the verbatim tiebreak does not separate them. This record survives on name hygiene: the existing graph already carries field.exceptions.newButton for a different control, and this page carries a SECOND New (listItemsNewButton), so the qualified name states which New a crawler must click. Nothing from the dropped twin's notes is lost - the Click/Select docs-style difference is already recorded above.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "listCategory",
+      "label": "list category",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Choose Existing: Select an existing list category, such as Allocations, from the list",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+      "notes": "On the New List page. The corpus gives NO enumeration of list categories - 'such as Allocations' is a single illustrative example, so validValues is deliberately empty and no value set is emitted. The exact on-screen label of this control is never stated; 'list category' is the docs' wording. Identical text appears in use-a-connected-list-1eaafd29.md. Category name must be recorded for the later list import ('make note of the category name and the list name; you will need them for the list import'). MERGE NOTE: the tables lens's twin record 'listCategorySelector' was dropped as a duplicate; its validValues [\"New List Category\"] was NOT carried over, because the corpus never states that the New List Category entry lives inside this control - only that you 'Select' it. That membership is plausible but unstated, so validValues stays empty and the fact is preserved by the separate newListCategoryOption record. The tables lens's value set (appliesToField 'listCategorySelector') is therefore orphaned and should be dropped rather than rewired, per refuter-1.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "newListCategoryOption",
+      "label": "New List Category",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "Create New: Select New List Category and, in Add New List Category, type a name and select Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md",
+      "notes": "The documented 'Create New' branch of the New List page category choice: you Select New List Category, which brings up Add New List Category (a name-entry control with its own Save). REPAIRED: fieldType was 'radio' in the procedures lens and 'dropdown' in the crosscut lens - the corpus supports NEITHER. The only sentence is 'Create New: Select New List Category and, in Add New List Category, type a name and select Save.', and 'Select' establishes no widget; 'Choose Existing:' / 'Create New:' are documentation branch labels, not evidence of radio buttons. fieldType set to 'unknown'. UNDETERMINED AND DELIBERATELY NOT RESOLVED: the corpus does not say whether New List Category is a standalone control or an option value inside the listCategory selector. It is modelled here as its own field with empty validValues so the string is counted exactly once; if it is ever established to be a value, it must move into listCategory.validValues and this field must be removed. SEPARATE SAVE: the Save named in this sentence belongs to Add New List Category and is DISTINCT from the New List page Save (newListPageSaveButton) - use-a-custom-list-f3fc8bee.md documents both, the category Save at step 4 and the page Save at step 5 ('Fill out the remaining options, then select Save.'). No candidate in this run models that category-level Save as its own control; it is reported in splitsProposed, not emitted. Same sentence appears verbatim in use-a-connected-list-1eaafd29.md - republished wording, corroboration rather than a UI variant.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "itemCode",
+      "label": "Item Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Record the Item Code values. You will use this exact reference when importing your vendor access values by their Vendor Code value.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "Per-list-item code. Two hard constraints from elsewhere: (1) exact-match on import - 'The code format (EAST; NORTH) for each list item must be typed exactly as you have entered them here in your import.' (same file); (2) when an expense type is the first connected-list field, the Item Code must match the expense type code - 'with an Item Code that _exactly_ matches that of the expense type you are using (example: Awards = \"AWRDS\")' (use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md). No length or character-set rule is documented. The Processor-side Query Builder can search list items by this code (Display List Code check box, search-queries-by-list-item-code-08d2dba9.md) - that check box is a Query Builder control, NOT a List Management control, so it is not emitted here. FOLDED FORWARD from the dropped duplicate 'listItemCode' (tables lens): downstream import specs constrain this code to a maximum of 32 characters (the-import-template-fields-and-descriptions-8b4aa547.md; import-settings-record-type-200-format-c244e3ab.md) - but BOTH state that about the IMPORT COLUMN, not about the List Management entry field, so it is recorded as a downstream dependency and NOT as a validated limit on this control. The consuming rule from import-allocations-5ca442db.md is 'It is critical that import values be the list item code, and not the list item name (the display name) value.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "itemName",
+      "label": "Item Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "If the name is to appear the same for connected list audit rules, be sure the value you input for Item Name matches the Expense Type name exactly.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md",
+      "notes": "The displayed text of a list item, paired with Item Code. Only ever named in this one topic, and only in the expense-type-as-first-field context; the step-1 procedure in tools-guides never names the item's name field at all. Constraint is conditional: match the Expense Type name exactly ONLY if the name must appear the same for connected list audit rules. Variant selected per refuter-1's recommendation: the full-sentence quote is used so the conditional ('If the name is to appear the same for connected list audit rules') survives inside the quote itself. FOLDED FORWARD from the dropped duplicate 'listItemName': UNDETERMINED - length limit, uniqueness, and whether Item Name is required are documented nowhere in this corpus. Homing this field on List Management is an inference disclosed in full: the sentence sits in an Additional Information bullet list that does not itself name a tool, but the same file attributes Item Code to List Management by name ('List Management: The connected list is configured using an expense type as the first field, with an Item Code that ...'), and Item Name is that field's pair on a list item.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "addSubLevels",
+      "label": "sub-levels",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "7.  (Optional): For a multi-level connected list, select any of the list items and continue to add sub-levels as required.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+      "notes": "The multi-level mechanism on List Management: select an existing list item, then add items beneath it. The corpus names NO control for this - no button, no label - so fieldType is unknown and the label is the docs' phrase, not a verified on-screen string. Level count is bounded downstream by the import template's Level 1 Code - Level 10 Code range (see compressedRanges); List Management itself is never given a documented depth limit. Levels created here must be matched by levels and segments in Feature Hierarchies. MERGE NOTE (refuters split): refuter-2 kept this record and dropped the twin 'multiLevelSubLevel'; refuter-1 kept the twin but instructed that THIS record's two unique findings be folded forward first (no documented depth limit on List Management itself; depth only bounded downstream by the import template's compressed range Level 1 Code - Level 10 Code). This record already carries both, so it survives intact and no fold was needed. Both quotes are verbatim; only one may stand because neither name is a documented on-screen label and keeping both would model one optional step twice.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "dropped": [
+    {
+      "name": "newButton",
+      "reason": "Intra-page duplicate of newListButton - same top-level New that opens the New List page, same sentence in cc91aa73, both quotes verbatim. Refuters split (refuter-1 dropped this one, refuter-2 kept it); resolved in favour of newListButton on name hygiene, since field.exceptions.newButton already means a different control in the existing graph and this page carries a second New (listItemsNewButton) that the bare name does not disambiguate against. The control itself is real and fully preserved.",
+      "correctPage": "",
+      "duplicateOf": "newListButton"
+    },
+    {
+      "name": "multiLevelSubLevel",
+      "reason": "Intra-page duplicate of addSubLevels - the same optional step 7 of cc91aa73, same sentence, both quotes verbatim. Refuters split (refuter-1 kept this one, refuter-2 kept addSubLevels); resolved in favour of addSubLevels because its notes already carry the two findings refuter-1 asked to be folded forward (no documented depth limit; downstream Level 1 Code - Level 10 Code bound). The multi-level capability is fully preserved.",
+      "correctPage": "",
+      "duplicateOf": "addSubLevels"
+    },
+    {
+      "name": "addNewListCategoryName",
+      "reason": "Intra-page duplicate of addNewListCategory (both refuters agreed). Same free-text name-entry control, same file, same fieldType; the survivor was found by two lenses and quotes the complete sentence rather than a mid-sentence fragment, and its notes record that no length, character-set or uniqueness rule is documented anywhere in this corpus.",
+      "correctPage": "",
+      "duplicateOf": "addNewListCategory"
+    },
+    {
+      "name": "listCategorySelector",
+      "reason": "Intra-page duplicate of listCategory (both refuters agreed), same verbatim quote. Its validValues [\"New List Category\"] was deliberately NOT carried into the survivor: the corpus says only 'Select New List Category' and never states that the entry lives inside the category control, so asserting membership would be a plausible-but-unstated completion. Its dependent value set (appliesToField 'listCategorySelector') is orphaned and should be dropped, not rewired.",
+      "correctPage": "",
+      "duplicateOf": "listCategory"
+    },
+    {
+      "name": "listItemCode",
+      "reason": "Intra-page duplicate of itemCode (both refuters agreed; itemCode found by two lenses and matches the on-screen label). Its two unique findings - the 32-character import-column limit and the import-allocations consuming rule - were folded into itemCode's notes before dropping, with the caveat preserved that those limits are stated about the import column, not about this entry field.",
+      "correctPage": "",
+      "duplicateOf": "itemCode"
+    },
+    {
+      "name": "listItemName",
+      "reason": "Intra-page duplicate of itemName (both refuters agreed). Its one unique finding (UNDETERMINED: length, uniqueness and requiredness are documented nowhere) was folded into itemName's notes before dropping.",
+      "correctPage": "",
+      "duplicateOf": "itemName"
+    },
+    {
+      "name": "saveList",
+      "reason": "Intra-page duplicate of newListPageSaveButton (both refuters agreed): cc91aa73 step 4 and use-a-custom-list-f3fc8bee.md step 5 are the same New List page Save republished across two guides. The qualified name survives because this page documents three distinct Saves (New List page, Add New List Category, and the item-level Save and Add) and the bare name does not distinguish them. Its observation - that 'Fill out the remaining options, then select Save.' is the clearest evidence the New List page carries controls this corpus never names - is already in the survivor's notes and is restated in verifyNotes.",
+      "correctPage": "",
+      "duplicateOf": "newListPageSaveButton"
+    },
+    {
+      "name": "saveAndAdd",
+      "reason": "Intra-page duplicate of saveAndAddButton (both refuters agreed), same line of cc91aa73, both verbatim. Separated only on this page's dominant -Button naming convention, which matters where three different Save controls exist. Notes were equivalent; nothing folded.",
+      "correctPage": "",
+      "duplicateOf": "saveAndAddButton"
+    }
+  ],
+  "splitsProposed": [
+    {
+      "fromField": "addNewListCategory",
+      "intoFields": [
+        "addNewListCategory",
+        "addNewListCategorySaveButton"
+      ],
+      "why": "The record models a free-text name entry, but the documented sentence describes TWO acts on one control - 'in Add New List Category, type a name and select Save.' That Save is a third, distinct Save on this page (separate from the New List page Save at step 5 and the item-level Save and Add), and a crawler that clicks the wrong one abandons the category. Both refuters flagged it as an unmodelled control. NOT SPLIT and NOT EMITTED, per the standing rule that records created during Repair never face the adversarial refuter; reported here for the human instead. If it is later added, the grounding quote is 'Create New: Select New List Category and, in Add New List Category, type a name and select Save.' (grep -F -c = 1 in both use-a-custom-list-f3fc8bee.md and use-a-connected-list-1eaafd29.md).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md"
+    },
+    {
+      "fromField": "listSelection",
+      "intoFields": [
+        "listSelection",
+        "listItemsNewButton"
+      ],
+      "why": "Reported for transparency only - this split was already performed by the extractors and is CORRECT, so no action is needed. cc91aa73 step 5 is one sentence describing two sequential acts ('Select the list name, and then click New to begin creating the list items'), and both records already exist separately in the roster. Logged so a reader does not mistake the shared sentence for a double-count.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md"
+    }
+  ],
+  "verifyNotes": "REFUTER PAGE-LEVEL FINDINGS AND WHAT I DID ABOUT THEM. (1) GROUNDING: refuter-1 grep-verified all 25 distinct quote strings across the three extraction files and found zero quote defects (verbatimVariantIndex 0 everywhere; every variantSpellings array had exactly one entry). I re-ran grep -F -c independently on all 30 lens records, including every twin I did not emit: ALL returned 1. Every record in this roster was pulled programmatically out of the extraction JSON - no sourceQuote was retyped. No quote was hand-authored, so no new grounding risk was introduced. (2) RAW TABLES: grep -c '<table' on all four cited files (cc91aa73, f3fc8bee, 1eaafd29, e0c5f415) returns 0, so fromRawHtmlTable:false is correct on all 14 records and no false flag needed clearing. There is no page-relevant raw <table> file for List Management in either guide directory. (3) THE ONE TRUE REPAIR: newListCategoryOption carried fieldType 'radio' (procedures lens) vs 'dropdown' (crosscut lens), with the corpus supporting neither - the only sentence is 'Create New: Select New List Category and, in Add New List Category, type a name and select Save.' Repaired to 'unknown', and the underlying ambiguity (is New List Category a standalone control or an option value inside listCategory?) is RECORDED AS UNDETERMINED rather than resolved, with an explicit instruction that if it is ever established to be a value it must move into listCategory.validValues and this field must be removed, so the string is never counted twice. (4) THE INVENTED-VALUE CATCH: the tables lens's dropped twin listCategorySelector carried validValues ['New List Category'] plus a matching valueSetCandidate. I did NOT carry either forward. The corpus never states that the New List Category entry lives inside the category control; membership is plausible but unstated, which is exactly the completion class this project has already had to delete twice. RECOMMENDATION TO THE MERGER: DROP that value set outright rather than rewiring its appliesToField to listCategory - rewiring re-asserts the unproven membership. Every one of the 14 surviving records has validValues []. 'Allocations' (illustrative existing category), EAST/NORTH and the four Divisions (the guide's worked example), and AWRDS were all correctly kept out of validValues by all three lenses; I confirm those exclusions - they are tenant or example data, not documented system enumerations. (5) REFUTER DISAGREEMENTS I HAD TO SETTLE (both are duplicate pairs where each refuter kept the opposite twin, so both names arrived in the REPAIR bucket). newButton vs newListButton: kept newListButton, because field.exceptions.newButton already means a different control in the existing graph and this page carries a second New (listItemsNewButton) that the bare name does not disambiguate against. multiLevelSubLevel vs addSubLevels: kept addSubLevels, because it already carries the two findings refuter-1 asked to be folded forward (no documented depth limit on List Management; depth bounded only downstream by the compressed range Level 1 Code - Level 10 Code). Both losers are logged in dropped[] with duplicateOf. This is why 16 inputs yield 14 records: the two removals are intra-page duplicates of surviving controls, not lost surface. (6) FOLD-FORWARDS the refuters ordered before discarding duplicates, all done: listItemCode's 32-character import-column limit (with the caveat preserved that it is stated about the IMPORT COLUMN, not this entry field) and the import-allocations rule 'It is critical that import values be the list item code, and not the list item name (the display name) value.' into itemCode; listItemName's UNDETERMINED note into itemName; listCategorySelector's value-set warning into listCategory. I grep-verified the import-allocations sentence (present in admin-guides/import-allocations-5ca442db.md) before quoting it in a note. (7) VARIANT SELECTION: where a control was found by two lenses with different but equally verbatim quotes, I took the record whose notes carry more documented constraint, and for itemName I took refuter-1's explicit recommendation - the crosscut's full-sentence quote, so the conditional 'If the name is to appear the same for connected list audit rules' survives inside the quote itself rather than only in notes. (8) PAGE IDENTITY HELD, RE-CHECKED. Not one emitted record is a connected-list-DEFINITION control. e0c5f415 splits the work by tool in its own words - 'List Management: The connected list is configured using an expense type as the first field, with an Item Code that ...' versus 'Forms and Fields: The connected list created in List Management is chosen when defining the connected list' - and 39dd2408 places the Connected Lists tab on the Forms and Fields page. Nothing was re-homed here from page.forms-and-fields and nothing here belongs there. I checked the live graph (337 configFields): the ONLY name collision is field.exceptions.newButton, which is benign (ids are namespaced by page) and which I avoided anyway by keeping newListButton. RESIDUAL CONTRADICTION RECORDED, NOT RECONCILED: use-a-connected-list-1eaafd29.md attributes definition work to a third, differently-named 'Connected List Definition tool' under the Shared Configuration administrator, which conflicts with 39dd2408 placing it on the Forms and Fields Connected Lists tab. No field was moved on the strength of either. (9) TWO CONTROLS FLAGGED BUT NOT ADDED. The category-level Save inside Add New List Category is a real, unmodelled third Save - reported in splitsProposed, not emitted, because records created during Repair never face the adversarial refuter. 'Expense Type List Item Key' (e0c5f415, with hard constraints that it must be first in the connected list and is usable in only one definition) is almost certainly a connected-list DEFINITION field belonging to page.forms-and-fields; it is deliberately NOT homed here. (10) MUST-READ FILES: refuter-2 opened all 12; refuter-1 opened the 4 cited by candidates plus 4 more. For my own pass I re-read the two files that actually ground this roster in full - tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md and admin-guides/use-a-custom-list-f3fc8bee.md - and confirmed the step sequence, the Note about the EAST; NORTH code format, and the 'make note of the category name and the list name' caveat. I did not re-open overview-8b2edfd0.md, step-2-...-bcaf1f5a.md, overview-of-steps-37e3c289.md, required-roles-53a9a79c.md, field-configuration-information-5813462a.md, additional-documentation-a105a5d7.md, access-connected-lists-39dd2408.md, 76d94b3b.md or e0c5f415.md at this stage: no repair I performed touches them, both refuters read them and reported consistently, and my lens here is assembly of already-refuted records rather than fresh extraction. See mustReadSkipped equivalent in this note. (11) COVERAGE = THIN, AND IT STAYS THIN. All three extraction lenses independently returned coverageVerdict 'thin' and both refuters affirmed it. The reason is not a failed search: grep -rl 'List Management' over BOTH guide directories returns exactly 20 files, 18 of which the extractions read and the remaining 2 (creating-and-approving-a-new-vendor-fa0ecc4e.md, vendor-manager-terminology-8b54bff7.md) yield no controls. There is NO field table, NO option catalog and NO raw <table> for this page anywhere in the corpus. use-a-custom-list-f3fc8bee.md step 5 concedes the gap in the product's own documentation - 'Fill out the remaining options, then select Save.' - and nine topics defer the substance to an external 'Shared: List Management Setup Guide' (called 'Concur Invoice: List Management Setup Guide' in tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md) that is not in this corpus. The 14 controls here are a procedural skeleton: the nav link, the two New buttons, List Name, the category choice, the item fields, and the three terminal buttons. NOTHING WAS PADDED TO FILL THE GAP, and the automation must be told that the New List page has unnamed options it will encounter and cannot plan for. (12) NAV TRAP RESTATED SO IT IS NOT RE-INTRODUCED: the 'Administration > Invoice' step of each procedure uses non-breaking spaces or an escaped angle bracket ('Click Administration<U+00A0><U+00A0>Invoice.', 'Select Administration\\\\>Invoice.') and is NOT safely grep -F quotable. No record models that step and none should be hand-reconstructed; page.audit-rules models its equivalent, List Management deliberately does not.",
+  "cleanCount": 8,
+  "repairedCount": 6
+}

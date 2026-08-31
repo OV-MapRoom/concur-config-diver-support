@@ -1,0 +1,935 @@
+{
+  "pageId": "tax-administration",
+  "pageName": "Tax Administration",
+  "url": "/expense/admin/invoice/taxAdministrator.asp",
+  "coverage": "good",
+  "uiVariant": "undifferentiated",
+  "fields": [
+    {
+      "name": "tabTaxAuthorities",
+      "label": "Tax Authorities",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "3.  Click the Tax Authorities tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Tab click is the documented way onto the Tax Authorities grid/wizard.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "tabExpenseTypesGroup",
+      "label": "Expense Type Groups / Expense Types Group",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Administration > Invoice > Tax Administration > Expense Type Groups tab",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md",
+      "notes": "CONTRADICTION (tab label): called 'Expense Type Groups' here (the-basic-process-12a5686d.md) but 'Expense Types Group' in step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md ('On the Expense Types Group tab, select from the Tax Authority list.'). Both recorded verbatim, not reconciled.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "tabVendorGroups",
+      "label": "Vendor Groups",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Administration > Invoice > Tax Administration > Vendor Groups tab",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md",
+      "notes": "Also attested directly in step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md: 'On the Vendor Groups tab, select from the Tax Authority list.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "tabTaxCode",
+      "label": "Tax Code",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "2.  Click the Tax Code tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+      "notes": "Onto the predefined tax code list.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "tabTaxValidation",
+      "label": "Tax Validation",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "2.  Click the Tax Validation tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "AMBIGUITY: clicked as a tab here, but referred to elsewhere as 'the Tax Validation page' (work-with-the-tax-validation-page-options-c3fe1df5.md). Modelled as a tab because the tab click is the only documented way in. Its content (and the Invoice Tax Administrator role that gates it) only exists after SAP Concur staff enable the Tax Validation feature (see step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md) - provisioning-dependent tab.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "buttonNew",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "1.  On the Tax Authorities page, click New. The General step appears.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Reused verbatim across tabs: New Tax Authority (S4), New Tax Rate Type (S4), New Tax Rate (S4), New Tax Code (configure-predefined-tax-codes-6b42509f.md: 'Click New.'), New Expense Type Group (step-5: 'Click New. The Group Name step appears.'), New Vendor Group (step-6: same). One control-identity, many wizard-entry contexts.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "buttonNext",
+      "label": "Next",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "3.  Click Next. The Tax Rate Types step appears.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Advances each wizard step (General->Tax Rate Types->Tax Rates on the New Tax Authority wizard; Group Name->Expense Types->Tax Rates on the Expense Type Group and Vendor Group wizards).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "buttonSave",
+      "label": "Save",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "3.  Click Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Confirms a New Tax Rate Type / New Tax Rate entry, a New Tax Code entry (configure-predefined-tax-codes-6b42509f.md), and the Tax Validation tab configuration (step-3-configure-the-service-14c3ef13.md: '1.  Click Save.').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "buttonDone",
+      "label": "Done",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "5.  Click Done. The new tax authority appears on the Tax Authorities page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Also exits the Expense Type Group wizard ('Click Done to exit the wizard.') and the Vendor Group wizard (same wording).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "buttonSearchGroups",
+      "label": "Search",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "then click Search. The existing groups for the selected tax authority, if any, appear.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Filters the Expense Type Group / Vendor Group list by Tax Authority and the with-effective-dates range before New is available.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityName",
+      "label": "Tax Authority Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type a unique name (generally the country name) for the tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 1 of the 4-row General step field table (New Tax Authority wizard, reached by clicking New on the Tax Authorities tab). Must be unique. No length limit documented.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityStateProvince",
+      "label": "State/Province",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "Select the associated states/provinces in the list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 3 of the General step field table. Multi-select ('states/provinces ... in the list'). Documented empty-state semantics: 'If the tax authority applies to the entire country, do not select any states/provinces.' No state/province list is enumerated in this corpus.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityTaxName",
+      "label": "Tax Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type a tax name, up to five characters maximum.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 4 of the General step field table. Hard documented constraint: five characters maximum. This is the string end users and processors see in the Concur Invoice UI. Five-character maximum is the only documented length constraint on the page. step-3-access-tax-authorities-2fae4ae3.md gives GST, MwST and VAT as EXAMPLES of typical tax names - examples, not an enumerated value set, so no validValues are recorded.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateTypeName",
+      "label": "Tax Rate Type Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type the name of the rate, for example, Standard or Reduced.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 1 of the 2-row Tax Rate Types step field table (Add Tax Rate Types Configuration window). 'Standard' and 'Reduced' are given as EXAMPLES in a free-text field, not as an option list - NOT harvested into validValues. tax-administration-tool-0f5fff3c.md separately offers 'exempt, standard, or reduced' as examples; also not harvested.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateTypeCalculationMethod",
+      "label": "Calculation Method",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Percentage"
+      ],
+      "sourceQuote": "Select Percentage. This is the default choice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 2 of the 2-row Tax Rate Types step field table. Percentage is the ONLY value this corpus names, and it is named as the default. The wording 'This is the default choice' implies other choices exist but the corpus never enumerates them - do NOT invent a second value.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateRateType",
+      "label": "Rate Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Select the rate type.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Add Tax Rate Configuration window. 'Once you select the type, the Tax Percent field appears.' Populated dynamically from the Tax Rate Types defined for this authority in the previous wizard step (internal dependency). Row 1 of the 3-row Tax Rates step field table; the alternate documented sentence is 'Once you select the type, the Tax Percent field appears.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateEffectiveDate",
+      "label": "Effective Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter the start date for the rate.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 2 of the 3-row Tax Rates step field table. Date entry; no format documented. Distinct from the Effective Date on the expense type / vendor group Group Name steps.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxCodeName",
+      "label": "(tax code name)",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type the name of the code and then click Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+      "notes": "New Tax Code entry field on the Tax Code tab; no on-screen label is quoted in either source topic beyond 'the name of the code'. CONTRADICTION in stated result: configure-predefined-tax-codes-6b42509f.md says the user will see 'the tax code fields (1-4) as a list', while step-7-optional-configure-predefined-tax-codes-be8bc5b8.md (different loio, same deliverable_id 41460672 - not the gerund/imperative republish pattern) says the user will see 'the VAT Tax Code 1 field as a list'. Both recorded verbatim in contradictions. Also: 'If the admin does not predefine tax codes, the user will see the tax codes in read-only fields and not in lists.' SURVIVOR over the duplicate spelling predefinedTaxCodeName.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthorityCountry",
+      "label": "Country",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Select the associated country.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "General step. The corpus never enumerates the country list. Cross-cutting constraint: supported-countries-for-vat-8b38bab8.md names UK/Japan/Australia as primary supported and says US, Canada, India and other multi-tax countries are NOT supported, while the tools-guides topics canada-de22c9f9.md and uk-us-japan-australia-0557084a.md give full US and Canada VAT field implementations. Contradiction recorded, not reconciled. REPAIR: extract-tax-administration-tables.json wired a valueSetCandidate of United Kingdom / Japan / Australia (from supported-countries-for-vat-8b38bab8.md) to this field via appliesToField; that sentence states VAT SUPPORT SCOPE, not the Country dropdown's option list. The set is DETACHED here and validValues stays empty - the corpus never enumerates the country list.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxRateTaxPercent",
+      "label": "Tax Percent",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "This field appears by default and is based on the Percentage calculation method. Enter the percentage here.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md",
+      "notes": "Row 3 of the 3-row Tax Rates step field table. Conditionally rendered: appears only after Rate Type is selected, and its presence is tied to the Percentage calculation method. REPAIR: quote extended to the full row text ('...Enter the percentage here.') from the same table row. SURVIVOR over the duplicate spelling taxRatePercent.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridTaxAuthority",
+      "label": "Tax Authority",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the name of the tax authority (usually a country name), as defined by the company.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 1 of 4 in the Tax Authorities tab listing table. Read-only display of the value entered as Tax Authority Name in the New Tax Authority wizard. Table enumerated in full: Tax Authority, Country, State/Province, Tax Name. SURVIVOR over the duplicate spelling colTaxAuthorityName.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridCountry",
+      "label": "Country",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the country associated with the tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 2 of 4 in the Tax Authorities tab listing table. The topic adds the note that 'The tax authority and country will likely be the same.' No country list is enumerated anywhere in this corpus. SURVIVOR over the duplicate spelling colTaxAuthorityCountry.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridStateProvince",
+      "label": "State/Province",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the states/province associated with the tax authority. If the tax applies to an entire country, then no states/provinces are designated.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 3 of 4 in the Tax Authorities tab listing table. Source adds 'If the tax applies to an entire country, then no states/provinces are designated.' and duplicates the 'column will likely be blank' note twice (once as prose, once as 'NOTE:The column will likely be blank .') - a corpus formatting artefact, not two controls. REPAIR: quote extended to carry the load-bearing second sentence about whole-country authorities. SURVIVOR over colTaxAuthorityStateProvince.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesGridTaxName",
+      "label": "Tax Name",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This is the name of the tax authority, as defined by the company. Examples of typical tax names are GST, MwST, and VAT.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "Column 4 of 4 in the Tax Authorities tab listing table. GST / MwST / VAT are given explicitly as EXAMPLES, not as an option list - deliberately NOT harvested into validValues. REPAIR: quote extended to include the defining sentence, not only the examples sentence. GST/MwST/VAT remain EXAMPLES and are NOT validValues. SURVIVOR over colTaxAuthorityTaxName.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxAuthoritiesList",
+      "label": "Tax Authorities (list)",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "The following information appears for any existing tax authorities.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md",
+      "notes": "CONTAINER RECORD - the read-only results grid on the Tax Authorities tab. Its four columns are separate records on this page: taxAuthoritiesGridTaxAuthority, taxAuthoritiesGridCountry, taxAuthoritiesGridStateProvince, taxAuthoritiesGridTaxName. Not an input; recorded so an automation can read existing authorities before deciding whether to click New. REPAIR: removed a stray foreign quote from the notes ('This is the states/province associated with the tax authority.'), which is the row text of taxAuthoritiesGridStateProvince and does not describe this grid.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationPartnerAccountNumber",
+      "label": "Partner Account Number",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "This is the unique account number provided by a tax service provider to the client. Enter this number in this field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 1 of the 6-row Tax Validation tab field table. Reproduced exactly: the source renders this row's label as a bulleted item ('-   Partner Account Number') while the other five rows are plain text - a corpus formatting artefact, not a different control type. LABEL CONTRADICTION: work-with-the-tax-validation-page-options-c3fe1df5.md calls the same control 'Unique Tax Partner Number'. REPAIR: quote extended to the full row text ('...Enter this number in this field.'). Corroborated by the-basic-process-13c136d5.md ('a unique Partner Account Number value they will use when configuring the service'), a file the inventory missed. ALIAS: see uniqueTaxPartnerNumber, the same input under a different documented label. SURVIVOR over tvPartnerAccountNumber.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationType",
+      "label": "Tax Validation Type",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment Request Only"
+      ],
+      "sourceQuote": "The service will perform the validation on the request type you specify here. Select Payment Request Only.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 2 of the 6-row Tax Validation tab field table. 'Payment Request Only' is the ONLY documented value and the source states the limitation explicitly: 'The request type is limited to the Payment Request Only option. Additional request types will be added in upcoming service releases.' The variant topic names the future value as 'The Purchase Request type' - a roadmap statement, not a present option, and therefore NOT in validValues. REPAIR: quote extended to the full row text ('The service will perform the validation on the request type you specify here. Select Payment Request Only.'). ALIAS: see requestTypeToBeAnalyzed. SURVIVOR over tvValidationType.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationLevel",
+      "label": "Tax Validation Level",
+      "fieldType": "unknown",
+      "validValues": [
+        "Header",
+        "Line Item"
+      ],
+      "sourceQuote": "This defines on which level the tax validation should occur, either the Header or the Line Item level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 3 of the 6-row Tax Validation tab field table. Both values enumerated explicitly. LABEL CONTRADICTION: c3fe1df5.md calls this 'Form Level to Be Analyzed' and enumerates its values in lowercase as 'the header or line item details form'. REPAIR: fieldType set to 'unknown'. The corpus states no control type for this field; the procedure lens guessed 'radio' and the table/crosscut lenses guessed 'dropdown', so neither inference is allowed into the graph. ALIAS: see formLevelToBeAnalyzed. SURVIVOR over tvValidationLevel.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "turnOnTaxValidation",
+      "label": "Turn On Tax Validation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Select (enable) to activate tax validation for the specified request type.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 4 of the 6-row Tax Validation tab field table. Checkbox; only the selected state is documented. This is the final activation gate for the whole feature. Documented sequencing warning: 'Do not activate the service until all configuration steps, such as expense type to commodity code mapping, are finalized.' Corroborated by the-basic-process-13c136d5.md ('the client selects (enables) the Turn On Tax Validation check box in the Tax Administration tool'). SURVIVOR over tvTurnOnTaxValidation.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "taxValidationExpenseTypes",
+      "label": "Expense Types",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "This list of expense types represents the client-defined expense types. It is provided to allow mapping to commodity codes and is read-only for this purpose.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 5 of the 6-row Tax Validation tab field table. READ-ONLY list rendered from the tenant's own expense types ('client-defined expense types'), so no option catalog exists in the docs. Pairs with UNSPSC Commodity Code to form the mapping grid. REPAIR: quote extended to the full row text so the read-only claim and the client-defined source are both in evidence. NOT a re-home of page.expense-types. SURVIVOR over tvExpenseTypesList.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "unspscCommodityCode",
+      "label": "UNSPSC Commodity Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The commodity code is a universal identifier that allows the tax validation service to apply a tax validation across any business using the latest UN code attributes.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Row 6 of the 6-row Tax Validation tab field table. Editable in-grid text against each read-only expense type. Two documented population paths: the Expense Type import, or 'adjust by clicking the text box directly and manually entering a new value'. The UNSPSC code catalog itself is imported by SAP Concur and is NOT enumerated in this corpus. REPAIR: the tables-lens quote was 'A Search link is provided to open a browser to the latest UN commodity codes for accurate input.', which describes the adjacent Search LINK (unspscCommodityCodeSearch), not this text box - keeping it would have made one sentence the evidence for two different controls. Replaced with the sentence that defines the commodity code itself, from the same file and the same table row. SURVIVOR over tvUnspscCommodityCode.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "unspscCommodityCodeSearch",
+      "label": "Search",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "A Search link is provided to open a browser to the latest UN commodity codes for accurate input.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md",
+      "notes": "Opens the United Nations Standard Products and Services Code (UNSPSC) page; described again in work-with-commodity-codes-in-this-view-f37c2a6e.md. Distinct from buttonSearchGroups (the group-list Search on the two group tabs) despite the shared 'Search' label. SURVIVOR over tvUnspscSearchLink.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "uniqueTaxPartnerNumber",
+      "label": "Unique Tax Partner Number",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Entering the Unique Tax Partner Number: The tax service provider issues unique numbers to each of their clients so that they can identify the client.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "ALIAS OF taxValidationPartnerAccountNumber - NOT a second control. This is the CONTRADICTION RECORD for the label: step-3-configure-the-service-14c3ef13.md calls this input 'Partner Account Number'; work-with-the-tax-validation-page-options-c3fe1df5.md calls it the 'Unique Tax Partner Number'. Both labels are recorded and neither is reconciled; a crawler should expect EITHER label and fill ONE field. CAVEAT: the label derives from a prose bullet ('Entering the Unique Tax Partner Number:'), so it is a documented alternate name, not a proven on-screen string. REPAIR: the cross-link to taxValidationPartnerAccountNumber is now explicit in the record rather than implied.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "requestTypeToBeAnalyzed",
+      "label": "Request Type to be Analyzed",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment Request Only"
+      ],
+      "sourceQuote": "Deciding the Request Type to be Analyzed: At this time, only the Payment Request Only option is available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "ALIAS OF taxValidationType - NOT a second control. CONTRADICTION RECORD for the label: 'Tax Validation Type' in step-3-configure-the-service-14c3ef13.md vs 'Request Type to be Analyzed' in work-with-the-tax-validation-page-options-c3fe1df5.md. Single documented value 'Payment Request Only', grounded twice. The roadmap sentence 'The Purchase Request type will be added to this feature in an upcoming service release.' is deliberately NOT harvested as a value. Label is prose-derived ('Deciding the Request Type to be Analyzed:'). REPAIR: cross-link to taxValidationType made explicit.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "formLevelToBeAnalyzed",
+      "label": "Form Level to Be Analyzed",
+      "fieldType": "dropdown",
+      "validValues": [
+        "header",
+        "line item details form"
+      ],
+      "sourceQuote": "Deciding the Form Level to Be Analyzed: Either the header or line item details form is analyzed by the tax validation service, and that choice is made on this page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md",
+      "notes": "ALIAS OF taxValidationLevel - NOT a second control. CONTRADICTION RECORD for BOTH the label and the value wording: step-3-configure-the-service-14c3ef13.md gives label 'Tax Validation Level' with 'Header' / 'Line Item'; work-with-the-tax-validation-page-options-c3fe1df5.md gives label 'Form Level to Be Analyzed' with 'header' / 'line item details form'. REPAIR: validValues here are marked PROSE-DERIVED - they are fragments of the sentence 'Either the header or line item details form is analyzed by the tax validation service', not a verified option list, and an automation MUST NOT try to select an option literally named 'line item details form'. Both spellings are recorded, neither is reconciled; the enumerated pair on taxValidationLevel is the one to drive selection with.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupTaxAuthorityFilter",
+      "label": "Tax Authority",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "On the Expense Types Group tab, select from the Tax Authority list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Tab-level selector on the Expense Types Group tab; scopes every group listed and created below it. Options are the tax authorities the tenant created on the Tax Authorities tab, so no documented option list exists. TAB-LABEL CONTRADICTION: this topic calls the tab 'Expense Types Group'; the-basic-process-12a5686d.md calls it 'Expense Type Groups tab'. SURVIVOR over etgTaxAuthoritySelect.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupEffectiveDatesFilter",
+      "label": "with effective dates",
+      "fieldType": "dropdown",
+      "validValues": [
+        "all currently active",
+        "all tax authorities"
+      ],
+      "sourceQuote": "(Optional) Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, then click Search.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Optional search filter paired with a Search button on the Expense Types Group tab. Both values are enumerated verbatim inside the parenthetical. Note the second value reads 'all tax authorities' - an odd label for a DATE-range filter, but reproduced exactly as written; do not 'correct' it. REPAIR: quote restored to include the '(Optional)' prefix. LENS DISAGREEMENT recorded rather than reconciled: the crosscut lens read the parenthetical as a garbled description and left validValues empty; the tables and procedure lenses read it as the two option labels. The values are kept because they are inside the quoted sentence, but note they read oddly for a date-range filter and are reproduced exactly, not corrected. SURVIVOR over etgWithEffectiveDatesFilter.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupName",
+      "label": "Group Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter the display name for the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 1 of the 6-row Group Name step field table (expense type group wizard). Identical row text appears in the vendor group twin d8b7786d.md. Label reuse only: page.group-configurations in the existing graph has an unrelated 'Group Name'. SURVIVOR over etgGroupName.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupEffectiveDate",
+      "label": "Effective Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Select the effective date of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 2 of the 6-row Group Name step field table. Required. Semantics documented separately in understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md: 'The required effective date is the start date on which the system should begin using the group'. ccf72f26.md: 'When creating an expense type or vendor group you are required to enter an effective date during configuration.' Distinct from taxRateEffectiveDate in the Add Tax Rate Configuration window. SURVIVOR over etgEffectiveDate.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupEndDate",
+      "label": "End Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "(Optional) Select the end date for the group's effective date range.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 3 of the 6-row Group Name step field table. Optional. Documented default when left blank: 'If no end date is specified, the system uses the date of 12/31/9999' (understand-and-use-the-effective-date-and-the-end-date-ccf72f26.md). REPAIR: added the documented retirement behaviour from the same row - 'Typically, the system will set this date when it is time to retire this group. Leave this blank unless there is a specific end date you want to enforce.' SURVIVOR over etgEndDate.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupAppliesTo",
+      "label": "Applies To",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Select the Payment Request document type for which to calculate VAT for expense type groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 4 of the 6-row Group Name step field table. 'Payment Request' is the only document type this corpus names for this control. CASE CONTRADICTION with the vendor group twin, which writes 'Payment request' (lowercase r). The setting also surfaces as a column on the Expense Type Groups page. REPAIR: validValues ['Payment Request'] STRIPPED. The sentence 'Select the Payment Request document type for which to calculate VAT for expense type groups.' is prose naming one document type, not an enumerated option list; grep confirms the corpus never enumerates an Applies To list for tax groups anywhere in either guide directory. The string survives verbatim in the sourceQuote. The casing contradiction with the vendor twin ('Payment request', lowercase r, in step-6) is recorded in notes on both records and is NOT normalised. SURVIVOR over etgAppliesTo.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupTaxCode",
+      "label": "Tax Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The tax code can contain up to 20 characters. The Tax Code field is an arbitrary field and will be a read-only field for the user.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 5 of the 6-row Group Name step field table. Hard documented constraint: 20 characters. Documented as 'an arbitrary field and will be a read-only field for the user', and 'VAT tax codes are applicable to invoices only.' Distinct from the Tax Code TAB (predefined tax codes) on the same page. REPAIR: quote extended to carry the read-only-to-the-user constraint alongside the 20-character limit. SURVIVOR over etgTaxCode.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupDisableVatCalculation",
+      "label": "Disable VAT calculation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "If this is the case, select the check box to disable VAT calculation.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Row 6 of the 6-row Group Name step field table. Checkbox. Only the SELECTED state is documented ('select the check box to disable VAT calculation'); the corpus never states a default or names the cleared state, so no Yes/No pair is emitted. Constraint: 'You can only disable VAT calculation for invoices.' SURVIVOR over etgDisableVatCalculation.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupExpenseTypes",
+      "label": "Expense Types",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "On the Expense Types step, select the desired expense types in the Expense Types column.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Step 2 of the expense type group wizard. The selectable list is the tenant's own expense types (owned by the Expense Types page), so no option catalog exists in the docs and none should be invented. SURVIVOR over etgExpenseTypesSelect.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupUnavailableExpenseTypes",
+      "label": "Unavailable Expense Types",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "Any expense types that are already used for this tax authority appear in the Unavailable Expense Types pane with the name of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Read-only pane on the Expense Types step listing expense types already consumed by another group under the SAME tax authority, annotated with the consuming group name. Exclusivity rule corroborated by availability-of-expense-types-based-on-location-of-tax-authority-8485155d.md. SURVIVOR over etgUnavailableExpenseTypesPane.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupTaxCondition",
+      "label": "(tax condition)",
+      "fieldType": "unknown",
+      "validValues": [
+        "Always"
+      ],
+      "sourceQuote": "The Tax Rates step shows the default tax condition of Always which means that this tax rate will always apply.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "Documented default tax condition on the expense type group Tax Rates step. 'Always' is the only condition value enumerated in this corpus; whether other conditions can be chosen is UNDETERMINED. The vendor-group twin states the same default with an en-dash ('Always -') rather than 'which means'. REPAIR: label was 'Always', which is the documented default VALUE, not the control's label - the corpus gives no on-screen label for this condition, so the neutral '(tax condition)' form is used and fieldType is set to 'unknown' rather than the guessed 'table'. validValues ['Always'] is kept because it is documented as the default; whether any other condition can be chosen is UNDETERMINED in this corpus and no second value is invented. SURVIVOR over etgTaxRatesCondition.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "expenseTypeGroupRateTypeColumn",
+      "label": "Rate Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "To change the rate type, click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md",
+      "notes": "In-grid editable column on the expense type group Tax Rates step. Its option list is scoped by the selected tax authority and is populated from the Tax Rate Type Name values created in the New Tax Authority wizard - correctly undocumented as an enumeration. REPAIR: quote extended to the full sentence beginning 'To change the rate type, ...' from the same file. SURVIVOR over etgRateType and over the mis-anchored third spelling expenseTypeGroupTaxRateRateType, whose quote described the tax condition instead.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxAuthorityFilter",
+      "label": "Tax Authority",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "On the Vendor Groups tab, select from the Tax Authority list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Tab-level selector on the Vendor Groups tab; twin of the Expense Types Group tab filter. Options are tenant-created tax authorities. Distinct control from the identically-labelled filter on the Expense Types Group tab. SURVIVOR over vgTaxAuthoritySelect.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupEffectiveDatesFilter",
+      "label": "with effective dates",
+      "fieldType": "dropdown",
+      "validValues": [
+        "all currently active",
+        "all tax authorities"
+      ],
+      "sourceQuote": "(Optional) Select the desired date range (all currently active, or all tax authorities) in the with effective dates list, and then click Search.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Optional search filter on the Vendor Groups tab. Same two enumerated values as the expense-type-group twin; only the connective differs ('then click Search' vs 'and then click Search'), which is republication drift, not a UI variant. REPAIR: quote restored to include the '(Optional)' prefix; step-6's own wording 'and then click Search' is preserved against step-5's 'then click Search'. Same lens disagreement about the parenthetical as on the expense-type twin. SURVIVOR over vgWithEffectiveDatesFilter.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupName",
+      "label": "Group Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Enter the display name for the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 1 of the 6-row Group Name step field table in the VENDOR group wizard. Read separately from the expense-type twin rather than assumed identical; row text matches exactly. SURVIVOR over vgGroupName.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupEffectiveDate",
+      "label": "Effective Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Select the effective date of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 2 of the 6-row vendor group Group Name field table. Required; same effective/end-date semantics as expense type groups. SURVIVOR over vgEffectiveDate.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupEndDate",
+      "label": "End Date",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "(Optional) Select the end date for the group's effective date range.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 3 of the 6-row vendor group Group Name field table. Optional; documented blank default 12/31/9999. REPAIR: added the documented retirement behaviour from the same row - 'Typically, the system will set this date when it is time to retire this group. Leave this blank unless there is a specific end date you want to enforce.' SURVIVOR over vgEndDate.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupAppliesTo",
+      "label": "Applies To",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Select the Payment request document type for which to calculate VAT for vendor groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 4 of the 6-row vendor group Group Name field table. Reproduced VERBATIM: the vendor topic writes 'Payment request' (lowercase r) where the expense-type topic writes 'Payment Request'. Recorded as a contradiction rather than normalised. Oddity preserved: this topic also says the setting 'appears as a column on the Expense Type Groups page' - naming the WRONG page for a vendor group. REPAIR: validValues ['Payment request'] STRIPPED for the same reason as the expense-type twin - prose naming a document type, never an enumerated list. The lowercase 'Payment request' survives verbatim in the sourceQuote and is a REAL contradiction against step-5's 'Payment Request'; it is recorded, not normalised. SURVIVOR over vgAppliesTo.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxCode",
+      "label": "Tax Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The tax code can contain up to 20 characters. The Tax Code field is an arbitrary field and will be a read-only field for the user.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 5 of the 6-row vendor group Group Name field table. Same 20-character limit, arbitrary-field and read-only-to-user notes, and invoices-only constraint as the expense-type twin. REPAIR: quote replaced with the constraint sentence from the SAME file (step-6), which carries the 20-character limit and the read-only-to-the-user rule; the previous quote ('You can associate a tax code to a relevant set of vendors.') is context, not constraint, and is retained here in notes together with its continuation 'This information will then feed into your financial system to make it easier for your company to handle tax.' SURVIVOR over vgTaxCode.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupDisableVatCalculation",
+      "label": "Disable VAT calculation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "select the check box to disable VAT calculation.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Row 6 of the 6-row vendor group Group Name field table. Checkbox; only the selected state is documented. Constraint: 'You can only disable VAT calculation for invoices.' REPAIR: quote replaced with the ACTION sentence from the same file ('select the check box to disable VAT calculation.'); the previous quote was the UK rationale sentence, retained in notes: 'In countries where vendors already provide VAT amounts, for example in the UK, there might not be a need to perform VAT calculation.' No Yes/No pair is invented - only the selected state is documented. SURVIVOR over vgDisableVatCalculation.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxType",
+      "label": "Tax Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "select a type of tax, international, domestic, taxable, etc., for this optional step, from the Tax Type list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Optional, on the Vendor Name step. UNIQUE to the Vendor Groups tab - there is no counterpart on the Expense Types Group tab. 'international, domestic, taxable, etc.' is prose with an 'etc.', NOT a closed list, so validValues is empty. The Vendor Import template (tools-guides the-import-template-fields-and-descriptions-8b53850b.md) enumerates a Tax Type list of DITX/DNTX/INTX for VENDOR records - that is the Vendor Manager import, a different surface; it is recorded as a dependency, NOT copied onto this field. UNIQUE to the Vendor Groups wizard - step-5 has no Tax Type control, so the two group wizards are NOT identical. REPAIR: merged the cross-surface warning into this single record - 'international, domestic, taxable, etc.' carries an explicit 'etc.' and is therefore NOT a closed list, and the DITX/DNTX/INTX Tax Type codes in tools-guides/the-import-template-fields-and-descriptions-8b53850b.md belong to the VENDOR IMPORT template, a different surface, and must never be copied onto this control. SURVIVOR over vgTaxTypeSelect.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupUnavailableVendors",
+      "label": "Unavailable Vendors",
+      "fieldType": "table",
+      "validValues": [],
+      "sourceQuote": "Any vendors that are already used for this tax authority appear in the Unavailable Vendors pane with the name of the group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Read-only pane on the Vendor Name step; vendor twin of Unavailable Expense Types. Same one-group-per-tax-authority exclusivity. SURVIVOR over vgUnavailableVendorsPane.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupTaxCondition",
+      "label": "(tax condition)",
+      "fieldType": "unknown",
+      "validValues": [
+        "Always"
+      ],
+      "sourceQuote": "The Tax Rates step shows the default tax condition of Always – meaning this tax rate will always apply.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "Documented default tax condition on the vendor group Tax Rates step. NOTE THE EN-DASH (U+2013) after 'Always' - reproduced exactly; the expense-type twin uses 'which means' instead. 'Always' is the only condition value in the corpus. REPAIR: label was 'Always' (the default VALUE in the label slot) and fieldType was the guessed 'table'; set to '(tax condition)' / 'unknown'. The U+2013 en-dash in 'Always -' is preserved verbatim in the quote against the expense-type twin's 'Always which means'. validValues ['Always'] kept as the documented default; other conditions are UNDETERMINED. SURVIVOR over vgTaxRatesCondition.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "vendorGroupRateTypeColumn",
+      "label": "Rate Type",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "To change the rate type, click the field in the Rate Type column to select from the list, which displays the rate types available for the selected tax authority.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md",
+      "notes": "In-grid editable column on the vendor group Tax Rates step; scoped by the selected tax authority. SURVIVOR over vgRateType and over the third spelling vendorGroupTaxRateRateType.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "dropped": [
+    {
+      "name": "colTaxAuthorityName",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "taxAuthoritiesGridTaxAuthority"
+    },
+    {
+      "name": "colTaxAuthorityCountry",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "taxAuthoritiesGridCountry"
+    },
+    {
+      "name": "colTaxAuthorityStateProvince",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its FULLER quote was carried onto the survivor as a repair.",
+      "duplicateOf": "taxAuthoritiesGridStateProvince"
+    },
+    {
+      "name": "colTaxAuthorityTaxName",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its FULLER quote was carried onto the survivor as a repair.",
+      "duplicateOf": "taxAuthoritiesGridTaxName"
+    },
+    {
+      "name": "taxRatePercent",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its fuller quote ('...Enter the percentage here.') was carried onto the survivor.",
+      "duplicateOf": "taxRateTaxPercent"
+    },
+    {
+      "name": "tvPartnerAccountNumber",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its fuller quote was carried onto the survivor. The alternate LABEL 'Unique Tax Partner Number' survives separately as the contradiction record uniqueTaxPartnerNumber.",
+      "duplicateOf": "taxValidationPartnerAccountNumber"
+    },
+    {
+      "name": "tvValidationType",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its fuller quote was carried onto the survivor.",
+      "duplicateOf": "taxValidationType"
+    },
+    {
+      "name": "tvValidationLevel",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its fieldType guess 'radio' was NOT carried: the survivor is now 'unknown' because the corpus states no control type and the two lenses guessed differently.",
+      "duplicateOf": "taxValidationLevel"
+    },
+    {
+      "name": "tvTurnOnTaxValidation",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "turnOnTaxValidation"
+    },
+    {
+      "name": "tvExpenseTypesList",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its fuller quote was carried onto the survivor.",
+      "duplicateOf": "taxValidationExpenseTypes"
+    },
+    {
+      "name": "tvUnspscCommodityCode",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its quote was the correctly-anchored one and was carried onto the survivor, replacing the survivor's mis-anchored Search-link sentence.",
+      "duplicateOf": "unspscCommodityCode"
+    },
+    {
+      "name": "tvUnspscSearchLink",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "unspscCommodityCodeSearch"
+    },
+    {
+      "name": "etgTaxAuthoritySelect",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupTaxAuthorityFilter"
+    },
+    {
+      "name": "etgWithEffectiveDatesFilter",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupEffectiveDatesFilter"
+    },
+    {
+      "name": "etgGroupName",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupName"
+    },
+    {
+      "name": "etgEffectiveDate",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupEffectiveDate"
+    },
+    {
+      "name": "etgEndDate",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupEndDate"
+    },
+    {
+      "name": "etgAppliesTo",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its empty validValues position WON: the survivor's ['Payment Request'] was stripped.",
+      "duplicateOf": "expenseTypeGroupAppliesTo"
+    },
+    {
+      "name": "etgTaxCode",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupTaxCode"
+    },
+    {
+      "name": "etgDisableVatCalculation",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupDisableVatCalculation"
+    },
+    {
+      "name": "etgExpenseTypesSelect",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupExpenseTypes"
+    },
+    {
+      "name": "etgUnavailableExpenseTypesPane",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "expenseTypeGroupUnavailableExpenseTypes"
+    },
+    {
+      "name": "etgTaxRatesCondition",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its honest label '(tax condition)' and fieldType 'unknown' were carried onto the survivor, replacing label='Always' / fieldType='table'.",
+      "duplicateOf": "expenseTypeGroupTaxCondition"
+    },
+    {
+      "name": "etgRateType",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its correctly-anchored fuller quote was carried onto the survivor.",
+      "duplicateOf": "expenseTypeGroupRateTypeColumn"
+    },
+    {
+      "name": "vgTaxAuthoritySelect",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupTaxAuthorityFilter"
+    },
+    {
+      "name": "vgWithEffectiveDatesFilter",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupEffectiveDatesFilter"
+    },
+    {
+      "name": "vgGroupName",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupName"
+    },
+    {
+      "name": "vgEffectiveDate",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupEffectiveDate"
+    },
+    {
+      "name": "vgEndDate",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupEndDate"
+    },
+    {
+      "name": "vgAppliesTo",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its empty validValues position WON: the survivor's ['Payment request'] was stripped, but the lowercase spelling survives verbatim in the survivor's sourceQuote as the documented contradiction.",
+      "duplicateOf": "vendorGroupAppliesTo"
+    },
+    {
+      "name": "vgTaxCode",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its constraint-bearing quote (20 characters, read-only to the user) was carried onto the survivor.",
+      "duplicateOf": "vendorGroupTaxCode"
+    },
+    {
+      "name": "vgDisableVatCalculation",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its ACTION quote was carried onto the survivor, replacing the UK-rationale sentence.",
+      "duplicateOf": "vendorGroupDisableVatCalculation"
+    },
+    {
+      "name": "vgTaxTypeSelect",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. The survivor carries the DITX/DNTX/INTX cross-surface warning from the crosscut lens.",
+      "duplicateOf": "vendorGroupTaxType"
+    },
+    {
+      "name": "vgUnavailableVendorsPane",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupUnavailableVendors"
+    },
+    {
+      "name": "vgTaxRatesCondition",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor. Its honest label '(tax condition)' and fieldType 'unknown' were carried onto the survivor.",
+      "duplicateOf": "vendorGroupTaxCondition"
+    },
+    {
+      "name": "vgRateType",
+      "reason": "Duplicate spelling of the same control. Both refuters proved the pair cites the SAME sentence in the SAME file; they disagreed only on which naming convention survives. I adopted refuter 2's long-form convention for the whole set, consistently, per refuter 1's own instruction to invert as a block rather than mix. Nothing is lost: the dropped record's notes were folded into the survivor.",
+      "duplicateOf": "vendorGroupRateTypeColumn"
+    },
+    {
+      "name": "predefinedTaxCodeName",
+      "reason": "Both refuters dropped it: same file, same verbatim sentence ('Type the name of the code and then click Save.') as taxCodeName. The extractor itself flagged it AMBIGUOUS and asked a procedure lens to own it; the procedure lens did, as taxCodeName, which additionally carries a label and the full 'tax code fields (1-4)' vs 'VAT Tax Code 1 field' contradiction. The control itself is REAL - this is de-duplication, not refutation.",
+      "duplicateOf": "taxCodeName"
+    },
+    {
+      "name": "expenseTypeGroupTaxRateRateType",
+      "reason": "Both refuters dropped it: the THIRD name for the Rate Type column on the expense type group Tax Rates step, and the worst-anchored - it is labelled 'Rate Type' but quotes 'The Tax Rates step shows the default tax condition of Always which means that this tax rate will always apply.', which describes expenseTypeGroupTaxCondition. Keeping it would make one sentence the evidence for two different controls.",
+      "duplicateOf": "expenseTypeGroupRateTypeColumn"
+    },
+    {
+      "name": "vendorGroupTaxRateRateType",
+      "reason": "Both refuters dropped it: the THIRD name for the Rate Type column on the vendor group Tax Rates step, identical verbatim quote to the survivor, no additional evidence.",
+      "duplicateOf": "vendorGroupRateTypeColumn"
+    }
+  ],
+  "splitsProposed": [
+    {
+      "fromField": "buttonNew",
+      "intoFields": [
+        "newTaxAuthority",
+        "newTaxRateType",
+        "newTaxRate",
+        "newTaxCode",
+        "newExpenseTypeGroup",
+        "newVendorGroup"
+      ],
+      "why": "The corpus documents SIX distinct New buttons on six distinct surfaces of this page: 'On the Tax Authorities page, click New. The General step appears.' (step-4), plus a New on the Tax Rate Types step and on the Tax Rates step of the same wizard, a New on the Tax Code tab (configure-predefined-tax-codes-6b42509f.md), a New on the Expense Types Group tab (step-5) and a New on the Vendor Groups tab (step-6). Both refuters were ready to file this and both concluded the single record's notes already enumerate all six contexts, so a crawler is not misled. NOT SPLIT here: records created during Repair never face the adversarial refuter, and six new names would be six unrefuted nodes. Reported for the human instead.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "fromField": "buttonSave",
+      "intoFields": [
+        "saveTaxRateType",
+        "saveTaxRate",
+        "saveTaxCode",
+        "saveTaxValidationConfiguration"
+      ],
+      "why": "Four documented Save contexts: twice in step-4 ('3.  Click Save.' appears twice - the Tax Rate Types and Tax Rates modals), once on the Tax Code tab, and once to commit the Tax Validation tab configuration (step-3-configure-the-service-14c3ef13.md, '1.  Click Save.'). Same reasoning as buttonNew - the single record's notes name all four.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "fromField": "buttonNext",
+      "intoFields": [
+        "nextNewTaxAuthorityWizard",
+        "nextExpenseTypeGroupWizard",
+        "nextVendorGroupWizard"
+      ],
+      "why": "Next advances three separate wizards: General -> Tax Rate Types -> Tax Rates (New Tax Authority), and Group Name -> Expense Types -> Tax Rates / Group Name -> Vendor Name -> Tax Rates (the two group wizards). One control identity, three step chains.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "fromField": "buttonDone",
+      "intoFields": [
+        "doneNewTaxAuthorityWizard",
+        "doneExpenseTypeGroupWizard",
+        "doneVendorGroupWizard"
+      ],
+      "why": "Done exits three wizards: '5.  Click Done. The new tax authority appears on the Tax Authorities page.' (step-4) and 'Click Done to exit the wizard.' in both step-5 and step-6.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md"
+    },
+    {
+      "fromField": "buttonSearchGroups",
+      "intoFields": [
+        "searchExpenseTypeGroups",
+        "searchVendorGroups"
+      ],
+      "why": "The group-list Search exists once on the Expense Types Group tab (step-5, 'then click Search') and once on the Vendor Groups tab (step-6, 'and then click Search'). The two tabs are separately documented and every other control on them is modelled as two records (expenseTypeGroup* / vendorGroup*), so this button is the one place where the page's own modelling is inconsistent. Note it is ALSO distinct from the UNSPSC Search link (unspscCommodityCodeSearch), which is already a separate record.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+    }
+  ],
+  "verifyNotes": "WHAT THE REFUTERS FOUND, AND WHAT I DID ABOUT IT.\n\n1. GROUNDING WAS ALREADY CLEAN, AND I RE-PROVED IT. Both refuters ran a full mechanical sweep (142 / 145 variant records) and found 0 non-verbatim quotes, 0 missing files, 0 CONCUR_INVOICE/ prefixes, 0 false fromRawHtmlTable flags. I re-ran the same sweep myself with `grep -F -c` over all 98 candidate records before touching anything (0 failures), and re-ran it AGAIN over the 59 finished roster records after every repair (0 failures). Every sourceFile in this roster exists, is prefixed with its guide directory, and every one of them is in concur-invoice-professional-edition-admin-guides/.\n\n2. THE ONE THING THE REFUTERS DISAGREED ABOUT: NAMING. This was the whole substance of the pass. Refuter 1 (grounding) nominated the PROCEDURE-lens short prefixes (col* / tv* / etg* / vg*) as survivors of 36 duplicate pairs; refuter 2 (duplication) nominated the LONG-FORM names (taxAuthoritiesGrid* / taxValidation* / expenseTypeGroup* / vendorGroup*). Every pair cites the same sentence in the same file, so grounding could not break the tie and both refuters said so explicitly. I adopted refuter 2's long-form convention for the ENTIRE set, which is exactly the inversion refuter 1 authorised ('If refuter 2 nominates the long-form names instead, invert the whole set consistently - but NEVER delete both halves of a pair'). Reasons: (a) the three contradiction records (uniqueTaxPartnerNumber, requestTypeToBeAnalyzed, formLevelToBeAnalyzed) name taxValidationPartnerAccountNumber / taxValidationType / taxValidationLevel in their own notes, so surviving tv* would have broken three cross-references that now resolve; (b) colTaxAuthorityName is confusable with the wizard input taxAuthorityName (the grid column is labelled plain 'Tax Authority', the input 'Tax Authority Name'); (c) the long-form names are self-describing for a crawler and collide with nothing in the existing 337-field graph (I checked all 59 names against output/kg-invoice-config.json - zero exact collisions). NO PAIR LOST BOTH HALVES: 36 pairs in, 36 survivors out, and every dropped twin's better material was folded into its survivor.\n\n3. WHERE THE DROPPED HALF WAS THE BETTER RECORD, I TOOK ITS CONTENT. That is the whole point of a three-way disposition. Nine quotes were replaced with the better-anchored or fuller sentence FROM THE SAME FILE and re-verified: taxAuthoritiesGridStateProvince, taxAuthoritiesGridTaxName, taxRateTaxPercent, taxValidationPartnerAccountNumber, taxValidationType, taxValidationExpenseTypes, expenseTypeGroupTaxCode, expenseTypeGroupRateTypeColumn, vendorGroupTaxCode, vendorGroupDisableVatCalculation. The single most important one is unspscCommodityCode, whose surviving spelling quoted 'A Search link is provided to open a browser to the latest UN commodity codes for accurate input.' - the description of the ADJACENT Search LINK. Left alone, unspscCommodityCode and unspscCommodityCodeSearch would have shipped with one identical sentence as the evidence for two different controls. Repaired with the sentence that actually defines the commodity code field.\n\n4. VALUES: TWO STRIPPED, ONE FLAGGED, ZERO INVENTED. (a) expenseTypeGroupAppliesTo carried ['Payment Request'] and vendorGroupAppliesTo carried ['Payment request']; both STRIPPED to []. 'Select the Payment Request document type for which to calculate VAT...' is prose naming one document type, not an enumerated option list, and I confirmed by grep that 'Applies To' appears in exactly two tax files corpus-wide (step-5 and step-6) and is never enumerated in either. Two of the three lenses had already left it empty. The strings survive verbatim in the sourceQuotes, and the REAL finding - step-5 writes 'Payment Request', step-6 writes 'Payment request' - is recorded on both records and deliberately NOT normalised. (b) formLevelToBeAnalyzed keeps ['header','line item details form'] but they are now marked PROSE-DERIVED in the notes with an explicit instruction not to select an option literally named 'line item details form'; both refuters filed this and both accepted marking as sufficient. (c) The valueSet wired to taxAuthorityCountry - ['United Kingdom','Japan','Australia'] from supported-countries-for-vat-8b38bab8.md - is DETACHED and the detachment is stated in the field's notes; that sentence is VAT support scope, not the Country dropdown's options, and the corpus enumerates no country list anywhere. validValues on Country stays []. Nothing was added to any validValues array in this pass. taxRateTypeCalculationMethod still carries exactly one value ('Percentage', documented as the default) and no second method was invented; the two tax-condition records still carry exactly 'Always' and the notes say whether other conditions exist is UNDETERMINED.\n\n5. FOUR TYPE/LABEL DEFECTS FIXED. expenseTypeGroupTaxCondition and vendorGroupTaxCondition both stored the VALUE 'Always' in the label slot with fieldType 'table'; both are now label '(tax condition)' / fieldType 'unknown', which is the honest form the procedure lens had used. taxValidationLevel is now fieldType 'unknown' because the corpus states no control type and the lenses guessed 'radio' and 'dropdown' respectively - an unstable inference does not belong in a graph a crawler will drive. taxAuthoritiesList had a stray foreign quote in its notes (the row text of taxAuthoritiesGridStateProvince); removed, and the record is now explicitly marked as the CONTAINER whose four columns are the taxAuthoritiesGrid* records, so the same grid is not represented five times as peer fields.\n\n6. CONTRADICTIONS PRESERVED, NOT RECONCILED. Six live in this roster: the tab label ('Expense Type Groups' vs 'Expense Types Group'); the three Tax Validation label pairs (Partner Account Number / Unique Tax Partner Number, Tax Validation Type / Request Type to be Analyzed, Tax Validation Level / Form Level to Be Analyzed, the last also splitting on value spelling Header|Line Item vs header|line item details form); the Applies To casing; and the predefined-tax-code result ('the tax code fields (1-4)' in 6b42509f vs 'the VAT Tax Code 1 field' in be8bc5b8). The three alternate-label records SURVIVE as records - a naive de-duplication pass would have deleted them and erased the finding - but each now opens with an explicit 'ALIAS OF <name> - NOT a second control' cross-link so an automation fills ONE field and matches EITHER label. Also preserved untouched: the country-support contradiction (admin supported-countries-for-vat-8b38bab8.md says US/Canada/India are not supported; tools-guides canada-de22c9f9.md and uk-us-japan-australia-0557084a.md give full US and Canada VAT field implementations) and the lens disagreement over the 'with effective dates' parenthetical.\n\n7. NO SPLITS EXECUTED. Five inputs are genuinely several controls - buttonNew (six New buttons), buttonSave (four), buttonNext (three wizards), buttonDone (three), buttonSearchGroups (two tabs). All five are reported in splitsProposed and NONE was split, because records created in Repair never face the adversarial refuter and 18 new unrefuted button nodes is exactly the failure this constraint exists to prevent. 95 names in, 59 out, no name invented.\n\n8. NEGATIVE FINDINGS WORTH PUBLISHING. (a) 'withholding' returns ZERO files across both guide directories - withholding tax has no documentary basis in this corpus and no control was invented for it. (b) NO Modify / Edit / Remove / Delete control is documented anywhere for tax authorities, tax rate types, tax rates, tax codes, expense type groups or vendor groups - the page's entire edit/delete surface is undocumented, and refuter 1 confirmed this by searching the narrative topics. That is a real gap in the docs, not a gap in this roster. (c) tools-guides documents ZERO controls of this page; all 59 records cite admin-guides. Tax Administration is genuinely an admin-guides-only page and the citation ratio must not be forced - the tools-guides tax topics (canada-de22c9f9, uk-us-japan-australia-0557084a, other-countries-84722445, switch-tax-mode-dcd0a51d) are VAT FIELD and end-user topics, not controls here. (d) No country list, no state/province list, and no second Calculation Method is enumerated anywhere; [] on those fields is the correct answer, not thin coverage. (e) Switch Tax Mode is correctly ABSENT - the corpus places that button on the end-user Invoice page.\n\n9. NOTHING WAS RE-HOMED ONTO THIS PAGE. The four long VAT catalogs (27-row available-vat-fields-8b395ce2, 12-row extract-vat-data-8b3996e0, 4-row configure-vat-labels-9d4795b9) are Forms-and-Fields form fields, the two OCR raw-<table> twins are Capture Processing Admin, vendor-tax-id-0f8f83bc is Audit Rules, and the digital tax invoice status list is Image Handling (where page.image-handling already carries digitalTaxInvoiceCfdiStatus). All were left with empty appliesToField by the extractors and refuter 2 verified by grep that not one of the 98 candidates belongs on another admin page. Zero drops for mis-assignment.\n\n10. FILE THE INVENTORY MISSED. Refuter 2 found concur-invoice-professional-edition-admin-guides/the-basic-process-13c136d5.md, a SECOND 'The Basic Process' topic (different loio and different content from the-basic-process-12a5686d.md already in the inventory). It is the Tax Validation basic process; it corroborates taxValidationPartnerAccountNumber, turnOnTaxValidation (confirming the checkbox type) and the initial UNSPSC import, and states the provisioning gate in its own words. It contributes no new control, and it is now cited in the notes of the two records it corroborates.\n\nMUST-READ FILES I DID NOT OPEN MYSELF, and why. My lens is assembly, and the two refuters between them read every must-read that any candidate cites and reported no unresolved defect in them. I opened or grepped: step-4-add-a-new-tax-authority-7f90cede, step-3-configure-the-service-14c3ef13, step-5-...-e8d87361, step-6-...-d8b7786d, step-3-access-tax-authorities-2fae4ae3, configure-predefined-tax-codes-6b42509f, work-with-the-tax-validation-page-options-c3fe1df5 and the-basic-process-12a5686d (every quote in this roster is greppable against them). I did NOT re-read: step-7-...-be8bc5b8, both step-2-assign-the-tax-administrator-role files, step-1-enable-the-tax-validation-feature-31fca0d8 (role and provisioning gates - Map-phase material, no field record depends on them); available-vat-fields-8b395ce2, extract-vat-data-8b3996e0, configure-vat-labels-9d4795b9, supported-countries-for-vat-8b38bab8, canada-de22c9f9, uk-us-japan-australia-0557084a, other-countries-84722445, switch-tax-mode-dcd0a51d, configure-the-specify-tax...-11c6df01, control-tax-amount-handling-8540cd38, step-3-optional-...-69ba75a6, understand-and-use-the-effective-date-...-ccf72f26, requirements-to-calculate-vat-821a71ea, calculate-vat-and-required-criteria-89f97622 (cross-cutting VAT, country, dependency and value-set material that supplies ZERO of the 59 roster records; both refuters verified that no candidate here is a VAT form field, a country row or a digital-tax-invoice status). Those files matter to the page's dependencies and value sets, which are not this roster's output.\n\nCOVERAGE: good. Five tabs, five action buttons, a fully enumerated 4-column grid, a 3-step 9-field New Tax Authority wizard, a 6-row Tax Validation table and two 6-row group wizards are all documented at field level, with every row present and none sampled. The honest gap is the undocumented edit/delete surface, which is a documentation gap rather than a coverage failure on my part.",
+  "cleanCount": 33,
+  "repairedCount": 26
+}

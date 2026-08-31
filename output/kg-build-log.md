@@ -565,3 +565,196 @@ most one record per input, and any genuine split must be reported separately for
 
 Group 5B (Tax Administration, Budget Configuration, List Management, Company Locations), with the
 Repair-expansion constraint in place.
+
+---
+
+## 2026-08-31 — Group 5B: Tax Administration · Budget Configuration · List Management · Company Locations
+
+**Cost:** 4,056,139 subagent tokens · 890 tool calls · 80min · 29/29 agents, 0 errors.
+Merged with `--patch` (`patchPage: "Group 5B"`), so Group 5A's four pages and its `dep.g5.*` ids
+are untouched; 5B's own ids namespace to `g5g5`.
+
+### Node counts
+
+| | This run | Cumulative |
+|---|---|---|
+| ConfigPage | 4 | 18 |
+| ConfigField | 100 | 437 |
+| ConfigDependency | 57 | 335 |
+| ConfigStep | 6 | 28 |
+| ConfigValueSet | 24 (339 values) | 54 (749 values) |
+
+Per page: **Tax Administration 59 · Company Locations 27 · List Management 14 ·
+Budget Configuration 0.**
+
+### Method change — agents write artefacts, the assembler reads them
+
+Through 5A, every field record travelled agent-to-agent inside prompts and the whole ~300KB slice
+came back as the workflow's return value. From 5B the agents write their own JSON to a parts
+directory and return a small receipt; a new deterministic script, **`bin/assemble-parts.py`**,
+composes the raw result from those files. No model retypes a quote, so a quote cannot stop being
+verbatim in transit. The script also runs a **pre-merge check** — quotes verbatim, duplicate names
+per page, value-set wiring, dependency endpoints, `fromRawHtmlTable` flags, node-id collisions — so
+defects surface before the merge rather than after it.
+
+Structural improvements in the same pass, all aimed at named 5A defects:
+
+- **Two perspective-diverse refuters** instead of two identical ones: refuter 1 attacks grounding
+  (quote, values, type, truncation), refuter 2 attacks **page ownership, cross-page name collision
+  and admin-vs-end-user scope**. That second axis is where 5A actually lost accuracy, and it is the
+  one failure mode `grep` cannot catch.
+- **The three-way disposition is computed in code, not by a model.** No verdict, a partial verdict
+  set, or two refuters disagreeing all route to Repair. Only a unanimous drop drops.
+- **Value sets, dependencies and steps are synthesised against the final field rosters**, so
+  `appliesToField` is checked against a real field `name` before it is emitted.
+
+### Repair discipline — the "Repair can ADD fields" hole is closed
+
+The 5A defect (Expense Types returned 17 records from 14 inputs) did not recur. The constraint held
+exactly, and the correctness critic verified it independently:
+
+```
+Tax Administration    98 extracted = 59 kept + 39 dropped   LOST 0
+Company Locations     65 extracted = 27 kept + 38 dropped   LOST 0
+List Management       22 extracted = 14 kept +  8 dropped   LOST 0
+```
+
+**Zero roster names absent from the extract union** — nothing was created during Repair, so nothing
+entered the graph unrefuted. Seven genuine splits were detected (`buttonNew` really is six controls
+across six tabs) and reported in `splitsProposed` rather than emitted.
+
+### The biggest find was a hole in the plumbing, not in the reading
+
+Both critics independently ranked the same defect first. The synthesiser correctly **refused to
+wire 14 enumerations** to any Group 5B field — the 249-row country-code catalog is scoped by the
+corpus to the vendor import file, the 27-row Available VAT Fields and 12-row Prorated VAT catalogs
+belong to Forms and Fields. That refusal is right: a wrong owner is worse than an honest null.
+
+But `merge-group.py` reads only `valueSets`, and nothing anywhere read `orphanCandidates`. **323 of
+339 enumerated values would have been silently deleted** — the same class of loss that cost a
+dedicated 2.36M-token re-run once already, one stage later in the pipeline.
+
+Fixed at the plumbing, not by forcing owners: orphans now land as `knownGap` value sets carrying
+their `whyNoOwner` and `whatWouldFixIt`, using the accepted-gap mechanism `validate-graph.py`
+already demotes from ERROR to WARN. Value sets went **10 sets / 16 values → 24 sets / 339 values**.
+
+### Critic-driven corrections applied before merge
+
+Every claim below was re-verified independently before acting on it.
+
+| Fix | Evidence |
+|---|---|
+| 14 orphan catalogs landed as `knownGap` sets (+323 values) | `merge-group.py` had no reader for `orphanCandidates` |
+| **Deleted** edge `turnOnTaxValidation → Exceptions::exceptionCode` | cited file has 0 hits for "Turn On Tax Validation" and 0 for "Tax Administration" — it documents CFDi validation, a different feature |
+| **Deleted** edge `Forms and Fields::formType → taxAuthorityName` | cited file has 0 hits for "tax authority"; the real edge already exists, sourced from `the-basic-process-12a5686d.md` |
+| **Added** `expenseTypeGroupUnavailableExpenseTypes depends_on expenseTypeGroupTaxAuthorityFilter` | step-5 and step-6 carry the same rule verbatim but were modelled with different shapes; quote `grep -F` verified |
+| **Added** `taxRateTaxPercent depends_on taxRateRateType` | *"Once you select the type, the Tax Percent field appears."* — a field that does not exist until another is set, which a crawler must know |
+| Page nodes now carry `documentedBasis`, `verifyNotes`, `roleGates`, `aliases`, `identityNotes` | a bare `{name, url, coverage: thin}` node is indistinguishable from a lazy miss — the exact charge the 5A critic laid against Map Invoice Concept Fields |
+| Corrected a dangling `duplicateOf` in the Company Locations drop log | pointed at a field that was itself dropped, mislabelling an ownership refutation as a dedupe |
+
+### Budget Configuration — thin is the answer, and the node now says why
+
+`documentedBasis: none`. Across all 2,230 corpus files the literal strings "Budget Configuration",
+"budgetConfiguration", "Budget Admin", "Budget Item", "Budget Category", "Budget Period" and others
+return **zero files**. `budget-approval-59251c3b.md` is 27 lines with no procedure, no field and no
+nav path, and points outward: *"refer to the Shared: Budget Setup Guide"* — a guide that is not in
+this corpus, which is Concur Invoice Professional Edition only.
+
+Both critics re-proved this independently. The build correctly **refused to re-home** the Audit
+Rules `Budget` data object (Budget Amount / Name / Remaining Amount / Type) or the
+`Payment Request Budget Submit` workflow event onto this page.
+
+The node merges with a 7,787-character `verifyNotes` recording the searches run and their zero
+results. That is the difference between a documented negative finding and an empty node.
+
+### Validator results after merge
+
+`bin/validate-graph.py` — deterministic, no model:
+
+- **437/437 sourceQuotes verify verbatim.** 100/100 of the new ones.
+- 436/437 validValue lists fully found in source (the one miss is pre-existing).
+- **ERROR: none.** Exit 0.
+- Warnings 140 → 155. The entire delta is the 14 deliberate `knownGap` sets plus 2 self-disclosed
+  encodings (the country catalog encodes `<Code> — <COUNTRY>`, and the `Level 1 Code - Level 10
+  Code` range is expanded; both say so in their own notes). **No new warning class from 5B.**
+- `step-references-unbuilt-page` fell 108 → 107: a pre-existing step referenced a page 5B built.
+
+### Coverage findings
+
+- **Tax Administration is one page with five tabs** — Tax Authorities, Expense Type Groups, Vendor
+  Groups, Tax Code, Tax Validation — plus a multi-step New Tax Authority wizard (General · Tax Rate
+  Types · Tax Rates). 59 fields, `good`.
+- **Tax Administration is documented ONLY in admin-guides.** The tools-guides sweep for tax
+  authority / administration / administrator / validation / code / expense type group / vendor group
+  returned nothing but unrelated vendor-access and CFDi topics. Recorded as a published negative
+  rather than forced to improve the tools-citation ratio.
+- **Company Locations is the mirror image** — documented mostly in **tools-guides**, exactly the
+  skew that nearly lost Vendor Search Admin. Two tabs (Ship To / Bill To), a 12-field address form
+  captured 12/12 in source order with every `(Required)`/`(Optional)` marker preserved.
+- **The List Management / Connected Lists boundary held.** Connected list *definitions* are authored
+  on Forms and Fields (Group 5A); List Management owns list *categories, items and data*. Candidates
+  falling on the Forms-and-Fields side were dropped with `correctPage` set, not absorbed.
+- **22 PO-import columns were correctly refused** on Company Locations — `grep -c "Company Locations"`
+  is 0 in both record-format files, whose parent is the purchase-order import specification. This is
+  precisely 5A's "seven import fields filed under the wrong page" defect, and it did not recur.
+- Zero raw `<table>` elements in any file these four pages own — verified by census over both guide
+  directories, so `fromRawHtmlTable: false` on all 100 records is a measured fact, not a default.
+- Zero `uiVariant: both` claims. No new-experience or legacy topic touches any of these four pages.
+
+### Undetermined by the documentation (ranked)
+
+1. **Is Canada supported for VAT?** `supported-countries-for-vat-8b38bab8.md` excludes the US,
+   Canada and India; `canada-de22c9f9.md` and `implementation-best-practices-8b39ab5d.md` publish
+   complete four-field and two-field Canadian implementations; `overview-8b38e2f7.md` adds a third
+   framing. Almost certainly provisioning-dependent (Tax Authority calculation vs VAT field capture).
+2. **Does predefining a tax code make all four VAT Tax Code fields lists, or only field 1?**
+   `configure-predefined-tax-codes-6b42509f.md` says "the tax code fields (1-4)";
+   `step-7-...-be8bc5b8.md` says "the VAT Tax Code 1 field". Same `deliverable_id`, identical steps.
+3. **The Tax Validation tab has two parallel label sets** in two topics (Partner Account Number /
+   Tax Validation Type / Level, versus Unique Tax Partner Number / Request Type to be Analyzed /
+   Form Level to Be Analyzed). Both recorded as parallel fields with parallel value sets.
+4. **Where is the Invoice Tax Administrator role assigned?** Two nav paths in two same-titled files.
+5. **How do you modify or delete anything on Tax Administration?** The corpus documents how to
+   *create* a tax authority, rate type, rate, tax code and both group types — and never once
+   documents modify or delete. For an automation that is a first-class fact.
+6. **The Company Locations import template columns are never enumerated** anywhere in the corpus,
+   though the revision history confirms Country and State/Province are among them.
+7. **Is the vendor-group Tax Type list closed?** The source ends it with "etc.", so no. Three values
+   recorded with the openness disclosed.
+
+### Debt this run created or confirmed
+
+1. **`contradictions` and `compressedRanges` have no node type.** The extracts hold 47 structured
+   contradiction records and 15 compressed ranges; roughly 8 of the 47 survive into the graph only
+   because an agent hand-copied them into a field's `notes`. The brief's core instruction — *record
+   both and state the contradiction* — has nowhere to land. **This is the highest-value schema gap.**
+2. **Four unread admin-guides files named by the completeness critic**, chiefly
+   `implementation-best-practices-8b39ab5d.md` (66 lines, 31 tax/VAT hits). It is the admin-guides
+   twin of `canada-de22c9f9.md`, which means the "the contradicting evidence lives only in
+   tools-guides" framing in this build's own extract headline is **wrong** — the contradiction is
+   internal to admin-guides. Corrected here; the underlying fields were not re-extracted.
+3. **Named controls found but not emitted:** `Calculated Tax Amount`, `Tax Rate`,
+   `(Optional) Tax Reference ID` (`step-4-additional-configuration-steps-37f6c7ba.md`) and
+   `Vendor includes VAT in the Unit Price` (`...-9eebdaa0.md`). Additions must face the refuter, so
+   these are a remediation pass, not an edit.
+4. **Zero role-gate dependencies** among 57 edges, against the graph's own precedent
+   (`dep.g1.033/034/055/056` model role gates as `precedes` edges into `User Permissions`). Three
+   documented gates went unmodelled.
+5. **Six dependency endpoints name pages on no build list** — Vendor Manager, Employee Import,
+   Feature Hierarchies, Vendor Employee Access Import, Check Configurations. Two are import file
+   specs, not admin pages. Decide whether they become pages or the edges become notes.
+6. **`vset.g5.fields-supported-for-capture-header-fields` is short a row.** The tools-guides OCR
+   table has 12 header entries including `Vat 2 (Secondary Tax – Canada PST/QST)`; the admin twin
+   has 11 and no Vat 2. The graph carries the admin version only. Both were parsed this run; the
+   correction has nowhere to land until (1) is fixed.
+7. **23 pre-existing `step-references-unknown-field` warnings are all Group 2**, left by the Audit
+   Rules deep-dive renaming fields the Group 2 steps still cite. None are 5B's.
+8. `A/details-section-49500221.md` — 4,762 lines, **256 data rows**, the largest catalog near this
+   domain, correctly not a control on any of these four pages (its home is the unbuilt accounting
+   extract / imports page). Logged so a future group does not re-lose it.
+
+### Next
+
+Group 3 — PO Matching, 11 pages, built **new-first**: it has a documented New Experience variant,
+and `policies-the-purchase-order-policy-new-experience-*` (15,800 bytes) versus its legacy twin
+(1,490) is the trap that damaged Groups 1–2.

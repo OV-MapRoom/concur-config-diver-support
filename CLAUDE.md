@@ -11,7 +11,8 @@ which pages, which fields, which valid values, in what order.
 
 ## Start here
 
-1. `docs/2026-08-31_HANDOFF-KG-BUILD.md` — the authoritative spec (schema, groups, rules).
+1. `docs/2026-08-31_HANDOFF-KG-BUILD-v2.md` — the authoritative spec (schema, groups, rules).
+   (`docs/2026-08-31_HANDOFF-KG-BUILD.md` is the superseded v1; read v2.)
 2. `docs/WHERE-WE-LEFT-OFF.md` — current state.
 
 ## Corpus source
@@ -35,6 +36,8 @@ Extract with grep/read against those files. Cheaper than MCP and equivalent in c
 - **Do not validate against the live Concur UI** in a build session.
 - Corporate-adjacent work: no customer PII, pricing, or confidential deal data in outputs.
 - Schema is **locked**: ConfigPage / ConfigField / ConfigDependency / ConfigStep.
+  `ConfigValueSet` and the `uiVariant` field were added since, each with its reason recorded
+  in `docs/SCHEMA.md`. Additions are documented there; the four locked types do not change.
 
 ## Conventions
 
