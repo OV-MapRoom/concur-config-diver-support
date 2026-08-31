@@ -1,7 +1,10 @@
 # Graph schema
 
-Four node types are **locked** by the original handoff. Two fields and one node type have been
-added since; each addition is listed with the reason it was unavoidable.
+Four node types are **locked** by the original handoff: ConfigPage, ConfigField,
+ConfigDependency, ConfigStep. Two fields and **three** node types have been added since. Each
+addition is listed with the reason it was unavoidable, and the pattern is the same every time: an
+instruction the build was already following had no node to write its answer into, so the answer was
+being computed and then thrown away.
 
 ## ConfigPage
 `id · name · navPath[] · url · group · coverage` *(locked)*
@@ -84,6 +87,54 @@ the corpus). The config writer therefore targets `new` and falls back to `legacy
 Groups 1 and 2 were built before this field existed and cite **zero** New Experience sources, so
 all 133 of their fields are `undifferentiated`. Reclassifying them is the New Experience retrofit
 pass; until it runs, the count of `undifferentiated` fields is the honest size of that debt.
+
+## ConfigContradiction *(added)*
+`id · group · patch · kind · topic · appliesToRef · readings[] · consequenceForWriter · notes`
+
+**Where two topics give different accounts of the same control, the graph records BOTH and states
+the contradiction.** That instruction is in the governing constraint, in the handoff, and in every
+extraction prompt — and until now it had **nowhere to land**. Group 5B alone produced 47 structured
+contradiction records; the only ones that reached the graph were those an agent happened to
+hand-copy into a field's `notes`. Everything else was discarded by the merge. This node type is
+that instruction's home.
+
+- **`readings[]`** — two or more `{summary, sourceQuote, sourceFile}`. **Every reading carries its
+  own verbatim quote**, validated exactly like a ConfigField's. A contradiction is a claim about
+  what two documents say, so it needs two pieces of evidence, not one. No quote, no reading; fewer
+  than two readings, no node.
+- **`kind`** — `label-drift` | `option-list` | `scope` | `structure` | `cardinality` |
+  `requirement`. What sort of disagreement it is, because the consequence differs: label drift means
+  a crawler must try both strings, an option-list conflict means it must not trust either list.
+- **`consequenceForWriter`** is the load-bearing field, as `rationale` is for ConfigStep. It says
+  what the config writer should actually do. "The docs disagree" is not actionable; "expect either
+  label and match on the first that resolves" is.
+- **`appliesToRef`** — `{page, field, resolved}`, and both may be null. A contradiction can be about
+  a field, a page, or the product (whether Canada is supported for VAT is none of the three). An
+  unattached contradiction is still worth recording, so a null ref is valid and is not a defect.
+- **Never reconcile.** There is no `resolution` field and no "correct" reading, by design. Many of
+  these differences are **provisioning-dependent** — what a screen offers varies with the modules a
+  site has enabled — so a single answer would be wrong while looking right. A hypothesis about the
+  cause belongs in `notes`, phrased as one.
+
+## ConfigCompressedRange *(added)*
+`id · group · patch · label · expandsTo[] · count · appliesToRef · sourceQuote · sourceFile · notes`
+
+The corpus routinely writes an enumeration in compressed form — `Custom 1 - 20`, `Org Unit 1 - 6`,
+`Level 1 Code - Level 10 Code`, `VAT Amount 1 - 4`. A crawler cannot act on the compressed string: it
+has to know that the field named `Custom 1 - 20` is twenty fields, and what each is called.
+
+Handoff rule 8 has required these to be noted since Group 2, and they were — into a container the
+pipeline discarded. The consequence is visible in the graph today: a value set carries the literal
+string `Vat Amount 1 - 4` **as one of its values**, with its expansion recorded nowhere.
+
+- **`label` is character-exact.** An en-dash is not a hyphen and `Vat` is not `VAT`. The whole point
+  is to match what a crawler will actually read off the screen, so the source's characters are
+  reproduced rather than normalised. Where the distinction is load-bearing, `notes` says so.
+- **`expandsTo[]` is an enumeration, not a description.** `["Level 1 Code", … "Level 10 Code"]`, not
+  "ten segment level columns". `count` must equal its length; the validator checks this.
+- **`appliesToRef`** may be null for the same reason as ConfigValueSet's: some ranges belong to a
+  surface this graph has not built (an import record layout, for instance). Unwired and deleted are
+  different answers.
 
 ## Blind build — the governing constraint
 

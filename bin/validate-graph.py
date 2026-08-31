@@ -117,6 +117,65 @@ def main():
         if missing:
             warns.append(('value-set-entries-not-in-file', v['id'], '%d of %d' % (len(missing), len(v.get('values') or []))))
 
+    # ---- ConfigContradiction invariants
+    # A contradiction asserts what two documents say. Its evidence is the two quotes, so an
+    # unverifiable reading is an ERROR exactly as an unverifiable field quote is.
+    KINDS = {'label-drift', 'option-list', 'scope', 'structure', 'cardinality', 'requirement'}
+    for c in n.get('configContradictions', []):
+        stats['contradictions'] += 1
+        rd = c.get('readings') or []
+        if len(rd) < 2:
+            errors.append(('contradiction-under-two-readings', c['id'], '%d reading(s)' % len(rd)))
+        if c.get('kind') not in KINDS:
+            errors.append(('contradiction-bad-kind', c['id'], str(c.get('kind'))))
+        if not (c.get('consequenceForWriter') or '').strip():
+            warns.append(('contradiction-no-consequence', c['id'], ''))
+        for k, rdg in enumerate(rd):
+            stats['contradiction-readings'] += 1
+            raw, low = body(rdg.get('sourceFile') or '')
+            if raw is None:
+                errors.append(('contradiction-missing-file', c['id'], '#%d %s' % (k, rdg.get('sourceFile'))))
+                continue
+            q = rdg.get('sourceQuote') or ''
+            if not q.strip():
+                errors.append(('contradiction-empty-quote', c['id'], '#%d' % k))
+            elif norm(q) in low:
+                stats['contradiction-quotes-verbatim'] += 1
+            else:
+                errors.append(('contradiction-quote-not-in-file', c['id'], '#%d %s' % (k, q[:60])))
+        # two readings that cite the same file AND the same quote are not a contradiction
+        seen_r = set()
+        for rdg in rd:
+            key = (rdg.get('sourceFile'), norm(rdg.get('sourceQuote') or ''))
+            if key in seen_r:
+                errors.append(('contradiction-duplicate-reading', c['id'], str(rdg.get('sourceFile'))))
+            seen_r.add(key)
+        fid = c.get('appliesToFieldId')
+        if fid and fid not in field_ids:
+            errors.append(('contradiction-dangling-owner', c['id'], fid))
+
+    # ---- ConfigCompressedRange invariants
+    for c in n.get('configCompressedRanges', []):
+        stats['compressed-ranges'] += 1
+        exp = c.get('expandsTo') or []
+        stats['range-names'] += len(exp)
+        if not (c.get('label') or '').strip():
+            errors.append(('range-empty-label', c['id'], ''))
+        if len(exp) < 2:
+            errors.append(('range-under-two-members', c['id'], '%d' % len(exp)))
+        if c.get('count') != len(exp):
+            errors.append(('range-count-mismatch', c['id'], 'count=%s len=%d' % (c.get('count'), len(exp))))
+        raw, low = body(c.get('sourceFile') or '')
+        if raw is None:
+            errors.append(('range-missing-file', c['id'], c.get('sourceFile') or ''))
+        elif norm(c.get('sourceQuote') or '') in low:
+            stats['range-quotes-verbatim'] += 1
+        else:
+            errors.append(('range-quote-not-in-file', c['id'], (c.get('sourceQuote') or '')[:60]))
+        fid = c.get('appliesToFieldId')
+        if fid and fid not in field_ids:
+            errors.append(('range-dangling-owner', c['id'], fid))
+
     # ---- ConfigDependency invariants
     fwd = 0
     for d in n['configDependencies']:
@@ -157,6 +216,12 @@ def main():
             stats['quote-verbatim'], stats['fields'], 100.0 * stats['quote-verbatim'] / stats['fields']))
         print('  validValues fully found in source: %d/%d' % (stats['values-ok'], stats['fields']))
     print('  dependency endpoints awaiting an unbuilt page: %d' % stats['forward-refs'])
+    if stats['contradictions']:
+        print('  contradictions %d (%d readings, %d quotes verbatim)' % (
+            stats['contradictions'], stats['contradiction-readings'], stats['contradiction-quotes-verbatim']))
+    if stats['compressed-ranges']:
+        print('  compressed ranges %d expanding to %d names (%d quotes verbatim)' % (
+            stats['compressed-ranges'], stats['range-names'], stats['range-quotes-verbatim']))
     print()
     for label, items in (('ERROR', errors), ('WARN', warns)):
         if not items:

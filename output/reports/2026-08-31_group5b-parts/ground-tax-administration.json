@@ -1,0 +1,411 @@
+{
+  "contradictions": [
+    {
+      "kind": "label-drift",
+      "topic": "The tab that groups expense types under a tax authority is named 'Expense Type Groups' in one topic and 'Expense Types Group' in another.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "tabExpenseTypesGroup"
+      },
+      "readings": [
+        {
+          "summary": "The process overview names the tab 'Expense Type Groups' (plural Groups) inside the full Administration menu path.",
+          "sourceQuote": "Administration > Invoice > Tax Administration > Expense Type Groups tab",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md"
+        },
+        {
+          "summary": "The step-by-step procedure that actually drives the tab names it 'Expense Types Group' (plural Types, singular Group).",
+          "sourceQuote": "On the Expense Types Group tab, select from the Tax Authority list.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+        }
+      ],
+      "consequenceForWriter": "Do not hard-match this tab's text. Locate it with a match that accepts either 'Expense Type Groups' or 'Expense Types Group' (e.g. a normalised match on the tokens expense/type/group, case-insensitive, order-insensitive on the plural s), take whichever resolves first on the rendered Tax Administration page, and record the literal text seen so later steps reuse the observed string rather than a guessed one.",
+      "notes": "Hypothesis: the two topics were written at different times against the same tab and one of them transcribed the label from memory; the corpus never shows both spellings on one screen, so it is also possible the tab was renamed between releases and only one topic was updated."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The left-menu entry that opens this tool is called the 'Tax Administration link' in some topics and the 'Tax Administrator link' in another.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The role-assignment step says the assigned user gains the 'Tax Administration link'.",
+          "sourceQuote": "Assign this role so that the user can see and work with the Tax Administration link.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+        },
+        {
+          "summary": "The Tax Validation configuration step says the same user accesses the 'Tax Administrator link', which then displays the Tax Administration tool - so link and tool carry different names in the same sentence.",
+          "sourceQuote": "this user may now access the Tax Administrator link, which displays the Tax Administration tool.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The Tax Validation process overview describes SAP Concur staff exposing the 'Tax Administration link' in Invoice Admin.",
+          "sourceQuote": "exposing the Tax Administration link in Invoice Admin.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-13c136d5.md"
+        }
+      ],
+      "consequenceForWriter": "When hunting the left menu for the entry point, accept both 'Tax Administration' and 'Tax Administrator' as the link text and click whichever is present; assert only on the page that opens (the Tax Administration page with its tab strip), never on the link's exact word. Do not fail the run because the link reads 'Tax Administrator'.",
+      "notes": "Hypothesis: 'Tax Administrator' is a writer's slip carried over from the role name (Invoice Tax Administrator) rather than a second real menu entry - but the corpus never states that, and a site could legitimately render either, so both are kept."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The role that gates this page is called 'Invoice Tax Administrator' in the assignment topics and plain 'Tax Administrator' in the required-roles and overview topics.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The assignment procedure says the string to pick in the Available Roles list is 'Invoice Tax Administrator'.",
+          "sourceQuote": "Under Available Roles, select Invoice Tax Administrator, then click Add.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+        },
+        {
+          "summary": "The required-roles topic states the prerequisite as the plain 'Tax Administrator' role.",
+          "sourceQuote": "To add and manage tax authorities, the user needs to have the Tax Administrator role.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/required-roles-81c8eace.md"
+        },
+        {
+          "summary": "The SAP-Concur-staff enablement step also uses the long form, saying the feature exposes the 'Invoice Tax Administrator' role in User Permissions.",
+          "sourceQuote": "expose the Invoice Tax Administrator role in User Permissions",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md"
+        },
+        {
+          "summary": "The Tax Authority process overview uses the short form throughout, assigning 'the Tax Administrator role' in User Permissions.",
+          "sourceQuote": "The Tax Administrator role is assigned to an employee by using options in User Permissions",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md"
+        }
+      ],
+      "consequenceForWriter": "In the User Permissions > Invoice Available Roles list, search for a role whose text CONTAINS 'Tax Administrator' rather than equalling either form, and prefer the longest match when both appear. Never assert the role string; assert instead that the Tax Administration entry becomes reachable after Save.",
+      "notes": "Hypothesis: 'Invoice Tax Administrator' is the literal string rendered in the Available Roles list (the two topics that quote the list use it) while 'Tax Administrator' is the prose shorthand used in overview topics - but the corpus never says the two are the same role, so both are recorded."
+    },
+    {
+      "kind": "structure",
+      "topic": "Three different navigation paths are given for reaching User Permissions to assign the Invoice Tax Administrator role.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "One Step 2 topic gives a single collapsed path starting at User Administration and describes it as part of the Company Admin tool.",
+          "sourceQuote": "Click User Administration > User Permissions > Invoice tab of the Company Admin tool.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+        },
+        {
+          "summary": "The other Step 2 topic (same title, different loio) starts at Administration > Company > Company Admin and then treats User Permissions as a left-menu item.",
+          "sourceQuote": "Click Administration > Company > Company Admin.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b903b7c8.md"
+        },
+        {
+          "summary": "The enablement topic gives a third, shorter path: User Admin > User Permissions.",
+          "sourceQuote": "the Concur User Admin role can now assign it to a user via User Admin > User Permissions.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode a fixed click path to User Permissions. Drive to the User Permissions screen by trying, in order, the top menu entries 'Administration > Company > Company Admin', 'User Administration', and 'User Admin', then look for a 'User Permissions' left-menu item; treat arrival at a screen that offers an Invoice tab plus an Available Roles list as the success condition.",
+      "notes": "Hypothesis: the menu tree differs by provisioning and by which admin roles the signed-in user holds (a user with only User Admin may see a different top-level entry than one with full Company Admin), so all three paths may be simultaneously correct on different tenants."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The field holding the tax service provider's client identifier is labelled 'Partner Account Number' in one topic and 'Unique Tax Partner Number' in another.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "taxValidationPartnerAccountNumber"
+      },
+      "readings": [
+        {
+          "summary": "The Tax Validation configuration topic prints 'Partner Account Number' as the Field-column label of the first option on the Tax Validation page.",
+          "sourceQuote": "Partner Account Number",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The Tax Validation page options topic calls the same identifier the 'Unique Tax Partner Number' and gives the same meaning - the number the provider issues to identify the client.",
+          "sourceQuote": "Entering the Unique Tax Partner Number: The tax service provider issues unique numbers to each of their clients so that they can identify the client.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+        }
+      ],
+      "consequenceForWriter": "On the Tax Validation tab, resolve this input by matching a label containing 'Partner' and 'Number' rather than either full string, and write the provider-issued account number into whichever of the two resolves. Record the observed label so a later verification pass compares against what was actually on screen.",
+      "notes": "Hypothesis: the two topics document the same single input at different documentation vintages; the alternative - that a tenant sees two distinct fields - is not supported anywhere in the corpus, but the corpus also never states they are one field. Source-character note: the label is printed in that topic's field table as a bullet, '-   Partner Account Number'; the quote here is the label text alone so it does not begin with a hyphen."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The control that chooses which request type is validated is labelled 'Tax Validation Type' in one topic and 'Request Type to be Analyzed' in another.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "taxValidationType"
+      },
+      "readings": [
+        {
+          "summary": "The configuration topic's Tax Validation options table prints the Field-column label 'Tax Validation Type' for the control whose only value is Payment Request Only.",
+          "sourceQuote": "Tax Validation Type",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The page-options topic calls the same decision the 'Request Type to be Analyzed' and likewise says only Payment Request Only is available.",
+          "sourceQuote": "Deciding the Request Type to be Analyzed: At this time, only the Payment Request Only option is available.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+        }
+      ],
+      "consequenceForWriter": "Identify this control by its option set - a list whose only selectable value is 'Payment Request Only' - not by its label, and accept either label text when reporting what was configured. Both topics agree the value is Payment Request Only, so the selection itself is safe to automate.",
+      "notes": "Hypothesis: the same control was renamed between the two topics' writing; because both agree on the sole value, matching on the value rather than the label is the stable discriminator."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The control that chooses the level at which tax validation runs differs in both label and value naming between the two Tax Validation topics.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "taxValidationLevel"
+      },
+      "readings": [
+        {
+          "summary": "The configuration topic, under the Field-column label 'Tax Validation Level', names the two values Header and Line Item.",
+          "sourceQuote": "This defines on which level the tax validation should occur, either the Header or the Line Item level.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The page-options topic calls the same choice the 'Form Level to Be Analyzed' and names the values as the header or the line item details form.",
+          "sourceQuote": "Deciding the Form Level to Be Analyzed: Either the header or line item details form is analyzed by the tax validation service, and that choice is made on this page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+        }
+      ],
+      "consequenceForWriter": "Match this control on a label containing 'Level' and select by prefix on the value - a value starting 'Header' or starting 'Line Item' - rather than on an exact option string, because the corpus gives both 'Line Item' and 'line item details form' as the same choice. Log the literal option text that was selected.",
+      "notes": "Hypothesis: 'Form Level to Be Analyzed' is prose for the same control and 'line item details form' names the target form rather than the option text; the corpus does not confirm which string the screen renders, so both are kept."
+    },
+    {
+      "kind": "cardinality",
+      "topic": "After predefining a tax code, one topic says four tax code fields become lists and its twin says only VAT Tax Code 1 does.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The gerund-titled topic says predefining a code turns the tax code fields 1 through 4 into lists on the invoice.",
+          "sourceQuote": "The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+        },
+        {
+          "summary": "The Step 7 twin of the same procedure says only the single VAT Tax Code 1 field becomes a list.",
+          "sourceQuote": "The user will now see the VAT Tax Code 1 field as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-7-optional-configure-predefined-tax-codes-be8bc5b8.md"
+        }
+      ],
+      "consequenceForWriter": "The Tax Code tab action itself is identical under both readings - create the code and Save - so perform it once. Do NOT assert how many downstream fields turned into lists: verify by inspecting the invoice form afterwards and report the observed count (1 or up to 4), and never fail the step because only VAT Tax Code 1 became a list.",
+      "notes": "Hypothesis: the count is provisioning-dependent - a site that has only added VAT Tax Code 1 in Forms and Fields would see one list, while a site with all four added would see four - which would make both topics true on different tenants. The corpus never says this."
+    },
+    {
+      "kind": "structure",
+      "topic": "Four different menu paths are given for reaching the Tax Administration page itself, differing on 'Invoice' vs 'Invoice Admin' and on Select vs Click.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The predefined-tax-codes topic gives a single Select path through Administration > Invoice with Tax Administration as a left-menu item.",
+          "sourceQuote": "Select Administration > Invoice > Tax Administration (left menu).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+        },
+        {
+          "summary": "Its Step 7 twin gives the same path but with Click rather than Select.",
+          "sourceQuote": "Click Administration > Invoice > Tax Administration (left menu).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-7-optional-configure-predefined-tax-codes-be8bc5b8.md"
+        },
+        {
+          "summary": "The Tax Validation configuration topic routes through 'Invoice Admin' instead of 'Invoice'.",
+          "sourceQuote": "As the Invoice Tax Administrator, click Administration > Invoice Admin > Tax Administration. The Tax Administration page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The Access Tax Authorities topic splits it into two separate clicks - Administration > Invoice, then a Tax Administration left-menu click.",
+          "sourceQuote": "Click Tax Administration left menu. The Tax Administration page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md"
+        }
+      ],
+      "consequenceForWriter": "Navigate in two moves, not one: open the Administration menu and click whichever of 'Invoice' or 'Invoice Admin' exists, then click 'Tax Administration' in the left menu. Treat the appearance of the Tax Administration page (its tab strip) as the success assertion; do not encode a single dotted path string.",
+      "notes": "Hypothesis: 'Invoice Admin' and 'Invoice' are two renderings of the same top menu entry, differing by release or by which Invoice modules the site has provisioned. The Select/Click difference is most likely a republication artefact of gerund vs imperative topic titles rather than two different gestures."
+    },
+    {
+      "kind": "scope",
+      "topic": "Whether the US, Canada and India are supported for VAT in Concur Invoice - the admin guide excludes exactly the countries the tools guides give VAT field implementations for.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The admin guide states outright that the US, Canada, India and other multi-tax countries are NOT supported for VAT.",
+          "sourceQuote": "Countries that are not supported for VAT in Concur Invoice are the US, Canada, India, and other multi-tax countries.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/supported-countries-for-vat-8b38bab8.md"
+        },
+        {
+          "summary": "The tools guide gives Canada two complete VAT implementation options - four dedicated VAT fields or two - with province-specific labelling.",
+          "sourceQuote": "There are different ways to implement VAT for a client in Canada. The following section describes how to implement four and two VAT tax fields respectively.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md"
+        },
+        {
+          "summary": "The tools guide also gives the US a VAT field assignment alongside the UK, Japan and Australia.",
+          "sourceQuote": "For the UK, the US, Japan, and Australia, use the VAT Amount 1 field, which is for primary tax.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/uk-us-japan-australia-0557084a.md"
+        }
+      ],
+      "consequenceForWriter": "Never gate a configuration run on a country allow-list derived from the admin guide. If asked to configure VAT for a US, Canadian or Indian entity, proceed with the field-level configuration the tools guides describe, and surface the admin guide's unsupported-countries statement to the human as an open question rather than refusing or silently skipping.",
+      "notes": "Hypothesis: 'supported' means different things in the two guides - the admin guide is describing Tax Authority automatic VAT calculation (which needs a single tax per authority, so multi-tax countries fall out), while the tools guides describe Capture Processing field capture, which merely reads printed tax amounts into VAT Amount fields. The corpus never states this distinction, so both readings stand."
+    },
+    {
+      "kind": "option-list",
+      "topic": "The two twin OCR/Capture 'fields supported for capture' tables enumerate Canadian tax capture differently - one carries Canada in Vat 1 plus a Vat 2 row, the other has neither.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools guide's table names Canada GST/HST inside the Vat 1 primary-tax cell.",
+          "sourceQuote": "Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md"
+        },
+        {
+          "summary": "The same tools table adds a separate Vat 2 secondary-tax cell for Canada PST/QST at header level.",
+          "sourceQuote": "Vat 2 (Secondary Tax – Canada PST/QST) *",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md"
+        },
+        {
+          "summary": "The admin guide's twin of the same table drops Canada from the Vat 1 cell entirely and has no Vat 2 row at all.",
+          "sourceQuote": "Vat 1 (Australia GST, US Tax, VAT UK/Japan) *",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md"
+        }
+      ],
+      "consequenceForWriter": "When adding capture fields, enumerate what the Add Fields dialog actually offers instead of asserting either table's row set; add Vat 2 only if it is present, and do not treat its absence as a failure. This pair belongs to the Capture Processing form configuration, not to Tax Administration, so no Tax Administration field is claimed from it.",
+      "notes": "Hypothesis: the tools guide's table is the newer of the two twins (it adds Canada and a Vat 2 row, and its footnote markers differ - ** vs *), so the admin guide may simply be a stale republication. The corpus gives no dates to settle it."
+    },
+    {
+      "kind": "cardinality",
+      "topic": "How many VAT amount fields the Tax Authority feature supports - one, or four.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The Add VAT Fields step states flatly that Tax Authority currently supports only one VAT amount field, naming the trio VAT Amount 1 / VAT Rate 1 / VAT Tax Code 1.",
+          "sourceQuote": "Currently, in Tax Authority, Concur Invoice only supports one VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md"
+        },
+        {
+          "summary": "The tools guide instructs Canadian clients to implement four dedicated VAT tax fields.",
+          "sourceQuote": "can implement four dedicated VAT Tax fields for this purpose.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md"
+        },
+        {
+          "summary": "The admin guide's own available-fields table documents four VAT amount fields and says some countries will have all four.",
+          "sourceQuote": "Some countries will have four VAT amount fields because clients have more than one type of tax assessed, and all the VAT amounts need to be stored.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md"
+        }
+      ],
+      "consequenceForWriter": "Add whichever VAT fields the Forms and Fields Add Fields dialog offers - up to four - but when configuring Tax Authority rates and groups, only assume VAT Amount 1 participates in automatic calculation. Treat VAT Amount 2 to 4 as capture/extract carriers until a run proves otherwise, and never fail because Tax Authority ignores fields 2 to 4.",
+      "notes": "Hypothesis: the 'only one' statement scopes to Tax Authority's automatic VAT calculation while the four-field guidance scopes to form fields and Capture Processing extraction - which the same Canada topic hints at by saying VAT Amount 3 and 4 must be entered manually. The corpus never draws the boundary explicitly."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The Applies To document type is written 'Payment Request' in the expense type group wizard and 'Payment request' in the vendor group wizard.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The expense type group wizard capitalises both words of the document type.",
+          "sourceQuote": "Select the Payment Request document type for which to calculate VAT for expense type groups.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+        },
+        {
+          "summary": "The vendor group wizard lowercases 'request' for what is otherwise the same Applies To value.",
+          "sourceQuote": "Select the Payment request document type for which to calculate VAT for vendor groups.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+        }
+      ],
+      "consequenceForWriter": "Select the Applies To value case-insensitively on both expenseTypeGroupAppliesTo and vendorGroupAppliesTo; do not compare the option string byte-for-byte across the two wizards. Left unattached to a single field because the drift spans both wizards' Applies To controls.",
+      "notes": "Hypothesis: casing drift from independent authoring of the two near-identical wizard topics, not two different option values. Related oddity in the same cell, recorded here rather than as its own node because it cannot be grounded as two competing readings: the vendor group topic states its Applies To setting 'also appears as a column on the Expense Type Groups page', naming the expense-type-group page inside the vendor-group procedure."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The Tax Rates step's default tax condition sentence is punctuated differently in the two group wizards, including a hyphen-free en-dash in one.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The expense type group wizard writes the default condition sentence with 'which means that'.",
+          "sourceQuote": "The Tax Rates step shows the default tax condition of Always which means that this tax rate will always apply.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+        },
+        {
+          "summary": "The vendor group wizard writes the same sentence with an en-dash (U+2013) and 'meaning'.",
+          "sourceQuote": "The Tax Rates step shows the default tax condition of Always – meaning this tax rate will always apply.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+        }
+      ],
+      "consequenceForWriter": "If the automation verifies the Tax Rates step by reading its helper text, match only on the condition token 'Always' - never on the full sentence, and never on the dash character, which is an en-dash (U+2013) in one topic and absent in the other.",
+      "notes": "Hypothesis: this is documentation prose rather than a rendered on-screen string, in which case neither sentence may appear in the UI at all; it is recorded because the exact source characters are what a text-matching crawler would otherwise be built against."
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": [
+        "Vat Amount 1",
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 1 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+      "notes": "Header-level row of the raw <table> listing fields supported for capture by Client-Managed Capture Processing. Source characters: 'Vat' (not 'VAT'), space-hyphen-space (not an en-dash). Expansion is mechanical, not quoted - the source gives only the compressed form. The Forms and Fields guide spells the same fields 'VAT Amount 1' to 'VAT Amount 4'. Belongs to the Capture Processing form configuration, not to Tax Administration, hence appliesTo is empty."
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": [
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 3,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 2 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+      "notes": "Line-item-level row of the same raw <table>. The range starts at 2 because 'Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **' is listed as its own separate cell in the same row. Source characters: 'Vat', space-hyphen-space. Expansion is mechanical, not quoted."
+    },
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": [
+        "Vat Amount 1",
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 1 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+      "notes": "Admin-guide twin of the tools OCR table, header-level row. Identical compressed characters ('Vat', space-hyphen-space) but the surrounding row set differs from the tools twin - this table has no Vat 2 row and drops Canada from its Vat 1 cell (recorded as a contradiction). Expansion is mechanical, not quoted."
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": [
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 3,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 2 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+      "notes": "Admin-guide twin, line-item-level row. Starts at 2 because 'Vat 1 (Australia GST, US Tax, VAT UK/Japan) *' occupies its own cell in the same row. Source characters: 'Vat', space-hyphen-space. Expansion is mechanical, not quoted."
+    },
+    {
+      "label": "tax code fields (1-4)",
+      "expandsTo": [
+        "VAT Tax Code 1",
+        "VAT Tax Code 2",
+        "VAT Tax Code 3",
+        "VAT Tax Code 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+      "notes": "Source characters: lowercase 'tax code fields', a parenthesised '1-4' with a plain hyphen and no spaces, preceded in the sentence by the article 'the'. The expansion is mechanical and the member NAMES are borrowed from the available-vat-fields-8b395ce2.md table (VAT Tax Code 1 to VAT Tax Code 4); this file itself never names them, so the member strings are inferred, not quoted. CONTRADICTED by step-7-optional-configure-predefined-tax-codes-be8bc5b8.md, which names only VAT Tax Code 1 - see the matching contradiction record. Describes downstream invoice fields, not a control on the Tax Administration page, hence appliesTo is empty."
+    },
+    {
+      "label": "VAT amount fields 1-4",
+      "expandsTo": [
+        "Line Item VAT Amount 1",
+        "Line Item VAT Amount 2",
+        "Line Item VAT Amount 3",
+        "Line Item VAT Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "The values in this label are the VAT amount fields 1-4 of the line item level amounts, so the user understands what each row represents.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md",
+      "notes": "Source characters: 'VAT' uppercase but 'amount fields' lowercase, plain hyphen with no spaces, preceded by the article 'the'. These are the values the VAT Type label displays at line item level, so the members are the line item variants; the member NAMES are taken from available-vat-fields-8b395ce2.md (Line Item VAT Amount 1 to 4) and the expansion is mechanical, not quoted from this file. The VAT Type label is configured in Forms and Fields, not on Tax Administration, hence appliesTo is empty."
+    }
+  ]
+}

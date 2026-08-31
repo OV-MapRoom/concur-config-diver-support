@@ -31,6 +31,7 @@ as structured, schema-validated output, and the journal is a verbatim record of 
 import glob, json, os, re, sys, unicodedata
 from collections import Counter, defaultdict
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS = '/mnt/c/Users/manci/PROJECTS/concur-corpus/CONCUR_INVOICE'
 
 DASHES = {'‐': '-', '‑': '-', '‒': '-', '–': '-', '—': '-', '−': '-'}
@@ -169,6 +170,18 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
     by_page_field = {(p['name'].strip().lower(), f['name'].strip().lower()): f
                      for p in pages for f in p['fields']}
 
+    # Cross-group refs are legitimate and valuable: a contradiction or range found while building one
+    # group often belongs to a field built in another. Consult the live graph as well as this run's
+    # rosters, or every such ref reads as a defect when it is actually the point.
+    known_refs = set(by_page_field)
+    kg_path = os.path.join(ROOT, 'output', 'kg-invoice-config.json')
+    if os.path.isfile(kg_path):
+        kg = json.load(open(kg_path, encoding='utf-8'))
+        pn = {p['id']: p['name'] for p in kg['nodes']['configPages']}
+        for f in kg['nodes']['configFields']:
+            if f['pageId'] in pn:
+                known_refs.add((pn[f['pageId']].strip().lower(), f['name'].strip().lower()))
+
     vs_doc = read_json(os.path.join(parts, 'synth-valuesets.json'), {}) or {}
     value_sets = []
     for v in (vs_doc.get('valueSets') or []):
@@ -246,6 +259,32 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
             'sourceFile': (d.get('sourceFile') or '').lstrip('./'),
         })
 
+    contradictions = []
+    for c in (read_json(os.path.join(parts, 'synth-contradictions.json'), {}) or {}).get('contradictions') or []:
+        contradictions.append({
+            'kind': c.get('kind') or '',
+            'topic': c.get('topic') or '',
+            'appliesTo': c.get('appliesTo') or {},
+            'readings': [{'summary': r.get('summary') or '',
+                          'sourceQuote': r.get('sourceQuote') or '',
+                          'sourceFile': (r.get('sourceFile') or '').lstrip('./')}
+                         for r in (c.get('readings') or [])],
+            'consequenceForWriter': c.get('consequenceForWriter') or '',
+            'notes': c.get('notes') or '',
+        })
+
+    ranges = []
+    for c in (read_json(os.path.join(parts, 'synth-ranges.json'), {}) or {}).get('compressedRanges') or []:
+        ranges.append({
+            'label': c.get('label') or '',
+            'expandsTo': list(c.get('expandsTo') or []),
+            'count': c.get('count'),
+            'appliesTo': c.get('appliesTo') or {},
+            'sourceQuote': c.get('sourceQuote') or '',
+            'sourceFile': (c.get('sourceFile') or '').lstrip('./'),
+            'notes': c.get('notes') or '',
+        })
+
     steps = []
     for s in (read_json(os.path.join(parts, 'synth-steps.json'), {}) or {}).get('steps') or []:
         steps.append({
@@ -289,6 +328,41 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
             problems.append(('VALUE-SET-ENTRIES-NOT-IN-FILE', v['appliesToField'],
                              '%d of %d, e.g. %s' % (len(miss), len(v['values']), '; '.join(miss[:2]))))
 
+    KINDS = {'label-drift', 'option-list', 'scope', 'structure', 'cardinality', 'requirement'}
+    for i, c in enumerate(contradictions):
+        who = (c['topic'] or '')[:40]
+        if len(c['readings']) < 2:
+            problems.append(('CONTRADICTION-UNDER-TWO-READINGS', who, '%d' % len(c['readings'])))
+        if c['kind'] not in KINDS:
+            problems.append(('CONTRADICTION-BAD-KIND', who, str(c['kind'])))
+        for r in c['readings']:
+            raw, low = body(r['sourceFile'])
+            if raw is None:
+                problems.append(('CONTRADICTION-MISSING-FILE', who, r['sourceFile']))
+            elif not norm(r['sourceQuote']) or norm(r['sourceQuote']) not in low:
+                problems.append(('CONTRADICTION-QUOTE-NOT-VERBATIM', who, r['sourceQuote'][:60]))
+        ref = c['appliesTo'] or {}
+        if ref.get('page') and ref.get('field'):
+            if (str(ref['page']).strip().lower(), str(ref['field']).strip().lower()) not in known_refs:
+                problems.append(('CONTRADICTION-REF-UNKNOWN', who,
+                                 '%s / %s' % (ref.get('page'), ref.get('field'))))
+
+    for c in ranges:
+        who = (c['label'] or '')[:40]
+        if c['count'] != len(c['expandsTo']):
+            problems.append(('RANGE-COUNT-MISMATCH', who, 'count=%s len=%d' % (c['count'], len(c['expandsTo']))))
+        if len(c['expandsTo']) < 2:
+            problems.append(('RANGE-UNDER-TWO-MEMBERS', who, '%d' % len(c['expandsTo'])))
+        raw, low = body(c['sourceFile'])
+        if raw is None:
+            problems.append(('RANGE-MISSING-FILE', who, c['sourceFile']))
+        elif not norm(c['sourceQuote']) or norm(c['sourceQuote']) not in low:
+            problems.append(('RANGE-QUOTE-NOT-VERBATIM', who, c['sourceQuote'][:60]))
+        ref = c['appliesTo'] or {}
+        if ref.get('page') and ref.get('field'):
+            if (str(ref['page']).strip().lower(), str(ref['field']).strip().lower()) not in known_refs:
+                problems.append(('RANGE-REF-UNKNOWN', who, '%s / %s' % (ref.get('page'), ref.get('field'))))
+
     page_names = {p['name'].strip().lower() for p in pages}
     for d in deps:
         for side in ('source', 'target'):
@@ -321,6 +395,8 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
         'valueSets': value_sets,
         'dependencies': deps,
         'steps': steps,
+        'contradictions': contradictions,
+        'compressedRanges': ranges,
         'critic': critic,
         'orphanValueSetCandidates': orphans,
         'counts': {
@@ -334,6 +410,10 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
             'valuesInSets': sum(len(v['values']) for v in value_sets),
             'dependencies': len(deps),
             'steps': len(steps),
+            'contradictions': len(contradictions),
+            'contradictionReadings': sum(len(c['readings']) for c in contradictions),
+            'compressedRanges': len(ranges),
+            'rangeNames': sum(len(c['expandsTo']) for c in ranges),
         },
     }
     with open(out_path, 'w', encoding='utf-8') as fh:
@@ -357,8 +437,11 @@ def main(parts, out_path, journal=None, group='Group 5 — Data Structure & Acco
             print('   %-32s %-28s %s' % (k, a, b))
     else:
         print('\nPRE-MERGE PROBLEMS: none')
-    return 1 if any(k in ('QUOTE-NOT-VERBATIM', 'MISSING-SOURCE-FILE', 'DUPLICATE-FIELD-NAME',
-                          'EMPTY-FIELD-NAME') for k, _, _ in problems) else 0
+    FATAL = ('QUOTE-NOT-VERBATIM', 'MISSING-SOURCE-FILE', 'DUPLICATE-FIELD-NAME', 'EMPTY-FIELD-NAME',
+             'CONTRADICTION-QUOTE-NOT-VERBATIM', 'CONTRADICTION-MISSING-FILE',
+             'CONTRADICTION-UNDER-TWO-READINGS', 'CONTRADICTION-BAD-KIND',
+             'RANGE-QUOTE-NOT-VERBATIM', 'RANGE-MISSING-FILE', 'RANGE-COUNT-MISMATCH')
+    return 1 if any(k in FATAL for k, _, _ in problems) else 0
 
 
 if __name__ == '__main__':

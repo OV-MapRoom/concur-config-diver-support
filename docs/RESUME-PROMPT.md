@@ -33,6 +33,10 @@ Four things that will bite otherwise:
 - Validate the workflow script with `node --check` inside an async wrapper before launching (a
   top-level `return` is legal in the workflow runtime but not in a plain module). Write JSON
   schemas expanded, not on one line.
+- Contradictions and compressed ranges are NODE TYPES now (docs/SCHEMA.md), emitted by the fourth
+  Synthesize agent. Every contradiction reading needs its OWN verbatim quote; fewer than two
+  grounded readings is not a contradiction and must be dropped. Group 3 is the group most likely to
+  produce them, since it is the one with a documented legacy/New Experience split on both sides.
 - 11 pages is ~73 agents in one run, roughly 3-4 hours at 5B's rate. Consider splitting 3A/3B — in
   which case the SECOND merge needs --patch and a `patchPage` label, exactly as 5B did.
 
@@ -46,6 +50,9 @@ After the workflow returns:
        --journal <journal.jsonl> --group "Group 3 — PO Matching"
      Read both critics in full before merging, and verify their actionable claims yourself before
      acting on them — they are usually right, and on 5B one dry-run finding was already stale.
+     CHECK agents_error ON THE RUN FIRST. A refuter died mid-response inside a workflow that
+     reported completion; resuming it repaired 18 of 24 nodes. If an agent errored, resume with
+     Workflow({scriptPath, resumeFromRunId}) before trusting anything downstream of it.
   2. BUILD_DATE=<today> python3 bin/merge-group.py <raw-result.json> "Group 3 — PO Matching"
   3. python3 bin/apply-corrections.py
   4. python3 bin/validate-graph.py    # must exit 0 before committing
@@ -68,11 +75,7 @@ refuters or the critics.
 
 1. **Workflows** (13 pages, from the lost slice).
 2. **Group 6 — Compliance / E-Invoicing** (3 pages: Peppol, Shipping, Localization).
-3. **Schema pass — give `contradictions` and `compressedRanges` a node type.** Currently the
-   highest-value gap: 47 contradiction records and 15 ranges came out of Group 5B alone and only
-   the hand-copied handful reach the graph. It also blocks a known, already-parsed correction to
-   the capture-fields catalog.
-4. **Remediation sweep** — Audit Rules alias collapse (91 entries encode ~68 controls), range
+3. **Remediation sweep** — Audit Rules alias collapse (91 entries encode ~68 controls), range
    expansion to the true 492 catalog names, New Experience retrofit over Groups 1–2, the Group 1
    critic's named missing fields, the Group 5B remediation list, the 23 Group 2
    `step-references-unknown-field` warnings, and the one accepted `knownGap` from 5A.

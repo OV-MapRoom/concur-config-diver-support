@@ -1,0 +1,162 @@
+{
+  "contradictions": [
+    {
+      "kind": "structure",
+      "topic": "Where connected list definitions are authored: a Connected Lists tab inside Forms and Fields, or a separately named 'Connected List Definition tool' operated by a different role",
+      "appliesTo": {"page": "Forms and Fields", "field": "connectedListsTab"},
+      "readings": [
+        {
+          "summary": "Connected list work is reached as a tab on the existing Forms and Fields page: pick a form type there, then open the Connected Lists tab. No separate tool is named.",
+          "sourceQuote": "On the Forms and Fields page, in the Form Type list, select the desired form type.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-connected-lists-39dd2408.md"
+        },
+        {
+          "summary": "The Connected Lists tab itself is the place where connected list definitions are added and modified - the definition surface is the tab, not a separate application.",
+          "sourceQuote": "You can use the Connected Lists tab to add new connected list definitions and modify existing connected list definitions.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/connected-list-overview-3fc65ecf.md"
+        },
+        {
+          "summary": "Same tab account, plus the detail that the tab is conditionally present: it is enabled only for form types that support connected lists and is otherwise greyed out.",
+          "sourceQuote": "The Connected Lists tab is available only when you select a form that supports this feature; otherwise, it is disabled.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-connected-list-definitions-4dd05e1d.md"
+        },
+        {
+          "summary": "A third, differently-titled tool - the 'Connected List Definition tool' - is named as the place where the connected list fields and hierarchy are defined, and it is operated by the Shared Configuration administrator rather than by the Invoice Admin who built the list.",
+          "sourceQuote": "Shared Configuration administrator: Using the Connected List Definition tool to define the connected list fields and hierarchy",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md"
+        },
+        {
+          "summary": "The same topic splits the work in two: List Management (Invoice Admin) creates the category, list and items; the definition step is handed off elsewhere.",
+          "sourceQuote": "Invoice Admin or Invoice: Using the List Management tool to create a new list category (or use an existing one) and create a new list within the category",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md"
+        }
+      ],
+      "consequenceForWriter": "After creating the list in List Management, do not assume a navigable item literally labelled 'Connected List Definition tool' exists. Probe for the Forms and Fields > Connected Lists tab first, since that is the only surface any procedure gives click-level steps for; if the tab is absent or disabled, do not treat that as a failed selector - 4dd05e1d says it is disabled for form types that do not support the feature, so re-check the selected Form Type before retrying, and only then fall back to searching the left menu for a separately-named definition tool. Also plan for a possible role handoff: the definition step may fail with the same credentials that succeeded in List Management.",
+      "notes": "Hypothesis (not stated by the corpus): 'Connected List Definition tool' may be a legacy or Shared-configuration-console name for the same underlying feature that the Forms and Fields Connected Lists tab exposes, or it may be a genuinely separate surface visible only to sites provisioned with Shared Configuration administration. The corpus never mentions the name outside use-a-connected-list-1eaafd29.md and never reconciles the two accounts, so both are recorded."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Which administrator role gates List Management - Invoice Admin, Invoice Admin plus Shared Configuration administrator, or Invoice Configuration Administrator",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "For the custom-list path, one role is enough: Invoice Admin.",
+          "sourceQuote": "This portion of the process requires the role of Invoice Admin.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md"
+        },
+        {
+          "summary": "For the connected-list path - which opens with the identical List Management steps - two roles are required: Invoice Admin and Shared Configuration administrator.",
+          "sourceQuote": "This portion of the process requires the roles of Invoice Admin and Shared Configuration administrator.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md"
+        },
+        {
+          "summary": "The tools guides name a different role vocabulary entirely: an Invoice Configuration Administrator configures List Management along with Group Configurations and the Employee form.",
+          "sourceQuote": "Invoice Configuration Administrator: Will configure the Concur Invoice modules, such as List Management, Group Configurations, and Employee form, required to implement this feature.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-53a9a79c.md"
+        },
+        {
+          "summary": "The same tools-guides process generalises that single role across every step, including Step 1 List Management, with no mention of Invoice Admin at all.",
+          "sourceQuote": "All tasks require the Invoice Configuration administrator role unless _noted_:",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode a single required role as a precondition for reaching List Management. Drive by observation instead: attempt Administration > Invoice > List Management and treat the presence of the left-menu item as the real permission check. If the item is missing, report the missing role as one of the three candidate names rather than asserting which one is wrong, and expect the connected-list branch specifically to need a second, different credential for the definition step even when the list-creation step succeeded.",
+      "notes": "Hypothesis (not stated by the corpus): the names may be the same underlying permission seen through two documentation vocabularies - the admin guides describing per-tool roles (Invoice Admin, Shared Configuration administrator) and the tools guides describing an implementation persona (Invoice Configuration Administrator) - or the extra Shared Configuration administrator may be genuinely required only when the list is a connected list. The corpus states neither, and no topic says the difference is provisioning-dependent."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Name of the external setup guide every List Management topic defers to - 'Shared: List Management Setup Guide' vs 'Concur Invoice: List Management Setup Guide'",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools guides' documentation index names the deferral target with the Shared prefix, italicised.",
+          "sourceQuote": "List Management: The _Shared: List Management Setup Guide_",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md"
+        },
+        {
+          "summary": "The custom-list procedure repeats the Shared name, without italic markup, in its More Information pointer.",
+          "sourceQuote": "More Information: For more information about custom lists, refer to the Shared: List Management Setup Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md"
+        },
+        {
+          "summary": "The Employee-form step instead names a product-specific guide, 'Concur Invoice: List Management Setup Guide', for the same subject.",
+          "sourceQuote": "More information: For more information, refer to _Concur Invoice: List Management Setup Guide_.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md"
+        }
+      ],
+      "consequenceForWriter": "Treat both titles as the same deferral target when resolving a documentation reference, and search on the shared substring 'List Management Setup Guide' rather than on either full title. Neither document exists inside this corpus, so any control this page does not document cannot be recovered from here - the writer should stop and flag the gap rather than guessing at the New List page's unnamed 'remaining options'.",
+      "notes": "Hypothesis (not stated by the corpus): List Management is a shared Expense/Invoice tool, so the guide may have been renamed from the Shared series into a Concur Invoice series (or vice versa) and the two corpora were not re-synchronised. The italic-vs-plain rendering difference between a105a5d7 and f3fc8bee is markdown markup, not a title difference, and is not itself the contradiction."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Format constraint on the list item short code carried in the Level N Code import columns - 'Maximum 32 characters; case insensitive' vs a bare '32 characters' vs no format stated at all",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The compressed import-template table gives one Format cell for the whole Level 1 Code - Level 10 Code range: a 32-character maximum that is explicitly case insensitive.",
+          "sourceQuote": "Maximum 32 characters; case insensitive",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+        },
+        {
+          "summary": "The same table identifies those columns as the List Management list item short codes, so the 32-character case-insensitive rule is being asserted about the short code itself.",
+          "sourceQuote": "These are the List Item Short Codes.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+        },
+        {
+          "summary": "The record type 200 table enumerates all ten level columns and gives each a bare '32 characters' definition with no case-sensitivity statement, and marks each Required? as N.",
+          "sourceQuote": "32 characters",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md"
+        },
+        {
+          "summary": "That table describes the same values as list item short codes representing one segment level each, confirming it is the same control being given a different format statement.",
+          "sourceQuote": "The list item Short Code representing the 1st segment level of the overall hierarchy path.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md"
+        }
+      ],
+      "consequenceForWriter": "Write list item codes that satisfy the strictest documented reading - at most 32 characters - and never rely on case-insensitive matching when reconciling a code typed in List Management against a code in an import file, because only one of the three tables promises it. Match codes byte-for-byte as entered, which is also what step-1-create-the-source-list-in-list-management-cc91aa73.md demands of the import. Do not carry any of these limits over to the on-screen Item Code field as a validated maximum: all three statements constrain the IMPORT COLUMN, and no topic in this corpus states a length or case rule for the Item Code field on the List Management page itself.",
+      "notes": "A third table, concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md, enumerates all ten Level N Code rows with an EMPTY Format cell while giving explicit 'Required:' formats for Vendor Code and Address Code in the same table. That reading is a documented ABSENCE and cannot be represented as a verbatim quote, so it is recorded here rather than as a fourth reading. Hypothesis (not stated by the corpus): the three tables describe two different import mechanisms - a spreadsheet template and a 310/200-record fixed file - that may genuinely enforce different rules, or the case-insensitivity note may simply have been dropped when the compressed row was expanded into ten rows."
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Level 1 Code - Level 10 Code",
+      "expandsTo": [
+        "Level 1 Code",
+        "Level 2 Code",
+        "Level 3 Code",
+        "Level 4 Code",
+        "Level 5 Code",
+        "Level 6 Code",
+        "Level 7 Code",
+        "Level 8 Code",
+        "Level 9 Code",
+        "Level 10 Code"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Level 1 Code - Level 10 Code",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+      "notes": "SEPARATOR IS A PLAIN ASCII HYPHEN-MINUS (U+002D) surrounded by single spaces, not an en-dash - verified by grep -F against the source bytes. Each member is the List Management list item short code for one segment level of the hierarchy path ('These are the List Item Short Codes.'), and together they spell the path that selects the default Invoice owner on the Vendor Employee Access import. The expansion is not mechanical guesswork: the identical ten members are written out one row each in concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md ('Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.' through Level 10) and in concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md ('The list item Short Code representing the 1st segment level of the overall hierarchy path.' through the 10th), and the member names here are copied from those enumerations. appliesTo is empty on purpose: these are columns of the Vendor Employee Access import template, not controls on the List Management page, and no Vendor Employee Access Import page exists in the graph to own them. The Group 5B crosscut extract recorded this same range with sourceFile 8b51ca3d, but that file does NOT contain the compressed form - it enumerates all ten - so the citation was moved to 8b4aa547, the only file in which the compressed label actually appears."
+    },
+    {
+      "label": "Future Use 1 - Future Use 10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1 - Future Use 10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md",
+      "notes": "THE EXPANSION IS MECHANICAL, NOT QUOTED: the source gives only the compressed label and never enumerates the ten members, so 'Future Use 1' through 'Future Use 10' were generated by expanding the range, and no member name below is a corpus quote. SEPARATOR IS A PLAIN ASCII HYPHEN-MINUS (U+002D) with single spaces, not an en-dash - verified by grep -F. Note the label uses spaced words ('Future Use'), while the same row's description uses an underscored token: 'The future\\_use fields are currently not in use (they will be activated in a future service release).' The members are placeholder columns that must be present in the record type 200 data file but whose contents are ignored, and all ten are Required? = N. Found in the same table this page's list-item-short-code contradiction cites; it is an import-file structure, not a List Management on-screen control, so appliesTo is empty."
+    }
+  ]
+}

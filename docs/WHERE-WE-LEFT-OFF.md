@@ -11,7 +11,8 @@ _Last updated: 2026-08-31_
 
 ## Status
 
-**18 of 37 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets (749 values).**
+**18 of 37 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets (749 values) ·
+24 contradictions (74 readings) · 10 compressed ranges (62 members).**
 `output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Validator: ERROR-clean, exit 0.**
 
 Built: Group 1 (Policy & Scope), Group 2 (Routing & Approval, incl. an Audit Rules deep-dive that
@@ -69,6 +70,10 @@ four changes that are now the standard:
   refuters disagreeing all route to Repair. Only a unanimous drop drops.
 - **Two critics run in parallel** at `opus`/`xhigh` — completeness and correctness. Both earned
   their cost on this run: they independently ranked the same defect first.
+- **Contradictions and compressed ranges are nodes**, emitted by a fourth Synthesize agent. Each
+  contradiction reading carries its own verbatim quote; an unverifiable one is an ERROR.
+- **Check `agents_error` on every workflow run.** A refuter died mid-response inside an otherwise
+  successful run; resuming it repaired 18 of 24 nodes. A failed agent is not a visible failure.
 
 ## Standing decisions
 
@@ -88,10 +93,9 @@ four changes that are now the standard:
 
 Full list in the handoff and in the Group 5B section of `output/kg-build-log.md`. Highest-value first:
 
-1. **`contradictions` and `compressedRanges` have no node type.** Group 5B produced 47 structured
-   contradiction records and 15 compressed ranges; only the handful an agent hand-copied into a
-   field's `notes` survive into the graph. The brief's core instruction — *record both and state the
-   contradiction* — has nowhere to land. **Highest-value schema gap.**
+1. ~~**`contradictions` and `compressedRanges` have no node type.**~~ **CLOSED 2026-08-31.**
+   `ConfigContradiction` and `ConfigCompressedRange` added; 24 contradictions (74 readings) and 10
+   ranges landed, every reading quote verbatim. The workflow template emits both natively now.
 2. **Audit Rules alias collapse** — 91 entries encode ~68 real controls.
 3. **New Experience retrofit** over Groups 1–2 — the PO Policy New Experience doc is 10× richer
    than the legacy stub we built from.

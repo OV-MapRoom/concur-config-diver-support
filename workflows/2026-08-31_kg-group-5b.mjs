@@ -16,7 +16,13 @@
 // Everything else — PREAMBLE, the nine hard-won rules, lens charters, refuter framings,
 // the Repair cap, the schemas — is the accumulated method. Do not thin it out.
 //
-// The only edit to the body below is this header. See docs/2026-08-31_HANDOFF-KG-BUILD-v2.md.
+// AMENDED 2026-08-31 after the schema pass. As RUN for 5B this script wrote contradictions and
+// compressed ranges into extract-level containers that no node type existed for, and a separate
+// 7-agent grounding run was needed to turn them into nodes. It now emits them natively:
+//   - FILE_SHAPE gives every contradiction reading its OWN sourceQuote and sourceFile
+//   - a fourth Synthesize agent writes synth-contradictions.json and synth-ranges.json
+// The exact-as-run version is in git history at commit b973acc.
+// See docs/2026-08-31_HANDOFF-KG-BUILD-v2.md and docs/SCHEMA.md.
 // =============================================================================
 
 export const meta = {
@@ -27,7 +33,7 @@ export const meta = {
     { title: 'Extract', detail: '4 pages x 3 lenses: procedures / reference tables and long catalogs / tools-guides and cross-cutting' },
     { title: 'Verify', detail: '2 perspective-diverse adversarial refuters per page, three-way disposition' },
     { title: 'Repair', detail: 'at most one record per input; genuine splits reported, never merged' },
-    { title: 'Synthesize', detail: 'value sets, dependencies and config steps built against the final field rosters' },
+    { title: 'Synthesize', detail: 'value sets, dependencies, config steps, and contradictions/ranges built against the final field rosters' },
     { title: 'Critic', detail: 'two adversarial critics: completeness, and correctness/wiring' },
   ],
 }
@@ -697,8 +703,46 @@ const FILE_SHAPE = [
   '      "sourceQuote": "<verbatim>", "sourceFile": "<path>"',
   '    }',
   '  ],',
-  '  "contradictions": [ {"topic": "...", "readingA": "...", "readingB": "...", "files": ["...","..."]} ],',
-  '  "compressedRanges": [ {"label": "Custom 1-20", "expandsTo": "...", "count": 20, "sourceFile": "..."} ],',
+  '  "contradictions": [',
+  '    {',
+  '      "kind": "label-drift|option-list|scope|structure|cardinality|requirement",',
+  '      "topic": "<what the corpus disagrees about, in one line>",',
+  '      "appliesTo": {"page": "...", "field": "<a field NAME>"},   // or {} - see below',
+  '      "readings": [',
+  '        {"summary": "<what THIS document says>",',
+  '         "sourceQuote": "<VERBATIM substring of THIS reading\'s own file, grep -F verified>",',
+  '         "sourceFile": "<guide-dir>/<file>.md"}',
+  '        // AT LEAST TWO, each citing a DIFFERENT (file, quote) pair',
+  '      ],',
+  '      "consequenceForWriter": "<what the config writer should DO about it>",',
+  '      "notes": "<hypothesis about the cause, stated as a hypothesis>"',
+  '    }',
+  '  ],',
+  '  "compressedRanges": [',
+  '    {',
+  '      "label": "<the compressed string EXACTLY as the source writes it - an en-dash is not a',
+  '                hyphen, \'Vat\' is not \'VAT\', \'Custom 1 - 20\' is not \'Custom 1-20\'>",',
+  '      "expandsTo": ["<member>", "<member>", "..."],   // AN ENUMERATION, NEVER A DESCRIPTION',
+  '      "count": 20,                                     // MUST equal expandsTo.length',
+  '      "appliesTo": {"page": "...", "field": "..."},    // or {}',
+  '      "sourceQuote": "<VERBATIM substring showing the COMPRESSED form>",',
+  '      "sourceFile": "<path>", "notes": "<source-character notes; say if an expansion is mechanical>"',
+  '    }',
+  '  ],',
+  '',
+  'CONTRADICTIONS AND RANGES ARE NODES NOW, NOT NOTES. Two node types exist for them',
+  '(ConfigContradiction, ConfigCompressedRange) and the deterministic validator treats an',
+  'unverifiable reading quote as an ERROR, exactly as it does a field quote. So:',
+  '  * EVERY reading needs its OWN verbatim quote from its OWN file, grep -F verified. A quote that',
+  '    merely mentions the subject is not evidence - it must carry the disagreement.',
+  '  * Fewer than two grounded readings is not a contradiction. Say so and drop it.',
+  '  * appliesTo {} IS VALID AND COMMON. "Is Canada supported for VAT" is about the product, not any',
+  '    field. An honest null beats attaching it to a plausible neighbour.',
+  '  * consequenceForWriter is load-bearing, like a ConfigStep rationale. "The docs disagree" is not',
+  '    actionable; "probe label A first, fall back to label B" is.',
+  '  * expandsTo must be enumerated. In Group 5B several records put prose there and two ranges had',
+  '    to be dropped entirely because the cited file enumerated rather than compressed - if nothing',
+  '    in the source is compressed, there is no range node to make.',
   '  "coverageVerdict": "good|partial|thin",',
   '  "notes": "<what you could not determine from the documentation, and why>"',
   '}',
@@ -1028,7 +1072,7 @@ const SYNTH_CONTEXT = [
   'Group 5B page names, exactly as they must be written: ' + PAGES.map((p) => '"' + p.name + '"').join(', ') + '.',
 ].join('\n')
 
-const [vsRec, depRec, stepRec] = await parallel([
+const [vsRec, depRec, stepRec, ctrRec] = await parallel([
   () => agent([
     PREAMBLE,
     '',
@@ -1124,6 +1168,43 @@ const [vsRec, depRec, stepRec] = await parallel([
   () => agent([
     PREAMBLE,
     '',
+    '=== YOUR JOB: BUILD THE ConfigContradictions AND ConfigCompressedRanges ===',
+    'The extraction files carry raw contradiction and compressed-range records. Turn them into nodes.',
+    '',
+    'DEDUPE FIRST. Three lenses ran per page and they overlap heavily - in Group 5B, 47 raw records',
+    'collapsed to 26. Two records are the same node when they are about the same disagreement: merge',
+    'them, taking the UNION of readings deduplicated on (sourceFile, sourceQuote). More grounded',
+    'readings on one node beats two nodes with one reading each. Never merge records that cite',
+    'genuinely different sources about genuinely different things.',
+    '',
+    'THEN GROUND EVERY READING. Open each cited file and find the sentence that ACTUALLY STATES that',
+    'reading; extract it verbatim; grep -F -c it against its own file. A raw record\'s file list is',
+    'often longer than its reading count and is NOT positionally aligned - read the sources, do not',
+    'assume files[0] backs readingA. If a reading cannot be grounded in a verbatim sentence, drop the',
+    'whole record: one piece of evidence is not a contradiction, and dropping is the correct outcome.',
+    '',
+    'DO NOT RECONCILE. Record both accounts side by side. There is no "correct" reading and no',
+    'resolution field. Many of these are provisioning-dependent, so a single answer would be wrong',
+    'while looking right. A hypothesis about the cause goes in notes, phrased as a hypothesis.',
+    '',
+    'RANGES: expandsTo must be an enumeration, not a description; count must equal its length; the',
+    'label must be character-exact against the source bytes. If the cited file ENUMERATES rather than',
+    'compresses, there is no range node to make - say so and drop it.',
+    '',
+    SYNTH_CONTEXT,
+    '',
+    '=== OUTPUT - write TWO files ===',
+    '  ' + PARTS + '/synth-contradictions.json  as {"contradictions": [...]}',
+    '  ' + PARTS + '/synth-ranges.json          as {"compressedRanges": [...]}',
+    'Both in the shapes given in the extraction brief. Validate both with python3 -m json.tool, then',
+    'run a self-check that greps every sourceQuote in both files and reports any miss; fix until zero.',
+    'Set kind to "contradictions"; count = number of contradictions; unresolvedCount = how many have',
+    'an empty appliesTo. Set wroteTo to the contradictions path.',
+  ].join('\n'), { label: 'synth:contradictions', phase: 'Synthesize', model: 'opus', effort: 'high', schema: SYNTH_RECEIPT_SCHEMA }),
+
+  () => agent([
+    PREAMBLE,
+    '',
     '=== YOUR JOB: BUILD THE ConfigSteps FOR GROUP 5B ===',
     'A ConfigStep is an ordered, end-to-end configuration procedure a config writer could actually drive:',
     'the real task an administrator sits down to do, across however many pages it takes.',
@@ -1157,7 +1238,7 @@ const [vsRec, depRec, stepRec] = await parallel([
   ].join('\n'), { label: 'synth:steps', phase: 'Synthesize', model: 'opus', effort: 'high', schema: SYNTH_RECEIPT_SCHEMA }),
 ])
 
-log('Synthesis: valueSets=' + (vsRec ? vsRec.count : 'FAILED') + ' dependencies=' + (depRec ? depRec.count : 'FAILED') + ' steps=' + (stepRec ? stepRec.count : 'FAILED'))
+log('Synthesis: valueSets=' + (vsRec ? vsRec.count : 'FAILED') + ' dependencies=' + (depRec ? depRec.count : 'FAILED') + ' steps=' + (stepRec ? stepRec.count : 'FAILED') + ' contradictions=' + (ctrRec ? ctrRec.count : 'FAILED'))
 
 // ---------------------------------------------------------------------------
 // PHASE 6 - CRITIC
@@ -1330,6 +1411,8 @@ return {
     valueSets: PARTS + '/synth-valuesets.json',
     dependencies: PARTS + '/synth-dependencies.json',
     steps: PARTS + '/synth-steps.json',
+    contradictions: PARTS + '/synth-contradictions.json',
+    ranges: PARTS + '/synth-ranges.json',
     criticCompleteness: PARTS + '/critic-completeness.md',
     criticCorrectness: PARTS + '/critic-correctness.md',
   },
@@ -1349,6 +1432,7 @@ return {
     valueSets: vsRec || null,
     dependencies: depRec || null,
     steps: stepRec || null,
+    contradictions: ctrRec || null,
   },
   critics: {
     completeness: criticA || null,

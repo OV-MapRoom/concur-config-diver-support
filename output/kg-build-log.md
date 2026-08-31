@@ -758,3 +758,128 @@ results. That is the difference between a documented negative finding and an emp
 Group 3 — PO Matching, 11 pages, built **new-first**: it has a documented New Experience variant,
 and `policies-the-purchase-order-policy-new-experience-*` (15,800 bytes) versus its legacy twin
 (1,490) is the trap that damaged Groups 1–2.
+
+---
+
+## 2026-08-31 — Schema pass: ConfigContradiction and ConfigCompressedRange
+
+**Cost:** 1,129,524 subagent tokens · 277 tool calls · 51min · 7 agents (one API failure, recovered
+by resume). Run before Group 3 deliberately, because Group 3 is the group most likely to generate
+contradictions — it is the one with a documented legacy/New Experience split on both sides.
+
+### The gap this closes
+
+The governing constraint says: *where two topics give different accounts of the same control, record
+BOTH and state the contradiction, never reconcile by picking one.* Every extraction prompt carried
+it. The build followed it — Group 5B alone produced **47 structured contradiction records and 15
+compressed ranges** — and then the merge threw them away, because no node type existed to hold them.
+The only ones that reached the graph were those an agent happened to hand-copy into a field's `notes`.
+
+Handoff rule 8 ("note compressed ranges and what they expand to") had the same problem since Group 2.
+The consequence is still visible: a Group 4 value set carries the literal string `Vat Amount 1 - 4`
+**as one of its values**, with its expansion recorded nowhere.
+
+### Two node types added
+
+**`ConfigContradiction`** — `kind · topic · appliesToRef · readings[] · consequenceForWriter · notes`
+
+- **Each reading carries its own verbatim quote.** A contradiction is a claim about what two
+  documents *say*, so it needs two pieces of evidence, not one. Fewer than two grounded readings is
+  not a contradiction. The validator treats an unverifiable reading quote as an **ERROR**, exactly as
+  it does a field quote.
+- **`consequenceForWriter` is load-bearing**, as `rationale` is for a ConfigStep. "The docs disagree"
+  is not actionable. What landed reads like: *"Probe the left menu for 'Tax Administration' FIRST;
+  only if that finds nothing, retry with 'Tax Administrator'. Do not treat them as coequal."*
+- **No `resolution` field and no correct reading, by design.** `appliesToRef` may be null — whether
+  Canada is supported for VAT is about the product, not any field. 16 of 24 are deliberately null.
+
+**`ConfigCompressedRange`** — `label · expandsTo[] · count · appliesToRef · sourceQuote · sourceFile · notes`
+
+- `label` is **character-exact**: `Vat Amount 1 - 4` with spaces, `Future Use 1-10` without, `Vat`
+  not `VAT`. It has to match what a crawler reads off the screen.
+- `expandsTo` is an **enumeration, not a description**; the validator enforces `count == len`.
+
+### Why a grounding pass was needed, not just a merge
+
+The raw records were not node-ready. Their evidence was in prose — `"admin-guides: 'Countries that
+are not supported for VAT ... are the US, Canada, India'"` — with a shared `files` list that is
+**not positionally aligned** to the readings and often longer than them. That cannot be checked, so
+merging it as-is would have violated *no quote, no node*.
+
+A 7-agent run converted them: 3 grounding agents (one per page), 1 dedupe/merge, 2 adversarial
+refuters, 1 emit. **47 raw records → 26 merged → 24 contradictions (74 readings) + 10 ranges (62
+members).** Every one of the 84 quotes was re-verified with `grep -F` against its own cited file.
+
+### The second refuter earned its cost, and nearly did not run
+
+`verify:reality` — the "do these two readings *genuinely conflict*, or are they compatible?" lens —
+**died mid-response on an API connection error.** The first run therefore emitted 24 nodes judged by
+the grounding refuter alone. `Workflow({scriptPath, resumeFromRunId})` replayed the three grounding
+agents, the merge and the surviving refuter from cache, re-ran the failed agent, and re-emitted.
+
+The delta is the argument for the lens. Same headline count, but **18 of 24 contradictions were
+repaired**: six `sourceQuote`s replaced with spans that actually *carry* the claim rather than merely
+mentioning the subject, plus readings added and removed (net 76 → 74). Under the combination rule,
+7 records where the refuters split keep/drop routed to **repair, never deletion**; only the 2 both
+refuters dropped were dropped. Both drops were for the right reason — *"no two readings give
+different accounts of the same control"* — one of them a documented absence sitting beside a
+differently-scoped catalog, which is complementary, not conflicting.
+
+Had the failure gone unnoticed, 24 nodes would have merged with a third of their quotes not carrying
+the disagreement they assert. **A failed agent inside a completed workflow is not a visible failure;
+check `agents_error` on every run.**
+
+### What landed
+
+| | Count |
+|---|---|
+| ConfigContradiction | **24** (74 readings, 2–5 each, 74/74 quotes verbatim) |
+| — `label-drift` 11 · `requirement` 5 · `structure` 4 · `cardinality` 2 · `scope` 1 · `option-list` 1 | |
+| — attached to a field | 8 |
+| — product- or page-level, deliberately unattached | 16 |
+| ConfigCompressedRange | **10** (62 enumerated members, 10/10 quotes verbatim) |
+
+**Graph: 18 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets (749 values) ·
+24 contradictions · 10 compressed ranges. ERROR-clean, exit 0, warnings unchanged at 155.**
+
+### The blocked correction is now recorded
+
+Group 5B parsed both twins of the OCR capture-fields table and could not record what it found. It is
+now `option-list` with three readings: the tools-guides twin carries
+`Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **` **and** a separate
+`Vat 2 (Secondary Tax – Canada PST/QST) *` row; the admin twin carries
+`Vat 1 (Australia GST, US Tax, VAT UK/Japan) *` and **no Vat 2 row at all**. Consequence: enumerate
+what the Add Fields dialog actually offers, and do not treat Vat 2's absence as a failure.
+
+### Records that correctly did NOT become nodes
+
+- **Two compressed ranges dropped as ungroundable.** Both cited files that *enumerate* rather than
+  compress — `grep -nE '1 ?- ?4|1-4|1 to 4'` returns nothing in either. A range node with nothing
+  compressed in the source is not a range; the extractor had composed the label itself.
+- **One reading dropped from a surviving record**: the claim was a documented *absence* (an empty
+  Format cell), and an absence has no verbatim sentence to quote. Recorded in the record's notes
+  instead of being given a quote that would not carry its own disagreement.
+- A citation was **corrected**: the `Level 1 Code - Level 10 Code` range cited a file that enumerates
+  all ten; it was moved to the one file where the compressed label actually appears. And one range
+  nobody had recorded — `Future Use 1 - Future Use 10` in `import-settings-record-type-200-format-c244e3ab.md`
+  — was found in the same table.
+
+### Tooling
+
+- `bin/merge-group.py` — merges both node types, resolves `appliesToRef` against the field index.
+- `bin/validate-graph.py` — per-reading quote verbatim (ERROR), ≥2 readings, `kind` in enum, no two
+  readings citing the same (file, quote), `count == len(expandsTo)`, dangling owner checks.
+- `bin/assemble-parts.py` — reads `synth-contradictions.json` / `synth-ranges.json`; an unverifiable
+  contradiction or range quote is **fatal** at assembly. Cross-group refs now resolve against the
+  live graph, not just this run's rosters, because a contradiction found while building one group
+  often belongs to a field built in another.
+- `workflows/2026-08-31_kg-group-5b.mjs` — amended: the extraction shape now demands a per-reading
+  quote, and a **fourth Synthesize agent** emits both node types. Group 3 gets them natively; no
+  separate grounding run.
+
+The whole round-trip was rehearsed on synthetic data before the real merge, and re-assembly is
+byte-identical to what was merged.
+
+### Next
+
+Group 3 — PO Matching, 11 pages, new-first.

@@ -38,10 +38,12 @@ def main(src_path, group, patch=False):
     kg = json.load(open(KG)) if os.path.exists(KG) else {
         'meta': {'version': '0.1.0', 'status': 'IN_PROGRESS'},
         'nodes': {'configPages': [], 'configFields': [], 'configDependencies': [], 'configSteps': [],
-                  'configValueSets': []},
+                  'configValueSets': [], 'configContradictions': [], 'configCompressedRanges': []},
     }
     n = kg['nodes']
     n.setdefault('configValueSets', [])
+    n.setdefault('configContradictions', [])
+    n.setdefault('configCompressedRanges', [])
 
     gnum = re.search(r'Group (\d+)', group)
     gtag = gnum.group(1) if gnum else slug(group)
@@ -63,12 +65,16 @@ def main(src_path, group, patch=False):
         n['configSteps'] = [s for s in n['configSteps'] if s.get('patch') != tag]
         n['configDependencies'] = [d for d in n['configDependencies'] if d.get('patch') != tag]
         n['configValueSets'] = [v for v in n['configValueSets'] if v.get('patch') != tag]
+        n['configContradictions'] = [c for c in n['configContradictions'] if c.get('patch') != tag]
+        n['configCompressedRanges'] = [c for c in n['configCompressedRanges'] if c.get('patch') != tag]
     else:
         n['configPages'] = [p for p in n['configPages'] if p.get('group') != group]
         n['configFields'] = [f for f in n['configFields'] if f.get('sourceGroup') != group]
         n['configSteps'] = [s for s in n['configSteps'] if s.get('group') != group]
         n['configDependencies'] = [d for d in n['configDependencies'] if d.get('group') != group]
         n['configValueSets'] = [v for v in n['configValueSets'] if v.get('group') != group]
+        n['configContradictions'] = [c for c in n['configContradictions'] if c.get('group') != group]
+        n['configCompressedRanges'] = [c for c in n['configCompressedRanges'] if c.get('group') != group]
 
     # index every field already in the graph so cross-group edges can resolve
     page_name_by_id = {p['id']: p['name'] for p in n['configPages']}
@@ -149,6 +155,35 @@ def main(src_path, group, patch=False):
         if v.get('knownGap'):
             n['configValueSets'][-1]['knownGap'] = True
 
+    # A contradiction is a claim about what two documents SAY, so each reading carries its own
+    # verbatim quote. An unattached contradiction is valid: "is Canada supported for VAT" is about
+    # the product, not about any field.
+    for i, c in enumerate(r.get('contradictions', []), 1):
+        ref = c.get('appliesTo') or {}
+        owner = index.get((str(ref.get('page') or '').lower(), str(ref.get('field') or '').strip().lower()))
+        n['configContradictions'].append({
+            'id': 'contr.g%s.%03d' % (gtag, i), 'group': group, 'patch': (ptag if patch else None),
+            'kind': c.get('kind'), 'topic': c.get('topic'),
+            'appliesToFieldId': owner,
+            'appliesToRef': {'page': ref.get('page'), 'field': ref.get('field'), 'resolved': bool(owner)},
+            'readings': c.get('readings') or [],
+            'consequenceForWriter': c.get('consequenceForWriter') or '',
+            'notes': c.get('notes') or '',
+        })
+
+    for i, c in enumerate(r.get('compressedRanges', []), 1):
+        ref = c.get('appliesTo') or {}
+        owner = index.get((str(ref.get('page') or '').lower(), str(ref.get('field') or '').strip().lower()))
+        n['configCompressedRanges'].append({
+            'id': 'range.g%s.%03d' % (gtag, i), 'group': group, 'patch': (ptag if patch else None),
+            'label': c.get('label'), 'expandsTo': c.get('expandsTo') or [],
+            'count': c.get('count'),
+            'appliesToFieldId': owner,
+            'appliesToRef': {'page': ref.get('page'), 'field': ref.get('field'), 'resolved': bool(owner)},
+            'sourceQuote': c.get('sourceQuote'), 'sourceFile': c.get('sourceFile'),
+            'notes': c.get('notes') or '',
+        })
+
     for s in r['steps']:
         n['configSteps'].append({
             'id': s['id'], 'group': group, 'patch': (ptag if patch else None), 'name': s['name'], 'goal': s['goal'],
@@ -199,6 +234,12 @@ def main(src_path, group, patch=False):
     vs = [v for v in n['configValueSets'] if v.get('group') == group]
     if vs:
         print('  value sets: %d carrying %d enumerated values' % (len(vs), sum(len(v['values']) for v in vs)))
+    ct = [c for c in n['configContradictions'] if c.get('group') == group]
+    rg = [c for c in n['configCompressedRanges'] if c.get('group') == group]
+    if ct:
+        print('  contradictions: %d carrying %d readings' % (len(ct), sum(len(c['readings']) for c in ct)))
+    if rg:
+        print('  compressed ranges: %d expanding to %d names' % (len(rg), sum(len(c['expandsTo']) for c in rg)))
     if dropped_dupes:
         print('  duplicate edges removed: %d' % dropped_dupes)
     print('  unresolved endpoints in this group: %d | earlier edges newly resolved: %d' % (unresolved, reresolved))

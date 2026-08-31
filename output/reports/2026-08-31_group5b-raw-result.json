@@ -3837,6 +3837,782 @@
       ]
     }
   ],
+  "contradictions": [
+    {
+      "kind": "label-drift",
+      "topic": "The tab that groups expense types under a tax authority is written 'Expense Types Group' and 'Expense Type Groups' inside one and the same topic, and only 'Expense Type Groups' in three others.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "tabExpenseTypesGroup"
+      },
+      "readings": [
+        {
+          "summary": "The process overview names the tab 'Expense Type Groups' (plural Groups) inside the full Administration menu path.",
+          "sourceQuote": "Administration > Invoice > Tax Administration > Expense Type Groups tab",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md"
+        },
+        {
+          "summary": "The step-by-step procedure that actually drives the tab names it 'Expense Types Group' (plural Types, singular Group).",
+          "sourceQuote": "On the Expense Types Group tab, select from the Tax Authority list.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+        },
+        {
+          "summary": "The very topic that wrote 'Expense Types Group' in its first numbered step writes 'Expense Type Groups' later in its own Applies To note - so the drift is inside a single topic, not only between topics.",
+          "sourceQuote": "The Applies To setting also appears as a column on the Expense Type Groups page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+        }
+      ],
+      "consequenceForWriter": "Probe the Tax Administration tab strip for 'Expense Type Groups' FIRST - that is the form four separate files use - and accept 'Expense Types Group' only as a fallback if the primary probe finds nothing. The two are not coequal candidates, so do not 'take whichever resolves first'. A normalised match on the tokens expense/type/group (case-insensitive, tolerant of where the plural s falls) is the safe locator; never hard-match one literal string and fail. Record the literal text seen so later steps reuse the observed string rather than a guessed one.",
+      "notes": "Corpus weight: 'Expense Type Groups' occurs in four files (apply-vat-to-expense-type-groups-0efbc573, step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361, step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d, the-basic-process-12a5686d) while 'Expense Types Group' occurs in exactly one (e8d87361). Hypothesis: the singular-Group form is a transcription slip in a single numbered step. The alternative explanation - that the tab was renamed between releases and only one topic was updated - is ruled out by the corpus itself, because e8d87361 carries BOTH spellings, so the two forms demonstrably coexisted in one document at one time."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The left-menu entry that opens this tool is called the 'Tax Administration link' in some topics and the 'Tax Administrator link' in another.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The role-assignment step says the assigned user gains the 'Tax Administration link'.",
+          "sourceQuote": "Assign this role so that the user can see and work with the Tax Administration link.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+        },
+        {
+          "summary": "The Tax Validation configuration step says the same user accesses the 'Tax Administrator link', which then displays the Tax Administration tool - so link and tool carry different names in the same sentence.",
+          "sourceQuote": "this user may now access the Tax Administrator link, which displays the Tax Administration tool.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The Tax Validation process overview describes SAP Concur staff exposing the 'Tax Administration link' in Invoice Admin.",
+          "sourceQuote": "exposing the Tax Administration link in Invoice Admin.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-13c136d5.md"
+        }
+      ],
+      "consequenceForWriter": "Probe the left menu for 'Tax Administration' FIRST; only if that finds nothing, retry with 'Tax Administrator'. Do not treat them as coequal candidates and do not click 'whichever is present' as if the order did not matter. Assert on the page that opens (the Tax Administration page with its tab strip), never on the link's exact word, and do not fail the run because the link reads 'Tax Administrator'.",
+      "notes": "Corpus weight: 'Tax Administrator link' occurs exactly once corpus-wide - step-3-configure-the-service-14c3ef13.md, line 23 - while 'Tax Administration link' occurs in two separate topics (step-2-assign-the-tax-administrator-role-b7f391c8.md and the-basic-process-13c136d5.md), a 2:1 split. The lone occurrence also self-corrects inside its own sentence, naming the destination 'the Tax Administration tool', which is why 'Tax Administrator' is recorded as the fallback rather than as a coequal name. Hypothesis: it is a writer's slip carried over from the role name (Invoice Tax Administrator) rather than a second real menu entry - but the corpus never states that, and a site could legitimately render either, so both are kept."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The role is written 'Invoice Tax Administrator' wherever a topic quotes the Available Roles list, and plain 'Tax Administrator' in prose, in step titles and in the required-roles topic.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The assignment procedure says the string to pick in the Available Roles list is 'Invoice Tax Administrator'.",
+          "sourceQuote": "Under Available Roles, select Invoice Tax Administrator, then click Add.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+        },
+        {
+          "summary": "The required-roles topic states the prerequisite as the plain 'Tax Administrator' role.",
+          "sourceQuote": "To add and manage tax authorities, the user needs to have the Tax Administrator role.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/required-roles-81c8eace.md"
+        },
+        {
+          "summary": "The SAP-Concur-staff enablement step also uses the long form, saying the feature exposes the 'Invoice Tax Administrator' role in User Permissions.",
+          "sourceQuote": "expose the Invoice Tax Administrator role in User Permissions",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md"
+        },
+        {
+          "summary": "The Tax Authority process overview uses the short form throughout, assigning 'the Tax Administrator role' in User Permissions.",
+          "sourceQuote": "The Tax Administrator role is assigned to an employee by using options in User Permissions",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md"
+        }
+      ],
+      "consequenceForWriter": "Select the literal 'Invoice Tax Administrator' entry in User Permissions > Invoice > Available Roles: that is the only form used by any topic that actually quotes the list. Never search the list for an entry reading exactly 'Tax Administrator', and never fail a prerequisite check because a topic named the short form - match the list entry by CONTAINS 'Tax Administrator' and prefer the longest match. Assert success on the Tax Administration entry becoming reachable after Save, not on the role string.",
+      "notes": "NARROWED AFTER REVIEW. The corpus arguably shows the short form is shorthand rather than a competing list entry: both Step 2 topics are titled with the short form yet instruct selecting the long one from Available Roles (b7f391c8 'Under Available Roles, select Invoice Tax Administrator, then click Add.', and b903b7c8 line 33 'In the Available Roles list, select Invoice Tax Administrator, and then click Add.'), and no topic anywhere claims the list contains a literal entry 'Tax Administrator'. This node is therefore NOT a claim that two roles exist. It is kept, in the narrowed form above, because an automation that took the required-roles topic's short form as the list string would hunt for an entry that no topic evidences. Hypothesis: the short form is prose shorthand for the long one."
+    },
+    {
+      "kind": "structure",
+      "topic": "Three different navigation paths are given for reaching User Permissions to assign the Invoice Tax Administrator role.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "One Step 2 topic gives a single collapsed path starting at User Administration and describes it as part of the Company Admin tool.",
+          "sourceQuote": "Click User Administration > User Permissions > Invoice tab of the Company Admin tool.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b7f391c8.md"
+        },
+        {
+          "summary": "The other Step 2 topic (same title, different loio) starts at Administration > Company > Company Admin and then treats User Permissions as a left-menu item.",
+          "sourceQuote": "1.  Click Administration > Company > Company Admin.\n    \n2.  Click User Permissions (left menu) and then click the Invoice tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-tax-administrator-role-b903b7c8.md"
+        },
+        {
+          "summary": "The enablement topic gives a third, shorter path: User Admin > User Permissions.",
+          "sourceQuote": "the Concur User Admin role can now assign it to a user via User Admin > User Permissions.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode a fixed click path to User Permissions. Drive to the User Permissions screen by trying, in order, the top menu entries 'Administration > Company > Company Admin', 'User Administration', and 'User Admin', then look for a 'User Permissions' left-menu item; treat arrival at a screen that offers an Invoice tab plus an Available Roles list as the success condition.",
+      "notes": "Hypothesis: the menu tree differs by provisioning and by which admin roles the signed-in user holds (a user with only User Admin may see a different top-level entry than one with full Company Admin), so all three paths may be simultaneously correct on different tenants."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The tax-provider client identifier appears as a Field-column label, 'Partner Account Number', in the configuration topic and only as an activity name, 'Entering the Unique Tax Partner Number', in the page-options topic.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "taxValidationPartnerAccountNumber"
+      },
+      "readings": [
+        {
+          "summary": "The Tax Validation configuration topic prints 'Partner Account Number' as the Field-column label of the first option on the Tax Validation page, with the description of the provider-issued account number beside it.",
+          "sourceQuote": "Partner Account Number\n    \n\n | \n\nThis is the unique account number provided by a tax service provider to the client.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The Tax Validation page options topic calls the same identifier the 'Unique Tax Partner Number' and gives the same meaning - the number the provider issues to identify the client.",
+          "sourceQuote": "Entering the Unique Tax Partner Number: The tax service provider issues unique numbers to each of their clients so that they can identify the client.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+        }
+      ],
+      "consequenceForWriter": "On the Tax Validation tab, resolve this input by the Field-column label 'Partner Account Number' - the only form any topic presents as a label - and enter the provider-issued account number there. Do NOT wait for, or require, a control labelled 'Unique Tax Partner Number'; if the screen shows only that string, fill it and record the observed label. There is exactly one input here: the Tax Administration roster carries both strings as separate field records (taxValidationPartnerAccountNumber and uniqueTaxPartnerNumber), so fill one and never treat the second as a second input to complete. FOR THE ROSTER OWNER: uniqueTaxPartnerNumber is probably a phantom field derived from prose and should be reviewed.",
+      "notes": "NARROWED AFTER REVIEW. The two topics may simply be naming the field and the value it holds rather than disagreeing: 14c3ef13 gives the label with the description 'This is the unique account number provided by a tax service provider to the client', which is what c3fe1df5's activity name describes typing. Hypothesis for that reading: c3fe1df5's list is a series of gerund activity names ('Entering...', 'Deciding...', 'Mapping...', 'Activating...'), and the one bullet in that list which does name a control quotes the control exactly ('the feature is activated by selecting (enabling) the Turn On Tax Validation check box'), which suggests the rest are prose rather than labels. The record is kept in narrowed form because an automation told to expect a 'Unique Tax Partner Number' control would look for a label the configuration topic never prints. Source-character note: the label is printed in that topic's field table as a bullet, '-   Partner Account Number'; the quote begins after the bullet marker so a bare grep -F does not read it as a command-line option. Merge provenance: the raw Group 5B data recorded all three of these labels as ONE record ('Tax Validation option labels', found twice - by the tax crosscut lens and the tax tables lens). The duplicate pair was collapsed, and the surviving record was then SPLIT into three nodes, one per control, because each control resolves to its own field and so can carry its own appliesTo; a single node could not."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The control that chooses which request type is validated carries the Field-column label 'Tax Validation Type' in one topic, while another names the same decision only as an activity, 'Deciding the Request Type to be Analyzed'.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "taxValidationType"
+      },
+      "readings": [
+        {
+          "summary": "The configuration topic's Tax Validation options table prints the Field-column label 'Tax Validation Type' and says the validation runs on the request type specified there, with Payment Request Only to be selected.",
+          "sourceQuote": "Tax Validation Type\n\n | \n\nThe service will perform the validation on the request type you specify here. Select Payment Request Only.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The page-options topic calls the same decision the 'Request Type to be Analyzed' and likewise says only Payment Request Only is available.",
+          "sourceQuote": "Deciding the Request Type to be Analyzed: At this time, only the Payment Request Only option is available.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+        }
+      ],
+      "consequenceForWriter": "Expect the label 'Tax Validation Type' - the only form printed as a label anywhere - but identify the control by its option set, a list whose only selectable value is 'Payment Request Only', because both topics agree on that value and it is the stable discriminator. Do not require a control labelled 'Request Type to be Analyzed'. The selection itself is safe to automate. The roster carries both strings as separate field records (taxValidationType and requestTypeToBeAnalyzed); they are one control, so fill exactly one. FOR THE ROSTER OWNER: requestTypeToBeAnalyzed is probably a phantom field derived from prose and should be reviewed.",
+      "notes": "NARROWED AFTER REVIEW. The two accounts may be compatible by construction: 14c3ef13 describes the field as the place where you specify the request type, which is exactly what c3fe1df5's bullet 'Deciding the Request Type to be Analyzed' describes doing, and both give the sole value as Payment Request Only, so nothing an automation must decide is in dispute. Hypothesis, same as the sibling records: c3fe1df5's bullets are gerund step names rather than labels - the one bullet in that list which does name a control uses the control's exact string ('the Turn On Tax Validation check box'). Kept in narrowed form only so that an automation does not hunt for a 'Request Type to be Analyzed' label the configuration topic never prints. Merge provenance: the raw Group 5B data recorded all three of these labels as ONE record ('Tax Validation option labels', found twice - by the tax crosscut lens and the tax tables lens). The duplicate pair was collapsed, and the surviving record was then SPLIT into three nodes, one per control, because each control resolves to its own field and so can carry its own appliesTo; a single node could not."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The control that chooses the level at which tax validation runs carries the Field-column label 'Tax Validation Level' with the values Header and Line Item in one topic, while another names it only as an activity, 'Deciding the Form Level to Be Analyzed', and calls the values the header or line item details form.",
+      "appliesTo": {
+        "page": "Tax Administration",
+        "field": "taxValidationLevel"
+      },
+      "readings": [
+        {
+          "summary": "The configuration topic, under the Field-column label 'Tax Validation Level', names the two values Header and Line Item.",
+          "sourceQuote": "Tax Validation Level\n\n | \n\nThis defines on which level the tax validation should occur, either the Header or the Line Item level.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The page-options topic calls the same choice the 'Form Level to Be Analyzed' and names the values as the header or the line item details form.",
+          "sourceQuote": "Deciding the Form Level to Be Analyzed: Either the header or line item details form is analyzed by the tax validation service, and that choice is made on this page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md"
+        }
+      ],
+      "consequenceForWriter": "Expect the label 'Tax Validation Level' - the only form printed as a label - and match it on a label containing 'Level'. Select by prefix on the value, a value starting 'Header' or starting 'Line Item', rather than on an exact option string, because the corpus gives both 'Line Item' and 'line item details form' for the same choice. Do not require a control labelled 'Form Level to Be Analyzed'. Log the literal option text selected. The roster carries both strings as separate field records (taxValidationLevel and formLevelToBeAnalyzed); they are one control, so fill exactly one. FOR THE ROSTER OWNER: formLevelToBeAnalyzed is probably a phantom field derived from prose and should be reviewed.",
+      "notes": "NARROWED AFTER REVIEW. The two accounts agree on the control's purpose and on both values, and 'line item details form' most likely names the form being analyzed rather than a competing option string. Hypothesis, same as the sibling records: c3fe1df5's bullets are activity names, not labels. Kept in narrowed form so that an automation matches on 'Level' and on the value prefixes rather than hunting for a 'Form Level to Be Analyzed' control, and so the two roster records are not filled twice. Merge provenance: the raw Group 5B data recorded all three of these labels as ONE record ('Tax Validation option labels', found twice - by the tax crosscut lens and the tax tables lens). The duplicate pair was collapsed, and the surviving record was then SPLIT into three nodes, one per control, because each control resolves to its own field and so can carry its own appliesTo; a single node could not."
+    },
+    {
+      "kind": "cardinality",
+      "topic": "After predefining a tax code, one topic says four tax code fields become lists and its twin says only VAT Tax Code 1 does.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The gerund-titled topic says predefining a code turns the tax code fields 1 through 4 into lists on the invoice.",
+          "sourceQuote": "The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md"
+        },
+        {
+          "summary": "The Step 7 twin of the same procedure says only the single VAT Tax Code 1 field becomes a list.",
+          "sourceQuote": "The user will now see the VAT Tax Code 1 field as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-7-optional-configure-predefined-tax-codes-be8bc5b8.md"
+        }
+      ],
+      "consequenceForWriter": "The Tax Code tab action itself is identical under both readings - create the code and Save - so perform it once. Do NOT assert how many downstream fields turned into lists: verify by inspecting the invoice form afterwards and report the observed count (1 or up to 4), and never fail the step because only VAT Tax Code 1 became a list.",
+      "notes": "Hypothesis: the count is provisioning-dependent - a site that has only added VAT Tax Code 1 in Forms and Fields would see one list, while a site with all four added would see four - which would make both topics true on different tenants. The corpus never says this."
+    },
+    {
+      "kind": "structure",
+      "topic": "The first hop to the Tax Administration page is 'Invoice' in some topics and 'Invoice Admin' in another.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The Tax Validation configuration topic routes through 'Invoice Admin' instead of 'Invoice'.",
+          "sourceQuote": "As the Invoice Tax Administrator, click Administration > Invoice Admin > Tax Administration. The Tax Administration page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md"
+        },
+        {
+          "summary": "The Access Tax Authorities topic routes the first hop through 'Administration > Invoice' and then clicks Tax Administration in the left menu.",
+          "sourceQuote": "1.  Click Administration > Invoice.\n    \n2.  Click Tax Administration left menu. The Tax Administration page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md"
+        }
+      ],
+      "consequenceForWriter": "Navigate in two moves, not one: open the Administration menu and click whichever of 'Invoice' or 'Invoice Admin' exists, then click 'Tax Administration' in the left menu. Treat the appearance of the Tax Administration page (its tab strip) as the success assertion; do not encode a single dotted path string.",
+      "notes": "NARROWED AFTER REVIEW from four readings to the one hop that genuinely differs. The other two paths are not competing accounts and are recorded here instead: 'Select Administration > Invoice > Tax Administration (left menu).' (configure-predefined-tax-codes-6b42509f.md) and 'Click Administration > Invoice > Tax Administration (left menu).' (step-7-optional-configure-predefined-tax-codes-be8bc5b8.md) are the SAME path differing only in the verb - most likely a republication artefact of gerund vs imperative topic titles rather than two different gestures - and 2fae4ae3 writes that same path as two numbered steps, which is a rendering difference, not a disagreement. Hypothesis: 'Invoice Admin' and 'Invoice' are two renderings of the same top menu entry, differing by release or by which Invoice modules the site has provisioned. Cross-reference (NOT merged): the Company Locations navigation node records the same 'Invoice' vs 'Invoice Admin' alias on the way to a different destination page. The two were kept separate because they are disagreements about two different navigation targets, and an automation resolves them at different moments; the shared alias is noted so a fix to the menu-resolution strategy is applied to both."
+    },
+    {
+      "kind": "scope",
+      "topic": "Whether the US, Canada and India are supported for VAT in Concur Invoice - the admin guide excludes exactly the countries the tools guides give VAT field implementations for.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The admin guide states outright that the US, Canada, India and other multi-tax countries are NOT supported for VAT.",
+          "sourceQuote": "Countries that are not supported for VAT in Concur Invoice are the US, Canada, India, and other multi-tax countries.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/supported-countries-for-vat-8b38bab8.md"
+        },
+        {
+          "summary": "The tools guide gives Canada two complete VAT implementation options - four dedicated VAT fields or two - with province-specific labelling.",
+          "sourceQuote": "There are different ways to implement VAT for a client in Canada. The following section describes how to implement four and two VAT tax fields respectively.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md"
+        },
+        {
+          "summary": "The tools guide also gives the US a VAT field assignment alongside the UK, Japan and Australia.",
+          "sourceQuote": "For the UK, the US, Japan, and Australia, use the VAT Amount 1 field, which is for primary tax.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/uk-us-japan-australia-0557084a.md"
+        }
+      ],
+      "consequenceForWriter": "Never gate a configuration run on a country allow-list derived from the admin guide. If asked to configure VAT for a US, Canadian or Indian entity, proceed with the field-level configuration the tools guides describe, and surface the admin guide's unsupported-countries statement to the human as an open question rather than refusing or silently skipping.",
+      "notes": "Hypothesis: 'supported' means different things in the two guides - the admin guide is describing Tax Authority automatic VAT calculation (which needs a single tax per authority, so multi-tax countries fall out), while the tools guides describe Capture Processing field capture, which merely reads printed tax amounts into VAT Amount fields. The corpus never states this distinction, so both readings stand. Merge provenance: this same disagreement was raised independently by the tax crosscut lens and the tax tables lens over the identical three files; the two records were collapsed into this one node. appliesTo is deliberately empty - the disagreement is about product-level country support, not about any control on the Tax Administration page."
+    },
+    {
+      "kind": "option-list",
+      "topic": "The two twin OCR/Capture 'fields supported for capture' tables enumerate Canadian tax capture differently - one carries Canada in Vat 1 plus a Vat 2 row, the other has neither.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools guide's table names Canada GST/HST inside the Vat 1 primary-tax cell.",
+          "sourceQuote": "Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md"
+        },
+        {
+          "summary": "The same tools table adds a separate Vat 2 secondary-tax cell for Canada PST/QST at header level.",
+          "sourceQuote": "Vat 2 (Secondary Tax – Canada PST/QST) *",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md"
+        },
+        {
+          "summary": "The admin guide's twin of the same table drops Canada from the Vat 1 cell entirely and has no Vat 2 row at all.",
+          "sourceQuote": "Vat 1 (Australia GST, US Tax, VAT UK/Japan) *",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md"
+        }
+      ],
+      "consequenceForWriter": "When adding capture fields, enumerate what the Add Fields dialog actually offers instead of asserting either table's row set; add Vat 2 only if it is present, and do not treat its absence as a failure. This pair belongs to the Capture Processing form configuration, not to Tax Administration, so no Tax Administration field is claimed from it.",
+      "notes": "Hypothesis: the tools guide's table is the newer of the two twins (it adds Canada and a Vat 2 row, and its footnote markers differ - ** vs *), so the admin guide may simply be a stale republication. The corpus gives no dates to settle it."
+    },
+    {
+      "kind": "cardinality",
+      "topic": "How many VAT amount fields are available - the Tax Authority feature is said to support only one, while the form-field inventories document four.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The Add VAT Fields step states flatly that Tax Authority currently supports only one VAT amount field, naming the trio VAT Amount 1 / VAT Rate 1 / VAT Tax Code 1.",
+          "sourceQuote": "Currently, in Tax Authority, Concur Invoice only supports one VAT amount field (VAT Amount 1/VAT Rate 1/VAT Tax Code 1).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md"
+        },
+        {
+          "summary": "The tools guide instructs Canadian clients to implement four dedicated VAT tax fields.",
+          "sourceQuote": "can implement four dedicated VAT Tax fields for this purpose.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md"
+        },
+        {
+          "summary": "The admin guide's own available-fields table documents four VAT amount fields and says some countries will have all four.",
+          "sourceQuote": "Some countries will have four VAT amount fields because clients have more than one type of tax assessed, and all the VAT amounts need to be stored.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md"
+        }
+      ],
+      "consequenceForWriter": "Add whichever VAT fields the Forms and Fields Add Fields dialog offers - up to four - but when configuring Tax Authority rates and groups, only assume VAT Amount 1 participates in automatic calculation. Treat VAT Amount 2 to 4 as capture/extract carriers until a run proves otherwise, and never fail because Tax Authority ignores fields 2 to 4.",
+      "notes": "NARROWED AFTER REVIEW. The 'only one' sentence carries its own scope in its quoted words - 'Currently, in Tax Authority, ...' - and neither competing reading enters that scope: canada-de22c9f9.md is about implementing form fields for capture and never mentions Tax Authority, and available-vat-fields-8b395ce2.md opens 'The following fields are available when working with VAT at the header and line item level', an inventory of available form fields. The two counts may therefore be compatible, one narrower than the other. The record is kept because the boundary decides how many fields an automation should expect to matter on the Tax Authority page, and no topic says what becomes of VAT Amount 2-4 there. Hypothesis: the 'only one' statement scopes to Tax Authority's automatic VAT calculation while the four-field guidance scopes to form fields and Capture Processing extraction - which the same Canada topic hints at by saying VAT Amount 3 and 4 must be entered manually. The corpus never draws that boundary explicitly beyond the three words 'in Tax Authority'."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The Applies To document type is written 'Payment Request' in the expense type group wizard and 'Payment request' in the vendor group wizard.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The expense type group wizard capitalises both words of the document type.",
+          "sourceQuote": "Select the Payment Request document type for which to calculate VAT for expense type groups.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md"
+        },
+        {
+          "summary": "The vendor group wizard lowercases 'request' for what is otherwise the same Applies To value.",
+          "sourceQuote": "Select the Payment request document type for which to calculate VAT for vendor groups.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md"
+        }
+      ],
+      "consequenceForWriter": "Prefer the capitalised 'Payment Request' when selecting the Applies To value - corpus-wide it is the form in 135 files against 2 for 'Payment request' - and match case-insensitively so either rendering resolves. Never compare the option string byte-for-byte across the two wizards and never fail a step on the casing alone. Applies to both expenseTypeGroupAppliesTo and vendorGroupAppliesTo, which is why this attaches to no single field.",
+      "notes": "NARROWED AFTER REVIEW to a probable typo rather than two option values. Hypothesis: a shift key missed while copying one wizard topic from the other - the two sentences are otherwise word-for-word twins differing only in the trailing noun ('for expense type groups' / 'for vendor groups'), and corpus-wide 'Payment Request' appears in 135 files while 'Payment request' appears in 2 (this vendor-group topic and process-overview-payment-request-import-8b42995f.md). CORRECTION to the raw record's note: the sentence 'The Applies To setting also appears as a column on the Expense Type Groups page.' is NOT peculiar to the vendor-group topic - it sits at line 96 of BOTH wizard topics, which is itself evidence of copying. It has no competing reading, so it is recorded here rather than as its own node."
+    },
+    {
+      "kind": "requirement",
+      "topic": "State/Province is optional on the Company Locations add-address form but mandatory in the Purchase Order address import records that create the same rows",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "stateProvince"
+      },
+      "readings": [
+        {
+          "summary": "The Company Locations add-address field table marks State/Province as optional, so an address typed on the page can be saved with the state or province left blank.",
+          "sourceQuote": "    State/Province\n    \n    (Optional)",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        },
+        {
+          "summary": "The Company Locations topic's own revision history records State/Province being changed TO optional on September 9, 2016, confirming the optional marking is deliberate and dated rather than a table typo. (Source characters: in the file this bullet is written '-   State/Province field now an optional field' with a leading hyphen and three spaces; the quote drops the leading '-   ' so that a bare grep -F does not read it as a command-line option.)",
+          "sourceQuote": "State/Province field now an optional field",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/company-locations-8b49554d.md"
+        },
+        {
+          "summary": "The Purchase Order Bill-to Address (record type 210) import format marks State/Province Required? = Y, so a bill-to address arriving by import must carry a state or province.",
+          "sourceQuote": "State/Province\n\n | \n\nMaximum 255 characters\n\n | \n\nY",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+        },
+        {
+          "summary": "The Purchase Order Ship-to Address (record type 220) import format likewise marks State/Province Required? = Y for the ship-to twin of the same address record.",
+          "sourceQuote": "State/Province\n\n | \n\nMaximum 255 characters\n\n | \n\nY",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+        },
+        {
+          "summary": "The linkage the disagreement depends on, stated by the add-address topic itself: the Address Code typed on the Company Locations form is identical to the External ID field of the Purchase Order Bill To and Ship To record sets - so the page and the 210/220 import are two entry paths onto the same address records rather than unrelated stores. This reading takes no side; it establishes that the two sides collide.",
+          "sourceQuote": "This value is identical to the External ID field used in the Bill To and Ship To record sets of the Purchase Order import.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        }
+      ],
+      "consequenceForWriter": "Treat State/Province as OPTIONAL when driving the Add New Ship To / Bill To Location window - do not fail a step because the field is blank, and do not assert a required-field error if it is left empty. Treat it as REQUIRED when generating or validating a Purchase Order 210/220 import row: always populate it there. If a single value set feeds both paths, populate State/Province unconditionally, because that satisfies both accounts; never assert the reverse (that a blank one will be rejected on screen).",
+      "notes": "Hypothesis: the two rules belong to two different entry paths rather than to one stored constraint - the browser form relaxed the rule in 2016 while the batch importer's record specification was never re-cut, so the same logical address column is validated differently depending on whether it arrives through the UI or the feed file. A second, weaker hypothesis is that the import requirement is a file-format (positional column) requirement rather than a value requirement, but the corpus never says so."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Name is required on the Company Locations add-address form but optional in the Purchase Order address import records",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "locationName"
+      },
+      "readings": [
+        {
+          "summary": "The Company Locations add-address field table marks Name as required - and elsewhere in the same table Name is the value searched on when picking a Bill To or Ship To address.",
+          "sourceQuote": "    Name\n    \n    (Required)",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        },
+        {
+          "summary": "The Purchase Order Bill-to Address (record type 210) import format calls Name an optional name, so a bill-to address can be imported with no Name at all.",
+          "sourceQuote": "An optional name that can be used to identify a particular address.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+        },
+        {
+          "summary": "The Purchase Order Ship-to Address (record type 220) import format says the same for the ship-to twin - the name is optional and merely 'can be given' to the address.",
+          "sourceQuote": "An optional name that can be given to the address.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+        },
+        {
+          "summary": "The linkage the disagreement depends on, stated by the add-address topic itself: the Address Code typed on the Company Locations form is identical to the External ID field of the Purchase Order Bill To and Ship To record sets - so the page and the 210/220 import are two entry paths onto the same address records rather than unrelated stores. This reading takes no side; it establishes that the two sides collide.",
+          "sourceQuote": "This value is identical to the External ID field used in the Bill To and Ship To record sets of the Purchase Order import.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        }
+      ],
+      "consequenceForWriter": "Always write a Name when creating an address through the UI - the form will block Save without one. When reading existing rows back (including rows that arrived through the PO import), do NOT assume every Company Locations row has a Name: a nameless row is legal by the import spec, and any automation that locates an address by typing its Name into a Bill To / Ship To picker will silently fail to find it. Locate such rows by Address Code / External ID instead.",
+      "notes": "Hypothesis: the UI requirement is a form-level validation added for searchability (the same table says the system searches for the location by Name), while the importer keeps Name optional for backward compatibility with feed files keyed on External ID. Stated as a hypothesis - the corpus never reconciles the two."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Country Code length is stated as exactly '2 characters' in the 210 record and as 'Maximum 2 characters' in the otherwise identical 220 record",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "countryCode"
+      },
+      "readings": [
+        {
+          "summary": "The Bill-to Address (record type 210) import format defines Country Code as exactly 2 characters - a fixed width, not a ceiling.",
+          "sourceQuote": "Country Code\n\n | \n\n2 characters",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+        },
+        {
+          "summary": "The Ship-to Address (record type 220) import format defines the same column as a maximum of 2 characters, which would also admit a 1-character value.",
+          "sourceQuote": "Country Code\n\n | \n\nMaximum 2 characters",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+        },
+        {
+          "summary": "The Company Locations add-address topic states no length rule for a value typed on the page; its Country Code cell gives a 2-character ISO-code rule only for the import template.",
+          "sourceQuote": "If you are using the import template to import company locations, you must use 2 character ISO code.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        }
+      ],
+      "consequenceForWriter": "Always emit exactly two characters for Country Code - a 2-character value satisfies 'exactly 2', 'maximum 2' and the ISO instruction simultaneously, so it is the only value shape that is safe under all three accounts. Do not build a validator that ACCEPTS a 1-character country code on the strength of the 220 wording, and do not build one that rejects the 220 record for stating a maximum.",
+      "notes": "Hypothesis: a documentation-editing artefact rather than a product difference - the 210 and 220 tables are field-for-field twins and the Definition column diverges only here (the External ID and Name Description prose also differ between the two files), which suggests the twins were edited separately rather than that the importer behaves differently per record type. Kind note: the enum has no 'constraint' member; 'requirement' is used as the nearest fit for a field-width rule stated two ways."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Three different guide titles are cited for Company Locations - a Setup Guide and a User Guide under the same product prefix, plus a third 'Shared:' title that may be a different guide - and none of the three is present in this corpus",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The VAT-oriented Company Locations overview points readers at a 'Setup Guide'.",
+          "sourceQuote": "More Information: For more information, refer to the Concur Invoice: Company Locations Setup Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md"
+        },
+        {
+          "summary": "The default shipping/billing address procedure points at a 'User Guide' with the same product prefix - a different document name for what appears to be the same subject.",
+          "sourceQuote": "More Information: For more information, refer to the Concur Invoice: Company Locations User Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+        },
+        {
+          "summary": "The Tax Service topic cites a third, differently-prefixed title - 'Shared: Locations Setup Guide' - under the Shared: prefix and with 'Company' dropped. The corpus nowhere states that this is the same document as the two Company Locations titles, so it MAY be a different guide.",
+          "sourceQuote": "More Information: For more information, refer to the Shared: Locations Setup Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md"
+        }
+      ],
+      "consequenceForWriter": "Do not resolve cross-references by exact title match, and do not treat a missing 'Concur Invoice: Company Locations User Guide' as a broken link - all three strings are live in the corpus and none of the three documents is in it. If the automation surfaces a doc pointer to the operator, surface the string as written in the topic it came from rather than normalising to one canonical title.",
+      "notes": "SCOPE CAVEAT ADDED AFTER REVIEW: only the Setup Guide / User Guide pair is a same-subject rename the corpus supports, since both read 'Concur Invoice: Company Locations ...'. The third title drops 'Company' and carries the 'Shared:' prefix, and Locations is a shared SAP Concur feature in its own right - so this node does NOT assert that all three name one document. Hypothesis: the guide was renamed over time (Setup Guide -> User Guide) and a separate shared-feature guide exists alongside it, with the older cross-references never re-cut. Stated as a hypothesis; the corpus contains none of the three targets, so neither the drift nor the identity can be confirmed from inside it. Cross-reference (NOT merged): the List Management node records the same 'Shared:' vs 'Concur Invoice:' prefix drift on a different guide - different documents, different citing topics - so they stay two nodes."
+    },
+    {
+      "kind": "structure",
+      "topic": "Three accounts of the parent menu for Company Locations - an 'Invoice Processing Admin' menu, 'Administration > Invoice', and 'Invoice Admin' - including one topic whose prose disagrees with its own numbered steps",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools-guide access topic roots the page in an 'Invoice Processing Admin' menu - a middle navigation node that none of the other paths mention.",
+          "sourceQuote": "Company Locations is accessible from the Invoice Processing Admin menu.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md"
+        },
+        {
+          "summary": "The numbered steps in that same topic never mention Invoice Processing Admin; they end by selecting Company Locations from a left menu rather than by walking a breadcrumb chain.",
+          "sourceQuote": "2.  Select Company Locations (left menu).",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md"
+        },
+        {
+          "summary": "The default shipping/billing address procedure gives a flat three-hop click path with no intermediate admin menu.",
+          "sourceQuote": "Click Administration > Invoice, and then click Company Locations to open the Company Locations page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+        },
+        {
+          "summary": "The Tax Service topic roots the path at a menu alias, 'Invoice Admin', instead of 'Administration > Invoice'.",
+          "sourceQuote": "To add shipping information, click Invoice Admin > Company Locations.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode a single literal breadcrumb. Navigate by resolving the leaf label 'Company Locations' wherever it appears - top menu, left menu, or under an 'Invoice Admin' / 'Invoice Processing Admin' parent - and accept whichever parent resolves first. Treat the absence of an 'Invoice Processing Admin' node as expected, not as a failed step. Never parse the escaped 'Administration\\>' form as a literal on-screen label; the backslash is markdown escaping.",
+      "notes": "NARROWED AFTER REVIEW from four paths to three accounts of the parent menu. The fourth, 'which is accessed by clicking Administration\\> Invoice > Company Locations.' (understand-and-use-company-locations-377ff23e.md), is the same path as set-a-default-shipping-and-billing-address-f772bed1.md's and differs only by a markdown-escaped '\\>' - a parsing artefact, not a competing account - so it is recorded here rather than as a reading, and the consequence still warns against parsing that form as an on-screen label. What genuinely differs: access-company-locations-024afbe1.md's prose roots the page in an Invoice Processing Admin menu that its own numbered steps never mention (real intra-topic drift), and provide-a-location-for-the-tax-service-6ba2cb41.md roots it at 'Invoice Admin'. Hypothesis: the differences are partly provisioning-dependent (which admin menus a site exposes varies with the modules enabled, so an intermediate Invoice Processing Admin node may exist on some tenants and not others) and partly editorial (menu renames). Both are hypotheses; the corpus states no condition under which one path applies. Cross-reference (NOT merged): the Tax Administration navigation node records the same 'Invoice' vs 'Invoice Admin' alias for a different destination page."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The control that opens the ship-to / bill-to address change is a 'Change' link on a purchase request and an 'Edit' link on a purchase order - the label tracks the object, and the three topics carry near-identical titles",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "On a purchase request, the end user clicks Change in the Ship To or Bill To section.",
+          "sourceQuote": "2.  In the Ship To or Bill To section, click Change.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-18a4dbb6.md"
+        },
+        {
+          "summary": "On a purchase order, the same-titled topic has the user click Edit in the same-named section.",
+          "sourceQuote": "2.  In the Ship To or Bill To section, click Edit.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-2c926795.md"
+        },
+        {
+          "summary": "In the purchase request processor's view the section is named 'Ship To Address' (not 'Ship To') and the control is called a link explicitly.",
+          "sourceQuote": "2.  In the Ship To Address section, click the Change link.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-address-564e516a.md"
+        }
+      ],
+      "consequenceForWriter": "Branch on the object actually open - purchase request, purchase order, or processor view - and never resolve the procedure by topic title, because all three topics are titled alike. Having branched, still try both labels ('Change' and 'Edit') and both section names ('Ship To' and 'Ship To Address') before failing, since only one topic documents each screen. None of these controls lives on the Company Locations page.",
+      "notes": "NARROWED AFTER REVIEW: this is best read as a screen-dependent difference rather than documentation drift, and each topic names its own screen in its first step - 18a4dbb6 'Double-click the desired purchase request. The Purchase Request window appears.', 2c926795 'Double-click the desired purchase order. The Purchase Order window appears.', 564e516a 'The purchase request processor can change the ship-to address.' The record is therefore NOT a claim that one screen shows two labels. It is kept because the three topics carry identical or near-identical titles, so an automation that picked the procedure by title alone would drive the wrong label. Hypothesis: the label follows the object - request-side screens say Change, order-side screens say Edit - which the corpus never states outright because it never puts the two screens side by side."
+    },
+    {
+      "kind": "structure",
+      "topic": "Selecting a different ship-to / bill-to address happens in a named Change Address window on the purchase order screen and inline in the field on the two request-side screens",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "On a purchase order the selection happens in a named modal, the Change Address window, which is documented as having separate ship-to and bill-to renderings.",
+          "sourceQuote": "3.  In the Change Address window, select a different ship-to or bill-to address.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-2c926795.md"
+        },
+        {
+          "summary": "On a purchase request there is no named window at all - the user clicks the Ship To or Bill To field itself and selects from it.",
+          "sourceQuote": "3.  In the Ship To or Bill To field, click the field to select a different ship-to or bill-to address. (Example of Bill To field below.)",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-18a4dbb6.md"
+        },
+        {
+          "summary": "In the processor view there is again no named window; the user clicks into a field that appears and picks the ship-to by name.",
+          "sourceQuote": "3.  Click in the field that appears and select the ship-to name.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-address-564e516a.md"
+        }
+      ],
+      "consequenceForWriter": "After clicking the change/edit control, do not wait for a 'Change Address' modal - on two of the three documented screens no modal appears and the picker is the field itself. Wait for EITHER a modal titled Change Address OR an in-place field picker, and proceed on whichever materialises; branch on the object open rather than on the topic title. Selecting by typed name is the only step common to all three.",
+      "notes": "NARROWED AFTER REVIEW, same shape as the sibling label record: the modal-vs-inline difference tracks the object each topic names in its first step (purchase order for 2c926795, purchase request for 18a4dbb6, processor view for 564e516a), and each topic is internally consistent about its own screen - 2c926795 even documents two renderings of its own Change Address window. So this is NOT a claim that any one screen behaves two ways. It is kept because the three topics are titled alike and an automation that waited unconditionally for the modal would hang on two of the three screens. Hypothesis: purchase orders use a modal because both addresses are edited together, while the request-side screens edit one field in place. Unconfirmed - the corpus describes each screen only on its own terms."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Whether a separate 'Connected List Definition tool' exists: every procedure gives click-level steps only for the Connected Lists tab inside Forms and Fields, but one topic names a 'Connected List Definition tool' and hands it to a different role",
+      "appliesTo": {
+        "page": "Forms and Fields",
+        "field": "connectedListsTab"
+      },
+      "readings": [
+        {
+          "summary": "Connected list work is reached as a tab on the existing Forms and Fields page: pick a form type there, then open the Connected Lists tab. No separate tool is named.",
+          "sourceQuote": "1.  On the Forms and Fields page, in the Form Type list, select the desired form type.\n    \n2.  Click the Connected Lists tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-connected-lists-39dd2408.md"
+        },
+        {
+          "summary": "The Connected Lists tab itself is the place where connected list definitions are added and modified - the definition surface is the tab, not a separate application.",
+          "sourceQuote": "You can use the Connected Lists tab to add new connected list definitions and modify existing connected list definitions.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/connected-list-overview-3fc65ecf.md"
+        },
+        {
+          "summary": "Same tab account, plus the detail that the tab is conditionally present: it is enabled only for form types that support connected lists and is otherwise greyed out.",
+          "sourceQuote": "The Connected Lists tab is available only when you select a form that supports this feature; otherwise, it is disabled.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-connected-list-definitions-4dd05e1d.md"
+        },
+        {
+          "summary": "A third, differently-titled tool - the 'Connected List Definition tool' - is named as the place where the connected list fields and hierarchy are defined, and it is operated by the Shared Configuration administrator rather than by the Invoice Admin who built the list.",
+          "sourceQuote": "Shared Configuration administrator: Using the Connected List Definition tool to define the connected list fields and hierarchy",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-connected-list-1eaafd29.md"
+        }
+      ],
+      "consequenceForWriter": "After creating the list in List Management, do not assume a navigable item literally labelled 'Connected List Definition tool' exists. Probe for the Forms and Fields > Connected Lists tab first, since that is the only surface any procedure gives click-level steps for; if the tab is absent or disabled, do not treat that as a failed selector - 4dd05e1d says it is disabled for form types that do not support the feature, so re-check the selected Form Type before retrying, and only then fall back to searching the left menu for a separately-named definition tool. Also plan for a possible role handoff: the definition step may fail with the same credentials that succeeded in List Management.",
+      "notes": "NARROWED AFTER REVIEW, and re-kinded from structure to label-drift. 'Connected List Definition' is the name of the OBJECT created on the Connected Lists tab: add-a-new-connected-list-definition-fc9f852a.md walks the whole definition wizard (Select a List, Select fields, Configure User Interface, Preview, Assign to Forms) and modify-a-connected-list-definition-8f8d8910.md the modify path, neither naming a separate application; and the string 'Connected List Definition tool' occurs exactly once in the corpus, in use-a-connected-list-1eaafd29.md. Hypothesis: that topic used 'tool' loosely for the tab. The load-bearing second claim in the same sentence is the ROLE - that a Shared Configuration administrator, not the Invoice Admin who built the list, performs the definition step - and that half is what the consequence's role warning is for. The List Management half of that topic ('Invoice Admin or Invoice: Using the List Management tool to create a new list category (or use an existing one) and create a new list within the category') says nothing about where definitions are authored and is recorded here rather than as a reading. The role half overlaps the List Management roles node; the two were not merged because they gate different surfaces. The alternative - that a genuinely separate surface is visible only to sites provisioned with Shared Configuration administration - is also only a hypothesis; the corpus never reconciles the two accounts."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Which administrator role gates List Management - 'Invoice Admin' in the admin guides or 'Invoice Configuration Administrator' in the tools guides",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "For the custom-list path, one role is enough: Invoice Admin.",
+          "sourceQuote": "This portion of the process requires the role of Invoice Admin.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md"
+        },
+        {
+          "summary": "The tools guides name a different role vocabulary entirely: an Invoice Configuration Administrator configures List Management along with Group Configurations and the Employee form.",
+          "sourceQuote": "Invoice Configuration Administrator: Will configure the Concur Invoice modules, such as List Management, Group Configurations, and Employee form, required to implement this feature.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-53a9a79c.md"
+        },
+        {
+          "summary": "The same tools-guides process generalises that single role across every step, including Step 1 List Management, with no mention of Invoice Admin at all.",
+          "sourceQuote": "All tasks require the Invoice Configuration administrator role unless _noted_:",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode a single required role as a precondition for reaching List Management. Drive by observation instead: attempt Administration > Invoice > List Management and treat the presence of the left-menu item as the real permission check. If the item is missing, report the missing role as either candidate name - 'Invoice Admin' or 'Invoice Configuration Administrator' - rather than asserting which one is wrong. Separately, expect the connected-list branch to need a SECOND credential (Shared Configuration administrator) for the definition step even when the list-creation step succeeded with the first.",
+      "notes": "NARROWED AFTER REVIEW from three role accounts to two. use-a-connected-list-1eaafd29.md's 'This portion of the process requires the roles of Invoice Admin and Shared Configuration administrator.' is not a competing account: that topic opens 'If you are using a connected list,' exactly as use-a-custom-list-f3fc8bee.md opens 'If you are using a custom list,' - each states its own branch, and the second role is an ADDITIONAL requirement for the connected-list definition step rather than a different answer for List Management itself. It is recorded here, and the consequence still tells the writer to expect it. The genuine disagreement is the admin guides' 'Invoice Admin' against the tools guides' 'Invoice Configuration Administrator' for the same tool, the latter generalised over Step 1 List Management by overview-of-steps-37e3c289.md. Hypothesis (not stated by the corpus): the two names may be one underlying permission seen through two documentation vocabularies - the admin guides describing per-tool roles and the tools guides an implementation persona. No topic says the difference is provisioning-dependent."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Name of the external setup guide every List Management topic defers to - 'Shared: List Management Setup Guide' vs 'Concur Invoice: List Management Setup Guide'",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools guides' documentation index names the deferral target with the Shared prefix, italicised.",
+          "sourceQuote": "List Management: The _Shared: List Management Setup Guide_",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md"
+        },
+        {
+          "summary": "The custom-list procedure repeats the Shared name, without italic markup, in its More Information pointer.",
+          "sourceQuote": "More Information: For more information about custom lists, refer to the Shared: List Management Setup Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md"
+        },
+        {
+          "summary": "The Employee-form step instead names a product-specific guide, 'Concur Invoice: List Management Setup Guide', for the same subject.",
+          "sourceQuote": "More information: For more information, refer to _Concur Invoice: List Management Setup Guide_.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md"
+        }
+      ],
+      "consequenceForWriter": "Treat both titles as the same deferral target when resolving a documentation reference, and search on the shared substring 'List Management Setup Guide' rather than on either full title. Neither document exists inside this corpus, so any control this page does not document cannot be recovered from here - the writer should stop and flag the gap rather than guessing at the New List page's unnamed 'remaining options'.",
+      "notes": "Hypothesis (not stated by the corpus): List Management is a shared Expense/Invoice tool, so the guide may have been renamed from the Shared series into a Concur Invoice series (or vice versa) and the two corpora were not re-synchronised. The italic-vs-plain rendering difference between a105a5d7 and f3fc8bee is markdown markup, not a title difference, and is not itself the contradiction. Cross-reference (NOT merged): the Company Locations node records the same 'Shared:' vs product-prefixed drift on a different guide. Kept separate for the same reason - different target documents."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Format constraint on the list item short code carried in the Level N Code import columns - 'Maximum 32 characters; case insensitive' vs a bare '32 characters' vs no format stated at all",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The compressed import-template table gives one Format cell for the whole Level 1 Code - Level 10 Code range: a 32-character maximum that is explicitly case insensitive.",
+          "sourceQuote": "Maximum 32 characters; case insensitive",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+        },
+        {
+          "summary": "The same table identifies those columns as the List Management list item short codes, so the 32-character case-insensitive rule is being asserted about the short code itself.",
+          "sourceQuote": "These are the List Item Short Codes.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md"
+        },
+        {
+          "summary": "The record type 200 table enumerates all ten level columns and gives each a bare '32 characters' definition with no case-sensitivity statement, and marks each Required? as N.",
+          "sourceQuote": "Level 1 Code\n\n | \n\n32 characters",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md"
+        },
+        {
+          "summary": "That table describes the same values as list item short codes representing one segment level each, confirming it is the same control being given a different format statement.",
+          "sourceQuote": "The list item Short Code representing the 1st segment level of the overall hierarchy path.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md"
+        },
+        {
+          "summary": "The twin import-template topic (a different loio, and a genuinely different template - it carries Vendor Code and Address Code columns that 8b4aa547 does not) enumerates Level 1 Code through Level 10 Code one row each and gives every one of them a Format cell that holds only a no-break space placeholder, while stating an explicit 'Required: maximum ...' format for Vendor Code and Address Code in the same table.",
+          "sourceQuote": "Level 1 Code\n\n |   | \n\nLevel 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md"
+        }
+      ],
+      "consequenceForWriter": "Write list item codes that satisfy the strictest documented reading - at most 32 characters - and never rely on case-insensitive matching when reconciling a code typed in List Management against a code in an import file, because only one of the three tables promises it. Match codes byte-for-byte as entered, which is also what step-1-create-the-source-list-in-list-management-cc91aa73.md demands of the import. Do not carry any of these limits over to the on-screen Item Code field as a validated maximum: all three statements constrain the IMPORT COLUMN, and no topic in this corpus states a length or case rule for the Item Code field on the List Management page itself.",
+      "notes": "The 8b51ca3d Format cell is not literally empty: it holds a NO-BREAK SPACE (U+00A0), which is why the placeholder reading is quotable as a span (the quote below spans the label, the no-break-space Format cell and the Definition cell) rather than only assertable as an absence - so it IS carried as a reading, and the earlier note to the contrary has been removed. Hypothesis (not stated by the corpus): the three tables describe two different import mechanisms - a spreadsheet template and a 310/200-record fixed file - that may genuinely enforce different rules, or the case-insensitivity note may simply have been dropped when the compressed row was expanded into ten rows. Merge provenance: 8b4aa547 and 8b51ca3d were checked against each other rather than assumed to be one document published twice. They share a title and a deliverable but are DIFFERENT templates - 8b51ca3d carries Vendor Code and Address Code columns and enumerates the ten Level N Code rows; 8b4aa547 carries Employee ID and compresses the ten into one row. Both are therefore real, separate sources and the 8b51ca3d reading has been added here rather than dropped. Kind note: the enum has no 'constraint' member, so 'requirement' is used as the nearest fit for a differing format rule."
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": [
+        "Vat Amount 1",
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 1 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+      "notes": "Header-level row of the raw <table> listing fields supported for capture by Client-Managed Capture Processing. Source characters: 'Vat' (not 'VAT'), space-hyphen-space (not an en-dash). Expansion is mechanical, not quoted - the source gives only the compressed form. The Forms and Fields guide spells the same fields 'VAT Amount 1' to 'VAT Amount 4'. Belongs to the Capture Processing form configuration, not to Tax Administration, hence appliesTo is empty. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": [
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 3,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 2 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+      "notes": "Line-item-level row of the same raw <table>. The range starts at 2 because 'Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **' is listed as its own separate cell in the same row. Source characters: 'Vat', space-hyphen-space. Expansion is mechanical, not quoted. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": [
+        "Vat Amount 1",
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 1 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+      "notes": "Admin-guide twin of the tools OCR table, header-level row. Identical compressed characters ('Vat', space-hyphen-space) but the surrounding row set differs from the tools twin - this table has no Vat 2 row and drops Canada from its Vat 1 cell (recorded as a contradiction). Expansion is mechanical, not quoted. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": [
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 3,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 2 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+      "notes": "Admin-guide twin, line-item-level row. Starts at 2 because 'Vat 1 (Australia GST, US Tax, VAT UK/Japan) *' occupies its own cell in the same row. Source characters: 'Vat', space-hyphen-space. Expansion is mechanical, not quoted. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "tax code fields (1-4)",
+      "expandsTo": [
+        "tax code field 1",
+        "tax code field 2",
+        "tax code field 3",
+        "tax code field 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+      "notes": "SOURCE CHARACTERS: lowercase 'tax code fields', a parenthesised '1-4' with a plain ASCII hyphen and no spaces, preceded in the sentence by the article 'the'. THE MEMBERS ARE EXPANDED MECHANICALLY IN THE LABEL'S OWN VOCABULARY, because the cited file never spells any member out: none of 'VAT Tax Code 1' to 'VAT Tax Code 4' appears anywhere in configure-predefined-tax-codes-6b42509f.md. The member names the raw record had borrowed from concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md were removed because that borrowing is undecidable: 8b395ce2 documents BOTH a header family ('VAT Tax Code 1' to 4) and a parallel line-item family ('Line Item VAT Tax Code 1' to 4), while the quoted sentence scopes these fields to BOTH the Invoice Details AND the Itemization Summary sections - so the source does not determine which family the members belong to, and importing either set would be a reconciliation the build forbids. An automation must resolve the on-screen names from the rendered page rather than typing these expansions. CONTRADICTED by step-7-optional-configure-predefined-tax-codes-be8bc5b8.md, which names only VAT Tax Code 1 - see the matching contradiction record. Describes downstream invoice fields, not a control on the Tax Administration page, hence appliesTo is empty."
+    },
+    {
+      "label": "VAT amount fields 1-4",
+      "expandsTo": [
+        "Line Item VAT Amount 1",
+        "Line Item VAT Amount 2",
+        "Line Item VAT Amount 3",
+        "Line Item VAT Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "The values in this label are the VAT amount fields 1-4 of the line item level amounts, so the user understands what each row represents.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md",
+      "notes": "SOURCE CHARACTERS: 'VAT' upper case but 'amount fields' lower case, a plain ASCII hyphen with no spaces around it, preceded by the article 'the'. THE EXPANSION IS MECHANICAL, NOT QUOTED, AND ITS MEMBER NAMES ARE BORROWED - the 'Line Item ' prefix is not in the label and appears nowhere in configure-vat-labels-9d4795b9.md. SECOND CITATION licensing the prefix: concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md contains 'Line Item VAT Amount 1' (verified, 1 occurrence) and documents 'Line Item VAT Amount 1' to 'Line Item VAT Amount 4' as a family distinct from the header 'VAT Amount 1' to 4. That family is chosen here rather than the header one because the quoted sentence scopes this range explicitly to 'the line item level amounts' - the cited file's own words - not because the two were reconciled. If the rendered form shows the unprefixed names, prefer what is on screen. The VAT Type label is configured in Forms and Fields, not on Tax Administration, hence appliesTo is empty."
+    },
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1-10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md",
+      "notes": "Ten reserved trailing columns of the Purchase Order Bill-to Address (record type 210) import record, Required? = N. SOURCE CHARACTERS: the label is written with a plain ASCII HYPHEN-MINUS in '1-10' (U+002D), not an en dash, and with title-case 'Future Use'; the Definition cell for this row is not empty but holds a NO-BREAK SPACE (U+00A0), which is why the row renders as ' | \\u00a0 | '. THE EXPANSION IS MECHANICAL, NOT QUOTED: the source never enumerates the ten columns, so 'Future Use 1' ... 'Future Use 10' is derived from the compressed form. The underlying column name is rendered 'future\\\\_use' (escaped underscore) in the Description cell, so the real feed-file column names are more likely future_use1..future_use10 than the title-case display form; the corpus does not state them. These are positional placeholders - an import file must still carry the ten empty columns. This belongs to the PO import record layout, not to the Company Locations page or its import template, so appliesTo is left empty. MERGE PROVENANCE: 'Future Use 1-10' was raised four times in the raw Group 5B data - the company-locations crosscut lens and the tables lens each found it in BOTH the 210 and the 220 record. The two same-file sightings were collapsed; this node and the record type 220 node were NOT collapsed into each other, because they cite two genuinely different import records whose own tables disagree elsewhere (Country Code is '2 characters' in the 210 and 'Maximum 2 characters' in the 220), so they are not one document published twice."
+    },
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1-10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md",
+      "notes": "The identical ten reserved trailing columns of the Purchase Order Ship-to Address (record type 220) import record, Required? = N, with wording byte-identical to the 210 twin. SOURCE CHARACTERS: the label is written with a plain ASCII HYPHEN-MINUS in '1-10' (U+002D), not an en dash, and with title-case 'Future Use'; the Definition cell for this row is not empty but holds a NO-BREAK SPACE (U+00A0), which is why the row renders as ' | \\u00a0 | '. THE EXPANSION IS MECHANICAL, NOT QUOTED: the source never enumerates the ten columns, so 'Future Use 1' ... 'Future Use 10' is derived from the compressed form. The underlying column name is rendered 'future\\\\_use' (escaped underscore) in the Description cell, so the real feed-file column names are more likely future_use1..future_use10 than the title-case display form; the corpus does not state them. These are positional placeholders - an import file must still carry the ten empty columns. Recorded separately from the 210 record because each import record has its own column layout; appliesTo is left empty for the same reason. MERGE PROVENANCE: 'Future Use 1-10' was raised four times in the raw Group 5B data - the company-locations crosscut lens and the tables lens each found it in BOTH the 210 and the 220 record. The two same-file sightings were collapsed; this node and the record type 210 node were NOT collapsed into each other, because they cite two genuinely different import records whose own tables disagree elsewhere (Country Code is '2 characters' in the 210 and 'Maximum 2 characters' in the 220), so they are not one document published twice."
+    },
+    {
+      "label": "Level 1 Code - Level 10 Code",
+      "expandsTo": [
+        "Level 1 Code",
+        "Level 2 Code",
+        "Level 3 Code",
+        "Level 4 Code",
+        "Level 5 Code",
+        "Level 6 Code",
+        "Level 7 Code",
+        "Level 8 Code",
+        "Level 9 Code",
+        "Level 10 Code"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Level 1 Code - Level 10 Code",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+      "notes": "SEPARATOR IS A PLAIN ASCII HYPHEN-MINUS (U+002D) surrounded by single spaces, not an en-dash - verified by grep -F against the source bytes. Each member is the List Management list item short code for one segment level of the hierarchy path ('These are the List Item Short Codes.'), and together they spell the path that selects the default Invoice owner on the Vendor Employee Access import. The expansion is not mechanical guesswork: the identical ten members are written out one row each in concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md ('Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.' through Level 10) and in concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md ('The list item Short Code representing the 1st segment level of the overall hierarchy path.' through the 10th), and the member names here are copied from those enumerations. appliesTo is empty on purpose: these are columns of the Vendor Employee Access import template, not controls on the List Management page, and no Vendor Employee Access Import page exists in the graph to own them. The Group 5B crosscut extract recorded this same range with sourceFile 8b51ca3d, but that file does NOT contain the compressed form - it enumerates all ten - so the citation was moved to 8b4aa547, the only file in which the compressed label actually appears. MERGE PROVENANCE: raised twice in the raw data with two different sourceFiles (8b4aa547 and 8b51ca3d). Collapsed to ONE node after checking both files: only 8b4aa547 contains the compressed string (grep -F -c returns 1 there and 0 in 8b51ca3d, which enumerates all ten rows instead). The two files are still separate real documents - different templates - but only one of them compresses the range, so only one compressed-range node is warranted."
+    },
+    {
+      "label": "Future Use 1 - Future Use 10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1 - Future Use 10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md",
+      "notes": "THE EXPANSION IS MECHANICAL, NOT QUOTED: the source gives only the compressed label and never enumerates the ten members, so 'Future Use 1' through 'Future Use 10' were generated by expanding the range, and no member name below is a corpus quote. SEPARATOR IS A PLAIN ASCII HYPHEN-MINUS (U+002D) with single spaces, not an en-dash - verified by grep -F. Note the label uses spaced words ('Future Use'), while the same row's description uses an underscored token: 'The future\\_use fields are currently not in use (they will be activated in a future service release).' The members are placeholder columns that must be present in the record type 200 data file but whose contents are ignored, and all ten are Required? = N. Found in the same table this page's list-item-short-code contradiction cites; it is an import-file structure, not a List Management on-screen control, so appliesTo is empty. NOT MERGED with the two Purchase Order 'Future Use 1-10' nodes: different record (import settings record type 200, not a PO address record), different file, and a different compressed LABEL - 'Future Use 1 - Future Use 10' spells the endpoint out and separates it with spaces, where the PO records write 'Future Use 1-10'. A crawler matching screen or file text would not match one against the other, which is exactly why the character-level difference is preserved."
+    }
+  ],
   "critic": "# Group 5B — ADVERSARIAL CRITIC: COMPLETENESS (what is MISSING)\n\nLens: completeness. Every claim below has a command behind it. Paths are relative to\n`ROOT = /mnt/c/Users/manci/PROJECTS/concur-corpus/CONCUR_INVOICE`; `A/` = `concur-invoice-professional-edition-admin-guides/`,\n`T/` = `concur-invoice-professional-edition-tools-guides/`.\n\n**Headline.** The reading was good and the grounding is clean — I re-verified all 167 `sourceQuote`\nvalues in the four rosters plus `synth-valuesets.json` and `synth-dependencies.json` against their cited\nfiles: **167 checked, 0 not verbatim, 0 missing files.** The corpus sweep was also close to exhaustive:\nall 20 files containing \"List Management\", all 19 containing \"Company Locations\", all 12 containing\n\"Tax Administration\", and all 22 containing \"budget\" were read.\n\nThe losses are somewhere else. **They are in the plumbing between this group's artifacts and the graph,\nand in one unread admin-guides twin that falsifies the group's own headline finding.**\n\n---\n\n## 1. MUST-READ FILES NEVER CITED\n\nI recomputed citation coverage myself rather than trusting the digest, walking every `sourceFile`,\n`sourceFiles` and `files` key in `extract-*.json` + `roster-*.json` per page.\n\n**The digest's `mustReadNeverCited` is wrong in both directions for Company Locations.**\n\n| page | digest claim | what the artifacts actually show |\n|---|---|---|\n| tax-administration | `T/other-countries-84722445.md` | **correct** — read, never cited |\n| list-management | none | **correct** — all 12 must-reads cited |\n| company-locations | the three `change-ship-to*` files | **wrong.** All three ARE cited (inside `contradictions[].files`). The two genuinely never cited anywhere are `T/overview-8b494195.md` and `T/required-roles-476a5f62.md` |\n| budget-configuration | n/a (list empty by design) | correct |\n\n### Clean bill: `T/other-countries-84722445.md`\nRead in full (23 lines). It contains no field, no value, no control. Its whole body is\n`For other countries, contact you SAP Concur Account Manager for up-to-date information about which VAT fields to use.`\n(SAP's own \"contact you\" typo, verbatim) plus a deferral to two guides absent from this corpus. **A graph\nwould have gained nothing.** Publishable as-is.\n\n### NOT a clean bill: `T/required-roles-476a5f62.md`\nRead, never cited, and the excuse given (\"the role gate already lives in the map-phase roleGates\") does\nnot survive contact with the pipeline — see §1b. Its one substantive sentence is a **two-role** gate:\n\n> `users must be assigned the Invoice Configuration administrator or Invoice Configuration (Restricted) administrator role`\n\nThat is an enumerated pair, and it is the first thing a Chromium driver needs before it can reach\n`companyLocations.asp` at all.\n\n### 1b. Zero role-gate dependencies in the whole group — against established graph precedent\n```\npython3 -c \"... synth-dependencies.json ...\"  ->  role deps: 0   (of 57)\n```\nMeanwhile the merged graph already encodes role gates, four times, as `precedes` edges with an\nunresolved `sourceRef.page = \"User Permissions\"` (`dep.g1.033`, `dep.g1.034`, `dep.g1.055`, `dep.g1.056`).\nGroup 5B emits **none**, discarding three documented gates:\n\n* Company Locations — `T/required-roles-476a5f62.md` (two roles, quoted above)\n* List Management — `T/required-roles-53a9a79c.md`: `Invoice Configuration Administrator: Will configure the Concur Invoice modules, such as List Management, Group Configurations, and Employee form`\n* Tax Administration — a **two-stage** gate: `A/step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md` (SAP Concur staff must enable before the role exists) then `A/step-2-assign-the-tax-administrator-role-{b7f391c8,b903b7c8}.md` (two contradictory nav paths, both recorded, neither turned into an edge).\n\n---\n\n## 2. FILES THE INVENTORY NEVER FOUND\n\nI re-ran the sweeps with my own synonyms in both directories, then diffed against the union of\n`filesRead` across all nine extracts. Term census (`grep -ril`, A/T):\n\n```\nwithhold 0/0   reverse charge 0/0   self-assessed 0/0     <- confirms the \"no withholding tax\" finding\nUNSPSC 4/0     commodity code 6/0   Tax Rate Type 3/0\nTax Administration 12/0   Company Locations 9/10   List Management 9/11   budget 16/6\n```\n\nThen: every file in either guide dir matching `\\bVAT\\b|tax authorit|tax administrat|tax validation|tax code|tax rate|tax service|value added tax`\n**three or more times** that no lens opened. 37 such files. Four of them matter.\n\n### 2.1 `A/implementation-best-practices-8b39ab5d.md` — THE MISS THAT FALSIFIES THE GROUP'S HEADLINE\n66 lines, 31 tax/VAT hits, **never opened, never cited, absent from the map inventory entirely**\n(`grep -c \"implementation-best-practices\" *.json map-*.md` → 0; `grep -c 8b39ab5d` → 0).\n\nIt is the **admin-guides twin of `T/canada-de22c9f9.md`**, near word-for-word:\n\n```\n:33  -   VAT Amount 1 – GST\n:39  -   VAT Amount 4 – QST\n:54  -   For GST/HST use VAT Amount 1\n```\n\nThe tools-and-crosscutting lens's published headline is:\n\n> \"admin-guides states US, Canada and India are NOT supported for VAT, while **tools-only**\n> canada-de22c9f9.md and uk-us-japan-australia-0557084a.md give full four-field and two-field\n> US/Canada VAT implementations\" … \"the contradicting evidence lives **only** in tools-guides.\"\n\n**That is false.** The Canada four-field and two-field implementations are in admin-guides too. The\ncontradiction is real but it is *internal to admin-guides*, not a directory-skew story, and the group's\nsingle most-emphasised finding is mis-characterised in the record that will be merged.\n\nWorse, `8b39ab5d` carries two facts its tools twin phrases differently and that nothing in the group\ncaptured at all:\n```\n:46  All VAT fields may be added to Capture Processing forms. However, values for the VAT Amount 3\n     and VAT Amount 4 fields must be entered manually at this time.\n:59  Capture Processing will extract primary tax in the VAT Amount 1 field and provincial tax in\n     the VAT Amount 2 field.\n```\nBoth are hard constraints on the already-built Capture Processing Admin page.\n\n### 2.2 `A/overview-8b38e2f7.md` — the Tax Authority feature Overview, never opened\n40 lines, 18 hits. Carries:\n```\n:27  Most European countries levy VAT; the United States does not.\n:37  To use the Tax Authority feature, clients need to have configured the relevant VAT fields first.\n:25  ... when SAP Fiori UI themes are implemented, home page navigation is consolidated under the\n     SAP Concur Home menu.\n```\nLine 27 is a **third, differently-worded reading** in the country-support contradiction the group treats\nas a two-way disagreement. Line 25 is discussed in §8.\n\n### 2.3 `A/overview-8b39e48a.md` — the VAT Overview, never opened\n36 lines, 14 hits. It is the source that names the New-User-Experience `Display Tax` toggle and the\n`Itemization Summary section or Itemizations section for the new UI` label pair (line 29, line 33). The\ngroup asserted the Display-Tax finding without opening this file (it also lives in three other files;\nsee §8) and also carries the Fiori caveat.\n\n### 2.4 `A/vendor-information-for-vat-included-in-the-unit-price-{9eebdaa0,a4fc76a1}.md` — on the map's own alsoRelevant list, never opened\n`9eebdaa0` gives a complete four-step add-to-form procedure for a **named field**:\n`In the Add Fields to Forms window that appears, select the Vendor includes VAT in the Unit Price field and then click Add Fields.`\nwith `Form Type = Payment Vendor`, and states the field surfaces as a check box in Vendor Manager.\n`a4fc76a1` gives the calculation consequence.\n`grep -c \"includes VAT\"` → **0 in every 5B artifact and 0 in `kg-invoice-config.json`.**\nAggravating: `T/keeping-track-on-vat-included-in-the-unit-price-e9669bed.md` **was read** and names the\nsame control (`When the Vendor includes VAT in Unit Price option is selected (enabled)…`) and produced\nno record.\n\n### 2.5 Files I checked and cleared\n* `A/step-2-activate-the-feature-27a421e2.md` — reads like a missing \"Step 2\" of the tax family; it is Cost Object Approval / Workflows. Correctly skipped.\n* `T/import-template-columns-7270f37b.md` — the filename is a trap; it is the **Distributions** import template (`Custom 01 through Custom 06`, `Custom 11`), not Company Locations. Correctly skipped, though it is an unrecorded compressed range for whoever owns Allocations.\n* `A/error-messages-3b8339b0.md` — 60-row supplier-invoice error-code catalog including `:252 The Ship To Address is missing or invalid. | 6000` and `:265 The Bill To Address is missing or invalid. | 6001`. **Correctly not a Company Locations control**; flag it forward to Group 6 (Compliance / E-Invoicing).\n* `A/validation-conditional-expressions-67302876.md` — four verbatim rules on how the **list item short code** (= List Management `itemCode`) is used in validation lookups and copy-down, plus `When the List Validation object is selected, the List Validation Helper pane will appear …`. Belongs to the unbuilt Validations page; a legitimate unresolved dependency out of `listManagement.itemCode` that was not emitted.\n* `A/standard-edition-55806366.md` — Standard-Edition Payment Groups built on custom-list items, sitting inside a Professional-Edition-only corpus. Not a Professional page control; worth a note only.\n* Revision-history cover topics (`invoice-accounts-payable-8b4735e7`, `capture-processing-client-managed-8b2ac260`, `forms-and-fields-8b2e66f6`, `group-configuration-8b2ecb41`): confirmed rev-history only. Clean.\n\n---\n\n## 3. RAW `<table>` SWEEP\n\nI re-ran the census independently:\n```\ngrep -rl \"<table\" A/ T/ | while read f; do echo \"$(grep -c '<table' \"$f\") $f\"; done | sort -rn\n```\n**32 files (31 admin, 1 tools) — matches the map exactly.** I then relevance-tested all 32 against\n`company location|list management|tax authorit|tax administration|ship to|bill to|list categor|list item`:\n**one hit only**, `A/invoice-text-content-type-02b21c13.md` (\"List item\", print-format domain, correctly\nruled out). So `fromRawHtmlTable=false` on all 100 merged fields is a verified count, not a default.\n\n**But the one raw-table pair that IS in scope is captured and then thrown away.** I parsed both tables\nwith a real HTML parser:\n\n| | header rows | `Vat` cells |\n|---|---|---|\n| `T/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md` | 12 | `Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **` **and** `Vat 2 (Secondary Tax – Canada PST/QST) *` |\n| `A/configuring-forms-and-fields-in-capture-processing-7c14446c.md` | 11 | `Vat 1 (Australia GST, US Tax, VAT UK/Japan) *` only |\n\nThe merged graph's `vset.g5.fields-supported-for-capture-header-fields…` carries **11 values, sourced\nfrom the admin twin only**, and `grep -c \"Vat 2\" kg-invoice-config.json` = **0**. This is precisely the\ndefect the previous critic named (\"a tools-guides table that CONTRADICTS its admin-guides twin, never\nopened\"). This time it *was* opened — and the correction still will not land, because it exists only as\nan extract-level `contradictions[]` entry, a container the pipeline discards (§5b).\n\n---\n\n## 4. LONG CATALOG SWEEP\n\nMechanical sweep: every file in both dirs matching the four pages' vocabulary, with `≥11` markdown row\nstarts, `≥10` bullets, or any `<table>`. **74 candidates, 39 never opened.** Triaged, three matter.\n\n### 4.1 `A/details-section-49500221.md` — 4,762 lines, **256 data rows**, never opened by anyone\n```\ngrep -c '^| $' -> 257 (1 header + 256 rows);  grep -cE '^ *\\| *-{3}' -> 1  (ONE table)\n```\nThe single largest catalog anywhere near the tax domain. It is the extract/import field dictionary and\ncontains a **richer** enumeration of the Prorated VAT fields than the 12-row source the group used, plus\n`Ship To Zip`, `Company Billing Address Tax ID` and ~250 other named fields.\n**Verdict: correctly NOT a control on any of these four pages** (its home is the unbuilt Payment Request\nAccounting Extract / Imports page). But it never appears in the map inventory, in any `filesRead`, or in\nany rule-out list — nobody knew it was there. Log it explicitly so a future group does not re-lose it.\n\n### 4.2 `A/field-mapping-e3881fa5.md` — 849 lines, **43 data rows**, never opened\nThe Peppol ⇄ Concur Invoice field-mapping table, explicitly scoped `applicable for both Concur Invoice\nProfessional and Standard Editions`. Two of its rows are Company-Locations-specific:\n```\n:103  CompanyBillToAddressCode | The code which identifies the company location to which the vendor billed the invoice.\n:120  CompanyShipToAddressCode | The code which identifies the company location to which the vendor shipped items listed in the invoice.\n```\nThe group emitted exactly one Peppol dependency (`companyLocations.addressCode → Peppol Configuration /\nShip To Address Code`, from `A/limitations-f5fac4b5.md`) and never learned the Peppol-side field names.\nForward-work for Peppol Configuration, but the inventory should have found it.\n\n### 4.3 `A/step-4-additional-configuration-steps-37f6c7ba.md` — READ, CITED, and its 3-item list still lost\nThis file *is* in `filesActuallyRead` for Company Locations and *is* cited as a dependency source. It\nenumerates the three fields the Tax Validation feature exposes on activation:\n```\n:47  -   Calculated Tax Amount\n:49  -   Tax Rate\n:51  -   (Optional) Tax Reference ID\n```\n`grep -c \"Tax Reference ID\"` → **0 in every 5B artifact**; and `Tax Reference ID` occurs **exactly once in\nthe entire corpus**, in this file. `Calculated Tax Amount` → **0 in every 5B artifact**, despite the map\ninventory's own alsoRelevant note flagging \"Calculated Tax Amount / Tax Rate read-only fields\" in\n`A/create-an-invoice-with-tax-validation-a515e7a3.md`, which was also read. Also lost from the same two\nfiles: `the system moves the invoice to a queue where the appropriate Tax Partner Connector processes the\nrecord at 30-minute intervals` (`grep -c \"30-minute\"` → 0).\n\n---\n\n## 5. TRUNCATION — every enumeration that DID reach the artifacts\n\nI counted the source rows myself for every captured enumeration. **Zero truncation. This is a clean bill\nand it is worth publishing.**\n\n| enumeration | source rows (counted) | in artifacts | verdict |\n|---|---|---|---|\n| `A/country-code-list-8b3e2eda.md` | 250 row-starts − 1 header = **249** | 249 | exact |\n| `A/available-vat-fields-8b395ce2.md` | 28 − 1 = **27** | 27 | exact |\n| `A/extract-vat-data-8b3996e0.md` (Prorated VAT) | 13 − 1 = **12** | 12 | exact |\n| `T/add-a-shipping-or-billing-address-3b51c816.md` | **12** | 12 fields | exact |\n| `A/step-4-…-7f90cede.md` (3 tables, 3 separators @48/121/174) | 4 + 2 + 3 = **9** | 9 | exact |\n| `A/step-3-configure-the-service-14c3ef13.md` | **6** | 6 | exact |\n| `A/step-5-…-e8d87361.md` / `A/step-6-…-d8b7786d.md` | **6** each | 6 each | exact |\n| `A/step-3-access-tax-authorities-2fae4ae3.md` | **4** | 4 | exact |\n| `A/configure-vat-labels-9d4795b9.md` | **4** | 4 | exact |\n| OCR raw tables | 12 (tools) / 11 (admin) | both parsed | exact, but see §3 |\n\n**One inventory count is wrong (harmless).** `map-inventory.md §4.5` states the PO 210/220 import tables\nare 12 rows each. They are **11** (`Record Type, External ID, Name, Address 1/2/3, City, State/Province,\nPostal Code, Country Code, Future Use 1-10`). The extracts got it right at 11; only the map's prose is off.\n\n**Field accounting across the whole group is clean.** Union of extract field names vs roster keep+drop:\n```\ntax-administration  98 extracted = 59 kept + 39 dropped   LOST 0\ncompany-locations   65 extracted = 27 kept + 38 dropped   LOST 0\nlist-management     22 extracted = 14 kept +  8 dropped   LOST 0\nbudget-configuration 0 / 0 / 0                            LOST 0\n```\nNothing vanished silently between extract and roster, and no roster field was invented during Repair.\n\n### 5b. THE REAL TRUNCATION IS AT MERGE TIME — 323 of 339 values will not reach the graph\nThis is the most severe finding in this review, and it is mechanical.\n\n```\nbin/merge-group.py:125     for i, v in enumerate(r.get('valueSets', []), 1):\nbin/assemble-parts.py:297      'orphanValueSetCandidates': orphans,\ngrep -n \"orphanValueSetCandidates\" bin/merge-group.py   ->  (no output)\n```\n`synth-valuesets.json` splits its work into `valueSets` (10 sets, **16 values total**) and\n`orphanCandidates` (14 catalogs, **323 values total**). The merge reads only the first list. Nothing in\neither script ever reads `orphanCandidates`. What is discarded:\n\n```\n249  Country Code catalog                     A/country-code-list-8b3e2eda.md\n 27  Available VAT Fields                     A/available-vat-fields-8b395ce2.md\n 12  Prorated VAT Fields                      A/extract-vat-data-8b3996e0.md\n 10  Level 1 Code – Level 10 Code             T/the-import-template-fields-and-descriptions-8b4aa547.md\n  4  VAT labels                               A/configure-vat-labels-9d4795b9.md\n  4  Canada four-field scheme                 T/canada-de22c9f9.md\n  4  CFDi validation statuses                 A/step-3-optional-…-69ba75a6.md\n  3  Supported VAT countries                  A/supported-countries-for-vat-8b38bab8.md\n  3  Vendor import Tax Type codes             T/the-import-template-fields-and-descriptions-8b53850b.md\n  2  Canada two-field scheme                  T/canada-de22c9f9.md\n  2  Ship To / Bill To tabs                   T/delete-a-shipping-or-billing-address-ae7aef28.md\n  1+1+1  New List Category; 210; 220\n```\nThe refusal to *wire* these to a field is correct and principled — the corpus really does scope the\ncountry-code list to \"the vendor import file\", and the VAT catalogs really do belong to Forms and Fields.\nBut \"unwired\" and \"deleted\" are different answers, and the pipeline turns one into the other.\n\nTwo established precedents make a fix cheap and non-inferential:\n* `vset.g5.copy-down-from-purchase-order-if-available.unnamed` already sits in the graph with\n  `appliesToFieldId: null` — unresolved value sets **do** land, exactly like unresolved dependencies.\n* Group 4/5A created a **catalog-holder field** for precisely this case:\n  `field.capture-processing-admin.captured-header-fields-catalog`.\n\nReporting rule 2's failure has now cost this project a 2.36M-token re-run once. This is the same loss one\nstage later.\n\n---\n\n## 6. COMPRESSED RANGES\n\nCaptured, and captured well — 15 `compressedRanges` entries across the extracts, with en-dash vs hyphen\ncalled out explicitly (`Vat Amount 1 - 4` noted as \"space-hyphen-space, NOT an en-dash, and 'Vat' not\n'VAT'\"; `Level 1 Code - Level 10 Code` noted as plain ASCII hyphen). My independent sweep of the page-owned\nfiles found **no unrecorded range**:\n```\nconfigure-predefined-tax-codes-6b42509f.md:  (1-4)\npurchase-order-bill-to-…-210-…md:            Future Use 1-10\npurchase-order-ship-to-…-220-…md:            Future Use 1-10\n```\nall three recorded.\n\n**But `compressedRanges` is a dead-end container too.** `grep -n \"compressedRange\" bin/*.py` → no output.\nSurvival check against merge-bound text (roster field notes + `synth-valuesets.valueSets` + deps + steps):\n\n```\nLevel 1 Code / Level 10 Code   YES (survives in notes)\ntax code fields (1-4)          YES\nFuture Use 1-10                NO\nVat Amount 1 - 4               NO   <- and the graph carries the compressed LABEL as a value with no expansion\nVAT amount fields 1-4          NO\n```\nThe graph's capture-processing value set literally contains the string `Vat Amount 1 - 4` as a value with\nits expansion nowhere — a live rule-8 violation that this group diagnosed and could have patched.\n\n---\n\n## 7. THIN PAGES — honest or lazy?\n\n### Budget Configuration — **HONEST, and I re-proved it independently**\n```\ngrep -ril \"Budget Configuration\" .            -> 0 files (all four dirs, 2230 files)\ngrep -ril \"budgetConfiguration\" .             -> 0\ngrep -ril \"budget\" A/ T/                      -> 22 files  (16 admin + 6 tools)\ngrep -ril \"budget\" release-notes/ summaries/  -> 0\n```\nThe 22-file set matches `filesActuallyRead` exactly. `A/budget-approval-59251c3b.md` is 27 lines with no\nprocedure, no field, no nav path, and one outward pointer to the *Shared: Budget Setup Guide*. Zero fields\nis right, and refusing to re-home the 14-operand Audit Rules Budget data object is exactly right.\n\n**But the node as it will merge is the failure mode the brief warns about.** `bin/merge-group.py:84–91`\nwrites page nodes with only `id, name, navPath, navPathSourceQuote, navPathSourceFile, navPathAlternates,\nurl, group, coverage, uiVariant`. It does **not** carry `documentedBasis`, `verifyNotes`, `roleGates` or\n`aliases`, even though `assemble-parts.py:162–167` assembles all four. Budget Configuration has\n`navPathEvidence: EMPTY`, so it merges as:\n\n```\n{ id: page.budget-configuration, name: \"Budget Configuration\", navPath: [],\n  navPathSourceQuote: \"\", navPathSourceFile: \"\", url: \"/expense/admin/invoice/budgetConfiguration.asp\",\n  coverage: \"thin\" }\n```\nA page name and an `.asp` URL with **zero corpus support and nothing saying why** — and note\n`grep -ril \"\\.asp\"` returns 0 files corpus-wide, so the URL is not documented either. That is\nindistinguishable from a lazy miss. This is confirmed as a pre-existing pipeline gap, not a 5B invention:\nall 14 existing `configPages` print `documentedBasis: None`.\n**Recommendation: either carry `documentedBasis` + `verifyNotes` onto the page node, or drop the node.**\nDo not merge it bare.\n\n### List Management — **HONEST**\n20 files mention it, all 20 read, 3 documented click paths, one end-to-end procedure. The corpus itself\nsays the rest is undocumented: `A/use-a-custom-list-f3fc8bee.md` step 5 is literally\n`Fill out the remaining options, then select Save.` 14 fields is generous coverage of what exists.\n\n### Company Locations — the declared documentation gap is **REAL**\n`grep -rn \"Download the import template\"` returns exactly one line, in\n`T/import-shipping-or-billing-addresses-601c2549.md:29`, and no file in the corpus enumerates that\ntemplate's columns. `T/import-template-columns-7270f37b.md` is a Distributions file, not this one.\nCorrect and publishable.\nOne qualification the group missed: `T/company-locations-8b49554d.md:185` does say\n`Added clarification about filling in the Country and State/Province fields in the import template.` —\nso the corpus confirms two columns exist without naming the set.\n\n### Tax Administration — an honest gap nobody stated\n`grep -inE \"modify|remove|delete|edit\"` across `step-3-access-tax-authorities`, `tax-administration-tool`,\n`configure-tax-authorities`, `tax-administrator-experience`, `apply-vat-to-expense-type-groups`,\n`apply-vat-to-vendor-groups` returns **only front-matter lines**. The corpus documents how to **create**\na tax authority, rate type, rate, tax code, expense type group and vendor group — and never once documents\nhow to modify or delete any of them. For an automation that is a first-class fact and it is not recorded\nanywhere in the group's output.\n\n---\n\n## 8. NEW EXPERIENCE / LEGACY\n\nFilename sweep: 8 files carry `new-experience|legacy|classic|current-experience`, and\n**none of them touches these four pages**:\n```\npolicies-the-purchase-order-policy-new-experience-5a1ba7ef.md   purchase-order-matching-rules-new-experience-6c8fb80f.md\nusing-the-invoice-manager-page-new-experience-f83ba5fa.md       using-the-unassigned-invoice-page-new-experience-072e2f18.md\nconfigure-custom-audit-rules-legacy-ui-6cb4534e.md              end-user-experience-new-experience-85c2652b.md\ncomparison-classic-and-current-client-managed-capture-offerings-2fe966db.md   legacy-records-professional-only-8b425e3b.md\n```\nBody sweep for `new experience` intersected with the four pages' vocabulary: **zero files**.\n`uiVariant: \"undifferentiated\"` on all four is **correct and defended**, and the PO-Policy stub trap that\ndamaged Groups 1–2 does not recur here.\n\n**Two genuine variant facts were nonetheless left out, both in files nobody opened.**\n\n1. **The New User Experience `Display Tax` toggle.** Four files carry it —\n   `A/end-user-experience-new-user-experience-3fa9958b.md:41`,\n   `A/end-user-experience-new-user-experience-a299fcaf.md:23`, `A/overview-8b39e48a.md:33`,\n   `A/vat-at-header-and-line-item-level-8b39f76e.md:25` — and only the last was read. It is an end-user\n   control, so excluding it is right; but the group asserted \"the only New-Experience hit in the entire tax\n   corpus\" without having opened three of its four sources. Same file also gives the label pair\n   `Itemization Summary section or Itemizations section for the new UI` (`:29`) — a real new-UI label\n   variant for a section this page's fields write into.\n\n2. **The SAP Fiori navigation caveat — 57 files, zero in the graph.**\n   ```\n   grep -rl \"Fiori\" A/ T/  ->  57 files ;  grep -c Fiori kg-invoice-config.json -> 0\n   ```\n   Verbatim: `For example, when SAP Fiori UI themes are implemented, home page navigation is consolidated\n   under the SAP Concur Home menu.` Of the 57, exactly **one** was read by this group\n   (`A/country-code-list-8b3e2eda.md`), and both tax-domain carriers (`A/overview-8b38e2f7.md:25`,\n   `A/overview-8b39e48a.md`) are unread. This is the corpus explicitly saying the\n   `Administration > Invoice > X` navPath the whole graph is built on **is not universal**. It belongs in\n   `navPathAlternates` or a page note, and it is absent from all 14 existing pages too.\n\n---\n\n## 9. UNDETERMINED BY THE DOCUMENTATION — ranked\n\nThese are properties of the corpus. Recording them is the deliverable; none is a to-do against a tenant.\n\n1. **Is Canada supported for VAT?** `A/supported-countries-for-vat-8b38bab8.md` says the US, Canada and\n   India are not supported. `T/canada-de22c9f9.md` **and** `A/implementation-best-practices-8b39ab5d.md`\n   give complete four-field and two-field Canadian implementations. `A/overview-8b38e2f7.md:27` adds a\n   third framing (`Most European countries levy VAT; the United States does not`). Almost certainly\n   provisioning- and feature-dependent (Tax Authority calculation vs. VAT field capture). Unresolvable\n   here — and the group's \"tools-only\" framing must be corrected before merge.\n\n2. **Does predefining a tax code make all four VAT Tax Code fields lists, or only field 1?**\n   `A/configure-predefined-tax-codes-6b42509f.md`: `the user will now see the tax code fields (1-4) as a list`.\n   `A/step-7-optional-configure-predefined-tax-codes-be8bc5b8.md`: `the VAT Tax Code 1 field as a list`.\n   Same deliverable_id (41460672), identical four steps, different outcome. Correctly recorded, correctly\n   unresolved. Compounded by `A/step-1-add-vat-fields-to-forms-6d93bfcd.md`:\n   `Currently, in Tax Authority, Concur Invoice only supports one VAT amount field`.\n\n3. **What are the Tax Validation tab's control labels?** `step-3-configure-the-service` says\n   `Partner Account Number` / `Tax Validation Type` / `Tax Validation Level (Header or Line Item)`;\n   `work-with-the-tax-validation-page-options-c3fe1df5` says `Unique Tax Partner Number` /\n   `Request Type to be Analyzed` / `Form Level to Be Analyzed (header or line item details form)`.\n   Both recorded as parallel fields with parallel value sets — the right answer.\n\n4. **Where is the Invoice Tax Administrator role assigned?** Two nav paths in two same-titled files\n   (`b7f391c8`, `b903b7c8`). Recorded, unresolved, correct.\n\n5. **Is the Tax Type list closed?** `A/step-6-…-d8b7786d.md`:\n   `select a type of tax, international, domestic, taxable, etc., for this optional step, from the Tax Type list.`\n   The source's own \"etc.\" says no. The group emitted 3 values and disclosed the openness in notes — the\n   right call, and worth preserving verbatim through merge.\n\n6. **What are the Company Locations `Country Code` and `State/Province` option lists?** Never enumerated\n   for this page. The 249-row catalog is scoped to the vendor import file. `stateProvince` is documented\n   as having *become* a list (`T/company-locations-8b49554d.md:194`,\n   `Updated images to show that the State/Province field has changed to a list when creating a new\n   ship-to or bill-to address`) but its contents are never given. **Note:** the roster leaves\n   `fieldType: \"unknown\"` here; the corpus does state it is a list, and a Chromium driver needs\n   select-vs-type. That one is over-cautious.\n\n7. **Is State/Province required?** The page table says `(Optional)`; both PO import records say\n   `Required? = Y` for the same logical address. Recorded, unreconciled, correct.\n\n8. **Which page hosts the `Ship To Address` / `Bill To Address` search?**\n   `T/search-for-a-ship-to-or-bill-to-address-1d864cfe.md` never names a hosting page\n   (`grep -c \"Company Locations\"` = 0). The group dropped it to the end-user Purchase Request on strong\n   counter-evidence and documented the reasoning in the drop record. Well handled — this is the model for\n   the rest.\n\n9. **Where are connected list definitions authored?** `A/access-connected-lists-39dd2408.md` says the\n   Forms and Fields **Connected Lists tab**; `A/use-a-connected-list-1eaafd29.md` names a separate\n   **\"Connected List Definition tool\"** under the Shared Configuration administrator, a phrase that appears\n   nowhere else in either directory. Recorded, unresolved, correct.\n\n10. **How do you modify or delete anything on Tax Administration?** Not documented at all (§7).\n\n11. **What columns are in the Company Locations import template?** Not documented at all (§7).\n\n---\n\n## 10. WHAT WOULD CHANGE THE GRAPH — the short list\n\n| # | change | evidence |\n|---|---|---|\n| 1 | Land the 14 `orphanCandidates` (323 values) as value sets with `appliesToField` naming the real owner and `resolved:false`, or as catalog-holder fields per `field.capture-processing-admin.captured-header-fields-catalog`. | `merge-group.py:125`; `assemble-parts.py:297`; no reader anywhere |\n| 2 | Correct the \"tools-guides-only\" Canada claim and cite `A/implementation-best-practices-8b39ab5d.md`. | file never read; `grep -c 8b39ab5d` → 0 in all artifacts |\n| 3 | Give `contradictions` and `compressedRanges` a home (page/field notes at minimum). 47 contradictions, 15 ranges; `grep -n \"contradict\\|compressedRange\" bin/*.py` → nothing. | ~36/47 have no textual echo in merge-bound text |\n| 4 | Patch `vset.g5.fields-supported-for-capture-header-fields…` with the tools-guides `Vat 2 (Secondary Tax – Canada PST/QST)` row and the wider `Vat 1` scope. | parsed both raw tables; `grep -c \"Vat 2\"` graph → 0 |\n| 5 | Build the missing configSteps: Tax Validation (10 fields) and the Vendor Groups wizard (12 fields); Company Locations edit + delete (4 fields). | 28/59 tax fields and 4/27 CL fields appear in no step |\n| 6 | Emit the three role gates as `precedes` edges to `User Permissions`, per `dep.g1.033/034/055/056`. | 0/57 role deps |\n| 7 | Capture `Calculated Tax Amount`, `Tax Rate`, `(Optional) Tax Reference ID` and `Vendor includes VAT in the Unit Price`. | `A/step-4-…-37f6c7ba.md:47,49,51`; `A/…-9eebdaa0.md`; `grep -c` → 0 everywhere |\n| 8 | Carry `documentedBasis` / `verifyNotes` onto page nodes, or drop `page.budget-configuration`. | `merge-group.py:84–91` |\n| 9 | Record the SAP Fiori nav caveat as a navPath alternate. | 57 files; 0 in graph |\n| 10 | Housekeeping: `mustReadNeverCited` for Company Locations is wrong (it is `overview-8b494195.md` + `required-roles-476a5f62.md`); `mustReadSkipsDeclared` repeats 7 files as duplicate entries (`other-countries-84722445` three times); `map-inventory.md §4.5` says the 210/220 tables are 12 rows, they are 11. | recomputed |\n\n\n---\n\n# Group 5B — Adversarial Critic: CORRECTNESS\n\nLens: what is **wrong**. Every claim below has a command behind it. Ten headings, in the order asked.\n\nScope audited: 4 rosters (100 fields), `synth-valuesets.json` (10 sets + 14 orphans),\n`synth-dependencies.json` (57 edges), `synth-steps.json` (6 steps / 79 sequence entries),\n12 extract files, both merge scripts, and the live graph.\n\n**Headline:** the agents' work is the cleanest this project has produced — 100/100 quotes\nbyte-exact, zero invented values, zero unearned `both`, zero false raw-table flags, perfect\nRepair discipline. The severe defects are **four bad edges and one plumbing hole that silently\ndiscards 95% of the enumerated values this group found.**\n\n---\n\n## 1. QUOTE FIDELITY — CLEAN (100/100, byte-exact)\n\nEvery field's `sourceQuote` was grepped as an *exact, un-normalised* substring of its cited file.\nNot sampled — scripted over all four rosters.\n\n```\n$ python3 scratchpad/qcheck.py           # exact `in` test, no dash/whitespace folding\nTOTAL fields=100 quoteMisses=0 badPaths=0\n```\n\nExtended to every other quote-bearing record:\n\n| record class | n | verbatim | method |\n|---|---|---|---|\n| roster fields | 100 | 100 | exact `in`, then normalised |\n| dependency `sourceQuote` | 57 | 57 | exact `in` + validator-normalised |\n| value-set `sourceQuote` | 10 | 10 | exact `in` |\n| orphan-candidate `sourceQuote` | 14 | 14 | exact `in` |\n| quotes embedded in step `rationale`/`action` | 104 | 103 | regex-extracted `\"…\" (file.md)` pairs |\n\nThe single step-rationale \"miss\" is **not a defect**: `grp5b-create-and-populate-list` order 15\ncites the same file twice, giving the full relative path the first time and the bare basename\n`use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md` on the back-reference.\nThe quote itself verifies:\n\n```\n$ grep -F -c \"The Expense Type List Item Key field must be the first item in the connected list\" \\\n  .../admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md\n1\n```\n\n`sourceFile` format is clean everywhere — **zero** `CONCUR_INVOICE/` prefixes, zero absolute paths,\nzero bare basenames in any `sourceFile` field. The 18 legacy prefixed nodes are not extended here.\n\n`bin/assemble-parts.py` dry run over the parts directory: **`PRE-MERGE PROBLEMS: none`**,\n`quotes verbatim: 100 ok / 0 bad`.\n\n---\n\n## 2. INVENTED VALUES — CLEAN (0 inventions, 0 Yes/No completions)\n\nNine fields carry `validValues` (16 strings total) and all 10 value sets were checked string-by-string\nagainst their cited file. Zero misses.\n\n**No Yes/No pair anywhere in this group.** The only two-member sets are `Header`/`Line Item` and\n`header`/`line item details form`, both fully enumerated in one sentence each, and both deliberately\nkept as *separate contradicting* sets rather than merged.\n\nThree near-misses were caught by the build itself and I confirm all three calls:\n\n* `taxRateTypeCalculationMethod` = `[\"Percentage\"]` from *\"Select Percentage. This is the default\n  choice.\"* — \"default choice\" implies alternatives; none is named; **none was invented**.\n* `expenseTypeGroupTaxCondition` / `vendorGroupTaxCondition` = `[\"Always\"]` — no `Never`/`Conditional`\n  invented.\n* `expenseTypeGroupAppliesTo` and `vendorGroupAppliesTo` arrived from the tables lens carrying\n  `[\"Payment Request\"]` / `[\"Payment request\"]` and were **stripped to `[]`**, with the reasoning\n  written into `roster-tax-administration.json → verifyNotes §4`:\n  *\"prose naming one document type, not an enumerated option list … I confirmed by grep that 'Applies To'\n  appears in exactly two tax files corpus-wide.\"* Verified: `grep -c \"AppliesTo\" synth-valuesets.json` = 0.\n  Correct call, and — unusually — a documented one.\n\n`vendorGroupTaxType` is correctly modelled as an **open** set (`international, domestic, taxable`)\nbecause the source ends the list with `etc.`, and the closed vendor-import list `DITX / DNTX / INTX`\nfrom `the-import-template-fields-and-descriptions-8b53850b.md` was explicitly kept off it. Right call:\ndifferent surface.\n\n---\n\n## 3. VALUE-SET WIRING — 10/10 wired, but **323 of 339 values never reach the graph**\n\n### 3a. The wired sets are clean\n\n```\nWIRED  Tax Administration  taxRateTypeCalculationMethod   quote=OK badvals=[]\nWIRED  Tax Administration  taxValidationType              quote=OK badvals=[]\nWIRED  Tax Administration  requestTypeToBeAnalyzed        quote=OK badvals=[]\nWIRED  Tax Administration  taxValidationLevel             quote=OK badvals=[]\nWIRED  Tax Administration  formLevelToBeAnalyzed          quote=OK badvals=[]\nWIRED  Tax Administration  expenseTypeGroupEffectiveDatesFilter  quote=OK badvals=[]\nWIRED  Tax Administration  vendorGroupEffectiveDatesFilter       quote=OK badvals=[]\nWIRED  Tax Administration  expenseTypeGroupTaxCondition          quote=OK badvals=[]\nWIRED  Tax Administration  vendorGroupTaxCondition               quote=OK badvals=[]\nWIRED  Tax Administration  vendorGroupTaxType                    quote=OK badvals=[]\n```\n\nEvery `appliesToField` is **exactly** a `name` in the roster for its `appliesToPage`.\n`assemble-parts.py` agrees: no `VALUE-SET-WOULD-LAND-UNWIRED`. The predecessor's \"16 of 18 attached\nto nothing\" failure does **not** recur.\n\nEvery extract `valueSetCandidate` (34 across the 12 extract files) is accounted for — wired,\norphaned with a written `whyNoOwner`, or stripped with a written reason. Nothing vanished silently.\n\n### 3b. **SEVERE — the orphans are dropped on the floor by the plumbing**\n\n`synth-valuesets.json` ships **10 wired sets carrying 16 values** and **14 orphanCandidates carrying\n323 values**:\n\n```\n$ python3 -c \"...synth-valuesets.json...\"\norphan sets: 14 values: 323\nwired sets:  10 values: 16\n```\n\nThose 323 include the complete **249-row Country Code List**, the **27-row Available VAT Fields**\ncatalog, the **12-row Prorated VAT Fields** catalog, the 4-row VAT labels table, both Canada VAT\nlabelling schemes, the 4 CFDi validation statuses, the `DITX/DNTX/INTX` vendor Tax Type codes and\nthe `Level 1 Code – Level 10 Code` expansion.\n\nThey reach the graph **nowhere**:\n\n* `bin/assemble-parts.py:211-214, 297` routes them to `result['orphanValueSetCandidates']`.\n* `bin/merge-group.py:125` iterates **only** `r.get('valueSets', [])`. Nothing in merge-group ever\n  reads `orphanValueSetCandidates`.\n\nThis directly violates the brief's Rule 2 — *\"LONG CATALOGS ARE THE MOST VALUABLE ARTEFACT IN THE\nCORPUS\"* — not through any agent's fault but through the pipeline. A 2.36M-token re-run has already\nbeen paid for once to recover a catalog of this class.\n\n**The graph already has the mechanism.** `configValueSets` supports `knownGap`, and\n`bin/validate-graph.py:104-108` demotes an unwired set from ERROR to WARN when it is set. The\nprecedent node exists, added yesterday:\n\n```\nvset.g5.copy-down-from-purchase-order-if-available.unnamed\n  appliesToFieldId: null   knownGap: true\n  notes: \"Accepted gap 2026-08-31 … Left unwired deliberately.\"\n```\n\n**Fix (two small edits, both mechanical):**\n1. `bin/assemble-parts.py` — after line 211, append each orphan into `value_sets` with\n   `'knownGap': True` (carrying `enumerates` → `context` and `whyNoOwner` + `whatWouldFixIt` → `notes`).\n   The existing pre-merge check will then emit `VALUE-SET-WOULD-LAND-UNWIRED` ×14 and\n   `VALUE-SET-ENTRIES-NOT-IN-FILE` ×2 — both **non-fatal** (only QUOTE-NOT-VERBATIM /\n   MISSING-SOURCE-FILE / DUPLICATE-FIELD-NAME / EMPTY-FIELD-NAME return 1).\n2. `bin/merge-group.py:125-140` — copy `knownGap` through into the emitted node, else those 14\n   become ERROR-level `unwired-value-set` and fail the build.\n\nThe 2 expected `VALUE-SET-ENTRIES-NOT-IN-FILE` warnings are *correct and self-disclosed*, not\ndefects: orphan 0 encodes each country row as `\"<Code> — <COUNTRY>[note]\"` and says so verbatim\n(*\"The em-dash separator and the square brackets are THIS RECORD'S encoding, not source characters\"*);\norphan 11 expands the compressed range `Level 1 Code - Level 10 Code` and says so. Rule 8 satisfied.\n\n### 3c. Same root cause — the contradiction record is not a graph citizen\n\nThe extracts hold **47 structured `contradictions` records**. `assemble-parts.py` never reads\n`extract-*.json` at all, and `merge-group.py` discards `mapping`, `critic`,\n`orphanValueSetCandidates`, `dropped`, `splitsProposed`, `verifyNotes`, `roleGates`,\n`documentedBasis` and `identityNotes`. I measured survival by verbatim-reading match:\n\n```\ncontradiction records: 47 | at least one verbatim reading present in the assembled result: 39\n```\n\n39 survive **only because an agent hand-copied them into a field's `notes` or a dependency's\n`condition`** (e.g. `taxCodeName.notes` carries the `tax code fields (1-4)` vs `VAT Tax Code 1`\ncontradiction verbatim; `stateProvince.notes` carries the Optional-vs-Required=Y contradiction).\nThat is luck, not architecture. The brief's core instruction — *\"record BOTH and STATE THE\nCONTRADICTION\"* — currently has no node type to land in.\n\n---\n\n## 4. PAGE OWNERSHIP — CLEAN (0 mis-homed fields), one bad *edge* (see §9)\n\nMechanical sweep: for every distinct `sourceFile`, how many fields it supplies and whether it names\nthe page it is filed under.\n\n```\n########## Tax Administration\n   13 fields | page-name hits   0 | step-4-add-a-new-tax-authority-7f90cede.md\n   13 fields | page-name hits   0 | step-5-...-expense-type-group-e8d87361.md\n   12 fields | page-name hits   0 | step-6-...-vendor-group-d8b7786d.md\n    8 fields | page-name hits   3 | step-3-configure-the-service-14c3ef13.md\n    6 fields | page-name hits   4 | step-3-access-tax-authorities-2fae4ae3.md\n    3 fields | page-name hits   1 | work-with-the-tax-validation-page-options-c3fe1df5.md\n    2 fields | page-name hits   4 | the-basic-process-12a5686d.md\n    2 fields | page-name hits   3 | configure-predefined-tax-codes-6b42509f.md\n########## List Management / Company Locations — every file names its page\n```\n\nThe three zero-hit files are **not** mis-homed: they are Steps 4/5/6 of the numbered procedure whose\nStep 3 lands on the page — `step-3-access-tax-authorities-2fae4ae3.md` reads *\"Click Tax Administration\nleft menu. The Tax Administration page appears.\"* then *\"Click the Tax Authorities tab.\"*, and step-4\nopens *\"On the Tax Authorities page, click New.\"* Chain documented.\n\n**The two ownership traps this group faced were both caught by the build, and I re-verified both\nindependently:**\n\n* **22 PO-import columns** (`poImport210BillTo_*`, `poImport220ShipTo_*`) dropped from Company\n  Locations. Correct: `grep -c \"Company Locations\"` = 0 in both record-format files, and their parent\n  is `concur-invoice-purchase-order-import-specification-8b443eee.md`. This is exactly the\n  predecessor's \"seven fields belonging to a separate import tool filed under the wrong page\"\n  defect, and it did **not** recur.\n* **`shipToAddressSearch` / `billToAddressSearch`** dropped. Correct — the corpus places that control\n  on the end-user purchase request, not the admin page:\n  ```\n  $ grep -rl \"Ship To Address\" both guide dirs   → 6 files, none a Company Locations topic\n  $ grep -n \"Ship T\" .../complete-the-purchase-request-3dfd5f5c.md\n  31: When the user clicks the Ship To Address or Bill To Address field, a list of the available\n      addresses (previously configured by the Invoice Configuration Administrator) appears…\n  ```\n\n**Reverse check (name collision with a different control elsewhere):** 4 collisions, all benign —\n`newButton`, `modifyButton`, `removeButton`, `saveButton` exist on both **Company Locations** and the\nalready-built **Exceptions** page. `merge-group.py` keys its index on `(page, field)` and mints\n`field.<pageid>.<slug>` ids, so these are distinct nodes. The only consequence is\n`validate-graph.py`'s step check, which flattens field names globally — it can only produce a false\n*negative*, never an error. No action needed; recorded so it is not re-raised.\n\n---\n\n## 5. DUPLICATE NAMES — CLEAN (0 hard errors)\n\n```\n=== duplicate name WITHIN one new page ===   (none)\n=== same name on 2+ of the NEW pages ===     (none)\n=== new name colliding with an EXISTING graph field name ===\n  newbutton / modifybutton / removebutton / savebutton : Company Locations vs Exceptions  (benign, §4)\n```\n\n17 *labels* repeat within Tax Administration (`Tax Code` ×3, `Rate Type` ×3, `Effective Date` ×3,\n`Applies To` ×2 …). Every one is a genuinely distinct control on a different tab/wizard, correctly\ndisambiguated by name prefix (`expenseTypeGroup*` / `vendorGroup*` / `taxAuthorities*`). This is the\nright modelling, not a defect.\n\n---\n\n## 6. WRONG DROPS — **none. I would reverse zero of the 85 drops.**\n\n```\nTax Administration — 39 dropped, 0 without duplicateOf\nList Management    —  8 dropped, 0 without duplicateOf\nCompany Locations  — 38 dropped, 24 without duplicateOf  (22 PO-import + 2 address-search)\n```\n\nAll 47 dedupes cite a surviving twin. All 24 substantive drops are page-ownership calls verified in\n§4. Applying the calibration rule — *a row in a documented field table IS a field* — **not one\ndocumented table row was dropped**. I re-read all three field tables against the roster:\n\n* `step-4` General (4) + Tax Rate Types (2) + Tax Rates (3) = **9/9 captured**\n* `step-3-configure-the-service-14c3ef13.md` Tax Validation table = **6/6 captured** + the Search link\n* `step-5` and `step-6` Group Name tables = **6/6 each**\n* `step-3-access-tax-authorities-2fae4ae3.md` grid = **4/4**\n* `add-a-shipping-or-billing-address-3b51c816.md` = **12/12**, in source order, with every\n  `(Required)` / `(Optional)` marker preserved in `notes`\n\n**One defective drop record** (audit trail only, does not reach the graph):\n\n```\n*** DANGLING duplicateOf: addressSearchField -> 'shipToAddressSearch' (not a surviving field)\n```\n\n`addressSearchField` is logged as a duplicate of `shipToAddressSearch`, which was itself dropped on\npage-ownership grounds. The pointer terminates in nothing, and the \"duplicate\" framing mislabels an\nownership refutation as a dedupe. **Fix:** set `duplicateOf: null` and copy the\n`PAGE OWNERSHIP REFUTED` reason from `shipToAddressSearch`.\n\n---\n\n## 7. REPAIR DISCIPLINE — **PERFECT. The Group 5A \"Repair can ADD fields\" hole is closed.**\n\nThe build log records the 5A defect (*Expense Types \"repair recovered 17/14\"*) and the constraint\nimposed for 5B. It held exactly:\n\n```\n### Tax Administration: extracts=98 roster=59 dropped=39 | extract-union covers roster? YES\n### List Management:    extracts=22 roster=14 dropped= 8 | YES\n### Company Locations:  extracts=65 roster=27 dropped=38 | YES\n### Budget Configuration: 0 = 0 + 0                      | YES\n```\n\n98 = 59 + 39, 22 = 14 + 8, 65 = 27 + 38. **Zero roster names absent from the extract union** — no\nrecord was created during Repair, so nothing entered unrefuted. Zero extract names unaccounted for.\n\n**`splitsProposed` (7) reviewed on their merits — I endorse all seven as reported-not-emitted.**\nThe reasoning is right in each case, and all six/four/three contexts are real:\n\n* `buttonNew` → 6 contexts. I confirmed New exists on Tax Authorities, the Tax Rate Types step\n  (*\"On the Tax Rate Types step, click New\"*), the Tax Rates step (*\"On the Tax Rates step, click New\"*),\n  the Tax Code tab, and both group tabs (*\"Click New. The Group Name step appears.\"* ×2). Six is right.\n* `buttonSave` → 4 contexts; *\"3.  Click Save.\"* does occur twice in step-4, plus Tax Code, plus the\n  Tax Validation tab's *\"1.  Click Save.\"* Correct.\n* `buttonSearchGroups` → the split note is honest that this is the **one place the page's own\n  modelling is inconsistent** (every other group control is doubled `expenseTypeGroup*`/`vendorGroup*`;\n  Search is not). Worth acting on in a future refutable pass, not now.\n* List Management's `addNewListCategorySaveButton` — a real third Save, correctly withheld.\n* `listSelection`/`listItemsNewButton` is filed \"for transparency only, no action needed\" and is\n  indeed already correctly split. Fine.\n\n---\n\n## 8. `fromRawHtmlTable` FLAGS — CLEAN, and the absence is **verified, not defaulted**\n\n```\n$ grep -c '<table' over every one of the 22 distinct cited files\n  (zero hits on all 22)\n$ fields with fromRawHtmlTable=true\n  (none)\n```\n\nSo `false` on all 100 records is a measured fact. `assemble-parts.py` reports no\n`FALSE-RAWHTML-FLAG`, and there is no missing *true* flag either.\n\nThe two genuine raw-`<table>` files in the neighbourhood\n(`what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md`,\n`configuring-forms-and-fields-in-capture-processing-7c14446c.md`) belong to the already-built\n**Capture Processing Admin** page and were correctly not re-homed. Their sharp finding — the tools\ntwin has a `Vat 2 (Secondary Tax – Canada PST/QST)` row and the admin twin **has no Vat 2 row at\nall** — survives only inside `map-inventory.md`, which `merge-group.py` discards (§3c).\n\n---\n\n## 9. DEPENDENCIES AND STEPS — steps clean, **four edges need action**\n\n### 9a. Steps — CLEAN\n\n```\nid prefix check: all 6 begin grp5b-      ✓\nproblem step entries: 0                  (all 79 sequence entries resolve to a real page AND a\n                                          real field ON THAT PAGE, checked against graph + rosters)\nrationale tags: CORPUS-STATED 76 | INFERRED 3 | UNTAGGED 0   (11 rationales carry both tags,\n                                          marking which half of the claim is inferred)\n```\n\nRationales do say what breaks: *\"Run the Tax Administration wizard first and it completes without any\nerror — the authority is simply inert\"*; *\"spending that key on the wrong definition here cannot be\nundone by editing List Management afterwards.\"* This is the best-evidenced part of the build, and it\nis where several contradictions actually survive.\n\n### 9b. Endpoint resolution — no typos, but 6 permanently-dangling target pages\n\n```\n57 dependencies, 114 endpoints, unresolved: 10 — ALL 'PAGE-UNKNOWN', ZERO 'FIELD-NOT-FOUND'\n```\n\nNo mistyped endpoint against a built page. But of the 10 forward refs, only 3 point at pages on the\nroadmap (Peppol Configuration ×1, Localization ×1, Purchase Order Import ×2 ≈ PO Matching). **Six\nname pages that are on no build list at all** and so will never resolve:\n`Vendor Manager` (#27), `Employee Import` (#33), `Feature Hierarchies` (#52, #53),\n`Vendor Employee Access Import` (#54), `Check Configurations` (#55). Two of those\n(`Employee Import`, `Vendor Employee Access Import`) are **import file specs, not admin pages**.\nDecide whether they become pages or whether the edges become notes.\n\n### 9c. **#26 — WRONG FEATURE. Drop it.**\n\n```\n#26 [triggers] Tax Administration::turnOnTaxValidation -> Exceptions::exceptionCode\n    quote: \"This exception uses the exception code INVXMLST, so workflow rules can be written…\"\n    file : step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md\n```\n\nThat file documents **Digital Tax Invoice (CFDi) Validation**, a third-party service:\n*\"The client must contract with the validator, and work with SAP Concur support to enable the feature\nand configure any desired workflow or audit rules.\"* It **never mentions** `Turn On Tax Validation`,\nthe Tax Validation tab, or Tax Administration. The edge's `condition` asserts *\"The optional digital\ntax invoice validation configured as part of Tax Validation setup\"* — a claim the corpus does not\nmake; it conflates two similarly-named features (`Tax Validation` = tax-service-provider amount\nvalidation, enabled per `step-1-enable-the-tax-validation-feature-sap-concur-staff-31fca0d8.md`).\n\n**The build refutes itself here:** the Tax Administration roster's own declared skip for this same\nfile reads *\"configured via third-party contract + SAP Concur support, no admin field/page named.\"*\nThe roster is right; the edge is wrong.\n**Action:** delete #26. Keep `INVXMLST` as a note on the Exceptions page if wanted.\n\n### 9d. **#7 — quote names neither endpoint, and duplicates #5. Drop or re-target.**\n\n```\n#7 [precedes] Forms and Fields::formType -> Tax Administration::taxAuthorityName\n   quote: \"The admin must add at least one VAT field at the header and at the line item level for the\n           Specify Tax in Invoice Details or Itemization Summary feature to show on the Payment\n           Request Header form of the invoice.\"\n   file : configure-the-specify-tax-in-invoice-details-or-itemization-summary-feature-11c6df01.md\n\n$ grep -in \"tax authority\" .../11c6df01.md\n  (no output — the file never mentions Tax Authority)\n```\n\nThe real ordering edge already exists, cleanly stated, as **#5**: *\"Clients need to add VAT fields to\nthe relevant forms before they start configuring the Tax Authority feature.\"*\n(`the-basic-process-12a5686d.md`). #7 adds nothing and grounds a Forms-and-Fields → Tax-Administration\n`precedes` claim on a sentence about a different feature's visibility.\n\n**Compounding audit defect (the claims are exactly inverted).** The roster's declared skip for\n11c6df01 says *\"no record cites this file directly\"* and *\"the gate is captured verbatim from its\ntwin, `control-tax-amount-handling-8540cd38.md`.\"* In fact 11c6df01 **is** the `sourceFile` of #7,\nand 8540cd38 is the `sourceFile` of **zero** records. Both files carry the identical sentence:\n\n```\n$ grep -n \"at least one VAT field\" 11c6df01.md 8540cd38.md\n  11c6df01.md:23: …The admin must add at least one VAT field at the header and at the line item level…\n  8540cd38.md:23: …The admin must add at least one VAT field at the header and at the line item level…\n```\n\n**Action:** delete #7 (redundant with #5). If a Forms-and-Fields-internal gate is wanted, author it\nbetween two Forms and Fields fields and cite `control-tax-amount-handling-8540cd38.md`, which states\nthe same rule *plus* the negative case.\n\n### 9e. **#13 vs #14 — identical corpus sentences, two different edge shapes**\n\nstep-5 and step-6 carry the same rule verbatim, but the graph models them differently:\n\n```\n#13 expenseTypeGroupExpenseTypes  --depends_on-->  expenseTypeGroupUnavailableExpenseTypes\n#14 vendorGroupUnavailableVendors --depends_on-->  vendorGroupTaxAuthorityFilter\n```\n\nA consumer asking *\"what determines the Unavailable Expense Types pane?\"* gets nothing, while the\nvendor twin answers \"the selected tax authority\". One of the two shapes is wrong; at minimum they\nshould mirror.\n**Action:** add `expenseTypeGroupUnavailableExpenseTypes --depends_on--> expenseTypeGroupTaxAuthorityFilter`\nwith the step-5 quote *\"Any expense types that are already used for this tax authority appear in the\nUnavailable Expense Types pane with the name of the group.\"* (grep -F -c = 1 in\n`step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md`).\n\n### 9f. **MISSING EDGE — a documented conditional field appearance, unmodelled**\n\n`step-4-add-a-new-tax-authority-7f90cede.md`, Tax Rates table, Rate Type cell:\n\n```\nOnce you select the type, the Tax Percent field appears.\n```\n\nThis is a field that **does not exist until another field is set** — precisely what a Chromium\ncrawler must know — and there is no edge for it:\n\n```\n$ grep -c \"Tax Percent\" synth-dependencies.json\n0\n```\n\n**Action:** add `Tax Administration::taxRateTaxPercent --depends_on--> Tax Administration::taxRateRateType`,\ntype `depends_on`, `sourceQuote` = *\"Once you select the type, the Tax Percent field appears.\"*,\n`sourceFile` = `concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md`.\n\n### 9g. Two weaker edges — worth a note, not a rebuild\n\n* **#42** `List Management::listName precedes Forms and Fields::fieldsTabList`. The `sourceQuote`\n  (*\"…to perform the following tasks, typically in the order shown.\"*) does **not** itself state a\n  direction; the order lives in the numbered list that follows, and that list actually runs\n  Forms and Fields (1-3) → **List Management (4)** → Forms and Fields (5) → validations (6). The\n  `condition` discloses the inference and quotes item 4. The modelled leg (4→5) is real; the\n  first leg (1-3 → 4) is unmodelled.\n* **#17** `tabVendorGroups depends_on tabExpenseTypesGroup` on *\"Ensure that you are consistent if you\n  configure expense type groups or vendor groups and define the VAT calculation mode.\"* That is a\n  consistency **advisory**, not a dependency between two tabs. Consider retyping or demoting to a note.\n\nThe other 51 edges I read individually; their quotes state the relationship. 5 edges explicitly\ndisclose `INFERRED` endpoint pairing in their `condition` (#2, #7, #10, #42, #57) — that disclosure\ndiscipline is good and should be kept.\n\n---\n\n## 10. UNEARNED `uiVariant` CLAIMS — CLEAN (zero `both`)\n\n```\npage uiVariant: all four = 'undifferentiated'\nfield uiVariant: {'undifferentiated': 100}\nfields claiming \"both\": NONE\n```\n\n**Zero new unearned `both` claims.** The three outstanding on Audit Rules are not extended. The\nTax Administration crosscut lens states the honest reason — *\"the only New-Experience hit in the\nentire tax corpus is an end-user Display Tax toggle, not an admin control\"* — and Company Locations\nrecords the 2014 revision-history *\"two user interfaces\"* note in `notes` without upgrading the flag.\nThat is `undifferentiated` used correctly: nobody checked, and it says so.\n\n---\n\n## 11. ONE OPERATIONAL PRECONDITION (not a parts defect — but it will bite at merge)\n\n`assemble-parts.py` recovers `navPathEvidence` **only** from the workflow journal\n(`nav_from_journal`). No `.jsonl` journal exists on disk. My dry run:\n\n```\nBudget Configuration | navPathEvidence: 0\nCompany Locations    | navPathEvidence: 0\nList Management      | navPathEvidence: 0\nTax Administration   | navPathEvidence: 0\n```\n\nMerged as-is, all four pages get `navPath: []` with empty `navPathSourceQuote`/`navPathSourceFile` —\nand **`bin/validate-graph.py` never checks `navPath`**, so it passes silently. `INVOICE-CONFIG-MAP.md`\nis explicit that this is the load-bearing field: *\"Direct `goto` on an admin URL bounces via\n`dcredirect`… the URL identifies the page, the navPath reaches it.\"*\n\nThe evidence exists in prose — `map-navigation.md` lines 24-28 give **five** distinct paths for Tax\nAdministration including the `Administration > Invoice Admin > Tax Administration` alias and the\n`Tax Administration link` / `Tax Administrator link` contradiction.\n**Action:** run `assemble-parts.py --journal <journal.jsonl>`, or backfill `navPathEvidence` into the\nfour rosters before merging.\n\n*(Related, and deliberately **not** raised as a defect: no page `url` in this graph is corpus-grounded\n— `grep -ril \"\\.asp\"` over the corpus returns 0 files. All 18 URLs come from the project's own\n`INVOICE-CONFIG-MAP.md`, an intentional out-of-corpus navigation survey. That is a governed exception,\nnot a 5B invention. Noted so a later critic does not re-derive it.)*\n\n---\n\n## Ledger\n\n| # | Finding | Severity | Changes the graph? |\n|---|---|---|---|\n| 1 | 323 orphan values (incl. 249-row country catalog) never merged — plumbing gap | **severe** | yes, +14 sets / +323 values |\n| 2 | Dep #26 links `turnOnTaxValidation` to a different feature's exception | **severe** | yes, −1 edge |\n| 3 | Dep #7 grounded on a quote naming neither endpoint; duplicates #5 | high | yes, −1 edge |\n| 4 | #13/#14 asymmetry on identical sentences | moderate | yes, +1 edge |\n| 5 | Missing \"Tax Percent field appears\" conditional edge | moderate | yes, +1 edge |\n| 6 | navPath empty for all 4 pages without the journal | moderate | yes, 4 page nodes |\n| 7 | 47 contradiction records have no node type; 39 survive by hand-copy only | moderate | schema |\n| 8 | `addressSearchField` dangling `duplicateOf` | low | audit trail |\n| 9 | `newListCategoryOption` asserted as control while same string refused as value | low | 1 field |\n| 10 | Roster's \"word-for-word identical\" claim about `1eaafd29` is false | low | audit trail |\n\n**Verdict: MERGE after acting on findings 1–6.** Findings 2, 3 and 5 are three edits to\n`synth-dependencies.json`; finding 4 is one addition; finding 1 is two lines in `bin/`; finding 6 is\na command-line flag. The 100 field records themselves are, as far as I can make them fail, correct.\n\n### Detail on findings 9 and 10\n\n**9.** The only sentence is *\"Create New: Select New List Category and, in Add New List Category, type\na name and select Save.\"* `orphanCandidate[10]` refuses to wire `[\"New List Category\"]` to\n`listCategory` because membership is *\"plausible but unstated\"* — yet the roster emits the same string\nas a standalone field `newListCategoryOption`. Both are assertions from one sentence; the field\nversion tells a crawler a separate control exists. The roster's contingency is recorded\n(*\"if it is ever established to be a value it must move into listCategory.validValues and this field\nmust be removed\"*), so the asymmetry is a live choice, not an oversight — but it is a choice, and it\ncurrently resolves against the more conservative option.\n\n**10.** `roster-list-management.json` skip rationale claims `use-a-connected-list-1eaafd29.md` is\n*\"word-for-word identical to use-a-custom-list-f3fc8bee.md.\"* `diff` of the two bodies shows three\nreal differences: the role sentence (*\"the role of Invoice Admin\"* vs *\"the roles of Invoice Admin\nand Shared Configuration administrator\"*), the nav rendering (`Select Administration\\>Invoice.` vs\n`Select Administration  Invoice .`) and *\"When you define the list\"* vs *\"When defining the list\"*.\nThe substance was captured elsewhere (role contradiction, and the nav trap in `verifyNotes` §12), so\nno graph change — but the stated reason is inaccurate and a later reader would trust it.\n",
   "orphanValueSetCandidates": [
     {
@@ -4285,6 +5061,10 @@
     "valueSetsKnownGap": 14,
     "valuesInSets": 339,
     "dependencies": 57,
-    "steps": 6
+    "steps": 6,
+    "contradictions": 24,
+    "contradictionReadings": 74,
+    "compressedRanges": 10,
+    "rangeNames": 62
   }
 }

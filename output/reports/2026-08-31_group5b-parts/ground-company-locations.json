@@ -1,0 +1,265 @@
+{
+  "contradictions": [
+    {
+      "kind": "requirement",
+      "topic": "State/Province is optional on the Company Locations add-address form but mandatory in the Purchase Order address import records that create the same rows",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "stateProvince"
+      },
+      "readings": [
+        {
+          "summary": "The Company Locations add-address field table marks State/Province as optional, so an address typed on the page can be saved with the state or province left blank.",
+          "sourceQuote": "    State/Province\n    \n    (Optional)",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        },
+        {
+          "summary": "The Company Locations topic's own revision history records State/Province being changed TO optional on September 9, 2016, confirming the optional marking is deliberate and dated rather than a table typo.",
+          "sourceQuote": "-   State/Province field now an optional field",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/company-locations-8b49554d.md"
+        },
+        {
+          "summary": "The Purchase Order Bill-to Address (record type 210) import format marks State/Province Required? = Y, so a bill-to address arriving by import must carry a state or province.",
+          "sourceQuote": "State/Province\n\n | \n\nMaximum 255 characters\n\n | \n\nY",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+        },
+        {
+          "summary": "The Purchase Order Ship-to Address (record type 220) import format likewise marks State/Province Required? = Y for the ship-to twin of the same address record.",
+          "sourceQuote": "State/Province\n\n | \n\nMaximum 255 characters\n\n | \n\nY",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+        }
+      ],
+      "consequenceForWriter": "Treat State/Province as OPTIONAL when driving the Add New Ship To / Bill To Location window - do not fail a step because the field is blank, and do not assert a required-field error if it is left empty. Treat it as REQUIRED when generating or validating a Purchase Order 210/220 import row: always populate it there. If a single value set feeds both paths, populate State/Province unconditionally, because that satisfies both accounts; never assert the reverse (that a blank one will be rejected on screen).",
+      "notes": "Hypothesis: the two rules belong to two different entry paths rather than to one stored constraint - the browser form relaxed the rule in 2016 while the batch importer's record specification was never re-cut, so the same logical address column is validated differently depending on whether it arrives through the UI or the feed file. A second, weaker hypothesis is that the import requirement is a file-format (positional column) requirement rather than a value requirement, but the corpus never says so."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Name is required on the Company Locations add-address form but optional in the Purchase Order address import records",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "locationName"
+      },
+      "readings": [
+        {
+          "summary": "The Company Locations add-address field table marks Name as required - and elsewhere in the same table Name is the value searched on when picking a Bill To or Ship To address.",
+          "sourceQuote": "    Name\n    \n    (Required)",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        },
+        {
+          "summary": "The Purchase Order Bill-to Address (record type 210) import format calls Name an optional name, so a bill-to address can be imported with no Name at all.",
+          "sourceQuote": "An optional name that can be used to identify a particular address.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+        },
+        {
+          "summary": "The Purchase Order Ship-to Address (record type 220) import format says the same for the ship-to twin - the name is optional and merely 'can be given' to the address.",
+          "sourceQuote": "An optional name that can be given to the address.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+        }
+      ],
+      "consequenceForWriter": "Always write a Name when creating an address through the UI - the form will block Save without one. When reading existing rows back (including rows that arrived through the PO import), do NOT assume every Company Locations row has a Name: a nameless row is legal by the import spec, and any automation that locates an address by typing its Name into a Bill To / Ship To picker will silently fail to find it. Locate such rows by Address Code / External ID instead.",
+      "notes": "Hypothesis: the UI requirement is a form-level validation added for searchability (the same table says the system searches for the location by Name), while the importer keeps Name optional for backward compatibility with feed files keyed on External ID. Stated as a hypothesis - the corpus never reconciles the two."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Country Code length is stated as exactly '2 characters' in the 210 record and as 'Maximum 2 characters' in the otherwise identical 220 record",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "countryCode"
+      },
+      "readings": [
+        {
+          "summary": "The Bill-to Address (record type 210) import format defines Country Code as exactly 2 characters - a fixed width, not a ceiling.",
+          "sourceQuote": "Country Code\n\n | \n\n2 characters",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md"
+        },
+        {
+          "summary": "The Ship-to Address (record type 220) import format defines the same column as a maximum of 2 characters, which would also admit a 1-character value.",
+          "sourceQuote": "Country Code\n\n | \n\nMaximum 2 characters",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md"
+        },
+        {
+          "summary": "The Company Locations page itself states neither length rule; its Country Code cell gives only an ISO-code instruction, and only for the import template.",
+          "sourceQuote": "If you are using the import template to import company locations, you must use 2 character ISO code.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        }
+      ],
+      "consequenceForWriter": "Always emit exactly two characters for Country Code - a 2-character value satisfies 'exactly 2', 'maximum 2' and the ISO instruction simultaneously, so it is the only value shape that is safe under all three accounts. Do not build a validator that ACCEPTS a 1-character country code on the strength of the 220 wording, and do not build one that rejects the 220 record for stating a maximum.",
+      "notes": "Hypothesis: a documentation-editing artefact rather than a product difference - the 210 and 220 tables are field-for-field twins and the Definition column diverges only here (the External ID and Name Description prose also differ between the two files), which suggests the twins were edited separately rather than that the importer behaves differently per record type."
+    },
+    {
+      "kind": "option-list",
+      "topic": "No country-code enumeration is documented for Company Locations, while the corpus's only country-code catalog scopes itself to a different import",
+      "appliesTo": {
+        "page": "Company Locations",
+        "field": "countryCode"
+      },
+      "readings": [
+        {
+          "summary": "The Company Locations Country Code cell enumerates no values at all; it states only a format rule, and even that is conditioned on using the import template.",
+          "sourceQuote": "If you are using the import template to import company locations, you must use 2 character ISO code.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md"
+        },
+        {
+          "summary": "The Country Code List topic carries a large code catalog but scopes itself in its own opening sentence to the vendor import file, never to Company Locations.",
+          "sourceQuote": "The following lists the country code list that you use when creating the vendor import file.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/country-code-list-8b3e2eda.md"
+        },
+        {
+          "summary": "The Country Code List topic additionally imposes an ALL CAPS rule that no Company Locations topic repeats.",
+          "sourceQuote": "It is important that you use capital letters (ALL CAPS) for the country code.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/country-code-list-8b3e2eda.md"
+        }
+      ],
+      "consequenceForWriter": "Do NOT hard-code the vendor-import country list as the valid-value set for the Company Locations Country Code field - the corpus never joins them. Read the options off the live control instead, and if a value must be supplied blind, use a 2-character uppercase ISO code, which is the intersection of what both topics state. Flag any mismatch between the on-screen option list and the vendor catalog as a finding rather than assuming the catalog is authoritative.",
+      "notes": "Hypothesis: one shared country reference table backs both imports and the catalog topic simply lives under the vendor-import chapter it was written for. That is plausible but unstated, and the ALL CAPS rule may equally be an importer-parsing rule that does not apply to a UI dropdown - so the catalog is recorded as an unwired value set rather than attached."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Three different names are used for the external Company Locations guide, none of which is present in this corpus",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The VAT-oriented Company Locations overview points readers at a 'Setup Guide'.",
+          "sourceQuote": "More Information: For more information, refer to the Concur Invoice: Company Locations Setup Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md"
+        },
+        {
+          "summary": "The default shipping/billing address procedure points at a 'User Guide' with the same product prefix - a different document name for what appears to be the same subject.",
+          "sourceQuote": "More Information: For more information, refer to the Concur Invoice: Company Locations User Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+        },
+        {
+          "summary": "The Tax Service topic points at a third name entirely, under the 'Shared:' prefix and with 'Company' dropped from the title.",
+          "sourceQuote": "More Information: For more information, refer to the Shared: Locations Setup Guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md"
+        }
+      ],
+      "consequenceForWriter": "Do not resolve cross-references by exact title match, and do not treat a missing 'Concur Invoice: Company Locations User Guide' as a broken link - all three strings are live in the corpus and none of the three documents is in it. If the automation surfaces a doc pointer to the operator, surface the string as written in the topic it came from rather than normalising to one canonical title.",
+      "notes": "Hypothesis: the guide was renamed over time (Setup Guide -> User Guide) and separately re-homed into the 'Shared:' family, with the older cross-references never re-cut. Stated as a hypothesis; the corpus contains none of the three targets, so the drift cannot be confirmed from inside it."
+    },
+    {
+      "kind": "structure",
+      "topic": "Four topics render four different navigation paths to the same Company Locations page, disagreeing on both hop count and menu name",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools-guide access topic roots the page in an 'Invoice Processing Admin' menu - a middle navigation node that none of the other paths mention.",
+          "sourceQuote": "Company Locations is accessible from the Invoice Processing Admin menu.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md"
+        },
+        {
+          "summary": "The numbered steps in that same topic never mention Invoice Processing Admin; they end by selecting Company Locations from a left menu rather than by walking a breadcrumb chain.",
+          "sourceQuote": "2.  Select Company Locations (left menu).",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md"
+        },
+        {
+          "summary": "The default shipping/billing address procedure gives a flat three-hop click path with no intermediate admin menu.",
+          "sourceQuote": "Click Administration > Invoice, and then click Company Locations to open the Company Locations page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+        },
+        {
+          "summary": "The VAT overview gives the same three hops but renders the first separator with no leading space, as a backslash-escaped 'Administration\\> Invoice'.",
+          "sourceQuote": "which is accessed by clicking Administration\\> Invoice > Company Locations.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md"
+        },
+        {
+          "summary": "The Tax Service topic roots the path at a menu alias, 'Invoice Admin', instead of 'Administration > Invoice'.",
+          "sourceQuote": "To add shipping information, click Invoice Admin > Company Locations.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/provide-a-location-for-the-tax-service-6ba2cb41.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode a single literal breadcrumb. Navigate by resolving the leaf label 'Company Locations' wherever it appears - top menu, left menu, or under an 'Invoice Admin' / 'Invoice Processing Admin' parent - and accept whichever parent resolves first. Treat the absence of an 'Invoice Processing Admin' node as expected, not as a failed step. Never parse the escaped 'Administration\\>' form as a literal on-screen label; the backslash is markdown escaping.",
+      "notes": "Hypothesis: the differences are partly provisioning-dependent (which admin menus a site exposes varies with the modules enabled, so an intermediate Invoice Processing Admin node may exist on some tenants and not others) and partly editorial (menu renames plus markdown escaping). Both are hypotheses; the corpus states no condition under which one path applies."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The control that opens the ship-to / bill-to address change is a 'Change' link on a purchase request and an 'Edit' link on a purchase order",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "On a purchase request, the end user clicks Change in the Ship To or Bill To section.",
+          "sourceQuote": "2.  In the Ship To or Bill To section, click Change.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-18a4dbb6.md"
+        },
+        {
+          "summary": "On a purchase order, the same-titled topic has the user click Edit in the same-named section.",
+          "sourceQuote": "2.  In the Ship To or Bill To section, click Edit.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-2c926795.md"
+        },
+        {
+          "summary": "In the purchase request processor's view the section is named 'Ship To Address' (not 'Ship To') and the control is called a link explicitly.",
+          "sourceQuote": "2.  In the Ship To Address section, click the Change link.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-address-564e516a.md"
+        }
+      ],
+      "consequenceForWriter": "Do not assume these three identically-titled topics are republished duplicates of one screen. Match the control by trying both labels - 'Change' and 'Edit' - and both section names - 'Ship To' and 'Ship To Address' - and branch on the object actually open (purchase request, purchase order, or processor view) rather than on the topic title. None of these controls lives on the Company Locations page.",
+      "notes": "Hypothesis: the label follows the object rather than the field - request-side screens say Change, order-side screens say Edit - so this is a genuine two-screen difference rather than documentation drift. Stated as a hypothesis: the corpus never puts the two screens side by side."
+    },
+    {
+      "kind": "structure",
+      "topic": "Selecting a different ship-to / bill-to address happens in a named Change Address window in one topic and inline in the field in another",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "On a purchase order the selection happens in a named modal, the Change Address window, which is documented as having separate ship-to and bill-to renderings.",
+          "sourceQuote": "3.  In the Change Address window, select a different ship-to or bill-to address.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-2c926795.md"
+        },
+        {
+          "summary": "On a purchase request there is no named window at all - the user clicks the Ship To or Bill To field itself and selects from it.",
+          "sourceQuote": "3.  In the Ship To or Bill To field, click the field to select a different ship-to or bill-to address. (Example of Bill To field below.)",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-or-bill-to-address-18a4dbb6.md"
+        },
+        {
+          "summary": "In the processor view there is again no named window; the user clicks into a field that appears and picks the ship-to by name.",
+          "sourceQuote": "3.  Click in the field that appears and select the ship-to name.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/change-ship-to-address-564e516a.md"
+        }
+      ],
+      "consequenceForWriter": "After clicking the change/edit control, do not wait for a 'Change Address' modal - on two of the three documented screens no modal appears and the picker is the field itself. Wait for EITHER a modal titled Change Address OR an in-place field picker, and proceed on whichever materialises. Selecting by typed name is the only step common to all three.",
+      "notes": "Hypothesis: purchase orders use a modal because both addresses are edited together, while the request-side screens edit one field in place. Unconfirmed - the corpus describes each screen only on its own terms."
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1-10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md",
+      "notes": "Ten reserved trailing columns of the Purchase Order Bill-to Address (record type 210) import record, Required? = N. SOURCE CHARACTERS: the label is written with a plain ASCII HYPHEN-MINUS in '1-10' (U+002D), not an en dash, and with title-case 'Future Use'; the Definition cell for this row is not empty but holds a NO-BREAK SPACE (U+00A0), which is why the row renders as ' | \\u00a0 | '. THE EXPANSION IS MECHANICAL, NOT QUOTED: the source never enumerates the ten columns, so 'Future Use 1' ... 'Future Use 10' is derived from the compressed form. The underlying column name is rendered 'future\\\\_use' (escaped underscore) in the Description cell, so the real feed-file column names are more likely future_use1..future_use10 than the title-case display form; the corpus does not state them. These are positional placeholders - an import file must still carry the ten empty columns. This belongs to the PO import record layout, not to the Company Locations page or its import template, so appliesTo is left empty."
+    },
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1-10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md",
+      "notes": "The identical ten reserved trailing columns of the Purchase Order Ship-to Address (record type 220) import record, Required? = N, with wording byte-identical to the 210 twin. SOURCE CHARACTERS: the label is written with a plain ASCII HYPHEN-MINUS in '1-10' (U+002D), not an en dash, and with title-case 'Future Use'; the Definition cell for this row is not empty but holds a NO-BREAK SPACE (U+00A0), which is why the row renders as ' | \\u00a0 | '. THE EXPANSION IS MECHANICAL, NOT QUOTED: the source never enumerates the ten columns, so 'Future Use 1' ... 'Future Use 10' is derived from the compressed form. The underlying column name is rendered 'future\\\\_use' (escaped underscore) in the Description cell, so the real feed-file column names are more likely future_use1..future_use10 than the title-case display form; the corpus does not state them. These are positional placeholders - an import file must still carry the ten empty columns. Recorded separately from the 210 record because each import record has its own column layout; appliesTo is left empty for the same reason."
+    }
+  ]
+}

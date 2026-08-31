@@ -51,7 +51,8 @@ machine and is not needed** — reading the files directly is cheaper and equiva
 
 ## Current state (2026-08-31)
 
-**18 of 37 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets carrying 749 values.**
+**18 of 37 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets carrying 749 values ·
+24 contradictions carrying 74 readings · 10 compressed ranges carrying 62 members.**
 
 `output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Graph is ERROR-clean, exit 0.**
 437/437 sourceQuotes verify verbatim against their cited corpus file.
@@ -109,7 +110,7 @@ exist at all — it is still open.
 ## The method — one workflow per group
 
 ```
-Map → Extract (pages × 3 lenses) → Verify (2 refuters) → Repair → Synthesize (×3) → Critic (×2)
+Map → Extract (pages × 3 lenses) → Verify (2 refuters) → Repair → Synthesize (×4) → Critic (×2)
 ```
 
 **Start from `workflows/2026-08-31_kg-group-5b.mjs`** — the exact script as run for Group 5B,
@@ -150,6 +151,14 @@ Save every run's `critic`, `mapping`, full result JSON **and the intermediate pa
    set, or two refuters disagreeing all route to Repair. Only a *unanimous* drop drops.
 4. **Two critics in parallel** — completeness (what is missing) and correctness (what is wrong).
    Both earned their cost on 5B: they independently ranked the same defect first.
+5. **Contradictions and compressed ranges are NODES**, emitted by the fourth Synthesize agent into
+   `synth-contradictions.json` / `synth-ranges.json`. See `docs/SCHEMA.md`. Every contradiction
+   reading carries its OWN verbatim quote and the validator treats a miss as an ERROR; fewer than
+   two grounded readings is not a contradiction and must be dropped.
+6. **Check `agents_error` on every run before trusting the output.** On the schema pass a refuter
+   died mid-response inside a workflow that reported completion. Resuming it — same script,
+   `resumeFromRunId` — replayed the rest from cache and repaired 18 of 24 nodes. A failed agent
+   inside a completed workflow is not a visible failure.
 
 **Model tiers** (Luke gave standing authorization to choose these). As run for 5B:
 Map → `opus`/`high`. Extract lens A (procedures) → `sonnet`/`high`; lens B (tables and long
@@ -225,12 +234,9 @@ LLM review had missed. Run it every time.
 - ~~**Repair can ADD fields.**~~ **CLOSED in Group 5B.** The cap held exactly: 98=59+39,
   65=27+38, 22=14+8, with zero roster names absent from the extract union. It is now prompt rule 10
   and it stays.
-- **`contradictions` and `compressedRanges` have no node type — the highest-value schema gap.**
-  Group 5B produced 47 structured contradiction records and 15 compressed ranges; only the handful
-  an agent hand-copied into a field's `notes` reach the graph. The governing constraint's core
-  instruction — *record both and state the contradiction* — has nowhere to land. This also blocks a
-  known fix: the tools-guides OCR table has a `Vat 2 (Secondary Tax – Canada PST/QST)` row the
-  admin twin lacks, both were parsed, and the correction cannot be recorded.
+- ~~**`contradictions` and `compressedRanges` have no node type.**~~ **CLOSED 2026-08-31.** Two node
+  types added and 24 contradictions / 10 ranges landed. The blocked OCR-table fix is recorded: the
+  tools twin's `Vat 2 (Secondary Tax – Canada PST/QST)` row against the admin twin that has none.
 - **Group 5B remediation** — four unread admin-guides files (chiefly
   `implementation-best-practices-8b39ab5d.md`, which falsifies that build's own "the Canada
   contradiction lives only in tools-guides" framing), four named controls found but not emitted

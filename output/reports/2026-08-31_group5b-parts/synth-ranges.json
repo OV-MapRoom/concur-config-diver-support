@@ -1,0 +1,166 @@
+{
+  "compressedRanges": [
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": [
+        "Vat Amount 1",
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 1 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+      "notes": "Header-level row of the raw <table> listing fields supported for capture by Client-Managed Capture Processing. Source characters: 'Vat' (not 'VAT'), space-hyphen-space (not an en-dash). Expansion is mechanical, not quoted - the source gives only the compressed form. The Forms and Fields guide spells the same fields 'VAT Amount 1' to 'VAT Amount 4'. Belongs to the Capture Processing form configuration, not to Tax Administration, hence appliesTo is empty. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": [
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 3,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 2 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md",
+      "notes": "Line-item-level row of the same raw <table>. The range starts at 2 because 'Vat 1 (Primary Tax - Canada GST/HST, Australia GST, US Tax, VAT UK/Japan) **' is listed as its own separate cell in the same row. Source characters: 'Vat', space-hyphen-space. Expansion is mechanical, not quoted. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "Vat Amount 1 - 4",
+      "expandsTo": [
+        "Vat Amount 1",
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 1 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+      "notes": "Admin-guide twin of the tools OCR table, header-level row. Identical compressed characters ('Vat', space-hyphen-space) but the surrounding row set differs from the tools twin - this table has no Vat 2 row and drops Canada from its Vat 1 cell (recorded as a contradiction). Expansion is mechanical, not quoted. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "Vat Amount 2 - 4",
+      "expandsTo": [
+        "Vat Amount 2",
+        "Vat Amount 3",
+        "Vat Amount 4"
+      ],
+      "count": 3,
+      "appliesTo": {},
+      "sourceQuote": "<p>Vat Amount 2 - 4</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md",
+      "notes": "Admin-guide twin, line-item-level row. Starts at 2 because 'Vat 1 (Australia GST, US Tax, VAT UK/Japan) *' occupies its own cell in the same row. Source characters: 'Vat', space-hyphen-space. Expansion is mechanical, not quoted. NOT MERGED with the identically-labelled range in the other capture table: the two tables were compared and are genuinely different documents, not one published twice - grep -F confirms the admin-guides twin (7c14446c) contains no occurrence of 'Canada' and no 'Vat 2 (Secondary Tax' row at all, while the tools-guides twin (8eddb3cf) has both. Same compressed characters, two real sources."
+    },
+    {
+      "label": "tax code fields (1-4)",
+      "expandsTo": [
+        "tax code field 1",
+        "tax code field 2",
+        "tax code field 3",
+        "tax code field 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "The user will now see the tax code fields (1-4) as a list in the Invoice Details and Itemization Summary sections of the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md",
+      "notes": "SOURCE CHARACTERS: lowercase 'tax code fields', a parenthesised '1-4' with a plain ASCII hyphen and no spaces, preceded in the sentence by the article 'the'. THE MEMBERS ARE EXPANDED MECHANICALLY IN THE LABEL'S OWN VOCABULARY, because the cited file never spells any member out: none of 'VAT Tax Code 1' to 'VAT Tax Code 4' appears anywhere in configure-predefined-tax-codes-6b42509f.md. The member names the raw record had borrowed from concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md were removed because that borrowing is undecidable: 8b395ce2 documents BOTH a header family ('VAT Tax Code 1' to 4) and a parallel line-item family ('Line Item VAT Tax Code 1' to 4), while the quoted sentence scopes these fields to BOTH the Invoice Details AND the Itemization Summary sections - so the source does not determine which family the members belong to, and importing either set would be a reconciliation the build forbids. An automation must resolve the on-screen names from the rendered page rather than typing these expansions. CONTRADICTED by step-7-optional-configure-predefined-tax-codes-be8bc5b8.md, which names only VAT Tax Code 1 - see the matching contradiction record. Describes downstream invoice fields, not a control on the Tax Administration page, hence appliesTo is empty."
+    },
+    {
+      "label": "VAT amount fields 1-4",
+      "expandsTo": [
+        "Line Item VAT Amount 1",
+        "Line Item VAT Amount 2",
+        "Line Item VAT Amount 3",
+        "Line Item VAT Amount 4"
+      ],
+      "count": 4,
+      "appliesTo": {},
+      "sourceQuote": "The values in this label are the VAT amount fields 1-4 of the line item level amounts, so the user understands what each row represents.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md",
+      "notes": "SOURCE CHARACTERS: 'VAT' upper case but 'amount fields' lower case, a plain ASCII hyphen with no spaces around it, preceded by the article 'the'. THE EXPANSION IS MECHANICAL, NOT QUOTED, AND ITS MEMBER NAMES ARE BORROWED - the 'Line Item ' prefix is not in the label and appears nowhere in configure-vat-labels-9d4795b9.md. SECOND CITATION licensing the prefix: concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md contains 'Line Item VAT Amount 1' (verified, 1 occurrence) and documents 'Line Item VAT Amount 1' to 'Line Item VAT Amount 4' as a family distinct from the header 'VAT Amount 1' to 4. That family is chosen here rather than the header one because the quoted sentence scopes this range explicitly to 'the line item level amounts' - the cited file's own words - not because the two were reconciled. If the rendered form shows the unprefixed names, prefer what is on screen. The VAT Type label is configured in Forms and Fields, not on Tax Administration, hence appliesTo is empty."
+    },
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1-10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md",
+      "notes": "Ten reserved trailing columns of the Purchase Order Bill-to Address (record type 210) import record, Required? = N. SOURCE CHARACTERS: the label is written with a plain ASCII HYPHEN-MINUS in '1-10' (U+002D), not an en dash, and with title-case 'Future Use'; the Definition cell for this row is not empty but holds a NO-BREAK SPACE (U+00A0), which is why the row renders as ' | \\u00a0 | '. THE EXPANSION IS MECHANICAL, NOT QUOTED: the source never enumerates the ten columns, so 'Future Use 1' ... 'Future Use 10' is derived from the compressed form. The underlying column name is rendered 'future\\\\_use' (escaped underscore) in the Description cell, so the real feed-file column names are more likely future_use1..future_use10 than the title-case display form; the corpus does not state them. These are positional placeholders - an import file must still carry the ten empty columns. This belongs to the PO import record layout, not to the Company Locations page or its import template, so appliesTo is left empty. MERGE PROVENANCE: 'Future Use 1-10' was raised four times in the raw Group 5B data - the company-locations crosscut lens and the tables lens each found it in BOTH the 210 and the 220 record. The two same-file sightings were collapsed; this node and the record type 220 node were NOT collapsed into each other, because they cite two genuinely different import records whose own tables disagree elsewhere (Country Code is '2 characters' in the 210 and 'Maximum 2 characters' in the 220), so they are not one document published twice."
+    },
+    {
+      "label": "Future Use 1-10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1-10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md",
+      "notes": "The identical ten reserved trailing columns of the Purchase Order Ship-to Address (record type 220) import record, Required? = N, with wording byte-identical to the 210 twin. SOURCE CHARACTERS: the label is written with a plain ASCII HYPHEN-MINUS in '1-10' (U+002D), not an en dash, and with title-case 'Future Use'; the Definition cell for this row is not empty but holds a NO-BREAK SPACE (U+00A0), which is why the row renders as ' | \\u00a0 | '. THE EXPANSION IS MECHANICAL, NOT QUOTED: the source never enumerates the ten columns, so 'Future Use 1' ... 'Future Use 10' is derived from the compressed form. The underlying column name is rendered 'future\\\\_use' (escaped underscore) in the Description cell, so the real feed-file column names are more likely future_use1..future_use10 than the title-case display form; the corpus does not state them. These are positional placeholders - an import file must still carry the ten empty columns. Recorded separately from the 210 record because each import record has its own column layout; appliesTo is left empty for the same reason. MERGE PROVENANCE: 'Future Use 1-10' was raised four times in the raw Group 5B data - the company-locations crosscut lens and the tables lens each found it in BOTH the 210 and the 220 record. The two same-file sightings were collapsed; this node and the record type 210 node were NOT collapsed into each other, because they cite two genuinely different import records whose own tables disagree elsewhere (Country Code is '2 characters' in the 210 and 'Maximum 2 characters' in the 220), so they are not one document published twice."
+    },
+    {
+      "label": "Level 1 Code - Level 10 Code",
+      "expandsTo": [
+        "Level 1 Code",
+        "Level 2 Code",
+        "Level 3 Code",
+        "Level 4 Code",
+        "Level 5 Code",
+        "Level 6 Code",
+        "Level 7 Code",
+        "Level 8 Code",
+        "Level 9 Code",
+        "Level 10 Code"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Level 1 Code - Level 10 Code",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
+      "notes": "SEPARATOR IS A PLAIN ASCII HYPHEN-MINUS (U+002D) surrounded by single spaces, not an en-dash - verified by grep -F against the source bytes. Each member is the List Management list item short code for one segment level of the hierarchy path ('These are the List Item Short Codes.'), and together they spell the path that selects the default Invoice owner on the Vendor Employee Access import. The expansion is not mechanical guesswork: the identical ten members are written out one row each in concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md ('Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.' through Level 10) and in concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md ('The list item Short Code representing the 1st segment level of the overall hierarchy path.' through the 10th), and the member names here are copied from those enumerations. appliesTo is empty on purpose: these are columns of the Vendor Employee Access import template, not controls on the List Management page, and no Vendor Employee Access Import page exists in the graph to own them. The Group 5B crosscut extract recorded this same range with sourceFile 8b51ca3d, but that file does NOT contain the compressed form - it enumerates all ten - so the citation was moved to 8b4aa547, the only file in which the compressed label actually appears. MERGE PROVENANCE: raised twice in the raw data with two different sourceFiles (8b4aa547 and 8b51ca3d). Collapsed to ONE node after checking both files: only 8b4aa547 contains the compressed string (grep -F -c returns 1 there and 0 in 8b51ca3d, which enumerates all ten rows instead). The two files are still separate real documents - different templates - but only one of them compresses the range, so only one compressed-range node is warranted."
+    },
+    {
+      "label": "Future Use 1 - Future Use 10",
+      "expandsTo": [
+        "Future Use 1",
+        "Future Use 2",
+        "Future Use 3",
+        "Future Use 4",
+        "Future Use 5",
+        "Future Use 6",
+        "Future Use 7",
+        "Future Use 8",
+        "Future Use 9",
+        "Future Use 10"
+      ],
+      "count": 10,
+      "appliesTo": {},
+      "sourceQuote": "Future Use 1 - Future Use 10",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md",
+      "notes": "THE EXPANSION IS MECHANICAL, NOT QUOTED: the source gives only the compressed label and never enumerates the ten members, so 'Future Use 1' through 'Future Use 10' were generated by expanding the range, and no member name below is a corpus quote. SEPARATOR IS A PLAIN ASCII HYPHEN-MINUS (U+002D) with single spaces, not an en-dash - verified by grep -F. Note the label uses spaced words ('Future Use'), while the same row's description uses an underscored token: 'The future\\_use fields are currently not in use (they will be activated in a future service release).' The members are placeholder columns that must be present in the record type 200 data file but whose contents are ignored, and all ten are Required? = N. Found in the same table this page's list-item-short-code contradiction cites; it is an import-file structure, not a List Management on-screen control, so appliesTo is empty. NOT MERGED with the two Purchase Order 'Future Use 1-10' nodes: different record (import settings record type 200, not a PO address record), different file, and a different compressed LABEL - 'Future Use 1 - Future Use 10' spells the endpoint out and separates it with spaces, where the PO records write 'Future Use 1-10'. A crawler matching screen or file text would not match one against the other, which is exactly why the character-level difference is preserved."
+    }
+  ]
+}
