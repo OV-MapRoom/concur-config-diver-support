@@ -102,7 +102,10 @@ def main():
         stats['value-sets'] += 1
         stats['values-in-sets'] += len(v.get('values') or [])
         if not v.get('appliesToFieldId'):
-            errors.append(('unwired-value-set', v['id'], str(v.get('appliesToRef'))))
+            # an accepted, documented gap is tracked but must not mask a fresh regression
+            bucket = warns if v.get('knownGap') else errors
+            kind = 'unwired-value-set-KNOWN-GAP' if v.get('knownGap') else 'unwired-value-set'
+            bucket.append((kind, v['id'], str(v.get('appliesToRef'))))
         elif v['appliesToFieldId'] not in field_ids:
             errors.append(('value-set-dangling-owner', v['id'], v['appliesToFieldId']))
         raw, low = body(v.get('sourceFile') or '')

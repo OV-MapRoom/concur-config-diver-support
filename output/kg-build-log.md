@@ -468,3 +468,100 @@ Group 2 pipeline those fields would simply have vanished.
 ### Next
 
 New Experience retrofit, then Group 5 (Data Structure & Accounting — largest and most table-heavy).
+
+---
+
+## 2026-08-31 — Group 5A: Expense Types · Forms and Fields · Accounting Administration · Map Invoice Concept Fields
+
+**Cost:** 2,370,992 subagent tokens · 365 tool calls · 39min · 25/25 agents, 0 errors.
+Group 5 was split in two; 5B covers Tax Administration, Budget Configuration, List Management,
+Company Locations.
+
+### Node counts
+
+| | This run | Cumulative |
+|---|---|---|
+| ConfigPage | 4 | 14 |
+| ConfigField | 89 (40 salvaged by Repair) | 337 |
+| ConfigDependency | 57 | 278 |
+| ConfigStep | 5 | 22 |
+| ConfigValueSet | 18 (137 values) | 30 (410 values) |
+
+Per page: Forms and Fields 40 · Expense Types 31 · Accounting Administration 18 ·
+**Map Invoice Concept Fields 0 — thin, no quotable fields.**
+
+### Headline structural finding — "Forms and Fields" is TWO pages
+
+The corpus documents two structurally distinct pages under one label:
+
+1. **Invoice Processing Admin > Forms and Fields** — the full field-modification tool (Form Type
+   selector, Fields tab, Form Fields tab, Modify Field windows). Role: Invoice Configuration
+   administrator.
+2. **Capture Processing Admin > Forms and Fields tab** — a tab inside a different tool, scoped to
+   OCR/verification form setup. Role: Invoice Configuration administrator **(Unrestricted)** —
+   explicitly the stricter variant.
+
+Different parent nav, different role gate, different fields. They must never be collapsed into one
+node. Group 4 built (2); this run built (1).
+
+### Cross-check: the same catalog extracted twice, independently
+
+Group 4 captured the Capture Processing "Fields Supported for Capture" catalog from a raw `<table>`
+as validValues; Group 5A re-extracted it independently as value sets. **Both runs produced 11
+header and 8 line-item entries.** Independent agreement on a raw-HTML catalog, from two different
+runs and prompts. The duplicate sets were re-pointed at the existing Group 4 fields rather than
+creating rival nodes.
+
+### Validator results after merge
+
+`bin/validate-graph.py` — deterministic, no model in the loop:
+
+- **337/337 sourceQuotes verify verbatim** against their cited corpus file.
+- **336/337 validValue lists** fully found in source.
+- **Zero dangling dependency endpoints.**
+- 217 endpoints await an unbuilt page (Workflows, PO Matching, and the Group 5B pages) — expected.
+
+**17 value sets landed unwired** — the same failure as the Audit Rules run, despite the schema
+saying so explicitly: extractors write the field's LABEL ("Data Type") where the schema wants its
+name ("dataType"). Fixed generically rather than by hand — `wire_by_name()` matches on a
+normalised name, preferring a field on the same page, and refuses ambiguous matches. 13 wired
+automatically. Of the remaining four:
+
+- 2 were the duplicate capture catalogs above → re-pointed to the Group 4 fields.
+- 1 was **"Forms and Fields page tabs"** — not a field at all. Promoted to a `tabs` property on the
+  ConfigPage (Forms · Form Fields · Fields · Connected Lists · Validations) and the set removed.
+- 1 is a **genuine accepted gap**: `Copy Down from Purchase Order if available` is documented with
+  enumerated options ("Yes" / "No (Default)") but no extractor emitted it as a ConfigField, so the
+  set has no owner. Left unwired deliberately — wiring it to a neighbour would be worse than an
+  honest null — and marked `knownGap` so the validator reports it as an accepted gap rather than
+  masking a fresh regression. Emit the field in the Group 5 remediation pass.
+
+**Graph is ERROR-clean.**
+
+### Method defect found — Repair can ADD fields
+
+Expense Types logged `repair recovered 17/14` — the Repair agent returned **more records than it
+was given**, splitting some inputs into several fields (an attendee checkbox block became
+individual checkboxes). All 17 carry a grep-verified quote, so nothing unfounded entered the graph.
+
+But it is still a hole in the gate: **fields created during Repair are grounded mechanically and
+never seen by the adversarial refuter.** They could be real controls assigned to the wrong page —
+the one failure mode grep cannot catch. For Group 5B the Repair prompt is constrained to return at
+most one record per input, and any genuine split must be reported separately for refutation.
+
+### Coverage notes
+
+- **Map Invoice Concept Fields is thin** — no quotable field-level documentation was found.
+  Recorded as thin rather than padded.
+- **Expense Types** is a 3-step wizard (General · Policies · Attendees), not a tabbed page, and it
+  carries the ~50-entry **Available Spend Categories** catalog.
+- **Accounting Administration** has an Account Codes tab (default landing) and an Accounting
+  Structure tab, with per-ledger "Modify Hierarchy" opening an Account Code Hierarchy page.
+- Several Expense Types topics exist as near-identical duplicate pairs. These are legacy/rewrite
+  duplicates of the same UI, **not** a legacy/New Experience split — no New Experience language
+  appears on any of them. Correctly recorded as `undifferentiated`.
+
+### Next
+
+Group 5B (Tax Administration, Budget Configuration, List Management, Company Locations), with the
+Repair-expansion constraint in place.
