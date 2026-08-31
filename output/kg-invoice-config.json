@@ -17,14 +17,6 @@
       "Group 5 — Data Structure & Accounting",
       "Group 6 — Compliance / E-Invoicing",
       "Group 7 — Ops (deferred)"
-    ],
-    "schemaNotes": "sourceFile added to ConfigField and ConfigDependency so verifiers can re-open the cited doc; the handoff requires re-reading the cited doc but locked no citation key. ConfigDependency carries sourceRef/targetRef so cross-group edges survive with an unresolved endpoint until the target group is built.",
-    "rules": [
-      "Every ConfigField carries a verbatim sourceQuote from the 2026_08 corpus.",
-      "No CSS selectors — the config writer resolves DOM at runtime.",
-      "No tenant-specific or BestRun configured values.",
-      "Thin pages stay thin; nothing invented.",
-      "Not validated against the live Concur UI."
     ]
   },
   "nodes": {
@@ -1008,6 +1000,7 @@
     "configDependencies": [
       {
         "id": "dep.001",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-po-policy",
         "targetId": "field.policies.po-matching-ruleset",
@@ -1027,6 +1020,7 @@
       },
       {
         "id": "dep.002",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-po-policy",
         "targetId": "field.policies.is-purchase-request-policy",
@@ -1046,6 +1040,7 @@
       },
       {
         "id": "dep.003",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-purchase-request-policy",
         "targetId": "field.policies.bill-to-optional",
@@ -1065,6 +1060,7 @@
       },
       {
         "id": "dep.004",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.allocation-form",
         "targetId": "field.policies.allocation-separator",
@@ -1084,6 +1080,7 @@
       },
       {
         "id": "dep.005",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.auto-submit-conditions",
         "targetId": "field.policies.apply-auto-submit-to-assignment",
@@ -1103,6 +1100,7 @@
       },
       {
         "id": "dep.006",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.activate",
         "targetId": "field.policies.policy-status",
@@ -1122,6 +1120,7 @@
       },
       {
         "id": "dep.007",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.policy-status",
         "targetId": "field.policies.expense-type",
@@ -1141,6 +1140,7 @@
       },
       {
         "id": "dep.008",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.editable-by-group-s",
         "targetId": "field.policies.modify",
@@ -1160,6 +1160,7 @@
       },
       {
         "id": "dep.009",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.editable-by-group-s",
         "targetId": "field.policies.remove",
@@ -1179,6 +1180,7 @@
       },
       {
         "id": "dep.010",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.copy-policy",
         "targetId": "field.policies.name",
@@ -1198,6 +1200,7 @@
       },
       {
         "id": "dep.011",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.can-request-a-new-vendor",
         "targetId": null,
@@ -1217,6 +1220,7 @@
       },
       {
         "id": "dep.012",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.imaging-configuration",
         "targetId": null,
@@ -1236,6 +1240,7 @@
       },
       {
         "id": "dep.013",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.timestamp-configuration",
         "targetId": null,
@@ -1255,6 +1260,7 @@
       },
       {
         "id": "dep.014",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.timestamp-configuration",
         "targetId": null,
@@ -1274,6 +1280,7 @@
       },
       {
         "id": "dep.015",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.auto-submit-conditions",
         "targetId": null,
@@ -1293,6 +1300,7 @@
       },
       {
         "id": "dep.016",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.enable-concur-receiving",
         "targetId": null,
@@ -1312,6 +1320,7 @@
       },
       {
         "id": "dep.017",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.enable-concur-receiving",
         "targetId": null,
@@ -1331,6 +1340,7 @@
       },
       {
         "id": "dep.018",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.policies.is-purchase-request-policy",
         "targetId": null,
@@ -1350,6 +1360,7 @@
       },
       {
         "id": "dep.019",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.policies.remove",
         "targetId": null,
@@ -1369,6 +1380,7 @@
       },
       {
         "id": "dep.020",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.print-format",
         "targetId": null,
@@ -1388,6 +1400,7 @@
       },
       {
         "id": "dep.021",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.invoice-workflow",
         "targetId": null,
@@ -1407,6 +1420,7 @@
       },
       {
         "id": "dep.022",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.header-form",
@@ -1426,6 +1440,7 @@
       },
       {
         "id": "dep.023",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.line-item-form",
@@ -1445,6 +1460,7 @@
       },
       {
         "id": "dep.024",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.allocation-form",
@@ -1464,6 +1480,7 @@
       },
       {
         "id": "dep.025",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.vendor-form",
@@ -1483,6 +1500,7 @@
       },
       {
         "id": "dep.026",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.invoice-workflow",
@@ -1502,6 +1520,7 @@
       },
       {
         "id": "dep.027",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.scan-configuration",
@@ -1521,6 +1540,7 @@
       },
       {
         "id": "dep.028",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.imaging-configuration",
@@ -1540,6 +1560,7 @@
       },
       {
         "id": "dep.029",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.policy-status",
@@ -1559,6 +1580,7 @@
       },
       {
         "id": "dep.030",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.print-format",
@@ -1578,6 +1600,7 @@
       },
       {
         "id": "dep.031",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.po-matching-ruleset",
@@ -1597,6 +1620,7 @@
       },
       {
         "id": "dep.032",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.bill-to-optional",
@@ -1616,6 +1640,7 @@
       },
       {
         "id": "dep.033",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
         "targetId": "field.policies.policy-status",
@@ -1635,6 +1660,7 @@
       },
       {
         "id": "dep.034",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.policies.copy-policy",
@@ -1654,6 +1680,7 @@
       },
       {
         "id": "dep.035",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
         "targetId": "field.policies.timestamp-configuration",
@@ -1673,6 +1700,7 @@
       },
       {
         "id": "dep.036",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.policy-name",
         "targetId": "field.group-configurations.is-active-for-group",
@@ -1692,6 +1720,7 @@
       },
       {
         "id": "dep.037",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-active-for-group",
         "targetId": "field.policies.applies-to",
@@ -1711,6 +1740,7 @@
       },
       {
         "id": "dep.038",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-inheritable",
         "targetId": "field.policies.applies-to",
@@ -1730,6 +1760,7 @@
       },
       {
         "id": "dep.039",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.policies.timestamp-configuration",
         "targetId": "field.group-configurations.is-active-for-group",
@@ -1749,6 +1780,7 @@
       },
       {
         "id": "dep.040",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-active-for-group",
         "targetId": "field.group-configurations.is-default-policy",
@@ -1768,6 +1800,7 @@
       },
       {
         "id": "dep.041",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.is-active-for-group",
         "targetId": "field.group-configurations.is-default-policy",
@@ -1787,6 +1820,7 @@
       },
       {
         "id": "dep.042",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.is-active-for-group",
         "targetId": "field.group-configurations.is-default-policy",
@@ -1806,6 +1840,7 @@
       },
       {
         "id": "dep.043",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.is-active-for-group",
         "targetId": null,
@@ -1825,6 +1860,7 @@
       },
       {
         "id": "dep.044",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.is-inheritable",
         "targetId": "field.group-configurations.policies",
@@ -1844,6 +1880,7 @@
       },
       {
         "id": "dep.045",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.group",
         "targetId": "field.group-configurations.policies",
@@ -1863,6 +1900,7 @@
       },
       {
         "id": "dep.046",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.group-configurations.new",
         "targetId": "field.group-configurations.policies",
@@ -1882,6 +1920,7 @@
       },
       {
         "id": "dep.047",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.in-use",
         "targetId": "field.group-configurations.delete-selected-rows",
@@ -1901,6 +1940,7 @@
       },
       {
         "id": "dep.048",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.delete-selected-rows",
         "targetId": "field.group-configurations.policies",
@@ -1920,6 +1960,7 @@
       },
       {
         "id": "dep.049",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.delete-selected-rows",
         "targetId": "field.group-configurations.group",
@@ -1939,6 +1980,7 @@
       },
       {
         "id": "dep.050",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.allow-users-to-upload-cfdi-attachments",
         "targetId": null,
@@ -1958,6 +2000,7 @@
       },
       {
         "id": "dep.051",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.allow-users-to-upload-cfdi-attachments",
         "targetId": null,
@@ -1977,6 +2020,7 @@
       },
       {
         "id": "dep.052",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.select-whether-vendor-banking-information-is-hidden-required",
         "targetId": null,
@@ -1996,6 +2040,7 @@
       },
       {
         "id": "dep.053",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.select-whether-vendor-banking-information-is-hidden-required",
         "targetId": null,
@@ -2015,6 +2060,7 @@
       },
       {
         "id": "dep.054",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.attendee-list-form",
         "targetId": null,
@@ -2034,6 +2080,7 @@
       },
       {
         "id": "dep.055",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
         "targetId": "field.group-configurations.group",
@@ -2053,6 +2100,7 @@
       },
       {
         "id": "dep.056",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
         "targetId": "field.group-configurations.new",
@@ -2072,6 +2120,7 @@
       },
       {
         "id": "dep.057",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.group-configurations.group",
         "targetId": null,
@@ -2091,6 +2140,7 @@
       },
       {
         "id": "dep.058",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.group-configurations.group",
         "targetId": null,
@@ -2110,6 +2160,7 @@
       },
       {
         "id": "dep.059",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.group",
         "targetId": null,
@@ -2129,6 +2180,7 @@
       },
       {
         "id": "dep.060",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.group-configurations.group-name",
         "targetId": null,
@@ -2148,6 +2200,7 @@
       },
       {
         "id": "dep.061",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
         "targetId": "field.group-configurations.group-name",
@@ -2167,6 +2220,7 @@
       },
       {
         "id": "dep.062",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": null,
         "targetId": "field.group-configurations.vendor-access-tab",
@@ -2186,6 +2240,7 @@
       },
       {
         "id": "dep.063",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.group-configurations.email-alias",
@@ -2205,6 +2260,7 @@
       },
       {
         "id": "dep.064",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
         "targetId": null,
@@ -2224,6 +2280,7 @@
       },
       {
         "id": "dep.065",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
         "targetId": null,
@@ -2243,6 +2300,7 @@
       },
       {
         "id": "dep.066",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
         "targetId": null,
@@ -2262,6 +2320,7 @@
       },
       {
         "id": "dep.067",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.allow-payment-manager-to-change-banking-information",
         "targetId": null,
@@ -2281,6 +2340,7 @@
       },
       {
         "id": "dep.068",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.invoice-settings.allow-payment-manager-to-change-banking-information",
         "targetId": null,
@@ -2300,6 +2360,7 @@
       },
       {
         "id": "dep.069",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
         "targetId": null,
@@ -2319,6 +2380,7 @@
       },
       {
         "id": "dep.070",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
         "targetId": null,
@@ -2338,6 +2400,7 @@
       },
       {
         "id": "dep.071",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
         "targetId": null,
@@ -2357,6 +2420,7 @@
       },
       {
         "id": "dep.072",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": null,
         "targetId": "field.invoice-settings.enable-peppol-integration",
@@ -2376,6 +2440,7 @@
       },
       {
         "id": "dep.073",
+        "group": "Group 1 — Policy & Scope",
         "type": "precedes",
         "sourceId": "field.invoice-settings.enable-peppol-integration",
         "targetId": null,
@@ -2395,6 +2460,7 @@
       },
       {
         "id": "dep.074",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.enable-peppol-integration",
         "targetId": null,
@@ -2414,6 +2480,7 @@
       },
       {
         "id": "dep.075",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.allow-invoice-users-to-delete-images-on-payment-requests-cre",
         "targetId": null,
@@ -2433,6 +2500,7 @@
       },
       {
         "id": "dep.076",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.allow-processor-users-to-change-vendor-on-requests-pending-p",
         "targetId": null,
@@ -2452,6 +2520,7 @@
       },
       {
         "id": "dep.077",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.default-payment-term-days",
         "targetId": null,
@@ -2471,6 +2540,7 @@
       },
       {
         "id": "dep.078",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.default-payment-term-days",
         "targetId": null,
@@ -2490,6 +2560,7 @@
       },
       {
         "id": "dep.079",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
         "targetId": null,
@@ -2509,6 +2580,7 @@
       },
       {
         "id": "dep.080",
+        "group": "Group 1 — Policy & Scope",
         "type": "depends_on",
         "sourceId": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
         "targetId": null,
@@ -2528,6 +2600,7 @@
       },
       {
         "id": "dep.081",
+        "group": "Group 1 — Policy & Scope",
         "type": "triggers",
         "sourceId": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
         "targetId": null,
@@ -2549,6 +2622,7 @@
     "configSteps": [
       {
         "id": "g1-s1-create-policy-and-activate-for-group",
+        "group": "Group 1 — Policy & Scope",
         "name": "Create a new invoice policy and make it selectable by a group",
         "goal": "A new, correctly-formed invoice policy exists with its forms, workflow, image handling and expense types set, and members of at least one group can actually pick it when they create an invoice (it is Active for the group, with a default settled).",
         "pages": [
@@ -2763,6 +2837,7 @@
       },
       {
         "id": "g1-s2-po-and-purchase-request-policy",
+        "group": "Group 1 — Policy & Scope",
         "name": "Stand up a PO / purchase-request policy with matching and receiving",
         "goal": "A purchase-order-enabled policy (optionally purchase-request-enabled) exists with its PO forms, matching rule set and receiving switched on, its required billing address filled, and it is Active for a group so employees can raise purchase requests and PO-matched invoices.",
         "pages": [
@@ -2920,6 +2995,7 @@
       },
       {
         "id": "g1-s3-group-configuration-scope",
+        "group": "Group 1 — Policy & Scope",
         "name": "Create a group configuration and pin its policies, attendees and inheritance",
         "goal": "A group whose invoice behaviour differs from its parent has its own configuration: named, with Invoice Owner permissions and vendor-banking visibility set, its usable policies marked Active with a default nominated, its attendee types scoped, and inheritance to child groups decided explicitly.",
         "pages": [
@@ -3060,6 +3136,7 @@
       },
       {
         "id": "g1-s4-tenant-invoice-defaults",
+        "group": "Group 1 — Policy & Scope",
         "name": "Set tenant-wide invoice defaults before policies and groups go live",
         "goal": "The site-wide Invoice Settings page is deliberately set for a new tenant: payment and discount terms, recurring-generation lead time, the duplicate-detection basis, PO allocation copy-down source, and the role restrictions whose defaults are permissive — so that group- and policy-level work later inherits sane values instead of accidental ones.",
         "pages": [

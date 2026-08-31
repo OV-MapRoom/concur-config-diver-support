@@ -25,3 +25,14 @@ Local file-only project. No build, no deploy.
 
 Scaffold only. Prior vertical slice (Groups 2 partial + 3, 24 pages / 145 fields) was built
 on a different machine and **its artifacts are not present here** — see `docs/WHERE-WE-LEFT-OFF.md`.
+
+## Rebuilding the graph
+
+Each group is produced by a workflow whose JSON result is merged in append-only:
+
+```bash
+BUILD_DATE=YYYY-MM-DD python3 bin/merge-group.py <workflow-output.json> "Group N — Name"
+```
+
+Re-running a group replaces just that group's nodes (idempotent), and every merge re-resolves
+cross-group dependency edges that earlier groups left dangling.
