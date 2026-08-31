@@ -51,12 +51,42 @@ machine and is not needed** — reading the files directly is cheaper and equiva
 
 ## Current state (2026-08-31)
 
-**14 of 37 pages · 337 fields · 278 dependencies · 22 steps · 30 value sets carrying 410 values.**
+**18 of 37 pages · 437 fields · 335 dependencies · 28 steps · 54 value sets carrying 749 values.**
 
-`output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Graph is ERROR-clean.**
+`output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Graph is ERROR-clean, exit 0.**
+437/437 sourceQuotes verify verbatim against their cited corpus file.
 
 | Page | Fields | Coverage | Group |
 |---|---|---|---|
+| Audit Rules | 91 | good | 2 |
+| Tax Administration | 59 | good | 5B |
+| Policies | 46 | good | 1 |
+| Forms and Fields | 40 | good | 5A |
+| Capture Processing Admin | 32 | good | 4 |
+| Expense Types | 31 | good | 5A |
+| Company Locations | 27 | good | 5B |
+| Group Configurations | 22 | good | 1 |
+| Image Handling | 21 | good | 4 |
+| Accounting Administration | 18 | good | 5A |
+| List Management | 14 | thin | 5B |
+| Invoice Settings | 13 | good | 1 |
+| Routing Configuration | 10 | good | 2 |
+| Exceptions | 8 | good | 2 |
+| Units Of Measure | 3 | thin | 4 |
+| Vendor Search Admin | 2 | thin | 4 |
+| Map Invoice Concept Fields | 0 | thin | 5A |
+| Budget Configuration | 0 | thin | 5B |
+
+`uiVariant`: 399 undifferentiated · 27 both · 6 legacy · 5 new.
+
+Two zero-field pages, and they are not the same kind of thing. **Budget Configuration** is a
+documented negative: zero corpus hits for the page name or any Budget admin string, and the one
+budget topic defers to the *Shared: Budget Setup Guide*, which is not in this corpus. Its node
+carries a 7,787-character `verifyNotes` recording the searches and their zero results.
+**Map Invoice Concept Fields** (5A) has no such record and the 5A critic argued the node should not
+exist at all — it is still open.
+
+---|---|---|---|
 | Audit Rules | 91 | good | 2 |
 | Policies | 46 | good | 1 |
 | Forms and Fields | 40 | good | 5 |
@@ -79,25 +109,54 @@ machine and is not needed** — reading the files directly is cheaper and equiva
 ## The method — one workflow per group
 
 ```
-Map → Extract (pages × 3 lenses) → Verify (2 agents, 3-way) → Repair → Synthesize → Critic
+Map → Extract (pages × 3 lenses) → Verify (2 refuters) → Repair → Synthesize (×3) → Critic (×2)
 ```
+
+**Start from `workflows/2026-08-31_kg-group-5b.mjs`** — the exact script as run for Group 5B,
+preserved in the repo precisely because the Group 5A script lived only in a session scratchpad, was
+lost, and cost a full re-authoring. Its header lists the five things to change per group. Everything
+else in it is accumulated method; do not thin it out.
 
 Then, in the main loop:
 
 ```bash
+python3 bin/assemble-parts.py <parts-dir> <out.json> --journal <workflow journal.jsonl> \
+        [--group "<label>"] [--patch-page "<label>"]
 BUILD_DATE=YYYY-MM-DD python3 bin/merge-group.py <raw-result.json> "<Group label>" [--patch]
 python3 bin/apply-corrections.py     # ALWAYS after a merge — merges rebuild nodes and drop fixes
 python3 bin/validate-graph.py        # must exit 0
 ```
 
-Save every workflow's `critic`, `mapping`, and full result JSON into `output/reports/` before
-merging. They are the audit trail, and the session scratchpad is not durable.
+Save every run's `critic`, `mapping`, full result JSON **and the intermediate part files** into
+`output/reports/` before merging. They are the audit trail, and the session scratchpad is not durable.
 
-**Model tiers** (Luke gave standing authorization to choose these):
-Map / Extract / grounding → `sonnet` at `medium`. Adversarial refuter, Repair, Synthesize → `opus`
-at `high`. Critic → `opus` at `xhigh`. Cost fell 27% versus all-Opus with no quality loss.
-**Do not cheapen the refuter or the critic** — every significant defect found this project came
-from one of those two.
+### Architecture, as of Group 5B — four things that are now standard
+
+1. **Agents write their own JSON artefacts to a parts directory** and return a small receipt;
+   `bin/assemble-parts.py` composes the raw result deterministically. Through 5A every field record
+   travelled agent-to-agent inside prompts and ~300KB came back as the return value. No model
+   retypes a quote now, so a quote cannot stop being verbatim in transit. The assembler also runs a
+   **pre-merge check** (quotes, duplicate names, value-set wiring, dependency endpoints, raw-table
+   flags, node-id collisions) so defects surface before the merge rather than after it.
+   `navPathEvidence` is recovered from the workflow journal — **pass `--journal` or all pages merge
+   with an empty `navPath`, and nothing in the validator will catch it.**
+2. **Two perspective-diverse refuters, not two identical ones.** Refuter 1 attacks grounding (quote
+   verbatim, values present, type, truncation, raw-table flag). Refuter 2 attacks **page ownership,
+   cross-page name collision, and admin-vs-end-user scope**. That second axis is where Group 5A
+   actually lost accuracy — five fields mis-homed, three duplicated across pages — and it is the one
+   failure mode `grep` cannot catch. On Company Locations the two refuters split 44-keep against
+   25-keep, which is the design working, not a malfunction.
+3. **The three-way disposition is computed in code, not by a model.** No verdict, a partial verdict
+   set, or two refuters disagreeing all route to Repair. Only a *unanimous* drop drops.
+4. **Two critics in parallel** — completeness (what is missing) and correctness (what is wrong).
+   Both earned their cost on 5B: they independently ranked the same defect first.
+
+**Model tiers** (Luke gave standing authorization to choose these). As run for 5B:
+Map → `opus`/`high`. Extract lens A (procedures) → `sonnet`/`high`; lens B (tables and long
+catalogs) → `opus`/`high`; lens C (tools-guides, cross-cutting) → `opus`/`medium`. Refuters, Repair
+and the three Synthesize agents → `opus`/`high`. Both critics → `opus`/`xhigh`.
+**Do not cheapen the refuters or the critics** — every significant defect found in this project came
+from one of those two, including the one that would have deleted 323 enumerated values.
 
 ### Hard-won prompt rules — carry ALL of these forward
 
@@ -121,7 +180,20 @@ from one of those two.
    wrong constantly — 17 sets landed unwired in one run. `wire_by_name()` now repairs it after the
    fact, but say it in the prompt anyway.
 8. **Note compressed ranges** ("Custom 01 - 20", "Org Unit 1 - 6") and what they expand to.
-9. **Thin is a correct answer.** Never pad a page the corpus does not document.
+9. **Thin is a correct answer.** Never pad a page the corpus does not document — but a thin page
+   must say WHY. Page nodes carry `documentedBasis`, `verifyNotes`, `roleGates`, `aliases` and
+   `identityNotes`; a bare `{name, url, coverage: thin}` node is indistinguishable from a lazy miss,
+   which is exactly the charge the 5A critic laid against Map Invoice Concept Fields.
+10. **Cap Repair at one record per input.** Records created during Repair are only grep-grounded —
+   they never face the adversarial refuter, and mis-assignment to the wrong page is precisely what
+   grep cannot catch. A genuine split goes to `splitsProposed`, reported and NOT emitted. 5A returned
+   17 records from 14 inputs; 5B held the cap exactly on all three populated pages.
+11. **An enumeration with no legitimate owner must still land.** "Unwired" and "deleted" are
+   different answers. Refusing to wire a catalog to a field is often correct — the corpus really does
+   scope it elsewhere — but it must merge as a `knownGap` value set carrying its `whyNoOwner`, which
+   `bin/validate-graph.py` demotes from ERROR to WARN. On 5B the pipeline had no reader for these and
+   would have silently dropped 323 of 339 values, including a 249-row catalog. **Check what the
+   pipeline discards, not only what the agents produce.**
 
 ---
 
@@ -129,6 +201,7 @@ from one of those two.
 
 | Script | Purpose |
 |---|---|
+| `bin/assemble-parts.py` | **Deterministic, no model.** Composes a raw-result JSON from the parts a workflow's agents wrote, recovering `navPathEvidence` from the run journal. Runs a pre-merge check and exits non-zero on a fatal one. Materialises `validValuesAdditions` as unconditional value sets and `orphanCandidates` as `knownGap` sets. |
 | `bin/merge-group.py` | Merge a workflow result. Idempotent; `--patch` rebuilds only the pages in the result (for single-page rebuilds inside an existing group). Endpoint ids are always re-derived from the stable `{page, field}` ref — never trusted from storage. |
 | `bin/apply-corrections.py` | Critic-identified fixes a build cannot make itself. Idempotent. **Re-run after every merge.** |
 | `bin/validate-graph.py` | **Deterministic, no model.** Re-checks every claim against the corpus: quotes verbatim, values present, no selectors, no duplicate names per page, value sets wired, no dangling edges. Exits non-zero on ERROR. |
@@ -142,18 +215,30 @@ LLM review had missed. Run it every time.
 
 | Work | Pages | Notes |
 |---|---|---|
-| **Group 5B** | 4 | Tax Administration, Budget Configuration, List Management, Company Locations |
-| **Group 3 — PO Matching** | 11 | Build **new-first**; it has a documented New Experience variant |
+| **Group 3 — PO Matching** | 11 | Build **new-first**; it has a documented New Experience variant. At 11 pages this is ~73 agents in one run — consider splitting 3A/3B, in which case the second merge needs `--patch` |
 | **Workflows** | 13 | Was in the lost slice |
 | **Group 6 — Compliance** | 3 | Peppol Configuration, Shipping Configuration, Localization |
 | Group 7 — Ops | ? | Deferred unless asked |
 
 ### Open debt
 
-- **Repair can ADD fields.** One run returned 17 records from 14 inputs. All were grep-grounded,
-  but **additions never face the adversarial refuter** — mis-assignment to the wrong page is
-  exactly what grep cannot catch. Constrain Repair to one record per input; report genuine splits
-  separately for refutation.
+- ~~**Repair can ADD fields.**~~ **CLOSED in Group 5B.** The cap held exactly: 98=59+39,
+  65=27+38, 22=14+8, with zero roster names absent from the extract union. It is now prompt rule 10
+  and it stays.
+- **`contradictions` and `compressedRanges` have no node type — the highest-value schema gap.**
+  Group 5B produced 47 structured contradiction records and 15 compressed ranges; only the handful
+  an agent hand-copied into a field's `notes` reach the graph. The governing constraint's core
+  instruction — *record both and state the contradiction* — has nowhere to land. This also blocks a
+  known fix: the tools-guides OCR table has a `Vat 2 (Secondary Tax – Canada PST/QST)` row the
+  admin twin lacks, both were parsed, and the correction cannot be recorded.
+- **Group 5B remediation** — four unread admin-guides files (chiefly
+  `implementation-best-practices-8b39ab5d.md`, which falsifies that build's own "the Canada
+  contradiction lives only in tools-guides" framing), four named controls found but not emitted
+  (`Calculated Tax Amount`, `Tax Rate`, `(Optional) Tax Reference ID`, `Vendor includes VAT in the
+  Unit Price`), and zero role-gate edges against the graph's own `dep.g1.033/034/055/056` precedent.
+- **Six dependency endpoints name pages on no build list** — Vendor Manager, Employee Import,
+  Feature Hierarchies, Vendor Employee Access Import, Check Configurations. Two are import file
+  specs, not admin pages. Decide whether they become pages or the edges become notes.
 - **~23 alias duplicates on Audit Rules** — 91 entries encode ~68 real controls, because three
   extraction areas each modelled the condition editor independently. Needs an alias-collapse pass.
 - **The catalog's true size is 492, not 278** — 15 of the 278 bullets are compressed ranges.
