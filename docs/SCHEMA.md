@@ -57,18 +57,33 @@ Pair each ConfigValueSet with a `depends_on` ConfigDependency from the dependent
 context field, so a traversal finds both the relationship and the option list.
 
 ## uiVariant *(added)*
-`new` | `legacy` | `both` — on ConfigPage and ConfigField. Defaults to `both`, which is correct for
-most of the corpus, where SAP does not distinguish.
+`new` | `legacy` | `both` | `undifferentiated` — on ConfigPage and ConfigField.
+**Default: `undifferentiated`.**
 
-SAP ships **both UI versions in the same `2026_08` corpus**. Confirmed pairs:
+SAP ships **both UI versions inside the same `2026_08` corpus**. Confirmed pairs:
 `configure-custom-audit-rules-new-ui-*` / `-legacy-ui-*`, and
 `policies-the-purchase-order-policy-new-experience-*` (15,800 bytes) beside its legacy twin
-(1,490 bytes) — the New Experience doc is 10× richer.
+(1,490 bytes) — the New Experience doc is **10× richer**.
 
-**Most customers run New Experience** (Luke, 2026-08-31 — an install-base fact, not stated
-anywhere in the corpus). The config writer therefore targets `new` and falls back to `legacy`.
-Groups 1 and 2 were built before this field existed and cite **zero** New Experience sources;
-they need a retrofit pass.
+The four values are distinct claims. Do not collapse them:
+
+| Value | Claim | Config writer should |
+|---|---|---|
+| `new` | Documented for New Experience. Legacy differs, or legacy is silent. | Use it on a New Experience tenant. |
+| `legacy` | Documented for the legacy UI only. | Expect it to be absent on New Experience. |
+| `both` | **Positively verified** present in both variants, with the same control and values. | Trust it either way. |
+| `undifferentiated` | The corpus never distinguished. **Nobody checked.** | Treat as unverified — a likely source of runtime misses. |
+
+`both` and `undifferentiated` are the pair most easily confused, and confusing them is the
+expensive mistake: one says *we looked and they match*, the other says *we never asked*. A field
+may only be promoted to `both` by an extraction that actually read both variants.
+
+**Most customers run New Experience** (Luke, 2026-08-31 — an install-base fact, stated nowhere in
+the corpus). The config writer therefore targets `new` and falls back to `legacy`.
+
+Groups 1 and 2 were built before this field existed and cite **zero** New Experience sources, so
+all 133 of their fields are `undifferentiated`. Reclassifying them is the New Experience retrofit
+pass; until it runs, the count of `undifferentiated` fields is the honest size of that debt.
 
 ## Rules that hold across every node
 

@@ -61,7 +61,7 @@ def main(src_path, group):
             'navPathSourceFile': primary['sourceFile'] if primary else '',
             'navPathAlternates': sorted({' > '.join(k) for k in counts if k != best}),
             'url': p['url'], 'group': group, 'coverage': p['coverage'],
-            'uiVariant': p.get('uiVariant', 'both'),
+            'uiVariant': p.get('uiVariant', 'undifferentiated'),
         })
         for f in p['fields']:
             base, fid, i = 'field.%s.%s' % (p['id'], slug(f['name'])), None, 2
@@ -73,7 +73,7 @@ def main(src_path, group):
                 'id': fid, 'pageId': pid, 'name': f['name'], 'label': f['label'],
                 'fieldType': f['fieldType'], 'validValues': f['validValues'],
                 'sourceQuote': f['sourceQuote'], 'sourceFile': f['sourceFile'], 'notes': f['notes'],
-                'uiVariant': f.get('uiVariant', 'both'),
+                'uiVariant': f.get('uiVariant', 'undifferentiated'),
             }
             if f.get('fromRawHtmlTable'):
                 entry['fromRawHtmlTable'] = True

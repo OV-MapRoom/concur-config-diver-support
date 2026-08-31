@@ -40,7 +40,7 @@
         "url": "/expense/admin/invoice/PolicyAdmin.asp",
         "group": "Group 1 — Policy & Scope",
         "coverage": "good",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "page.group-configurations",
@@ -64,7 +64,7 @@
         "url": "/expense/admin/invoice/groupConfiguration.asp",
         "group": "Group 1 — Policy & Scope",
         "coverage": "good",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "page.invoice-settings",
@@ -85,7 +85,7 @@
         "url": "/expense/admin/invoice/invoiceSettings.asp",
         "group": "Group 1 — Policy & Scope",
         "coverage": "good",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "page.routing-configuration",
@@ -105,7 +105,7 @@
         "url": "/expense/admin/invoice/routingConfig.asp",
         "group": "Group 2 — Routing & Approval",
         "coverage": "good",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "page.audit-rules",
@@ -126,7 +126,7 @@
         "url": "/expense/admin/invoice/auditRules.asp",
         "group": "Group 2 — Routing & Approval",
         "coverage": "good",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "page.exceptions",
@@ -146,7 +146,7 @@
         "url": "/expense/admin/invoice/exceptionList.asp",
         "group": "Group 2 — Routing & Approval",
         "coverage": "good",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       }
     ],
     "configFields": [
@@ -160,7 +160,7 @@
         "sourceQuote": "Displays the name of the policy",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/accessing-and-viewing-policies-within-the-policies-tool-f3260f23.md",
         "notes": "Column on the Policies list page (read-only display). The editable counterpart is the Name field on the New Policy / Modify Policy General page.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.editable-by",
@@ -172,7 +172,7 @@
         "sourceQuote": "Displays the group rights that an administrator must have to modify a policy",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/accessing-and-viewing-policies-within-the-policies-tool-f3260f23.md",
         "notes": "Read-only column on the Policies list page; reflects the Editable By Group(s) value set on the policy. A second topic notes: 'Although the Editable by Group(s) column appears on the Policies List page, the administrator uses the Groups tool to assign the policy to a group.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.applies-to",
@@ -184,7 +184,7 @@
         "sourceQuote": "Displays the groups for which this policy currently applies, including all groups that are below it in the hierarchical structure",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/accessing-and-viewing-policies-within-the-policies-tool-f3260f23.md",
         "notes": "Read-only column on the Policies list page. The same file warns that the actual policy-to-group assignment happens in Group Configurations, not here.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.copy-policy",
@@ -196,7 +196,7 @@
         "sourceQuote": "Select Copy Policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "The documented way to create a policy: select an existing policy, then Copy Policy; the New Policy page appears. Corroborated in policy-c8ec906b.md: 'Select the Payment Request Policy, then click Copy Policy and rename the copied policy'.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.modify",
@@ -208,7 +208,7 @@
         "sourceQuote": "Choose Modify.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-the-existing-policy-information-81206c52.md",
         "notes": "Opens the Modify Policy page (General tab) for the selected policy. Corroborated: 'On the Policies page, select a policy and then click Modify to open the Modify Policy page.' (assign-to-a-policy-a12befe1.md)",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.remove",
@@ -220,7 +220,7 @@
         "sourceQuote": "Select Remove.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-policy-700569c5.md",
         "notes": "Deletes the selected policy. Caution in the same file: forms assigned to a deleted policy are retained in the database and cannot be deleted.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.expense-types",
@@ -232,7 +232,7 @@
         "sourceQuote": "This is done by using the Expense Types button after selecting the policy:",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/changing-the-status-of-an-expense-type-1e641b70.md",
         "notes": "Policies-page button; opens the Modify Policy page listing the policy's expense types with Activate / Deactivate.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.print-format",
@@ -244,7 +244,7 @@
         "sourceQuote": "To do this, use the Print Format button after selecting the policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/assigning-a-print-format-to-an-existing-policy-cb5f4b75.md",
         "notes": "Policies-page button; opens the Modify Policy page where a print format is activated/deactivated for the policy.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.auto-submit-conditions",
@@ -256,7 +256,7 @@
         "sourceQuote": "Select Auto Submit Conditions, and then select Insert.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/setting-the-automatic-submission-conditions-for-submit-action-88fe4a03.md",
         "notes": "Policies-page button opening the auto-submit condition editor for the selected policy. Also reachable as a wizard step: 'The Auto Submit Conditions step appears.' (create-a-new-policy-dd9549c0.md)",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.insert",
@@ -268,7 +268,7 @@
         "sourceQuote": "Create the condition(s) for the submit action in the condition editor, selecting Insert for each new condition as needed.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/setting-the-automatic-submission-conditions-for-submit-action-88fe4a03.md",
         "notes": "Adds a new row to the auto-submit condition editor. The corpus does not enumerate the operators or operands available in the editor.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.name",
@@ -280,7 +280,7 @@
         "sourceQuote": "Enter a name for the new policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "New Policy / Modify Policy General page. Free-text policy name.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.header-form",
@@ -292,7 +292,7 @@
         "sourceQuote": "Select the Payment Request Header Form to be associated with the new policy. The default information that appears in this field is from the copied policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Options come from Payment Request Header Forms built in the Form Types area of the Administrator; the corpus does not enumerate them.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.line-item-form",
@@ -304,7 +304,7 @@
         "sourceQuote": "Select the Line Item Form to be associated with the new policy. The default information that appears in this field is from the copied policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Options are Line Item Forms created in the Form Types area of the Administrator; not enumerated in the corpus.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.allocation-form",
@@ -316,7 +316,7 @@
         "sourceQuote": "Select the Allocation Form to be associated with the new policy. The default information that appears in this field is from the copied policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Designating an allocation form is what activates the allocation feature: 'If the allocation feature is not activated (by designating an allocation form), the separator is not used.' (components-of-the-policy-3bf075f8.md)",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.vendor-form",
@@ -328,7 +328,7 @@
         "sourceQuote": "Select the Vendor Address Form to be associated with the new policy. The default information that appears in this field is from the copied policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Field label is 'Vendor Form'; the description calls the object a Vendor Address Form. Options built in Form Types; not enumerated.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.can-request-a-new-vendor",
@@ -342,7 +342,7 @@
         "sourceQuote": "Select Yes to allow an employee to request a new vendor be added to the master vendor list. Selecting Yes displays a Request New Vendor link on the Create Payment Request Header page.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "A Yes-valued selector, not a check box — the corpus says 'Select Yes', distinguishing it from the neighbouring 'Select this check box' controls. Only 'Yes' is ever written; the complementary option is never named in 2026_08, so it is deliberately omitted rather than guessed. Downstream effect is enumerated: selecting Yes reveals a Request New Vendor link on the Create Payment Request Header page.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.can-invoice-users-assign-requests",
@@ -354,7 +354,7 @@
         "sourceQuote": "Select this check box if you want to allow the Invoice User to have privileges to re-assign an invoice they have unassigned from themselves.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Label carries a trailing colon in the corpus table. Explicitly a check box.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.is-po-policy",
@@ -366,7 +366,7 @@
         "sourceQuote": "Select this check box to make this a purchase order (PO) enabled policy - doing this:",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Master toggle for the PO policy type. Selecting it reveals the PO Configuration options. Written as 'Is PO Policy' (no question mark) in purchase-order-policy-fields-4aa0ac1b.md and policy-c8ec906b.md. Cannot be cleared once invoices exist: 'the PO policy cannot be changed to a non-PO policy unless there are no invoices associated with the PO policy.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.po-header-form",
@@ -378,7 +378,7 @@
         "sourceQuote": "-   PO Header Form",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Revealed only when the policy is a PO policy. Same behaviour as the standard Header Form: 'PO form types act just as standard forms'. Options not enumerated.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.po-line-item-form",
@@ -390,7 +390,7 @@
         "sourceQuote": "-   PO Line Item Form",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Revealed only when the policy is a PO policy. Options not enumerated in the corpus.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.po-allocation-form",
@@ -402,7 +402,7 @@
         "sourceQuote": "-   PO Allocation Form",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Revealed only when the policy is a PO policy. Options not enumerated in the corpus.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.enable-concur-receiving",
@@ -414,7 +414,7 @@
         "sourceQuote": "In the PO Configuration section of the page that appears, select the Enable Concur Receiving option.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md",
         "notes": "Activates manual quantity-receipt entry and three-way matching. Located in the PO Configuration section of the policy page; the same file notes that once activated, the Purchase Order Receipt form in Forms and Fields is automatically used. Also listed among the PO Forms controls in create-a-new-policy-dd9549c0.md.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.po-matching-ruleset",
@@ -426,7 +426,7 @@
         "sourceQuote": "PO Matching Ruleset: This is where you specify the matching rule set that will instruct the system how to react whenever a user-defined variance is detected between the matching invoice and PO.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-policy-fields-4aa0ac1b.md",
         "notes": "Appears only on PO policies: 'Adds the PO Matching Ruleset option where PO matching rules are specified' (create-a-new-policy-dd9549c0.md). Rule sets are per-policy: 'PO Matching Rule Sets (which include Receipt Confirmation outcomes) can differ per policy.' (match-rule-set-per-policy-8b14149d.md). Option list is tenant-built in Purchase Order Matching Rules and is not enumerated.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.is-purchase-request-policy",
@@ -438,7 +438,7 @@
         "sourceQuote": "Now the Is Purchase Request Policy check box is exposed and, when selected, displays the Purchase Request Configuration options (forms and workflow selections) as shown in the figure above.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md",
         "notes": "Second-level conditional control: exposed only after Is PO Policy is selected. Selecting it reveals a Purchase Request Configuration group of form and workflow selections, which the corpus does not break out field by field.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.invoice-workflow",
@@ -450,7 +450,7 @@
         "sourceQuote": "Select an invoice workflow to be associated with the new policy. The default information that is displayed in the field is from the copied policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Options are workflows built in the Workflows area of the Administrator; not enumerated. Note a workflow can be reused: 'A workflow can be assigned to multiple policies.' (implementation-guidelines-for-policies-0c35d480.md)",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.scan-configuration",
@@ -462,7 +462,7 @@
         "sourceQuote": "Select a scan configuration to be associated with this policy. There is no default value assigned; if you do not select a configuration, the scan functionality will not be active for the policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "No default value; leaving it unset disables scan for the policy. Cardinality is documented: 'One configuration can be used by multiple policies; however, each policy can only use a single scan configuration.' (step-2-assign-the-scan-configuration-to-a-policy-634c76ba.md). Options come from the Scan Configurations page in Image Handling.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.imaging-configuration",
@@ -474,7 +474,7 @@
         "sourceQuote": "Select an imaging configuration to be associated with this policy. There is no default value assigned; if you do not select a configuration, the imaging functionality will not be active for the policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "No default; unset means imaging is inactive for the policy. Setting it makes the View Image link appear on the Payment Request page for the Invoice Processor. Options are created in Image Handling (invoice) / Vendor Handling (vendor); not enumerated.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.timestamp-configuration",
@@ -488,7 +488,7 @@
         "sourceQuote": "Select Japan e-Bunsho from the Timestamp Configurationlist.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md",
         "notes": "Only one option value is ever named in the 2026_08 corpus, so validValues is that single value and may be incomplete — the corpus does not publish the full list. Quote reproduced verbatim including the missing space in 'Timestamp Configurationlist'. Field purpose: 'Timestamp Configuration applies to clients that use the Invoice e-Bunsho Timestamp feature to maintain legal compliance with eBunsho regulations regarding digital invoices.' (concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md). Visible on modify: 'On the Administration >Invoice > Policies page, when Invoice Admins modify a policy, the admin will see the Timestamp Configuration field.' (concur-invoice-professional-edition-admin-guides/invoice-admin-experience-840503f4.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.allocation-separator",
@@ -500,7 +500,7 @@
         "sourceQuote": "Select an appropriate allocation separator. This separator appears to the employee when selecting the allocations that separate the hierarchy (for example, 9543-4558-477).",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Default is documented but the option list is not: 'Allocation Separator: This symbol separates segments of the allocation code. The default is the hyphen (-).' (components-of-the-policy-3bf075f8.md). Unused if no allocation form is designated.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.external-id",
@@ -512,7 +512,7 @@
         "sourceQuote": "Generated by the system but can be edited, this value is a unique identifier for the policy that is drawn on by the system when matching invoices and purchase orders to the policy and to one another as a result.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "System-generated but editable; must be unique. Corroborated in purchase-order-policy-fields-4aa0ac1b.md: 'External ID: This unique identifier lets the system associate the policy to all invoices and POs that include this same identifier.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.editable-by-group-s",
@@ -526,7 +526,7 @@
         "sourceQuote": "If you select Global, then the information can be edited or deleted by any employee assigned to administer the Global group. Administrators assigned at lower levels in the hierarchy may copy the information but may not edit or delete it.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md",
         "notes": "'Global' is the only system-defined value the corpus names; the remaining options are the customer's own group-hierarchy nodes and are therefore not enumerable as structural knowledge. Selection is constrained by the admin's own rights: 'Depending on your rights, you may not be able to select the Global group. This means you are only allowed to select your group or groups that fall below your group in the hierarchy.' Field description on the wizard: 'Select the group(s) for which an administrator must have administration rights to modify the policy.' (concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.bill-to-optional",
@@ -538,7 +538,7 @@
         "sourceQuote": "Add a default Bill To address to associate with new invoices.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "CONFLICT in the corpus: labelled '(Optional)' in the Create a New Policy table, but for purchase-request policies policy-c8ec906b.md states 'Bill To is a required field and must be filled out to complete the policy configuration.' Addresses are maintained via Set a Default Shipping and Billing Address; the option list is tenant data.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.expense-type",
@@ -550,7 +550,7 @@
         "sourceQuote": "Displays the expense types defined for the policy.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Column on the Expense Types for Policy step / Modify Policy expense-type list. 'Clicking the name of an expense type displays the Expense Type Properties page' (same file); elsewhere named the Modify Expense Type Properties window.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.policy-status",
@@ -565,7 +565,7 @@
         "sourceQuote": "Provides a status, either Active or Inactive, for each expense type. Active expense types are available from the Expense Type list when creating an invoice, while Inactive expense types are unavailable.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Genuinely enumerated -- the only two-value enumeration on this page. Newly created expense types land here as Inactive: 'All new expense types appear in the Policies tool as Inactive.' (expense-types-and-policies-a01e2537.md)",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.activate",
@@ -577,7 +577,7 @@
         "sourceQuote": "Select the desired expense types and click Activate or Deactivate to change the policy status.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Acts on the current multi-selection: 'You can select individual expense types or use Shift+click or Ctrl+click to select multiple expense types.' (change-the-status-of-an-expense-type-cf452b6a.md). The same button pair also appears on the Print Format list: 'Select a policy, and then select either Activate or Deactivate.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.deactivate",
@@ -589,7 +589,7 @@
         "sourceQuote": "Select the desired expense types and click Activate or Deactivate to change the policy status.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md",
         "notes": "Paired with Activate. Note a label typo in change-the-status-of-an-expense-type-cf452b6a.md, which writes 'Select Active or Deactivate.' -- a matcher should tolerate both Active and Activate.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.apply-auto-submit-to-assignment",
@@ -601,7 +601,7 @@
         "sourceQuote": "(Optional) Select Apply Auto Submit to Assignment if you would like the system to automatically attempt to submit an invoice on assignment.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/setting-the-automatic-submission-conditions-for-submit-action-88fe4a03.md",
         "notes": "Check box inside the Auto Submit Conditions area. Without it, auto-submit fires on import only; with it, also on assignment of the invoice to an employee.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.enable-attendee",
@@ -613,7 +613,7 @@
         "sourceQuote": "Select this check box to enable the Attendee feature.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "Reachable from THIS page via the Expense Types button: 'The options in the Attendees step in the Expense Types tool in Invoice Administration are also available in the Policies tool.' and 'Double-click an expense type. The Modify Expense Type Properties window appears with the options that are also available in the Expense Types tool.' (same file). Setting is per policy AND per expense type.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.show-cost-per-attendee",
@@ -625,7 +625,7 @@
         "sourceQuote": "Select this check box to allow users to view the amount of the expense allotted to each attendee.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "Per-policy, per-expense-type option in the Modify Expense Type Properties window opened from the Policies page. Confirmed as a policy-scoped setting by settings-for-policy-and-expense-type-92703364.md.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.allow-users-to-edit-the-cost-per-attendee",
@@ -637,7 +637,7 @@
         "sourceQuote": "Select this check box to allow users to edit the amounts in the Amount column.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "Per-policy, per-expense-type option in the Modify Expense Type Properties window opened from the Policies page.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.allow-users-to-enter-the-count-of-no-shows",
@@ -649,7 +649,7 @@
         "sourceQuote": "Select this check box to allow users to account for \"No Shows,\" that is attendees who were invited but did not attend.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "Per-policy, per-expense-type option in the Modify Expense Type Properties window opened from the Policies page. Casing of 'No Shows' varies between topics.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.allow-users-to-edit-the-count-of-attendees",
@@ -661,7 +661,7 @@
         "sourceQuote": "Select this check box to allow users to enter a count (number of unnamed attendees) for this expense type.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "Per-policy, per-expense-type option in the Modify Expense Type Properties window opened from the Policies page. Used in conjunction with attendee type settings.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.include-user-as-an-attendee-by-default",
@@ -673,7 +673,7 @@
         "sourceQuote": "If this check box is selected, Concur Invoice automatically adds the user as an attendee when the user accesses the attendees section the first time (when no attendees are assigned to the entry).",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "Per-policy, per-expense-type option in the Modify Expense Type Properties window opened from the Policies page.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.policies.display-the-add-new-attendees-button-from-the-attendee-table",
@@ -685,7 +685,7 @@
         "sourceQuote": "If this check box is selected, Invoice adds the Add New Attendee button to the Attendee section of the Attendee tab.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md",
         "notes": "LABEL DRIFT -- the dedicated Policies-tool procedure names it without 'Add': 'Clear the Display the New Attendee button from the attendee table (shown in its selected, default state in the figure below).' (procedure-suppress-the-new-attendee-button-by-expense-type-9a8edae0.md, which reaches it via Administration > Invoice > Policies > select policy > Expense Types > double-click expense type). Default state is selected.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.group",
@@ -697,7 +697,7 @@
         "sourceQuote": "Select the correct group as it should appear within the other tools and to the employee.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "First row of the \"Table 1: Configuration for Group fields\" table in the Add Groups topic. The value is chosen through a separate Select Group window opened by New, not typed. Available groups are constrained by the admin's rights: \"You can only create group configurations for groups for which you are assigned rights and for groups below those groups.\" (same file).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.group-name",
@@ -709,7 +709,7 @@
         "sourceQuote": "Type a unique name that describes this group. When creating other configurations, you will see the group name and not the group path, so make sure it is descriptive of what group is being defined.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Free-text, must be unique. The Vendor Access tab equivalent adds a naming constraint: \"It cannot be the name of any existing group name already in the system.\" (concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.attendee-list-form",
@@ -721,7 +721,7 @@
         "sourceQuote": "Select the attendee form that should be displayed when a new attendee is added.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Options are the attendee forms configured in Forms and Fields (form type Payment Request Attendee Detail View) — the corpus never enumerates them, so validValues is empty. LABEL DRIFT: the same control is called the \"Forms Fields list\" in a second topic (see separate entry).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.allow-users-to-upload-cfdi-attachments",
@@ -733,7 +733,7 @@
         "sourceQuote": "CFDi digital invoice images are required under Mexican regulatory policies. Select (enable) this setting (cleared/disabled by default) to allow users to view the CFDi Attachment command in the Actions menu and attach a digital invoice image to their invoice.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Documented as cleared/disabled by default. LABEL DRIFT (singular \"user\"): \"Select (enable) the Allow user to upload CFDi attachments check box.\" — concur-invoice-professional-edition-admin-guides/step-1-enable-by-invoice-group-ebe8724b.md. A third topic uses the plural form again (enabling-cfdi-attachments-for-reporting-to-mexican-tax-authorities-5ce1fd0c.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.allow-invoice-owners-to-create-invoices",
@@ -745,7 +745,7 @@
         "sourceQuote": "Select this setting (the default) to allow the Invoice Owner role to create an invoice in Concur Invoice.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Selected by default per the description. Historical label in the guide's revision history was \"Allow Invoice Owners in Group to Create Payment Requests\" (group-configuration-8b2ecb41.md, April 11 2014 row) — a matcher should tolerate the older wording.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.allow-invoice-owners-to-change-vendors-on-assigned-invoices",
@@ -757,7 +757,7 @@
         "sourceQuote": "Select this setting to allow the Invoice Owner role to change the currently assigned vendor to a different vendor for any invoice assigned to the owner by the AP User.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Scope note in the same table cell: \"This applies only to those invoices not created by the Invoice Owner. If the owner created the invoice, they can change the vendor.\" Historical label \"Allow Invoice Owners to Change Vendors\" appears in the revision history (group-configuration-8b2ecb41.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.select-whether-vendor-banking-information-is-hidden-required",
@@ -773,7 +773,7 @@
         "sourceQuote": "For each role, you may select an option that governs if that user is required to add banking information in the Vendor Banking Information section when requesting a new vendor.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Not one control but a per-role set of selectors — one option per role. The three options ARE literally enumerated in the same table cell, so validValues is populated: \"Hidden: The section does not appear, and there is nothing for the user to see or fill out.\" / \"Required: The section appears, and all fields that must logically be filled out are marked as Required (Red highlight).\" / \"Optional: The section appears, but no enforcement of data entry is required unless the user fills in one or more Required fields.\" The corpus does not enumerate WHICH roles get a selector; it names the Invoice User and Invoice Vendor Manager roles elsewhere (concur-invoice-professional-edition-tools-guides/enabling-the-vendor-manager-to-enter-the-vendor-s-banking-information-fcb8fbdd.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.is-active-for-group",
@@ -788,7 +788,7 @@
         "sourceQuote": "If a policy is marked as Active, it is available for inclusion into an invoice created by a member of the selected group. If a policy is marked as Inactive, it is not available.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Check-box column in the Policies sub-window, one row per policy. Interaction: 'Select or clear the check box make the policy active or inactive for the new group.' (sic — verbatim, missing 'to'). Also referenced as a column heading in enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md: 'In the Is Active for Group, check the box next to the e-Bunsho enabled policy.' policy-c8ec906b.md uses the capitalization variant 'Is Active For Group'.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.is-default-policy",
@@ -803,7 +803,7 @@
         "sourceQuote": "You will be unable to select a policy as a default if it is marked Inactive. In addition, if there is only one Active policy listed for a group, it will automatically be set to Yes in the Is Default Policy column. It cannot be changed to No until another policy available for the group is marked Active.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Check-box column rendered as Yes/No in the grid. Two hard dependency rules, both structural: (1) cannot be set on a policy marked Inactive; (2) auto-forced to Yes and locked when the group has exactly one Active policy. Purpose: 'when an employee creates an invoice, the policy that appears as a default will be the one selected here.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.is-inheritable",
@@ -815,7 +815,7 @@
         "sourceQuote": "Select or clear the check box to set whether groups below this group will inherit the group settings.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Drives the hierarchy fallback: \"If a group below this group does not have a configuration associated with it, and this group configuration does not allow inheritance, then when an employee creates an invoice, it will inherit policies from the group above this group rather than from this group.\" (same cell).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.policies",
@@ -827,7 +827,7 @@
         "sourceQuote": "Click Modify in the Policies column. The Configuration for Group window appears.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Grid column on the Invoice tab whose per-row Modify link opens the policy sub-window carrying Is Active for Group / Is Default Policy / Is Inheritable. Corroborated: \"On the Group Configurations page, in the Policies column, select the Modify link for a list of policies available to the group.\" (change-the-active-policy-d656d79c.md) and \"On the Administration > Invoice > Group Configurations page in the Policies column, click Modify for the group you want to modify.\" (enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.attendee-type-active-check-boxes",
@@ -839,7 +839,7 @@
         "sourceQuote": "Select the check box for all attendee types that should be active for the group.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-configure-attendee-types-by-user-groups-4a865d21.md",
         "notes": "One check box per attendee type inside the Attendee Types sub-window. Two structural constraints stated in the same file: \"All attendee types appear except No Shows and This Employee since they are system attendee types and cannot be inactive.\" and \"If an attendee type is set to Active at the parent group level, it will remain active at the child group level and cannot be changed to Inactive. If the attendee type is set to Inactive at the parent group level, it can be overridden at the child group level and set to Active.\" The set of attendee types is tenant-configured, so validValues is empty.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.in-use",
@@ -851,7 +851,7 @@
         "sourceQuote": "In Use is an indicator that a group configuration is directly referred to within the overall configuration, and therefore cannot be deleted until that related configuration is updated. This does not indicate that users are assigned to the group. Some common examples of related configuration would be Company News records or conditions within Audit Rules.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md",
         "notes": "Read-only indicator on the list grid; gates deletability (an In Use row has no selection check box). The Group Configuration guide's revision history confirms it as a page element: \"Added clarification regarding the In Use indicator.\" (group-configuration-8b2ecb41.md, April 22, 2022).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.new",
@@ -863,7 +863,7 @@
         "sourceQuote": "On the Invoice tab of the Group Configurations page, select New. The Select Group window appears.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Present on both tabs. Vendor Access equivalent: \"Click New to open the Select Group window.\" (concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.modify",
@@ -875,7 +875,7 @@
         "sourceQuote": "Select the desired group configuration and click Modify. The Configuration for Group page appears.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/change-the-basic-configuration-1a3ec18b.md",
         "notes": "Row-level action that opens the basic Configuration for Group window. Also used read-only for viewing: \"Select Modify to view the configuration.\" (view-group-configurations-9e1e5066.md). Distinct from the per-column Modify links in Policies and Attendee Types.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.delete-selected-rows",
@@ -887,7 +887,7 @@
         "sourceQuote": "Click Delete Selected Rows.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md",
         "notes": "Deletes the checked group configurations. Deleting the configuration does not delete the group itself: \"Although an Invoice Configuration administrator can delete a group configuration, they cannot delete the group itself. Groups are defined by the source list imported into the system.\" (same file).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.select-all",
@@ -899,7 +899,7 @@
         "sourceQuote": "Select Select All to choose all the available group configurations. Note that not all group configurations will be available for removal as they either are in use or required by Concur Invoice. These group configurations will not have associated check boxes.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md",
         "notes": "Bulk-select control on the Group Configurations List page; only selects rows that actually have check boxes.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.vendor-access-tab",
@@ -911,7 +911,7 @@
         "sourceQuote": "Click the Vendor Access tab.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md",
         "notes": "Second tab. Scope: \"The Vendor Access tab of Group Configurations within Invoice Processing Admin is used to create those vendor groups to which you will assign vendors via import. These groups are then assigned in turn to users via User Administration to filter what vendors a user may choose from.\" (concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md). Deep-linkable as a breadcrumb leaf (see navPathEvidence).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.email-alias",
@@ -923,7 +923,7 @@
         "sourceQuote": "In the Configuration for Group window, select the preferred email alias from the Email Alias list.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-feature-activation-5fe44fe7.md",
         "notes": "Appears on the Vendor Access tab's Configuration for Group window, and only once Vendor Segregation is on: \"Now, the functionality appears in Group Configuration > Vendor Access\" (same file). Options are the aliases created in Capture Processing Admin > Email Administration, so they are tenant data and validValues stays empty.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.group-vendor-access-list",
@@ -935,7 +935,7 @@
         "sourceQuote": "In the Group list, select a vendor group, and then click Modify.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-feature-activation-5fe44fe7.md",
         "notes": "Vendor group picker on the Vendor Access tab used to choose which vendor group's configuration to open. Contents are the named vendor groups created on this tab.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.done",
@@ -947,7 +947,7 @@
         "sourceQuote": "Select Done. The Configuration for Group window appears.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Commits the group choice in the Select Group window and advances to Configuration for Group.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.group-configurations.save",
@@ -959,7 +959,7 @@
         "sourceQuote": "Select Save. The Group Configurations page appears.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
         "notes": "Commits the Configuration for Group window and returns to the list. Present in the basic, Policies, Attendee Types, and Vendor Access variants of the window.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.allow-invoice-users-to-delete-images-on-payment-requests-cre",
@@ -974,7 +974,7 @@
         "sourceQuote": "Select to allow the Concur Invoice user to remove images attached to invoices created by the AP User and assigned to the user. Clear (disable) to prevent the user from removing images associated with the invoice.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Quote enumerates both states explicitly (Select / Clear (disable)). Default Status column in the same file: 'Enabled (selected)'. ADMIN/prevent-deletion-of-images-associated-with-an-invoice-a0521ec4.md repeats: 'The setting is selected (enabled) by default.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.allow-processor-users-to-change-vendor-on-requests-pending-p",
@@ -989,7 +989,7 @@
         "sourceQuote": "Select to allow a Processor to change the vendor associated with an invoice even during workflow steps pending a Processor. Clear (disable) to prevent the Processor from changing the vendor if the invoice is pending any Processor role in workflow (accounting review).",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Quote enumerates both states explicitly. Default Status column in the same file: 'Enabled (selected)'. ADMIN/prevent-processor-to-change-vendor-pending-processor-in-workflow-edbca7d1.md confirms: 'The setting is selected (enabled) by default.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.allow-payment-manager-to-change-banking-information",
@@ -1004,7 +1004,7 @@
         "sourceQuote": "Clear (disable) this check box to remove the Banking Import link from Payment Manager and prevent the Payment Manager role from importing any changes to banking information.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Inverted-sense setting: the documented action is clearing it. Default Status column in the same file: 'Enabled (selected)'. Caution — ADMIN/prevent-changes-to-payment-manager-banking-information-4fd01601.md contains a contradiction in its prose ('If you prefer this role not have this capability, select (enable) this setting to remove the Banking Import link') while its own numbered procedure says 'clear (disable) the Allow Payment Manager to change banking information check box'. The procedure and the settings table agree; the prose sentence is an error.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.send-vendor-payment-email-notifications-for-check-and-ach-co",
@@ -1019,7 +1019,7 @@
         "sourceQuote": "Select (enable) this check box if you want vendors to receive an email when they are paid via ACH or Check with Invoice Pay. The email will contain full remittance information including when, how, and for what they are paid.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Default Status column in the same file: 'Disabled (cleared)'. Edition split worth capturing: TOOLS/email-remittance-notifications-ec277e48.md states 'For Standard Edition, this setting does not display in the UI but defaults to enabled.' Payment types covered are enumerated as Check and ACH; applies to both partial and full payments; Client Pay (payment outside Invoice Pay) does not trigger notifications.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.enable-peppol-integration",
@@ -1034,7 +1034,7 @@
         "sourceQuote": "Select (enable) this check box to allow Peppol Integration and configure the feature in Concur Invoice.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Default Status column in the same file: 'Disabled (cleared)'. This checkbox only unlocks the feature — actual configuration happens on a separate Peppol Configuration page (Administration > Invoice > Invoice Processing Admin > Peppol Configuration, per ADMIN/professional-edition-7e36681a.md), whose own 'Peppol Integration Enablement' field is a distinct two-value selector with values Active and Inactive (ADMIN/deactivating-peppol-integration-f8577b2a.md). ADMIN/feature-activation-04b47637.md notes the feature must first be enabled by SAP Concur staff via a service request.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-payment-term-days",
@@ -1046,7 +1046,7 @@
         "sourceQuote": "On the Invoice Settings page, input a value, in days, which will become the default payment term for all invoices not otherwise given a term within Concur Invoice.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/default-payment-term-days-4ffc7e98.md",
         "notes": "Default value is \"Zero (0) days\". Master table gives examples \"10, 30, or 60 days\" — illustrative, not an enumeration, so validValues left empty. Casing drifts to \"Default Payment Term (Days)\" in the topic title and \"Default Payment Term (days)\" in ADMIN/understanding-default-payment-terms-e71743f2.md. Overridable per vendor record and via Invoice Pay.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-discount-terms-days",
@@ -1058,7 +1058,7 @@
         "sourceQuote": "If a discount applies, enter the NET discount terms agreed upon with the supplier.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Default status \"N/A\". The table adds a Note: the data in this field is for information purposes only and is not used in any calculations.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-discount-percentage",
@@ -1070,7 +1070,7 @@
         "sourceQuote": "Enter the percentage amount (10; 15) the supplier will honor if the supplier’s discount NET terms are met.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Default status \"N/A\". Master table states the data type constraint verbatim: \"Number (11, 8) - 11 characters maximum, 8 characters maximum to the right of the decimal.\" Informational only, not used in calculations. Quote contains U+2019 in supplier’s.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-shipping-method",
@@ -1082,7 +1082,7 @@
         "sourceQuote": "Select the preferred carrier for shipping. This is designated by a code representing the shipping method used by the supplier.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Default status \"N/A\". Typed as a dropdown because the corpus verb is \"Select\" and the value is a code; the option list is NOT enumerated anywhere in the corpus.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-shipping-terms",
@@ -1094,7 +1094,7 @@
         "sourceQuote": "The code representing shipping terms with a supplier.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md",
         "notes": "Default status \"N/A\". The corpus gives no verb (no select or enter) for this control, so the widget type cannot be determined from 2026_08 text — marked unknown rather than guessed.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-recurring-invoice-generation-offset",
@@ -1106,7 +1106,7 @@
         "sourceQuote": "Use the Default Recurring Invoice Generation Offset field on the Invoice Settings page to set the number of days before the payment date that Concur Invoice automatically generates recurring invoices. The default offset is 14 days.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/default-recurring-invoice-generation-offset-9fec0110.md",
         "notes": "Default value is 14 (days). Master table writes it with lowercase r as \"Default recurring Invoice Generation Offset\"; the dedicated topic title-cases it. Number of days before the actual billing/payment date the recurring invoice is generated.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.default-fields-that-regulate-duplicate-invoices-vendor-is-se",
@@ -1122,7 +1122,7 @@
         "sourceQuote": "Use the Default fields that regulate duplicate invoices list on the Invoice Settings page to select which invoice attributes are checked alongside Vendor when the Is Duplicate audit rule runs in Concur Invoice.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/fields-that-regulate-duplicate-invoices-b3b75abd.md",
         "notes": "validValues are genuinely enumerated in this file: \"Available fields are: Invoice Date / Invoice Amount / Invoice Number\". Vendor is always checked and is not a selectable option. Default selection is Invoice Number (master table Default Status column). Multi-select — the file notes that to use more than one option the admin must use an AND statement when creating the Is Duplicate audit rule, and that an Is Duplicate rule must also be created in the Audit Rules tool.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.invoice-settings.for-purchase-order-based-invoices-from-where-should-the-invo",
@@ -1137,7 +1137,7 @@
         "sourceQuote": "Use the For purchase order-based invoices, from where should the Invoice Line allocation be copied? setting on the Invoice Settings page to control whether allocation fields on invoice lines are copied from the associated purchase order line or from the existing copy-down configuration.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-down-line-allocations-from-po-based-invoice-5ac42ce8.md",
         "notes": "Both options are literally enumerated as a bulleted list in this file and again in the master table. Default is \"From the associated purchase order line\". ADMIN/copy-down-of-po-allocation-lines-f14c45e4.md renders the second option without the hyphen as \"From the copydown configurations\" — tolerate both spellings. The corpus calls it a list, hence dropdown.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.search-routing-mappings",
@@ -1149,7 +1149,7 @@
         "sourceQuote": "input the search criteria into the Search Routing Mappings search box as follows:",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md",
         "notes": "Search box on the Hierarchy Mapping List screen; accepts Employee Last Name or Segment 1-3 criteria (see related fields).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.employee-last-name",
@@ -1161,7 +1161,7 @@
         "sourceQuote": "Employee Last Name: Type the last name of the employee who is associated with the hierarchy mapping that you want to display. For example, if Ken Brown is associated with the mapping, type \"Brown\" in the Begins With search field.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md",
         "notes": "One of the search criteria options within Search Routing Mappings; uses a Begins With match.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.segment-1-3",
@@ -1173,7 +1173,7 @@
         "sourceQuote": "Segment 1 - 3: You can elect to search for the mapping by typing in any of the first three segments mappings. For example, if the mapping is Company > Sales > North, and you only remember North, select the correct sequence (Segment 3 in this example) and input North in the Begins With search field.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md",
         "notes": "Search by any of the first three hierarchy path segments; requires selecting the matching segment sequence.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.delete-flag",
@@ -1188,7 +1188,7 @@
         "sourceQuote": "Used to indicate if this record should be deleted from the hierarchy mapping list.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
         "notes": "Import template field, 1 character, Y (Yes) or N (No), not required.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.employee-id",
@@ -1200,7 +1200,7 @@
         "sourceQuote": "The exact Employee ID of the employee to whom the record is to be assigned.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
         "notes": "Import template field, required unless Delete? is used; max 48 characters, case insensitive.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.level-1-10-code",
@@ -1212,7 +1212,7 @@
         "sourceQuote": "The hierarchy path, in levels (segments) on selection of which will cause the associated user in Employee ID to be selected as the default Invoice owner when the AP user assigns the invoice.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md",
         "notes": "Import template fields Level 1 Code through Level 10 Code; max 32 characters, case insensitive; values are List Item Short Codes.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.browse-button",
@@ -1224,7 +1224,7 @@
         "sourceQuote": "On the Import Hierarchy Mappings page, click Browse.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md",
         "notes": "File-picker trigger on the Import Hierarchy Mappings tab to select the populated template file.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.import-button",
@@ -1236,7 +1236,7 @@
         "sourceQuote": "Click Import.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md",
         "notes": "Submits the uploaded file; triggers the Import Summary window.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.download-template-button",
@@ -1248,7 +1248,7 @@
         "sourceQuote": "On the Import Hierarchy Mappings page, click Download Template.",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-download-hierarchy-mappings-template-excel-spreadsheet-d981b372.md",
         "notes": "Downloads the pre-populated Excel template with correct column headings.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.routing-configuration.import-details-type-filter",
@@ -1265,7 +1265,7 @@
         "sourceQuote": "you can filter the information that displays using the Type list that includes the following options:\n\n-   All: The error, warning, and information text all appear\n    \n-   Error: Filters to display only the errors generated during import\n    \n-   Warning: Filters to display only the warnings generated during import\n    \n-   Info: Filters to display only the number of records imported",
         "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-review-import-details-414c8cd5.md",
         "notes": "Filter dropdown in the Import Details window, reached via View Import Details action.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.name",
@@ -1277,7 +1277,7 @@
         "sourceQuote": "Type a unique name.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Custom Audit Rule wizard, Audit Rule step, field table row 'Name'.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.event",
@@ -1296,7 +1296,7 @@
         "sourceQuote": "Select the event that triggers the rule:\n\n-   Allocation Save: Though this type of rule is triggered when the allocation is saved, the exception icon and message appear on the Processor List page or within the invoice. The message and icon do not appear on the Distribute Selected Items page.\n    \n-   Payment Request Details Save\n    \n-   Payment Request Details Submit\n    \n-   Payment Request Save\n    \n-   Payment Request Submit\n    \n-   Payment Post Request Submit",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Custom Audit Rule wizard event picker — the field/control that determines when the rule evaluates.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.editableby",
@@ -1308,7 +1308,7 @@
         "sourceQuote": "This field defaults to your access rights. Change it if necessary.\n\nSelect the field; the associated helper pane appears. Select the appropriate group(s).",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Group-picker helper-pane control defining who can edit the rule.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.appliesto",
@@ -1323,7 +1323,7 @@
         "sourceQuote": "Select the field; the associated helper pane appears. Select the appropriate group(s).\n\nToggle Inherited/Not Inherited to indicate whether this rule will apply to the group(s) below this one in the hierarchical structure.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Group-scope picker plus Inherited/Not Inherited toggle — this is the rule's scope-by-group control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.active",
@@ -1337,7 +1337,7 @@
         "sourceQuote": "Select Yes to activate the rule upon completion.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Active/inactive state control on the Audit Rule step. Only 'Yes' value is verbatim in the corpus (implicit No/blank is the alternative but not quoted as a labeled value).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.exceptionvisibility",
@@ -1353,7 +1353,7 @@
         "sourceQuote": "From the Exception Visibility list, select the users who are able to see the exception message by selecting:\n\n-   For expense-related rules:\n    \n-   Invoice Owner, Approver, and Invoice Processor\n    \n-   Approver and Invoice Processor\n    \n-   Invoice Processor",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Exception step of the Custom Audit Rule wizard — controls who can see the raised exception (severity/visibility control).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.exceptioncode",
@@ -1365,7 +1365,7 @@
         "sourceQuote": "Use an existing exception. To use an existing exception, select the desired exception. It appears in the Exception Code, Exception Level, and Exception Text fields at the top of the page.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Auto-populated read field on the Exception step when an existing exception is selected.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.exceptionlevel",
@@ -1377,7 +1377,7 @@
         "sourceQuote": "Type any number between 0 and 99. Typically, the number goes in ascending order for severity, such as 0 is non-urgent, and 10 is extremely urgent.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "Exception Level field, defined in the New Exception dialog reached from the Audit Rules Exception step; this is the severity control the task asked about.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.exceptioncode-new",
@@ -1389,7 +1389,7 @@
         "sourceQuote": "Type a unique one to eight alphanumeric character code in all capital letters, without any spaces. This code is determined by the client's internal coding system and is not localized.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "New Exception dialog field definition (create-new-exception path from within Audit Rules).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.exceptionmessage",
@@ -1401,7 +1401,7 @@
         "sourceQuote": "This message appears wherever the exception is visible and can be localized.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "New Exception dialog — the exception text raised by the rule.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.exceptioneditablebygroups",
@@ -1415,7 +1415,7 @@
         "sourceQuote": "Select the group rights that an administrator must have in order to modify this exception.\n\n-   If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "New Exception dialog group-scope control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomrulename",
@@ -1427,7 +1427,7 @@
         "sourceQuote": "Use the first line (yellow background) in the grid to add a new rule. Select in the Name field, and then enter the rule name.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Random tab of Audit Rules grid.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomruletype",
@@ -1442,7 +1442,7 @@
         "sourceQuote": "Select either:\n\n-   Percentage and then enter the appropriate percentage\n    \n-   Sequential and then enter the appropriate number",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Rule Type window on the Random Audit Rules tab — defines how invoices are selected for random audit.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomruleevent",
@@ -1457,7 +1457,7 @@
         "sourceQuote": "In the Event field, select either:\n\n-   Payment Request Submit\n    \n-   Payment Post Request Submit",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Random Audit Rule's evaluation-trigger field.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomexceptioncode",
@@ -1469,7 +1469,7 @@
         "sourceQuote": "Select the Exception Code field. The Exceptions window appears.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Opens the Exceptions window (existing or new exception) for the random rule.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomeditableby",
@@ -1481,7 +1481,7 @@
         "sourceQuote": "In the Editable By field, select the group configuration(s) that can edit this rule.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Random rule scope-by-group edit control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomappliesto",
@@ -1493,7 +1493,7 @@
         "sourceQuote": "In the Applies To field, select the appropriate group configuration(s) to which this rule applies.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Random rule scope-by-group applies-to control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.randomactivate",
@@ -1505,7 +1505,7 @@
         "sourceQuote": "With the rule selected, select Activate.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md",
         "notes": "Activate control for a Random Audit Rule (active/inactive state).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.validationrulename",
@@ -1517,7 +1517,7 @@
         "sourceQuote": "Type the name of the rule.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule wizard, step 1 field table.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.validationevent",
@@ -1542,7 +1542,7 @@
         "sourceQuote": "Select either:\n\n-   Payment Request Allocation Save: This rule is triggered when each invoice allocation is saved.\n    \n-   Payment Post Request Submit: This rule is triggered <need information – what is this action?\n    \n-   Payment Request Manual Assign: This rule is triggered when the invoice is manually assigned by an AP User to an employee (as an example).\n    \n-   Payment Request Save: This rule is triggered immediately after the invoice header information is saved whether by the employee, approver, or processor.\n    \n-   Payment Request Submit: The rule is triggered when the invoice is submitted.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rules tab (a sub-brand of Audit Rules per taxonomy) event/trigger picker.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.executeactionwhen",
@@ -1557,7 +1557,7 @@
         "sourceQuote": "This field controls when the action for the rule is executed. When the condition is:\n\n-   True\n    \n-   False",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule wizard field controlling when the rule's action fires relative to condition evaluation.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.validationeditablebygroups",
@@ -1569,7 +1569,7 @@
         "sourceQuote": "Click the link; the associated helper pane appears. Select the appropriate group(s).",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule wizard scope-by-group edit control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.validationappliestogroups",
@@ -1581,7 +1581,7 @@
         "sourceQuote": "Click the link; the associated helper pane appears. Select the appropriate group(s).",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule wizard scope-by-group applies-to control (second occurrence of same quote text, distinct field row).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.validationactive",
@@ -1595,7 +1595,7 @@
         "sourceQuote": "Select Yes (if necessary) to activate the rule upon completion.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule active/inactive state control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.fromdatasource",
@@ -1612,7 +1612,7 @@
         "sourceQuote": "The source of the fields that will be used for the update. The available sources will change depending on the event selected. They include:\n\n-   Constant\n    \n-   Validation Table\n    \n-   Employee\n    \n-   Request",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule Actions page field-update source control.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.fromfieldname",
@@ -1624,7 +1624,7 @@
         "sourceQuote": "The field from the Data Source that will be used to update the Invoice field. The list of fields displayed will change depending on the Data Source selected.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule Actions page field-update source field.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.todatasource",
@@ -1638,7 +1638,7 @@
         "sourceQuote": "The Data Source of the field to be updated:\n\n-   Concur Request",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule Actions page target data source.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.tofieldname",
@@ -1650,7 +1650,7 @@
         "sourceQuote": "The Concur Invoice field that will be updated. The list of fields displayed will change depending on the Data Source selected.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule Actions page target field.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.validationexceptionvisibility",
@@ -1666,7 +1666,7 @@
         "sourceQuote": "Select the users who are able to see the exception message by selecting:\n\n-   Invoice Owner, Approver and Invoice Processor\n    \n-   Approver and Invoice Processor\n    \n-   Invoice Processor",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md",
         "notes": "Validation Rule Exception page control.",
-        "uiVariant": "both",
+        "uiVariant": "undifferentiated",
         "fromRawHtmlTable": true
       },
       {
@@ -1679,7 +1679,7 @@
         "sourceQuote": "Select zero to three parentheses, depending on the complexity of the condition.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
         "notes": "Condition Editor (shared by Audit Rules per this doc: 'similar to the Condition Editor page used in the Audit Rules tool'), column A.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.conditionfieldvalue",
@@ -1691,7 +1691,7 @@
         "sourceQuote": "Select an item from the helper pane that appears. The information that appears in this pane is based upon the selection made in the Data Object list.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
         "notes": "Condition Editor column C/F.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.conditionoperator",
@@ -1703,7 +1703,7 @@
         "sourceQuote": "Select an item from the helper pane that appears. The information that appears in this pane is based upon previous choices.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
         "notes": "Condition Editor column D — the operator control of the field/operator/value editor.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.conditionandor",
@@ -1718,7 +1718,7 @@
         "sourceQuote": "Select either option to join the current condition to the next condition; this line appears when there are multiple conditions, and only between conditions, never after the final condition.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
         "notes": "Condition Editor column H, joins multiple conditions.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.insertcondition",
@@ -1730,7 +1730,7 @@
         "sourceQuote": "using Insert to add conditions and Remove to delete conditions",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Conditions step control to add a new condition row.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.removecondition",
@@ -1742,7 +1742,7 @@
         "sourceQuote": "using Insert to add conditions and Remove to delete conditions",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
         "notes": "Conditions step control to delete a condition row.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.audit-rules.ruleactiveinactiveaction",
@@ -1757,7 +1757,7 @@
         "sourceQuote": "To deactivate/activate a custom audit rule:\n\n1.  On the Custom tab, select the rule you want to affect.\n    \n2.  Choose Deactivate or Activate, whichever applies.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/deactivate-activate-a-custom-audit-rule-e9ad1047.md",
         "notes": "Toggle button on the rule list rather than a form field; equivalent topic exists for Random Audit Rules (deactivate-activate-a-random-audit-rule-622ed1bf.md).",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.exceptioncode",
@@ -1769,7 +1769,7 @@
         "sourceQuote": "Type a unique one to eight alphanumeric character code in all capital letters, without any spaces. This code is determined by the client's internal coding system and is not localized. Using the Exception Code, an invoice can be queried in Invoice Processor using a custom query.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "Required field on the New Exception tab. Unique 1-8 alphanumeric chars, all caps, no spaces. Not localized.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.message",
@@ -1781,7 +1781,7 @@
         "sourceQuote": "This message appears wherever the exception is visible and can be localized.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "The exception's display/description text; localizable.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.editablebygroups",
@@ -1795,7 +1795,7 @@
         "sourceQuote": "If you select Global Group, then the exception can be edited or deleted by any employee assigned to administer the Global Group.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "Only 'Global Group' is a named fixed option in the text; all other selectable values are the client's own hierarchy group names (e.g. 'Global Group>United States'), not a corpus-enumerated set — omitted per rule 6/5.",
-        "uiVariant": "both",
+        "uiVariant": "undifferentiated",
         "fromRawHtmlTable": true
       },
       {
@@ -1808,7 +1808,7 @@
         "sourceQuote": "Select Exceptions  New.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "Opens the New Exception tab. Note: 'If the administrator does not have permissions, the New link does not appear.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.savebutton",
@@ -1820,7 +1820,7 @@
         "sourceQuote": "Select Save.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md",
         "notes": "Commits the new or modified exception; result note: 'The Exceptions page appears with the new exception listed.'",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.modifybutton",
@@ -1832,7 +1832,7 @@
         "sourceQuote": "Choose Modify to open the Modify Exception window.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-exceptions-1c6e5030.md",
         "notes": "Opens the Modify Exception window for the selected exception row; read-only if the admin lacks create rights.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.removebutton",
@@ -1844,7 +1844,7 @@
         "sourceQuote": "Select Remove.",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-exceptions-aa2889cc.md",
         "notes": "Deletes the checked exception row(s); Group admins can only remove exceptions they created, only Global admins can delete/modify all ('If you are a Group Invoice Configuration Administrator, you cannot delete exceptions that you have not created. Only Global Invoice Configuration Administrators can delete or modify all exceptions.').",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       },
       {
         "id": "field.exceptions.exceptionrowcheckbox",
@@ -1856,7 +1856,7 @@
         "sourceQuote": "select the check box beside the desired exception",
         "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-exceptions-aa2889cc.md",
         "notes": "Per-row checkbox on the Exceptions list used before Remove.",
-        "uiVariant": "both"
+        "uiVariant": "undifferentiated"
       }
     ],
     "configDependencies": [
