@@ -125,8 +125,14 @@ def main(script):
             continue
         co = cell_openers(ix[f])
         if claimed == co and co > 4:
+            # Deliberately does NOT assert a corrected row count. (co-1)//(cols+1) UNDER-COUNTS
+            # whenever a row carries an empty cell written as U+00A0, because SAP collapses
+            # ` | \xa0 |` onto one line - measured 191-vs-250 and 194-vs-257 on real files by the
+            # Group 6 recon. Being honestly vague beats being precisely wrong, which is the same
+            # mistake this check exists to catch. Count the rows by reading the table.
             errors.append(('CELL-OPENERS-CALLED-ROWS', '%s: "%d rows"' % (f, claimed),
-                           'that is the cell-opener count; true rows are nearer %d' % ((co - 1) // 3 - 1)))
+                           'that is the raw cell-opener count, not rows - convert before quoting it '
+                           '(and do not trust a divide-by-columns shortcut either)'))
 
     # ---- 6. seeded files must be topical for the page that seeds them ------------------------
     # Catches a file seeded onto the wrong page - the one thing that breaks a two-page run's

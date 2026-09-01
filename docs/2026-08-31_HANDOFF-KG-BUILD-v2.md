@@ -269,8 +269,20 @@ LLM review had missed. Run it every time.
   `accountingAdmin`, `dcredirect`. Every URL in the graph came from the original handoff's
   live-UI observation and **cannot be corpus-verified**. Click paths are the only navigational
   knowledge that exists.
-- **"Forms and Fields" is TWO pages** — the Invoice Processing Admin tool, and a tab inside
-  Capture Processing Admin with a stricter role gate (Unrestricted). Never collapse them.
+- **"Forms and Fields": this said TWO pages. THE ARTIFACT SAYS ONE. Corrected 2026-09-01.**
+  It used to read *"Forms and Fields is TWO pages — the Invoice Processing Admin tool, and a tab
+  inside Capture Processing Admin with a stricter role gate (Unrestricted). Never collapse them."*
+  The built graph does not do that. There is exactly ONE node, `page.forms-and-fields`, carrying 5
+  tabs and 6 `navPathAlternates` — one of which is `Administration > Invoice > Capture Processing
+  Admin > Forms and Fields (tab)`. **The second entry point was folded IN as an alternate, not split
+  out.** So the graph's real precedent is the OPPOSITE of what this line asserted: a second entry
+  point with its own context becomes an ALTERNATE, not a page. That matters, because the false
+  version was cited as settled precedent in five build scripts' Map prompts and was used to argue
+  page-hood in a later recon.
+  **OPEN, and deliberately not decided here:** either the build intent was never implemented (a
+  Group 5 defect) or the modelling changed and this document was not updated. It is registered as
+  Remediation Sweep scope. Until it is settled, cite what the artifact does, not what this line
+  used to claim.
 - **Exceptions is a hub**, feeding both Audit Rules and Workflows.
 - **Audit Rules is one page with three tabs** (Custom / Validation / Random); "Validation Rules"
   is an alias, not a separate page.

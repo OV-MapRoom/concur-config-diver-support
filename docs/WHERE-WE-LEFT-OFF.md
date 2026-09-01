@@ -109,6 +109,23 @@ page-specific measurement forward: the Run B script says Email Reminders carries
 role-gate sentences, and Delegate Configurations does not. Both facts are wrong for Group 6.
 Re-measure everything you carry.
 
+### Scope now registered under `Remediation Sweep` (it BLOCKS `meta.status`)
+
+- **Invoice Settings: 13 of 24** documented rows; the 11 missing settings are named in the build log.
+- **Audit Rules: 91 entries encoding ~68 controls** — dedupe on SOURCE FILES, never on that roster.
+- **New Experience retrofit** over Groups 1-2; 636 of 674 fields are `uiVariant: undifferentiated`.
+- **`Forms and Fields`: one node or two?** Handoff v2 asserted two pages; the artifact is one node
+  with 6 `navPathAlternates`. Corrected in v2 on 2026-09-01 to describe the artifact. **Which is
+  right is undecided** and belongs here.
+- **`Expense Type Import`** — a genuine unbuilt left-menu page (`Administration > Invoice > Expense
+  Type Import`, own access topic, 14-file cluster). The Group 6 recon's page-hood critic proved it
+  and showed both its proposed homes were closed groups. It is deferred HERE deliberately, to an
+  OPEN registered group, not to a shut one. `page.expense-types` also carries its click path as a
+  stale `navPathAlternate` that must be stripped when it is built.
+- **A stale id/pageId mismatch:** `field.image-handling.ebunshotimestampconfigurationlist` carries
+  `pageId: page.policies`. A prior correction repaired the binding and left the id string behind.
+  **Key every merge and boundary check on the `pageId` attribute, never on the id prefix.**
+
 ### `meta.status` will NOT flip to COMPLETE when Group 6 merges — deliberately
 
 Group 6 was the last non-Ops entry in `merge-group.py`'s `ALL_GROUPS`, so merging it would have
