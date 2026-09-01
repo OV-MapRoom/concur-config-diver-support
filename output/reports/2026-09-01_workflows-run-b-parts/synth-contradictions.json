@@ -1,0 +1,669 @@
+{
+  "contradictions": [
+    {
+      "id": "contr.wfb.001",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "option-list",
+      "topic": "The Reminder Type option list differs between the Email Reminders tab roster and the Rules tab roster of the same page, and the one option both lists share is defined incompatibly - a cash advance request on one side, an invoice on the other.",
+      "appliesToFieldId": "field.email-reminders.reminder-type",
+      "appliesToRef": {
+        "page": "Email Reminders",
+        "field": "reminder-type",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Email Reminders",
+        "field": "reminder-type"
+      },
+      "readings": [
+        {
+          "summary": "Email Reminders tab roster: the vendor option is spelled 'Approval Request - Vendor Request'.",
+          "sourceQuote": "Approval Request - Vendor Request: When a vendor-based invoice has a status of Pending Approval.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "Rules tab roster: the same conceptual vendor option is spelled 'Approval Request - Payment Vendor' instead.",
+          "sourceQuote": "Approval Request - Payment Vendor: When a vendor-based invoice has a status of Pending Approval.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+        },
+        {
+          "summary": "Email Reminders tab roster defines the SHARED option 'Approval Request - Payment Request' as firing on a CASH ADVANCE REQUEST that is Pending Approval.",
+          "sourceQuote": "Approval Request - Payment Request: When a cash advance request has a status of Pending Approval.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "Rules tab roster defines the same shared option as firing on an INVOICE that is Pending Approval.",
+          "sourceQuote": "Approval Request - Payment Request: When an invoice has a status of Pending Approval.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+        }
+      ],
+      "consequenceForWriter": "Do not reconcile the two lists and do not pick one as authoritative. Probe BOTH label spellings for the vendor option: on the Email Reminders tab probe 'Approval Request - Vendor Request' first, on the Rules tab probe 'Approval Request - Payment Vendor' first, and fall back to the other spelling before concluding the option is absent - a substring match on 'Vendor' is the safe locator. Never identify 'Approval Request - Payment Request' from its description text, because the two topics disagree about what fires it; select it by label only. The third option, 'Payment Request', is uncontested on both sides. This matters operationally because a reminder can only use rules of its own Reminder Type, so a mismatch between the reminder-side picker (field reminder-type) and the rule-side picker (field rule_reminder_type) is a SILENT failure: the Reminder Rule helper simply returns nothing.",
+      "notes": "Both readings are single corpus hits in DIFFERENT files and both are recorded verbatim; neither is corrected. HYPOTHESIS, not a finding: the cash-advance definition looks like SAP boilerplate carried over from the Expense product, where cash advance requests are a first-class object - Concur Invoice has no documented cash advance surface anywhere else in this corpus. SECOND HYPOTHESIS: 'Approval Request - Payment Vendor' may be the live label, because the two system pre-defined rules are named 'Overdue Payment Request Approvals' and 'Overdue Payment Vendor Approvals' (pre-defined-rules-220a1fe7.md), echoing 'Payment Vendor' rather than 'Vendor Request'. That is CORROBORATION FOR ONE SIDE, NOT A RESOLUTION, and a blind build has no tenant to check it against. Textual tell that the two tables drifted in editing rather than describing two deliberately different pickers: their otherwise identical lead-in sentences differ by one word, 'activated upon' (reminder side) versus 'activated on' (rule side). Both topics carry the same version and build_no and neither carries any UI-variant language. The two pickers are carried in the roster as SEPARATE fields (reminder-type and rule_reminder_type); this node is filed against the reminder-side field and applies equally to the rule-side one."
+    },
+    {
+      "id": "contr.wfb.002",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The reminder editor opened from the Email Reminders tab is named three different ways across three topics of the same guide, and is called both a window and a page.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The create procedure calls it the 'Email Reminder window'.",
+          "sourceQuote": "Choose New to open the Email Reminder window.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "The edit topic calls the read-only variant of the same editor the 'Edit Email Reminder page'.",
+          "sourceQuote": "If they do not have permissions, then the Edit Email Reminder page will be read-only.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md"
+        },
+        {
+          "summary": "The replacement-tokens topic calls the same editor the 'Add Email Reminder page'.",
+          "sourceQuote": "Below is an example of how those options are used on the Add Email Reminder page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md"
+        }
+      ],
+      "consequenceForWriter": "Treat 'Email Reminder window', 'Add Email Reminder page' and 'Edit Email Reminder page' as ONE modal editor over the reminder object and do NOT create page nodes for any of them - none has a menu destination, a role gate or an object of its own. Locate the editor by the New / Modify action that opens it, not by matching a title string; if a title assertion is unavoidable, match on the substring 'Email Reminder' in the container caption and expect the Add/Edit prefix to track whether New or Modify was chosen. Never branch logic on 'window' versus 'page'.",
+      "notes": "Hypothesis: three topics written at different times describe one UI container, and the Add/Edit prefix probably does vary at runtime with the entry point while 'window' versus 'page' is editorial drift. The word 'page' is PROVEN NON-DISCRIMINATING in this corpus - the graph already ruled the Workflows General/Steps/Step Rules wizard is not a page although the corpus calls it one, while page.authorized-approval-limits IS a page node and its own nav sentence says a window appears. The rules side of this page shows the same shape with a fourth name, 'The New Reminder Rule - Step 1 page appears.' (create-reminder-rules-b0a7fac5.md), and the edit procedure lands on that same 'New Reminder Rule - Step 1' caption (edit-reminder-rules-8f2edae9.md) even though nothing new is being created. appliesTo is deliberately empty: this is a page-level surface-naming disagreement, not a disagreement about any one control."
+    },
+    {
+      "id": "contr.wfb.003",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "structure",
+      "topic": "How a copy is initiated differs between the two tabs of this page: the Rules tab has a named Copy control, while the topic titled Copy Email Reminders names only Modify.",
+      "appliesToFieldId": "field.email-reminders.copy-button-rule",
+      "appliesToRef": {
+        "page": "Email Reminders",
+        "field": "rule_copy_button",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Email Reminders",
+        "field": "rule_copy_button"
+      },
+      "readings": [
+        {
+          "summary": "Rules tab: copying is done with an explicitly named Copy control.",
+          "sourceQuote": "Select the rule to copy, and then choose Copy.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-reminder-rules-9350776e.md"
+        },
+        {
+          "summary": "Email Reminders tab: the topic titled 'Copy Email Reminders' names no Copy control anywhere - its only action step is Modify, the same control its own Edit topic uses.",
+          "sourceQuote": "Choose Modify to open the Email Reminder window and make any necessary changes.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-email-reminders-cb75f9fd.md"
+        }
+      ],
+      "consequenceForWriter": "On the Rules tab, drive Copy directly - it is documented. On the Email Reminders tab, do NOT invent or hunt for a Copy button: the corpus never attests one there, and completing the pair by assumption is exactly the blind-build defect this project has already paid for. Follow the documented path (select the reminder, Modify, change it, Save) and then VERIFY that a new entry appeared in the list rather than the original being overwritten, because the documented procedure as written produces an edit, not a copy. If a Copy affordance does turn out to exist at runtime on the reminders tab, report it as an undocumented finding rather than treating it as expected.",
+      "notes": "Hypothesis: a corpus defect rather than a real UI asymmetry - the copy-reminder topic reads as the edit topic with its title swapped, retaining 'Choose Modify' and 'Choose Save' and describing copying only in its closing line. Indirect support that a copy affordance exists on both objects: the Editable By description on BOTH tabs independently grants lower-level administrators a copy right, saying they 'can copy this reminder, but not edit or delete it' and 'can copy this rule, but not edit or delete it'. That is an inference and is NOT emitted as a control. Filed against the rule-side Copy button because that field's scope - whether a Copy control exists for one object or both - is exactly what is contested."
+    },
+    {
+      "id": "contr.wfb.004",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "requirement",
+      "topic": "Who may administer Email Reminders is stated three incompatible ways, twice within a single topic: a Global and Group Configuration administrator, a Group Configuration administrator limited to their own groups, and the holder of the Invoice Configuration administrator (Restricted) role - with a further per-group 'create' rights gate named only on the CRUD topics.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tool topic says the surface allows a Global and Group Configuration administrator to do the full CRUD, with Group Configuration administrators limited to the groups they have access to.",
+          "sourceQuote": "allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+        },
+        {
+          "summary": "The SAME topic, two lines later, gates mere VISIBILITY of the tool on a differently-named role: Invoice Configuration administrator (Restricted).",
+          "sourceQuote": "The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+        },
+        {
+          "summary": "The rule-creation topic adds a third gate that neither of the above mentions - a per-administrator 'create' right whose absence removes the New button entirely.",
+          "sourceQuote": "Group administrators can only create email reminder rules if given \"create\" rights. If they do not have permissions, then the New button will not appear.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+        },
+        {
+          "summary": "The reminder-edit topic states the same 'create' rights gate for EDITING reminders, and sources the right from the Invoice Configuration administrator's configuration checklist rather than from a role.",
+          "sourceQuote": "Group administrators can only edit email reminders if given \"create\" rights from the configuration checklist of the Invoice Configuration administrator.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md"
+        }
+      ],
+      "consequenceForWriter": "Do not treat any one of these as THE permission for this page. Before driving the page, establish all three independently: (a) that the operator holds a role that makes Email Reminders visible at all, probing 'Invoice Configuration administrator (Restricted)' and the Global/Group Configuration administrator names as alternatives, not synonyms; (b) that the operator's group scope covers the groups the reminder will be assigned to, since a Group Configuration administrator is documented as limited to their own groups; and (c) that the 'create' right is present, because without it the failure is SILENT AND SHAPE-CHANGING - the New button is absent on the Rules tab and the reminder editor opens read-only. A driver that finds no New button must report a rights gap, NOT a missing control or a changed layout.",
+      "notes": "Hypothesis: these are three different mechanisms (a role that grants visibility, a group hierarchy that scopes what is editable, and a checklist-granted create right) rather than three names for one thing - which would make all four sentences simultaneously true. THE CORPUS NEVER SAYS THIS and never relates them, so nothing is reconciled here. Note also that the edit topic sources 'create' rights from a configuration checklist while the rule topic just says 'if given \"create\" rights', and that the word used for the edit gate is 'create', not 'edit' - which reads like a copy from the create topic but is recorded as written. Verbatim-quote hazard measured in the first reading's sentence and the reason its quote starts mid-sentence: the source writes the menu path as 'Administration' + TWO NON-BREAKING SPACES (U+00A0 U+00A0) + 'Invoice', with no '>' character at all - a harder form of the documented 'Administration >Invoice' trap, and a quote spanning those bytes cannot be retyped safely, so the clause was cut before them. appliesTo is empty because this is a page-level access requirement, not a control."
+    },
+    {
+      "id": "contr.wfb.005",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The name of the restricted Invoice Configuration administrator role - the gate that makes the Email Reminders tool visible - is written three different ways across the corpus, and two of the three variants live in tools-guides.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "Admin-guides, and this page's own gate sentence: the qualifier follows the full role name - 'Invoice Configuration administrator (Restricted)'.",
+          "sourceQuote": "The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+        },
+        {
+          "summary": "Tools-guides, Company Locations: the qualifier moves INSIDE the role name, before the word administrator - 'Invoice Configuration (Restricted) administrator'.",
+          "sourceQuote": "users must be assigned the Invoice Configuration administrator or Invoice Configuration (Restricted) administrator role",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-476a5f62.md"
+        },
+        {
+          "summary": "Tools-guides, invoice assignment: a third spelling drops the word Configuration entirely - 'Invoice Administrator (Restricted)'.",
+          "sourceQuote": "the configuration of the feature requires the Invoice Administrator (Restricted) role",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-331dcfa0.md"
+        }
+      ],
+      "consequenceForWriter": "Treat all three spellings as the SAME role when checking whether the operator can see the Email Reminders tool, and never create a second role for a near-miss. When matching a role string in a permissions UI, probe 'Invoice Configuration administrator (Restricted)' first - it is this page's own spelling and the majority form - then 'Invoice Configuration (Restricted) administrator', then 'Invoice Administrator (Restricted)'. Do not report the role as absent until all three have missed.",
+      "notes": "Hypothesis: editorial drift across deliverables rather than a product distinction - the three spellings gate three unrelated features (Email Reminders, Company Locations, invoice assignment) and no text anywhere distinguishes them. Corroborating measurement made with equal weight on both guide directories: the exact string 'Invoice Configuration administrator (Restricted)' appears in NINE files (5 admin-guides, 4 tools-guides), so this gate is NOT distinctive to Email Reminders. A complementary form, 'Invoice Configuration administrator (Unrestricted)', appears in the Capture Processing required-roles topic, so the corpus does treat Restricted/Unrestricted as a real partition even while spelling the label inconsistently. This node is about the ROLE NAME only; who may do what on this page is contradicted separately and more sharply in contr.wfb.004."
+    },
+    {
+      "id": "contr.wfb.006",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "structure",
+      "topic": "What kind of object 'Invoice Processing Admin' is - the middle navigation node this page hangs off. The corpus calls it a navigation menu, a menu, and a page.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "This page's own access topic calls it a navigation menu that you choose an item from.",
+          "sourceQuote": "From the Invoice Processing Admin navigation menu, choose Email Reminders.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+        },
+        {
+          "summary": "Tools-guides, Routing Configuration: the same node is a plain 'menu' that you click an item on.",
+          "sourceQuote": "From the Invoice Processing Admin menu, click Routing Configuration.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/access-hierarchy-mappings-import-708f5fdc.md"
+        },
+        {
+          "summary": "Tools-guides, Invoice Settings: the same node is a PAGE you are already on when you click through.",
+          "sourceQuote": "On the Invoice Processing Admin page, click Invoice Settings.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/enabling-the-create-and-approve-vendors-feature-03c9e288.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode 'Invoice Processing Admin' as a clickable leaf destination and do not assume the driver lands on a page there. Treat it as a middle segment traversed after Administration > Invoice, and resolve the real target ('Email Reminders') by its own visible text. If a probe for a menu fails, retry treating the segment as a landing page carrying links. The segment is LIVE - it is attested in tools-guides files independently of this page's own topic - but it is NOT universal in this run: the Delegate Configurations access topic reaches its page by the plain '(left menu)' idiom and never names this segment, so treat the segment as UNATTESTED for that page rather than absent, and never copy one page's access idiom onto the other.",
+      "notes": "Hypothesis: the UI genuinely renders both - a left navigation menu and a landing page listing the same tools - and each topic describes whichever the author had open. This is NOT a UI-variant claim: none of the three files carries new-experience or legacy language, and no release note was used to date any of them. appliesTo is empty because this is a navigation-structure disagreement above the page, not a control on it."
+    },
+    {
+      "id": "contr.wfb.007",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "requirement",
+      "topic": "Whether establishing the email-reminder schedule ALWAYS requires SAP Concur staff and a service request, or only depending on the client's implementation.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The configuration-process topic states it unconditionally: scheduling is done in another tool, is performed by SAP Concur staff, and requires a service request.",
+          "sourceQuote": "Scheduling requires you to submit a service request to SAP Concur support.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+        },
+        {
+          "summary": "The dedicated scheduling topic makes it conditional on the client's implementation - you MAY have to submit a service request.",
+          "sourceQuote": "Depending on your company's implementation, you may have to submit a service request to SAP Concur support for assistance with this task.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md"
+        }
+      ],
+      "consequenceForWriter": "Either way, scheduling is NOT a control on this page and must never be emitted as a field - a driver cannot click it. Build the reminder, then STOP and hand off. Do not report the configuration as live until it has been confirmed out of band that a reminder schedule already exists, because a correctly built reminder simply never fires without one and fails silently. Only the FIRST reminder configuration in a tenant needs the schedule established; later reminders inherit the existing schedule.",
+      "notes": "Hypothesis: provisioning-dependent, which is the standard cause of this shape in this corpus - some tenants may have the Import/Extract Administrator tool available to their own administrators, most do not. The two statements are not reconcilable from the docs and no tenant may be consulted to settle it. The Import/Extract Administrator tool is not built in this graph and is not a page for a driver to reach; it is listed among the deferred surfaces."
+    },
+    {
+      "id": "contr.wfb.008",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "'Rules tab' is not a unique locator in this product: it names the rules tab of the Email Reminders page and, equally, the rules tab of the Purchase Order matching rule set.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "Email Reminders: the Rules tab is a tab of the Email Reminders page.",
+          "sourceQuote": "On the Email Reminders page, select the Rules tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+        },
+        {
+          "summary": "Purchase Order matching: an identically-named Rules tab is a tab of the Purchase Order Matching Set, reached from a different page entirely.",
+          "sourceQuote": "In Purchase Order Matching Set, click the Rules tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md"
+        },
+        {
+          "summary": "Tools-guides confirms the same 'Rules tab' name on the matching side, independently of the admin-guides procedure.",
+          "sourceQuote": "Both options are available to the Invoice administration on the Rules tab when configuring the matching rule set.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/how-to-deal-with-exceptions-using-matching-rules-options-171867ad.md"
+        }
+      ],
+      "consequenceForWriter": "A Chromium driver must never select the Rules tab by its caption alone. Always qualify it by the page it is on: assert you are on 'Email Reminders' before clicking Rules here, and on 'Purchase Order Matching Rules' (the built graph's page name for the matching surface) before clicking Rules there. Clicking an unqualified 'Rules' match is a cross-page misfire that will look like a successful step and then edit the wrong object.",
+      "notes": "Not a disagreement about one surface but a COLLISION between two: both readings are correct, and that is precisely the hazard. The Workflows area carries a near-neighbour, the 'Step Rules page' (work-with-the-step-rules-page-4c33cda0.md), whose caption is a different string and is therefore NOT recorded here as a third reading of the same label - it is noted only so a substring matcher on 'Rules' is understood to have a third way to go wrong. Cross-references use the exact built-graph page names Purchase Order Matching Rules and Workflows; no field or page is re-homed by this node."
+    },
+    {
+      "id": "contr.wfb.009",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The rules surface of the Email Reminders page is called the Rules tab in five topics and the 'Email Reminder Rules section of this tool' in the reminder-creation topic.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "Five CRUD and process topics call it a tab of this page - here in the rule-creation procedure.",
+          "sourceQuote": "On the Email Reminders page, select the Rules tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+        },
+        {
+          "summary": "The reminder-creation topic, describing where new rules come from, calls the same surface a SECTION of the tool rather than a tab.",
+          "sourceQuote": "The Email Reminder Rules section of this tool is used to create any new rules.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "The prerequisites topic gives a third phrasing that locates the rules inside the page rather than naming a tab strip.",
+          "sourceQuote": "The rules are set up in the Rules tab of the Email Reminders page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md"
+        }
+      ],
+      "consequenceForWriter": "Probe the tab strip for the caption 'Rules' first - that is the form five separate topics use and the only one framed as a clickable tab. Accept an 'Email Reminder Rules' caption as the same surface if 'Rules' misses, and do not conclude the rules surface is absent from a single failed caption match. Do not model 'Email Reminder Rules' as a separate section inside the reminder editor: the corpus places rule creation on the sibling tab, not inside the reminder modal.",
+      "notes": "Corpus weight: the 'Rules tab' form occurs in before-you-begin-448d2513, configuration-process-8b2c271f, copy-reminder-rules-9350776e, create-reminder-rules-b0a7fac5, delete-reminder-rules-ab4f8d33 and edit-reminder-rules-8f2edae9; the 'Email Reminder Rules section' form occurs exactly once. Hypothesis: the single occurrence is descriptive prose inside a field description ('this tool' meaning Email Reminders as a whole) rather than a second real caption, but the corpus never says so, and the reading is recorded rather than corrected. This node is about the name of the rules surface on THIS page; contr.wfb.008 covers the separate hazard that the caption 'Rules' also names a tab on another page."
+    },
+    {
+      "id": "contr.wfb.010",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "scope",
+      "topic": "Whether an employee's move to a new employee group leaves existing delegate assignments untouched for the admin to clean up, or automatically strips the assignments and rights the new group does not allow.",
+      "appliesToFieldId": "field.delegate-configurations.applies-to-groups",
+      "appliesToRef": {
+        "page": "Delegate Configurations",
+        "field": "applies-to-groups",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "applies-to-groups"
+      },
+      "readings": [
+        {
+          "summary": "The delegate-configurations special-considerations topic says the system does NOTHING on a group move: existing delegate assignments are neither removed nor updated, and the admin must intervene manually or force renewal through temporary delegation.",
+          "sourceQuote": "When an employee acting as a delegate is moved to another employee group configuration, the system will not remove or update existing delegate assignments.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-delegate-configurations-8b2bfccb.md"
+        },
+        {
+          "summary": "The payment-delegate-configurations special-considerations topic says the opposite for the same event: assignments the new group's configuration disallows are removed automatically.",
+          "sourceQuote": "Any current assignments to other users that are not allowed (that is, are out of group) by the new configuration are removed automatically.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md"
+        },
+        {
+          "summary": "The same payment topic further states that individual RIGHTS the new configuration does not grant are stripped automatically once the employee's information changes.",
+          "sourceQuote": "These rights are automatically removed once the information about the employee changes, for example, when the employee changes from United States to Europe.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md"
+        }
+      ],
+      "consequenceForWriter": "Do not rely on either cleanup behaviour, and do not promise either to a customer. Treat a group move - or any change to Applies to Groups - as leaving delegate state in an UNKNOWN condition: afterwards, re-read the affected delegate assignments on the consumer surfaces (Profile > Profile Settings > Invoice Delegates, and User Administration) and reconcile explicitly rather than assuming the system acted or did not act. Where an organisation needs a guarantee that stale delegations cannot persist, use the one documented lever that does not depend on this question: enable ONLY temporary approval delegation, which forces employees to renew their delegations periodically.",
+      "notes": "HYPOTHESIS, stated as a hypothesis: the two topics may be scoping different objects. 8b2bfccb speaks of the ASSIGNMENT RECORD surviving a move, while 77a887a4 speaks of (a) assignments that violate the new group's out-of-group restriction and (b) individual rights such as Can Prepare that the new configuration does not grant. Under that reading the assignment row persists but is silently narrowed, which would make both sentences true and would explain why 8b2bfccb still tells admins to clean up by hand. THE CORPUS NEVER SAYS THIS and nothing here is reconciled. A further wrinkle: the two topics are titled 'Special Considerations for Delegate Configurations' and 'Special Considerations for Payment Delegate Configurations' and may be two vintages of one topic rather than two mechanisms - the guide's revision history records 'Added information about changing groups and updating delegate configurations.' for June 20 2017. Filed against Applies to Groups because that is the control whose change triggers the contested behaviour."
+    },
+    {
+      "id": "contr.wfb.011",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The child surface reached by New or Modify from the Delegate Configurations list carries five different names across four files, and is called both a page and a window.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The create topic names it the 'Add Delegate Configuration - Invoice page', with a product-qualified suffix matching the tab you were on.",
+          "sourceQuote": "Choose New. The Add Delegate Configuration - Invoice page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The Delegate Experience topic names the same surface 'Add Delegate Configuration', calls it a WINDOW, drops the suffix, and gives the only full menu path anywhere in this file set.",
+          "sourceQuote": "This window is available by clicking Administration > Invoice > Delegate Configurations > New (or Modify, if existing configuration).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+        },
+        {
+          "summary": "The edit topic names it the 'Modify Delegate Configuration page' when it is opened for an existing configuration.",
+          "sourceQuote": "Select Modify. The Modify Delegate Configuration page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md"
+        },
+        {
+          "summary": "The access/list topic uses a fourth verb for the same destination, reached by clicking the configuration's Name link: 'Edit Delegate Configuration page'.",
+          "sourceQuote": "This is also a link to the Edit Delegate Configuration page",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The guide's own revision history uses a fifth form, 'the Add Delegate Configuration page', for the surface the Delegate Experience topic calls a window.",
+          "sourceQuote": "Restrict approvers to those with equal or higher authorized approver limit setting to the Add Delegate Configuration page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-configuration-8b2bd26d.md"
+        }
+      ],
+      "consequenceForWriter": "Treat all five as ONE surface - a modal opened by New or Modify on the Delegate Configurations page - and never create a second page node for it. Do not match on the surface title at all: reach it structurally (from the Delegate Configurations page choose New, or click the configuration's Name link / choose Modify) and detect arrival by object shape - the Configuration Name field plus the Delegate Settings check boxes. If a title assertion is unavoidable, accept ANY of 'Add Delegate Configuration - Invoice', 'Add Delegate Configuration', 'Modify Delegate Configuration' or 'Edit Delegate Configuration', probed in that order, and expect the Add/Modify split to track the entry point.",
+      "notes": "HYPOTHESIS, three causes compounded. (1) Add versus Modify versus Edit is a genuine verb split between the create path, the edit path and the list hyperlink text. (2) 'page' versus 'window' is house-style drift across authors and vintages, and the word 'page' is PROVEN NON-DISCRIMINATING in this corpus: it is also used for the Workflows General/Steps/Step Rules wizard that this graph ruled is not a page, while page.authorized-approval-limits IS a page node whose nav sentence says a window appears. (3) The '- Invoice' suffix probably tracks the tab, implying an 'Add Delegate Configuration - Purchase Request' variant that the corpus NEVER prints - do not assume that string exists. The page-hood ruling rests on structure, not vocabulary: no menu destination of its own, no role gate of its own, and it edits the same object the parent lists. appliesTo is empty because this is a surface-naming disagreement, not a disagreement about a control."
+    },
+    {
+      "id": "contr.wfb.012",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The image-viewing delegate permission carries three different labels in three files, and each file gives it a different scope.",
+      "appliesToFieldId": "field.delegate-configurations.delegate-can-view-images",
+      "appliesToRef": {
+        "page": "Delegate Configurations",
+        "field": "delegate_can_view_images",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "delegate_can_view_images"
+      },
+      "readings": [
+        {
+          "summary": "The Add Delegate Configuration editor roster labels the check box 'Delegate can view images' and scopes it to invoice images viewed on behalf of another employee.",
+          "sourceQuote": "Delegate can view images: If active, the delegates assigned to this configuration can view Invoice images for invoices on behalf of another employee.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The Delegate Experience topic gives a much longer caption for the same check box in the same window - 'Delegate can view invoice images for payment requests'.",
+          "sourceQuote": "To allow delegates to view invoices, select the Delegate can view invoice images for payment requests check box in the Add Delegate Configuration window.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+        },
+        {
+          "summary": "The list view shows the same setting as the column 'Can View Images' and describes its scope differently again - images received through the imaging service.",
+          "sourceQuote": "Indicates whether the employee assigned to this configuration can view the invoices received through the imaging service.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        }
+      ],
+      "consequenceForWriter": "Probe for the check box by the longest caption first ('Delegate can view invoice images for payment requests'), then the short editor caption ('Delegate can view images'), and expect the READ-BACK on the list view to be the column 'Can View Images'. A failed match on one form is not evidence the control is absent. Do not model these as three settings - there is one. And do not use any of the three scope wordings to decide what the check box actually covers: the corpus gives three different scopes and settles none of them.",
+      "notes": "HYPOTHESIS: the long caption is the real on-screen string and the short one is an abbreviation for a table cell, with the list-view column being an independently authored grid header. The scope drift ('Invoice images for invoices' versus 'invoice images for payment requests' versus 'invoices received through the imaging service') most likely reflects the product's own payment-request/invoice terminology churn - the guide revision history records 'Changed the term \"payment request\" to \"invoice\" as part of the new user experience for Concur Invoice.' for April 13 2019 - rather than three behaviours. Stated as a hypothesis only. Note the reciprocal grammar tell that identifies which roster a sentence came from: list-view descriptions open 'Indicates whether...', editor descriptions open 'If active, ...'."
+    },
+    {
+      "id": "contr.wfb.013",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The temporary-approval delegate permission is labelled one way in the editor, another in the list view, and a third in the terminology catalogue.",
+      "appliesToFieldId": "field.delegate-configurations.delegate-can-approve-during-specified-period",
+      "appliesToRef": {
+        "page": "Delegate Configurations",
+        "field": "delegate_can_approve_during_specified_period",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "delegate_can_approve_during_specified_period"
+      },
+      "readings": [
+        {
+          "summary": "The editor roster calls it 'Delegate can approve during specified period'.",
+          "sourceQuote": "Delegate can approve during specified period: If active, the delegates assigned to this configuration can approve invoices on behalf of another employee.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The list-view roster calls the same permission 'Can Approve Temporary' and describes its duration as 'a set time period'.",
+          "sourceQuote": "Indicates whether the employees assigned to this configuration can approve invoices on behalf of another employee. There is a set time period associated with this action.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The delegate terminology catalogue names the same capability a third way, as 'Temporary Approval Delegation'.",
+          "sourceQuote": "Temporary Approval Delegation: A method for designating an employee to act as an approver for a specified duration of time.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/terminology-e1e1ed99.md"
+        }
+      ],
+      "consequenceForWriter": "Set the value in the modal by the editor caption and verify it in the list column - never conclude a control is missing because one label did not match. The documented editor-to-list map for this page is: Configuration Name -> Name; Delegate can prepare -> Can Prepare; Delegate can submit -> Can Submit; Delegate can approve (any time) -> Can Approve; Delegate can approve during specified period -> Can Approve Temporary; Delegate can view images -> Can View Images; Restrict delegate selection to user's group -> Restrict Delegates to Group; Require approver role for approval delegation -> Need Approver Role to Approve. Three controls do NOT drift and can be matched literally on both surfaces: Restrict approvers to those with equal or higher authorized approver limit, Maximum Time Period to Approve, and Applies to Groups.",
+      "notes": "HYPOTHESIS: this is not documentation error but a real two-surface UI - terse column headers for the grid, sentence-style captions for the modal check boxes, and noun-phrase feature names in the terminology guide. Supporting evidence that SAP treats the two label sets as one control set: the EDITOR topic's own Note about the approver-limit restriction refers to the approve permissions by their LIST-VIEW names, 'Can Approve and Can Approve Temporary'. The duration wording also wobbles between 'a set length of time' (editor) and 'a set time period' (list view) with no stated difference. Related but separate: the sibling permission 'Delegate can approve (any time)' drifts the same way to 'Can Approve'; it is covered by the map above rather than by a second node, because the corpus disagreement there is the same one sentence pair."
+    },
+    {
+      "id": "contr.wfb.014",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The group-restriction control is labelled three ways, and the editor and the list view state its effect in opposite directions.",
+      "appliesToFieldId": "field.delegate-configurations.restrict-delegate-selection-to-users-group",
+      "appliesToRef": {
+        "page": "Delegate Configurations",
+        "field": "restrict_delegate_selection_to_users_group",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "restrict_delegate_selection_to_users_group"
+      },
+      "readings": [
+        {
+          "summary": "The editor calls it 'Restrict delegate selection to user's group' and states the POSITIVE effect: when active, delegates may act only within their own group.",
+          "sourceQuote": "Restrict delegate selection to user's group: If active, the delegates assigned to this configuration can only act on behalf of another employee within their group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The list view calls it 'Restrict Delegates to Group' but describes it in the INVERSE - as indicating whether delegates outside the group can be selected.",
+          "sourceQuote": "Indicates whether the employees assigned to this configuration can select delegates that are outside of their own group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The terminology catalogue names the capability 'Delegate Restriction to Group' and, like the list view, frames it as being about selecting delegates OUTSIDE the group.",
+          "sourceQuote": "Delegate Restriction to Group: A method for designating whether an employee can select delegates outside of their own group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/terminology-e1e1ed99.md"
+        }
+      ],
+      "consequenceForWriter": "Probe for 'Restrict delegate selection to user's group' in the modal and read the result back from the 'Restrict Delegates to Group' column. CRITICAL: do NOT infer the meaning of the checked state from the list-view or terminology wording - they describe the capability being governed, not the check box polarity, and a writer who reasons from the column description alone will set the polarity backwards. The only polarity statement tied to an actual UI state is the editor's: 'If active, ... can only act on behalf of another employee within their group.' Checked means restricted to own group.",
+      "notes": "HYPOTHESIS: the list-view and terminology entries describe the FEATURE ('does this configuration govern out-of-group selection?') while the editor describes the CHECK BOX ('what happens when it is on?'). That reading makes all three consistent, but the corpus never states the checked/cleared semantics on the list-view side, so it is offered as a hypothesis and not used to reconcile. Note deliberately: NEITHER side enumerates an on/off value pair, so this graph carries no Yes/No value set for this control. Inventing the missing half of a documented toggle is the exact defect this project has already had to delete twice."
+    },
+    {
+      "id": "contr.wfb.015",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The approver-role prerequisite is labelled one way in the editor and another in the list view, the two descriptions differ over who must hold the role, and the role itself is named three ways.",
+      "appliesToFieldId": "field.delegate-configurations.require-approver-role-for-approval-delegation",
+      "appliesToRef": {
+        "page": "Delegate Configurations",
+        "field": "require_approver_role_for_approval_delegation",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "require_approver_role_for_approval_delegation"
+      },
+      "readings": [
+        {
+          "summary": "The editor labels it 'Require approver role for approval delegation' and says the DELEGATES assigned to this configuration must be assigned the Approver role.",
+          "sourceQuote": "Require approver role for approval delegation: If active, the delegates assigned to this configuration must be assigned the Approver role in order to be allowed delegate approval status.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The list view labels it 'Need Approver Role to Approve' and phrases it as the employees having to SELECT delegate approvers who hold the approval role.",
+          "sourceQuote": "Indicates whether the employees assigned to this configuration must select delegate approvers with the approval role assigned.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The approver terminology topic names the required role a third way, as the Invoice Approver role.",
+          "sourceQuote": "the delegate must already have the Invoice Approver role.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md"
+        }
+      ],
+      "consequenceForWriter": "Probe both control labels. The two descriptions are compatible - one is written from the delegate's side, one from the selecting employee's side - so do not treat them as two settings. The role itself is granted in User Permissions, OFF this page, so enabling this check box will make previously valid delegate assignments fail until the role is granted there; sequence the change accordingly and verify affected assignments afterwards.",
+      "notes": "HYPOTHESIS: house-style drift ('Require ... for ...' as a check box caption versus 'Need ... to ...' as a grid header) plus a genuine perspective shift between the two rosters. The role name itself wobbles across three forms - 'the Approver role' (editor), 'the approval role' (list view), 'the Invoice Approver role' (approver terminology) - and this graph records ONE control and ONE role rather than multiplying either."
+    },
+    {
+      "id": "contr.wfb.016",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "label-drift",
+      "topic": "The Delegate Configurations surface is named six ways across four files - plural page, singular page, tool, area, Invoice delegates, and payment delegate configurations - with the singular and plural forms appearing in one and the same topic.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The create topic opens on the PLURAL form and calls it a page.",
+          "sourceQuote": "On the Delegate Configurations page, select either the Invoice or Purchase Request tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The SAME topic closes on the SINGULAR form for the same destination, four steps later.",
+          "sourceQuote": "Select Save to return to the Delegate Configuration page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The access topic calls it a TOOL in its procedure heading and a page in the step that follows.",
+          "sourceQuote": "To access the Delegate Configurations tool:",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The create topic also calls it an AREA when describing what it is for.",
+          "sourceQuote": "The Delegate Configuration area allows a single new delegate configuration to be created for use throughout Invoice.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The access topic refers to the objects it holds as 'Invoice delegates'.",
+          "sourceQuote": "Invoice delegates are accessed from the Invoice Admin link.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The object itself is called an 'Invoice delegate configuration' in one sentence of the create topic and a 'payment delegate configuration' in another, both stating the same one-per-group rule.",
+          "sourceQuote": "Each group within your company can only have one payment delegate configuration; however, because delegate configurations use inheritance, a configuration created for one group can be applied to all the groups below it in the hierarchy.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        }
+      ],
+      "consequenceForWriter": "The majority and recommended probe form is the PLURAL 'Delegate Configurations' - it is the form used in the menu step, in every procedure's first step, and in three of the four files. Accept the singular 'Delegate Configuration' as the same destination on a fallback probe, and never branch on tool / page / area, which carry no information here. Do not treat 'Invoice delegates' as a different destination in the admin menu: on the ADMIN side it names this same surface, while 'Invoice Delegates' with a capital D is a genuinely different, END-USER page reached by Profile > Profile Settings > Invoice Delegates - assert which of the two you are on before writing anything.",
+      "notes": "Corpus weight: the plural 'Delegate Configurations page' occurs in the create, edit, delete and access topics; the singular 'Delegate Configuration page' occurs once, inside the create topic that also uses the plural. Hypothesis: the singular is a writer's slip, reinforced by the containing guide being titled 'Delegate Configuration' (delegate-configuration-8b2bd26d.md) - but the corpus never says so, and a site could legitimately render either, so both are kept. The Invoice/payment wobble in the object name is dated by the guide's own revision history, which records 'Changed the term \"payment request\" to \"invoice\" as part of the new user experience for Concur Invoice.' for April 13 2019; a partially propagated rename is a hypothesis, not a finding. appliesTo is empty: this is the page's own name, not a control on it."
+    },
+    {
+      "id": "contr.wfb.017",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "structure",
+      "topic": "The entry point to Delegate Configurations is named two ways in one file - the 'Invoice Admin link', and the menu path Administration > Invoice followed by a left-menu item.",
+      "appliesToFieldId": null,
+      "appliesToRef": {
+        "page": null,
+        "field": null,
+        "resolved": false
+      },
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The access topic's lead-in says delegates are reached from a link called Invoice Admin.",
+          "sourceQuote": "Invoice delegates are accessed from the Invoice Admin link.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The numbered procedure in the SAME topic instead starts from the Administration > Invoice menu and then picks the item out of the left menu.",
+          "sourceQuote": "Select Delegate Configurations (left menu) , the Delegate Configurations page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The Delegate Experience topic gives the route as a single chevron path with no left-menu idiom and no middle segment.",
+          "sourceQuote": "This window is available by clicking Administration > Invoice > Delegate Configurations > New (or Modify, if existing configuration).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+        }
+      ],
+      "consequenceForWriter": "Drive the documented menu path Administration > Invoice, then select Delegate Configurations from the left menu, and accept a link captioned 'Invoice Admin' as the same entry point rather than as a different destination. Do NOT insert an 'Invoice Processing Admin' segment into this page's path: no topic for this page names one, so that segment is UNATTESTED here - not proven absent, and not to be copied across from the Email Reminders access idiom, which does traverse it. If the left menu offers no direct 'Delegate Configurations' item, treat the middle segment as an unknown to be discovered at runtime and report it, rather than guessing.",
+      "notes": "Hypothesis: 'Invoice Admin' is a live alias for the Administration > Invoice destination rather than a separate link - the same topic uses both in consecutive sentences and reaches one place. Recorded rather than reconciled because the corpus never equates them. Note the verbatim hazard in the second reading: the source prints a SPACE BEFORE THE COMMA in 'Delegate Configurations (left menu) ,'. This node is the counterpart of contr.wfb.006: the two pages this run builds use two different access idioms, and each is recorded exactly as its own topic states it."
+    },
+    {
+      "id": "contr.wfb.018",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "kind": "structure",
+      "topic": "The Invoice / Purchase Request selector is called a TAB and, one sentence later in the same topic, a PAGE.",
+      "appliesToFieldId": "field.delegate-configurations.tab-selector",
+      "appliesToRef": {
+        "page": "Delegate Configurations",
+        "field": "tab-selector",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "tab-selector"
+      },
+      "readings": [
+        {
+          "summary": "The access procedure step calls them tabs.",
+          "sourceQuote": "Select the Invoice or Purchase Request tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The very next sentence in the same topic calls the same two things pages.",
+          "sourceQuote": "The following table describes the information that is displayed on either the Invoice or Purchase Request page by default.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The create topic also calls them tabs, and makes selecting one the first step of the procedure.",
+          "sourceQuote": "On the Delegate Configurations page, select either the Invoice or Purchase Request tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        }
+      ],
+      "consequenceForWriter": "TAB NAMES ARE NOT PAGE NAMES. Do not create page nodes called 'Invoice' or 'Purchase Request', and do not navigate to them as destinations: they are a tab strip on the single page Delegate Configurations, and a control on either tab is a field of that page. Drive them by clicking the caption inside the page, and record which tab was active when a value was set - the same field roster is documented for both, but every field description in the corpus is written from the Invoice side.",
+      "notes": "The corpus's use of 'page' for a tab is one more instance of a word this graph has already proven non-discriminating. THIN FINDING, recorded deliberately: not one control anywhere in this corpus is attributed to the Purchase Request tab specifically - the tab caption is attested, its contents are not. Do not pad it. The tab strip is carried as a single field ('Invoice / Purchase Request (tabs)', following the built graph's field.image-handling.imagingTabSelector precedent) rather than one field per tab; the alternative per-tab split, following field.company-locations.shipToTab / billToTab, is reported in the roster's splitsProposed and would inherit this thin finding intact."
+    },
+    {
+      "kind": "requirement",
+      "topic": "\"Display as From\" takes a NAME on Email Reminders and an EMAIL ADDRESS on the built Workflows Email Notifications tab - the same label, incompatible data types, and one side forbids the character the other requires",
+      "appliesTo": {
+        "page": "Email Reminders",
+        "field": "display-as-from"
+      },
+      "readings": [
+        {
+          "summary": "On the Email Reminders page the control takes a display NAME and explicitly forbids the @ character.",
+          "sourceQuote": "Input the name you would like the recipient to see on the notification. The @ symbol is not permitted in this name.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "On the built Workflows > Email Notifications tab the identically-labelled control takes an EMAIL ADDRESS, which necessarily contains @.",
+          "sourceQuote": "Type the email address you would like the recipient to see when they receive the notification.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/modify-an-email-notification-a6e5f4ba.md"
+        }
+      ],
+      "consequenceForWriter": "Never carry a value between these two surfaces. Writing the Workflows value into the Email Reminders control writes an @-bearing address into a field that rejects @. Decide by SURFACE, not by label: a name here, an address there.",
+      "notes": "CRITIC-ADDED 2026-09-01 AFTER THE ADVERSARIAL REFUTERS RAN. Quotes grep -F verified. This is the strongest POSITIVE proof that Email Reminders and the Workflows Email Notifications tab are genuinely different surfaces rather than one collapsed surface - which is the central question this run existed to answer. NOTE ON PROVENANCE: the completeness critic attributed the Workflows quote to add-an-email-notification-c237a2de.md; it is actually in modify-an-email-notification-a6e5f4ba.md, which is what field.workflows.email-notification-display-as-from itself cites. The observation was right and the attribution was wrong - verified before emitting."
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "pageId": "email-reminders",
+  "pageName": "Email Reminders",
+  "lens": "C-tools-guides-and-cross-cutting",
+  "filesRead": [
+    "concur-invoice-professional-edition-tools-guides/invoice-configuration-administrator-or-invoice-admin-2bca2480.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-4a46ee34.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-53a9a79c.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-476a5f62.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-69c1016a.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-331dcfa0.md",
+    "concur-invoice-professional-edition-tools-guides/before-you-begin-ff38d4b7.md",
+    "concur-invoice-professional-edition-tools-guides/procedure-enable-the-feature-919433c7.md",
+    "concur-invoice-professional-edition-tools-guides/setting-up-an-exception-email-address-b233e300.md",
+    "concur-invoice-professional-edition-tools-guides/setting-up-a-default-policy-for-emailed-and-uploaded-invoices-b79a0486.md",
+    "concur-invoice-professional-edition-tools-guides/access-hierarchy-mappings-import-708f5fdc.md",
+    "concur-invoice-professional-edition-tools-guides/access-company-locations-024afbe1.md",
+    "concur-invoice-professional-edition-tools-guides/enabling-the-create-and-approve-vendors-feature-03c9e288.md",
+    "concur-invoice-professional-edition-tools-guides/updating-vendor-information-6da87d89.md",
+    "concur-invoice-professional-edition-tools-guides/approve-a-change-request-9d24dbc7.md",
+    "concur-invoice-professional-edition-tools-guides/moving-through-the-batch-verification-workflow-01738020.md",
+    "concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b2c769e.md",
+    "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md",
+    "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md",
+    "concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md",
+    "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md",
+    "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md",
+    "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md",
+    "concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md",
+    "concur-invoice-professional-edition-admin-guides/best-practices-when-localizing-subject-and-email-message-fields-48515f40.md",
+    "concur-invoice-professional-edition-admin-guides/pre-defined-rules-220a1fe7.md",
+    "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+    "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+    "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md",
+    "concur-invoice-professional-edition-admin-guides/copy-email-reminders-cb75f9fd.md",
+    "concur-invoice-professional-edition-admin-guides/delete-email-reminders-8f693700.md",
+    "concur-invoice-professional-edition-admin-guides/edit-reminder-rules-8f2edae9.md",
+    "concur-invoice-professional-edition-admin-guides/copy-reminder-rules-9350776e.md",
+    "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md",
+    "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md",
+    "concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-667cee21.md",
+    "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md",
+    "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md"
+  ],
+  "fields": [],
+  "valueSetCandidates": [],
+  "dependencyCandidates": [
+    {
+      "type": "precedes",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "reminder_rule",
+      "targetPage": "Email Reminders",
+      "condition": "A reminder RULE (Rules tab of the Email Reminders page) must exist before an email REMINDER (Email Reminders tab) can reference it in the Reminder Rule field. The system-supplied default rules are an escape hatch that satisfies this ordering without creating anything.",
+      "sourceQuote": "A rule must be created before you create an email reminder, however, you can use one of the default rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "reminder_rule",
+      "targetPage": "Email Reminders",
+      "condition": "Independent second attestation of the same ordering, from the prerequisites topic. Also independently attests the two-tab structure (rules live on the Rules tab of the Email Reminders page).",
+      "sourceQuote": "You must set up the rules before creating the email reminder, or you must use one of the default rules that the system provides.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "reminder_rule",
+      "targetPage": "Email Reminders",
+      "condition": "Third independent attestation, as step 1 of the documented 4-step configuration process: rules first on the Rules tab, then the configuration on the Email Reminders tab.",
+      "sourceQuote": "Create the rules: On the Rules tab of the Email Reminders page, create any specific email rules for the reminder or use one of the default rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "active",
+      "targetPage": "Email Reminders",
+      "condition": "REVERSE CASCADE, and a real driver hazard: deleting a rule on the Rules tab does not delete the reminder that used it - it silently DEACTIVATES that reminder. Recovery is to reopen the reminder from the Email Reminders tab and select a new rule.",
+      "sourceQuote": "If a rule is deleted that is currently associated with an email reminder, it will deactivate the email reminder.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "applies_to",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Group Configurations",
+      "condition": "Reminders are assigned BY GROUP, so the group hierarchy configured on the built Group Configurations page must already exist before Applies to / Editable By can select anything meaningful. This is the axis that separates this page from the Workflows Email Notifications tab (which assigns to a workflow object, not a group).",
+      "sourceQuote": "Group Configurations within the Invoice Configuration administrator are used to identify and configure the groups necessary to provide employees with different payment policies, audit rules, email reminders, and vendors.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "applies_to",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Group Configurations",
+      "condition": "ROLE PARTITION - a hard constraint on the preceding dependency. The Email Reminders tool is visible to the Invoice Configuration administrator (Restricted) role, but the Group Configurations tool is NOT. So the very admin who can reach this page and set Applies to may be unable to reach the page where those groups are defined. A driver holding only the (Restricted) role can configure a reminder but cannot create or inspect the groups it is scoped to.",
+      "sourceQuote": "The Group Configurations tool is not visible if you have the Invoice Configuration administrator (Restricted) role.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Import/Extract Administrator",
+      "condition": "SCHEDULING IS NOT A CONTROL ON THIS PAGE and no driver can click it. Reminders configured here do not run until a schedule exists, and that schedule is created outside this page, in an unbuilt surface, by SAP Concur staff via a service request. UNRESOLVED TARGET: the Import/Extract Administrator tool is not in the graph.",
+      "sourceQuote": "Scheduling email reminders is done in the Import/Extract Administrator tool and is performed by SAP Concur staff.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Import/Extract Administrator",
+      "condition": "Incremental rule on the same handoff: only the FIRST reminder configuration needs a schedule set up. Once one exists, a newly added reminder rides the existing schedule and needs no new service request.",
+      "sourceQuote": "The new email reminder will run on the same email reminder schedule that was set up prior.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "email_subject",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Localization",
+      "condition": "Email Subject and Email Message are NOT auto-localized. For multilingual groups the admin must supply translated text, and extracting the strings for a localization vendor is a service request to SAP Concur support - out-of-page and not clickable. UNRESOLVED TARGET: Localization is not yet built.",
+      "sourceQuote": "Email Subject and Email Message text is not localized in the system automatically.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "email_message",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Localization",
+      "condition": "Constraint interaction on the same field: the 2,000-character limit on Email Message is measured with double-byte characters counting as 2, so a translated message can overflow a limit the English original respected.",
+      "sourceQuote": "Since double-byte counts as 2 characters, you must factor this in translation.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/best-practices-when-localizing-subject-and-email-message-fields-48515f40.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "email_message",
+      "sourcePage": "Email Reminders",
+      "targetField": "reminder_type",
+      "targetPage": "Email Reminders",
+      "condition": "The %4% List of Records replacement token renders a different column set depending on the Reminder Rule Type, and %4% is not supported in Email Subject at all. So the meaning of a token typed into Email Message is selected by the reminder's type. NOTE FOR THE MERGE: the 4-token catalogue itself is the already-existing orphaned value set vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na - RE-HOME it onto this page rather than creating a second set; this lens deliberately emitted no duplicate.",
+      "sourceQuote": "The list of records for each Reminder Rule Type contain the following information in the email message:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "CORROBORATION OF THE BOUNDARY, not a merge. An email reminder is advised as a companion to the vendor-approval workflow timeout configured on the built Workflows page - the two are described as separate mechanisms that cooperate, which is evidence they are separate surfaces. This file is UNMINED (correction #2 in the inventory); it names no control and no field is emitted from it.",
+      "sourceQuote": "it would be helpful to create an email reminder for the Vendor Manager that triggers ~2 days prior to time out",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "Second boundary corroboration: the Workflows Steps page cross-references Email Reminders as a SEPARATE setup guide rather than describing it inline. Two guides, two surfaces. Cite in notes only - work-with-the-steps-page-fab249d1.md is already mined for 11 built Workflows fields and nothing may be re-emitted from it.",
+      "sourceQuote": "For more information, refer to _Concur Invoice: Email Reminders Setup Guide_.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "label-drift",
+      "topic": "The name of the restricted Invoice Configuration administrator role - the gate that makes the Email Reminders tool visible - is written three different ways across the corpus, and two of the three variants live in tools-guides.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "Admin-guides, and the Email Reminders gate itself: the qualifier follows the full role name - 'Invoice Configuration administrator (Restricted)'.",
+          "sourceQuote": "The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+        },
+        {
+          "summary": "Tools-guides, Company Locations: the qualifier is moved INSIDE the role name, before the word administrator - 'Invoice Configuration (Restricted) administrator'.",
+          "sourceQuote": "users must be assigned the Invoice Configuration administrator or Invoice Configuration (Restricted) administrator role",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-476a5f62.md"
+        },
+        {
+          "summary": "Tools-guides, a third spelling that drops the word Configuration entirely - 'Invoice Administrator (Restricted)'.",
+          "sourceQuote": "the configuration of the feature requires the Invoice Administrator (Restricted) role",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/required-roles-331dcfa0.md"
+        }
+      ],
+      "consequenceForWriter": "Treat all three as the SAME role when checking whether the operator can see the Email Reminders tool. When matching a role string in a permissions UI, probe 'Invoice Configuration administrator (Restricted)' first (it is the spelling used by this page's own gate topic and by the majority of the nine files that carry the gate), then fall back to 'Invoice Configuration (Restricted) administrator', then 'Invoice Administrator (Restricted)'. Do not treat a near-miss as a different role and do not create a second role node.",
+      "notes": "Hypothesis: editorial drift across deliverables rather than a product distinction - the three spellings gate three unrelated features (Email Reminders, Company Locations, invoice assignment) with no text anywhere distinguishing them. Corroborating measurement, made this run with equal weight on both guide dirs: the exact string 'Invoice Configuration administrator (Restricted)' appears in exactly NINE files (5 admin-guides, 4 tools-guides), which confirms the brief's correction that this gate is NOT distinctive to Email Reminders. A complementary form, 'Invoice Configuration administrator (Unrestricted)', appears in the Capture Processing required-roles topic, so the corpus does treat Restricted/Unrestricted as a real partition even though it spells the label inconsistently."
+    },
+    {
+      "kind": "structure",
+      "topic": "What kind of object 'Invoice Processing Admin' is - the middle nav node this page hangs off. The corpus calls it a navigation menu, a menu, and a page.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "This page's own access topic calls it a navigation menu that you choose an item from.",
+          "sourceQuote": "From the Invoice Processing Admin navigation menu, choose Email Reminders.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+        },
+        {
+          "summary": "Tools-guides, Routing Configuration: the same node is a plain 'menu' that you click an item on.",
+          "sourceQuote": "From the Invoice Processing Admin menu, click Routing Configuration.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/access-hierarchy-mappings-import-708f5fdc.md"
+        },
+        {
+          "summary": "Tools-guides, Invoice Settings: the same node is a PAGE you are on when you click through.",
+          "sourceQuote": "On the Invoice Processing Admin page, click Invoice Settings.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/enabling-the-create-and-approve-vendors-feature-03c9e288.md"
+        }
+      ],
+      "consequenceForWriter": "Do not encode 'Invoice Processing Admin' as a clickable leaf destination in its own right and do not assume the driver lands on a page there. Treat it as a middle nav segment that must be traversed after Administration > Invoice, and resolve the actual target ('Email Reminders') by its own visible text. If a probe for a menu fails, retry treating the segment as a landing page carrying links. The segment is LIVE - it is attested in four tools-guides files independently of this page's own topic.",
+      "notes": "Hypothesis: the UI genuinely renders both - a left navigation menu and a landing page listing the same tools - and different topics describe whichever the author had open. Not a UI-variant claim: none of the three files carries new-experience or legacy language."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Whether email-reminder scheduling ALWAYS requires SAP Concur staff and a service request, or only sometimes.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The configuration-process topic states it unconditionally: scheduling is done in another tool and is performed by SAP Concur staff, and it requires a service request.",
+          "sourceQuote": "Scheduling requires you to submit a service request to SAP Concur support.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+        },
+        {
+          "summary": "The dedicated scheduling topic makes it conditional on the client's implementation - you MAY have to submit a service request.",
+          "sourceQuote": "Depending on your company's implementation, you may have to submit a service request to SAP Concur support for assistance with this task.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md"
+        }
+      ],
+      "consequenceForWriter": "Either way, scheduling is NOT a control on this page and must never be emitted as a field - a driver cannot click it. Configure the reminder, then STOP and hand off: verify out-of-band that a reminder schedule already exists before reporting the configuration as live, because a correctly built reminder simply never fires without one. Only the first reminder configuration in a tenant needs the schedule established.",
+      "notes": "Hypothesis: provisioning-dependent, which is the standard cause of this shape in this corpus - some tenants have the Import/Extract Administrator tool available to their own admins, most do not. The two statements are not reconcilable from the docs and no tenant may be consulted to settle it."
+    },
+    {
+      "kind": "structure",
+      "topic": "How you copy an object on this page: the rules side names a Copy control, the reminders side names only Modify.",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "Rules tab: the copy procedure names a dedicated Copy control.",
+          "sourceQuote": "Select the rule to copy, and then choose Copy.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-reminder-rules-9350776e.md"
+        },
+        {
+          "summary": "Email Reminders tab: the topic titled Copy Email Reminders never names a Copy control - its only action step is Modify, which is the same control the EDIT procedure uses.",
+          "sourceQuote": "Choose Modify to open the Email Reminder window and make any necessary changes.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-email-reminders-cb75f9fd.md"
+        }
+      ],
+      "consequenceForWriter": "Do NOT invent a Copy button on the Email Reminders tab - the corpus does not document one, and inventing it is exactly the blind-build defect this project has already paid for. To duplicate a reminder, follow the documented path (select it, Modify, change it, Save) and expect a new list entry; if a Copy control does turn out to exist at runtime, report it as an undocumented finding rather than assuming it. On the Rules tab, Copy is documented and may be driven directly.",
+      "notes": "Hypothesis: a corpus defect rather than a UI asymmetry - the copy-reminder topic reads as a lightly edited clone of the edit-reminder topic (both hinge on Modify, and copy-email-reminders is also the only topic in the set with a grammar slip, 'duplicate and modifying'). But nothing in the corpus documents a Copy control on the reminder side, so the record stands as written."
+    }
+  ],
+  "compressedRanges": [],
+  "coverageVerdict": "good",
+  "notes": "ZERO FIELDS FROM THIS LENS, AND THAT IS THE CORRECT RESULT - reported plainly rather than padded. MEASURED, with equal weight on both guide directories as rule 1 demands: grep -rliF 'email reminder' over all 650 concur-invoice-professional-edition-tools-guides files returns ZERO. A bare case-insensitive 'reminder' returns exactly THREE tools-guides files and all three are ruled out on inspection: moving-through-the-batch-verification-workflow-01738020.md ('will see reminder messages when working with multi-invoice batches on the Verification page' - end-user UI hints on a different feature that shares a word), workflow-and-approval-routing-8b4ff6c9.md ('budget reminders' in scare quotes, a routing best practice, not a feature), and approve-a-change-request-9d24dbc7.md (end-user prose that reminders work the same for change requests). The entire Email Reminders feature is documented in admin-guides only. That is a genuine documentary asymmetry and the mirror image of the Vendor Search Admin case, where the catalogue lived only in tools-guides - worth publishing as a finding, and it means the admin-guides skew this lens exists to correct is, for THIS page, a fact about the corpus rather than a sweep defect.\n\nWHAT THIS LENS DID YIELD: 13 dependencies and 4 grounded contradictions, two of which are sourced from tools-guides files that no other lens on this page would have opened.\n\nTHE TOOLS-GUIDES CONTRIBUTION IS THE ROLE-GATE VOCABULARY, AND IT CORRECTS THE RECORD IN TWO WAYS. (1) The exact string 'Invoice Configuration administrator (Restricted)' appears in exactly NINE files - 5 admin-guides (email-reminders-tool-8b2c8a11, overview-8b2edfd0, required-roles-1f2a20f6, set-a-default-shipping-and-billing-address-f772bed1, shipping-configuration-and-shipping-terms-3429ee14) and 4 tools-guides (before-you-begin-ff38d4b7, procedure-enable-the-feature-919433c7, setting-up-an-exception-email-address-b233e300, setting-up-a-default-policy-for-emailed-and-uploaded-invoices-b79a0486). The gate is REAL but NOT DISTINCTIVE to this page, exactly as the brief's correction says. Page-hood for Email Reminders rests on the menu destination and the two-object CRUD model, never on the gate. (2) The gate label itself drifts three ways across the corpus (see the label-drift contradiction) and TWO of the three spellings occur only in tools-guides, so a role match built from admin-guides alone would have been brittle.\n\nROLE PARTITION EMITTED AS A HARD DEPENDENCY CONSTRAINT: the (Restricted) admin who can see the Email Reminders tool CANNOT see the Group Configurations tool, yet Applies to and Editable By scope reminders BY GROUP. Recorded twice - once as the group dependency, once as the partition that bites it. '(Restricted)' and 'Global and Group Configuration administrator' both appear in email-reminders-tool-8b2c8a11.md and are NOT a contradiction: one governs visibility, the other governs what the admin may do. A complementary label, 'Invoice Configuration administrator (Unrestricted)', is documented in tools-guides/required-roles-69c1016a.md for Capture Processing, so the corpus does treat the partition as real even where it spells it inconsistently.\n\nUI VARIANT: undifferentiated, and this is a NEGATIVE verification, not a default. I swept both guide directories for 'new experience', 'new ui', 'legacy' and 'current user interface'. The tools-guides hits (using-the-invoice-manager-page-new-experience-f83ba5fa.md, using-the-unassigned-invoice-page-new-experience-072e2f18.md and five others) are all END-USER invoice/batch pages and none of them contains the string 'email reminder'. Nothing in this page's own set carries live variant language - the only UI-variant text there is 2014/2015 revision-history boilerplate in email-reminders-8b2caa99.md, which is history and appears in dozens of unrelated corpus files. I am NOT claiming 'both'; I read one documented surface and no second one exists to compare against.\n\nSCHEDULING HANDOFF, WHICH THIS LENS OWNS: emitted twice as a dependency into the UNBUILT Import/Extract Administrator surface and NEVER as a field, plus a requirement-contradiction over whether the service request is mandatory or implementation-dependent. Same shape for localization string extraction. A Chromium driver cannot click either, and a reminder that is correctly configured here still never fires until the out-of-page schedule exists - the single most important operational fact about this page.\n\nKNOWN GAP, DELIBERATELY NOT CLOSED BY DUPLICATION: email-message-replacement-tokens-c9cc4af4.md holds exactly FOUR tokens (%1% Logon URL, %2% User Name, %3% Number of Records, %4% List of Records) and the graph already carries vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na with those four values, orphaned with knownGap true and a note naming the fix as an Email Reminders page node that owns the table. I read the file and confirmed the count is four - I did NOT hunt for 17 more tokens, and I did NOT emit a competing value set, because this lens emits no fields and therefore has no legal appliesToField to wire one to. THE MERGE SHOULD RE-HOME THE EXISTING SET onto Email Subject / Email Message on this page. I did capture its two real constraints as dependencies: %4% is not supported in Email Subject, and the List of Records column set varies by Reminder Rule Type. The file also states 'You must type the variables manually.' - the Helper pane displays the tokens but cannot insert them, which is a driver-relevant fact the field lens should carry on Email Message.\n\nWHAT I COULD NOT DETERMINE. (a) The Conditions - Step 2 rule-condition editor is only step-listed; no topic enumerates its data objects, fields or operators FOR REMINDERS. The operator catalogues in the-condition-page-5d4ea870.md and the-query-builder-and-the-condition-editor-e10473f9.md belong to Audit Rules and the corpus NEVER says it is the same editor, so I did not import them - thin is the correct answer there. (b) The two pre-defined rules (Overdue Payment Request Approvals, Overdue Payment Vendor Approvals) are named with their trigger conditions but have no documented configuration surface; whether they can be edited or only used is undetermined. Note the weak signal that their naming echoes the RULES-tab option 'Approval Request - Payment Vendor' rather than the reminders-tab 'Approval Request - Vendor Request' - that is one-sided corroboration and I explicitly do NOT use it to pick a winner in the Reminder Type contradiction. (c) Nothing anywhere documents an import or export file format, record layout or column definition for email reminders, which for this lens is normally a rich seam and here is simply empty. (d) The only documented deliverability behaviour is that multiple occurrences of the same reminder for one recipient are grouped into a single email and that 'once only' reminders can recur every 60 days because the send flags are purged - both stated in create-email-reminders-604c4a46.md, which is the field lens's file, so I record them here as caveats rather than emitting them.\n\nBOUNDARY DISCIPLINE HELD. Nothing was emitted from add-an-email-notification-c237a2de.md, modify-an-email-notification-a6e5f4ba.md or select-an-email-notification-in-the-workflows-tab-663bb8ac.md - the Workflows Email Notifications tab is a different surface (event-driven templates assigned to a workflow object) and I emitted no field that could collide with its built 'Display as From' or 'Email Subject'. Nothing was emitted from the already-mined add-groups-ec5d8d8b.md, work-with-the-steps-page-fab249d1.md, workflow-667cee21.md or overview-8b2edfd0.md except dependencies and corroboration quotes. create-a-conditional-rule-in-the-editor-86a92887.md was NOT cited: I confirmed it is the PRINT CONDITION RULES roster and reaches this page's candidate pool only because it shares the boilerplate sentence shape 'Group administrators can only create X rules if given create rights' - an active contamination trap, correctly ruled out. Every quote above was grep -F verified against its cited file, and I deliberately avoided every sentence containing the U+00A0 separators (the Administration nav sentences and the 'Global Group  United States' Editable By text) so that no retyped-NBSP string can enter the graph."
+}

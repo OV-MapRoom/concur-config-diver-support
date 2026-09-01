@@ -1,0 +1,602 @@
+{
+  "steps": [
+    {
+      "id": "grpworkflows-b1-configure-interval-driven-email-reminder-end-to-end",
+      "name": "Configure an interval-driven email REMINDER end to end (group -> Rules tab rule -> Email Reminders tab configuration -> schedule -> optional localization)",
+      "goal": "An interval-driven nag email actually reaches a group of employees when a documented condition stays unresolved. THIS IS NOT THE WORKFLOWS EMAIL NOTIFICATIONS FLOW COVERED BY grpworkflows-s4: that step authors an event-driven NOTIFICATION template inside the Workflows page and selects it on a workflow object; this step authors a REMINDER on the separate Email Reminders page, which has its own two-tab rule engine, its own Frequency control, and is assigned BY GROUP rather than to a workflow. Four things half-work if a leg is skipped: (a) skip the Rules tab leg and the Reminder Rule helper on the Email Reminders tab has nothing to select, because the corpus states a rule must exist first (the only escape is one of the two system-supplied default rules); (b) set Reminder Type after picking a rule and the rule list is filtered by the wrong type, so the rule you wanted is simply not offered; (c) leave Active unset and the whole configuration sits there looking complete while sending nothing, because all reminders are inactive by default; (d) finish everything on this page and stop - nothing ever fires, because the SCHEDULE that runs reminders is not a control on this page at all and cannot be clicked by any administrator or driver.",
+      "pages": [
+        "Group Configurations",
+        "Email Reminders",
+        "Import/Extract Administrator",
+        "Localization"
+      ],
+      "fields": [
+        "Group Name",
+        "new-button",
+        "rule_name",
+        "rule_reminder_type",
+        "rule_editable_by",
+        "rule_next_button",
+        "rule_finish_button",
+        "name",
+        "reminder-type",
+        "reminder-rule",
+        "frequency",
+        "number-of-days",
+        "specific-days",
+        "display-as-from",
+        "email-subject",
+        "email-message",
+        "copy-to-approver",
+        "copy-to-employee",
+        "copy-to-email-address",
+        "editable-by",
+        "applies-to",
+        "active",
+        "save-button"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Group Configurations",
+          "action": "confirm the group (or groups) this reminder will be scoped to already exists in the group hierarchy, creating it here if it does not",
+          "field": "Group Name",
+          "rationale": "CORPUS-STATED: the reminder's Applies to and Editable By fields at orders 21-22 are populated from the site's own group tree, and that tree is built on this page - \"Group Configurations within the Invoice Configuration administrator are used to identify and configure the groups necessary to provide employees with different payment policies, audit rules, email reminders, and vendors.\" (concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md). If the group does not exist yet, orders 21-22 have nothing correct to select and the reminder ends up scoped to the wrong slice of the company. ROLE GATE, and it is a real partition rather than a formality: \"The Group Configurations tool is not visible if you have the Invoice Configuration administrator (Restricted) role.\" (same file), while the reminder page itself is reachable under exactly that role - \"The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.\" (concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md). So an operator holding only the Restricted role can do orders 2-24 but CANNOT do this one and must have the group prepared by someone else."
+        },
+        {
+          "order": 2,
+          "page": "Email Reminders",
+          "action": "reach the page from Administration > Invoice, then on the Rules tab choose New to open the New Reminder Rule - Step 1 page",
+          "field": "new-button",
+          "rationale": "CORPUS-STATED ORDERING, attested three independent times, and it is the load-bearing fact of this whole procedure: \"A rule must be created before you create an email reminder, however, you can use one of the default rules.\" (concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md); \"You must set up the rules before creating the email reminder, or you must use one of the default rules that the system provides.\" (concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md); and as step 1 of the documented process, \"Create the rules: On the Rules tab of the Email Reminders page, create any specific email rules for the reminder or use one of the default rules.\" (concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md). Run this leg out of order and the reminder has nothing to fire on. ACCESS IDIOM, recorded exactly as this page's own topic states it and NOT copied from the Delegate Configurations idiom: \"From the Invoice Processing Admin navigation menu, choose Email Reminders.\" (concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md), then \"On the Email Reminders page, select the Rules tab.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). ROLE GATE on this specific click, verbatim: \"If they do not have permissions, then the New button will not appear.\" (same file) - a driver that cannot find New on the Rules tab is looking at a rights problem, not a navigation problem. SKIPPABLE ONLY IF the two system-supplied default rules suffice; in that case jump to order 8."
+        },
+        {
+          "order": 3,
+          "page": "Email Reminders",
+          "action": "type the rule name on the New Reminder Rule - Step 1 page",
+          "field": "rule_name",
+          "rationale": "INFERRED from the roster ordering of the Step 1 page (Name, Reminder Type, Editable By, in that table order in concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md) plus the instruction \"Complete all required fields.\" in the same procedure. The corpus states no uniqueness or length constraint for this control, so none is asserted here. NAMING HAZARD FOR A DRIVER: this control's on-screen label is 'Name', identical to the reminder-side 'Name' at order 9; they are different objects on different tabs and must not be conflated."
+        },
+        {
+          "order": 4,
+          "page": "Email Reminders",
+          "action": "select the rule's Reminder Type",
+          "field": "rule_reminder_type",
+          "rationale": "CORPUS-STATED, and this is why it must be set BEFORE the Next at order 6 rather than after: \"Selecting a type also filters the options available when creating the rule using the condition editor on the next page.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). Choose the type late and the Step 2 condition editor offers the wrong field/operator population. CONTRADICTION A DRIVER MUST BE TOLD: this Rules-tab list and the Email Reminders-tab list at order 10 genuinely disagree in this corpus - this file names 'Approval Request - Payment Vendor' where the reminder-side file names 'Approval Request - Vendor Request', and the two files define 'Approval Request - Payment Request' incompatibly. Both lists are recorded; neither is corrected against the other. Match this rule's type to whatever the reminder-side control at order 10 actually offers at runtime, because that is what filters the rule list at order 11."
+        },
+        {
+          "order": 5,
+          "page": "Email Reminders",
+          "action": "select the group rights an administrator must hold to modify this rule",
+          "field": "rule_editable_by",
+          "rationale": "CORPUS-STATED: \"Select the group rights that an administrator must have to modify this rule.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). Ordering consequence rather than a mere preference: this is set while the rule is being authored, and the same file states that an administrator without rights to every selected group \"can only be viewed and copied\" - so an over-narrow selection here locks the rule against the very people expected to maintain it, and the mistake is only discoverable later. Only 'Global Group' is a corpus-fixed option; everything else in the list is the tenant's own group tree and is deliberately not enumerated."
+        },
+        {
+          "order": 6,
+          "page": "Email Reminders",
+          "action": "choose Next to reach the Conditions - Step 2 page and build the rule condition from the Data Object, Field/Value and Operator helper panes",
+          "field": "rule_next_button",
+          "rationale": "CORPUS-STATED: \"Choose Next.\" then \"Select the appropriate Data Object.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). The condition is what makes the rule mean anything - a rule with no condition gives the reminder nothing to detect. This is also the step that consumes the type-filtering set at order 4, which is the reason order 4 cannot be deferred until after this click."
+        },
+        {
+          "order": 7,
+          "page": "Email Reminders",
+          "action": "select Finish to commit the rule and return to the Rules tab",
+          "field": "rule_finish_button",
+          "rationale": "CORPUS-STATED: \"Select Finish.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). Load-bearing because the rule object does not exist until the wizard is committed, and the Reminder Rule helper at order 11 can only select an existing rule - \"Use the Reminder Rule helper to select a previously created email reminder rule for the selected Reminder Type.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md) - so an abandoned wizard leaves order 11 with nothing to pick. Note the rule wizard commits with Next/Finish and has NO Save control; the reminder object at order 24 commits with Save and has no Finish. Do not cross the two."
+        },
+        {
+          "order": 8,
+          "page": "Email Reminders",
+          "action": "select the Email Reminders tab and choose New to open the Email Reminder window",
+          "field": "new-button",
+          "rationale": "CORPUS-STATED: \"In Email Reminders, select the Email Reminders tab.\" then \"Choose New to open the Email Reminder window.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). The tab switch is the boundary between the two objects this page owns: everything at orders 2-7 configured a RULE; everything from here configures a REMINDER that consumes one. A driver that stays on the Rules tab will find none of the fields below."
+        },
+        {
+          "order": 9,
+          "page": "Email Reminders",
+          "action": "type a unique name for the reminder configuration",
+          "field": "name",
+          "rationale": "INFERRED from the row order of the Email Reminders configuration-fields table in concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md, under that procedure's instruction to complete the required fields. The corpus does state uniqueness for this one (\"Type a unique name for the email reminder configuration.\"), unlike the rule-side Name at order 3, which says only \"Type a name\" - a real asymmetry between the two tabs, not an editing slip to smooth over."
+        },
+        {
+          "order": 10,
+          "page": "Email Reminders",
+          "action": "select the Reminder Type this reminder applies to",
+          "field": "reminder-type",
+          "rationale": "CORPUS-STATED, and it is a hard gate on the next control, not a categorisation nicety: \"Only the rules with this reminder type will appear in the next field.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). Set this to the wrong type and the rule authored at orders 3-7 is simply absent from the Reminder Rule helper at order 11, with no error - the classic silent half-configuration on this page. See the contradiction noted at order 4: this file's option list differs from the Rules-tab file's list, and both are recorded rather than reconciled."
+        },
+        {
+          "order": 11,
+          "page": "Email Reminders",
+          "action": "use the Reminder Rule helper to select the rule this reminder fires on",
+          "field": "reminder-rule",
+          "rationale": "CORPUS-STATED dependency on orders 2-7: \"Use the Reminder Rule helper to select a previously created email reminder rule for the selected Reminder Type.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md) - previously created, and filtered by the type set at order 10. INFERRED WIDGET CAUTION for a Chromium driver: the corpus calls this a 'helper' and never a dropdown, list or modal, so the element type must be resolved at runtime rather than assumed to be a select. Its population is dynamic (the tenant's own rules for the chosen type, plus the two system-supplied default rules) and is therefore not enumerable from documentation."
+        },
+        {
+          "order": 12,
+          "page": "Email Reminders",
+          "action": "select how often the email is sent once the rule is violated",
+          "field": "frequency",
+          "rationale": "CORPUS-STATED, and it must precede orders 13-14 because it is what makes them exist at all: \"This field appears only if you selected Every x days in the Frequency field.\" and \"This field appears only if you selected Specific days of the month in the Frequency field.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). A driver that looks for Number of Days before setting Frequency will not find it. INFERRED CAUTION on the 'Once condition is met' option: the same file documents that the underlying flags are cleared periodically for performance, so a reminder intended to fire once can repeat unless the RULE authored at orders 2-7 carries its own time- or status-based guard - i.e. a Frequency choice made here can silently push work back onto order 6."
+        },
+        {
+          "order": 13,
+          "page": "Email Reminders",
+          "action": "if and only if Frequency is 'Every x days', enter the number of days since the last reminder",
+          "field": "number-of-days",
+          "rationale": "CORPUS-STATED conditional visibility, gated by order 12: \"This field appears only if you selected Every x days in the Frequency field.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). Skipping the leg is correct when Frequency is anything else; attempting it out of order is a guaranteed element-not-found."
+        },
+        {
+          "order": 14,
+          "page": "Email Reminders",
+          "action": "if and only if Frequency is 'Specific days of the month', enter the day numbers",
+          "field": "specific-days",
+          "rationale": "CORPUS-STATED conditional visibility, gated by order 12: \"This field appears only if you selected Specific days of the month in the Frequency field.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). The accepted input is a compressed range documented as a valid integer between 1 and 31, with > standing for the last day of the month - a driver must not normalise the > away."
+        },
+        {
+          "order": 15,
+          "page": "Email Reminders",
+          "action": "type the display name recipients will see as the sender",
+          "field": "display-as-from",
+          "rationale": "INFERRED from the table row order in concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md. CONSTRAINT WORTH CARRYING: the @ symbol is not permitted in this name, and the file states the value affects the display name only, never the underlying sending address - so an operator who sets this expecting replies to route somewhere new has misread the control. DISAMBIGUATION: an identically-labelled 'Display as From' already exists in the graph on the Workflows page's Email Notifications tab; that is a different object on a different page and this step must not be run against it."
+        },
+        {
+          "order": 16,
+          "page": "Email Reminders",
+          "action": "type the email subject line, typing any replacement tokens manually",
+          "field": "email-subject",
+          "rationale": "CORPUS-STATED constraint that changes how the step must be driven: \"You must type the variables manually.\" (concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md) - the tokens cannot be inserted by selecting from the Helper pane, so a driver must emit literal text such as %3%. Second corpus-stated constraint, and the reason this field is not interchangeable with order 17: \"This variable is not supported in the Email Subject field.\" (same file) applies to the %4% List of Records token, so Subject carries three usable tokens where Message carries four. Maximum 255 characters."
+        },
+        {
+          "order": 17,
+          "page": "Email Reminders",
+          "action": "type the email body, again typing any replacement tokens manually",
+          "field": "email-message",
+          "rationale": "CORPUS-STATED: same manual-typing rule as order 16, and this is the only field where %4% (List of Records) works. The 2,000-character limit counts double-byte characters as two, which is what ties this field to the optional localization leg at order 26 - text that fits in English can overflow after translation, and the corpus states plainly that \"Email Subject and Email Message text is not localized in the system automatically.\" (concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md). INFERRED: author the final wording here before requesting extraction at order 26, or the strings sent for translation are the wrong ones."
+        },
+        {
+          "order": 18,
+          "page": "Email Reminders",
+          "action": "select whether a copy goes to the employee's default approver",
+          "field": "copy-to-approver",
+          "rationale": "CORPUS-STATED, and it gates the control at order 19: setting Yes on an approval invoice is what makes Copy to Employee appear - \"If the email reminder is an approval invoice, then the Copy to Employee setting appears\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). Both Yes and No are documented for this control in prose, so both are recorded; that is not true of Active at order 23."
+        },
+        {
+          "order": 19,
+          "page": "Email Reminders",
+          "action": "if it appeared, select whether a copy also goes to the employee the pending item belongs to",
+          "field": "copy-to-employee",
+          "rationale": "CORPUS-STATED conditional appearance, gated by order 18. PRIVACY CONSEQUENCE a config writer must weigh before ticking it, from the same file: when several items are pending one approver, every relevant employee is added as a cc recipient and can therefore see information about other employees' items. This is a decision, not a default - and it is unrecoverable once the mail is sent."
+        },
+        {
+          "order": 20,
+          "page": "Email Reminders",
+          "action": "type any additional recipient addresses, separated by comma or semicolon",
+          "field": "copy-to-email-address",
+          "rationale": "INFERRED from the table row order in concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md; the separator rule (comma or semicolon) is corpus-stated in the same row and is the only documented formatting constraint."
+        },
+        {
+          "order": 21,
+          "page": "Email Reminders",
+          "action": "select the group rights an administrator must hold to modify this reminder",
+          "field": "editable-by",
+          "rationale": "CORPUS-STATED: \"Select the group rights that an administrator must have to modify this reminder.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). Depends on order 1: the groups offered here come from the group hierarchy. Ordering consequence: the same file states an administrator lacking rights to every selected group can copy the reminder but not edit or delete it, so an over-narrow selection made now is a lockout discovered later by someone else."
+        },
+        {
+          "order": 22,
+          "page": "Email Reminders",
+          "action": "select the groups that will have this reminder available to them",
+          "field": "applies-to",
+          "rationale": "CORPUS-STATED, and the inheritance direction is the trap: \"Select the groups that will be able to see this reminder.\" followed by \"The groups below the selected groups do not have this reminder available.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). This is the OPPOSITE of the Editable By behaviour at order 21, where rights do inherit downward - so an operator who assumes one rule for both fields will scope the reminder to a fraction of the intended audience and see no error. This assignment-by-group is also the axis that distinguishes this page from the Workflows Email Notifications tab, which assigns to a workflow object instead."
+        },
+        {
+          "order": 23,
+          "page": "Email Reminders",
+          "action": "set Active to Yes",
+          "field": "active",
+          "rationale": "CORPUS-STATED, and it is the single most common way this configuration silently half-works: \"Select Yes to make this email reminder active. All email reminders are inactive by default.\" and \"Emails are not sent until you set this field to Yes.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). Placed last among the field entries because everything above should be correct before the reminder is allowed to send. BLIND-BUILD NOTE for the driver: only the value 'Yes' is documented for this control - the corpus never writes a 'No' option for it, so do not synthesise one."
+        },
+        {
+          "order": 24,
+          "page": "Email Reminders",
+          "action": "choose Save to commit the reminder and return to the Email Reminders list",
+          "field": "save-button",
+          "rationale": "CORPUS-STATED: \"Choose Save.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md), after which the reminder appears in the list. The reminder object commits with Save; the rule object at order 7 commits with Finish. Two different commit idioms on one page."
+        },
+        {
+          "order": 25,
+          "page": "Import/Extract Administrator",
+          "action": "STOP - a config writer cannot complete this leg. If this is the site's first email reminder configuration, raise a service request to SAP Concur support to have the email reminder schedule established; if reminders already run on this site, do nothing here",
+          "field": "",
+          "rationale": "CORPUS-STATED, and stated as an out-of-band handoff rather than a control: \"Scheduling email reminders is done in the Import/Extract Administrator tool and is performed by SAP Concur staff.\" and \"Scheduling requires you to submit a service request to SAP Concur support.\" (concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md). THERE IS NO SCHEDULING FIELD ANYWHERE ON THE EMAIL REMINDERS PAGE and no automation can click one - a driver that treats orders 1-24 as a completed configuration will report success on a reminder that never sends. The corpus also bounds when this is needed: \"If this is the first time you create email reminder configurations, you must set up the schedule to run the email reminders.\" but \"The new email reminder will run on the same email reminder schedule that was set up prior.\" (concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md) - so the escalation is once per site, not once per reminder. Target page is UNBUILT and unresolved on purpose."
+        },
+        {
+          "order": 26,
+          "page": "Localization",
+          "action": "OPTIONAL, and also not completable by a config writer. If the assigned groups span languages, raise a service request to SAP Concur support to extract the Email Subject and Email Message strings for translation by a localization vendor",
+          "field": "",
+          "rationale": "CORPUS-STATED: \"Email Subject and Email Message text is not localized in the system automatically.\" and \"you may have to submit a service request to SAP Concur support for assistance with extracting the strings.\" (concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md). It sits after order 24 because the strings must exist and be final before they can be extracted. INFERRED consequence of skipping it: the reminder is fully functional and sends - in one language only - which is why this failure is invisible to any check that merely asks whether mail went out. Target page is UNBUILT and unresolved on purpose."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-b2-swap-a-reminder-rule-without-deactivating-live-reminders",
+      "name": "Swap the rule behind a live email reminder without silently deactivating it (author replacement -> repoint the reminder -> only then remove the old rule)",
+      "goal": "A live email reminder is moved onto a new or corrected rule and keeps sending throughout. The ordering here is the entire point: the corpus documents a reverse cascade in which deleting a rule does not delete the reminders that used it but DEACTIVATES them, so the obvious sequence - tidy up the old rule first, then repoint - takes production reminders offline with no error and no notification, and the damage is only visible as mail that stopped arriving. Two further quiet failures: author the replacement rule under a different Reminder Type than the reminder uses and it never appears in the Reminder Rule helper at all; and repoint the reminder without re-checking Active and a reminder already deactivated by an earlier rule deletion stays silent even after it has a valid rule again.",
+      "pages": [
+        "Email Reminders"
+      ],
+      "fields": [
+        "new-button",
+        "rule_name",
+        "rule_reminder_type",
+        "rule_editable_by",
+        "rule_next_button",
+        "rule_finish_button",
+        "modify-button",
+        "reminder-type",
+        "reminder-rule",
+        "active",
+        "save-button",
+        "remove-button",
+        "rule_confirm_yes_button"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Email Reminders",
+          "action": "on the Rules tab, choose New to open the New Reminder Rule - Step 1 page for the replacement rule",
+          "field": "new-button",
+          "rationale": "CORPUS-STATED that the replacement must exist before anything is removed, because the reminder can only ever select an existing rule: \"Use the Reminder Rule helper to select a previously created email reminder rule for the selected Reminder Type.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). Building the replacement first is also what keeps the old rule intact and the reminder sending while the swap is prepared."
+        },
+        {
+          "order": 2,
+          "page": "Email Reminders",
+          "action": "name the replacement rule",
+          "field": "rule_name",
+          "rationale": "INFERRED from the Step 1 roster order in concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md. INFERRED OPERATIONAL POINT: give it a name distinguishable from the rule being retired, because order 8 removes one of the two by selection from a list and the corpus documents no undo for that removal."
+        },
+        {
+          "order": 3,
+          "page": "Email Reminders",
+          "action": "set the replacement rule's Reminder Type to the same type the target reminder uses",
+          "field": "rule_reminder_type",
+          "rationale": "CORPUS-STATED, and this is the leg that most often makes the swap silently impossible: the reminder side filters its rule list by type - \"Only the rules with this reminder type will appear in the next field.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md) - so a replacement authored under a different type simply will not be offered at order 6, with no message explaining why. It must also precede the Next at order 4 because \"Selecting a type also filters the options available when creating the rule using the condition editor on the next page.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md)."
+        },
+        {
+          "order": 4,
+          "page": "Email Reminders",
+          "action": "set the group rights required to modify the replacement rule",
+          "field": "rule_editable_by",
+          "rationale": "CORPUS-STATED: \"Select the group rights that an administrator must have to modify this rule.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). INFERRED ordering point: mirror whatever the retired rule carried, or the swap quietly changes who can maintain the rule afterwards - a governance regression hidden inside what was meant to be a like-for-like replacement."
+        },
+        {
+          "order": 5,
+          "page": "Email Reminders",
+          "action": "choose Next, build the condition on the Conditions - Step 2 page, then select Finish",
+          "field": "rule_finish_button",
+          "rationale": "CORPUS-STATED: \"Choose Next.\" and \"Select Finish.\" (concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md). Load-bearing because an uncommitted wizard leaves no rule object at all, and order 6 then finds nothing new to select while the operator believes the replacement exists."
+        },
+        {
+          "order": 6,
+          "page": "Email Reminders",
+          "action": "switch to the Email Reminders tab, select the live reminder and choose Modify to open the Email Reminder window, then confirm its Reminder Type",
+          "field": "reminder-type",
+          "rationale": "CORPUS-STATED: \"Choose Modify to open the Email Reminder window.\" (concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md). Reading the type back before touching the rule is what proves the replacement authored at order 3 will actually be offered - the check costs nothing and is the only way to detect the type mismatch before it presents as an empty helper."
+        },
+        {
+          "order": 7,
+          "page": "Email Reminders",
+          "action": "in the Reminder Rule helper, select the replacement rule",
+          "field": "reminder-rule",
+          "rationale": "CORPUS-STATED as the documented recovery path as well as the swap itself: a reminder deactivated by a deleted rule is repaired by reopening it and selecting a new rule, which is exactly this entry. Doing it BEFORE order 9 is what prevents the deactivation in the first place - see the cascade quoted at order 9."
+        },
+        {
+          "order": 8,
+          "page": "Email Reminders",
+          "action": "confirm Active is set to Yes, then choose Save",
+          "field": "active",
+          "rationale": "CORPUS-STATED: \"Emails are not sent until you set this field to Yes.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). This is not redundant re-checking - if a rule deletion has already happened on this site the reminder is already deactivated, and repointing it alone will not resume sending. A driver that skips this entry can complete a technically correct swap on a reminder that stays silent forever."
+        },
+        {
+          "order": 9,
+          "page": "Email Reminders",
+          "action": "commit the reminder with Save before going anywhere near the Rules tab",
+          "field": "save-button",
+          "rationale": "CORPUS-STATED: \"Choose Save.\" (concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md). This entry exists as its own order because an uncommitted Modify window means the reminder is still associated with the OLD rule, and the removal at order 10 would then hit the cascade the whole step is designed to avoid."
+        },
+        {
+          "order": 10,
+          "page": "Email Reminders",
+          "action": "only now return to the Rules tab, select the retired rule and choose Remove",
+          "field": "remove-button",
+          "rationale": "CORPUS-STATED, and this is the hazard that dictates the entire ordering of this step: \"If a rule is deleted that is currently associated with an email reminder, it will deactivate the email reminder.\" (concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md). Run this first and every reminder still pointing at the rule goes dark - the reminder records survive, so nothing looks deleted and nothing raises an error. The removal is safe only once no live reminder references the rule, which orders 7-9 guarantee. Control idiom: \"Select the rule to delete, and then choose Remove.\" (same file)."
+        },
+        {
+          "order": 11,
+          "page": "Email Reminders",
+          "action": "in the confirmation message, select Yes",
+          "field": "rule_confirm_yes_button",
+          "rationale": "CORPUS-STATED: \"In the confirmation message, select Yes to dismiss the message.\" (concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md). DOCUMENTED ASYMMETRY a driver must be told about rather than allowed to generalise: rule deletion has this confirmation dialog, but reminder deletion in this corpus has none - \"Select the email reminder you want to delete.\" (concur-invoice-professional-edition-admin-guides/delete-email-reminders-8f693700.md) is followed by Remove taking effect with no confirmation step described. An automation that waits for a confirm dialog on the reminder side will hang; one that assumes a safety net there has already deleted the record."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-b3-create-invoice-delegate-configuration-and-cascade-it",
+      "name": "Create an Invoice delegate configuration and cascade it down the group hierarchy (tab -> New -> permissions and restrictions -> Applies to Groups with Inheritance -> Save)",
+      "goal": "One group - and, through the Inheritance toggle, every group beneath it - has a delegate permission template that defines exactly what a delegate may do on another employee's behalf. What half-works if a leg is skipped: (a) the target group already holds a delegate configuration and the corpus permits only one per group, so a second attempt is a cardinality collision rather than an addition; (b) set the permission checkboxes but never touch the Inheritance link and the configuration stops at the selected group while every group below it silently keeps whatever it had, or nothing; (c) tick 'Delegate can approve during specified period' but leave Maximum Time Period to Approve at whatever it was and the ceiling on the delegation is not the one intended - and the actual dates are not settable on this page at all; (d) finish here and assume delegation is live - it is not: this page only defines the permission SUBSET, and the delegate is still assigned on another surface, where the employee can also refuse a permission the administrator granted.",
+      "pages": [
+        "Group Configurations",
+        "Delegate Configurations",
+        "User Administration"
+      ],
+      "fields": [
+        "Group Name",
+        "tab-selector",
+        "new",
+        "configuration-name",
+        "maximum-time-period-to-approve",
+        "restrictions",
+        "restrict_delegate_selection_to_users_group",
+        "require_approver_role_for_approval_delegation",
+        "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+        "applies-to-groups",
+        "inheritance_link",
+        "delegate_settings_for_user_administrators_and_employees",
+        "delegate_can_prepare",
+        "delegate_can_submit",
+        "delegate_can_approve_any_time",
+        "delegate_can_approve_during_specified_period",
+        "delegate_can_view_images",
+        "save"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Group Configurations",
+          "action": "confirm the target group exists and establish whether it - or any group above it that inherits downward - already carries an Invoice delegate configuration",
+          "field": "Group Name",
+          "rationale": "CORPUS-STATED CARDINALITY, and it is the reason this check comes first rather than being discovered at Save: \"Each group within your company can only have one Invoice delegate configuration.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Building a second configuration for a group that already has one is not an additive change. The check has to include groups ABOVE the target, because an inherited configuration from a parent group is already in force on the child. ROLE PARTITION worth flagging: \"The Group Configurations tool is not visible if you have the Invoice Configuration administrator (Restricted) role.\" (concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md), whereas this corpus documents NO role gate at all on the Delegate Configurations page - so a Restricted-role operator may be able to do every remaining order and be unable to do this one."
+        },
+        {
+          "order": 2,
+          "page": "Delegate Configurations",
+          "action": "reach the page from Administration > Invoice via the left menu, then select either the Invoice or Purchase Request tab",
+          "field": "tab-selector",
+          "rationale": "CORPUS-STATED, and recorded with THIS page's own access idiom rather than the Email Reminders one: \"Select Delegate Configurations (left menu) , the Delegate Configurations page appears.\" then \"Select the Invoice or Purchase Request tab.\" (concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md); the create topic states the same tab choice as its own step 1, \"On the Delegate Configurations page, select either the Invoice or Purchase Request tab.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Whether the 'Invoice Processing Admin' middle node also appears in this path is UNATTESTED for this page and is not asserted. The tab must be chosen before New because it decides which object is created - and note the documentary asymmetry: every field below is documented for the Invoice side only, so a driver on the Purchase Request tab is off the map and must not assume the Invoice roster mirrors across."
+        },
+        {
+          "order": 3,
+          "page": "Delegate Configurations",
+          "action": "choose New to open the Add Delegate Configuration window",
+          "field": "new",
+          "rationale": "CORPUS-STATED: \"Choose New. The Add Delegate Configuration - Invoice page appears.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Every field from order 4 down lives inside this window and does not exist before this click."
+        },
+        {
+          "order": 4,
+          "page": "Delegate Configurations",
+          "action": "type the configuration name",
+          "field": "configuration-name",
+          "rationale": "CORPUS-STATED and it is the ONLY control the corpus marks as mandatory on this page: \"The name of the new delegate configuration. This is a required field.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Everything else can be left alone and the record will still save, which is precisely why the permission checkboxes below fail quietly rather than loudly. INFERRED, worth knowing before naming it: in the list view this same value doubles as the hyperlink that opens the edit surface, so an unhelpful name is also a navigation problem later. No length, character-set or uniqueness constraint is documented, and none is invented here."
+        },
+        {
+          "order": 5,
+          "page": "Delegate Configurations",
+          "action": "enter the maximum time period, in days, for which a delegate may approve on another employee's behalf",
+          "field": "maximum-time-period-to-approve",
+          "rationale": "CORPUS-STATED unit and purpose: \"Indicates a set time period, in days, for which an employee can approve invoices on behalf of another employee.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). It is set BEFORE the temporary-approval checkbox at order 16 because it is the ceiling that checkbox operates under. HARD LIMIT ON WHAT THIS STEP CAN ACHIEVE, corpus-stated: \"This field works in conjunction with the Choose Dates link in the Delegates area of both My Info and User Administration.\" (same file) - the actual start and end dates are chosen off this page, on surfaces this graph has not built, so setting a ceiling here delegates nothing on its own. No minimum, maximum or default is documented anywhere in the corpus and a blind build must not supply one."
+        },
+        {
+          "order": 6,
+          "page": "Delegate Configurations",
+          "action": "locate the Restrictions section in the window",
+          "field": "restrictions",
+          "rationale": "CORPUS-STATED grouping, not a settable control: \"The Configuration administrator can restrict the delegates based on the following choices:\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Recorded as its own order because a driver needs the container to find the two checkboxes at orders 7-8, and because an operator who reads this heading as a control will look for a value that does not exist. NOT a role gate - 'The Configuration administrator' here names who uses the field, and this corpus documents no role gate for reaching this page at all."
+        },
+        {
+          "order": 7,
+          "page": "Delegate Configurations",
+          "action": "decide whether delegates may act only for employees inside their own group",
+          "field": "restrict_delegate_selection_to_users_group",
+          "rationale": "CORPUS-STATED: \"Restrict delegate selection to user's group: If active, the delegates assigned to this configuration can only act on behalf of another employee within their group.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Ordering consequence that reaches beyond this window: existing cross-group delegate assignments are stripped automatically when an employee moves into a group whose configuration forbids them, so turning this on retroactively removes assignments elsewhere rather than merely constraining future ones. LABEL HAZARD: the same control is captioned 'Restrict Delegates to Group' in the list view and described there with the opposite polarity (whether delegates outside the group CAN be selected) - a driver must probe both captions and must not read the two sentences as two settings."
+        },
+        {
+          "order": 8,
+          "page": "Delegate Configurations",
+          "action": "decide whether a delegate must already hold the Approver role before receiving delegate approval status",
+          "field": "require_approver_role_for_approval_delegation",
+          "rationale": "CORPUS-STATED: \"Require approver role for approval delegation: If active, the delegates assigned to this configuration must be assigned the Approver role in order to be allowed delegate approval status.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). It is an ordering constraint on work done on ANOTHER surface: the role itself is granted in user permissions, not here, so ticking this before the intended delegates hold the role makes those delegates unassignable later. Corroborated as an unconditional prerequisite in the authorized-approver path: \"the delegate must already be an approver, that is, the delegate must already have the Invoice Approver role.\" (concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md). LABEL HAZARD: captioned 'Need Approver Role to Approve' in the list view."
+        },
+        {
+          "order": 9,
+          "page": "Delegate Configurations",
+          "action": "decide whether a delegate for an Authorized Approver must themselves be an Authorized Approver with an equal or higher limit",
+          "field": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+          "rationale": "CORPUS-STATED: \"If selected (enabled), the user selected to be a delegate for an Authorized Approver must also be an Authorized Approver, with the same or higher approver limit.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). It must be settled BEFORE the approve checkboxes at orders 15-16, because clearing it changes what those checkboxes can deliver: \"When this setting is cleared (disabled), and a delegate with authority only for a lower approval limit is chosen, approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate\" (same file) - so the operator ticks an approve permission and that specific delegate still cannot approve. See grpworkflows-b4 for the full cross-page procedure."
+        },
+        {
+          "order": 10,
+          "page": "Delegate Configurations",
+          "action": "select the group this configuration applies to in Applies to Groups",
+          "field": "applies-to-groups",
+          "rationale": "CORPUS-STATED binding to the group prepared at order 1, under the one-per-group rule quoted there. INFERRED ordering point: choose the group before touching the Inheritance link at order 11, because inheritance is defined relative to the SELECTED group - \"Select the Inheritance link to apply the configuration to all groups that fall below the selected group in the hierarchy.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Toggling first and selecting after leaves the cascade anchored to the wrong node. The value space is the tenant's own group hierarchy and is deliberately not enumerated."
+        },
+        {
+          "order": 11,
+          "page": "Delegate Configurations",
+          "action": "read the Inheritance link's current caption and toggle it until it reads the state you want",
+          "field": "inheritance_link",
+          "rationale": "CORPUS-STATED, and the driver instruction is 'read, then decide' rather than 'click': \"The Inheritance link works as a toggle. When selected, the link switches between Inheritance and No Inheritance.\" and \"When Inheritance is displayed, the configuration is inherited by the groups below the selected group, in the hierarchy.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). This is the only enumerated option list on the entire page, and both captions are printed in the corpus - they are not a completed pair. Because the caption mutates with state, a blind click can set exactly the opposite of what was intended, and the mistake is invisible: the configuration saves either way and the difference only shows up as child groups that do or do not have delegation. Related but NOT proven identical to the Is Inheritable concept on Group Configurations; the corpus does not equate them and neither does this step."
+        },
+        {
+          "order": 12,
+          "page": "Delegate Configurations",
+          "action": "locate the Delegate Settings For User Administrators and Employees section",
+          "field": "delegate_settings_for_user_administrators_and_employees",
+          "rationale": "CORPUS-STATED grouping, not a settable control, and it carries two facts the following five orders depend on: \"In this section, you can select any or all of the following options for both the user and the administrator:\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). 'any or all' establishes these are INDEPENDENT checkboxes rather than a radio group, so a driver must not expect selecting one to clear another; 'for both the user and the administrator' establishes there is exactly ONE set of five, not a separate admin set and user set - the same file states there is no option to provide separate permissions by employee or role."
+        },
+        {
+          "order": 13,
+          "page": "Delegate Configurations",
+          "action": "decide whether delegates may create invoices on another employee's behalf",
+          "field": "delegate_can_prepare",
+          "rationale": "CORPUS-STATED: \"Delegate can prepare: If active, the delegates assigned to this configuration can create invoices on behalf of another employee.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). CONSEQUENCE OF LEAVING IT OFF that a config writer must plan for, because it is retroactive rather than merely forward-looking: \"If the old delegate configuration had rights, such as Can Prepare, associated with it, but the new configuration does not allow prepare rights, then that delegate will no longer be able to prepare.\" (concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md). LABEL HAZARD: 'Can Prepare' in the list view, and the two descriptions use different verbs (create vs prepare) for one control."
+        },
+        {
+          "order": 14,
+          "page": "Delegate Configurations",
+          "action": "decide whether delegates may submit invoices on another employee's behalf",
+          "field": "delegate_can_submit",
+          "rationale": "CORPUS-STATED, and this is the control on which the two-gate model is made explicit - granting it here is NECESSARY BUT NOT SUFFICIENT: a delegate may submit \"only if that permission was granted first within the delegate configuration by the User Admin, and then when the delegate was added for the employee.\" and \"This means an administrator may grant this ability, but the user can deny it when they add their delegate.\" (concur-invoice-professional-edition-admin-guides/delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md). A driver that ticks this box cannot report that the delegate can submit - only that the first of two gates is open. This is why order 19 exists."
+        },
+        {
+          "order": 15,
+          "page": "Delegate Configurations",
+          "action": "decide whether delegates may approve with no time limit",
+          "field": "delegate_can_approve_any_time",
+          "rationale": "CORPUS-STATED: \"Delegate can approve (any time): If active, the delegates assigned to this configuration can approve invoices on behalf of another employee.\" with the qualifier that there is no time period associated with the action (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Gated by order 9 - with that restriction cleared and a lower-limit delegate chosen, this permission becomes unavailable for that delegate regardless of the tick here. LABEL HAZARD: the list view splits the caption across two lines as 'Can Approve' and '(Any Time)', so no single verbatim caption match will find it there."
+        },
+        {
+          "order": 16,
+          "page": "Delegate Configurations",
+          "action": "decide whether delegates may approve only within a bounded period",
+          "field": "delegate_can_approve_during_specified_period",
+          "rationale": "CORPUS-STATED: \"There is a set length of time associated with this action.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Paired with order 5, which supplies the day ceiling, and dependent on a surface this step cannot reach for the actual dates. INFERRED, and it is the reason this pairing is called out rather than left implicit: ticking this box while the ceiling at order 5 is unconsidered produces a temporary delegation whose bound is not the one the operator has in mind, and nothing on this page will show the discrepancy. LABEL HAZARD: 'Can Approve Temporary' in the list view."
+        },
+        {
+          "order": 17,
+          "page": "Delegate Configurations",
+          "action": "decide whether delegates may view invoice images",
+          "field": "delegate_can_view_images",
+          "rationale": "CORPUS-STATED: \"Delegate can view images: If active, the delegates assigned to this configuration can view Invoice images for invoices on behalf of another employee.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). OVERRIDE a config writer must expect: even when allowed here, the employee can clear it per delegate on the end-user surface - \"the Can View Images check box on the Invoice Delegates page by clicking Profile > Profile Settings > Invoice Delegates\" (concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md). WORST LABEL DRIFT ON THE PAGE - three captions across three files ('Delegate can view images', 'Can View Images', and a longer modal caption about viewing invoice images for payment requests); a driver must probe all three."
+        },
+        {
+          "order": 18,
+          "page": "Delegate Configurations",
+          "action": "select Save to commit the configuration and return to the parent list",
+          "field": "save",
+          "rationale": "CORPUS-STATED: \"Select Save to return to the Delegate Configuration page.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). NOTE THE NAMING DRIFT rather than treating it as two destinations: the edit topic writes the same return target in the PLURAL ('the Delegate Configurations page'). One surface, two spellings."
+        },
+        {
+          "order": 19,
+          "page": "User Administration",
+          "action": "assign the actual delegate to the employee - this page defined only the permission template, and the delegation does not exist until it is assigned here",
+          "field": "",
+          "rationale": "CORPUS-STATED that the assignment is a different surface, and that this page's output merely shapes it: \"The columns that appear for the delegate will vary, depending on the settings in the delegates configuration file.\" (concur-invoice-professional-edition-admin-guides/invoice-user-f11cccd8.md). Combined with the two-gate quote at order 14, the consequence for a driver is blunt: completing orders 1-18 changes nothing about who can act for whom, and reporting the delegation as configured would be wrong. Target page is UNBUILT in this graph and this entry is unresolved on purpose - the corpus defers it to external Shared guides absent from this corpus, which is a documentary gap rather than a missing menu location."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-b4-enable-delegation-for-authorized-approvers",
+      "name": "Enable delegation for Authorized Approvers (set the approver limits first, then gate the delegate configuration, and only then assign the delegate)",
+      "goal": "A delegate can approve on behalf of an Authorized Approver without either over-granting authority or being locked out of approving at all. The ordering is forced by a rule the corpus states plainly and that has no UI signal whatsoever: authorized approver limits are evaluated ONLY at the moment the delegate is assigned, and are never re-checked afterwards. So limits set after assignment are ignored, and a limit lowered after assignment leaves a delegate approving above their current authority with nobody notified. The other quiet failures: leave the equal-or-higher restriction cleared and the approve permissions granted on the delegate configuration silently become unavailable for any lower-limit delegate; and tick 'Require approver role for approval delegation' before the intended delegates hold the Invoice Approver role and they cannot be assigned at all.",
+      "pages": [
+        "Authorized Approval Limits",
+        "Delegate Configurations",
+        "User Administration"
+      ],
+      "fields": [
+        "authorized_approver_checkbox",
+        "approval_limit_currency_branch_a",
+        "approval_limit_amount",
+        "can_approve_exception",
+        "branch_a_save",
+        "tab-selector",
+        "modify",
+        "require_approver_role_for_approval_delegation",
+        "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+        "delegate_can_approve_any_time",
+        "delegate_can_approve_during_specified_period",
+        "maximum-time-period-to-approve",
+        "save"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Authorized Approval Limits",
+          "action": "mark the intended delegate as an Authorized Approver",
+          "field": "authorized_approver_checkbox",
+          "rationale": "CORPUS-STATED prerequisite for the gate configured at order 7: \"If selected (enabled), the user selected to be a delegate for an Authorized Approver must also be an Authorized Approver, with the same or higher approver limit.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Do this after order 10 instead and the delegate simply fails the check at assignment time, because the check happens then and only then."
+        },
+        {
+          "order": 2,
+          "page": "Authorized Approval Limits",
+          "action": "set the approval limit currency for that approver",
+          "field": "approval_limit_currency_branch_a",
+          "rationale": "INFERRED from the pairing of currency and amount on the built Authorized Approval Limits page: an amount without its currency does not describe a limit that can be compared against another approver's. CORPUS-STATED consequence that makes the comparison matter: a delegate acting for an authorized approver does not use their own values - \"the delegate inherits the authority of that authorized approver, including that authorized approver's limits (if any), currencies, and exception authority (if any).\" (concur-invoice-professional-edition-admin-guides/delegates-4d7c563c.md)."
+        },
+        {
+          "order": 3,
+          "page": "Authorized Approval Limits",
+          "action": "set the approval limit amount so it is equal to or higher than the limit of the approver being delegated for",
+          "field": "approval_limit_amount",
+          "rationale": "CORPUS-STATED: the equal-or-higher comparison at order 7 is made against this number. Getting it wrong here does not raise an error on the Delegate Configurations page - it surfaces later as a delegate who cannot be assigned, or (with the restriction cleared) as one whose approve permissions quietly do nothing."
+        },
+        {
+          "order": 4,
+          "page": "Authorized Approval Limits",
+          "action": "grant exception-approval rights if the delegated authority is meant to include them",
+          "field": "can_approve_exception",
+          "rationale": "CORPUS-STATED that exception authority travels with the delegation and is not configurable on the delegate side: it is part of what \"the delegate inherits\" (concur-invoice-professional-edition-admin-guides/delegates-4d7c563c.md). INFERRED ordering point: because it is inherited rather than granted per delegate, it must be correct on the approver record before assignment - there is no control on Delegate Configurations that can add or remove it afterwards."
+        },
+        {
+          "order": 5,
+          "page": "Authorized Approval Limits",
+          "action": "save the approver record",
+          "field": "branch_a_save",
+          "rationale": "INFERRED from the built page's own commit control, and load-bearing here for a specific documented reason: an uncommitted limit is not a limit, and the evaluation at assignment reads what is stored - \"The Authorized Approver limits are evaluated only when the delegate is assigned.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). There is no second evaluation later to catch up with a save made after order 10."
+        },
+        {
+          "order": 6,
+          "page": "Delegate Configurations",
+          "action": "open the Delegate Configurations page, select the Invoice tab and open the configuration that applies to the delegate's group with Modify (or create one as in grpworkflows-b3)",
+          "field": "modify",
+          "rationale": "CORPUS-STATED: \"Select Modify. The Modify Delegate Configuration page appears.\" (concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md), reached after the tab choice documented at concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md. Modify rather than New, because the corpus permits only one Invoice delegate configuration per group - if one already covers this group, creating another is a collision, not an addition."
+        },
+        {
+          "order": 7,
+          "page": "Delegate Configurations",
+          "action": "select the restriction requiring delegates of Authorized Approvers to hold an equal or higher limit",
+          "field": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+          "rationale": "CORPUS-STATED, and this entry is the hinge of the whole step: with it set, the limits established at orders 1-5 are enforced at assignment; with it CLEARED, \"a delegate with authority only for a lower approval limit is chosen, approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Both outcomes look identical on this screen - the checkboxes at orders 9-10 can be ticked either way - and the difference only appears as a delegate who cannot approve. SILENT-DRIFT HAZARD, corpus-stated in the same note: if the delegate's limit is later lowered, Concur Invoice does not remove the delegate and neither the user nor the delegate is notified, so this configuration needs periodic re-checking that no control on this page provides."
+        },
+        {
+          "order": 8,
+          "page": "Delegate Configurations",
+          "action": "select whether delegates must already hold the Approver role",
+          "field": "require_approver_role_for_approval_delegation",
+          "rationale": "CORPUS-STATED: \"Require approver role for approval delegation: If active, the delegates assigned to this configuration must be assigned the Approver role in order to be allowed delegate approval status.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md), and stated unconditionally for this path as \"the delegate must already be an approver, that is, the delegate must already have the Invoice Approver role.\" (concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md). It is an ordering constraint on work outside this graph: the role is granted in user permissions, not here, so setting this before the delegates hold the role makes them unassignable at order 12 with no explanation offered on this page."
+        },
+        {
+          "order": 9,
+          "page": "Delegate Configurations",
+          "action": "grant unbounded approval if the delegation is intended to be open-ended",
+          "field": "delegate_can_approve_any_time",
+          "rationale": "CORPUS-STATED that this permission is conditioned on order 7 rather than independent of it - the same note states that \"approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate\" when the restriction is cleared and a delegate with only a lower approval limit is chosen (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). That is why order 7 precedes it: granting first and restricting afterwards produces a permission that reads as granted and behaves as absent."
+        },
+        {
+          "order": 10,
+          "page": "Delegate Configurations",
+          "action": "grant bounded approval instead, and set the day ceiling it operates under",
+          "field": "delegate_can_approve_during_specified_period",
+          "rationale": "CORPUS-STATED: \"There is a set length of time associated with this action.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md), with the ceiling supplied by Maximum Time Period to Approve on the same window. INFERRED, and it is the reason this option is preferable for authorized-approver delegation specifically: because limits are evaluated only at assignment and never re-checked, a bounded delegation expires on its own, whereas an open-ended one persists through any later change to the approver's limit with nobody notified."
+        },
+        {
+          "order": 11,
+          "page": "Delegate Configurations",
+          "action": "set or confirm the maximum time period in days, then save the configuration",
+          "field": "maximum-time-period-to-approve",
+          "rationale": "CORPUS-STATED ceiling and its off-page partner: \"Indicates a set time period, in days, for which an employee can approve invoices on behalf of another employee.\" and \"This field works in conjunction with the Choose Dates link in the Delegates area of both My Info and User Administration.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). The ceiling must be committed before order 12, because the dates chosen at assignment are bounded by it - set it afterwards and the delegation already in place is not the one intended. Commit with \"Select Save to return to the Delegate Configuration page.\" (same file)."
+        },
+        {
+          "order": 12,
+          "page": "User Administration",
+          "action": "assign the delegate to the Authorized Approver, and choose the delegation dates via the Choose Dates link if bounded approval was granted",
+          "field": "",
+          "rationale": "CORPUS-STATED, and it is the moment everything above is tested exactly once: \"The Authorized Approver limits are evaluated only when the delegate is assigned.\" (concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md). Any leg above left until after this point is not merely late - it is never evaluated. The dates themselves are corpus-stated to live here rather than on the admin page, per the Choose Dates quote at order 11, and the permission set the delegate ends up with is shaped by what was saved at order 11: \"The columns that appear for the delegate will vary, depending on the settings in the delegates configuration file.\" (concur-invoice-professional-edition-admin-guides/invoice-user-f11cccd8.md). Target page is UNBUILT and this entry is unresolved on purpose. SCOPE BOUNDARY: whether a delegated approver may approve requests they created themselves is NOT set here and NOT on Delegate Configurations - it is the already-built Workflows control, \"A setting, Allow delegated approvers to approve their own requests, is available in the General step.\" (concur-invoice-professional-edition-admin-guides/delegate-self-approval-1b627285.md)."
+        }
+      ]
+    }
+  ]
+}

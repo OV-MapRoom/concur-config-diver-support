@@ -1361,3 +1361,161 @@ NBSPs across 117 files**, even under `LC_ALL=C`. The forms that work are `grep -
 bash literal. The corpus's NBSP navigation hazard is real (after "Administration": 96 ASCII `>` vs
 65 NBSP-only), and the instruction telling agents to check for it was itself unrunnable. Fixed in
 the workflow template.
+
+---
+
+## Workflows Run B — Email Reminders + Delegate Configurations (2026-09-01)
+
+**25 pages · 674 fields · 488 dependencies · 47 steps · 126 value sets (1,053 values) · 85
+contradictions (270 readings) · 18 compressed ranges. `bin/validate-graph.py` exits 0, ERROR-clean,
+674/674 sourceQuotes verbatim.** Run `wf_fac7bf66-f50`, 20 agents, **0 errors**.
+
+Email Reminders 30 fields (coverage good, basis rich), Delegate Configurations 27 (partial,
+moderate). Merged **WITH `--patch`**; Run A's 114 Workflows fields and 7 Feature Hierarchies fields
+verified intact after the merge. Corpus freeze held: `concur-corpus` at `fbd8751`, 0 modified.
+
+**The Workflows group is now complete: four pages, 178 fields.**
+
+### The tabs chain works end-to-end, on a multi-tab page, for the first time
+
+Both pages merged carrying machine-readable `tabs` — `['Rules','Email Reminders']` and
+`['Invoice','Purchase Request']` — straight from the map agent through `assemble-parts.py` to the
+graph. Run A's seven tabs had to be added by hand afterwards because `NAV_SCHEMA` (link 1) was still
+broken. **That debt is now closed and proven.** Four tabs would have vanished silently on this run.
+
+### The pre-flight audit found six blockers in a script I had just stale-checked myself
+
+`wf_787d91c7-9a7`, 100 agents, 52 findings, **42 surviving two adversarial refuters each**. Full
+findings in `output/reports/2026-09-01_workflows-run-b-preflight-audit.md`. **Five of the six were
+mine, introduced during authoring** — the stale-content pass is necessary and not sufficient:
+
+1. **I ported a page-specific claim verbatim and it was false.** The Approval Authority script ends
+   its NBSP guard with *"Good news for THIS page: all its core files contain ZERO NBSP."* True
+   there. False here — and the NBSPs sit in the two sentences Email Reminders most needs: nav step 1
+   reads `Select Administration<NBSP><NBSP>Invoice.` with **no `>` glyph at all**, and the role-gate
+   sentence. **`validate-graph.py` normalises NBSP to a space**, so a retyped quote would have
+   passed validation and landed permanently wrong — a nav path no driver could ever match. Every
+   prior NBSP cost was paid loudly at grep time; this one would have been paid silently after the
+   merge. Two auditors found it independently.
+2. **Every table count I wrote was a cell-opener count, not a row count.** SAP puts each table CELL
+   on its own line, so `grep -cP '^\s*\|'` returns `1 + (columns+1) × rows`. "49 rows" is **15**;
+   the "21-row" token table is the **4** tokens the graph already carries. An extractor told the
+   roster had 49 rows would have hunted 34 fields that do not exist, and the correctness critic
+   would have reported a bogus 4-vs-21 truncation — straight into the invented-values defect class.
+3. **`terminology-e1e1ed99.md` was seeded onto Email Reminders and contains zero occurrences of
+   "reminder".** It is a delegate-only file and the run's single cross-contamination vector. Moved
+   to Delegate Configurations, where the recon critic had correctly filed it.
+4. **Three guaranteed `duplicate-field-name` ERRORs, unwarned.** Both Email Reminders tabs document
+   `Name`, `Reminder Type` and `Editable By`; the check is scoped per PAGE, not per tab. They are
+   different controls — their Reminder Type option lists genuinely disagree — so the fix is a
+   `rule_` prefix scheme plus a contradiction node, not a merge.
+5. **A claim I wrote as "verified" was false**: *"no built field cites any reminder file."* Six of
+   the 25 sweep files are already mined, two of them by 25 built fields.
+6. **A real code bug, present in all three build scripts.** The synthesis array is
+   `[valueSets, dependencies, contradictions, steps]` and was destructured
+   `[vsRec, depRec, stepRec, ctrRec]`. Proven against the Approval Authority run, whose returned
+   summary said `steps=6 / contradictions=2` when the truth was 2 steps and 6 contradictions. **The
+   graph was never affected** — it is assembled from the parts files, not these receipts — so this
+   was a reporting defect only. Fixed here. `2026-09-01_approval-authority-workflow-result.json`
+   still carries the swapped labels; read its merge output, not its receipts.
+
+Two overstatements of mine were also corrected: the `Invoice Configuration administrator
+(Restricted)` gate is **not** distinctive (it gates nine surfaces) — but it turned out to carry
+something better, a **role partition**: `overview-8b2edfd0.md` says that role cannot see Group
+Configurations at all, which is a hard constraint on this page's own group-assignment dependency.
+And *"the corpus calls it a page"* is not evidence, because the Workflows wizard pages use the same
+idiom while this graph has already ruled they are not pages.
+
+### Toolchain fixes made before this run
+
+- **`assemble-parts.py`: `VALUE-SET-NO-PAGE`, FATAL.** A `valueSets[]` entry with no `appliesToPage`
+  was silently wired graph-wide by `apply-corrections.wire_by_name`, and ten of this run's likely
+  field names are graph-wide-unique on OTHER pages. Scoped to exclude orphans, which carry an empty
+  page deliberately.
+- **`apply-corrections.py`: `wire_by_name` now requires a stated page.** No page named at all is not
+  evidence for a graph-wide guess.
+- **`assemble-parts.py`: corrected a comment asserting a false invariant.** It claimed its step-id
+  prefix derivation and `merge-group.py`'s gtag "can never disagree". For a non-numeric patch label
+  they DO: prefix `grpworkflows-` vs gtag `workflowsw`, which means a patch run **shares the step-id
+  namespace with the run it patches**. Run A held `grpworkflows-s1..s7`, so Run B's steps use
+  `grpworkflows-b1-`. `validate-graph.py`'s duplicate-node-id invariant is the backstop.
+- **`merge-group.py` REJECTS `--patch-page`.** It filters `--` flags, so the bare label becomes a
+  third positional and the script exits 1. The flag goes to `assemble-parts.py` ONLY.
+
+### The boundary verdict — Email Reminders vs the built Workflows Email Notifications tab
+
+This was the run's central risk, and both critics confirmed it held **in both directions with
+commands**: zero of the Email Reminders fields cite any of the six Workflows notification source
+files, and all 11 built-graph fields sourced from an Email-Reminder-mentioning file are correctly
+Workflows Steps-page controls.
+
+The strongest **positive** proof the two surfaces differ was missing and is now recorded: the
+`Display as From` control takes a **NAME** on Email Reminders (*"The @ symbol is not permitted in
+this name."*) and an **EMAIL ADDRESS** on the Workflows tab. Same label, incompatible data types,
+one side forbidding the character the other requires. A driver carrying a value across writes an
+@-bearing address into a field that rejects @.
+
+> The completeness critic attributed that Workflows quote to `add-an-email-notification-c237a2de.md`.
+> It is actually in `modify-an-email-notification-a6e5f4ba.md` — which is what the built field itself
+> cites. **The observation was right and the attribution was wrong**, caught by checking before
+> emitting. Same pattern as the previous run: an observation is reliable, an attribution is a
+> hypothesis.
+
+### What the critics found, and what was verified before acting
+
+Both returned MERGE-AFTER-FIXES, and **they converged on the same class from opposite directions:
+the run dropped real controls.** That convergence is the strongest signal this pipeline emits.
+
+- **Seven Delegate Configurations list-view columns restored.** Rows of a table SAP titles *"Delegate
+  Configuration Fields"*, each with its own label and its own description, dropped as alias
+  duplicates. The graph decides the identical two-file shape the opposite way: `page.workflows`
+  keeps four `workflows_list_*_column` fields alongside its editor fields. Restored from the extract
+  file rather than hand-authored. The other two drops were genuine duplicates and stand.
+- **Three `Conditions - Step 2` condition-editor controls added.** Refused on the ground that
+  importing the Audit Rules option catalogues would be unattested — correct about the VALUES, wrong
+  about the CONTROLS. The graph carries 18 condition-editor fields across two pages and **14 have
+  empty `validValues`**. Without these the graph cannot drive the mandatory first step of its own
+  page: a driver arrives between `next-button` and `finish-button` with nothing to interact with.
+- **The `remove-button` split executed** (reported but not taken). The Rules-tab Remove raises a
+  confirmation AND cascades — *"If a rule is deleted that is currently associated with an email
+  reminder, it will deactivate the email reminder."* The Reminders-tab Remove documents neither. One
+  control would either hang a driver on a dialog that never appears or silently deactivate a live
+  reminder.
+- **Four rule-side controls renamed to the `rule_` prefix.** Their own notes said RULE-SIDE ONLY
+  while their names were bare; `confirm_yes_button` sitting next to `remove-button` reads as the
+  reminder side's confirmation, which it is not.
+- **The `specific-days` value set dropped.** It duplicated `range.wfb.001` member-for-member from the
+  same sentence and was the lossier copy — the range node states the expansion is mechanical, the
+  value set did not. SAP writes *"Enter a valid integer between 1 and 31"* and never enumerates the
+  days, so the compressed range is the correct node type.
+- **The Group 3 token orphan deleted.** `vset.g3.unnamed.email-message-replacement-tokens-...` said
+  its own fix was *"an Email Reminders page node that owns this table properly"*. Run B delivered
+  that, so keeping it landed the catalogue twice. Its group is `Group 3 — PO Matching` and its patch
+  is `None`, so **no merge under any label could ever remove it** — it needed a new
+  `DELETE_VALUESETS` op.
+- **`dep.g1.059` repointed** onto `field.delegate-configurations.applies-to-groups`. Its target field
+  name was the page LABEL, so the merge could never resolve it.
+- **`contr.gworkflows.004` corrected**: it told a config writer Email Reminders was *"not yet built
+  in this graph"*. Appended rather than rewritten, via a new `CONTRADICTION_NOTE_APPEND_BY_ID` op —
+  `consequenceForWriter` is prose the validator never reads, so a build-state claim inside one goes
+  stale silently.
+
+### Open debt from this run
+
+1. **`page.invoice-settings` is 13 of 24 rows** — measured independently by the completeness critic
+   from this run's own file pool: `available-invoice-settings-8b3411f0.md` is 101 cell-openers over
+   3 columns = 24 data rows, and 11 named settings are absent, **each with a documented Default
+   Status**. This corroborates the standing Invoice Settings debt with a hard number and a list.
+2. **The six-entry delegate terminology catalogue reached the merge at 3 of 6.** The three lost
+   (`Invoice Request Delegates`, `Purchase Request Delegates`, `Delegated Approver`) are recorded in
+   the page's `verifyNotes` but are not their own records. The corpus enumerates THREE delegate kinds
+   against a TWO-tab page and never maps them — undetermined by the documentation.
+3. **The `>` last-day-of-month sentinel** is documented (*"Use \> for the last day of the month."*)
+   and deliberately excluded from `range.wfb.001` because a sentinel is not a member of a 1-31
+   integer range. Defensible, but a driver reading values will never produce it.
+4. **Five notes-level strings are presented in quotation marks but are not contiguous verbatim.** The
+   validator never reads notes, so they ship unchecked and risk being copied into a `sourceQuote`.
+5. **`the-condition-page-5d4ea870.md` carries 8 distinct compressed-range shapes in 16 occurrences**
+   (including one with an EN-DASH) while the built graph holds only two Custom ranges, whose labels
+   do not match their hyphenated source strings. Audit Rules debt.
+6. Two `mustReadNeverCited` entries per page are digest artefacts — both files ARE cited.

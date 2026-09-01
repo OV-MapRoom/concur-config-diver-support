@@ -1,0 +1,215 @@
+{
+  "valueSets": [
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "reminder-type",
+      "contextField": "",
+      "context": "The Reminder Type option list AS ENUMERATED BY THE EMAIL REMINDERS TAB ROSTER (the 15-row configuration-fields table in create-email-reminders-604c4a46.md). Emitted as a set rather than left as flat validValues because the SAME control label is enumerated DIFFERENTLY on the Rules tab of this same page - see the companion set on rule_reminder_type - and because each option carries its own trigger definition. Unconditional on this tab: always these three, in this order.",
+      "values": [
+        "Approval Request - Payment Request",
+        "Approval Request - Vendor Request",
+        "Payment Request"
+      ],
+      "sourceQuote": "Approval Request - Vendor Request: When a vendor-based invoice has a status of Pending Approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "THREE entries, complete, source order, nothing elided. Per-option trigger definitions exactly as THIS file writes them: 'Approval Request - Payment Request: When a cash advance request has a status of Pending Approval.'; 'Approval Request - Vendor Request: When a vendor-based invoice has a status of Pending Approval.'; 'Payment Request: For invoices that have been approved and have not been both extracted and had the invoices marked as received.' The cash-advance wording is recorded verbatim and NOT corrected - correcting it would be inference. CONTRADICTION, RECORDED NOT RECONCILED: the Rules tab roster (create-reminder-rules-b0a7fac5.md) names the vendor option 'Approval Request - Payment Vendor' instead, and defines the shared option 'Approval Request - Payment Request' as firing on an INVOICE, not a cash advance request. The grounding quote deliberately carries the option that exists ONLY in this file, so the quote itself carries the contradiction. Weak corroboration for the OTHER side, recorded as evidence and explicitly NOT used to pick a winner: the two system pre-defined rules are named 'Overdue Payment Request Approvals' and 'Overdue Payment Vendor Approvals' (pre-defined-rules-220a1fe7.md), echoing 'Payment Vendor'. FOR A DRIVER: probe the exact label the roster for THAT TAB gives; match on the 'vendor' substring if the full string is absent; 'Payment Request' is the only option both tabs agree on. This is a tab of the page Email Reminders - there is no page named 'Email Reminders tab'. Also selects/filters the Reminder Rule helper: 'Only the rules with this reminder type will appear in the next field.'"
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "rule_reminder_type",
+      "contextField": "",
+      "context": "The Reminder Type option list AS ENUMERATED BY THE RULES TAB ROSTER (the 3-row rule table in create-reminder-rules-b0a7fac5.md). Same on-screen label as the reminder-side control, DIFFERENT documented list. Both are recorded; neither is preferred. Unconditional on this tab: always these three, in this order.",
+      "values": [
+        "Approval Request - Payment Request",
+        "Approval Request - Payment Vendor",
+        "Payment Request"
+      ],
+      "sourceQuote": "Approval Request - Payment Vendor: When a vendor-based invoice has a status of Pending Approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "THREE entries, complete, source order. Per-option trigger definitions exactly as THIS file writes them: 'Approval Request - Payment Request: When an invoice has a status of Pending Approval.'; 'Approval Request - Payment Vendor: When a vendor-based invoice has a status of Pending Approval.'; 'Payment Request: For invoices that have been approved and have not been both extracted and had the invoices marked as received.' Only the third option is identical across the two tabs. THE CONTRADICTION WITH THE reminder-type SET IS DELIBERATE AND UNRESOLVED - two topics of the same guide, same version 2026_08, neither carrying any UI-variant language; the divergence is both in the vendor option's LABEL and in the meaning of the option both lists share. Supporting textual evidence that the two tables drifted in editing rather than describing two deliberately different pickers: their otherwise identical lead-in sentences differ by one word, 'activated upon' (reminder side) versus 'activated on' (this side). CONSEQUENCE, DOCUMENTED IN THE SOURCE: 'Selecting a type also filters the options available when creating the rule using the condition editor on the next page.' and a reminder can only select rules of its own type, so a mismatch between the two pickers fails silently - the Reminder Rule helper simply comes back empty. Rules tab of the page Email Reminders; there is no page named 'Rules'."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "frequency",
+      "contextField": "",
+      "context": "The complete Frequency option list on the Email Reminders tab. Emitted as a set rather than as flat values alone because TWO of the five options change the visible field set of the editor, so the list is the switch a driver must reason about before it can know which fields exist.",
+      "values": [
+        "Daily (weekdays only)",
+        "Daily",
+        "Every x days",
+        "Specific days of the month",
+        "Once condition is met"
+      ],
+      "sourceQuote": "Select how often you want this email to be sent once a rule is violated:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "FIVE entries, complete, in SAP's own order - note 'Daily (weekdays only)' precedes the bare 'Daily', which is not alphabetical and is preserved. 'Every x days' carries a lowercase literal x in the option label; do not title-case it. CONDITIONAL VISIBILITY DOCUMENTED FOR TWO OF THE FIVE: 'This field appears only if you selected Every x days in the Frequency field.' (Number of Days) and 'This field appears only if you selected Specific days of the month in the Frequency field.' (Specific days). CAVEAT ON 'Once condition is met', verbatim from the same cell: flags marking a sent reminder 'are removed every 60 days' for performance, so 'a \"once only\" reminder could be sent once every 60 days' unless the rule adds a time- or status-based condition. GROUPING BEHAVIOUR, all frequencies: 'multiple occurrences of the same reminder for the same recipient are grouped together.' Email Reminders tab of the page Email Reminders."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "reminder-rule",
+      "contextField": "reminder-type",
+      "context": "SEED POPULATION ONLY - the two SYSTEM-SUPPLIED rules that exist before any tenant rule is created. This is a value set and not flat validValues for two reasons: the helper's contents are FILTERED BY the Reminder Type already selected ('Only the rules with this reminder type will appear in the next field.'), and the rest of the population is tenant-created rules, which a blind build cannot and must not enumerate.",
+      "values": [
+        "Overdue Payment Request Approvals",
+        "Overdue Payment Vendor Approvals"
+      ],
+      "sourceQuote": "The pre-defined rules are as follows:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/pre-defined-rules-220a1fe7.md",
+      "notes": "EXACTLY TWO AND THIS IS THE COMPLETE PRE-DEFINED LIST - the topic exists to enumerate them and names no others. DO NOT PAD. THIS IS NOT THE FIELD'S COMPLETE OPTION LIST: at runtime the helper also offers whatever rules the tenant has created on the Rules tab for the selected Reminder Type, and those are tenant data. Definitions verbatim: 'Overdue Payment Request Approvals: Invoices that have not been approved within 7 days of submission of the invoice. The employee must be an active employee.' and 'Overdue Payment Vendor Approvals: Vendor-based invoices that have not been approved within 7 days of submission of the invoice. A vendor import must be set up within the system to run before 7 days.' The 7-day threshold and the vendor-import prerequisite are properties of the supplied rules, not admin fields on this page. UNDETERMINED: no configuration surface for these two is documented anywhere in the corpus - whether they can be edited, copied or deleted like tenant rules is unknown, and was not inferred. contextField is reminder-type (the Email Reminders tab control) because the filtering sentence lives in that field's own cell; the Rules-tab twin rule_reminder_type governs which type a NEW rule is created under, which is the other half of the same coupling. HARD ORDERING: a rule must exist before a reminder can select one - 'The Email Reminder Rules section of this tool is used to create any new rules.' The rule-side names echo the Rules tab's 'Payment Vendor' phrasing; that is recorded under the reminder-type contradiction as evidence, not as a resolution."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "specific-days",
+      "contextField": "frequency",
+      "context": "COMPRESSED RANGE, EXPANDED. The set of day-of-month members this field accepts, and it exists at all only when Frequency = 'Specific days of the month'. Recorded as a context-dependent set rather than flat validValues because the field is not present under the other four Frequency options.",
+      "values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ],
+      "sourceQuote": "Enter a valid integer between 1 and 31.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "SOURCE COMPRESSION: SAP writes the range as prose - 'Enter a valid integer between 1 and 31.' - with no dash of any kind, so there is no en-dash/hyphen transcription hazard in the range string itself. The 31 members here are a MECHANICAL EXPANSION of that inclusive integer range, stated openly rather than passed off as an enumerated list; SAP never lists the days individually. NOT A PICKER: this is a free-text entry that takes a COMMA-SEPARATED LIST of members - SAP's own worked example is '10, 20, > in the field would run the reminder on the 10th, 20th, and the last day of the month.' A DOCUMENTED 32nd, NON-NUMERIC TOKEN IS DELIBERATELY EXCLUDED FROM values: the same cell says to use the greater-than character for the last day of the month (the markdown escapes it as backslash-greater-than; the character a driver types is a bare >). It is a sentinel, not a member of the 1-31 range, and mixing it into the expansion would misrepresent both. VISIBILITY: 'This field appears only if you selected Specific days of the month in the Frequency field.' UNDETERMINED and not inferred: whether duplicates, out-of-order lists, or 29/30/31 in a short month are accepted or rejected - the corpus is silent. EXPECTED VALIDATOR WARN, ACCEPTED NOT A REGRESSION: 21 of these 31 entries verify as literal substrings of the cited file but 10 do not (13, 16, 17, 18, 19, 21, 22, 23, 27, 30), because SAP never prints the individual days - only the range and the '10, 20, >' example. A value-set-entries-not-in-file WARN on this set is therefore expected, exactly as the built graph already accepts one on the two Workflows data-variable sets. The sourceQuote itself verifies at grep -F -c = 1."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "email-message",
+      "contextField": "",
+      "context": "Table 1: Email Message Helper - the replacement-token catalogue offered in the Helper pane while completing the Email Message field. A STRUCTURED catalogue (each row is Variable / Label Name / Description), not a flat picker, and it lives in its own topic rather than in the field's own roster row, which is why it is a value set rather than validValues. THIS SET GIVES AN OWNER TO AN EXISTING GRAPH ORPHAN: vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na (knownGap:true, empty appliesToRef) whose own note names the fix as 'an Email Reminders page node that owns this table properly'. That page now exists. Retire the orphan; do not keep both.",
+      "values": [
+        "%1%",
+        "%2%",
+        "%3%",
+        "%4%"
+      ],
+      "sourceQuote": "Table 1: Email Message Helper provides a description of each variable.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+      "notes": "EXACTLY FOUR TOKENS - complete, nothing elided, no fifth token exists anywhere in the corpus. Label Name and Description per row, verbatim: %1% = Logon URL, 'The URL for the Concur Sign In page.'; %2% = User Name, 'The primary recipient of the email in this format: First-name Last-name. This does not pertain to any Copy To recipients, such as approvers.'; %3% = Number of Records, 'The number of applicable object records, such as number of invoices, found by the reminder rule query, which is based on the Reminder Type.'; %4% = List of Records, 'A list of the applicable object records found by the reminder rule query, based on pre-defined formats. This variable is not supported in the Email Subject field.' TWO CONSTRAINTS ON ALL FOUR: they must be typed, never picked - 'You cannot select any of these replacement token variables from the Helper pane to have them appear automatically in the Email Subject or Email Message fields. You must type the variables manually.' - and the table is flagged 'English Only'. The field's own roster row says the same in different words: 'You must type the actual value, such as %3% in the line rather than select it from the Helper pane.' CENSUS TRAP, RECORDED SO NOBODY RE-HUNTS: on this file grep -c '^| ' returns 6 and grep -cP '^\\s*\\|' returns 21; the 21 is 1 separator + 5 rows x 4 cell-openers of a THREE-column table, i.e. a header plus four token rows. There are no more tokens. DO NOT COLLAPSE INTO WORKFLOWS: field.workflows.email-body and field.workflows.email-subject carry a DIFFERENT catalogue (the 18 %L_X%/%X% data variables from variables-for-invoices-or-purchase-requests-26e917cb.md) on the already-built Workflows page's Email Notifications tab. Reminders and notifications are separate surfaces with separate token vocabularies. LEAVE ALONE: page.purchase-order-configuration's default_email_subject_when_transmitting_purchase_orders also offers a tooltip token list, and that list is genuinely unpublished - it stays unenumerated."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "email-subject",
+      "contextField": "",
+      "context": "The SAME Helper-pane replacement-token catalogue, as it applies to the Email Subject field - MINUS one token that the corpus explicitly excludes from this field. Emitted as its own set rather than folded into the email-message set because appliesToField is singular and because the two fields' lists genuinely differ; this follows the built graph's own precedent, where the Workflows data-variable catalogue is emitted twice, once on email_body and once on email_subject.",
+      "values": [
+        "%1%",
+        "%2%",
+        "%3%"
+      ],
+      "sourceQuote": "This variable is not supported in the Email Subject field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+      "notes": "THREE OF THE FOUR TOKENS, AND THE OMISSION IS DOCUMENTED, NOT INFERRED: the quote is the closing sentence of the %4% (List of Records) row, which states in the source itself that %4% is not supported here. %1%, %2% and %3% carry the same Label Name / Description text as in the email-message set. SAME TWO CONSTRAINTS: typed manually, never selected from the Helper pane ('You must type the variables manually.'), and the table is flagged 'English Only'. The field's own roster row corroborates the manual-typing rule with a worked example: 'You must type the actual value, such as %3% in the line rather than select it from the Helper pane.' FIELD LIMIT for the string these tokens go into: 255 characters. NOT LOCALIZED: 'Email Subject and Email Message text is not localized in the system automatically.' (localizing-email-reminder-text-8b2cc1b0.md). COLLAPSE GUARD: field.workflows.email-subject is a DIFFERENT, already-built field on the Workflows page with an identical label and a different token vocabulary; do not merge, do not re-home."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "email-message",
+      "contextField": "reminder-type",
+      "context": "A SECOND, NESTED catalogue inside the %4% (List of Records) row: the columns the generated record list contains, which differ by Reminder Rule Type. This is OUTPUT FORMAT keyed by the type already chosen, not an admin-selectable option list - it is recorded so a driver knows what %4% renders, and it is emitted separately from the token set above so the two are never conflated.",
+      "values": [
+        "Approval requests: Fields based on the object to be approved, with the Employee Name as the last column",
+        "Payment Requests: Submit Date, Request Name, Amount, Employee Name."
+      ],
+      "sourceQuote": "The list of records for each Reminder Rule Type contain the following information in the email message:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+      "notes": "EXACTLY TWO entries, reproduced verbatim INCLUDING SAP's inconsistent trailing punctuation (the first has no full stop, the second does) and its inconsistent capitalisation ('Approval requests' lowercase r, 'Payment Requests' capital R). NOT A CONFIGURABLE CONTROL and it must not be turned into one. TERMINOLOGY DRIFT WORTH FLAGGING: this file calls the key 'Reminder Rule Type' while both tab rosters call the field 'Reminder Type'. THE MAPPING IS UNDETERMINED AND WAS NOT INFERRED: these two entries do not map cleanly onto either tab's three options - 'Approval requests' is a category spanning two of them - so contextField is set to reminder-type as the nearest documented key without claiming a one-to-one correspondence. The Approval-requests format is only described ('Fields based on the object to be approved'), never enumerated, so its actual columns are unknown. Rendering detail from the same row: 'These lists will be preceded and followed by a blank line in the email body when inserted by the system.'"
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "editable-by",
+      "contextField": "",
+      "context": "A DELIBERATELY PARTIAL enumeration of the Editable By picker on the Email Reminders tab. Recorded as a set, rather than left to look like a complete flat list, because exactly ONE option is product-fixed and everything else the picker offers is the tenant's own group hierarchy, which a blind build must not invent.",
+      "values": [
+        "Global Group"
+      ],
+      "sourceQuote": "If you select Global Group, then the reminder can be edited or deleted by any employee assigned to administer the Global Group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "ONE VALUE, AND THAT IS THE CORRECT ANSWER - 'Global Group' is the documented root of the hierarchy; every other selectable entry is a tenant group name. THE EXAMPLE GROUP STRINGS IN THE SOURCE ARE NOT VALUES and are deliberately not emitted ('such as Global Group  United States and Global Group  Europe') - they illustrate a customer's tree. TRANSCRIPTION HAZARD FOR ANY CORRECTION PASS: in those example strings the separator between 'Global Group' and the country is TWO consecutive U+00A0 no-break spaces, not a '>' and not ordinary spaces - do not retype them. RIGHTS SEMANTICS, verbatim: lower-level administrators 'can copy this reminder, but not edit or delete it', and 'Depending on your rights, you may not be able to select Global Group. You are only allowed to select groups beneath you.' Selecting several groups requires rights to ALL of them, and inheritance extends those rights downward. NOTE THE OPPOSITE INHERITANCE DIRECTION of the sibling field applies-to, whose scope explicitly does NOT flow downward. This tab's list and the Rules tab's list AGREE here - which is worth recording, because it isolates the Reminder Type divergence as a real content difference rather than wholesale drift between two independently written tables."
+    },
+    {
+      "appliesToPage": "Email Reminders",
+      "appliesToField": "rule_editable_by",
+      "contextField": "",
+      "context": "The same deliberately partial enumeration for the RULES TAB's Editable By picker. Emitted separately because it belongs to a separately emitted field with its own cited file, not because the list differs - here the two tabs agree.",
+      "values": [
+        "Global Group"
+      ],
+      "sourceQuote": "If you select Global Group, then the rule can be edited or deleted by any employee assigned to administer the Global Group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "ONE VALUE, same guard as the reminder-side set: only 'Global Group' is corpus-fixed; the remainder of the picker is the tenant's own group tree and is not enumerated. Wording differs from the reminder side by one noun only ('this rule' vs 'this reminder'), which is why each side is quoted from its own file rather than sharing one quote. Rights semantics verbatim: lower-level administrators 'can copy this rule, but not edit or delete it'; 'Depending on your rights, you may not be able to select Global Group. You are only allowed to select groups beneath you.' Same U+00A0 hazard in this file's example group strings - do not retype them as values. Rules tab of the page Email Reminders; 'Rules' is not a page."
+    }
+  ],
+  "validValuesAdditions": [],
+  "orphanCandidates": [
+    {
+      "enumerates": "The complete 11-column read-only column roster of the Delegate Configurations list table, titled 'Delegate Configuration Fields' in the source and claimed for BOTH tabs ('displayed on either the Invoice or Purchase Request page by default'). Twelve strings, eleven columns, in source order.",
+      "values": [
+        "Name",
+        "Can Prepare",
+        "Can Submit",
+        "Can Approve",
+        "(Any Time)",
+        "Can Approve Temporary",
+        "Can View Images",
+        "Restrict Delegates to Group",
+        "Need Approver Role to Approve",
+        "Restrict approvers to those with equal or higher authorized approver limit",
+        "Maximum Time Period to Approve",
+        "Applies to Groups"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md",
+      "whyNoOwner": "A COLUMN ROSTER IS NOT AN OPTION LIST, AND NO FIELD ON THIS PAGE OWNS IT. The tables lens wired it to appliesToField 'configuration_name' (the Configuration Name text box); the Delegate Configurations roster explicitly DETACHED it and instructed 'DROP OR RE-SCOPE, DO NOT WIRE', for a reason worth preserving: nine label-drift aliases were collapsed on this page in the roster pass (Can Prepare -> delegate_can_prepare, Can Submit -> delegate_can_submit, Can Approve/(Any Time) -> delegate_can_approve_any_time, Can Approve Temporary -> delegate_can_approve_during_specified_period, Can View Images -> delegate_can_view_images, Restrict Delegates to Group -> restrict_delegate_selection_to_users_group, Need Approver Role to Approve -> require_approver_role_for_approval_delegation), and wiring this list as a text box's values would resurrect all of them as VALUES of an unrelated control. Reported here with page and field empty ON PURPOSE. TWELVE STRINGS, ELEVEN COLUMNS: 'Can Approve' and '(Any Time)' are ONE column whose label SAP splits across two lines inside a single markdown cell; no verbatim joined form exists in the file and joining them would fabricate text, so both fragments are listed and '(Any Time)' is NOT a twelfth column. The lead-in sentence, verbatim, is 'The following table describes the information that is displayed on either the Invoice or Purchase Request page by default.' CENSUS TRAP: SAP indents this table inside a numbered step, so a census anchored on '^|' returns ZERO on this file and the table is invisible to it. THIN FINDING WORTH PUBLISHING: this roster is the ONLY documentation the Purchase Request tab gets anywhere in the corpus - not one control is separately attributed to it, and the Invoice roster must NOT be mirrored onto it.",
+      "whatWouldFixIt": "A node type this graph does not currently have: a LIST-VIEW COLUMN ROSTER attached to the page (or to its tab strip, field 'tab-selector'), rather than to any single field. Failing that, leave it as a knownGap set - it is genuinely useful to a driver reading the list view and it must not be discarded, but it must never be materialised as any field's validValues."
+    },
+    {
+      "enumerates": "The membership of the 'Restrictions' section of the Add/Modify Delegate Configuration modal - which two checkboxes live under that heading. Two entries, complete, source order.",
+      "values": [
+        "Restrict delegate selection to user's group",
+        "Require approver role for approval delegation"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "whyNoOwner": "THIS IS A CONTAINMENT LIST, NOT AN OPTION LIST, AND IT MUST NOT BE WIRED AS VALUES. Both members are ALREADY EMITTED AS FIELDS on this page (restrict_delegate_selection_to_users_group and require_approver_role_for_approval_delegation), so attaching this to the parent row 'restrictions' - which the tables lens did - would double-book two real controls, once as fields and once as values of their own parent. The Delegate Configurations roster named that defect and ruled: 'RECLASSIFY as a containment / child list or DROP; it must not be wired as validValues.' Reported here rather than dropped so the grouping survives for a driver that needs to locate the two checkboxes. Lead-in sentence, verbatim: 'The Configuration administrator can restrict the delegates based on the following choices:' - and note that this names who USES the control, not who may reach the page; this page has NO documented role gate anywhere in the corpus. NEITHER MEMBER'S ON/OFF VALUES ARE DOCUMENTED: the corpus describes each only as 'If active, ...' and never names the opposite state, so no Yes/No pair may be completed for either. CROSS-READING: the same two controls appear on the read-only list view under different labels, 'Restrict Delegates to Group' and 'Need Approver Role to Approve'.",
+      "whatWouldFixIt": "A containment / parent-child edge (section heading -> member fields), which this graph's schema does not express as a value set. With that edge, this record disappears entirely and nothing is lost. Until then it stays an unwired knownGap set carrying the grouping."
+    },
+    {
+      "enumerates": "The membership of the 'Delegate Settings For User Administrators and Employees' section of the Add/Modify Delegate Configuration modal - the five delegate permission checkboxes, which are the reason this page exists. Five entries, complete, source order.",
+      "values": [
+        "Delegate can prepare",
+        "Delegate can submit",
+        "Delegate can approve (any time)",
+        "Delegate can approve during specified period",
+        "Delegate can view images"
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "whyNoOwner": "CONTAINMENT LIST, NOT AN OPTION LIST - same ruling as the Restrictions section above. All five members are ALREADY EMITTED AS FIELDS on this page, so wiring this to the parent row 'delegate_settings_for_user_administrators_and_employees' would double-book five real controls. The roster named the defect and ruled 'RECLASSIFY as a containment / child list or DROP'. Two structural facts the source states and that must not be lost: 'In this section, you can select any or all of the following options for both the user and the administrator:' establishes FIVE INDEPENDENT checkboxes, not a radio group; and 'for both the user and the administrator' does NOT mean two sets of five - overview-8b2ba917.md states the user and the User Administrator 'share identical sets of permissions', and this same topic states 'There is no option to provide separate permissions for specific employees or by their assigned roles.' ONE set of five. NO ON/OFF VALUES ARE DOCUMENTED for any of the five ('If active, ...' only), so no pair may be completed. CROSS-PAGE, DO NOT RE-HOME: the already-built page Workflows owns field.workflows.allow-delegated-approvers-to-approve-own-requests, and admin-guides/delegate-self-approval-1b627285.md describes that same control - it is a Workflows field and stays there; nothing from it is emitted here.",
+      "whatWouldFixIt": "The same containment / parent-child edge type. Until it exists, this stays an unwired knownGap set so the grouping - which a Chromium driver needs in order to find the five checkboxes under their heading - is not silently discarded."
+    }
+  ]
+}

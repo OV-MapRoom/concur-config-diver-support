@@ -221,6 +221,14 @@ def main(parts, out_path, journal=None, group=None, patch_page=None):
     vs_doc = read_json(os.path.join(parts, 'synth-valuesets.json'), {}) or {}
     value_sets = []
     for v in (vs_doc.get('valueSets') or []):
+        # An entry in valueSets[] MUST name its page. Without one, merge-group cannot resolve an owner
+        # and apply-corrections.wire_by_name will guess one ANYWHERE in the graph — which is how a set
+        # lands on a plausible neighbour on another page. "I cannot name the owner" has its own channel:
+        # orphanCandidates, which land below as knownGap sets with an empty page ON PURPOSE, so this
+        # check is scoped to the valueSets[] channel only. Added 2026-09-01.
+        if not str(v.get('appliesToPage') or '').strip():
+            problems.append(('VALUE-SET-NO-PAGE', str(v.get('appliesToField') or '?')[:40],
+                             'appliesToPage is empty - put it in orphanCandidates instead'))
         value_sets.append({
             'appliesToPage': v.get('appliesToPage') or '',
             'appliesToField': v.get('appliesToField') or '',
@@ -428,8 +436,15 @@ def main(parts, out_path, journal=None, group=None, patch_page=None):
         seen_vs[k] = True
 
     # The step-id prefix is per-group and MUST be derived, never hard-coded: this check
-    # read 'grp5b-' until Group 3, where it flagged all six correctly-prefixed ids. Mirrors
-    # the gtag derivation in merge-group.py so the two can never disagree.
+    # read 'grp5b-' until Group 3, where it flagged all six correctly-prefixed ids.
+    # THE TWO DERIVATIONS CAN DISAGREE, and this comment used to claim they could not.
+    # merge-group.py suffixes gtag with the patch-page initials when --patch is used, but only
+    # matches /Group\s*(\d+...)/ here — so a non-numeric patch label like 'Workflows' yields
+    # step prefix 'grpworkflows-' while merge-group mints dep ids under 'workflowsw'.
+    # That divergence is BENIGN (step ids come from the parts, dep ids are minted) but it means
+    # a patch run SHARES the step-id namespace with the run it patches. Give a patch run its own
+    # step sub-prefix, and rely on validate-graph.py's duplicate-node-id invariant as the backstop.
+    # Measured 2026-09-01 while scoping Workflows Run B.
     for s in steps:
         if not s['id'].startswith(step_prefix):
             problems.append(('STEP-ID-NOT-PREFIXED', s['id'], 'expected prefix %r from group %r' % (step_prefix, group)))
@@ -492,7 +507,8 @@ def main(parts, out_path, journal=None, group=None, patch_page=None):
     FATAL = ('QUOTE-NOT-VERBATIM', 'MISSING-SOURCE-FILE', 'DUPLICATE-FIELD-NAME', 'EMPTY-FIELD-NAME',
              'CONTRADICTION-QUOTE-NOT-VERBATIM', 'CONTRADICTION-MISSING-FILE',
              'CONTRADICTION-UNDER-TWO-READINGS', 'CONTRADICTION-BAD-KIND',
-             'RANGE-QUOTE-NOT-VERBATIM', 'RANGE-MISSING-FILE', 'RANGE-COUNT-MISMATCH')
+             'RANGE-QUOTE-NOT-VERBATIM', 'RANGE-MISSING-FILE', 'RANGE-COUNT-MISMATCH',
+             'VALUE-SET-NO-PAGE')
     return 1 if any(k in FATAL for k, _, _ in problems) else 0
 
 

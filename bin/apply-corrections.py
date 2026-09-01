@@ -139,6 +139,11 @@ REPOINT_ENDPOINT = {
     # on the User Administration user profile, a genuinely different surface. Resolving it would
     # encode a corpus falsehood that then looks like a win to the validator.
     ('dep.gworkflows.060', 'targetRef'): ('Authorized Approval Limits', 'authorized_approval_limits_link'),
+    # Written by a Group 1 agent with no roster, carrying 'Each group within your company can only
+    # have one Invoice delegate configuration.' Its field name was the page LABEL, so the merge
+    # could never resolve it. applies-to-groups is the control that cardinality actually
+    # constrains. Both Run B critics recommended this target. 2026-09-01.
+    ('dep.g1.059', 'targetRef'): ('Delegate Configurations', 'applies-to-groups'),
 
     # dep.g1.057 / .058 targeted {page: Purchase Order Configuration, field: "PO Configuration"}.
     # Group 3 created the page but no such field: "PO Configuration" was the PAGE name written
@@ -294,7 +299,10 @@ def wire_by_name(kg):
         want = _norm((v.get('appliesToRef') or {}).get('field') or v.get('appliesToField'))
         if not want:
             continue
-        pid = pages.get(str((v.get('appliesToRef') or {}).get('page') or '').strip().lower())
+        stated = str((v.get('appliesToRef') or {}).get('page') or v.get('appliesToPage') or '').strip()
+        if not stated:
+            continue        # no page named at all is not evidence for a graph-wide guess (2026-09-01)
+        pid = pages.get(stated.lower())
         same = [f for f in fields if _norm(f['name']) == want and f['pageId'] == pid]
         allm = [f for f in fields if _norm(f['name']) == want]
         # A STATED page that does not carry the field is evidence AGAINST a graph-wide guess.
@@ -720,6 +728,55 @@ def fix_step_rationales(kg):
     return changed
 
 
+# Value sets to DELETE outright. Reserved for a knownGap orphan whose stated fix has since been
+# delivered: keeping it would land the same catalogue twice, once orphaned and once wired. The parts
+# schema has no delete channel, so this is the only place it can happen. Added 2026-09-01.
+DELETE_VALUESETS = {
+    # Its own note said what would fix it was "an Email Reminders page node that owns this table
+    # properly". Workflows Run B built that page and wired the same four tokens to a real field, so
+    # this orphan is now a duplicate. Its group is 'Group 3 — PO Matching' and its patch is None, so
+    # no merge under any other label can ever remove it.
+    'vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na',
+}
+
+
+def delete_valuesets(kg):
+    before = len(kg['nodes'].get('configValueSets', []))
+    kg['nodes']['configValueSets'] = [v for v in kg['nodes'].get('configValueSets', [])
+                                      if v.get('id') not in DELETE_VALUESETS]
+    gone = before - len(kg['nodes']['configValueSets'])
+    for i in range(gone):
+        print('  deleted superseded value set')
+    return gone
+
+
+# Contradiction notes, keyed by node id. consequenceForWriter is prose the validator never reads, so
+# a build-state claim inside one goes stale silently. Append rather than rewrite: the original
+# reading stays auditable. Added 2026-09-01.
+CONTRADICTION_NOTE_APPEND_BY_ID = {
+    'contr.gworkflows.004':
+        ' SCOPE CORRECTION 2026-09-01 (Workflows Run B): consequenceForWriter says the Email Reminders '
+        'page is "not yet built in this graph". That is no longer true - page.email-reminders was built '
+        'by Run B under this same group label. THE WARNING ITSELF STANDS AND IS NOW SHARPER, because both '
+        'surfaces are in the graph and a driver can reach either: Email Reminders is interval-driven, has '
+        'its own rule engine and is assigned by GROUP; the Workflows Email Notifications tab is '
+        'event-driven and is assigned to a workflow object. The strongest proof they differ is the '
+        '"Display as From" control, which takes a NAME here (the @ symbol is explicitly forbidden) and an '
+        'EMAIL ADDRESS on the Workflows tab - recorded as its own contradiction node.',
+}
+
+
+def append_contradiction_notes(kg):
+    changed = 0
+    for c in kg['nodes'].get('configContradictions', []):
+        note = CONTRADICTION_NOTE_APPEND_BY_ID.get(c.get('id'))
+        if note and note not in (c.get('notes') or ''):
+            c['notes'] = ((c.get('notes') or '').rstrip() + ' ' + note).strip()
+            changed += 1
+            print('  note appended: %s' % c['id'])
+    return changed
+
+
 def append_notes(kg):
     changed = 0
     for f in kg['nodes']['configFields']:
@@ -765,6 +822,8 @@ def main():
     changed += append_notes(kg)
     changed += fix_dep_conditions(kg)
     changed += fix_step_rationales(kg)
+    changed += delete_valuesets(kg)
+    changed += append_contradiction_notes(kg)
     changed += add_contradiction_readings(kg)
     changed += set_page_tabs(kg)
     changed += wire_value_sets(kg)

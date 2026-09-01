@@ -1,0 +1,567 @@
+{
+  "pageId": "delegate-configurations",
+  "pageName": "Delegate Configurations",
+  "lens": "tables",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md",
+    "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+    "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b2ba917.md",
+    "concur-invoice-professional-edition-admin-guides/terminology-e1e1ed99.md",
+    "concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md",
+    "concur-invoice-professional-edition-admin-guides/delete-an-invoice-delegate-configuration-92627a9b.md",
+    "concur-invoice-professional-edition-admin-guides/special-considerations-for-delegate-configurations-8b2bfccb.md",
+    "concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md",
+    "concur-invoice-professional-edition-admin-guides/delegates-4d7c563c.md",
+    "concur-invoice-professional-edition-admin-guides/delegates-ff6ea3e6.md",
+    "concur-invoice-professional-edition-admin-guides/delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md",
+    "concur-invoice-professional-edition-admin-guides/audit-invoice-delegate-actions-3660a51f.md",
+    "concur-invoice-professional-edition-admin-guides/invoice-user-f11cccd8.md",
+    "concur-invoice-professional-edition-admin-guides/user-administrator-5aa3eb5e.md",
+    "concur-invoice-professional-edition-admin-guides/delegate-configuration-8b2bd26d.md",
+    "concur-invoice-professional-edition-admin-guides/delegate-self-approval-1b627285.md",
+    "concur-invoice-professional-edition-admin-guides/delegates-email-notification-7c866769.md",
+    "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md",
+    "concur-invoice-professional-edition-admin-guides/when-the-delegate-cannot-submit-53c9cb69.md"
+  ],
+  "fields": [
+    {
+      "name": "configuration_name",
+      "label": "Configuration Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "The name of the new delegate configuration. This is a required field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Row 1 of the 6-row editor roster in the Add Delegate Configuration modal. THE ONLY DOCUMENTED REQUIRED FIELD on this page ('This is a required field.'). ALIAS COLLAPSE: the same control is column 1 of the 11-row read-only list table on the Invoice / Purchase Request tabs, where it is labelled simply 'Name' and described as 'The name of the payment delegate configuration. This is also a link to the Edit Delegate Configuration page, described in the Editing an Invoice Delegate Configuration section of this guide.' (access-and-view-payment-delegate-configurations-8ed1298f.md) - so in the list view the value doubles as the hyperlink that opens the edit surface. No length, character-set, or uniqueness constraint is documented; no default is documented. NOT the same thing as dep.g1.059's target field name 'Delegate Configuration' - see the notes block on this extract.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "maximum_time_period_to_approve",
+      "label": "Maximum Time Period to Approve",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "Indicates a set time period, in days, for which an employee can approve invoices on behalf of another employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Row 2 of the editor roster AND row 10 of the list-view roster - THE LABEL IS IDENTICAL ON BOTH SIDES (no drift here), and the description sentence is character-identical in both files, so the same quote verifies against access-and-view-payment-delegate-configurations-8ed1298f.md as well. UNIT IS DOCUMENTED: days. NO minimum, maximum, or default value is enumerated anywhere in the corpus - a blind build must not supply one. Both files attach the same cross-surface note; in the editor it reads 'This field works in conjunction with the Choose Dates link in the Delegates area of both My Info and User Administration.' and in the list view the same sentence is prefixed 'NOTE: '. MEASURED: 'Choose Dates' occurs exactly twice corpus-wide, both inside this page's own two rosters - which is the positive evidence that the per-delegate start/end DATES are set on My Info / User Administration and that THIS page has no date field at all.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "restrictions",
+      "label": "Restrictions",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "The Configuration administrator can restrict the delegates based on the following choices:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "SECTION HEADING, NOT A SETTABLE CONTROL. Row 3 of the editor roster; its Description cell holds a nested TWO-ENTRY bullet catalogue that carries the actual controls (emitted separately as restrict_delegate_selection_to_users_group and require_approver_role_for_approval_delegation, and enumerated in valueSetCandidates). Emitted because it is a documented row of a settings table and because a driver needs the grouping to locate the two checkboxes. NOT a role gate: 'The Configuration administrator' here names who uses the control, not who may reach the page - there is NO documented role gate for this page anywhere in this corpus. The nested options are not enumerated with Yes/No values; the corpus describes each only as 'If active, ...', and the opposite state is NEVER enumerated, so no value list is emitted.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "restrict_delegate_selection_to_users_group",
+      "label": "Restrict delegate selection to user's group",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Restrict delegate selection to user's group: If active, the delegates assigned to this configuration can only act on behalf of another employee within their group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 1 of 2 in the nested Restrictions catalogue. THREE-LABEL ALIAS COLLAPSE, all three grounded: editor 'Restrict delegate selection to user's group'; list-view column 'Restrict Delegates to Group' described as 'Indicates whether the employees assigned to this configuration can select delegates that are outside of their own group.' (access-and-view-payment-delegate-configurations-8ed1298f.md); terminology entry 'Delegate Restriction to Group: A method for designating whether an employee can select delegates outside of their own group.' (terminology-e1e1ed99.md). See the label-drift contradiction node. NOTE THE POLARITY INVERSION between the two descriptions - the editor says active means the delegate can act ONLY within group, the list-view column says it indicates whether delegates OUTSIDE the group can be selected. Both are consistent readings of one checkbox but they are phrased in opposite directions; a writer should read the checkbox state, not the prose. fieldType 'checkbox' is inferred from 'If active' plus the sibling 'check box' wording in delegate-experience-8b30fb06.md; the corpus never enumerates the on/off values, so validValues is deliberately empty.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "require_approver_role_for_approval_delegation",
+      "label": "Require approver role for approval delegation",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Require approver role for approval delegation: If active, the delegates assigned to this configuration must be assigned the Approver role in order to be allowed delegate approval status.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 2 of 2 in the nested Restrictions catalogue. ALIAS: list-view column 'Need Approver Role to Approve', described as 'Indicates whether the employees assigned to this configuration must select delegate approvers with the approval role assigned.' (access-and-view-payment-delegate-configurations-8ed1298f.md) - see the label-drift contradiction node. Corroborated from a third guide, which states the prerequisite as an unconditional rule rather than a setting: 'The only requirement of the delegate is that the delegate must already be an approver, that is, the delegate must already have the Invoice Approver role.' (approver-terminology-8559861c.md). That third statement is about the authorized-approver delegation path specifically and is recorded as a dependency, not as a second field. The role named is 'Approver' / 'Invoice Approver' and is set in User Permissions, not on this page. No value list is enumerated.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "label": "Restrict approvers to those with equal or higher authorized approver limit",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "If selected (enabled), the user selected to be a delegate for an Authorized Approver must also be an Authorized Approver, with the same or higher approver limit.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Row 4 of the editor roster AND row 9 of the list-view roster, LABEL AND DESCRIPTION CHARACTER-IDENTICAL on both sides (the same quote verifies against access-and-view-payment-delegate-configurations-8ed1298f.md) - the one long control name that does NOT drift. TWO DOCUMENTED CONSEQUENCES, both from the editor topic's Note block: (1) 'When this setting is cleared (disabled), and a delegate with authority only for a lower approval limit is chosen, approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate' - note that the consequence sentence uses the LIST-VIEW labels for the two approve controls, inside the EDITOR topic, which is direct evidence that SAP treats the two label sets as one control set; (2) 'The Authorized Approver limits are evaluated only when the delegate is assigned.' - the limit is never re-checked, and if the approver's limit is later lowered Concur Invoice neither removes the delegate nor notifies anyone. This is the field that ties this page to the built Workflows Authorized Approvers tab and to page.authorized-approval-limits; it is a SIBLING cross-reference and must not be re-homed - the corpus never places Delegate Configurations under Workflows. Dated by the guide revision history: 'Restrict approvers to those with equal or higher authorized approver limit setting to the Add Delegate Configuration page.' (delegate-configuration-8b2bd26d.md). No value list is enumerated ('selected (enabled)' / 'cleared (disabled)' are prose states, not an option list).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "applies_to_groups",
+      "label": "Applies to Groups",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "Displays the names of the groups for which the configuration applies.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Row 5 of the editor roster AND row 11 of the list-view roster, label and description character-identical on both sides (the same quote verifies against access-and-view-payment-delegate-configurations-8ed1298f.md). CARDINALITY RULE, stated twice in the editor topic with DIFFERENT PRODUCT WORDING: body prose says 'Each group within your company can only have one Invoice delegate configuration.' while this cell's Note says 'Each group within your company can only have one payment delegate configuration; however, because delegate configurations use inheritance, a configuration created for one group can be applied to all the groups below it in the hierarchy.' - 'Invoice delegate configuration' vs 'payment delegate configuration' for the same object, in one file. Recorded as an alias, not as a contradiction (one file, no substantive disagreement). THE VALUE SPACE IS THE TENANT'S GROUP HIERARCHY and is therefore correctly empty in a blind build - group names are tenant data. fieldType 'multiselect' is inferred from 'the names of the groups' (plural) and is marked as an inference. dep.g1.059 (already in the graph, targeting {page 'Delegate Configurations', field 'Delegate Configuration'}) carries this exact cardinality quote; THIS is the field it should be repointed at.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "inheritance_link",
+      "label": "Inheritance",
+      "fieldType": "button",
+      "validValues": [
+        "Inheritance",
+        "No Inheritance"
+      ],
+      "sourceQuote": "The Inheritance link works as a toggle. When selected, the link switches between Inheritance and No Inheritance.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "A TOGGLE LINK nested inside the Applies to Groups cell of the editor roster, not a row of its own - emitted as a distinct control because it has its own documented behaviour and its own two-state caption. THIS IS THE ONLY ENUMERATED OPTION LIST ON THE ENTIRE PAGE and it is enumerated verbatim by the source sentence: the link caption switches between 'Inheritance' and 'No Inheritance'. The two values are therefore NOT a completed pair - both strings are printed in the corpus. Behaviour: 'Select the Inheritance link to apply the configuration to all groups that fall below the selected group in the hierarchy.' and 'When Inheritance is displayed, the configuration is inherited by the groups below the selected group, in the hierarchy.' The label is a link caption that mutates with state, so a driver must probe the current caption rather than assume it. NOT documented on the list-view roster at all - it exists only in the Add/Modify modal.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "delegate_settings_for_user_administrators_and_employees",
+      "label": "Delegate Settings For User Administrators and Employees",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "In this section, you can select any or all of the following options for both the user and the administrator:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "SECTION HEADING, NOT A SETTABLE CONTROL. Row 6 (the last) of the editor roster; its Description cell holds the nested FIVE-ENTRY bullet catalogue that is the heart of this page (emitted separately as delegate_can_prepare / delegate_can_submit / delegate_can_approve_any_time / delegate_can_approve_during_specified_period / delegate_can_view_images, and enumerated in valueSetCandidates). 'any or all' establishes that the five are INDEPENDENT multi-select checkboxes, not a radio group. 'for both the user and the administrator' is the permission-subset model from overview-8b2ba917.md: 'The user or the User Administrator share identical sets of permissions that are available when either of them assigns a delegate, as defined in the delegate configuration.' - i.e. there is exactly ONE set of five checkboxes, not two, and the editor topic is explicit that 'There is no option to provide separate permissions for specific employees or by their assigned roles.' Do not model a per-role duplicate of these five.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "delegate_can_prepare",
+      "label": "Delegate can prepare",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Delegate can prepare: If active, the delegates assigned to this configuration can create invoices on behalf of another employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 1 of 5 in the nested Delegate Settings catalogue. ALIAS: list-view column 'Can Prepare', described as 'Indicates whether the employees assigned to this configuration can prepare invoices on behalf of another employee.' (access-and-view-payment-delegate-configurations-8ed1298f.md). NOTE THE VERB DRIFT WITHIN THE ALIAS PAIR: the editor says 'create invoices', the list view says 'prepare invoices' - same control, two verbs. Named as a worked example of a right that is stripped on a group move: 'If the old delegate configuration had rights, such as Can Prepare, associated with it, but the new configuration does not allow prepare rights, then that delegate will no longer be able to prepare.' (special-considerations-for-payment-delegate-configurations-77a887a4.md). No on/off value list is enumerated.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "delegate_can_submit",
+      "label": "Delegate can submit",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Delegate can submit: If active, the delegates assigned to this configuration can submit invoices on behalf of another employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 2 of 5 in the nested Delegate Settings catalogue. ALIAS: list-view column 'Can Submit' ('Indicates whether the employees assigned to this configuration can submit invoices on behalf of another employee.', access-and-view-payment-delegate-configurations-8ed1298f.md) - the descriptions are otherwise identical apart from the label. THIS IS THE FIELD ON WHICH THE CASCADING TWO-GATE MODEL IS MADE CONCRETE: a delegate may submit 'only if that permission was granted first within the delegate configuration by the User Admin, and then when the delegate was added for the employee. This means an administrator may grant this ability, but the user can deny it when they add their delegate.' (delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md) - enabling it here is necessary but NOT sufficient. Runtime consequence when denied: the delegate sees a Notify Employee link in place of Submit (when-the-delegate-cannot-submit-53c9cb69.md; that topic embeds a sample email with tenant-shaped data which is deliberately NOT quoted anywhere in this extract). No on/off value list is enumerated.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "delegate_can_approve_any_time",
+      "label": "Delegate can approve (any time)",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Delegate can approve (any time): If active, the delegates assigned to this configuration can approve invoices on behalf of another employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 3 of 5 in the nested Delegate Settings catalogue; the editor sentence continues 'There is no time period associated with this action.' ALIAS: list-view column 'Can Approve' / '(Any Time)' - CAUTION, in access-and-view-payment-delegate-configurations-8ed1298f.md those two fragments sit on SEPARATE LINES INSIDE ONE CELL, so no verbatim quote can join them; its description is 'Indicates whether the employees assigned to this configuration can approve invoices on behalf of another employee. There is no time period associated with this action.' Becomes UNAVAILABLE for a given delegate when restrict_approvers_to_equal_or_higher_authorized_approver_limit is cleared and a lower-limit delegate is chosen. A delegate approving on behalf of an authorized approver INHERITS that approver's limits, currencies and exception authority (delegates-4d7c563c.md, corroborated by delegates-ff6ea3e6.md) - it does not use its own. Whether such a delegate may approve its OWN requests is governed off this page, by the built Workflows field 'Allow delegated approvers to approve their own requests' (delegate-self-approval-1b627285.md places it 'in the General step'); emitted here as a dependency ONLY, never as a field. No on/off value list is enumerated.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "delegate_can_approve_during_specified_period",
+      "label": "Delegate can approve during specified period",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Delegate can approve during specified period: If active, the delegates assigned to this configuration can approve invoices on behalf of another employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 4 of 5 in the nested Delegate Settings catalogue; the editor sentence continues 'There is a set length of time associated with this action.' THREE-LABEL ALIAS COLLAPSE: editor 'Delegate can approve during specified period'; list-view column 'Can Approve Temporary' ('Indicates whether the employees assigned to this configuration can approve invoices on behalf of another employee. There is a set time period associated with this action.', access-and-view-payment-delegate-configurations-8ed1298f.md); terminology entry 'Temporary Approval Delegation: A method for designating an employee to act as an approver for a specified duration of time.' (terminology-e1e1ed99.md). NOTE the third drift inside the descriptions - 'a set length of time' (editor) vs 'a set time period' (list view). PAIRED WITH maximum_time_period_to_approve, which supplies the days, and with the Choose Dates link on My Info / User Administration, which supplies the actual per-delegate dates. GOVERNANCE LEVER: this is the setting named in 'The administrator may ONLY enable temporary approval delegation, requiring employees to periodically renew their delegations to keep them in effect.' (special-considerations-for-delegate-configurations-8b2bfccb.md) - the documented mitigation for stale delegate assignments after a group move. RUNTIME SIDE EFFECT, not a control here: 'The temporary delegate (those with a specified beginning and ending date) will always automatically receive the approval invoice via email.' (delegates-email-notification-7c866769.md), whereas a permanent delegate chooses in My Info. No on/off value list is enumerated.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "delegate_can_view_images",
+      "label": "Delegate can view images",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Delegate can view images: If active, the delegates assigned to this configuration can view Invoice images for invoices on behalf of another employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Entry 5 of 5 in the nested Delegate Settings catalogue. THE WORST-DRIFTING CONTROL ON THE PAGE - THREE LABELS ACROSS THREE FILES: editor 'Delegate can view images'; list-view column 'Can View Images' ('Indicates whether the employee assigned to this configuration can view the invoices received through the imaging service.', access-and-view-payment-delegate-configurations-8ed1298f.md); and a third, longer caption in the modal, 'To allow delegates to view invoices, select the Delegate can view invoice images for payment requests check box in the Add Delegate Configuration window.' (delegate-experience-8b30fb06.md). See the dedicated label-drift contradiction node - a driver must probe all three. The delegate-experience wording is also the only place the corpus calls any of these a 'check box' in so many words, which is what grounds fieldType checkbox for the whole Delegate Settings group. ADMIN SETTING IS OVERRIDABLE BY THE EMPLOYEE: 'Although the configuration allows a delegate to view invoice images, the employee can elect to override this setting.' - the employee clears a separate 'Can View Images check box on the Invoice Delegates page' under Profile > Profile Settings > Invoice Delegates. That employee-side checkbox is an END-USER control on a different surface and is emitted as a dependency, not as a field. No on/off value list is enumerated.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "restrictions",
+      "contextField": "",
+      "context": "The complete nested bullet catalogue inside the Description cell of the 'Restrictions' row of the Add Delegate Configuration editor table. Emitted as a value set rather than flat validValues because 'Restrictions' is a SECTION HEADING and these two entries are its member checkboxes, each of which is also emitted as its own field. TWO entries, complete, in source order - the corpus enumerates exactly two.",
+      "values": [
+        "Restrict delegate selection to user's group",
+        "Require approver role for approval delegation"
+      ],
+      "sourceQuote": "The Configuration administrator can restrict the delegates based on the following choices:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "Both member labels are verbatim from the two bullets that follow the quoted lead-in. This is a MEMBERSHIP list (which controls live in the section), NOT an option list for a single control - neither member's on/off values are enumerated anywhere in the corpus and a blind build must not complete them. Cross-reading: the same two controls appear on the read-only list view under the different labels 'Restrict Delegates to Group' and 'Need Approver Role to Approve'; see valueSetCandidates entry for the list-view roster and the label-drift contradictions."
+    },
+    {
+      "appliesToField": "delegate_settings_for_user_administrators_and_employees",
+      "contextField": "",
+      "context": "The complete nested bullet catalogue inside the Description cell of the 'Delegate Settings For User Administrators and Employees' row of the Add Delegate Configuration editor table. FIVE entries, complete, in source order. These are the delegate permission subset itself - the reason the page exists. Independent checkboxes, not exclusive: the lead-in says 'any or all'.",
+      "values": [
+        "Delegate can prepare",
+        "Delegate can submit",
+        "Delegate can approve (any time)",
+        "Delegate can approve during specified period",
+        "Delegate can view images"
+      ],
+      "sourceQuote": "In this section, you can select any or all of the following options for both the user and the administrator:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "MEMBERSHIP list, not an option list - each of the five is emitted as its own checkbox field and none of their on/off values is enumerated in the corpus. 'for both the user and the administrator' does NOT mean two sets of five: overview-8b2ba917.md states the user and the User Administrator 'share identical sets of permissions', and the editor topic states 'There is no option to provide separate permissions for specific employees or by their assigned roles.' One set of five."
+    },
+    {
+      "appliesToField": "configuration_name",
+      "contextField": "",
+      "context": "THE FULL 11-ROW READ-ONLY COLUMN ROSTER of the Invoice / Purchase Request list table - every column displayed by default on either tab, complete and in source order. Anchored on configuration_name because 'Name' is column 1 and is the row's identifying hyperlink; the remaining ten columns are the DISPLAY faces of the controls set in the Add/Modify modal, which is why they are recorded here as one enumerated list rather than as ten more fields. This is the roster a driver needs to read the list view; a naive '^| ' census returns ZERO on this file (SAP indents the table inside a numbered step) and the table would be invisible to it.",
+      "values": [
+        "Name",
+        "Can Prepare",
+        "Can Submit",
+        "Can Approve",
+        "(Any Time)",
+        "Can Approve Temporary",
+        "Can View Images",
+        "Restrict Delegates to Group",
+        "Need Approver Role to Approve",
+        "Restrict approvers to those with equal or higher authorized approver limit",
+        "Maximum Time Period to Approve",
+        "Applies to Groups"
+      ],
+      "sourceQuote": "The following table describes the information that is displayed on either the Invoice or Purchase Request page by default.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md",
+      "notes": "TWELVE STRINGS, ELEVEN COLUMNS. 'Can Approve' and '(Any Time)' are ONE column whose label SAP splits across two separate lines inside a single markdown cell; they are listed as two entries because no verbatim single-string form of the joined label exists in the file, and joining them would fabricate text. Do not treat '(Any Time)' as a twelfth column. The table is titled 'Delegate Configuration Fields' in the source. Every description in it opens 'Indicates whether...' or 'Displays...', i.e. these are DISPLAYED INDICATORS, whereas the editor roster's descriptions open 'If active, ...' - same controls, two UI states. THE SAME 11 COLUMNS ARE CLAIMED FOR BOTH TABS ('either the Invoice or Purchase Request page'), and this is the ONLY documentation the Purchase Request tab gets anywhere in the corpus - not one control is separately attributed to it."
+    },
+    {
+      "appliesToField": "inheritance_link",
+      "contextField": "",
+      "context": "The two captions the Inheritance toggle link alternates between. This is the ONLY genuine enumerated option list on the page - both strings are printed in the source sentence, so it is not a completed pair.",
+      "values": [
+        "Inheritance",
+        "No Inheritance"
+      ],
+      "sourceQuote": "The Inheritance link works as a toggle. When selected, the link switches between Inheritance and No Inheritance.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+      "notes": "The caption IS the state indicator: 'When Inheritance is displayed, the configuration is inherited by the groups below the selected group, in the hierarchy.' A driver must read the current caption before clicking - clicking blind flips whichever state is live. No default state is documented."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "authorized_approver_checkbox",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "When enabled, a user may only be chosen as delegate for an Authorized Approver if that user is themselves an Authorized Approver with an equal or higher approver limit. The delegate-eligibility test is evaluated against the Authorized Approver record and limit maintained on the Authorized Approval Limits page, not against anything on this page.",
+      "sourceQuote": "If selected (enabled), the user selected to be a delegate for an Authorized Approver must also be an Authorized Approver, with the same or higher approver limit.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "delegate_can_approve_any_time",
+      "targetPage": "Delegate Configurations",
+      "condition": "Clearing (disabling) this setting and then choosing a delegate whose own authority covers only a lower approval limit makes both approve permissions unavailable for that delegate - the corpus names them by their list-view labels, Can Approve and Can Approve Temporary, i.e. delegate_can_approve_any_time and delegate_can_approve_during_specified_period.",
+      "sourceQuote": "When this setting is cleared (disabled), and a delegate with authority only for a lower approval limit is chosen, approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "approval_limit_amount",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "The limit comparison is a ONE-TIME evaluation performed at delegate assignment. If the Authorized Approver's limit is later lowered on the Authorized Approval Limits page, the delegate is neither removed nor notified - so a change on the target page silently leaves a stale over-privileged delegate behind.",
+      "sourceQuote": "The Authorized Approver limits are evaluated only when the delegate is assigned.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "delegate_can_approve_any_time",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "approval_limit_amount",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "A delegate approving on behalf of an authorized approver uses the ORIGINAL approver's limits, currencies and exception authority, not its own - so the effective approval power granted by this checkbox is defined entirely on Authorized Approval Limits.",
+      "sourceQuote": "When a delegate is acting on behalf of an authorized approver, the delegate inherits the authority of that authorized approver, including that authorized approver's limits (if any), currencies, and exception authority (if any).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegates-4d7c563c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "delegate_can_approve_any_time",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "authorized_approver_level",
+      "targetPage": "Workflows",
+      "condition": "Second, independent statement of the same inheritance rule from a different guide, framed in terms of approval LEVELS as well as limits - the level a delegate approves at is the original approver's level, configured on the Workflows Authorized Approvers tab.",
+      "sourceQuote": "The delegate approver acting on behalf of the assigned approver will use the level or limit rights assigned to the original approver rather than their own values.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegates-ff6ea3e6.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "require_approver_role_for_approval_delegation",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "authorized_approver_list_approver",
+      "targetPage": "Workflows",
+      "condition": "Delegated approval on behalf of an authorized approver has a hard prerequisite that the delegate already hold the Invoice Approver role. The role itself is granted in User Permissions (an unbuilt surface), and the approver population this restriction is evaluated against is the Authorized Approvers list on the Workflows page.",
+      "sourceQuote": "The only requirement of the delegate is that the delegate must already be an approver, that is, the delegate must already have the Invoice Approver role.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "delegate_can_approve_any_time",
+      "sourcePage": "Delegate Configurations",
+      "targetField": "allow_delegated_approvers_to_approve_own_requests",
+      "targetPage": "Workflows",
+      "condition": "Whether a delegate granted approval rights here may approve requests it created itself is NOT decided on this page - it is decided by a workflow-level setting on the Workflows General step. delegate-self-approval-1b627285.md is an unmined corroboration source for the already-built Workflows field (which cites create-a-new-workflow-554e86aa.md); it adds the step placement and the distinction between a delegate acting for an Approver and one acting as an AP User. NO FIELD IS EMITTED HERE FROM THAT FILE.",
+      "sourceQuote": "A setting, Allow delegated approvers to approve their own requests, is available in the General step.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-self-approval-1b627285.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "applies_to_groups",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "Group Configurations",
+      "targetField": "",
+      "condition": "One delegate configuration per employee group configuration - a hard cardinality constraint against the group hierarchy maintained on Group Configurations. This is the constraint the already-written dep.g1.059 quotes; that edge targets the label-shaped field name 'Delegate Configuration' and will NOT auto-resolve - the honest repoint is at applies_to_groups.",
+      "sourceQuote": "Each group within your company can only have one Invoice delegate configuration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "inheritance_link",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "Group Configurations",
+      "targetField": "",
+      "condition": "The Inheritance toggle propagates this configuration down the employee group hierarchy defined on Group Configurations - the set of groups it reaches is entirely determined by that hierarchy, not by anything on this page.",
+      "sourceQuote": "Select the Inheritance link to apply the configuration to all groups that fall below the selected group in the hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "applies_to_groups",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "Group Configurations",
+      "targetField": "",
+      "condition": "The page-level statement of the same coupling from the feature overview: a delegate configuration is APPLIED TO an employee group configuration, so a Group Configurations change is what determines which employees a delegate configuration governs.",
+      "sourceQuote": "Delegate configurations can be applied to employee group configurations within Concur Invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2ba917.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "maximum_time_period_to_approve",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "User Administration",
+      "targetField": "",
+      "condition": "This page sets only the MAXIMUM number of days; the actual start and end dates for a temporary delegation are picked with the Choose Dates link in the Delegates area of My Info and of User Administration. UNRESOLVED BY DESIGN - neither of those surfaces is built in this graph, and the corpus defers their documentation to an external 'Shared: Delegate Configuration Setup Guide' that is absent from this corpus.",
+      "sourceQuote": "This field works in conjunction with the Choose Dates link in the Delegates area of both My Info and User Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "delegate_can_submit",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "User Administration",
+      "targetField": "",
+      "condition": "TWO-GATE MODEL: enabling submit here is necessary but not sufficient. The employee (or the User Admin adding the delegate) can still deny it per delegate at assignment time, on Profile > Invoice Settings > Invoice Delegates or in User Administration. Setting the admin gate alone will not produce a delegate who can submit.",
+      "sourceQuote": "This means an administrator may grant this ability, but the user can deny it when they add their delegate.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "delegate_can_view_images",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "User Administration",
+      "targetField": "",
+      "condition": "Same override pattern as submit: enabling image viewing here is permissive, and the employee can countermand it per delegate with the Can View Images check box on the Invoice Delegates page under Profile > Profile Settings > Invoice Delegates. That employee-side checkbox is an end-user control on an unbuilt surface, not a field of this page.",
+      "sourceQuote": "Although the configuration allows a delegate to view invoice images, the employee can elect to override this setting.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "delegate_settings_for_user_administrators_and_employees",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "User Administration",
+      "targetField": "",
+      "condition": "The five Delegate Settings checkboxes determine which COLUMNS the end user and the User Administrator actually see when adding a delegate - the downstream UI is generated from this configuration. Stated twice, once for each consumer surface: invoice-user-f11cccd8.md (Profile > Invoice Settings) and user-administrator-5aa3eb5e.md (User Administration). Neither surface's controls belong to this page.",
+      "sourceQuote": "The columns that appear for the delegate will vary, depending on the settings in the delegates configuration file.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-user-f11cccd8.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "delegate_can_approve_during_specified_period",
+      "sourcePage": "Delegate Configurations",
+      "targetPage": "User Administration",
+      "targetField": "",
+      "condition": "GOVERNANCE LEVER for stale delegations after an employee moves employee groups: the documented admin mitigation is to enable ONLY temporary approval delegation, which forces employees to renew their delegate assignments periodically on the consumer surfaces. Emitted as a dependency because the renewal action itself happens off this page.",
+      "sourceQuote": "The administrator may ONLY enable temporary approval delegation, requiring employees to periodically renew their delegations to keep them in effect.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-delegate-configurations-8b2bfccb.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "label-drift",
+      "topic": "The child surface reached by New/Modify from the Delegate Configurations list is given five different names across four files, and is called both a 'page' and a 'window'",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The create topic calls it the 'Add Delegate Configuration - Invoice page' - with a product-qualified suffix that matches the tab you were on.",
+          "sourceQuote": "Choose New. The Add Delegate Configuration - Invoice page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The delegate-experience topic calls the SAME surface a WINDOW, drops the '- Invoice' suffix, and is the only file that gives the full menu path to it.",
+          "sourceQuote": "This window is available by clicking Administration > Invoice > Delegate Configurations > New (or Modify, if existing configuration).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+        },
+        {
+          "summary": "The edit topic calls the same surface the 'Modify Delegate Configuration page' when it is opened for an existing configuration.",
+          "sourceQuote": "Select Modify. The Modify Delegate Configuration page appears.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md"
+        },
+        {
+          "summary": "The access/list topic calls the edit target the 'Edit Delegate Configuration page' - a fourth verb (Edit, not Modify or Add) for the same destination.",
+          "sourceQuote": "The name of the payment delegate configuration. This is also a link to the Edit Delegate Configuration page, described in the Editing an Invoice Delegate Configuration section of this guide.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The guide revision history uses yet another form, 'the Add Delegate Configuration page', for the surface the delegate-experience topic calls a window.",
+          "sourceQuote": "Restrict approvers to those with equal or higher authorized approver limit setting to the Add Delegate Configuration page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-configuration-8b2bd26d.md"
+        }
+      ],
+      "consequenceForWriter": "Treat all five as ONE surface - a modal opened from New or Modify on the Delegate Configurations page - and never create a second page node for it. When driving the UI, do not match on the surface title at all; match on the New / Modify button that opens it and on the fields inside it. If a title match is unavoidable, probe in this order: 'Add Delegate Configuration - Invoice', 'Add Delegate Configuration', 'Modify Delegate Configuration', 'Edit Delegate Configuration'. Expect the Add/Modify split to track whether you arrived via New or via Modify, and expect the '- Invoice' suffix to track the tab.",
+      "notes": "HYPOTHESIS: three causes compounded. (1) Add vs Modify vs Edit is a genuine verb split between the create path, the edit path, and the list-view hyperlink text. (2) 'page' vs 'window' is SAP house-style drift across authors and vintages - the word 'page' is PROVEN NON-DISCRIMINATING in this corpus, since it is also used for the Workflows General/Steps/Step Rules wizard that this graph already ruled is not a page, while page.authorized-approval-limits IS a page node and its nav quote says 'window appears'. (3) The '- Invoice' suffix is probably tab-dependent, implying an unattested 'Add Delegate Configuration - Purchase Request' variant that the corpus NEVER prints; do not assume that string exists. The page-hood ruling here rests on structure, not vocabulary: the surface has no menu destination of its own, no role gate of its own, and edits the SAME object the parent lists, so it is a modal, matching the Workflows-wizard precedent rather than the Authorized Approval Limits precedent."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The image-viewing delegate permission carries three different labels in three different files",
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "delegate_can_view_images"
+      },
+      "readings": [
+        {
+          "summary": "The Add Delegate Configuration editor roster labels the checkbox 'Delegate can view images' and scopes it to invoice images viewed on behalf of another employee.",
+          "sourceQuote": "Delegate can view images: If active, the delegates assigned to this configuration can view Invoice images for invoices on behalf of another employee.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The delegate-experience topic gives a much longer caption for the same checkbox in the same window - 'Delegate can view invoice images for payment requests'.",
+          "sourceQuote": "To allow delegates to view invoices, select the Delegate can view invoice images for payment requests check box in the Add Delegate Configuration window.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+        },
+        {
+          "summary": "The list view shows the same setting as the column 'Can View Images' and describes its scope differently again - images received through the imaging service, rather than images for payment requests.",
+          "sourceQuote": "Indicates whether the employee assigned to this configuration can view the invoices received through the imaging service.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        }
+      ],
+      "consequenceForWriter": "Probe for the checkbox by the longest caption first ('Delegate can view invoice images for payment requests'), then the short editor caption ('Delegate can view images'), and expect the READ-BACK on the list view to be the column 'Can View Images' - do not treat a failed match on one form as evidence the control is absent. Do not model these as three settings; there is one. And do not use the scope wording to decide what the checkbox covers - the corpus gives three different scopes for it and settles none of them.",
+      "notes": "HYPOTHESIS: the long caption is the real on-screen string and the short one is the guide author abbreviating for a table cell, with the list-view column being an independently-authored display header. The scope drift ('Invoice images for invoices' vs 'invoice images for payment requests' vs 'invoices received through the imaging service') most likely reflects the product's own payment-request/invoice terminology churn rather than three different behaviours, but the corpus does not say so and this is stated as a hypothesis only."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Every delegate permission is documented under one label in the editor and a different label in the list view - the read-only roster and the entry form never agree",
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "delegate_can_approve_during_specified_period"
+      },
+      "readings": [
+        {
+          "summary": "The editor roster calls the temporary-approval permission 'Delegate can approve during specified period' and describes its duration as 'a set length of time'.",
+          "sourceQuote": "Delegate can approve during specified period: If active, the delegates assigned to this configuration can approve invoices on behalf of another employee.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The list-view roster calls the same permission 'Can Approve Temporary' and describes its duration as 'a set time period'.",
+          "sourceQuote": "Indicates whether the employees assigned to this configuration can approve invoices on behalf of another employee. There is a set time period associated with this action.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The delegate terminology catalogue names the same capability a third way, as 'Temporary Approval Delegation'.",
+          "sourceQuote": "Temporary Approval Delegation: A method for designating an employee to act as an approver for a specified duration of time.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/terminology-e1e1ed99.md"
+        }
+      ],
+      "consequenceForWriter": "Maintain a label map and probe BOTH sides; never conclude a control is missing because one label did not match. The full documented map, editor label -> list-view label: Configuration Name -> Name; Delegate can prepare -> Can Prepare; Delegate can submit -> Can Submit; Delegate can approve (any time) -> Can Approve / (Any Time); Delegate can approve during specified period -> Can Approve Temporary; Delegate can view images -> Can View Images; Restrict delegate selection to user's group -> Restrict Delegates to Group; Require approver role for approval delegation -> Need Approver Role to Approve. Three controls do NOT drift and can be matched literally on both surfaces: Restrict approvers to those with equal or higher authorized approver limit, Maximum Time Period to Approve, Applies to Groups. Set values in the modal; verify them in the list columns.",
+      "notes": "HYPOTHESIS: this is not documentation error but a real two-surface UI - the list view shows terse column headers for a grid, the modal shows sentence-style checkbox captions, and the terminology guide uses noun-phrase feature names. Supporting evidence that SAP itself treats the two label sets as one control set: the EDITOR topic's own Note about the approver-limit restriction refers to the approve permissions by their LIST-VIEW names, 'Can Approve and Can Approve Temporary'. Also note the reciprocal grammar tell - list-view descriptions open 'Indicates whether...' (a displayed indicator) while editor descriptions open 'If active, ...' (a settable option)."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The group-restriction control is labelled three ways, and the editor and list-view descriptions state its effect in opposite directions",
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "restrict_delegate_selection_to_users_group"
+      },
+      "readings": [
+        {
+          "summary": "The editor calls it 'Restrict delegate selection to user's group' and states the POSITIVE effect: when active, delegates may act only within their own group.",
+          "sourceQuote": "Restrict delegate selection to user's group: If active, the delegates assigned to this configuration can only act on behalf of another employee within their group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The list view calls it 'Restrict Delegates to Group' but describes it in the INVERSE - as indicating whether delegates OUTSIDE the group can be selected.",
+          "sourceQuote": "Indicates whether the employees assigned to this configuration can select delegates that are outside of their own group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        },
+        {
+          "summary": "The terminology catalogue names the same capability 'Delegate Restriction to Group' and, like the list view, frames it as being about selecting delegates OUTSIDE the group.",
+          "sourceQuote": "Delegate Restriction to Group: A method for designating whether an employee can select delegates outside of their own group.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/terminology-e1e1ed99.md"
+        }
+      ],
+      "consequenceForWriter": "Probe for 'Restrict delegate selection to user's group' in the modal and read back 'Restrict Delegates to Group' in the list column. CRITICAL: do NOT infer the meaning of the checked state from the list-view or terminology wording - they describe the capability being restricted, not the checkbox polarity. The only polarity statement tied to an actual UI state is the editor's 'If active, ... can only act on behalf of another employee within their group.' Set checked = restricted to own group.",
+      "notes": "HYPOTHESIS: the list-view and terminology entries are describing the FEATURE ('does this configuration govern out-of-group selection?') while the editor is describing the CHECKBOX ('what happens when it is on?'). That reading makes all three consistent, but the corpus never states the checked/cleared semantics on the list-view side, so a writer that reasons from the column description alone will get the polarity backwards. Note also that neither side enumerates the on/off values - the graph deliberately carries no Yes/No pair for this control."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The approver-role prerequisite control is labelled one way in the editor and another in the list view, and the two descriptions differ over who must hold the role",
+      "appliesTo": {
+        "page": "Delegate Configurations",
+        "field": "require_approver_role_for_approval_delegation"
+      },
+      "readings": [
+        {
+          "summary": "The editor labels it 'Require approver role for approval delegation' and says the DELEGATES assigned to this configuration must be assigned the Approver role.",
+          "sourceQuote": "Require approver role for approval delegation: If active, the delegates assigned to this configuration must be assigned the Approver role in order to be allowed delegate approval status.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+        },
+        {
+          "summary": "The list view labels it 'Need Approver Role to Approve' and phrases it as the employees having to SELECT delegate approvers who hold the approval role.",
+          "sourceQuote": "Indicates whether the employees assigned to this configuration must select delegate approvers with the approval role assigned.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+        }
+      ],
+      "consequenceForWriter": "Probe both labels. The two descriptions are compatible - one is written from the delegate's side, one from the selecting employee's side - so do not treat them as two settings. When reasoning about who must hold the role, use the third, unambiguous statement in approver-terminology-8559861c.md: 'the delegate must already have the Invoice Approver role.' The role is granted in User Permissions, off this page, so enabling this checkbox will make previously-valid delegate assignments fail until the role is granted there.",
+      "notes": "HYPOTHESIS: house-style drift again ('Require ... for ...' as a checkbox caption vs 'Need ... to ...' as a grid header), plus a genuine perspective shift between the two rosters. Also note the vocabulary wobble in the role name itself: 'the Approver role' (editor), 'the approval role' (list view), 'the Invoice Approver role' (approver-terminology). The graph records the control once."
+    },
+    {
+      "kind": "scope",
+      "topic": "Whether an employee's move to a new employee group automatically strips delegate assignments and rights, or leaves them untouched for the admin to clean up",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The delegate-configurations special-considerations topic says the system does NOTHING on a group move - existing delegate assignments are neither removed nor updated, and the admin must intervene manually or force renewal via temporary delegation.",
+          "sourceQuote": "When an employee acting as a delegate is moved to another employee group configuration, the system will not remove or update existing delegate assignments.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-delegate-configurations-8b2bfccb.md"
+        },
+        {
+          "summary": "The payment-delegate-configurations special-considerations topic says the opposite for the same event - out-of-group assignments are removed automatically under the new group's configuration.",
+          "sourceQuote": "Any current assignments to other users that are not allowed (that is, are out of group) by the new configuration are removed automatically.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md"
+        },
+        {
+          "summary": "The same payment topic further states that individual RIGHTS the new configuration does not grant are stripped automatically when the employee record changes.",
+          "sourceQuote": "These rights are automatically removed once the information about the employee changes, for example, when the employee changes from United States to Europe.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md"
+        }
+      ],
+      "consequenceForWriter": "Do not promise either behaviour to a customer, and do not rely on automatic cleanup as a control. After changing which groups a configuration applies to, or after an employee group move, VERIFY the resulting delegate assignments on the consumer surfaces (Profile > Invoice Settings > Invoice Delegates and User Administration) rather than assuming the system reconciled them. If the requirement is that stale delegations cannot persist, use the one documented lever that does not depend on this question: enable ONLY temporary approval delegation, which forces periodic renewal.",
+      "notes": "HYPOTHESIS: the two topics are scoping different objects. 8b2bfccb speaks of the ASSIGNMENT RECORD surviving a move ('will not remove or update existing delegate assignments'), while 77a887a4 speaks of (a) assignments that violate the new group's out-of-group restriction and (b) individual RIGHTS such as Can Prepare that the new configuration does not grant. Under that reading, the assignment row persists but is silently narrowed - which is consistent with both sentences and would explain why 8b2bfccb still tells admins to clean up manually. THE CORPUS NEVER SAYS THIS. It is offered as a hypothesis, not a reconciliation, and both readings are recorded because a blind build must not pick one. A further wrinkle: the two topics are titled 'Delegate Configurations' and 'Payment Delegate Configurations' and may be vintages of the same topic rather than descriptions of two mechanisms."
+    }
+  ],
+  "compressedRanges": [],
+  "coverageVerdict": "partial",
+  "notes": "LENS B RESULT: 14 records - 12 real controls plus 2 section headings - 4 value sets, 15 dependencies, 6 contradictions, 0 compressed ranges. The recon's ~25-field estimate is REJECTED on measurement; the true unique-control count is 12, exactly as the map phase predicted (11-13), because the corpus documents the same object twice under two label sets.\n\nMANDATORY MECHANICAL SWEEP, PERFORMED AND REPORTED. grep -c '<table' returns ZERO on every file in the candidate pool - I re-ran it independently over the full result of `grep -rlF \"Delegate Configuration\"` across BOTH guide directories and over every file whose name contains 'deleg' in both directories. THERE IS NO RAW HTML TABLE ANYWHERE IN THIS PAGE'S CORPUS, so fromRawHtmlTable is false on every record - correctly, not by omission. The naive markdown anchor '^| ' is likewise worthless here: it returns 0 on BOTH rosters because SAP indents tables nested inside numbered steps. Counting with a leading-whitespace-tolerant anchor: access-and-view-payment-delegate-configurations-8ed1298f.md 37 cell-openers, create-a-new-invoice-delegate-configuration-fcf42662.md 22, delegate-configuration-8b2bd26d.md 91.\n\nTABLES FOUND AND FULLY ENUMERATED, NONE SAMPLED. (1) 'Delegate Configuration Fields', the list-view roster in 8ed1298f - all 11 columns enumerated in a valueSetCandidate; the 12-string list there is 11 columns because SAP splits 'Can Approve' / '(Any Time)' across two lines inside one cell and no joined verbatim form exists. (2) The unnamed 6-row editor roster in fcf42662 - all 6 rows emitted as fields, plus both of its NESTED BULLET CATALOGUES enumerated complete (Restrictions, 2 entries; Delegate Settings, 5 entries) - these nested lists are invisible to any row count and are where the page's real controls live. (3) The SIX-ENTRY terminology bullet catalogue in terminology-e1e1ed99.md, which has ZERO hits on both table anchors and was found only by reading: Invoice Delegates, Invoice Request Delegates, Purchase Request Delegates, Temporary Approval Delegation, Delegate Restriction to Group, Delegated Approver. All six are recorded here in full. It is NOT emitted as a valueSetCandidate because there is no field on this page it legitimately anchors to, and an empty appliesToField is the exact defect that left 17 sets unwired on an earlier run - three of the six are captured instead as documented aliases in the field notes and contradiction nodes (Temporary Approval Delegation -> delegate_can_approve_during_specified_period; Delegate Restriction to Group -> restrict_delegate_selection_to_users_group; Delegated Approver -> the BUILT Workflows self-approval field).\n\nTABLES CENSUSED AND DELIBERATELY SKIPPED, WITH REASONS. delegate-configuration-8b2bd26d.md, 91 cell-openers = 1 separator + 30 rows x 3 = 1 header + ~29 dated entries: this is the GUIDE REVISION HISTORY, not a roster - classified as HISTORY and mined only for two dating quotes (the arrival of the approver-limit restriction, and 'Tool now available from within Invoice Admin user interface.' which corroborates the Invoice Admin menu alias). general-information-8b3b0308.md, 139 cell-openers, THE LARGEST TABLE surfaced anywhere in this run: it is the revision history of the WORKFLOWS guide, not this page's, and is recorded here so no later pass rediscovers 139 and mistakes it for a lost catalogue. the-condition-page-5d4ea870.md (71) and the-query-builder-and-the-condition-editor-e10473f9.md (59) are already mined by Audit Rules or belong to another tool; create-a-new-workflow-554e86aa.md (85) is already mined by Workflows. No ILLUSTRATIVE table exists on this page - there is no before/after example, screenshot caption, or search-order demonstration in the delegate set; the only example-shaped content is the Global Group-United States / Global Group-Europe narrative in 77a887a4, which is prose, and the sample email in when-the-delegate-cannot-submit-53c9cb69.md, which carries tenant-shaped data and is deliberately NOT quoted anywhere in this file.\n\nWHAT I COULD NOT DETERMINE, AND WHY - THIN IS THE CORRECT ANSWER FOUR TIMES. (1) NO ENUMERATED OPTION VALUES EXIST for any checkbox on this page. Every one is described as 'If active, ...' or 'If selected (enabled)' / 'cleared (disabled)'; the corpus NEVER prints a Yes/No option list, so validValues is empty on 8 of 12 controls and MUST STAY EMPTY. The single exception is the Inheritance toggle, whose two captions ('Inheritance', 'No Inheritance') are both printed verbatim in one sentence - that is an enumeration, not a completed pair. (2) NO PURCHASE REQUEST ROSTER EXISTS. The Purchase Request tab is named four times across four files and not one control is separately attributed to it; the access topic claims the SAME 11 columns for 'either the Invoice or Purchase Request page', and the child window is literally titled 'Add Delegate Configuration - Invoice'. A driver has no PR-specific field roster and I have not mirrored the Invoice roster onto that tab. (3) NO DATE FIELD EXISTS HERE - only a maximum in days. 'Choose Dates' occurs exactly twice corpus-wide, both times in this page's own rosters, both times pointing OUT to My Info and User Administration. (4) NO ROLE GATE IS DOCUMENTED for this page anywhere in this corpus. The nearest role-shaped sentences are not gates: 'The Configuration administrator can restrict the delegates...' names who uses a field, and 'The Invoice Admin sets this option when defining delegates.' uses the MENU alias. I did not borrow a role from a neighbouring page. Also undetermined: no default value for any control, no length or uniqueness constraint on Configuration Name, no min/max on Maximum Time Period to Approve, and no documented behaviour when a configuration is removed while delegates are assigned under it.\n\nDOCUMENTARY GAP: delegates-4d7c563c.md defers to 'the Shared: Delegate Configuration Setup Guide', which is the only occurrence of that string corpus-wide and is ABSENT from this corpus. That is a DOCUMENTARY gap, not a menu-location one, and it is the likeliest reason the delegate ASSIGNMENT surfaces (Profile > Invoice Settings > Invoice Delegates, User Administration > Invoice Delegates / Purchase Request Delegates) are described only in passing. Four dependencies above therefore point at 'User Administration', an unbuilt surface, and are expected to stay unresolved.\n\ndep.g1.059 WILL NOT AUTO-RESOLVE - REPORTED, NOT FORCED. Its targetRef is {page 'Delegate Configurations', field 'Delegate Configuration'}, a LABEL-SHAPED name. This run emits configuration_name and never a field literally called 'Delegate Configuration', and I have deliberately NOT renamed anything to force the match. The honest repoint for a correction pass is applies_to_groups, whose own cell repeats that edge's cardinality quote nearly verbatim ('Each group within your company can only have one payment delegate configuration; however, ...'). Note for that pass that the edge's sourceFile is this page's own editor roster, so it is independent corroboration of the PAGE NAME by a Group 1 agent who had no roster.\n\nOWNERSHIP AND CONTAMINATION CHECKS, ALL MEASURED. No field is emitted from delegate-self-approval-1b627285.md - its control is already built as field.workflows.allow-delegated-approvers-to-approve-own-requests; it is cited in notes and as one dependency only. No field is emitted from invoice-user-f11cccd8.md, user-administrator-5aa3eb5e.md, delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md, when-the-delegate-cannot-submit-53c9cb69.md, delegates-email-notification-7c866769.md, audit-invoice-delegate-actions-3660a51f.md or approver-terminology-8559861c.md - all are end-user behaviour, consequence-of-configuration, or another page's controls, and each is used only for notes or dependencies. audit-invoice-delegate-actions-3660a51f.md enumerates three permanently recorded delegate actions (who last modified the invoice; who submitted it and when; who approved it and when) with NO control attached - recorded here so nobody invents an audit toggle on this page. approver-terminology-8559861c.md names a database table; it is not surfaced as a field or a value. The 'two user interfaces' line in the revision history is 2014 boilerplate present in ~40 corpus files and is NOT recorded as a uiVariant - every record is 'undifferentiated'. ZERO tools-guides files carry a control for this page, and ZERO source files are shared with the Email Reminders page in this run.\n\nOUT OF LENS, DELIBERATELY NOT EMITTED, LISTED SO NOTHING IS LOST: the CRUD action buttons and the tab strip are documented but are not table or catalogue content and belong to a procedural lens - New (opens the modal), Modify, Save, Remove, and the Yes confirmation ('Choose Remove, a confirmation message appears.' then 'Choose Yes.', delete-an-invoice-delegate-configuration-92627a9b.md), plus the two tabs Invoice and Purchase Request, attested four separate times. The list-view 'Name' value also functions as the hyperlink into the edit modal.\n\ncoverageVerdict partial: the two rosters are fully mined and every table and nested catalogue in the pool is enumerated with nothing sampled, but the page's value space is almost entirely absent (one option list in the whole page), the Purchase Request tab has no roster at all, and there is no documented role gate - genuine field-level documentation with obvious gaps."
+}

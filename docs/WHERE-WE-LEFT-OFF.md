@@ -13,8 +13,8 @@ _Last updated: 2026-09-01_
 
 ## Status
 
-**23 of ~25 pages · 617 fields · 454 dependencies · 43 steps · 115 value sets (1,014 values) ·
-66 contradictions (209 readings) · 17 compressed ranges (411 members).**
+**25 of ~27 pages · 674 fields · 488 dependencies · 47 steps · 126 value sets (1,053 values) ·
+85 contradictions (270 readings) · 18 compressed ranges (442 members).**
 `output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Validator: ERROR-clean, exit 0.**
 `bin/check-approval-authority.py` (the Approval Authority boundary gate) also exits 0.
 
@@ -22,11 +22,12 @@ Built: Group 1 (Policy & Scope), Group 2 (Routing & Approval, incl. an Audit Rul
 took that page 36 → 91 fields), Group 3 (PO Matching — 2 pages, not the 11 the lost map claimed),
 Group 4 (Capture & Vendors), Group 5A + 5B (Data Structure & Accounting),
 **Workflows Run A (Workflows + Feature Hierarchies — 4 pages in the group, not the 13 the lost map
-claimed)**, and **Approval Authority (Authorized Approval Limits — the first page in this graph not
-reached under `Administration > Invoice`).**
+claimed)**, **Approval Authority (Authorized Approval Limits — the first page in this graph not
+reached under `Administration > Invoice`)**, and **Workflows Run B (Email Reminders + Delegate
+Configurations)**. **The Workflows group is COMPLETE: four pages, 178 fields.**
 
-Quality: **617/617 sourceQuotes verify verbatim** against their cited corpus file; 616/617
-validValue lists fully found in source; 209/209 contradiction readings verbatim; zero dangling
+Quality: **674/674 sourceQuotes verify verbatim** against their cited corpus file; 673/674
+validValue lists fully found in source; 270/270 contradiction readings verbatim; zero dangling
 dependency endpoints.
 
 > The denominator moved twice now. The old "37 pages" came from the lost map, which counted
@@ -53,6 +54,8 @@ dependency endpoints.
 | Invoice Settings | 13 | good | 1 |
 | Routing Configuration | 10 | good | 2 |
 | Exceptions | 8 | good | 2 |
+| Email Reminders | 30 | good | Workflows |
+| Delegate Configurations | 27 | partial | Workflows |
 | Authorized Approval Limits | 10 | partial | Approval Authority |
 | Feature Hierarchies | 7 | partial | Workflows |
 | Units Of Measure | 3 | thin | 4 |
@@ -76,42 +79,31 @@ records six toolchain defects fixed that session — five latent for every futur
 claims in this file and the 2026-09-01 handoff that were FALSE, one of which was aimed squarely at
 Run B (see item 1 below).
 
-### ▶ RESUME HERE — Workflows Run B
+### ▶ RESUME HERE — Group 6 (Peppol / Shipping / Localization)
 
-**Email Reminders + Delegate Configurations.** 34 unique files, 70,074 B, ~50 estimated fields.
-Both are real left-menu pages the lost map never counted; both were found and page-hood-endorsed by
-the recon. Start from `workflows/2026-08-31_kg-workflows-run-a.mjs` and change the usual knobs, plus:
+**Workflows Run B is DONE (2026-09-01)** — 2 pages, 57 fields, merged WITH `--patch`, Run A verified
+intact, validator exit 0. Run `wf_fac7bf66-f50`, 20 agents, 0 errors. Reports in
+`output/reports/2026-09-01_workflows-run-b-*`.
 
-1. **Merge WITH `--patch`, and pass `--patch-page "Workflows"` to `assemble-parts.py`.** The group
-   label `Workflows` now EXISTS, so a non-patch merge would DELETE Run A's 121 fields. **The claim
-   filed here that `patchPage` comes from the workflow return and that "`--patch` strips nothing"
-   was FALSE** — it comes from `assemble-parts.py --patch-page`, and `--patch` with a null
-   `patchPage` deletes every node from every non-patch merge while the validator still exits 0
-   (measured 2026-09-01: 436 deps → 115). `merge-group.py` now aborts on that combination. See the
-   Approval Authority section of `output/kg-build-log.md`.
-2. ~~**FIX `NAV_SCHEMA` FIRST**~~ — **DONE 2026-09-01, and proven end-to-end.** Link 1 of the
-   three-link `tabs` chain is fixed in
-   `workflows/2026-09-01_kg-authorized-approval-limits.mjs` (`tabs` / `tabsSourceQuote` /
-   `tabsSourceFile` declared, `tabs` in `required`). The Approval Authority page merged carrying
-   `tabs: []` — a positive finding for a modal window, and the first proof the whole chain carries.
-   **Copy that `NAV_SCHEMA` verbatim into the Run B script.** Email Reminders has two documented
-   tabs and Delegate Configurations two, so it would have bitten immediately.
-3. **Exactly ONE file is shared with Run A** — `delegate-self-approval-1b627285.md` (1,284 B) —
-   and its field belongs to the Workflows **General page**. **Run B must not extract it.**
-4. Seed corrections the recon critics already made are in the Run A page briefs; the Email Reminders
-   and Delegate Configurations additions are in
-   `output/reports/2026-08-31_workflows-recon/critic-completeness.md` finding 6
-   (`pre-defined-rules-220a1fe7.md`, `overview-8b2c769e.md`,
-   `best-practices-when-localizing-subject-and-email-message-fields-48515f40.md`,
-   `terminology-e1e1ed99.md`, `overview-8b2ba917.md`).
-5. Drop the `"two user interfaces"` UI hint from Delegate Configurations — it is **2014 boilerplate
-   present in 40 files**, including most of the twenty already-built pages, not a page property.
+Group 6 is three pages: **Peppol Configuration, Shipping Configuration, Localization**. A complete
+6-step Localization click path is already sitting in
+`step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md` lines 102–110.
+`Group 6 — Compliance / E-Invoicing` is a NEW label, so the merge runs **WITHOUT `--patch`**.
 
-Then: **Group 6** (Peppol / Shipping / Localization — a complete 6-step Localization click path is
-already sitting in `step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md`
-lines 102–110), then the remediation sweep.
+**Start from `workflows/2026-09-01_kg-workflows-run-b.mjs`** — it is the most corrected script in the
+repo. It carries the fixed `NAV_SCHEMA` (tabs, proven end-to-end on two multi-tab pages), the
+`VERDICT_SCHEMA` requiring `verbatimVariantIndex`, the ugrep/NBSP correction, the corrected synthesis
+destructuring, and a header knob list that is finally accurate.
+
+**AND STILL DIFF IT AGAINST ITS PARENT AND READ EVERY HUNK THAT DID NOT CHANGE.** A pre-flight audit
+has now found blockers in three consecutive scripts, and on Run B **five of the six were introduced
+during authoring, by someone who had just done a stale-content pass**. In particular do NOT port a
+page-specific measurement forward: the Run B script says Email Reminders carries NBSP in its nav and
+role-gate sentences, and Delegate Configurations does not. Both facts are wrong for Group 6.
+Re-measure everything you carry.
 
 Set `meta.status = "COMPLETE"` only when every non-deferred group is in and
+`bin/validate-graph.py` exits 0.
 `bin/validate-graph.py` exits 0.
 
 ### ~~A SCOPE DECISION THAT IS LUKE'S~~ — DECIDED, AND THE PAGE IS BUILT (2026-09-01)

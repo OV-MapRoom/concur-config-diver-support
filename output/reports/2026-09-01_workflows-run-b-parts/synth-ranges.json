@@ -1,0 +1,57 @@
+{
+  "compressedRanges": [
+    {
+      "id": "range.wfb.001",
+      "group": "Workflows",
+      "patch": "Workflows B",
+      "label": "a valid integer between 1 and 31",
+      "expandsTo": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ],
+      "count": 31,
+      "appliesToFieldId": "field.email-reminders.specific-days",
+      "appliesToRef": {
+        "page": "Email Reminders",
+        "field": "specific-days",
+        "resolved": true
+      },
+      "appliesTo": {
+        "page": "Email Reminders",
+        "field": "specific-days"
+      },
+      "sourceQuote": "Enter a valid integer between 1 and 31. Use \\> for the last day of the month.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "MECHANICAL EXPANSION of an inclusive calendar day-of-month range; the 31 members are arithmetic, not enumerated by SAP, and that is stated here rather than hidden. SOURCE CHARACTERS: the range is written with the words 'between 1 and 31' and contains NO DASH of any kind, so there is no hyphen/en-dash hazard in the label; the '>' token is escaped in the source markdown as backslash-greater-than and the quote reproduces that backslash byte for byte, while the character a driver actually types is a bare '>'. THE '>' IS DELIBERATELY EXCLUDED FROM expandsTo: the source treats it as a separate token meaning the last day of the month ('Use > for the last day of the month.'), not as a member of the 1-31 integer range, and count must equal expandsTo length. The field accepts a COMMA-SEPARATED LIST of members rather than a single value - SAP's own worked example in the same cell is '10, 20, > in the field would run the reminder on the 10th, 20th, and the last day of the month.' UNDETERMINED and not inferred: whether duplicates, out-of-order lists, or 29/30/31 in a short month are accepted or rejected - the corpus is silent. The field appears only when Frequency is set to 'Specific days of the month', so a driver must set Frequency first or the control will not be present. Only ONE compressed range exists across this run's whole candidate file set: a scan for dash-ranges, 'between N and N' and 'Custom NN' patterns over both pages' topics returned this single hit, and the replacement-token variables %1% through %4% are ENUMERATED row by row in email-message-replacement-tokens-c9cc4af4.md, so they are correctly NOT a range node."
+    }
+  ]
+}

@@ -1,0 +1,2027 @@
+{
+"concur-invoice-professional-edition-admin-guides/terminology-4b6cb686.md": {
+"n": 4,
+"owners": [
+"Forms and Fields",
+"None",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md": {
+"n": 6,
+"owners": [
+"None",
+"Workflows",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/accessing-and-viewing-policies-within-the-policies-tool-f3260f23.md": {
+"n": 4,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-a-new-policy-dd9549c0.md": {
+"n": 38,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-the-existing-policy-information-81206c52.md": {
+"n": 1,
+"owners": [
+"Policies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-a-policy-700569c5.md": {
+"n": 2,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/changing-the-status-of-an-expense-type-1e641b70.md": {
+"n": 2,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/assigning-a-print-format-to-an-existing-policy-cb5f4b75.md": {
+"n": 2,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/setting-the-automatic-submission-conditions-for-submit-action-88fe4a03.md": {
+"n": 4,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-concur-receiving-1ececc23.md": {
+"n": 4,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/purchase-order-policy-fields-4aa0ac1b.md": {
+"n": 1,
+"owners": [
+"Policies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/policy-c8ec906b.md": {
+"n": 5,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/enable-e-bunsho-timestamp-for-a-policy-group-07ea2db1.md": {
+"n": 4,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understand-editable-by-groups-and-applies-to-groups-645ff499.md": {
+"n": 6,
+"owners": [
+"Policies",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-expense-types-c6d0b6fc.md": {
+"n": 7,
+"owners": [
+"Policies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-groups-ec5d8d8b.md": {
+"n": 21,
+"owners": [
+"Group Configurations",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/procedure-configure-attendee-types-by-user-groups-4a865d21.md": {
+"n": 1,
+"owners": [
+"Group Configurations"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md": {
+"n": 7,
+"owners": [
+"Group Configurations",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/change-the-basic-configuration-1a3ec18b.md": {
+"n": 1,
+"owners": [
+"Group Configurations"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md": {
+"n": 3,
+"owners": [
+"Group Configurations",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuration-feature-activation-5fe44fe7.md": {
+"n": 4,
+"owners": [
+"Group Configurations",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md": {
+"n": 12,
+"owners": [
+"Invoice Settings",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/default-payment-term-days-4ffc7e98.md": {
+"n": 1,
+"owners": [
+"Invoice Settings"
+]
+},
+"concur-invoice-professional-edition-admin-guides/default-recurring-invoice-generation-offset-9fec0110.md": {
+"n": 1,
+"owners": [
+"Invoice Settings"
+]
+},
+"concur-invoice-professional-edition-admin-guides/fields-that-regulate-duplicate-invoices-b3b75abd.md": {
+"n": 3,
+"owners": [
+"Invoice Settings",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/copy-down-line-allocations-from-po-based-invoice-5ac42ce8.md": {
+"n": 2,
+"owners": [
+"Invoice Settings",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/search-for-hierarchy-mappings-1dea6bb6.md": {
+"n": 3,
+"owners": [
+"Routing Configuration"
+]
+},
+"concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b4aa547.md": {
+"n": 8,
+"owners": [
+"Routing Configuration",
+"configCompressedRanges",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-3-upload-and-import-template-and-data-b9a80bb6.md": {
+"n": 2,
+"owners": [
+"Routing Configuration"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-1-download-hierarchy-mappings-template-excel-spreadsheet-d981b372.md": {
+"n": 1,
+"owners": [
+"Routing Configuration"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-4-review-import-details-414c8cd5.md": {
+"n": 1,
+"owners": [
+"Routing Configuration"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md": {
+"n": 11,
+"owners": [
+"Exceptions",
+"Image Handling",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-exceptions-1c6e5030.md": {
+"n": 1,
+"owners": [
+"Exceptions"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-exceptions-aa2889cc.md": {
+"n": 2,
+"owners": [
+"Exceptions"
+]
+},
+"concur-invoice-professional-edition-admin-guides/working-with-options-on-the-task-definitions-tab-735ce2d9.md": {
+"n": 14,
+"owners": [
+"Capture Processing Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuring-exception-email-address-and-instruction-text-options-0813a643.md": {
+"n": 7,
+"owners": [
+"Capture Processing Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-an-email-address-5073fd51.md": {
+"n": 2,
+"owners": [
+"Capture Processing Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/email-administration-5ebbb8b0.md": {
+"n": 1,
+"owners": [
+"Capture Processing Admin"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-an-email-alias-b23b53b5.md": {
+"n": 6,
+"owners": [
+"Capture Processing Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/working-with-options-in-the-supplier-email-administration-tab-d3b9a9b4.md": {
+"n": 3,
+"owners": [
+"Capture Processing Admin"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuring-options-in-the-other-settings-tab-356f6ba2.md": {
+"n": 6,
+"owners": [
+"Capture Processing Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuring-forms-and-fields-in-capture-processing-7c14446c.md": {
+"n": 8,
+"owners": [
+"Capture Processing Admin",
+"configCompressedRanges",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/task-definition-b3446cf4.md": {
+"n": 1,
+"owners": [
+"Capture Processing Admin"
+]
+},
+"concur-invoice-professional-edition-admin-guides/using-the-capture-processing-admin-tool-8b2ae77c.md": {
+"n": 2,
+"owners": [
+"Capture Processing Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/adding-and-removing-vendor-search-fields-e7023558.md": {
+"n": 3,
+"owners": [
+"Vendor Search Admin",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-or-modify-an-invoice-or-vendor-imaging-configuration-284f3fdf.md": {
+"n": 8,
+"owners": [
+"Image Handling",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md": {
+"n": 3,
+"owners": [
+"Image Handling",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-1-add-a-scan-configuration-f86f03da.md": {
+"n": 4,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-admin-guides/managing-scan-configurations-84e1601a.md": {
+"n": 2,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-2-assign-the-scan-configuration-to-a-policy-634c76ba.md": {
+"n": 1,
+"owners": [
+"Policies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-3-optional-configure-the-digital-tax-invoice-validation-69ba75a6.md": {
+"n": 4,
+"owners": [
+"Image Handling",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/timestamp-status-f0082cf2.md": {
+"n": 1,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-admin-guides/supported-image-file-types-b33c9e00.md": {
+"n": 1,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-tools-guides/supported-image-file-types-ecf7cc56.md": {
+"n": 1,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-admin-guides/formats-of-emails-and-uploads-b3783618.md": {
+"n": 1,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-admin-guides/about-uploaded-images-fc1f44bb.md": {
+"n": 1,
+"owners": [
+"Image Handling"
+]
+},
+"concur-invoice-professional-edition-admin-guides/units-of-measure-270126e4.md": {
+"n": 7,
+"owners": [
+"Units Of Measure",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/the-condition-page-5d4ea870.md": {
+"n": 22,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/the-condition-page-3408dec8.md": {
+"n": 2,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understand-conditional-expressions-9a165c46.md": {
+"n": 3,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/the-validation-condition-page-8b2a2704.md": {
+"n": 8,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/validation-conditional-expressions-67302876.md": {
+"n": 21,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-a-random-audit-rule-3127d83a.md": {
+"n": 19,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/deactivate-activate-a-random-audit-rule-622ed1bf.md": {
+"n": 1,
+"owners": [
+"Audit Rules"
+]
+},
+"concur-invoice-professional-edition-admin-guides/remove-a-random-audit-rule-b2aee8f6.md": {
+"n": 2,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-a-validation-rule-5a16827b.md": {
+"n": 3,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-a-custom-audit-rule-1ba67b2e.md": {
+"n": 5,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-a-custom-audit-rule-6b5ffce1.md": {
+"n": 4,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-a-validation-rule-d8635d4a.md": {
+"n": 1,
+"owners": [
+"Audit Rules"
+]
+},
+"concur-invoice-professional-edition-admin-guides/view-a-custom-audit-rule-45537e5c.md": {
+"n": 5,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/view-a-custom-audit-rule-a4c909b3.md": {
+"n": 4,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md": {
+"n": 28,
+"owners": [
+"Audit Rules",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-43e3f9aa.md": {
+"n": 3,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md": {
+"n": 8,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/deactivate-activate-a-custom-audit-rule-51344640.md": {
+"n": 3,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/deactivate-activate-a-validation-rule-438d82b7.md": {
+"n": 1,
+"owners": [
+"Audit Rules"
+]
+},
+"concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md": {
+"n": 6,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/access-custom-audit-70726665.md": {
+"n": 3,
+"owners": [
+"Audit Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-expense-types-97cac818.md": {
+"n": 21,
+"owners": [
+"Expense Types",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/editing-expense-types-87b972d0.md": {
+"n": 1,
+"owners": [
+"Expense Types"
+]
+},
+"concur-invoice-professional-edition-admin-guides/deleting-expense-types-8d2f5b2b.md": {
+"n": 5,
+"owners": [
+"Expense Types",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/searching-for-an-expense-type-b0e53752.md": {
+"n": 1,
+"owners": [
+"Expense Types"
+]
+},
+"concur-invoice-professional-edition-admin-guides/set-the-default-attendee-type-for-an-expense-type-65d01766.md": {
+"n": 1,
+"owners": [
+"Expense Types"
+]
+},
+"concur-invoice-professional-edition-tools-guides/available-field-formats-8b49a3d9.md": {
+"n": 7,
+"owners": [
+"Expense Types"
+]
+},
+"concur-invoice-professional-edition-admin-guides/account-codes-tab-2acab3a1.md": {
+"n": 4,
+"owners": [
+"Expense Types",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/change-the-status-of-an-expense-type-cf452b6a.md": {
+"n": 2,
+"owners": [
+"Expense Types"
+]
+},
+"concur-invoice-professional-edition-admin-guides/filter-attendee-types-for-expense-types-by-exclusion-f4c6820d.md": {
+"n": 2,
+"owners": [
+"Expense Types",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/select-a-form-type-36dec640.md": {
+"n": 2,
+"owners": [
+"Forms and Fields",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/modifying-fields-b16a6078.md": {
+"n": 31,
+"owners": [
+"Forms and Fields",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/accessing-forms-fields-d7c875b0.md": {
+"n": 3,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/modifying-form-fields-f9433665.md": {
+"n": 3,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/rearranging-form-fields-846e3ab4.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/working-with-forms-b828d862.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-fields-to-a-form-069da023.md": {
+"n": 3,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/modify-form-settings-1b954e66.md": {
+"n": 2,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/working-with-fields-80fe0332.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/removing-form-fields-42a3382b.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/copy-a-form-e5189b3c.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-a-form-ccdc5473.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/access-connected-lists-39dd2408.md": {
+"n": 1,
+"owners": [
+"Forms and Fields"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-a-new-connected-list-definition-fc9f852a.md": {
+"n": 2,
+"owners": [
+"Forms and Fields",
+"configValueSets"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/account-codes-tab-2acab3a1.md": {
+"n": 4,
+"owners": [
+"Accounting Administration"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/adding-and-editing-account-codes-4b9ffdde.md": {
+"n": 2,
+"owners": [
+"Accounting Administration"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/adding-a-new-account-code-hierarchy-level-d3074f8c.md": {
+"n": 3,
+"owners": [
+"Accounting Administration"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/adding-a-new-ledger-1ef1c514.md": {
+"n": 3,
+"owners": [
+"Accounting Administration"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/accessing-the-account-code-hierarchy-page-edce1aa5.md": {
+"n": 1,
+"owners": [
+"Accounting Administration"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/adding-a-new-segment-d6dfb07b.md": {
+"n": 4,
+"owners": [
+"Accounting Administration"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/deleting-a-segment-62b49ad9.md": {
+"n": 1,
+"owners": [
+"Accounting Administration"
+]
+},
+"concur-invoice-professional-edition-tools-guides/add-a-shipping-or-billing-address-3b51c816.md": {
+"n": 20,
+"owners": [
+"Company Locations",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/delete-a-shipping-or-billing-address-ae7aef28.md": {
+"n": 6,
+"owners": [
+"Company Locations",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/edit-a-shipping-or-billing-address-c8138913.md": {
+"n": 1,
+"owners": [
+"Company Locations"
+]
+},
+"concur-invoice-professional-edition-tools-guides/import-shipping-or-billing-addresses-601c2549.md": {
+"n": 6,
+"owners": [
+"Company Locations"
+]
+},
+"concur-invoice-professional-edition-tools-guides/export-shipping-or-billing-addresses-59f051b2.md": {
+"n": 1,
+"owners": [
+"Company Locations"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md": {
+"n": 12,
+"owners": [
+"List Management",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/use-a-custom-list-f3fc8bee.md": {
+"n": 5,
+"owners": [
+"List Management",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/use-an-expense-type-as-the-first-field-in-a-connected-list-e0c5f415.md": {
+"n": 8,
+"owners": [
+"List Management",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-3-access-tax-authorities-2fae4ae3.md": {
+"n": 6,
+"owners": [
+"Tax Administration"
+]
+},
+"concur-invoice-professional-edition-admin-guides/the-basic-process-12a5686d.md": {
+"n": 3,
+"owners": [
+"Tax Administration",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-predefined-tax-codes-6b42509f.md": {
+"n": 5,
+"owners": [
+"Tax Administration",
+"configCompressedRanges",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-3-configure-the-service-14c3ef13.md": {
+"n": 13,
+"owners": [
+"Tax Administration",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-4-add-a-new-tax-authority-7f90cede.md": {
+"n": 16,
+"owners": [
+"Tax Administration",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-5-optional-add-a-new-expense-type-group-to-a-tax-authority-e8d87361.md": {
+"n": 23,
+"owners": [
+"Tax Administration",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/work-with-the-tax-validation-page-options-c3fe1df5.md": {
+"n": 5,
+"owners": [
+"Tax Administration",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-6-optional-add-a-new-vendor-group-to-a-tax-authority-d8b7786d.md": {
+"n": 18,
+"owners": [
+"Tax Administration",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-purchase-orders-8128725e.md": {
+"n": 22,
+"owners": [
+"Purchase Order Configuration",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/purchase-order-configuration-is-group-aware-b603f04b.md": {
+"n": 4,
+"owners": [
+"Purchase Order Configuration",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/access-purchase-order-matching-rules-8407c500.md": {
+"n": 7,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-1-create-the-purchase-order-matching-rule-set-4d3866f3.md": {
+"n": 4,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-2-create-the-life-to-date-matching-rule-set-dc296ae6.md": {
+"n": 10,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-three-way-matching-c043e5c8.md": {
+"n": 13,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-3-create-the-po-to-request-fields-matching-rules-64eb1c47.md": {
+"n": 16,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-4-add-condition-based-rule-to-a-named-rules-group-db93fb81.md": {
+"n": 6,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md": {
+"n": 7,
+"owners": [
+"Purchase Order Matching Rules",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/confirmation-types-b4a94761.md": {
+"n": 2,
+"owners": [
+"Purchase Order Matching Rules",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md": {
+"n": 15,
+"owners": [
+"Feature Hierarchies",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md": {
+"n": 5,
+"owners": [
+"Feature Hierarchies",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md": {
+"n": 35,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/select-an-email-notification-in-the-workflows-tab-663bb8ac.md": {
+"n": 4,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/overview-5ce8a567.md": {
+"n": 2,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md": {
+"n": 15,
+"owners": [
+"Workflows",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/work-with-the-step-rules-page-4c33cda0.md": {
+"n": 11,
+"owners": [
+"Workflows",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md": {
+"n": 20,
+"owners": [
+"Workflows",
+"configCompressedRanges",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md": {
+"n": 5,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md": {
+"n": 4,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-1-assign-the-level-to-the-workflow-step-6035f10a.md": {
+"n": 2,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-an-authorized-approver-step-4640b5a5.md": {
+"n": 2,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-an-invoice-approval-status-d8cbbe5d.md": {
+"n": 5,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/work-with-purchase-requests-approvals-1c39ee21.md": {
+"n": 4,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/modify-an-email-notification-a6e5f4ba.md": {
+"n": 4,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md": {
+"n": 5,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-a-confirmation-agreement-3e153f29.md": {
+"n": 5,
+"owners": [
+"Workflows",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md": {
+"n": 2,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-workflow-properties-409a8f0b.md": {
+"n": 2,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md": {
+"n": 4,
+"owners": [
+"Workflows",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/edit-workflow-rules-and-actions-abdf9b11.md": {
+"n": 1,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md": {
+"n": 11,
+"owners": [
+"Workflows",
+"configCompressedRanges",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md": {
+"n": 9,
+"owners": [
+"Workflows",
+"configCompressedRanges",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md": {
+"n": 5,
+"owners": [
+"Workflows",
+"configCompressedRanges",
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/approve-forward-feature-b847d65b.md": {
+"n": 1,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/restrict-ad-hoc-steps-to-authorized-approvers-8a523257.md": {
+"n": 1,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md": {
+"n": 1,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/allowing-automatic-transmittal-of-purchase-orders-0f2e7fae.md": {
+"n": 1,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md": {
+"n": 1,
+"owners": [
+"Workflows"
+]
+},
+"concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md": {
+"n": 18,
+"owners": [
+"Authorized Approval Limits",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md": {
+"n": 4,
+"owners": [
+"Authorized Approval Limits",
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/components-of-the-policy-3bf075f8.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/expense-types-and-policies-a01e2537.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/assign-to-a-policy-a12befe1.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/timestamp-button-1512c7b5.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delete-a-print-format-7ba7e0ff.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-a-new-workflow-15992497.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuration-activation-d6d0ff0e.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/considerations-for-policy-configuration-075053ac.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/e-bunsho-timestamp-8b310f28.md": {
+"n": 3,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/assign-a-policy-to-a-group-f9adaed6.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/implementation-guidelines-for-policies-0c35d480.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/access-the-group-configurations-tool-6f974fe5.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-1-enable-by-invoice-group-ebe8724b.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/enabling-the-vendor-manager-to-enter-the-vendor-s-banking-information-fcb8fbdd.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-the-view-02135608.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/overview-group-assignment-and-availability-of-vendors-to-user-511dd249.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/is-duplicate-b431f510.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/restricting-changes-to-bank-information-by-import-cc193986.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/updating-vendor-information-6da87d89.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/notifying-vendors-when-payment-has-been-made-24ae0b9c.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/email-remittance-notifications-ec277e48.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/feature-activation-04b47637.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-a-new-ledger-1ef1c514.md": {
+"n": 4,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/prevent-deletion-of-images-associated-with-an-invoice-a0521ec4.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understanding-default-payment-terms-e71743f2.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/copy-down-of-po-allocation-lines-f14c45e4.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md": {
+"n": 3,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/custom-routing-field-32424721.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/populate-the-routing-configuration-page-by-using-the-hierarchy-import-15601ce7.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md": {
+"n": 4,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/general-concepts-about-audit-rules-af640263.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/exceptions-f29472a5.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/events-triggers-7977f6ee.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/activation-of-validation-rules-module-and-site-setting-option-required-8a3dc2f7.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/use-invoice-for-field-preparation-of-capture-processing-fields-617e72f7.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/dual-support-using-both-capture-processing-methods-971a2a14.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/ownership-assignment-order-of-assignment-638460cb.md": {
+"n": 4,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/setting-up-a-default-language-and-policy-to-an-email-alias-a63ab073.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/working-with-vendors-c5919dc3.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/including-or-excluding-vendor-in-capture-processing-085f8aeb.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/assigning-a-default-invoice-owner-for-a-vendor-efe8bbbb.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/view-when-concur-invoice-received-an-invoice-db9456c1.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/user-experience-217e2941.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/limit-match-vendors-for-processor-approver-and-manager-to-employee-s-vendor-list-e0b41037.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuration-feature-activation-d2263c26.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/imaging-configuration-8b314b9a.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/scan-configuration-settings-b7756de3.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/scan-configuration-and-the-invoice-image-processor-role-51c9d888.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/error-messages-3b8339b0.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understand-conditional-expressions-97cf41ea.md": {
+"n": 3,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/events-triggers-ad6bfc67.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/exceptions-then-portion-of-the-if-then-statement-6a3d96b1.md": {
+"n": 4,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/dependencies-8f2d7967.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/availability-of-expense-types-based-on-location-of-tax-authority-8485155d.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/expense-types-process-8b2dbb0e.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/levels-of-account-codes-8e2fcbe1.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/natural-account-code-50625160.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/account-code-hierarchy-869f7eca.md": {
+"n": 2,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-2-defining-the-expense-account-code-hierarchy-4a179387.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/accessing-the-account-code-hierarchy-page-edce1aa5.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/required-roles-1f2a20f6.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/editing-a-segment-f79aecf7.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/deleting-a-segment-62b49ad9.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/deleting-an-existing-ledger-25dac999.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/editing-an-existing-ledger-77876f7f.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/ledger-considerations-and-implementation-guidelines-e7b7ee96.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/form-fields-overview-bd4889bf.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/forms-and-fields-3ed30da4.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/forms-and-fields-616d64bc.md": {
+"n": 2,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/forms-fields-lists-and-validations-configuration-process-76d94b3b.md": {
+"n": 4,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-3-add-the-attendees-field-to-the-payment-request-line-item-details-form-aa688d6a.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/invoice-form-data-content-type-6c4a88d2.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understand-and-use-company-locations-377ff23e.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/calculate-vat-and-required-criteria-89f97622.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-4-additional-configuration-steps-37f6c7ba.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-1-add-vat-fields-to-forms-6d93bfcd.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/work-with-commodity-codes-in-this-view-f37c2a6e.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/sources-of-vat-amounts-27c4ff7a.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/requirements-to-calculate-vat-821a71ea.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/limitations-f5fac4b5.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/how-company-locations-works-with-the-purchase-order-import-ed09e36a.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/assign-or-select-a-default-shipping-address-bf0bdfe0.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/field-configuration-information-5813462a.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/working-with-multiple-check-configurations-e88666b1.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/test-and-change-match-rule-sets-49f57319.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/not-possible-to-base-rule-set-on-expense-type-or-account-code-e98c9b2c.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/refine-the-rules-include-an-exception-message-c174b2b6.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/refine-the-rules-allow-submission-despite-tolerance-9b96d467.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/is-receipt-required-value-on-po-line-item-896466e1.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/delivery-slip-number-field-for-three-way-matching-b0d3f1ca.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/receipt-association-and-three-way-matching-12b976a5.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/line-identification-for-purchase-order-matching-3c7c8336.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/activate-exchange-rates-for-matching-rule-sets-c51af31c.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/quantity-receipt-import-for-three-way-matching-1fc33cab.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/when-are-match-rules-run-f835a01e.md": {
+"n": 2,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/manage-images-03021850.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-tools-guides/preview-a-purchase-order-846396e1.md": {
+"n": 2,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-2-assign-the-level-to-the-approver-d8bf669c.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md": {
+"n": 3,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md": {
+"n": 2,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md": {
+"n": 4,
+"owners": [
+"configDependencies",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-3-edit-the-workflow-steps-f2731590.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/authorized-approvers-8b3ab7ad.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/workflow-667cee21.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md": {
+"n": 2,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-4-assign-the-proper-rights-to-users-86389a18.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/employee-import-e28f2294.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/definition-of-amount-for-limit-approval-06806875.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md": {
+"n": 1,
+"owners": [
+"configDependencies"
+]
+},
+"CONCUR_INVOICE/concur-invoice-professional-edition-admin-guides/the-condition-page-5d4ea870.md": {
+"n": 13,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/list-of-spend-categories-8b2de886.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/forms-overview-533281bd.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/adding-a-new-segment-d6dfb07b.md": {
+"n": 3,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/country-code-list-8b3e2eda.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/supported-countries-for-vat-8b38bab8.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/available-vat-fields-8b395ce2.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/extract-vat-data-8b3996e0.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-vat-labels-9d4795b9.md": {
+"n": 2,
+"owners": [
+"configCompressedRanges",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/canada-de22c9f9.md": {
+"n": 2,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b53850b.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/purchase-order-bill-to-address-record-type-210-format-b8e18edd.md": {
+"n": 2,
+"owners": [
+"configCompressedRanges",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/purchase-order-ship-to-address-record-type-220-format-d6da48d9.md": {
+"n": 2,
+"owners": [
+"configCompressedRanges",
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/match-rules-and-match-status-8cc2c56b.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/create-purchase-order-matching-rules-adb700f9.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/understand-the-match-status-assigned-to-an-invoice-52477c6b.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/match-rules-and-rule-sets-87e69410.md": {
+"n": 2,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/amounts-and-tolerances-ab795b1f.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/overview-8b35a33f.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/terminology-d3b9f043.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/default-approval-statuses-34c83d58.md": {
+"n": 2,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md": {
+"n": 3,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/example-of-typical-purchase-order-workflow-6d3b90d0.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/required-steps-43399a5d.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/variables-for-invoices-or-purchase-requests-26e917cb.md": {
+"n": 2,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-admin-guides/step-4-assign-the-proper-rights-to-users-82481079.md": {
+"n": 1,
+"owners": [
+"configValueSets"
+]
+},
+"concur-invoice-professional-edition-tools-guides/what-fields-are-extracted-during-the-ocr-process-8eddb3cf.md": {
+"n": 2,
+"owners": [
+"configCompressedRanges"
+]
+},
+"concur-invoice-professional-edition-admin-guides/import-settings-record-type-200-format-c244e3ab.md": {
+"n": 1,
+"owners": [
+"configCompressedRanges"
+]
+},
+"concur-invoice-professional-edition-admin-guides/configure-forms-and-fields-for-purchase-order-copy-down-to-pr-f926eac7.md": {
+"n": 2,
+"owners": [
+"configCompressedRanges"
+]
+}
+}

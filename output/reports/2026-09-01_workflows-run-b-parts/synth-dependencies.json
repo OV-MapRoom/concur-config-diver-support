@@ -1,0 +1,344 @@
+{
+  "dependencies": [
+    {
+      "type": "precedes",
+      "sourcePage": "Email Reminders",
+      "sourceField": "rule_name",
+      "targetPage": "Email Reminders",
+      "targetField": "reminder-rule",
+      "condition": "RULE BEFORE REMINDER - the load-bearing ordering on this page. A reminder rule (Rules tab) must exist before the Reminder Rule field on the Email Reminders tab can be filled, unless one of the system default rules is used. configuration-process-8b2c271f.md orders the same sequence as numbered steps: step 1 'Create the rules: On the Rules tab of the Email Reminders page...' then step 2 'Create the configuration: On the Email Reminders tab of the Email Reminders page, create a new configuration.'",
+      "sourceQuote": "You must set up the rules before creating the email reminder, or you must use one of the default rules that the system provides.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Email Reminders",
+      "sourceField": "rule_name",
+      "targetPage": "Email Reminders",
+      "targetField": "name",
+      "condition": "Second, independent statement of the same ordering, at the level of the reminder configuration object itself (whose identity field is Name on the Email Reminders tab) rather than the Reminder Rule picker. The escape hatch is the same: a default rule removes the need to author one first.",
+      "sourceQuote": "A rule must be created before you create an email reminder, however, you can use one of the default rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "reminder-rule",
+      "targetPage": "Email Reminders",
+      "targetField": "reminder-type",
+      "condition": "OPTION-LIST dependency: the set of rules offered in Reminder Rule is filtered by the Reminder Type selected immediately above it. Reminder Type must therefore be set first.",
+      "sourceQuote": "Only the rules with this reminder type will appear in the next field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "reminder-rule",
+      "targetPage": "Email Reminders",
+      "targetField": "rule_reminder_type",
+      "condition": "CROSS-TAB, same page: the Reminder Rule helper offers only rules previously created on the Rules tab whose own Reminder Type (rule_reminder_type) matches the Reminder Type chosen on the Email Reminders tab. This is the rule-side half of the same filter; it is also a second statement that the rule must already exist.",
+      "sourceQuote": "Use the Reminder Rule helper to select a previously created email reminder rule for the selected Reminder Type.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "number-of-days",
+      "targetPage": "Email Reminders",
+      "targetField": "frequency",
+      "condition": "CONDITIONAL VISIBILITY: Number of Days is rendered only when Frequency is set to 'Every x days'. A driver must set Frequency before this field exists.",
+      "sourceQuote": "This field appears only if you selected Every x days in the Frequency field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "specific-days",
+      "targetPage": "Email Reminders",
+      "targetField": "frequency",
+      "condition": "CONDITIONAL VISIBILITY: Specific days is rendered only when Frequency is set to 'Specific days of the month'. A driver must set Frequency before this field exists.",
+      "sourceQuote": "This field appears only if you selected Specific days of the month in the Frequency field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "frequency",
+      "targetPage": "Email Reminders",
+      "targetField": "reminder-rule",
+      "condition": "Frequency is an interval measured from the violation of the selected reminder rule, not an absolute calendar setting - the rule is what starts the clock, so the rule must be chosen for Frequency to mean anything.",
+      "sourceQuote": "Select how often you want this email to be sent once a rule is violated:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "copy-to-employee",
+      "targetPage": "Email Reminders",
+      "targetField": "reminder-type",
+      "condition": "CONDITIONAL VISIBILITY, and the quote sits in the Copy to Approver row rather than the Copy to Employee row of the same field table: Copy to Employee is described as appearing only when the reminder is an approval invoice, which is determined by the Reminder Type selected (the two Approval Request types). The Copy to Employee row itself documents the control unconditionally, so the corpus is not fully consistent about whether the field is always present.",
+      "sourceQuote": "If the email reminder is an approval invoice, then the Copy to Employee setting appears, and the email is also sent to the employee for whom the invoice is requiring approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "email-message",
+      "targetPage": "Email Reminders",
+      "targetField": "reminder-type",
+      "condition": "CONTENT dependency: which record fields the generated message body lists is determined by the reminder rule type, so the same Email Message text yields different content per Reminder Type. The token guide calls it 'Reminder Rule Type'; the Email Reminders tab field is labelled 'Reminder Type'.",
+      "sourceQuote": "The list of records for each Reminder Rule Type contain the following information in the email message:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Email Reminders",
+      "sourceField": "rule_name",
+      "targetPage": "Email Reminders",
+      "targetField": "active",
+      "condition": "DESTRUCTIVE SIDE EFFECT, cross-tab: removing a rule on the Rules tab flips the Active state of any Email Reminders tab configuration bound to it. The reminder record survives but stops sending until a new rule is selected.",
+      "sourceQuote": "If a rule is deleted that is currently associated with an email reminder, it will deactivate the email reminder.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "frequency",
+      "targetPage": "Import/Extract Administrator",
+      "targetField": "Email Reminder Schedule",
+      "condition": "THE SCHEDULING HANDOFF - the single most important thing a driver can be told about this page. Nothing on Email Reminders schedules anything: Frequency only describes the interval at which an already-scheduled job may send. A CONFIG WRITER CANNOT COMPLETE THIS LEG - scheduling is done in the Import/Extract Administrator tool by SAP Concur staff, and configuration-process-8b2c271f.md adds 'Scheduling requires you to submit a service request to SAP Concur support.' FORWARD REFERENCE into an UNBUILT surface: the Import/Extract Administrator is not modelled in this graph, and the corpus names no control on it for this job - the target field name is descriptive, not a documented label.",
+      "sourceQuote": "Scheduling email reminders is done in the Import/Extract Administrator tool and is performed by SAP Concur staff.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "name",
+      "targetPage": "Import/Extract Administrator",
+      "targetField": "Email Reminder Schedule",
+      "condition": "Companion to the scheduling handoff, and the practical rule for a driver: a NEW reminder configuration needs no new schedule - it joins the existing one. The schedule leg is required only the first time ('If this is the first time you create email reminder configurations, you must set up the schedule to run the email reminders.'). FORWARD REFERENCE into an UNBUILT surface; the target field name is descriptive, not a documented label.",
+      "sourceQuote": "The new email reminder will run on the same email reminder schedule that was set up prior.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "applies-to",
+      "targetPage": "Group Configurations",
+      "targetField": "Group",
+      "condition": "GROUP-LEVEL ASSIGNMENT: a reminder is scoped by picking groups in Applies to, and those group objects are created and configured on the built Group Configurations page - which names email reminders explicitly as one of the things groups exist to differentiate. The groups must exist there before this field can bind to them. On this page the effect is exclusive, not inherited: 'Only the groups that you select will have this reminder available to them. The groups below the selected groups do not have this reminder available.'",
+      "sourceQuote": "Group Configurations within the Invoice Configuration administrator are used to identify and configure the groups necessary to provide employees with different payment policies, audit rules, email reminders, and vendors.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "editable-by",
+      "targetPage": "Group Configurations",
+      "targetField": "Group",
+      "condition": "Editable By is expressed entirely in terms of the group hierarchy maintained on Group Configurations - the selectable entries are groups, and an administrator may only select groups at or beneath their own level ('Depending on your rights, you may not be able to select Global Group. You are only allowed to select groups beneath you.'). The hierarchy must exist before this field can be set.",
+      "sourceQuote": "Select the group rights that an administrator must have to modify this reminder.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "email-subject",
+      "targetPage": "Localization",
+      "targetField": "Email Reminder Text Translation",
+      "condition": "Subject and message text entered here are NOT translated by the system. For multi-language groups the strings must be extracted and sent to a localization vendor, which 'may' require a service request to SAP Concur support - so, like scheduling, a config writer cannot complete this leg from this page. FORWARD REFERENCE into the UNBUILT Localization surface (Group 6); the corpus names no control for the extraction, so the target field name is descriptive, not a documented label.",
+      "sourceQuote": "Email Subject and Email Message text is not localized in the system automatically.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Email Reminders",
+      "sourceField": "rule_name",
+      "targetPage": "Workflows",
+      "targetField": "expire_after_this_many_days",
+      "condition": "CROSS-GROUP TIMING COORDINATION, documented as a RECOMMENDATION rather than a system-enforced rule: a reminder rule aimed at a workflow step that times out should fire before the timeout elapses, so the rule's timing has to be derived from the workflow step's timeout duration. NOTE the naming drift already recorded in this graph: about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md calls the control 'Workflow Step Timeout Duration', which the Workflows page records as an alias/contradiction for the Approval Time Expired Action + Expire After This Many Days pair on the General page.",
+      "sourceQuote": "it would be helpful to create an email reminder for the Vendor Manager that triggers ~2 days prior to time out",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_approval_limit",
+      "condition": "THE DELEGATE / AUTHORIZED-APPROVER CROSS-REFERENCE. When this checkbox is selected, the delegate pool for an Authorized Approver is filtered against the Approval Limit values maintained on the Workflows > Authorized Approvers tab, so those limits must be loaded there before the restriction has anything to compare. Corroborated verbatim on the list-page roster in access-and-view-payment-delegate-configurations-8ed1298f.md.",
+      "sourceQuote": "If selected (enabled), the user selected to be a delegate for an Authorized Approver must also be an Authorized Approver, with the same or higher approver limit.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "targetPage": "Delegate Configurations",
+      "targetField": "delegate_can_approve_any_time",
+      "condition": "CLEARING the restriction has an active consequence, not a neutral one: for a delegate whose own authority is only for a lower approval limit, the approval permissions are withdrawn. The doc names the permissions by their list-page labels ('Can Approve' / 'Can Approve Temporary'); the editor labels them 'Delegate can approve (any time)' and 'Delegate can approve during specified period'.",
+      "sourceQuote": "When this setting is cleared (disabled), and a delegate with authority only for a lower approval limit is chosen, approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "targetPage": "Delegate Configurations",
+      "targetField": "delegate_can_approve_during_specified_period",
+      "condition": "Second half of the same withdrawal: 'Can Approve Temporary' is the list-page label for the editor's 'Delegate can approve during specified period'. Same quote, same table row.",
+      "sourceQuote": "When this setting is cleared (disabled), and a delegate with authority only for a lower approval limit is chosen, approval authority and functionality (Can Approve and Can Approve Temporary) become unavailable for that delegate",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "targetPage": "Authorized Approval Limits",
+      "targetField": "approval_limit_amount",
+      "condition": "EVALUATION TIMING, and it is a trap for a config writer: the limit comparison is made once, at delegate assignment. Later edits to the Amount on Authorized Approval Limits do NOT re-evaluate or revoke an existing delegate, and neither user nor delegate is notified ('If an Authorized Approver has the same or higher limit and becomes a delegate and if the Authorized Approver delegate's limit is later lowered, Concur Invoice does not remove that delegate nor is the user or delegate notified.'). So the limits must be correct BEFORE delegates are assigned.",
+      "sourceQuote": "The Authorized Approver limits are evaluated only when the delegate is assigned.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "restrict_approvers_to_equal_or_higher_authorized_approver_limit",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_feature_available_for_workflows",
+      "condition": "INFERRED: the corpus does not state this ordering against the delegate checkbox. What it states is that the Authorized Approver table is consulted only when the Workflows > Authorized Approvers configuration setting is on; since this restriction is defined entirely in terms of Authorized Approvers and their limits, it has nothing to evaluate on a site where that feature is off.",
+      "sourceQuote": "If the system is set to use the Authorized Approver table through the Workflows, Authorized Approvers page, Authorized Approver feature is available for workflows setting.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_can_approve_any_time",
+      "targetPage": "Authorized Approval Limits",
+      "targetField": "approval_limit_amount",
+      "condition": "AUTHORITY INHERITANCE: granting approval here does not give the delegate their own authority - while acting on behalf of an authorized approver the delegate runs on that approver's limits, currencies and exception authority. What this checkbox actually controls is therefore bounded by values maintained on Authorized Approval Limits.",
+      "sourceQuote": "When a delegate is acting on behalf of an authorized approver, the delegate inherits the authority of that authorized approver, including that authorized approver's limits (if any), currencies, and exception authority (if any).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegates-4d7c563c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_can_approve_any_time",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_level",
+      "condition": "Same inheritance stated against LEVEL rather than limit: the delegate uses the original approver's Level from the Workflows > Authorized Approvers list, never their own. A delegate's own level is irrelevant to what they can approve on someone else's behalf.",
+      "sourceQuote": "The delegate approver acting on behalf of the assigned approver will use the level or limit rights assigned to the original approver rather than their own values.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegates-ff6ea3e6.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_can_approve_any_time",
+      "targetPage": "Workflows",
+      "targetField": "allow_delegated_approvers_to_approve_own_requests",
+      "condition": "DELEGATE SELF-APPROVAL: granting approval authority here does not settle whether a delegate may approve a request they themselves created on behalf of the approver - that is decided per workflow by the General-step setting on the built Workflows page. NOTE for the graph's integrity: delegate-self-approval-1b627285.md describes that SAME Workflows control and is deliberately NOT used to emit a field on Delegate Configurations.",
+      "sourceQuote": "This setting lets a company allow or prevent delegates to self-approve invoices that they create on behalf of an Approver",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-self-approval-1b627285.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_can_approve_any_time",
+      "targetPage": "Delegate Configurations",
+      "targetField": "require_approver_role_for_approval_delegation",
+      "condition": "INTRA-PAGE GATE: ticking an approval permission does not by itself produce an approving delegate when the Restrictions checkbox is active - the selected delegate must additionally hold the Approver role, or delegate approval status is refused.",
+      "sourceQuote": "Require approver role for approval delegation: If active, the delegates assigned to this configuration must be assigned the Approver role in order to be allowed delegate approval status.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "require_approver_role_for_approval_delegation",
+      "targetPage": "User Administration",
+      "targetField": "Invoice Approver",
+      "condition": "The role must already be held by the prospective delegate - it is not granted from this page. FORWARD REFERENCE into an UNBUILT surface: approver-terminology-8559861c.md places the grant elsewhere ('An Approver is set within User Permissions.'), and this corpus defers the user-profile surface to external Shared guides that are absent here - a DOCUMENTARY gap, not a menu-location one.",
+      "sourceQuote": "the delegate must already have the Invoice Approver role.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "restrict_delegate_selection_to_users_group",
+      "targetPage": "Group Configurations",
+      "targetField": "Group",
+      "condition": "The restriction is evaluated against the employee group hierarchy maintained on the built Group Configurations page, so group membership there decides who an employee may pick as a delegate. Related trap documented in special-considerations-for-delegate-configurations-8b2bfccb.md: moving an employee to another group does not remove or update existing delegate assignments.",
+      "sourceQuote": "Restrict delegate selection to user's group: If active, the delegates assigned to this configuration can only act on behalf of another employee within their group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "applies-to-groups",
+      "targetPage": "Group Configurations",
+      "targetField": "Group",
+      "condition": "CARDINALITY, one-to-one: a group carries at most one Invoice delegate configuration, so binding this configuration to a group displaces any other. The group objects are created on the built Group Configurations page and must exist first. This is also the honest endpoint for the dangling Group 1 edge dep.g1.059, which carries this exact quote but names a LABEL-shaped target field 'Delegate Configuration' that no field in this run is called - see the run notes.",
+      "sourceQuote": "Each group within your company can only have one Invoice delegate configuration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "inheritance_link",
+      "targetPage": "Group Configurations",
+      "targetField": "Group",
+      "condition": "The Inheritance toggle propagates this configuration down the employee group hierarchy defined on Group Configurations, so what it reaches is decided by that hierarchy and not by anything on this page. It is a toggle: 'The Inheritance link works as a toggle. When selected, the link switches between Inheritance and No Inheritance.'",
+      "sourceQuote": "Select the Inheritance link to apply the configuration to all groups that fall below the selected group in the hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "maximum-time-period-to-approve",
+      "targetPage": "User Administration",
+      "targetField": "Choose Dates",
+      "condition": "The admin sets the ceiling in days; the actual delegation dates are picked elsewhere, in the Delegates area of My Info and User Administration. FORWARD REFERENCE into an UNBUILT surface (the User Administration user profile, deferred to external Shared guides absent from this corpus). Restated verbatim on the list-page roster in access-and-view-payment-delegate-configurations-8ed1298f.md, there introduced by 'NOTE:' rather than a Note block.",
+      "sourceQuote": "This field works in conjunction with the Choose Dates link in the Delegates area of both My Info and User Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "maximum-time-period-to-approve",
+      "targetPage": "Delegate Configurations",
+      "targetField": "delegate_can_approve_during_specified_period",
+      "condition": "INFERRED: the corpus does not state this ordering. It follows from the two rows describing the same quantity from opposite ends - this permission is the one that carries 'a set length of time', and Maximum Time Period to Approve is the only control on the page that expresses a time period in days. Treat the ceiling as configured before the permission is granted.",
+      "sourceQuote": "Delegate can approve during specified period: If active, the delegates assigned to this configuration can approve invoices on behalf of another employee. There is a set length of time associated with this action.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_can_submit",
+      "targetPage": "User Administration",
+      "targetField": "Can Submit",
+      "condition": "EXPLICIT TWO-STAGE ORDERING, stated by the corpus: the administrator grants the permission in the delegate configuration FIRST, and only then can it be conferred when the delegate is added for the employee. The employee can still withhold it ('This means an administrator may grant this ability, but the user can deny it when they add their delegate.'), so this page sets the ceiling, never the outcome. FORWARD REFERENCE into the UNBUILT User Administration / My Info delegate surface.",
+      "sourceQuote": "only if that permission was granted first within the delegate configuration by the User Admin, and then when the delegate was added for the employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_can_view_images",
+      "targetPage": "User Administration",
+      "targetField": "Can View Images",
+      "condition": "Same ceiling-not-outcome pattern: the configuration permits image viewing, and the employee may override it per delegate on the Invoice Delegates page (Profile > Profile Settings > Invoice Delegates). FORWARD REFERENCE into the UNBUILT user-profile delegate surface. LABEL DRIFT worth noting for a driver: this same checkbox is called 'Delegate can view invoice images for payment requests' in delegate-experience-8b30fb06.md and 'Delegate can view images' in the create-configuration field table.",
+      "sourceQuote": "Although the configuration allows a delegate to view invoice images, the employee can elect to override this setting.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Delegate Configurations",
+      "sourceField": "delegate_settings_for_user_administrators_and_employees",
+      "targetPage": "User Administration",
+      "targetField": "Delegates",
+      "condition": "THE CASCADE, and it governs the whole permission block: every permission a user can grant or deny for their own delegate must first be allowed at the administrator level here. Configure this section before any per-employee delegate work is attempted. FORWARD REFERENCE into the UNBUILT User Administration / Profile delegate surface.",
+      "sourceQuote": "That is, the set of permissions available to a user to allow or deny are each allowed or disallowed at the administrator level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+    }
+  ]
+}

@@ -1,0 +1,531 @@
+{
+  "pageId": "email-reminders",
+  "pageName": "Email Reminders",
+  "lens": "procedures-and-controls",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+    "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+    "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md",
+    "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md",
+    "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b2c769e.md",
+    "concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md",
+    "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md",
+    "concur-invoice-professional-edition-admin-guides/pre-defined-rules-220a1fe7.md",
+    "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+    "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md",
+    "concur-invoice-professional-edition-admin-guides/copy-email-reminders-cb75f9fd.md",
+    "concur-invoice-professional-edition-admin-guides/delete-email-reminders-8f693700.md",
+    "concur-invoice-professional-edition-admin-guides/edit-reminder-rules-8f2edae9.md",
+    "concur-invoice-professional-edition-admin-guides/copy-reminder-rules-9350776e.md",
+    "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md",
+    "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md",
+    "concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md",
+    "concur-invoice-professional-edition-admin-guides/best-practices-when-localizing-subject-and-email-message-fields-48515f40.md",
+    "concur-invoice-professional-edition-admin-guides/email-reminders-8b2caa99.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+  ],
+  "fields": [
+    {
+      "name": "name",
+      "label": "Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type a unique name for the email reminder configuration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field (create-email-reminders-604c4a46.md, 15-row roster). COLLIDES with rule_name below - same label 'Name' appears as a standalone table cell on both the Email Reminders tab roster and the Rules tab roster (create-reminder-rules-b0a7fac5.md). Kept bare per the naming convention; the rule-side twin is prefixed rule_name. Different controls, different objects (reminder vs rule).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "reminder-type",
+      "label": "Reminder Type",
+      "fieldType": "dropdown",
+      "validValues": ["Approval Request - Payment Request", "Approval Request - Vendor Request", "Payment Request"],
+      "sourceQuote": "Select the type that this email reminder applies to. Reminder Type serves as a category for the rules that apply to that type as well as the action that the reminders are activated upon:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. COLLIDES with rule_reminder_type below - same label on both rosters. See contradiction node 'reminder-type-option-list-and-definition' - this file's list and definitions genuinely disagree with the Rules-tab roster's list. 'Only the rules with this reminder type will appear in the next field' (Reminder Rule) ties this field's selection to filtering the Reminder Rule field's options - see dependencyCandidate.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "reminder-rule",
+      "label": "Reminder Rule",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Use the Reminder Rule helper to select a previously created email reminder rule for the selected Reminder Type.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Selects among rules created on the Rules tab (the rule_name object), filtered by the Reminder Type selected above; not enumerable as a static value set - its population is dynamic (whatever rules exist for the chosen type, including the 2 system-supplied default rules named on Pre-Defined Rules). 'The Email Reminder Rules section of this tool is used to create any new rules.' Hard ordering: a rule must exist before a reminder can select one here - see dependencyCandidate rule-precedes-reminder.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "frequency",
+      "label": "Frequency",
+      "fieldType": "dropdown",
+      "validValues": ["Daily (weekdays only)", "Daily", "Every x days", "Specific days of the month", "Once condition is met"],
+      "sourceQuote": "Select how often you want this email to be sent once a rule is violated:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. Controls conditional visibility of Number of Days (only if Every x days) and Specific days (only if Specific days of the month) - see dependencyCandidates. 'Once condition is met' carries a documented flag-reset caveat: flags are cleared every 60 days for performance reasons, so a once-only reminder can effectively repeat every 60 days unless the rule itself adds a time- or status-based guard condition.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "number-of-days",
+      "label": "Number of Days",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "This field appears only if you selected Every x days in the Frequency field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Conditionally visible: only if Frequency = 'Every x days'. 'Enter the number of days since the last email reminder that this email is to be sent.' Behavior note: 'An email will be sent initially once the condition is met, then every “x days” as specified.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "specific-days",
+      "label": "Specific days",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "This field appears only if you selected Specific days of the month in the Frequency field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Conditionally visible: only if Frequency = 'Specific days of the month'. 'Enter a valid integer between 1 and 31. Use > for the last day of the month.' Example: '10, 20, > in the field would run the reminder on the 10th, 20th, and the last day of the month.' See compressedRange 'valid integer between 1 and 31'.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "display-as-from",
+      "label": "Display as From",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Input the name you would like the recipient to see on the notification. The @ symbol is not permitted in this name.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. DO NOT CONFUSE with the built field.workflows.email-notification-display-as-from ('Display as From') on the Workflows > Email Notifications tab (add-an-email-notification-c237a2de.md) - same label, different page, different object (event-driven notification vs interval-driven reminder). Constraint: 'This name affects the display name only and does not affect the underlying email address of EmailReminderService@concursolutions.com.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "email-subject",
+      "label": "Email Subject",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Input the message that will appear as the Subject of the email message. There is a maximum of 255 characters.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. 255-character max. DO NOT CONFUSE with the built field.workflows.email-subject on the Workflows > Email Notifications tab - same label, different page/object. Accepts manually-typed replacement tokens from the re-homed value set (see valueSetCandidates 'email-message-replacement-tokens') - 'You must type the actual value, such as %3% in the line rather than select it from the Helper pane.' Not auto-localized (localizing-email-reminder-text-8b2cc1b0.md): 'Email Subject and Email Message text is not localized in the system automatically.' - a service request to SAP Concur support is required to extract strings for translation.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "email-message",
+      "label": "Email Message",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type the message that appears in the body of the email up to 2,000 characters (double-byte characters are counted as 2 characters).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. 2,000-character max, double-byte characters count as 2 (corroborated in best-practices-when-localizing-subject-and-email-message-fields-48515f40.md: 'there is a 2,000-character limit to the message in the body of the email (the Email Message field)'; translation into other languages typically expands character count, factor this in). Also carries the 10MB total-email attachment cap: 'The limit for emails that use the SAP Concur notification service is 10MB. Outgoing emails that have attachments larger than 10MB are not delivered.' Accepts the same manually-typed replacement tokens as Email Subject, but the %4% List of Records token 'is not supported in the Email Subject field' - i.e. it is Email Message-only. Not auto-localized, same as Email Subject.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "copy-to-approver",
+      "label": "Copy to Approver",
+      "fieldType": "radio",
+      "validValues": ["Yes", "No"],
+      "sourceQuote": "Select Yes to be able to send this email to this employee's default approver, in addition to the employee to whom the email pertains.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Both Yes and No are explicitly documented in prose (not inferred): Yes = 'Select Yes to be able to send this email to this employee's default approver...'; No = 'If you do not want to send an email reminder to the default approver, select No.' If this reminder is an approval invoice, selecting Yes causes the Copy to Employee setting to appear.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "copy-to-employee",
+      "label": "Copy to Employee",
+      "fieldType": "radio",
+      "validValues": ["Yes", "No"],
+      "sourceQuote": "Select Yes or No to indicate if a copy is to be sent to the employee represented in the item pending approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Both Yes and No documented explicitly in a single sentence naming both values. Caution: 'If multiple items are pending the approver, each one will be listed in the email reminder. The relevant employees will all be added as cc recipients of the email to the approver, and thus will view information about items from other employees that might not be appropriate visibility.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "copy-to-email-address",
+      "label": "Copy to Email Address",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type the appropriate email address. Multiple email addresses can be separated by a comma or a semicolon.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. Free-text; accepts multiple addresses separated by comma or semicolon.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "editable-by",
+      "label": "Editable By",
+      "fieldType": "multiselect",
+      "validValues": ["Global Group"],
+      "sourceQuote": "Select the group rights that an administrator must have to modify this reminder.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. COLLIDES with rule_editable_by below - same label on both rosters, both describing the identical group-rights mechanism (text is near-verbatim between the two files, but each is documented in its own file so kept as two nodes per page-scoping). Only 'Global Group' is a fixed named option; beyond that the field is populated by the site's own group hierarchy (e.g. 'Global Group  United States', 'Global Group  Europe' - example groups, not an enumerable corpus-wide list). 'If you select Global Group, then the reminder can be edited or deleted by any employee assigned to administer the Global Group. All other administrators assigned at lower levels in the hierarchy can copy this reminder, but not edit or delete it.' Selecting one or more specific groups requires the admin to have rights to ALL selected groups (inheritance applies to groups beneath the selection).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "applies-to",
+      "label": "Applies to",
+      "fieldType": "multiselect",
+      "validValues": [],
+      "sourceQuote": "Select the groups that will be able to see this reminder. Only the groups that you select will have this reminder available to them. The groups below the selected groups do not have this reminder available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Email Reminders tab field. Group-scoped visibility; no fixed enumeration in the corpus - populated from the site's own group tree, which is configured on the built Group Configurations page. Notably this field is NOT inherited downward ('The groups below the selected groups do not have this reminder available') - the opposite inheritance direction from Editable By. See dependencyCandidate 'applies-to-depends-on-group-configurations' and the role-partition constraint that bites this field ((Restricted) admins who reach Email Reminders cannot reach Group Configurations to see/manage the groups being assigned).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "active",
+      "label": "Active",
+      "fieldType": "radio",
+      "validValues": ["Yes"],
+      "sourceQuote": "Select Yes to make this email reminder active. All email reminders are inactive by default.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "BLIND-BUILD GUARD: only 'Yes' is documented ('Select Yes to make this email reminder active. All email reminders are inactive by default. Emails are not sent until you set this field to Yes.'). A 'No' value is NOT emitted here even though the field is plainly binary in behavior - the corpus never writes the word 'No' for this control, unlike Copy to Approver/Copy to Employee where both sides are stated. Do not complete the pair.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "rule_name",
+      "label": "Name",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Type a name for the email reminder configuration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "Rules tab field (create-reminder-rules-b0a7fac5.md, 3-row roster: Name, Reminder Type, Editable By). Prefixed rule_ to avoid the hard duplicate-field-name validator error against the bare 'name' field on the Email Reminders tab roster - same label, different object (a reminder RULE, not a reminder). Named on 'On the Email Reminders page, select the Rules tab.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "rule_reminder_type",
+      "label": "Reminder Type",
+      "fieldType": "dropdown",
+      "validValues": ["Approval Request - Payment Request", "Approval Request - Payment Vendor", "Payment Request"],
+      "sourceQuote": "Select the type that this email reminder applies to. Reminder Type serves as a category for the rules that apply to that type as well as the action that the reminders are activated on:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "Rules tab field. Prefixed rule_ - collides in label with the bare 'reminder-type' field on the Email Reminders tab roster, and the two option lists GENUINELY DISAGREE. See contradiction node 'reminder-type-option-list-and-definition': this file names 'Approval Request - Payment Vendor' (not 'Approval Request - Vendor Request') and defines 'Approval Request - Payment Request' as 'When an invoice has a status of Pending Approval.' (the other roster: 'When a cash advance request has a status of Pending Approval.'). 'Selecting a type also filters the options available when creating the rule using the condition editor on the next page.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "rule_editable_by",
+      "label": "Editable By",
+      "fieldType": "multiselect",
+      "validValues": ["Global Group"],
+      "sourceQuote": "Select the group rights that an administrator must have to modify this rule.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "Rules tab field. Prefixed rule_ - collides in label with the bare 'editable-by' field on the Email Reminders tab roster. Mechanism described near-identically to the reminder-side field (Global Group vs specific-group selection, inheritance, view/copy-only fallback) but this sentence's own file is cited as its source per page-scoping rules. Governs edit/delete rights on the RULE object, not the reminder.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "new-button",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Choose New to open the Email Reminder window.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Shared page-level control, present on both tabs with tab-specific behavior. Email Reminders tab: 'Choose New to open the Email Reminder window.' Rules tab: 'Choose New' opens 'The New Reminder Rule - Step 1 page' (create-reminder-rules-b0a7fac5.md). ROLE GATE, verbatim, on the Rules-tab New: 'Group administrators can only create email reminder rules if given \"create\" rights. If they do not have permissions, then the New button will not appear.' (create-reminder-rules-b0a7fac5.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "modify-button",
+      "label": "Modify",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Choose Modify to open the Email Reminder window.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md",
+      "notes": "Shared control on the Email Reminders tab: used for both EDIT ('Choose Modify to open the Email Reminder window.') and COPY ('Choose Modify to open the Email Reminder window and make any necessary changes.', copy-email-reminders-cb75f9fd.md). CORPUS DEFECT: the reminder-side COPY procedure never names a dedicated Copy control - it reuses Modify - while the rule-side copy procedure correctly names a distinct Copy control (see 'copy-button-rule'). Recorded as an asymmetry; do not invent a reminder-side Copy button. Rule-side edit also uses a control named 'Modify': 'Select the rule to edit, and then choose Modify.' (edit-reminder-rules-8f2edae9.md) - opens the 'New Reminder Rule - Step 1' / 'Conditions - Step 2' wizard. ROLE GATE on reminder-side edit: 'Group administrators can only edit email reminders if given \"create\" rights from the configuration checklist of the Invoice Configuration administrator. If they do not have permissions, then the Edit Email Reminder page will be read-only.' Note it is CREATE rights that govern EDIT. Rule-side edit carries the parallel gate: 'Group administrators can only edit email reminder rules if given \"create\" rights. If they do not have permissions, then the Edit Reminder Rule page will be read-only.' (edit-reminder-rules-8f2edae9.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "copy-button-rule",
+      "label": "Copy",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select the rule to copy, and then choose Copy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/copy-reminder-rules-9350776e.md",
+      "notes": "RULE-SIDE ONLY. This is the control the reminder-side copy topic fails to name (see 'modify-button' notes for the asymmetry). No equivalent 'Copy' control is documented for the reminder object anywhere in this file set.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "remove-button",
+      "label": "Remove",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Remove.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-email-reminders-8f693700.md",
+      "notes": "Shared control, present for delete on both objects. Reminder-side: 'Select the email reminder you want to delete. Select Remove.' - takes effect immediately with no confirmation step described. Rule-side: 'Select the rule to delete, and then choose Remove.' followed by a confirmation dialog ('In the confirmation message, select Yes to dismiss the message.', delete-reminder-rules-ab4f8d33.md) - see 'confirm-yes-button'. This is a documented asymmetry: reminder delete has no confirmation dialog in the corpus, rule delete does.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "confirm-yes-button",
+      "label": "Yes",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "In the confirmation message, select Yes to dismiss the message.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md",
+      "notes": "Confirmation-dialog control on RULE delete only; no corresponding confirmation dialog is documented on reminder delete (see 'remove-button' notes).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "save-button",
+      "label": "Save",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Choose Save.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Reminder-object create/edit/copy commit control (Email Reminder window). 'The Email Reminders page appears and the reminder you just created appears in the list.' The rule object has no 'Save' control documented - it uses 'Next' then 'Finish' across the two-step wizard instead (see 'next-button', 'finish-button').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "next-button",
+      "label": "Next",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Choose Next.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "RULE-SIDE ONLY. Advances from 'New Reminder Rule - Step 1' to 'Conditions - Step 2' within the rule wizard modal. Reused on rule edit: 'Choose Next, and, on the Conditions - Step 2 page, make the desired edits.' (edit-reminder-rules-8f2edae9.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "finish-button",
+      "label": "Finish",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Finish.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "RULE-SIDE ONLY. Commits the rule wizard from the Conditions - Step 2 page. 'You are returned to the Rules tab.' Reused on rule edit (edit-reminder-rules-8f2edae9.md: 'Select Finish.').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "reminder-type",
+      "contextField": "",
+      "context": "The Reminder Type option list on the Email Reminders tab roster (create-email-reminders-604c4a46.md). Unconditional - always these 3 options.",
+      "values": ["Approval Request - Payment Request", "Approval Request - Vendor Request", "Payment Request"],
+      "sourceQuote": "Approval Request - Vendor Request: When a vendor-based invoice has a status of Pending Approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "CONTRADICTS the rule-side value set below (see contradiction node 'reminder-type-option-list-and-definition'). 'Approval Request - Vendor Request' appears ONLY in this file. This roster defines 'Approval Request - Payment Request' as: 'When a cash advance request has a status of Pending Approval.' Do not reconcile with the rule-side list."
+    },
+    {
+      "appliesToField": "rule_reminder_type",
+      "contextField": "",
+      "context": "The Reminder Type option list on the Rules tab roster (create-reminder-rules-b0a7fac5.md). Unconditional - always these 3 options.",
+      "values": ["Approval Request - Payment Request", "Approval Request - Payment Vendor", "Payment Request"],
+      "sourceQuote": "Approval Request - Payment Vendor: When a vendor-based invoice has a status of Pending Approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "CONTRADICTS the reminder-side value set above. 'Approval Request - Payment Vendor' appears ONLY in this file (the reminder-side names 'Approval Request - Vendor Request' instead). This roster defines 'Approval Request - Payment Request' as: 'When an invoice has a status of Pending Approval.' - incompatible with the reminder-side definition ('cash advance request'). Weak corroboration: pre-defined-rules-220a1fe7.md names a default rule 'Overdue Payment Vendor Approvals', echoing this file's 'Payment Vendor' phrasing rather than the reminder-side's 'Vendor Request' - noted, not used to pick a winner."
+    },
+    {
+      "appliesToField": "frequency",
+      "contextField": "",
+      "context": "The Frequency option list on the Email Reminders tab roster. Unconditional - always these 5 options.",
+      "values": ["Daily (weekdays only)", "Daily", "Every x days", "Specific days of the month", "Once condition is met"],
+      "sourceQuote": "Select how often you want this email to be sent once a rule is violated:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Complete 5-option enumeration; controls conditional visibility of Number of Days and Specific days (see dependencyCandidates)."
+    },
+    {
+      "appliesToField": "editable-by",
+      "contextField": "",
+      "context": "The Editable By field names one fixed option (Global Group); the rest of the field is populated dynamically from the site's own group hierarchy, illustrated in prose with example groups.",
+      "values": ["Global Group"],
+      "sourceQuote": "If you select Global Group, then the reminder can be edited or deleted by any employee assigned to administer the Global Group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Only 'Global Group' is a corpus-fixed value. The example groups named in the same paragraph ('Global Group  United States', 'Global Group  Europe') are illustrative of the tenant's own group tree, not an enumerable product-wide list, so they are NOT added here as additional values - doing so would be inventing tenant configuration, which the blind-build constraint forbids."
+    },
+    {
+      "appliesToField": "rule_editable_by",
+      "contextField": "",
+      "context": "The rule-side Editable By field, same mechanism, cited from its own file per page-scoping rules.",
+      "values": ["Global Group"],
+      "sourceQuote": "If you select Global Group, then the rule can be edited or deleted by any employee assigned to administer the Global Group.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+      "notes": "Same guard as the reminder-side set: only 'Global Group' is corpus-fixed; the rest is the tenant's own group tree and is not enumerated."
+    },
+    {
+      "appliesToField": "email-subject",
+      "contextField": "",
+      "context": "RE-HOMING the graph's known gap. Manually-typed replacement tokens usable in the Email Subject field's Helper pane, from the dedicated Email Message Replacement Tokens topic. This is the SAME 4-value catalogue as the existing orphaned node vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na (knownGap:true, appliesToRef empty) - do not re-derive or create a second set; this candidate is meant to give that node its owner: this Email Reminders page.",
+      "values": ["%1% — Logon URL: The URL for the Concur Sign In page.", "%2% — User Name: The primary recipient of the email in this format: First-name Last-name. This does not pertain to any Copy To recipients, such as approvers.", "%3% — Number of Records: The number of applicable object records, such as number of invoices, found by the reminder rule query, which is based on the Reminder Type.", "%4% — List of Records: A list of the applicable object records found by the reminder rule query, based on pre-defined formats. This variable is not supported in the Email Subject field."],
+      "sourceQuote": "You cannot select any of these replacement token variables from the Helper pane to have them appear automatically in the Email Subject or Email Message fields. You must type the variables manually.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+      "notes": "Also applies to the email-message field below (same Helper pane, same 4 tokens) with one asymmetry: %4% (List of Records) is documented as NOT supported in Email Subject, so treat email-message as the field with the full 4-token set and email-subject as the field with 3 usable tokens (%1%-%3%) plus the constraint text. TRUE CONTENT IS EXACTLY FOUR TOKENS (%1%-%4%) - the cell-opener count on this file's table is 21, which is NOT 17 additional tokens; do not hunt for more. Constraint applies to both fields: values must be typed manually, never selected from the Helper pane."
+    },
+    {
+      "appliesToField": "email-message",
+      "contextField": "",
+      "context": "RE-HOMING the graph's known gap, mirror of the email-subject entry above. Manually-typed replacement tokens usable in the Email Message field's Helper pane. Same underlying 4-value catalogue as vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na - do not create a second/duplicate set in the merge, treat these two valueSetCandidates (email-subject, email-message) as the two owners that close that gap.",
+      "values": ["%1% — Logon URL: The URL for the Concur Sign In page.", "%2% — User Name: The primary recipient of the email in this format: First-name Last-name. This does not pertain to any Copy To recipients, such as approvers.", "%3% — Number of Records: The number of applicable object records, such as number of invoices, found by the reminder rule query, which is based on the Reminder Type.", "%4% — List of Records: A list of the applicable object records found by the reminder rule query, based on pre-defined formats. This variable is not supported in the Email Subject field."],
+      "sourceQuote": "The list of records for each Reminder Rule Type contain the following information in the email message:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+      "notes": "%4% (List of Records) is Email Message-only, per its own description. Sub-catalogue of List-of-Records formats by Reminder Rule Type (2 entries, both verbatim): 'Approval requests: Fields based on the object to be approved, with the Employee Name as the last column' and 'Payment Requests: Submit Date, Request Name, Amount, Employee Name.' - included here as supporting detail on %4%, not as a separate value set."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "precedes",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "reminder-rule",
+      "targetPage": "Email Reminders",
+      "condition": "A reminder rule must exist (created on the Rules tab, or one of the 2 system-supplied default rules on Pre-Defined Rules) before an email reminder can select it in the Reminder Rule field on the Email Reminders tab. Stated independently in at least 3 topics.",
+      "sourceQuote": "A rule must be created before you create an email reminder, however, you can use one of the default rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "reminder-rule",
+      "targetPage": "Email Reminders",
+      "condition": "Independent corroboration of the rule-before-reminder ordering, with the escape clause that default rules remove the need to create any new rule.",
+      "sourceQuote": "You must set up the rules before creating the email reminder, or you must use one of the default rules that the system provides.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "rule_name",
+      "sourcePage": "Email Reminders",
+      "targetField": "active",
+      "targetPage": "Email Reminders",
+      "condition": "Deleting a rule that is currently associated with an email reminder deactivates that reminder (its Active setting is forced off); the reminder record itself is not deleted. Recovery requires opening the affected reminder from the Email Reminders tab and selecting a new rule.",
+      "sourceQuote": "If a rule is deleted that is currently associated with an email reminder, it will deactivate the email reminder. The email reminder will still exist but will not be active.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "frequency",
+      "sourcePage": "Email Reminders",
+      "targetField": "number-of-days",
+      "targetPage": "Email Reminders",
+      "condition": "Number of Days is visible only when Frequency = 'Every x days'.",
+      "sourceQuote": "This field appears only if you selected Every x days in the Frequency field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "frequency",
+      "sourcePage": "Email Reminders",
+      "targetField": "specific-days",
+      "targetPage": "Email Reminders",
+      "condition": "Specific days is visible only when Frequency = 'Specific days of the month'.",
+      "sourceQuote": "This field appears only if you selected Specific days of the month in the Frequency field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "copy-to-approver",
+      "sourcePage": "Email Reminders",
+      "targetField": "copy-to-employee",
+      "targetPage": "Email Reminders",
+      "condition": "If the email reminder is an approval invoice and Copy to Approver is set to Yes, the Copy to Employee setting appears.",
+      "sourceQuote": "If the email reminder is an approval invoice, then the Copy to Employee setting appears, and the email is also sent to the employee for whom the invoice is requiring approval.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "applies-to",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Group Configurations",
+      "condition": "Reminders are assigned to (and made visible to) groups, and group definitions themselves are configured on the Group Configurations page: 'Group Configurations within the Invoice Configuration administrator are used to identify and configure the groups necessary to provide employees with different payment policies, audit rules, email reminders, and vendors.' HARD ROLE-PARTITION CONSTRAINT bites this dependency: the Invoice Configuration administrator (Restricted) role that grants visibility into Email Reminders explicitly EXCLUDES visibility into Group Configurations, so the admin assigning Applies to / Editable By groups here may not be the same admin who can create or edit those groups.",
+      "sourceQuote": "The Group Configurations tool is not visible if you have the Invoice Configuration administrator (Restricted) role.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Import/Extract Administrator",
+      "condition": "Scheduling of email reminders (when the interval-based send job actually runs) is NOT an admin-clickable control on this page. It happens in the unbuilt Import/Extract Administrator tool and is performed by SAP Concur staff, gated behind a customer service request. A driver automating this page cannot click a scheduling control - it must escalate out of band. First-time configuration requires the schedule be set up via service request; subsequent new reminders ride the existing schedule with no further action needed (scheduling-email-reminders-8b2ceaea.md).",
+      "sourceQuote": "Scheduling email reminders is done in the Import/Extract Administrator tool and is performed by SAP Concur staff.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "email-message",
+      "sourcePage": "Email Reminders",
+      "targetField": "",
+      "targetPage": "Import/Extract Administrator",
+      "condition": "Localizing Email Subject / Email Message text is not automatic and requires a service request to SAP Concur support to extract the strings for translation. Same out-of-page, support-mediated pattern as scheduling.",
+      "sourceQuote": "Email Subject and Email Message text is not localized in the system automatically.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "option-list",
+      "topic": "The Reminder Type option list and the definition of the shared option 'Approval Request - Payment Request' disagree between the Email Reminders tab roster and the Rules tab roster, on the same page.",
+      "appliesTo": {"page": "Email Reminders", "field": "reminder-type"},
+      "readings": [
+        {
+          "summary": "Email Reminders tab: names the third option 'Approval Request - Vendor Request' and defines the shared option as triggered by a cash advance request.",
+          "sourceQuote": "Approval Request - Vendor Request: When a vendor-based invoice has a status of Pending Approval.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "Rules tab: names the same conceptual option 'Approval Request - Payment Vendor' instead, and defines the shared option as triggered by an invoice, not a cash advance request.",
+          "sourceQuote": "Approval Request - Payment Vendor: When a vendor-based invoice has a status of Pending Approval.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+        }
+      ],
+      "consequenceForWriter": "Do not treat the two lists as interchangeable or pick one as authoritative. When automating the Reminders tab, probe for the exact label 'Approval Request - Vendor Request'; when automating the Rules tab, probe for 'Approval Request - Payment Vendor'. If a probe finds neither, fall back to the shared, uncontested option 'Payment Request', and treat any 'Approval Request - Payment Request' selection as ambiguous between the two documented definitions (cash advance request vs invoice) until the live UI is inspected.",
+      "notes": "Hypothesis: this looks like an internal SAP documentation inconsistency (possibly two authors, or a mid-cycle relabeling of the vendor-facing option that was only partially propagated) rather than two real UI variants - both topics describe the SAME two-tab page in the same guide set, with the same build_no and version, and neither carries any UI-variant language. Weak corroboration for the Rules-tab phrasing: the default rule 'Overdue Payment Vendor Approvals' (pre-defined-rules-220a1fe7.md) echoes 'Payment Vendor', not 'Vendor Request' - noted, not used to resolve the contradiction, per the governing constraint."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The reminder-object editor/wizard window is named four different ways across its own CRUD topics.",
+      "appliesTo": {"page": "Email Reminders", "field": ""},
+      "readings": [
+        {
+          "summary": "create/edit/copy topics call it the 'Email Reminder window'.",
+          "sourceQuote": "Choose New to open the Email Reminder window.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+        },
+        {
+          "summary": "the read-only variant of the same editor is called the 'Edit Email Reminder page'.",
+          "sourceQuote": "If they do not have permissions, then the Edit Email Reminder page will be read-only.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md"
+        },
+        {
+          "summary": "the replacement-tokens topic instead calls it the 'Add Email Reminder page'.",
+          "sourceQuote": "Below is an example of how those options are used on the Add Email Reminder page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md"
+        }
+      ],
+      "consequenceForWriter": "Treat 'Email Reminder window', 'Edit Email Reminder page', and 'Add Email Reminder page' as one and the same modal editor over the reminder object, not as three surfaces. A Chromium driver should locate this editor by the New/Modify action that opens it, not by matching any one of these three title strings, since the corpus itself is inconsistent about which name the live UI shows.",
+      "notes": "Same shape as the Delegate Configurations child-window label drift noted in the map phase - likely inconsistent authoring across topics written by different guide sections (create/edit/copy vs. the token-reference topic) referring to a single UI surface."
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "a valid integer between 1 and 31",
+      "expandsTo": ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+      "count": 31,
+      "appliesTo": {"page": "Email Reminders", "field": "specific-days"},
+      "sourceQuote": "Enter a valid integer between 1 and 31. Use \\> for the last day of the month.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+      "notes": "Mechanical expansion of a calendar day-of-month range. The field also accepts the literal '>' character as a 32nd, non-numeric sentinel meaning 'last day of the month' - not part of the 1-31 numeric range, kept separate per the source's own phrasing ('Use > for the last day of the month.'). Multiple values are enterable together per the worked example: '10, 20, > in the field would run the reminder on the 10th, 20th, and the last day of the month.'"
+    }
+  ],
+  "coverageVerdict": "good",
+  "notes": "Every must-read file was read and cited except the two explicitly non-field items: email-reminders-8b2caa99.md (revision history, confirmed 29 dated entries, used only to corroborate that this is a live, actively-revised guide - no field content) and overview-8b2edfd0.md / add-groups-ec5d8d8b.md / work-with-the-steps-page-fab249d1.md / workflow-667cee21.md / about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md, which are corroboration/dependency-only sources per the brief and are cited in dependencyCandidates/notes but contribute no field nodes (their fields belong to already-built pages and were not re-emitted). The Conditions - Step 2 condition-editor step (Data Object / Field-Value / Operator) is deliberately left THIN: create-reminder-rules-b0a7fac5.md names these as prose steps with no field table and no enumerated values, and the corpus never states this is the same editor as the built Audit Rules condition page (the-condition-page-5d4ea870.md) - importing that page's operator/data-object catalogues here would be an unattested cross-page assumption, so no field nodes were emitted for them; this is a real, acknowledged documentary gap, not an oversight. The two child surfaces of this page (the reminder editor window/page and the two-step rule wizard) were confirmed NOT to be pages, per the Workflows General/Steps/Step Rules precedent, and no page nodes were created for them. Scheduling and localization-string-extraction were emitted only as dependencies pointing at the unbuilt Import/Extract Administrator surface, never as fields, since neither is a control a driver can click on this page. The known-gap value set (email-message-replacement-tokens, 4 tokens) was re-homed onto email-subject and email-message via two valueSetCandidates rather than re-derived or duplicated. Two ROLE GATES beyond the page-level Restricted gate were captured at field granularity: the Rules-tab New button disappears without create rights, and both Edit surfaces (reminder and rule) go read-only without create rights. Undetermined: whether the reminder-side copy control's absence (Modify substituting for Copy) is a genuine UI difference from the rule side or purely a documentation omission - recorded as a contradiction-adjacent asymmetry in notes on 'modify-button' and 'copy-button-rule' rather than as a formal contradiction node, since only one file's phrasing is in question (not two disagreeing readings)."
+}

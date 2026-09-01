@@ -1,0 +1,798 @@
+{
+  "summary": "Concur Invoice KG - Workflows Run B: Email Reminders + Delegate Configurations (merged WITH --patch)",
+  "agentCount": 20,
+  "logs": [
+    "Workflows Run B - mapping 2 pages: Email Reminders (2 tabs), Delegate Configurations (2 tabs)",
+    "Email Reminders: basis=rich, mustRead=19 files, rawTables=2",
+    "Delegate Configurations: basis=moderate, mustRead=15 files, rawTables=0",
+    "Email Reminders: 26 candidate controls from 3 lenses -> 2 refuters",
+    "Delegate Configurations: 29 candidate controls from 3 lenses -> 2 refuters",
+    "Email Reminders: dispositions -> keep 25 | repair 1 | drop 0",
+    "Delegate Configurations: dispositions -> keep 16 | repair 4 | drop 9",
+    "Email Reminders: roster 26 fields, 0 dropped, 1 repaired, coverage good",
+    "Delegate Configurations: roster 20 fields, 9 dropped, 4 repaired, coverage partial",
+    "Synthesis: valueSets=10 dependencies=34 steps=4 contradictions=18",
+    "Critic input: 46 fields across 2 pages; 4 must-read files never cited"
+  ],
+  "result": {
+    "group": "Workflows",
+    "corpusVersion": "2026_08",
+    "partsDir": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts",
+    "files": {
+      "mapNavigationMd": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/map-navigation.md",
+      "mapInventoryMd": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/map-inventory.md",
+      "rosters": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/roster-email-reminders.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/roster-delegate-configurations.json"
+      ],
+      "extracts": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-email-reminders-procedure.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-email-reminders-tables.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-email-reminders-crosscut.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-delegate-configurations-procedure.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-delegate-configurations-tables.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-delegate-configurations-crosscut.json"
+      ],
+      "valueSets": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-valuesets.json",
+      "dependencies": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-dependencies.json",
+      "steps": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-steps.json",
+      "contradictions": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-contradictions.json",
+      "ranges": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-ranges.json",
+      "criticCompleteness": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/critic-completeness.md",
+      "criticCorrectness": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/critic-correctness.md"
+    },
+    "pages": [
+      {
+        "page": "Email Reminders",
+        "documentedBasis": "rich",
+        "coverage": "good",
+        "uiVariant": "undifferentiated",
+        "fields": 26,
+        "dropped": 0,
+        "repaired": 1,
+        "splitsProposed": 3,
+        "mustReadNeverCited": [
+          "concur-invoice-professional-edition-admin-guides/overview-8b2c769e.md",
+          "concur-invoice-professional-edition-admin-guides/delete-email-reminders-8f693700.md",
+          "concur-invoice-professional-edition-admin-guides/edit-reminder-rules-8f2edae9.md"
+        ],
+        "lensHeadlines": [
+          "procedures-and-controls: Extracted 26 fields/controls across both Email Reminders page tabs (15-row reminder roster + 3-row rule roster + 8 shared buttons), correctly resolving all three guaranteed name collisions (name/reminder-type/editable-by) via a rule_-prefix scheme, and closed the known graph gap by re-homing the 4-token email-message-replacement-tokens value set onto email-subject and email-message. Emitted the mandated Reminder Type option-list-and-definition contradiction between the two tabs (with two distinct grounded readings), a child-window label-drift contradiction, one compressed range (1-31 day-of-month), and 9 dependencies including rule-before-reminder ordering (x2 corroborating sources), the delete-rule-deactivates-reminder cascade, the Applies-to→Group Configurations cross-page link with its role-partition constraint, and scheduling/localization pointing at the unbuilt Import/Extract Administrator surface. All 48 sourceQuotes across the file verified via grep -F -c >= 1 (zero failures); JSON validated with python3 -m json.tool; zero duplicate field names.",
+          "tables-and-catalogs: The three roster tables are fully enumerated - 15 Email Reminders tab fields, 3 Rules tab fields, 4 replacement tokens - for 18 fields, 11 value sets, 10 dependencies, 3 contradictions and 1 compressed range, with all 47 sourceQuotes verified byte-for-byte by grep -F (zero failures) and no duplicate field name on the page. The census trap resolved exactly as briefed: '^| ' reports the real 15-field roster as having no table at all, and the correct '^\\s*\\|' anchor returns 49 CELL-OPENERS, which is 1 separator + 16 rows x 3 for a 2-column table, i.e. 15 true field rows - an extractor believing 49 would have hunted 34 phantom fields. The known gap is closed (the orphaned 4-token set is re-homed onto email_message with a real quote), the Reminder Type contradiction is emitted unreconciled with both incompatible lists, Active is left at 'Yes' only because 'No' is unattested, and a clean documentary asymmetry is publishable: grep -rli 'email reminder' over tools-guides returns ZERO across all 650 files, so this entire feature lives in admin-guides only.",
+          "C-tools-guides-and-cross-cutting: Zero fields from this lens, and that is the correct answer rather than a lazy sweep: grep -rliF \"email reminder\" over all 650 tools-guides files returns ZERO, and the only three case-insensitive \"reminder\" hits there are an end-user batch-verification UI hint, a scare-quoted \"budget reminders\" routing best practice, and change-request prose — so the whole feature is documented in admin-guides only, the exact mirror of the Vendor Search Admin asymmetry. What tools-guides did yield is the role-gate vocabulary, and it corrects the record twice: the exact string \"Invoice Configuration administrator (Restricted)\" occurs in exactly nine files (5 admin, 4 tools), confirming the gate is real but not distinctive to this page, and the label drifts three ways with two of the three spellings living only in tools-guides. I emitted 13 dependencies and 4 grounded contradictions (role-label drift; the Invoice Processing Admin menu-vs-page structure drift; mandatory-vs-conditional scheduling service request; and the reminder-side copy procedure that names no Copy control), held the Workflows Email Notifications boundary, avoided every NBSP-bearing sentence, and left the orphaned 4-token value set to be re-homed rather than duplicated. All 23 quotes grep -F verified, 0 misses."
+        ]
+      },
+      {
+        "page": "Delegate Configurations",
+        "documentedBasis": "moderate",
+        "coverage": "partial",
+        "uiVariant": "undifferentiated",
+        "fields": 20,
+        "dropped": 9,
+        "repaired": 4,
+        "splitsProposed": 1,
+        "mustReadNeverCited": [
+          "concur-invoice-professional-edition-admin-guides/delete-an-invoice-delegate-configuration-92627a9b.md"
+        ],
+        "lensHeadlines": [
+          "procedures-and-controls: Collapsed the page to 18 field-shaped nodes (6 procedural buttons + 12 true configuration controls), confirming the inventory's 11-13 estimate against the recon's inflated ~25 — the gap was entirely alias duplication across list-view/editor/terminology labels, now recorded in each field's notes. Ruled the Add/Modify child surface a modal on this page (not a separate page node), emitted the five-name label-drift as a contradiction, emitted a second genuine contradiction on group-move assignment survival (8b2bfccb vs 77a887a4), held the Workflows self-approval boundary (dependency only, no field), and flagged dep.g1.059 as unresolvable-as-written with a repointing recommendation onto 'applies-to-groups'. All 35 sourceQuotes grep -F verified (100%), JSON valid, no duplicate field names.",
+          "tables: The corpus documents ONE object twice under TWO label sets - an 11-column read-only list roster and a 6-row entry form whose nested bullets hold the real controls - so the recon's ~25-field estimate collapses to 12 unique controls plus 2 section headings; I emitted one field per control, recorded every alias, and emitted the drift as five grounded label-drift contradictions rather than reconciling it. The mandatory sweep confirmed ZERO raw <table> anywhere in the candidate pool (re-measured independently across both guide directories), so fromRawHtmlTable is false everywhere by measurement, not omission; the naive '^| ' anchor returns 0 on BOTH rosters because SAP indents tables inside numbered steps. Thin is the correct answer four times: the page has exactly ONE enumerated option list in total (the Inheritance / No Inheritance toggle captions - both strings printed verbatim, not a completed pair), the Purchase Request tab has no roster anywhere in the corpus, there is no date field here ('Choose Dates' occurs twice corpus-wide and both point out to My Info / User Administration), and there is no documented role gate.",
+          "tools-guides-and-cross-cutting: The tools-guides directory yields ZERO fields for this page, and I can show it rather than assert it: grep -rliF 'delegate' over all 650 files returns exactly FIVE, I read all five in full, and none documents a Delegate Configurations control — they use delegate/proxy as actors in other features (invoice-deletion settings on the built Invoice Settings page, proxy logon, two query-builder fields), plus one genuinely useful corroboration that the Invoice Delegate role inherits the invoice owner's approval credentials. So I emitted one field only (the third label for the view-images control, from another guide's Delegate Experience topic, which is this lens's remit), 22 cross-cutting dependencies, and two grounded contradictions — the five-name label drift on the child window, and a real scope conflict where one topic says a group move does NOT touch existing delegate assignments while another says out-of-group assignments and disallowed rights ARE stripped automatically. Two further findings are documented ABSENCES worth publishing: there is no role gate for this page anywhere in the corpus (the Invoice Configuration administrator vocabulary gates nine other surfaces but never this one, and I did not borrow it), and no control on this page has an enumerated option list — everything is 'If active' / 'Indicates whether', so no Yes/No pair was completed."
+        ]
+      }
+    ],
+    "synthesis": {
+      "valueSets": {
+        "kind": "valueSets",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-valuesets.json",
+        "jsonValid": true,
+        "count": 10,
+        "unresolvedCount": 3,
+        "headline": "10 value sets, ALL on Email Reminders; Delegate Configurations correctly gets ZERO (its 3 candidate sets were detached by its own roster and are reported as orphanCandidates). All 10 sourceQuotes verify at grep -F -c = 1; all 10 appliesToField values and all 3 contextField values are exact roster field names on the named page; appliesToPage is populated on every entry. validValuesAdditions is empty on purpose.\n\nEMAIL REMINDERS (10): reminder-type (3 opts, Email Reminders tab) and rule_reminder_type (3 opts, Rules tab) are emitted as TWO sets stating the contradiction, not reconciled — the tabs disagree on the vendor option's label (\"Approval Request - Vendor Request\" vs \"Approval Request - Payment Vendor\") AND on what the shared \"Approval Request - Payment Request\" fires on (a cash advance request vs an invoice); the pre-defined-rule names corroborate the Rules side and that is recorded as evidence, never used as a tiebreak. frequency (5 opts, source order preserved: \"Daily (weekdays only)\" precedes bare \"Daily\"). reminder-rule (2 system pre-defined rules ONLY, contextField reminder-type — explicitly a seed, not the field's complete list). specific-days (31-member mechanical expansion of \"a valid integer between 1 and 31\", contextField frequency; the \">\" last-day-of-month sentinel is deliberately EXCLUDED from values and documented in notes; an expected value-set-entries-not-in-file WARN on 10 of 31 is pre-declared, matching the accepted Workflows precedent). email-message (4 replacement tokens %1%-%4%) and email-subject (3 tokens — %4% omitted because the source itself says \"This variable is not supported in the Email Subject field.\"), plus the nested %4% List-of-Records output-format catalogue (2 entries, verbatim including SAP's inconsistent punctuation/capitalisation). editable-by and rule_editable_by (one value each, \"Global Group\", deliberately partial — the rest of the picker is the tenant group tree; the U+00A0 hazard in the example strings is flagged).\n\nCLOSES A KNOWN GAP: the token sets give an owner to vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na (knownGap:true), whose own note named the fix as \"an Email Reminders page node that owns this table properly\". Retire that orphan; do not keep both.\n\nWORKFLOWS COLLAPSE GUARD HELD: the reminder token vocabulary (%1%-%4%) is kept strictly separate from the already-built field.workflows.email-body / field.workflows.email-subject catalogue (the 18 %L_X%/%X% variables); nothing was emitted against \"Workflows\" or \"Invoice Settings\", and no Run A field was re-homed.\n\nDELEGATE CONFIGURATIONS — THIN IS THE ANSWER: zero value sets. Its three candidates were detached by the authoritative roster and are reported as orphanCandidates with page/field deliberately empty: (1) the 11-column read-only list roster (12 strings; \"Can Approve\"/\"(Any Time)\" is ONE split-cell column) — a column roster is not a text box's option list, and wiring it would resurrect 7 aliases collapsed in the roster pass as values; (2) the Restrictions section membership (2 child controls); (3) the Delegate Settings section membership (5 child controls) — both are CONTAINMENT lists whose members are already fields, so wiring them would double-book 7 real controls. Each carries what would fix it (a parent-child containment edge the schema lacks). Also: tools-guides carries ZERO files mentioning \"email reminder\" or \"delegate configuration\" (both dirs searched), and the list roster is the ONLY documentation the Purchase Request tab gets anywhere — do not mirror the Invoice roster onto it."
+      },
+      "dependencies": {
+        "kind": "dependencies",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-dependencies.json",
+        "jsonValid": true,
+        "count": 34,
+        "unresolvedCount": 8,
+        "headline": "34 edges (16 from Email Reminders, 18 from Delegate Configurations; 24 depends_on / 7 precedes / 3 triggers). All 34 sourceQuotes grep -F verified verbatim against their cited file, and every endpoint naming a BUILT page (Workflows x5, Group Configurations x5, Authorized Approval Limits x2) or a this-run page was checked character-for-character against the graph JSON and the two rosters — 0 problems, DEP-ENDPOINT-NOT-ON-BUILT-PAGE will not fire.\n\nALL FIVE OWED EDGES DELIVERED. (1) RULE BEFORE REMINDER: two precedes edges, rule_name -> reminder-rule (\"You must set up the rules before creating the email reminder...\", before-you-begin-448d2513.md) and rule_name -> name (\"A rule must be created before you create an email reminder...\", configuring-email-reminders-8b2c3cca.md); configuration-process-8b2c271f.md's numbered step 1/step 2 sequence is cited in the condition text rather than as a third near-duplicate edge. (2) THE SCHEDULING HANDOFF emitted with the mandated quote, frequency -> Import/Extract Administrator::Email Reminder Schedule, condition states outright that a config writer CANNOT complete this leg (SAP Concur staff, service request); a companion edge from name carries \"The new email reminder will run on the same email reminder schedule that was set up prior.\" (3) GROUP-LEVEL ASSIGNMENT: applies-to -> Group Configurations::Group, plus editable-by -> Group Configurations::Group. (4) DELEGATE/AUTHORIZED-APPROVER: restrict_approvers_to_equal_or_higher_authorized_approver_limit -> Workflows::authorized_approver_approval_limit (exact graph name), with three companions -> Authorized Approval Limits::approval_limit_amount (evaluated-only-at-assignment trap), -> Workflows::authorized_approver_feature_available_for_workflows (marked INFERRED), and two triggers edges withdrawing both approve permissions when the box is cleared. (5) DELEGATE SELF-APPROVAL: delegate_can_approve_any_time -> Workflows::allow_delegated_approvers_to_approve_own_requests, quoted from delegate-self-approval-1b627285.md — used ONLY as an edge; no field was emitted from that file, and Email NOTIFICATIONS (Workflows tab) was kept strictly separate from Email REMINDERS.\n\ndep.g1.059 DOES NOT RESOLVE, as forecast, and I did not contort naming to force it. The Email Reminders and Delegate Configurations rosters contain no field named \"Delegate Configuration\" — the Delegate Configurations roster's group-binding field is \"applies-to-groups\". A correction pass should re-target dep.g1.059 to {page: \"Delegate Configurations\", field: \"applies-to-groups\"} or, better, retire it in favour of my edge Delegate Configurations::applies-to-groups -> Group Configurations::Group, which carries the identical quote (\"Each group within your company can only have one Invoice delegate configuration.\") from create-a-new-invoice-delegate-configuration-fcf42662.md. I did NOT touch dep.g1.059 myself.\n\n8 unresolved edges, all deliberate forward references: Import/Extract Administrator::Email Reminder Schedule (2), User Administration::{Invoice Approver, Choose Dates, Can Submit, Can View Images, Delegates} (5), Localization::Email Reminder Text Translation (1). Three of those target-field names (Email Reminder Schedule, Email Reminder Text Translation, and User Administration::Delegates) are DESCRIPTIVE, not documented labels — each condition says so explicitly; Choose Dates, Can Submit, Can View Images and Invoice Approver are corpus-attested strings. Two edges are labelled INFERRED in the condition (restrict_approvers -> authorized_approver_feature_available_for_workflows; maximum-time-period-to-approve -> delegate_can_approve_during_specified_period).\n\nTHIN/COVERAGE FINDINGS worth recording: (a) ZERO dependency-grade quotes came from the tools-guides directory. I searched it with equal weight and its Delegate/Email-Reminder hits (invoice proxy logon, Query Builder \"Approved by Delegate\", required-roles) describe end-user runtime behaviour, not configuration ordering — a real absence, not a skewed search. (b) Of 26 Email Reminders fields, 9 carry no relationship at all (display-as-from, copy-to-email-address, copy-to-approver as a source, rule_editable_by and all six buttons); of 20 Delegate Configurations fields, delegate_can_prepare, configuration-name, restrictions, tab-selector and the buttons carry none. No edges were manufactured to cover them. (c) One contradiction surfaced while writing conditions and is flagged in the copy-to-employee edge: the conditional-visibility sentence for Copy to Employee sits in the Copy to Approver row of create-email-reminders-604c4a46.md, while the Copy to Employee row documents the control unconditionally — the corpus does not settle whether that field is always present. (d) Label drift recorded in conditions, not resolved: \"Delegate can view images\" (create-config table) vs \"Delegate can view invoice images for payment requests\" (delegate-experience-8b30fb06.md); editor labels vs the list-page labels \"Can Approve\"/\"Can Approve Temporary\" in 8ed1298f.md; and b3d1bd2c.md's \"Workflow Step Timeout Duration\", which the built graph already records as an alias/contradiction for Approval Time Expired Action + Expire After This Many Days."
+      },
+      "steps": {
+        "kind": "steps",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-steps.json",
+        "jsonValid": true,
+        "count": 4,
+        "unresolvedCount": 4,
+        "headline": "4 ConfigSteps (68 sequence entries, 100 embedded quotes all grep -F verified, 4 entries into unbuilt pages). grpworkflows-b1 configures an interval-driven email REMINDER end to end — Group Configurations group check, Rules-tab rule (New/Name/Type/Editable By/Next/Finish), then the Email Reminders-tab configuration (Type filters the rule helper; Frequency gates Number of Days / Specific days; Active is Yes-only and inactive by default), Save, then TWO legs a config writer CANNOT drive: scheduling in the Import/Extract Administrator tool (\"Scheduling email reminders is done in the Import/Extract Administrator tool and is performed by SAP Concur staff.\") and optional string extraction for localization, both service requests. Its goal text explicitly separates it from grpworkflows-s4's Workflows Email NOTIFICATIONS flow (event-driven template assigned to a workflow object vs interval-driven nag assigned by GROUP). grpworkflows-b2 swaps the rule behind a live reminder in the only safe order — author replacement, repoint, re-check Active, save, and ONLY THEN Remove the old rule — because \"If a rule is deleted that is currently associated with an email reminder, it will deactivate the email reminder.\"; it also records the confirm-dialog asymmetry (rule delete confirms, reminder delete does not). grpworkflows-b3 creates an Invoice delegate configuration and cascades it, carrying the corpus cardinality rule \"Each group within your company can only have one Invoice delegate configuration.\", the read-then-toggle Inheritance link (the page's only enumerated option list, both captions printed), and the two-gate model on Delegate can submit (admin grant is necessary but not sufficient — the user can deny at assignment). grpworkflows-b4 enables delegation for Authorized Approvers across Authorized Approval Limits -> Delegate Configurations -> User Administration, forced by \"The Authorized Approver limits are evaluated only when the delegate is assigned.\" — anything done after assignment is never evaluated. No field or record is emitted against Workflows or Invoice Settings; both appear only as dependency/scope-boundary citations (incl. the Workflows-owned \"Allow delegated approvers to approve their own requests\"). Every field name is drawn from this run's two rosters or from exact existing-graph names (Group Name, authorized_approver_checkbox, approval_limit_amount, branch_a_save, etc.); no page node is created for any tab. The 4 unresolved entries point at Import/Extract Administrator (b1), Localization (b1), and User Administration (b3, b4)."
+      },
+      "contradictions": {
+        "kind": "contradictions",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-contradictions.json",
+        "jsonValid": true,
+        "count": 18,
+        "unresolvedCount": 10,
+        "headline": "18 contradictions (59 readings) + 1 compressed range; 19 raw records deduped to 12 and 6 more found in-corpus; all 60 quotes grep -F verified, zero misses, both guide dirs cited."
+      }
+    },
+    "critics": {
+      "completeness": {
+        "lens": "completeness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/critic-completeness.md",
+        "findingCount": 7,
+        "severeFindings": [
+          {
+            "title": "Conditions - Step 2 condition-editor controls refused on a rationale the built graph contradicts twice — the page cannot drive its own mandatory first step",
+            "detail": "AG/create-reminder-rules-b0a7fac5.md step 5 names three controls in imperative prose, all grep -F verified in that file: 'Select the appropriate Data Object.' (=1), 'Select the Field/Value from the helper pane.' (=2), 'Select the appropriate Operator from the helper pane.' (=1), plus 'Select the next appropriate Data Object.' (=1). All three lenses refused to emit them, reasoning that importing the Audit Rules operator/data-object catalogues would be an unattested cross-page assumption. That conflates two questions. Refusing the VALUE catalogues is correct. Refusing the CONTROLS is wrong, and the graph on disk says so twice: page.audit-rules holds condition-data-object-left/right, condition-field-value-left/right, condition-operator, data-object, field-value, operator, second-field-value; and page.workflows independently holds workflow-condition-data-object-b, -field-value-c, -operator-d, -data-object-e, -field-value-f, emitted from its OWN topic conditional-expressions-and-the-condition-page-4d98af34.md, NOT imported from Audit Rules — and four of those five carry validValues: []. The graph already accepts condition-editor controls with zero enumerated values. The run is also internally inconsistent: all 8 emitted buttons rest on prose imperatives of exactly this kind, including next-button whose quote is 'Choose Next.' from step 4 of this very file, one step above the refused step 5. Consequence: rule-before-reminder is the page's mandatory ordering (three independent statements). A driver reaches Conditions - Step 2 with next-button and finish-button and nothing to interact with between them. FIX: emit 3 fields (rule_condition_data_object / rule_condition_field_value / rule_condition_operator), fieldType dropdown, validValues [], each with its verbatim quote, and notes stating explicitly that the operator and data-object catalogues are NOT enumerated for reminders anywhere and must not be imported from the-condition-page-5d4ea870.md. Optionally 5, following the Workflows B/C/D/E/F shape. The thin ruling on the catalogues stands and should be published; only the controls change."
+          },
+          {
+            "title": "ALREADY-BUILT page.invoice-settings carries 13 of the 24 rows of available-invoice-settings-8b3411f0.md — 11 named settings with enumerated Default Status values missing",
+            "detail": "Surfaced from THIS run's own pool: TG/overview-502953fc.md and AG/restrict-use-of-delete-request-link-in-the-payment-request-list-page-f201c8db.md both appear at 10 cell-openers in the delegate candidate set, and both point at the Invoice Settings page. Measured: grep -cP '^\\s*\\|' on AG/available-invoice-settings-8b3411f0.md = 101 with exactly one separator line '| --- | --- | --- |' (3 columns), so (101-1)/4 = 25 rows = 1 header + 24 data rows; I extracted all 24 labels programmatically. The built graph has 13 fields on page.invoice-settings, 9 of them citing this file. Diffing labels, 11 named settings are absent, each with a documented Default Status in column 3: Hide Payment Request Delete Link for Payment User (Disabled (cleared)); Hide Add and Delete Item Link for Payment Processor User (Disabled); Hide Add and Delete Item Link for Payment Approver User (Disabled); Allow processor users to approve requests that are pending other approvers (Enabled (selected)); Allow users to manage favorite allocations for payment and purchase request (Enabled); Limit Processors, Approvers, or Managers to use invoice owners vendor list (Disabled); Assign invoice to Purchase Request Owner (Disabled); Allow Purchase Request Owners to Transmit their own Purchase Orders (Disabled); Allow Purchase Request Owners to Edit their own Purchase Orders (Disabled); Enable Create and Approval for Invoice Vendor (Enabled); Allow system to associate Invoice lines to Purchase Order lines based on data attributes (Disabled). Two of the eleven have a dedicated topic each with its own 2-row state matrix and an explicit placement quote ('On the Invoice Settings page, toggle (enable) Hide Payment Request Delete Link for Payment User checkbox.', grep -F -c = 1). This is exactly the 24-row-catalog-captured-at-13 shape the previous critic found. DO NOT fold into this merge — it needs its own correction pass on page.invoice-settings."
+          },
+          {
+            "title": "Delegate terminology catalogue reaches the merge at 3 of 6 — the two entries that bear on the two-tab structure are among the lost three",
+            "detail": "AG/terminology-e1e1ed99.md returns 0 on BOTH table anchors and was found only by reading; the map called it this page's richest alias source. Six entries with definitions. Survival test, grep -l over merge-bound roster-*.json + synth-*.json only: 'Invoice Delegates' present, 'Temporary Approval Delegation' present (10 hits), 'Delegate Restriction to Group' present (10 hits); 'Invoice Request Delegates' ZERO, 'Purchase Request Delegates' ZERO, 'Delegated Approver' ZERO. The three lost entries exist only as prose inside extract-delegate-configurations-tables.json's notes, which is a lens working file, not a record source. All three definitions are grounded (grep -F -c = 1 each): 'Invoice Request Delegates: An employee who is granted the right to act on behalf of another employee, restricted to invoice functionality only.', 'Purchase Request Delegates: An employee who is granted the right to act on behalf of another employee, restricted to purchase request functionality only.', 'Delegated Approver: An employee acting as a delegate for an Approver or AP User.' Two of the three are the delegate-scope taxonomy: the corpus enumerates THREE delegate kinds against a TWO-tab page and never maps them — an unresolvable-by-documentation item that is currently unrecorded anywhere. The third bridges to delegate-self-approval-1b627285.md and the built Workflows self-approval field. FIX: carry all six as a page-level terminology/alias record on page.delegate-configurations, anchored on the PAGE not a field (the crosscut lens was right that no field owns it, and an empty appliesToField is the 17-unwired-sets defect). Never at 3 of 6."
+          },
+          {
+            "title": "Delegate Configurations' defining semantics — the cascading-permission model — has no merge-bound carrier",
+            "detail": "AG/overview-8b2ba917.md is an UNDECLARED uncited must-read: 0 citations in roster-*.json and synth-*.json (the digest listed only delete-an-invoice-delegate-configuration-92627a9b.md, which actually has 4). grep -l 'cascading|subset of invoice permissions|template that allows or denies' over roster-*.json synth-*.json returns NOTHING; the same grep over extract-*.json returns only extract-delegate-configurations-procedure.json. map-inventory.md:279 itself says 'This is the cascading-permission model and it should be the page's notes.' Two verbatim quotes are available: 'Concur Invoice delegate configurations define the subset of invoice permissions that delegates are allowed to have within Concur Invoice.' (overview-8b2ba917.md) and 'The configuration is a template that allows or denies permissions to the user or the User Admin. The subset of permissions is identical. There is no option to provide separate permissions for specific employees or by their assigned roles.' (fcf42662.md). Related and also missing: the varying-columns consumer dependency, verified grep -F -c = 1 in BOTH AG/invoice-user-f11cccd8.md and AG/user-administrator-5aa3eb5e.md — 'The columns that appear for the delegate will vary, depending on the settings in the delegates configuration file' — while all five User Administration dependencies in synth-dependencies.json are grounded on other files. FIX: page-node notes from the first two quotes, plus one dependency record grounded on the varying-columns sentence. Six declared must-reads in total reach the merge with zero citations (ER: overview-8b2c769e.md, best-practices-...-48515f40.md; DC: overview-8b2ba917.md, audit-invoice-delegate-actions-3660a51f.md, invoice-user-f11cccd8.md, user-administrator-5aa3eb5e.md); the first, second, fourth and sixth are genuine clean bills, the third and fifth are not."
+          },
+          {
+            "title": "Cross-surface 'Display as From' data-type divergence with the built Workflows Email Notifications tab is unrecorded — the strongest positive proof the two surfaces differ, and a live driver hazard",
+            "detail": "grep -rlF 'Display as From' over both guide directories returns exactly three files: create-email-reminders-604c4a46.md (this run) and add-an-email-notification-c237a2de.md + modify-an-email-notification-a6e5f4ba.md (built Workflows). Both quotes verify grep -F -c = 1. Email Reminders: 'Input the name you would like the recipient to see on the notification. The @ symbol is not permitted in this name.' — takes a NAME, @ forbidden. Workflows field.workflows.email-notification-display-as-from: 'Type the email address you would like the recipient to see when they receive the notification.' — takes an EMAIL ADDRESS. Same label, two surfaces, incompatible data types, one of which explicitly forbids the character the other requires. A driver that carries a value across writes an @-bearing address into a field that rejects @. Neither the 18 contradictions nor the 34 dependencies carries this. FIX: emit a cross-page contradiction anchored on field.email-reminders.display-as-from with a second reading from the Workflows twin. NOTE this is the only defect found in the Workflows boundary check — both directions otherwise came back clean, proved with commands: zero of the 26 Email Reminders fields cite any of the six Workflows notification/workflow source files, and all 11 built-graph fields sourced from an Email-Reminder-mentioning file are page.workflows Steps-page controls from work-with-the-steps-page-fab249d1.md, where 'reminder' enters only at line 118 as a More Information cross-reference (which is itself an unrecorded page.workflows to Email Reminders localization dependency — very low severity)."
+          },
+          {
+            "title": "The remove-button split must actually be executed, not just reported — the two Remove controls have different documented consequences",
+            "detail": "The run reports three splits (new-button, modify-button, remove-button) and takes none, on the stated ground that Repair-created records never face the adversarial refuter. I endorse all three but remove-button is the one with a mechanical failure mode. Reminder side, delete-email-reminders-8f693700.md read in full: step 3 is 'Select Remove.' with NO confirmation dialog documented anywhere in the file. Rule side, delete-reminder-rules-ab4f8d33.md: 'Select the rule to delete, and then choose Remove.' followed by 'In the confirmation message, select Yes to dismiss the message.' AND a cascade the reminder side lacks — 'If a rule is deleted that is currently associated with an email reminder, it will deactivate the email reminder.' A driver treating these as one control either hangs waiting for a dialog that does not exist, or silently deactivates a live reminder. The single emitted confirm-yes-button is currently grounded on the rule-side file only, so the graph as it stands implies a confirmation on both. Same class, lower severity: new-button carries a role gate ('If they do not have permissions, then the New button will not appear.') that applies only to the Rules tab. Punctuation warning in the split note is correct and I re-verified it: the rule-side step reads 'Choose New' with no trailing period."
+          },
+          {
+            "title": "The '>' last-day-of-month sentinel on specific-days is documented and accepted but reachable only from prose notes",
+            "detail": "AG/create-email-reminders-604c4a46.md line 140: 'Enter a valid integer between 1 and 31. Use \\> for the last day of the month.' with the worked example '10, 20, > in the field would run the reminder on the 10th, 20th, and the last day of the month.' range.wfb.001 expands 1-31 to 31 members and the field's value set carries the same 31; the '>' token is deliberately excluded from both, with the reasoning stated at length (it is a sentinel, not a member of the integer range). The reasoning is defensible and the count integrity argument is sound, but a Chromium driver reads validValues, not notes, and will therefore never produce '>' — an accepted, enumerated input the corpus explicitly documents. FIX: a one-value companion set or an explicit acceptedTokens entry on field.email-reminders.specific-days. Low severity, fully documented either way. Confirmed separately that this is the ONLY compressed range belonging to either page in this run (my own dash/range regex over all 69 pool files), that it is written in words with no dash of any kind so there is no en-dash hazard, and that the file's one en-dash at line 105 is prose. Adjacent and out of scope: AG/the-condition-page-5d4ea870.md carries 8 distinct compressed-range shapes in 16 occurrences (Custom 01 - 20 x4, Custom 01-20 x2, Org Unit 1-6 x2, Address 1 - 3 x2, Org Unit 1 - 6, Custom 01-25, Custom 01-24, Custom 01 – 21 with an EN-DASH, Custom 01 - 10, Attendee Entry Custom 1-5) while the built graph holds only two Custom ranges, and those two carry en-dash labels that do not match their hyphenated source strings."
+          }
+        ],
+        "verdict": "MERGE AFTER ONE CORRECTION. The build is materially complete and unusually well grounded: I independently verified 384/384 sourceQuote/sourceFile pairs as verbatim substrings with my own recursive checker (zero misses), confirmed all 12 cross-page dependency targets resolve against the built graph, and confirmed the Workflows Email Notifications boundary held in BOTH directions with commands (zero notification fields emitted here; all 11 built-graph fields sourced from an Email-Reminder-mentioning file are correctly Workflows Steps-page controls). Every enumeration that reached the graph is complete against source: 15/15 and 3/3 roster rows, 4/4 replacement tokens (and correctly 3, not 4, on email-subject, grounded on the %4%-unsupported sentence), 5/5 Frequency, 3/3 Reminder Type on each tab with the contradiction emitted unreconciled, 2/2 pre-defined rules, 11/11 list-view rows correctly collapsed as aliases with every drop justified, 6+2+5 editor controls. No Yes/No pair was invented — Active stands at ['Yes'] alone. Count calibration lands where the pre-flight recon predicted (26 = 18 controls + 8 buttons; 20 = 12 unique controls + 2 headings + tab strip + 5 buttons), not at the inflated ~25. The raw-table baseline, the stem-widened file sweeps, the UI-variant sweep, the Purchase Request tab thinness and the absent Delegate Configurations role gate all came back clean under my own independent commands, and those clean bills are publishable findings in their own right. ONE finding must be fixed before merge: the three Conditions - Step 2 condition-editor controls, grounded imperatively in the page's own source file, were refused on a rationale that the built graph contradicts on two separate pages (page.audit-rules and page.workflows both emit these controls with empty validValues from their own topics), and that the run itself contradicts by emitting eight buttons from prose imperatives in the same numbered procedures. As it stands the graph cannot drive the mandatory first step of its own page. Three further records should be added in the same pass (the six-entry terminology catalogue at page level rather than 3 of 6, the cascading-permission page semantics, the Display as From cross-surface contradiction), the remove-button split should be executed rather than merely reported, and dep.g1.059 should be repointed at applies-to-groups since it will otherwise remain the graph's only unresolved pointer at either new page. Separately and NOT for this merge: page.invoice-settings is a 24-row catalog captured at 13 and needs its own correction pass."
+      },
+      "correctness": {
+        "lens": "correctness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/critic-correctness.md",
+        "findingCount": 7,
+        "severeFindings": [
+          {
+            "title": "HIGH — 7-8 rows of the documented table \"Delegate Configuration Fields\" were deleted as alias duplicates, against the graph's own precedent",
+            "detail": "roster-delegate-configurations.json dropped[0..6] removes can-prepare, can-submit, can-approve-any-time, can-approve-temporary, can-view-images, restrict-delegates-to-group, need-approver-role-to-approve (plus Name, absorbed into configuration-name). These are rows of an 11-row table SAP titles \"Delegate Configuration Fields\" (access-and-view-payment-delegate-configurations-8ed1298f.md:35; 37 cell-openers / 1 separator = 12 rows = 1 header + 11 columns). Each dropped row has its OWN label AND its OWN description text — I verified only 3 of the 11 rows are byte-identical across both files (Maximum Time Period to Approve, Applies to Groups, Restrict approvers to those with equal or higher authorized approver limit), and those three merges are correct. The other 8 are not paraphrases: \"Can Approve (Any Time)\" carries \"There is no time period associated with this action.\" which appears nowhere else; \"Can View Images\" says \"view the invoices received through the imaging service\" vs the editor's \"view Invoice images\"; \"Restrict Delegates to Group\" states the OPPOSITE POLARITY to the editor row. Three reasons to reverse: (1) brief rule 6 — a row in a documented field table IS a field; (2) the built graph does the opposite from this exact two-file shape — Workflows keeps workflows_list_editable_by_column (access-workflow-fa9892a7.md) alongside editable_by_groups (create-a-new-workflow-554e86aa.md), and likewise workflows_list_steps_can_be_added_by_column, workflows_list_workflow_name_column, workflows_list_workflow_type_column; (3) this table is explicitly claimed for BOTH tabs (\"displayed on either the Invoice or Purchase Request page by default\") and the run's own orphanCandidates[0] says it is the ONLY documentation the Purchase Request tab gets anywhere in the corpus — after the collapse the whole 11-row roster contributes exactly ONE node (tab-selector). Fix: re-emit as list_can_prepare, list_can_submit, list_can_approve_any_time, list_can_approve_temporary, list_can_view_images, list_restrict_delegates_to_group, list_need_approver_role_to_approve, each citing access-and-view-payment-delegate-configurations-8ed1298f.md with its own verbatim \"Indicates whether…\" quote (all already verified at 1 hit by the roster pass, so zero new grounding work), each notes naming its editor twin. This also dissolves orphanCandidates[0], which is unownable only BECAUSE the columns were deleted."
+          },
+          {
+            "title": "HIGH (operational) — merging without --patch --patch-page \"Workflows\" silently deletes Run A and the validator still exits 0",
+            "detail": "Simulated both invocations against the live graph. With --patch --patch-page \"Workflows\": gtag='workflowsw', ids become dep.gworkflowsw.001..034 / contr.gworkflowsw.001..018 / range.gworkflowsw.001 — 0 intra-run duplicates, 0 clashes with the existing graph; touched={page.email-reminders,page.delegate-configurations}, neither in the graph, so nothing existing is removed. WITHOUT --patch: gtag='workflows' produces 53 id clashes (contr.gworkflows.001…, dep.gworkflows.001…, range.gworkflows.001…) — but they never surface, because bin/merge-group.py:92-98 first runs [x for x in … if x.get('group') != 'Workflows'] across six collections and deletes Run A wholesale. Measured against the live graph: 2 pages (page.workflows, page.feature-hierarchies), 121 fields, 61 dependencies, 34 value sets, 24 contradictions, 5 compressed ranges, 7 steps = 2 pages + 121 fields + 131 other nodes. bin/merge-group.py:60-64 documents that validate-graph.py then exits 0 over the wreckage. workflows/2026-09-01_kg-workflows-run-b.mjs:12-31 already states the requirement; restating it because the critique is what gets read at merge time, and because a clean validator run is not evidence the merge was safe."
+          },
+          {
+            "title": "MEDIUM — the Group 3 orphan this run was chartered to close is not retired by anything on disk, so the token catalogue lands twice",
+            "detail": "synth-valuesets.json valueSets[5] notes say verbatim \"Retire the orphan; do not keep both.\" The orphan is live: vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na, group 'Group 3 — PO Matching', patch None, knownGap True, values ['%1%','%2%','%3%','%4%'], sourceFile …/email-message-replacement-tokens-c9cc4af4.md. bin/merge-group.py:76-99 removes prior nodes only where patch == tag (patch mode) or group == group (non-patch). This node's group is 'Group 3 — PO Matching' and its patch is None, so a Run B merge under group 'Workflows' cannot touch it. After the merge the graph carries the same 4-token catalogue twice — once orphaned under Group 3, once wired to field.email-reminders.email-message. Fix: schedule a bin/apply-corrections.py delete of that exact id after the merge. Nothing in wf-b-parts/ does this and nothing can — the parts schema has no delete channel."
+          },
+          {
+            "title": "MEDIUM — the specific-days value set duplicates range.wfb.001 and drops the documented '>' last-day-of-month token",
+            "detail": "synth-valuesets.json valueSets[4] and synth-ranges.json compressedRanges[0] carry the same 31 members, on the same field (specific-days), from the same file, from the same sentence. The value set is the lossier copy. Source: create-email-reminders-604c4a46.md:140 reads \"Enter a valid integer between 1 and 31. Use \\> for the last day of the month.\" and :144 gives SAP's own worked example \"10, 20, > in the field would run the reminder on the 10th, 20th, and the last day of the month.\" The field is a free-text comma list and '>' is a documented accepted input. range.wfb.001 excludes '>' AND explains why (a sentinel is not a member of a 1-31 integer range, and count must equal len(expandsTo)); the value set excludes it with no such guard. A driver reading values to decide what to type will produce 1..31 and never produce '>', making last-day-of-month unreachable. Fix (preferred): drop synth-valuesets.json valueSets[4] — the compressed range already carries the expansion and is the correct node type for a prose range. Alternative: keep it, re-scope context to accepted input tokens, add '>'. Do NOT add '>' to range.wfb.001 — that breaks range-count-mismatch. Note the 10 unprinted integers (13,16,17,18,19,21,22,23,27,30) only produce a value-set-entries-not-in-file WARN, and the baseline graph already carries 11 of those, so the WARN is not the defect — the redundancy plus the missing '>' is."
+          },
+          {
+            "title": "MEDIUM — four rule-side-only controls escape the run's own rule_ prefix scheme, and confirm-yes-button will hang a driver",
+            "detail": "The run adopted the rule: rule-object controls get a rule_ prefix (rule_name, rule_reminder_type, rule_editable_by). Four fields whose own notes say \"RULE-SIDE ONLY\" do not follow it: confirm-yes-button (delete-reminder-rules-ab4f8d33.md), next-button and finish-button (create-reminder-rules-b0a7fac5.md), copy-button-rule (copy-reminder-rules-9350776e.md — a suffix, inconsistent with both other schemes). confirm-yes-button is the dangerous one and the corpus is unambiguous: delete-email-reminders-8f693700.md is 3 steps ending \"Select Remove.\" with NO confirmation, while delete-reminder-rules-ab4f8d33.md ends \"In the confirmation message, select Yes to dismiss the message.\" A driver consuming the graph by NAME sees remove-button and confirm-yes-button side by side on one page with nothing distinguishing them and will wait for a dialog the reminder side never shows. The splitsProposed entry for remove-button names this exact failure, but splitting remove-button alone does NOT fix it — confirm-yes-button stays bare and still reads as the reminder side's confirmation. Fix (no new records, no Repair-created nodes, nothing deleted): rename in place to rule_confirm_yes_button, rule_next_button, rule_finish_button, rule_copy_button. Quotes, files and notes unchanged; I checked that no dependency or step references any of these four."
+          },
+          {
+            "title": "LOW — five notes-level strings are presented in quotation marks but are not verbatim",
+            "detail": "The validator never touches notes, so these ship unchecked and risk being copied into a sourceQuote later. I scanned all 252 unambiguous embedded quotations across the synth/roster files; 12 missed and 7 are legitimate (marked elisions, or quotations of prior build artefacts). These five are not: (1) roster-email-reminders.json fields[5] (specific-days) notes writes \"Enter a valid integer between 1 and 31. Use > for the last day of the month.\" — the corpus has \"Use \\> for…\", the backslash is in the file. (2) fields[6] (display-as-from) notes writes \"…underlying email address of EmailReminderService@concursolutions.com.\" — the corpus renders the address as a markdown link and has NO trailing period; the safe verbatim stop is \"…does not affect the underlying email address of\". (3) fields[14] (active) notes joins \"Select Yes to make this email reminder active. All email reminders are inactive by default.\" with \"Emails are not sent until you set this field to Yes.\" — a **Note** block sits between them, so it is not contiguous. (4) fields[21] (remove-button) notes and verifyNotes join \"Select the email reminder you want to delete. Select Remove.\" — these are numbered steps 2 and 3. (5) roster-delegate-configurations.json dropped[5] reason uses \"If active, ... can only act…\" with an internal ellipsis inside quote marks. Fix: truncate each to its longest genuinely contiguous span. No node is deleted."
+          },
+          {
+            "title": "LOW — three false bookkeeping claims, two of which ship onto the permanent page node via verifyNotes",
+            "detail": "(1) roster-delegate-configurations.json verifyNotes states \"…and delegate-experience-8b30fb06.md, which are the only files any emitted field cites apart from the two CRUD topics\" — but NO emitted field cites that file. All 20 Delegate fields cite only create-a-new-invoice-delegate-configuration-fcf42662.md (16), delete-an-invoice-delegate-configuration-92627a9b.md (2), edit-an-invoice-delegate-configuration-c7f51424.md (1), access-and-view-payment-delegate-configurations-8ed1298f.md (1). delegate-experience-8b30fb06.md appears only in contradictions[11] and dependencies[32]. bin/merge-group.py:130 carries verifyNotes onto the permanent page node, so this false sentence becomes durable. (2) The digest's mustReadNeverCited for Delegate Configurations lists delete-an-invoice-delegate-configuration-92627a9b.md — it IS cited, by remove and confirm-yes. (3) The digest's mustReadNeverCited for Email Reminders lists delete-email-reminders-8f693700.md — it IS cited, by remove-button. Also worth noting: the Email Reminders verifyNotes claim \"26 inputs in … 0 dropped\" understates the pool — the six extract files hold 38 distinct candidate names; the 12 unaccounted are tables-lens underscore twins of the same controls (email_message vs email-message etc.), correctly normalised, so no content was lost, but \"0 dropped\" should not be read as \"38 candidates all survived\"."
+          }
+        ],
+        "verdict": "MERGE AFTER FIXES — the cleanest build this project has produced on every mechanical axis, with one real content loss and one operator precondition that must not be missed. All 384 structured sourceQuotes verify byte-for-byte with exact (unnormalised) substring matching; all 249 claimed enumeration values verify; 0 sourceFiles carry the CONCUR_INVOICE/ prefix. Every one of the predecessor's five defect classes is absent: 10/10 value sets wire exactly to a roster field name (the rule-7 defect that stranded 17 sets did not recur), 0 source-file overlap with any of the 617 built fields (nothing re-homed), 0 hits on the 5(c) forbidden-citation rule, every surviving quote is byte-identical to a quote some lens actually produced (no hand-retyped survivor beating a verbatim twin), and no Yes/No pair was completed — 'active' correctly carries ['Yes'] only, verified against the corpus where 'No' occurs exactly twice, both times in the Copy to Approver / Copy to Employee cells. Also clean: 0 duplicate field names, 0 dangling dependency endpoints (34/34 resolve, including seven far ends into built Workflows and Authorized Approval Limits fields), 68/68 step rationales marked CORPUS-STATED or INFERRED, step ids correctly prefixed grpworkflows-b (no collision with Run A's s1-s7), 0 fromRawHtmlTable false flags AND 0 missed flags (measured: 0 raw <table> across both pages' entire 25- and 29-file candidate pools), and 0 unearned uiVariant 'both' claims anywhere in 125 occurrences. Row counts re-derived independently confirm no catalogue was truncated (49/13/22/37/21 cell-openers -> 15/3/6/11/4 true rows, all fully enumerated). Two findings would change the graph materially: the Delegate Configurations list-view table lost 7-8 documented rows to an alias collapse that the built Workflows page decides the opposite way from the identical two-file shape, and merging without --patch --patch-page \"Workflows\" deletes 2 pages, 121 fields and 131 other Run A nodes while the validator still exits 0."
+      }
+    },
+    "navPages": [
+      {
+        "id": "email-reminders",
+        "name": "Email Reminders",
+        "documentedBasis": "rich",
+        "coverageGuess": "good",
+        "uiVariant": "undifferentiated",
+        "navPathEvidence": [
+          {
+            "navPath": [
+              "Administration",
+              "Invoice"
+            ],
+            "sourceQuote": "Select Administration",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Invoice Processing Admin",
+              "Email Reminders"
+            ],
+            "sourceQuote": "From the Invoice Processing Admin navigation menu, choose Email Reminders.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Invoice Processing Admin",
+              "Email Reminders"
+            ],
+            "sourceQuote": "The Email Reminders page appears.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Email Reminders"
+            ],
+            "sourceQuote": "The Email Reminders tool, located in Administration",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+          }
+        ],
+        "aliases": [
+          "Email Reminders tool",
+          "Email Reminders page",
+          "Email Reminder Rules section",
+          "Email Reminder window",
+          "Add Email Reminder page",
+          "Edit Email Reminder page"
+        ],
+        "roleGates": [
+          {
+            "role": "Invoice Configuration administrator (Restricted)",
+            "sourceQuote": "The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+          },
+          {
+            "role": "Global and Group Configuration administrator",
+            "sourceQuote": "allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+          },
+          {
+            "role": "Group Configuration administrator",
+            "sourceQuote": "Group Configuration administrators can only create, edit, and delete email reminders for the groups to which they have access permissions.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+          },
+          {
+            "role": "Group administrator",
+            "sourceQuote": "Group administrators can only create email reminder rules if given \"create\" rights.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+          }
+        ],
+        "identityNotes": "PAGE-HOOD CONFIRMED, and NOT argued from the role gate. Three structural facts: (1) its own menu destination in the same syntactic slot as six already-built pages ('From the Invoice Processing Admin navigation menu, choose Email Reminders.' / 'The Email Reminders page appears.'); (2) its own two-tab surface, both tabs attested with the phrase 'of the Email Reminders page'; (3) its own object model with TWO object types and full CRUD on each - reminder RULES (create/copy/edit/delete, four dedicated topics) and email REMINDERS (create/copy/edit/delete, four more), with a hard ordering: a rule must exist before a reminder can use it ('A rule must be created before you create an email reminder, however, you can use one of the default rules.', configuring-email-reminders-8b2c3cca.md). The gate is real but NOT distinct: grep -rln \"Invoice Configuration administrator (Restricted)\" over BOTH guide dirs returns exactly 9 files, so it gates nine surfaces.\n\n*** NBSP HAZARD - READ BEFORE TOUCHING THE NAV STRINGS ***\nTwo of the sentences that name Administration contain NO '>' glyph at all; the separators are two consecutive U+00A0. Measured with python3 counting b'\\xc2\\xa0':\n  - access-email-reminders-96f3ca18.md (2 NBSP), step 1 reads: Select Administration<U+00A0><U+00A0>Invoice.\n  - email-reminders-tool-8b2c8a11.md (2 NBSP), role sentence reads: The Email Reminders tool, located in Administration<U+00A0><U+00A0>Invoice, allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group.\n  - create-email-reminders-604c4a46.md (14) and create-reminder-rules-b0a7fac5.md (14) carry theirs inside the Editable By descriptions (Global Group<U+00A0><U+00A0>United States), not in a nav sentence.\nbin/validate-graph.py NORMALISES NBSP to a space before comparing, so a retyped quote passes and lands permanently wrong - a nav string a Chromium driver can never match. I measured my own emission fidelity against these two files twice and it was NOT reliable (same intent produced U+00A0 once and U+0020 once). So I deliberately did NOT emit either full sentence. Instead the first nav segment is attested by the boundary-truncated verbatim 'Select Administration' (grep -F verified, 1 hit, cut exactly where the first U+00A0 begins), the alternate path by 'The Email Reminders tool, located in Administration' (1 hit), and the role by the ASCII-clean tail 'allows a Global and Group Configuration administrator...'. A CORRECTION PASS THAT CAN WRITE BYTES DIRECTLY SHOULD REPLACE THESE THREE WITH THE FULL SENTENCES ABOVE, inserting U+00A0 U+00A0 where this note writes <U+00A0><U+00A0>. Do not retype them by hand. The byte-exact sentences are in the survey file at the wroteTo path.\n\nACCESS IDIOM: this page is reached THROUGH the 'Invoice Processing Admin' middle nav node. The '(left menu)' census misses it entirely - that is why 4 of 6 recon sweeps failed to find it. Do NOT copy the Delegate Configurations '(left menu)' idiom onto this page.\n\nCHILD SURFACES ARE MODALS AND A WIZARD, NOT PAGES. Same label-drift shape as Delegate Configurations, same ruling: 'Choose New to open the Email Reminder window.' (create-email-reminders-604c4a46.md); 'Below is an example of how those options are used on the Add Email Reminder page.' (email-message-replacement-tokens-c9cc4af4.md); 'then the Edit Email Reminder page will be read-only.' (edit-email-reminders-2a2638ad.md); 'The New Reminder Rule - Step 1 page appears.' and 'The Conditions - Step 2 page appears.' (create-reminder-rules-b0a7fac5.md). Three names for one reminder editor plus a two-step rule wizard. None has a menu destination, a distinct gate, or a distinct object. The Step 1/Step 2 pair is the Workflows General/Steps/Step Rules precedent exactly. DO NOT create page nodes.\n\nBOUNDARY AGAINST WORKFLOWS > EMAIL NOTIFICATIONS (ALREADY BUILT) - CONCRETE COLLISION. The built graph already carries field.workflows.email-notification-display-as-from ('Display as From') and field.workflows.email-subject ('Email Subject') from add-an-email-notification-c237a2de.md / modify-an-email-notification-a6e5f4ba.md. Email Reminders has its OWN 'Display as From' and 'Email Subject' from create-email-reminders-604c4a46.md. Different controls, different pages. Do not re-home, do not merge, do not dedupe by label. Notifications = event-driven templates authored inside Workflows and assigned to a workflow object; Reminders = interval-driven nag emails with their own rule engine, on their own page, assigned by GROUP.\nVERIFIED AGAINST THE BUILT GRAPH (23 pages / 617 fields): not one built field cites create-email-reminders-604c4a46.md, create-reminder-rules-b0a7fac5.md, access-email-reminders-96f3ca18.md, email-reminders-tool-8b2c8a11.md, configuration-process-8b2c271f.md, overview-8b2c769e.md, pre-defined-rules-220a1fe7.md or before-you-begin-448d2513.md. The roster is clean to take. The six already-mined sweep files (work-with-the-steps-page-fab249d1.md, add-groups-ec5d8d8b.md, overview-8b2edfd0.md, workflow-667cee21.md, about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md, email-message-replacement-tokens-c9cc4af4.md) are corroboration/dependency sources ONLY.\n\nROLE PARTITION TO RECORD AS A DEPENDENCY CONSTRAINT: 'The Group Configurations tool is not visible if you have the Invoice Configuration administrator (Restricted) role.' (overview-8b2edfd0.md). The very admin who can reach Email Reminders CANNOT reach Group Configurations - yet Applies to / Editable By assign reminders BY GROUP. '(Restricted)' and 'Global and Group Configuration administrator' appear in the SAME file and are NOT a contradiction: one is visibility, the other is what the admin may do.\n\nTHE CONTRADICTION TO EMIT (Reminder Type). Two rosters, same control label, two different option lists, and the shared option defined incompatibly. Reminder side (create-email-reminders-604c4a46.md): 'Approval Request - Payment Request: When a cash advance request has a status of Pending Approval.' + 'Approval Request - Vendor Request: When a vendor-based invoice has a status of Pending Approval.' + 'Payment Request'. Rule side (create-reminder-rules-b0a7fac5.md): 'Approval Request - Payment Request: When an invoice has a status of Pending Approval.' + 'Approval Request - Payment Vendor: When a vendor-based invoice has a status of Pending Approval.' + 'Payment Request'. 'Approval Request - Vendor Request' appears ONLY on the reminder side; 'Approval Request - Payment Vendor' ONLY on the rule side. Emit BOTH value sets with distinct context and ONE contradiction node. Do not reconcile.\n\nTHREE GUARANTEED NAME COLLISIONS WITHIN THIS PAGE (duplicate-field-name is a hard validator error scoped PER PAGE, not per tab). The Rules tab roster has exactly THREE field rows - Name, Reminder Type, Editable By - and all three labels are also standalone table cells on the Email Reminders tab roster. Different controls, different descriptions, genuinely disagreeing Reminder Type lists. Prefix the rule side (rule_name / rule_reminder_type / rule_editable_by), keep the reminder side bare, put the tab in notes on both. DO NOT MERGE TO DUCK THE ERROR.\n\nCENSUS, MEASURED. 25 files by the broad sweep (grep -rli 'email reminder' over both dirs), 62,693 B total, ZERO raw <table> HTML in every file. grep -c '^| ' is worthless: the real roster returns 0 on it. Correct anchor is ^\\s*\\| and it counts CELLS, not rows. create-email-reminders-604c4a46.md: 10,163 B, naive 0, cell-openers 49, TRUE FIELD ROWS 15 - Name, Reminder Type, Reminder Rule, Frequency, Number of Days, Specific days, Display as From, Email Subject, Email Message, Copy to Approver, Copy to Employee, Copy to Email Address, Editable By, Applies to, Active. 49 IS NOT A ROW COUNT; an extractor that believes it will hunt for 34 fields that do not exist. create-reminder-rules-b0a7fac5.md: 3,979 B, naive 0, cell-openers 13, TRUE ROWS 3. email-message-replacement-tokens-c9cc4af4.md: 2,796 B, cell-openers 21, TRUE ROWS 4. email-reminders-8b2caa99.md: 3,921 B, naive 31, cell-openers 91 - REVISION HISTORY, about 29 dated entries, not 91 of anything, and not a roster.\n\nKNOWN GAP THIS PAGE CLOSES: vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na is orphaned with knownGap:true and its own note says the fix is 'an Email Reminders page node that owns this table properly'. The file is email-message-replacement-tokens-c9cc4af4.md; its true content is exactly FOUR tokens - %1% Logon URL, %2% User Name, %3% Number of Records, %4% List of Records - and the existing node already carries those four. RE-HOME that 4-value set onto this page; do NOT hunt for 17 more tokens. (page.purchase-order-configuration and field.purchase-order-configuration.default-email-subject-when-transmitting-purchase-orders also reference this file - leave those alone.)\n\nSCHEDULING IS NOT A CONTROL ON THIS PAGE: 'Scheduling email reminders is done in the Import/Extract Administrator tool and is performed by SAP Concur staff.' and 'Scheduling requires you to submit a service request to SAP Concur support.' (configuration-process-8b2c271f.md), corroborated by scheduling-email-reminders-8b2ceaea.md. Emit as a dependency / step rationale into the unbuilt Import/Extract Administrator surface, NEVER as a field. Same for localisation string extraction (localizing-email-reminder-text-8b2cc1b0.md).\n\n'RULES TAB' NAMES THREE SURFACES: Email Reminders > Rules (this page), the built page.purchase-order-matching-rules > Rules, and the Workflows Step Rules wizard page (ruled NOT a page). Say which one you mean, every time.\n\nADJACENT PAGE: group-level reminder assignment touches the built page.group-configurations ('Group Configurations within the Invoice Configuration administrator are used to identify and configure the groups necessary to provide employees with different payment policies, audit rules, email reminders, and vendors.', overview-8b2edfd0.md). Emit the cross-page dependency; do not re-home add-groups-ec5d8d8b.md fields.\n\nuiVariant undifferentiated: the only UI-variant language in the set is 2014/2015 revision-history boilerplate ('Added information about the two user interfaces', 'Updated the images to the enhanced UI') - history, not a live variant, and the same 2014 line appears in ~40 corpus files.\n\ndocumentedBasis rich: two field-level rosters in two separate topics (15 + 3 rows), a fully enumerated 4-row token catalogue, enumerated value lists on Reminder Type (x2, contradictory), Frequency (5 options: Daily (weekdays only), Daily, Every x days, Specific days of the month, Once condition is met), Copy to Approver / Copy to Employee / Active (Yes/No stated explicitly in prose - DOCUMENTED, not inferred), Editable By (Global Group / named groups), plus dedicated topics for localisation, pre-defined rules, prerequisites and the configuration process, plus eight CRUD procedure topics. Real gaps remain: the Conditions - Step 2 condition editor is only step-listed (Data Object, Field/Value, Operator) and never enumerated for reminders, and the two pre-defined rules are named with no configuration surface.",
+        "tabs": [
+          "Rules",
+          "Email Reminders"
+        ],
+        "tabsSourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md",
+        "tabsSourceQuote": "On the Email Reminders tab of the Email Reminders page, create a new configuration."
+      },
+      {
+        "id": "delegate-configurations",
+        "name": "Delegate Configurations",
+        "documentedBasis": "moderate",
+        "coverageGuess": "partial",
+        "uiVariant": "undifferentiated",
+        "navPathEvidence": [
+          {
+            "navPath": [
+              "Administration",
+              "Invoice"
+            ],
+            "sourceQuote": "Select Administration > Invoice.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Delegate Configurations"
+            ],
+            "sourceQuote": "Select Delegate Configurations (left menu) , the Delegate Configurations page appears.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+          },
+          {
+            "navPath": [
+              "Invoice Admin",
+              "Delegate Configurations"
+            ],
+            "sourceQuote": "Invoice delegates are accessed from the Invoice Admin link.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Invoice",
+              "Delegate Configurations",
+              "New"
+            ],
+            "sourceQuote": "This window is available by clicking Administration > Invoice > Delegate Configurations > New (or Modify, if existing configuration).",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-experience-8b30fb06.md"
+          }
+        ],
+        "aliases": [
+          "Delegate Configurations tool",
+          "Delegate Configuration",
+          "Delegate Configuration area",
+          "Payment Delegate Configurations",
+          "Invoice delegates",
+          "Add Delegate Configuration - Invoice page",
+          "Add Delegate Configuration window",
+          "Add Delegate Configuration page",
+          "Modify Delegate Configuration page",
+          "Edit Delegate Configuration page"
+        ],
+        "roleGates": [],
+        "identityNotes": "PAGE-HOOD CONFIRMED, and it is a SIBLING of Workflows, never under it. Its own left-menu destination ('Select Delegate Configurations (left menu) , the Delegate Configurations page appears.'), its own tool name ('To access the Delegate Configurations tool:'), its own two tabs, and its own object with full CRUD across four dedicated topics. The corpus NEVER places it under Workflows - measured, zero hits across the 12 delegate-named admin files. Independent corroboration already in the graph: dep.g1.059 targets {page:'Delegate Configurations', field:'Delegate Configuration', resolved:false}, written by a Group 1 agent with no roster; and the built page.workflows node's own notes already say the 'Select the Invoice or Purchase Request tab.' sentence 'is DELEGATE CONFIGURATIONS (a Run B page)' - Run A explicitly declined to absorb it.\n\nVERBATIM TRAP, VERIFIED: the nav quote contains a STRAY SPACE BEFORE THE COMMA - '(left menu) , the'. Byte-exact, 1 hit. Do not tidy it.\n\nNBSP: THIS PAGE IS CLEAN - and do NOT carry the Email Reminders habit across. Measured with python3 counting b'\\xc2\\xa0': 0 NBSP in all 12 delegate files. This page writes a plain ASCII 'Administration > Invoice'. (Never conclude 'no NBSP' from grep -P \"\\xc2\\xa0\"; grep here is ugrep 7.8.4 and that form is a silent zero.)\n\nACCESS IDIOM: bare '(left menu)'. The 'Invoice Processing Admin' middle nav node is NEVER mentioned for this page - treat that segment as UNATTESTED, not absent. 'Invoice Admin' is a live alias for 'Administration > Invoice', corroborated by the guide revision history: 'Tool now available from within Invoice Admin user interface.' (delegate-configuration-8b2bd26d.md).\n\n*** THE IDENTITY QUESTION THE RECON DID NOT SETTLE - MY RULING: THE CHILD WINDOW IS A MODAL ON THIS PAGE, NOT A SEPARATE PAGE NODE. ***\nFIVE names for ONE surface across FOUR files, all grep -F verified: 'Choose New. The Add Delegate Configuration - Invoice page appears.' (create-a-new-invoice-delegate-configuration-fcf42662.md); 'in the Add Delegate Configuration window' and 'This window is available by clicking Administration > Invoice > Delegate Configurations > New (or Modify, if existing configuration).' (delegate-experience-8b30fb06.md); 'Select Modify. The Modify Delegate Configuration page appears.' (edit-an-invoice-delegate-configuration-c7f51424.md); 'This is also a link to the Edit Delegate Configuration page' (access-and-view-payment-delegate-configurations-8ed1298f.md); 'Restrict approvers to those with equal or higher authorized approver limit setting to the Add Delegate Configuration page.' (delegate-configuration-8b2bd26d.md revision history). A sixth, singular, names the parent: 'Select Save to return to the Delegate Configuration page.' EMIT THAT FIVE-NAME DRIFT AS A CONTRADICTION NODE so the label mapping is not lost.\nTHE ARGUMENT. The word 'page' is proven non-discriminating here - it covers real pages AND the Workflows General/Steps/Step Rules wizard already ruled NOT a page, while page.authorized-approval-limits IS a page node and its own nav quote says 'window appears'. So decide on STRUCTURE, three tests. (1) Own menu destination? NO - the only path is through the parent, '... > Delegate Configurations > New (or Modify)'. Not decisive alone, since Authorized Approval Limits also lacks one. (2) Own role gate? NO - nothing gates the child differently from the parent, whereas Authorized Approval Limits sits under a wholly different admin parent (Administration > Company > User Administration) with no other home for its fields. (3) Own object model? NO, AND THIS IS DECISIVE - the child edits the SAME object the parent lists, and the corpus documents the SAME controls twice: the parent's 11-column read-only table (access-and-view-payment-delegate-configurations-8ed1298f.md) and the child's 6-row entry form (create-a-new-invoice-delegate-configuration-fcf42662.md) are the same settings under different labels (Can Prepare <-> Delegate can prepare; Can Submit <-> Delegate can submit; Can Approve (Any Time) <-> Delegate can approve (any time); Can Approve Temporary <-> Delegate can approve during specified period; Can View Images <-> Delegate can view images; Restrict Delegates to Group <-> Restrict delegate selection to user's group; Need Approver Role to Approve <-> Require approver role for approval delegation; Name <-> Configuration Name). A separate page node would duplicate every field and split one object across two homes. That is the Workflows-wizard pattern (modal over an object -> not a page), not the Authorized Approval Limits pattern (a surface with no other home -> a page). EMIT THE FIELDS ON page.delegate-configurations, noting they are entered in the Add/Modify Delegate Configuration modal and displayed read-only as list columns on the Invoice and Purchase Request tabs. The identical ruling is applied to the Email Reminders child window in the same run - one rule, applied twice.\n\nROLE GATE: DOCUMENTED ABSENCE, and that is the publishable finding. There is NO documented role gate for this page anywhere in this corpus. grep -rn 'Delegate Configuration' across BOTH directories filtered for role/administrator/permission language returns only field-description prose. The ~40 permissions-*.md topics are per-guide boilerplate ('A company administrator may or may not have the correct permissions to use this feature') and name no role. The nearest role-shaped sentences are NOT gates and must not be recorded as such: 'The Configuration administrator can restrict the delegates based on the following choices:' (create-a-new-invoice-delegate-configuration-fcf42662.md) describes who uses a FIELD, not who reaches the page; 'The Invoice Admin sets this option when defining delegates.' (delegate-experience-8b30fb06.md) uses the MENU alias, not a role name. roleGates:[] is correct. DO NOT complete the pattern by borrowing the Invoice Configuration administrator role from a neighbouring page.\n\nTABS attested four times in four files. Emitted quote is from fcf42662; the others are 'Select the Invoice or Purchase Request tab.' (access-and-view-payment-delegate-configurations-8ed1298f.md), 'On the Delegate Configurations page, choose either the Invoice or Purchase Request tab.' (edit-an-invoice-delegate-configuration-c7f51424.md), and 'On the Delegate Configurations page, Select either the Invoice or Purchase Request tab.' (delete-an-invoice-delegate-configuration-92627a9b.md - note SAP's capital 'Select' mid-sentence). The access-and-view variant is the sentence Run A briefly mis-assigned to the Workflows Approval Statuses sub-tabs; that correction is already recorded in the built page.workflows node - do not re-open it.\n\nALIAS SOURCE: terminology-e1e1ed99.md is this page's richest, a six-entry catalogue with ZERO occurrences of 'reminder' (verified), so it belongs to THIS page only: Invoice Delegates, Invoice Request Delegates, Purchase Request Delegates, Temporary Approval Delegation, Delegate Restriction to Group, Delegated Approver. Three are field-shaped and map onto controls above (Temporary Approval Delegation -> Can Approve Temporary / Maximum Time Period to Approve; Delegate Restriction to Group -> Restrict Delegates to Group; Delegated Approver -> the built Workflows self-approval setting).\n\nDANGLING ENDPOINT - REPORT, DO NOT CONTORT: dep.g1.059 targets field 'Delegate Configuration', which is LABEL-shaped, not a field name. This run emits configuration_name (label 'Configuration Name') and name, never a field literally called 'Delegate Configuration'. THE EDGE WILL NOT AUTO-RESOLVE. Report the mismatch for a correction pass; do not rename a field to force it. Its cardinality quote is real and worth a dependency into the built page.group-configurations: 'Each group within your company can only have one Invoice delegate configuration.'\n\nBOUNDARIES. (a) WORKFLOWS: delegate-self-approval-1b627285.md (1,284 B) describes 'Allow delegated approvers to approve their own requests', already built as field.workflows.allow-delegated-approvers-to-approve-own-requests FROM create-a-new-workflow-554e86aa.md - VERIFIED against the graph, so this file is an UNMINED CORROBORATION source, not a duplicate source. You MAY cite it in notes (it places the setting on the 'General step' and distinguishes a delegate acting for an Approver from one acting as an AP User: 'A setting, Allow delegated approvers to approve their own requests, is available in the General step.') and you MAY emit a dependency into the built Workflows field. You may NOT emit a field here from it. (b) AUTHORIZED APPROVAL LIMITS (page.authorized-approval-limits, 10 fields): 'Restrict approvers to those with equal or higher authorized approver limit' belongs to THIS page - it is a row on BOTH delegate rosters - but its semantics depend on that page. Cross-page dependency, not a re-home. (c) GROUP CONFIGURATIONS: 'Delegate configurations can be applied to employee group configurations within Concur Invoice.' (overview-8b2ba917.md) plus the one-per-group cardinality. (d) UNBUILT USER ADMINISTRATION / MY INFO: 'This field works in conjunction with the Choose Dates link in the Delegates area of both My Info and User Administration.' - an unresolved dependency into an unbuilt surface is legitimate; delegates-4d7c563c.md defers to the external 'Shared: Delegate Configuration Setup Guide', absent from this corpus - a DOCUMENTARY gap, not a menu-location one.\n\nCENSUS, MEASURED. 12 delegate files, 28,510 B, ZERO raw <table> HTML anywhere. Naive '^| ' is again worthless. access-and-view-payment-delegate-configurations-8ed1298f.md: 3,872 B, naive 0, cell-openers 37, TRUE ROWS 11 (Name, Can Prepare, Can Submit, Can Approve (Any Time), Can Approve Temporary, Can View Images, Restrict Delegates to Group, Need Approver Role to Approve, Restrict approvers to those with equal or higher authorized approver limit, Maximum Time Period to Approve, Applies to Groups). create-a-new-invoice-delegate-configuration-fcf42662.md: 6,302 B, naive 0, cell-openers 22, TRUE ROWS 6 (Configuration Name, Maximum Time Period to Approve, Restrictions, Restrict approvers to those with equal or higher authorized approver limit, Applies to Groups, Delegate Settings For User Administrators and Employees). delegate-configuration-8b2bd26d.md: 4,236 B, naive 31, cell-openers 91 - REVISION HISTORY, about 29 dated entries, not a roster. THE ~25-FIELD RECON ESTIMATE IS TOO HIGH: the 6 create rows expand ('Restrictions' holds 2 named sub-options, 'Delegate Settings For User Administrators and Employees' holds 5), and those seven are the SAME controls the 11-column read-only table lists under different labels. Collapse aliases and the unique control count is 11-13, not 25. Do not inflate to hit a number.\n\nDROP THE 'two user interfaces' UI HINT: delegate-configuration-8b2bd26d.md carries 'Added information about the two user interfaces; no other content changes' in its 2014 revision history - the same boilerplate present in ~40 corpus files including most already-built pages, and the same line is in the Email Reminders revision history. Not a property of this page; must not become a uiVariant claim.\n\ndocumentedBasis moderate: field-level documentation genuinely exists but is confined to TWO topics describing the same object from two sides; the surrounding topics are semantics/prose rather than controls (overview-8b2ba917.md is the permission-subset model, special-considerations-*-8b2bfccb/77a887a4 are group-move behaviour, audit-invoice-delegate-actions-3660a51f.md is an audit trail with no controls). Enumerated value lists are almost entirely ABSENT - the roster describes controls as 'If active, ...' and 'If selected (enabled)' and NOWHERE enumerates a Yes/No option list; a blind build must NOT complete those pairs. The Purchase Request tab is named four times and never separately documented - not one control is attributed to it, so a driver has no field roster for that tab at all. And there is no documented role gate. That is 'some field-level documentation, gaps obvious'.",
+        "tabs": [
+          "Invoice",
+          "Purchase Request"
+        ],
+        "tabsSourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+        "tabsSourceQuote": "On the Delegate Configurations page, select either the Invoice or Purchase Request tab."
+      }
+    ],
+    "navNarrative": "# Map / Navigation Survey — Run B: Email Reminders and Delegate Configurations\n\nCorpus: SAP `2026_08`, Professional Edition, crawled 2026-08-29. Both guide directories searched at equal weight. **Every file that documents either page lives in `concur-invoice-professional-edition-admin-guides/`. The tools-guides directory contributes ZERO source files to either page** — its five delegate-matching files are end-user proxy / delete-invoice topics and a condition-editor field catalogue, none of which describe either admin page. That is a positive finding, not a skipped search.\n\nNo URL is published for either page. `navPath` is the identifier for both.\n\n> **Rendering note:** where this narrative writes `<U+00A0>` it means one literal U+00A0 byte pair `C2 A0` in the source file. The byte-exact sentences are in the survey file at the `wroteTo` path; I do not reproduce raw NBSP here because my own emission of that character proved unreliable (see §1.2).\n\n---\n\n## 1. Email Reminders\n\n### 1.1 Page identity — CONFIRMED\n\nIts own admin page, not a tab of Workflows. Three grounded structural facts:\n\n1. **Own menu destination**, in the same syntactic slot as six already-built pages: \"From the Invoice Processing Admin navigation menu, choose Email Reminders.\" then \"The Email Reminders page appears.\" (`access-email-reminders-96f3ca18.md`).\n2. **Own two-tab object surface** — Rules and Email Reminders, both attested with \"of the Email Reminders page\".\n3. **Own object model, two object types with full CRUD on each** — reminder RULES (create/copy/edit/delete, four topics) and email REMINDERS (create/copy/edit/delete, four more), with a hard ordering: \"A rule must be created before you create an email reminder, however, you can use one of the default rules.\" (`configuring-email-reminders-8b2c3cca.md`).\n\nPage-hood is explicitly **not** argued from the role gate. Measured: `grep -rln \"Invoice Configuration administrator (Restricted)\"` over both directories returns exactly **9 files** — the gate is real, it is not a discriminator.\n\n### 1.2 Navigation — and the NBSP hazard\n\n| navPath | quote | file |\n| --- | --- | --- |\n| Administration > Invoice | `Select Administration<U+00A0><U+00A0>Invoice.` | access-email-reminders-96f3ca18.md |\n| Administration > Invoice > Invoice Processing Admin > Email Reminders | \"From the Invoice Processing Admin navigation menu, choose Email Reminders.\" | access-email-reminders-96f3ca18.md |\n| (landing confirmation) | \"The Email Reminders page appears.\" | access-email-reminders-96f3ca18.md |\n| Administration > Invoice > Email Reminders (middle node unattested in this sentence) | `The Email Reminders tool, located in Administration<U+00A0><U+00A0>Invoice, allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group.` | email-reminders-tool-8b2c8a11.md |\n\n**Both sentences that name `Administration` contain NO `>` glyph at all.** Measured with `python3` counting `b\"\\xc2\\xa0\"`: `access-email-reminders-96f3ca18.md` = 2 NBSP, `email-reminders-tool-8b2c8a11.md` = 2 NBSP, `create-email-reminders-604c4a46.md` = 14 and `create-reminder-rules-b0a7fac5.md` = 14 (the latter two inside the **Editable By** descriptions, `Global Group<U+00A0><U+00A0>United States`, not in nav sentences).\n\n**Emission decision.** `bin/validate-graph.py` normalises NBSP to a space before comparing, so a retyped quote passes and lands permanently wrong. I tested my own emission fidelity against these two files twice and it was **not reliable** — the same intent produced U+00A0 once and U+0020 once. Rather than gamble a silently-wrong nav string into the graph, the NBSP sentences are **not emitted as sourceQuotes**. Substitutes, all `grep -F` verified at 1 hit:\n\n- first segment → `\"Select Administration\"` (boundary-truncated exactly where the first U+00A0 begins)\n- alternate path → `\"The Email Reminders tool, located in Administration\"`\n- role → `\"allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group.\"`\n\nA correction pass that can write bytes directly should swap in the full sentences. **Do not retype them by hand.**\n\n**Access idiom:** this page is reached **through the `Invoice Processing Admin` middle nav node**. The `(left menu)` census misses it entirely — that is why 4 of 6 recon sweeps failed to find it. Do not copy the Delegate idiom onto it.\n\n### 1.3 Tabs — Rules, Email Reminders\n\n- \"On the Rules tab of the Email Reminders page, create any specific email rules for the reminder\" (configuration-process-8b2c271f.md)\n- \"On the Email Reminders tab of the Email Reminders page, create a new configuration.\" (configuration-process-8b2c271f.md) — emitted as `tabsSourceQuote`\n- \"On the Email Reminders page, select the Rules tab.\" (create-reminder-rules-b0a7fac5.md)\n- \"The rules are set up in the Rules tab of the Email Reminders page.\" (before-you-begin-448d2513.md)\n\nAlias found inside the roster itself: \"The Email Reminder Rules section of this tool is used to create any new rules.\" (create-email-reminders-604c4a46.md).\n\n### 1.4 Child surfaces — modals and a wizard, NOT pages\n\n\"Choose New to open the Email Reminder window.\" · \"Below is an example of how those options are used on the Add Email Reminder page.\" · \"then the Edit Email Reminder page will be read-only.\" · \"The New Reminder Rule - Step 1 page appears.\" / \"The Conditions - Step 2 page appears.\"\n\nThree names for one reminder editor, plus a two-step rule wizard. None has a menu destination, a distinct gate, or a distinct object. The Step 1 / Step 2 pair is the Workflows General/Steps/Step Rules precedent exactly. **No page nodes.**\n\n### 1.5 Boundary against Workflows > Email Notifications — a concrete collision\n\nThe built graph already carries `field.workflows.email-notification-display-as-from` (\"Display as From\") and `field.workflows.email-subject` (\"Email Subject\"). **Email Reminders has its own \"Display as From\" and its own \"Email Subject\"** from `create-email-remind",
+    "inventoryNarrative": "## MAP inventory: Email Reminders + Delegate Configurations\n\nFull report at `/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/map-inventory.md`.\n\n### Six corrections to the brief, all measured\n\n1. **\"ZERO raw `<table>` anywhere in either set\" is FALSE once you beat the seed floor.** Two files that surface on the mandated Email Reminders search terms carry raw HTML tables: `create-a-conditional-rule-in-the-editor-86a92887.md` (1 `<table`, 1 `<tr`, a **2-field roster** for *Print Condition Rules*) and `additional-approver-situations-fbb5034c.md` (1/1, a 6-row worked example). Both ruled out with reasons. The Delegate set really is 0/0 across all 34 candidates — that half of the claim holds.\n\n2. **`about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md` is NOT already mined.** Zero citations across all seven graph node arrays. It is an unmined corroboration source, not a forbidden file. (Verified the other five: `work-with-the-steps-page` 15 citations, `add-groups` 21, `overview-8b2edfd0` 1, `workflow-667cee21` 1, `email-message-replacement-tokens` 1.)\n\n3. **Delegate Configurations is 34 files by content, not 17 by filename.** Beat that floor by 17; 5 of the additions are page-relevant, the rest rule out cleanly and are listed with reasons.\n\n4. **Email Reminders: bare `grep -rli \"reminder\"` returns 31, not 25.** The one real addition beyond the 25 is `before-you-begin-448d2513.md`, which states the rule→reminder ordering and names the Rules tab — now a mustRead.\n\n5. **`delegate-self-approval-1b627285.md` is unmined too.** The built Workflows field cites `create-a-new-workflow-554e86aa.md`. So it is a corroboration source (it adds \"General step\" and the Approver-vs-AP-User distinction), not a duplicate source. Still no field from it here.\n\n6. **Delegate Configurations is 11–13 unique controls, not ~25.** Full alias map in the report: `Can Prepare` ≡ `Delegate can prepare`, `Can View Images` ≡ `Delegate can view images` ≡ `Delegate can view invoice images for payment requests`, and six more pairs. The corpus documents one control under two or three labels across the list view and the editor.\n\n### The census trap, resolved arithmetically\n\n`grep -cP \"^\\s*\\|\"` returns **cell-openers**, not rows: `1 + (cols+1) × rows`. Verified against every roster by reading it in full.\n\n| file | naive | correct | TRUE rows |\n|---|---|---|---|\n| create-email-reminders-604c4a46 | 0 | 49 | **15 fields** |\n| create-reminder-rules-b0a7fac5 | 0 | 13 | **3 fields** |\n| email-message-replacement-tokens | 6 | 21 | **4 tokens** |\n| email-reminders-8b2caa99 | 31 | 91 | 29 revisions — **HISTORY** |\n| access-and-view-…-8ed1298f | 0 | 37 | **11 fields** |\n| create-a-new-invoice-delegate-…-fcf42662 | 0 | 22 | **6 fields** |\n| delegate-configuration-8b2bd26d | 31 | 91 | 29 revisions — **HISTORY** |\n| general-information-8b3b0308 | 47 | 139 | ~45 revisions — HISTORY, and it's the **Workflows** guide |\n\n### Findings the extractors need\n\n- **The contradiction is real and it is the strongest in this run.** Same option list, two incompatible definitions: `Approval Request - Payment Request: When a cash advance request has a status of Pending Approval.` (reminders tab) vs `…When an invoice has a status of Pending Approval.` (rules tab), plus `Approval Request - Vendor Request` vs `Approval Request - Payment Vendor`. Both quotes `grep -F` verified. Emit both sets, one contradiction node, do not reconcile.\n- **`Active` documents ONLY `Yes`** (`Select Yes to make this email reminder active. All email reminders are inactive by default.`). Do not complete the pair — that is the invented-`Yes` defect in mirror image. `Copy to Approver` and `Copy to Employee` *do* document both sides, explicitly.\n- **The prize catalogue is 4 tokens and the graph already holds them.** Re-home `vset.g3.unnamed.email-message-replacement-tokens-the-4-row-variable-label-na` onto `Email Subject` / `Email Message`. Do not create a second set.\n- **The Delegate child surface has 8 labels across 6 files**, not five across four. On the three structural tests (own menu destination / own role gate / own object model) it fails all three — recommend **modal on the parent page, not a page node**, with the Workflows-wizard precedent for the negative and Authorized Approval Limits as the counter-case.\n- **`dep.g1.059` will not auto-resolve.** Its target field `\"Delegate Configuration\"` is label-shaped; no field on this page will carry that name. Ironically its `sourceFile` is this page's own roster. The honest fix is repointing it at `Applies to Groups`, where the one-per-group cardinality actually lives — report, don't contort.\n- **Three genuine thin answers:** the Purchase Request tab has no documented roster anywhere; there is no start-date/end-date field on Delegate Configurations (`Choose Dates` lives in My Info / User Administration); and the rule wizard's Conditions - Step 2 has no field table — the condition-editor catalogues belong to Audit Rules, which already mined them.\n- **tools-guides yield is ZERO field-bearing files for both pages.** Measured with equal weight, not skewed — the opposite of the Vendor Search Admin case, and worth stating as a finding.\n- **Live contamination trap:** `create-a-conditional-rule-in-the-editor-86a92887.md` shares the exact boilerplate `Group administrators can only create X rules if given \"create\" rights` with `create-reminder-rules-b0a7fac5.md` and says \"print **reminder** rules\". Different object, different list page. It must not be cited on Email Reminders.\n\nAll 18 headline nav/gate/tab quotes returned `grep -F -c` = 1, including the verbatim stray space in `Select Delegate Configurations (left menu) , the Delegate Configurations page appears.` and the stripped-`>` double space in `Select Administration  Invoice.` — note the same menu renders both ways across the two pages in this one run."
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Map"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Extract"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 4,
+      "title": "Repair"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 5,
+      "title": "Synthesize"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 6,
+      "title": "Critic"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "map:navigation",
+      "phaseIndex": 1,
+      "phaseTitle": "Map",
+      "agentId": "a00900c277ffacee5",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788266894594,
+      "queuedAt": 1788266894570,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77…",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788267541773,
+      "tokens": 144371,
+      "toolCalls": 33,
+      "durationMs": 647163,
+      "resultPreview": "{\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/map-navigation.md\",\"pages\":[{\"id\":\"email-reminders\",\"name\":\"Email Reminders\",\"documentedBasis\":\"rich\",\"coverageGuess\":\"good\",\"uiVariant\":\"undifferentiated\",\"navPathEvidence\":[{\"navPath\":[\"Administration\",\"Invoice\"],\"sourceQuote\":\"Select Administration\",\"sourceFile\":\"concur-invoice-professiona…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "map:inventory",
+      "phaseIndex": 1,
+      "phaseTitle": "Map",
+      "agentId": "ae19d194f46468822",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788266894608,
+      "queuedAt": 1788266894571,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77…",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788267774695,
+      "tokens": 152744,
+      "toolCalls": 34,
+      "durationMs": 880083,
+      "resultPreview": "{\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/map-inventory.md\",\"narrativeMarkdown\":\"## MAP inventory: Email Reminders + Delegate Configurations\\n\\nFull report at `/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/map-inventory.md`.\\n\\n### Six corrections to the brief, all measured\\n\\n1. **\\\"Z…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "extract:email-reminders:procedure",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "ad647fbbe2aed84bc",
+      "model": "claude-sonnet-5",
+      "state": "done",
+      "startedAt": 1788267774745,
+      "queuedAt": 1788267774713,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "email-reminders",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268087598,
+      "tokens": 136388,
+      "toolCalls": 18,
+      "durationMs": 312847,
+      "resultPreview": "{\"pageId\":\"email-reminders\",\"lens\":\"procedures-and-controls\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-email-reminders-procedure.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md\",\"concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7f…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "extract:email-reminders:tables",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "ae8fb18b043c5adc1",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788267774748,
+      "queuedAt": 1788267774713,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "email-reminders",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268173895,
+      "tokens": 127715,
+      "toolCalls": 12,
+      "durationMs": 399142,
+      "resultPreview": "{\"pageId\":\"email-reminders\",\"lens\":\"tables-and-catalogs\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-email-reminders-tables.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md\",\"concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md\"…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "extract:email-reminders:crosscut",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a4e4663c65d08ade7",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788267774750,
+      "queuedAt": 1788267774714,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "email-reminders",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268097641,
+      "tokens": 117763,
+      "toolCalls": 14,
+      "durationMs": 322887,
+      "resultPreview": "{\"pageId\":\"email-reminders\",\"lens\":\"C-tools-guides-and-cross-cutting\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-email-reminders-crosscut.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-tools-guides/invoice-configuration-administrator-or-invoice-admin-2bca2480.md\",\"concur-invoice-professional-edition-to…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "extract:delegate-configurations:procedure",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a7c6b3b289adade13",
+      "model": "claude-sonnet-5",
+      "state": "done",
+      "startedAt": 1788267774798,
+      "queuedAt": 1788267774795,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "delegate-configurations",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268084547,
+      "tokens": 137603,
+      "toolCalls": 27,
+      "durationMs": 308078,
+      "resultPreview": "{\"pageId\":\"delegate-configurations\",\"lens\":\"procedures-and-controls\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-delegate-configurations-procedure.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md\",\"concur-invoice-professional-edition…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "extract:delegate-configurations:tables",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a270463b4862de6ef",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788267774800,
+      "queuedAt": 1788267774796,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "delegate-configurations",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268278210,
+      "tokens": 139062,
+      "toolCalls": 15,
+      "durationMs": 501656,
+      "resultPreview": "{\"pageId\":\"delegate-configurations\",\"lens\":\"tables\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-delegate-configurations-tables.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md\",\"concur-invoice-professional-edition-admin-guides/create…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "extract:delegate-configurations:crosscut",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "ae9f0ba6e29375d83",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788267774804,
+      "queuedAt": 1788267774796,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "delegate-configurations",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268053578,
+      "tokens": 116637,
+      "toolCalls": 11,
+      "durationMs": 276824,
+      "resultPreview": "{\"pageId\":\"delegate-configurations\",\"lens\":\"tools-guides-and-cross-cutting\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/extract-delegate-configurations-crosscut.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-tools-guides/accessing-invoice-proxy-logon-8b4e4019.md\",\"concur-invoice-professional-edition-tools-guide…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "verify:email-reminders:grounding",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a4c58b997e0a02ebe",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788268173940,
+      "queuedAt": 1788268173908,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "email-reminders",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268533793,
+      "tokens": 128066,
+      "toolCalls": 23,
+      "durationMs": 359849,
+      "resultPreview": "{\"pageId\":\"email-reminders\",\"refuter\":\"refuter-1: grounding and control identity (grep -F verbatim verification, validValues-vs-source audit, fromRawHtmlTable audit, built-graph contamination check)\",\"verdicts\":[{\"fieldName\":\"name\",\"disposition\":\"keep\",\"reason\":\"grep -F -c 'Type a unique name for the email reminder configuration.' create-email-reminders-604c4a46.md = 1. It is the Name row of the 1…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "verify:email-reminders:ownership",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a5e4d5b2f6343a56f",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788268173942,
+      "queuedAt": 1788268173909,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "email-reminders",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268627384,
+      "tokens": 144334,
+      "toolCalls": 31,
+      "durationMs": 451930,
+      "resultPreview": "{\"pageId\":\"email-reminders\",\"refuter\":\"refuter 2 of 2 — page ownership, duplication and scope\",\"pageLevelFindings\":\"PLACEMENT VERDICT: the roster is CLEAN. All 26 candidates are documented only in Email Reminders topics, and none is re-homable to another page. I found zero mis-placements, zero cross-page duplicates, and zero intra-page duplicates. The real defects on this page are one layer down —…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 11,
+      "label": "verify:delegate-configurations:grounding",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "aefe284ce78932f15",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788268278253,
+      "queuedAt": 1788268278239,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "delegate-configurations",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268775329,
+      "tokens": 138981,
+      "toolCalls": 23,
+      "durationMs": 497068,
+      "resultPreview": "{\"pageId\":\"delegate-configurations\",\"refuter\":\"grounding-and-control-identity (refuter 1 of 2)\",\"verdicts\":[{\"fieldName\":\"tab-selector\",\"disposition\":\"repair\",\"reason\":\"Control is real and quadruply attested; quote 'Select the Invoice or Purchase Request tab.' verifies verbatim (grep -F -c = 1) in access-and-view-payment-delegate-configurations-8ed1298f.md. Both validValues are printed in that sam…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 12,
+      "label": "verify:delegate-configurations:ownership",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "aaff47160ce0bea83",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788268278259,
+      "queuedAt": 1788268278240,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "delegate-configurations",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268854889,
+      "tokens": 141704,
+      "toolCalls": 26,
+      "durationMs": 576625,
+      "resultPreview": "{\"pageId\":\"delegate-configurations\",\"refuter\":\"page-ownership-duplication-scope (refuter 2 of 2)\",\"verdicts\":[{\"fieldName\":\"tab-selector\",\"disposition\":\"keep\",\"reason\":\"OWNERSHIP CLEAN AND IT SETTLES A KNOWN MIS-ASSIGNMENT. grep -rlF \\\"Select the Invoice or Purchase Request tab.\\\" across BOTH guide dirs returns exactly ONE file: access-and-view-payment-delegate-configurations-8ed1298f.md. Widening…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 13,
+      "label": "repair:email-reminders",
+      "phaseIndex": 4,
+      "phaseTitle": "Repair",
+      "agentId": "a1d946b714f55c77a",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788268627421,
+      "queuedAt": 1788268627399,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "email-reminders",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788268826119,
+      "tokens": 128662,
+      "toolCalls": 14,
+      "durationMs": 198697,
+      "resultPreview": "{\"pageId\":\"email-reminders\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/roster-email-reminders.json\",\"jsonValid\":true,\"inputCount\":26,\"finalFieldNames\":[\"name\",\"reminder-type\",\"reminder-rule\",\"frequency\",\"number-of-days\",\"specific-days\",\"display-as-from\",\"email-subject\",\"email-message\",\"copy-to-approver\",\"copy-to-employee\",\"copy-to-emai…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 14,
+      "label": "repair:delegate-configurations",
+      "phaseIndex": 4,
+      "phaseTitle": "Repair",
+      "agentId": "aa526cd3bf2f8ac89",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788268854912,
+      "queuedAt": 1788268854903,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "delegate-configurations",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788269176909,
+      "tokens": 151837,
+      "toolCalls": 15,
+      "durationMs": 321995,
+      "resultPreview": "{\"pageId\":\"delegate-configurations\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/roster-delegate-configurations.json\",\"jsonValid\":true,\"inputCount\":20,\"finalFieldNames\":[\"new\",\"modify\",\"remove\",\"confirm-yes\",\"save\",\"tab-selector\",\"configuration-name\",\"maximum-time-period-to-approve\",\"applies-to-groups\",\"restrictions\",\"restrict_delegate_s…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 15,
+      "label": "synth:valueSets",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a8bf31796c306f7f0",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788269176964,
+      "queuedAt": 1788269176932,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "valueSets",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788269564421,
+      "tokens": 148761,
+      "toolCalls": 33,
+      "durationMs": 387451,
+      "resultPreview": "{\"kind\":\"valueSets\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-valuesets.json\",\"jsonValid\":true,\"count\":10,\"unresolvedCount\":3,\"headline\":\"10 value sets, ALL on Email Reminders; Delegate Configurations correctly gets ZERO (its 3 candidate sets were detached by its own roster and are reported as orphanCandidates). All 10 sourceQuo…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 16,
+      "label": "synth:dependencies",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a04fd0ec07eede18d",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788269176966,
+      "queuedAt": 1788269176933,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "dependencies",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788269659361,
+      "tokens": 134189,
+      "toolCalls": 28,
+      "durationMs": 481032,
+      "resultPreview": "{\"kind\":\"dependencies\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-dependencies.json\",\"jsonValid\":true,\"count\":34,\"unresolvedCount\":8,\"headline\":\"34 edges (16 from Email Reminders, 18 from Delegate Configurations; 24 depends_on / 7 precedes / 3 triggers). All 34 sourceQuotes grep -F verified verbatim against their cited file, and …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 17,
+      "label": "synth:contradictions",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a6dbf93bfebf5a1b3",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788269176968,
+      "queuedAt": 1788269176934,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "contradictions",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788269763349,
+      "tokens": 158075,
+      "toolCalls": 45,
+      "durationMs": 585019,
+      "resultPreview": "{\"kind\":\"contradictions\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-contradictions.json\",\"jsonValid\":true,\"count\":18,\"unresolvedCount\":10,\"headline\":\"18 contradictions (59 readings) + 1 compressed range; 19 raw records deduped to 12 and 6 more found in-corpus; all 60 quotes grep -F verified, zero misses, both guide dirs cited.\"}"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 18,
+      "label": "synth:steps",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a0135eaa16289cd67",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788269176969,
+      "queuedAt": 1788269176935,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "steps",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788269716649,
+      "tokens": 161229,
+      "toolCalls": 27,
+      "durationMs": 538319,
+      "resultPreview": "{\"kind\":\"steps\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/synth-steps.json\",\"jsonValid\":true,\"count\":4,\"unresolvedCount\":4,\"headline\":\"4 ConfigSteps (68 sequence entries, 100 embedded quotes all grep -F verified, 4 entries into unbuilt pages). grpworkflows-b1 configures an interval-driven email REMINDER end to end — Group Configuratio…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 19,
+      "label": "critic:completeness",
+      "phaseIndex": 6,
+      "phaseTitle": "Critic",
+      "agentId": "ae75cb707408eebff",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788269763411,
+      "queuedAt": 1788269763357,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "completeness",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788270877910,
+      "tokens": 235485,
+      "toolCalls": 87,
+      "durationMs": 1114493,
+      "resultPreview": "{\"lens\":\"completeness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/critic-completeness.md\",\"findingCount\":7,\"severeFindings\":[{\"title\":\"Conditions - Step 2 condition-editor controls refused on a rationale the built graph contradicts twice — the page cannot drive its own mandatory first step\",\"detail\":\"AG/create-reminder-rules-b0a7fac5.m…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 20,
+      "label": "critic:correctness",
+      "phaseIndex": 6,
+      "phaseTitle": "Critic",
+      "agentId": "a2d07e02ec6007350",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788269763415,
+      "queuedAt": 1788269763359,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "correctness",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788270832125,
+      "tokens": 255130,
+      "toolCalls": 78,
+      "durationMs": 1067112,
+      "resultPreview": "{\"lens\":\"correctness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/wf-b-parts/critic-correctness.md\",\"findingCount\":7,\"severeFindings\":[{\"title\":\"HIGH — 7-8 rows of the documented table \\\"Delegate Configuration Fields\\\" were deleted as alias duplicates, against the graph's own precedent\",\"detail\":\"roster-delegate-configurations.json dropped[0..6] r…"
+    }
+  ],
+  "totalTokens": 2998736,
+  "totalToolCalls": 594
+}
