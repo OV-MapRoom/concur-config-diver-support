@@ -95,6 +95,13 @@ repo. It carries the fixed `NAV_SCHEMA` (tabs, proven end-to-end on two multi-ta
 `VERDICT_SCHEMA` requiring `verbatimVariantIndex`, the ugrep/NBSP correction, the corrected synthesis
 destructuring, and a header knob list that is finally accurate.
 
+**AND RUN `python3 bin/check-script-staleness.py workflows/<script>.mjs` — IT MUST EXIT 0.** New
+2026-09-01. It mechanically re-measures a build script's checkable claims against the corpus and the
+graph, because the written instruction did not work on its own: it was already in the handoff when
+Run B was authored and five of that script's six blockers were introduced anyway. Back-tested against
+all three prior scripts, it found defects that had already shipped. A `STALE-GRAPH-COUNT` ERROR on an
+already-run script is expected — that is the line you update when you adapt it.
+
 **AND STILL DIFF IT AGAINST ITS PARENT AND READ EVERY HUNK THAT DID NOT CHANGE.** A pre-flight audit
 has now found blockers in three consecutive scripts, and on Run B **five of the six were introduced
 during authoring, by someone who had just done a stale-content pass**. In particular do NOT port a

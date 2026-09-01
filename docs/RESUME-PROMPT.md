@@ -29,10 +29,30 @@ authoring, by someone who had just completed a stale-content pass** — so the p
 not sufficient. Run the audit as a separate workflow before you launch the build; it has paid for
 itself three times.
 
-**NEVER PORT A PAGE-SPECIFIC MEASUREMENT FORWARD.** This is now the single most repeated defect. The
-Run B script states which of its files carry NBSP, what its table row counts are, and which role gate
+**NEVER PORT A PAGE-SPECIFIC MEASUREMENT FORWARD.** This is the single most repeated defect. The Run
+B script states which of its files carry NBSP, what its table row counts are, and which role gate
 applies. **Every one of those is wrong for Group 6.** Re-measure everything you carry, and prefer
 deleting a measured claim to carrying a stale one.
+
+**AND RUN THE GATE, BECAUSE THE INSTRUCTION ABOVE IS NOT ENOUGH ON ITS OWN:**
+
+```bash
+python3 bin/check-script-staleness.py workflows/<your-script>.mjs    # must exit 0
+```
+
+It re-measures the script's checkable claims against the corpus and the graph: corpus filenames that
+do not exist, graph node ids that do not exist, stale "N pages / M fields" bookkeeping, ZERO-NBSP
+claims that are false, **cell-opener counts quoted as row counts**, files seeded onto a page whose
+own name appears nowhere in them, the receipts-destructuring bug, and a no-op `patchPage` in the
+return. It exists because prose did not work: this instruction was already in the handoff when Run B
+was authored, and five of that script's six blockers were introduced anyway, in the pass that was
+looking for them.
+
+Written 2026-09-01 and back-tested against all three prior scripts, where it found real defects that
+had shipped unnoticed — including three cell-opener-as-row-count errors in Run A and one in Run B
+that survived my own correction pass. WARNs are advisory (a script legitimately names files it is
+telling agents NOT to open). One ERROR is expected on any already-run script: `STALE-GRAPH-COUNT`,
+because the graph grew after it ran — that is precisely the line you must update when you adapt it.
 
 **CELL-OPENERS ARE NOT ROWS.** SAP writes every table CELL on its own line, so `grep -cP '^\s*\|'`
 returns `1 + (columns+1) x rows`. A "49-row" table is 15 rows. Convert before you report, or an
