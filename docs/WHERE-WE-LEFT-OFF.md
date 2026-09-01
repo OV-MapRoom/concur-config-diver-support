@@ -79,35 +79,34 @@ records six toolchain defects fixed that session — five latent for every futur
 claims in this file and the 2026-09-01 handoff that were FALSE, one of which was aimed squarely at
 Run B (see item 1 below).
 
-### ▶ RESUME HERE — Group 6 (Peppol / Shipping / Localization)
+### ▶ RESUME HERE — Group 6 (six pages). THE RECON IS DONE; DO NOT RE-RUN IT.
 
 **Workflows Run B is DONE (2026-09-01)** — 2 pages, 57 fields, merged WITH `--patch`, Run A verified
-intact, validator exit 0. Run `wf_fac7bf66-f50`, 20 agents, 0 errors. Reports in
-`output/reports/2026-09-01_workflows-run-b-*`.
+intact. The Workflows group is complete at four pages / 178 fields.
 
-Group 6 is three pages: **Peppol Configuration, Shipping Configuration, Localization**. A complete
-6-step Localization click path is already sitting in
-`step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md` lines 102–110.
-`Group 6 — Compliance / E-Invoicing` is a NEW label, so the merge runs **WITHOUT `--patch`**.
+**The Group 6 page recon is also DONE (2026-09-01)** — `output/reports/2026-09-01_group6-recon/`,
+run `wf_f7ae0fdc-832`, 8 agents, 0 errors. **The group is SIX pages, not the three the lost map
+claimed**, and three of the six were pages the map never listed. Both critics confirmed six
+independently and PROVED there is no seventh. That is the fourth time the map's counts have been
+wrong and the second time it undercounted.
 
-**Start from `workflows/2026-09-01_kg-workflows-run-b.mjs`** — it is the most corrected script in the
-repo. It carries the fixed `NAV_SCHEMA` (tabs, proven end-to-end on two multi-tab pages), the
-`VERDICT_SCHEMA` requiring `verbatimVariantIndex`, the ugrep/NBSP correction, the corrected synthesis
-destructuring, and a header knob list that is finally accurate.
+| page | files | tabs | est. fields |
+|---|---|---|---|
+| **Printed Invoices** | 37 | Print Formats, Print Templates, Print Condition Rules | ~60 |
+| Peppol Configuration | 25 | — | ~15 |
+| Invoice E-Bunsho Timestamp Validation Request | 12 | — | ~15 |
+| Localization | 7 | — | ~10 |
+| Change Log | 4 | — | ~5 |
+| Shipping Configuration | 1 | unnamed in the corpus | ~6 |
 
-**AND RUN `python3 bin/check-script-staleness.py workflows/<script>.mjs` — IT MUST EXIT 0.** New
-2026-09-01. It mechanically re-measures a build script's checkable claims against the corpus and the
-graph, because the written instruction did not work on its own: it was already in the handoff when
-Run B was authored and five of that script's six blockers were introduced anyway. Back-tested against
-all three prior scripts, it found defects that had already shipped. A `STALE-GRAPH-COUNT` ERROR on an
-already-run script is expected — that is the line you update when you adapt it.
+**Next step is authoring the build script** from `workflows/2026-09-01_kg-workflows-run-b.mjs` (the
+most corrected script in the repo), then BOTH gates before launching:
+`python3 bin/check-script-staleness.py` and a pre-flight audit workflow. `Group 6 — Compliance /
+E-Invoicing` is a NEW label, so merge WITHOUT `--patch`.
 
-**AND STILL DIFF IT AGAINST ITS PARENT AND READ EVERY HUNK THAT DID NOT CHANGE.** A pre-flight audit
-has now found blockers in three consecutive scripts, and on Run B **five of the six were introduced
-during authoring, by someone who had just done a stale-content pass**. In particular do NOT port a
-page-specific measurement forward: the Run B script says Email Reminders carries NBSP in its nav and
-role-gate sentences, and Delegate Configurations does not. Both facts are wrong for Group 6.
-Re-measure everything you carry.
+`docs/RESUME-PROMPT.md` carries the full brief: the two page-hood BLOCKERS (the e-Bunsho collision
+with the built `page.image-handling`, and `Expense Type Import`), the Printed Invoices navigation
+level nobody had seen, the unnamed 60-row Peppol error catalog, and the gate-calibration corrections.
 
 ### Scope now registered under `Remediation Sweep` (it BLOCKS `meta.status`)
 

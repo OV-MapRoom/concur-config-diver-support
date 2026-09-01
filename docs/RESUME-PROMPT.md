@@ -70,15 +70,74 @@ printf 'async function __w(){\n' > /tmp/chk.mjs \
 Also grep the WHOLE toolchain, not just the workflow file. **Fourteen** defects have been found that
 way across four sessions and every one was latent for every future group.
 
-## Group 6 specifics
+## Group 6 specifics — THE RECON IS DONE. DO NOT RE-RUN IT.
 
-- Three pages, all unbuilt: **Peppol Configuration, Shipping Configuration, Localization**.
-- A complete 6-step Localization click path is already in
-  `step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md` lines 102-110.
-- The `Invoice Configuration administrator (Restricted)` role gates **Shipping Configuration** among
-  nine surfaces — do not present it as distinctive to any one page.
-- Run a page recon first if the roster looks uncertain. The lost map's page counts have been wrong
-  every time they were tested (11 -> 2, 13 -> 4).
+`output/reports/2026-09-01_group6-recon/` (run `wf_f7ae0fdc-832`, 8 agents, 0 errors: five blind
+sweeps, a roster merge, two adversarial critics). **Read `roster.md` — it carries a build brief per
+page — then both critic files, which are where the real findings are.**
+
+**THE GROUP IS SIX PAGES, NOT THE THREE THE LOST MAP CLAIMED.** Three of the six were pages the map
+never listed. Both critics confirmed six independently and **proved there is no seventh** (a 73-entry
+guide-root enumeration, release-note mining over 371 files, and jurisdiction probes for withholding /
+SAF-T / eDocument / Fapiao / XRechnung / KSeF / legal archiving / self-billing, all zero). That
+negative is proved — do not spend another recon on it.
+
+| page | files | tabs | est. fields |
+|---|---|---|---|
+| **Printed Invoices** | 37 | Print Formats, Print Templates, Print Condition Rules | ~60 |
+| Peppol Configuration | 25 | — | ~15 |
+| Invoice E-Bunsho Timestamp Validation Request | 12 | — | ~15 |
+| Localization | 7 | — | ~10 |
+| Change Log | 4 | — | ~5 |
+| Shipping Configuration | 1 | unnamed in the corpus | ~6 |
+
+`Group 6 — Compliance / E-Invoicing` is a NEW label: merge **WITHOUT `--patch`**, no `--patch-page`.
+~44 agents at 6 pages x 3 lenses. Consider whether to split — but a split forces `--patch` on the
+second half, which is the repo's sharpest footgun, so one clean non-patch merge is probably safer.
+
+### Two BLOCKERS from the page-hood critic — handle these or the graph gets two nodes for one path
+
+1. **The e-Bunsho page COLLIDES with the already-built `page.image-handling`.** That page already
+   carries `Administration > Company > Tools > Invoice E-Bunsho Timestamp` in its `navPathAlternates`
+   AND already holds `field.image-handling.timestampstatus`, sourced from `timestamp-status-f0082cf2.md`
+   — the file the roster calls "THE ONLY TABLE IN THE SET" of the new page. Build the page, but in the
+   same commit strip that alternate and decide explicitly where `timestampStatus` lives. Do not leave
+   it on both. Also check `page.policies`, which holds `field.policies.timestamp-configuration`.
+2. **`Expense Type Import` is a real unbuilt left-menu page** (`Administration > Invoice > Expense
+   Type Import`, own access topic, 14-file cluster; tests (a) and (c) both fire — stronger than
+   Localization and Change Log, which the roster keeps on (a) alone). The roster deferred it to two
+   groups that are both CLOSED. **It is now deferred to `Remediation Sweep`, which is open and blocks
+   `meta.status`.** When it is built, strip `Administration > Invoice > Expense Type Import` from
+   `page.expense-types.navPathAlternates`.
+
+### What the completeness critic found that changes the build
+
+- **Printed Invoices has a navigation level nobody had seen.** `The Print Format Content page appears.`
+  occurs in 2 files / 4 times and is in no sweep, no brief, no tab list. The real chain is
+  `Printed Invoices > Print Formats tab > select format > Modify Content > PRINT FORMAT CONTENT >
+  select content > Modify Content/Modify Fields > Edit Content/Edit Fields`. **The content-type
+  rosters that make up most of that page's ~60 fields sit two clicks deeper than the roster assumed.**
+  Attestation runs backwards here: "The Printed Invoices page appears" is in 1 file, "The Edit Content
+  for print format page appears" is in 6 — an extractor ranking by attestation inverts the hierarchy.
+- **The largest table in the whole Group 6 domain is named by nobody**: `error-messages-3b8339b0.md`,
+  a 60-row Peppol Appendix error catalog. No sweep found it because the file contains the word
+  "peppol" ZERO times.
+- **Printed Invoices has five child modals, and the field tables hang off the modals, not the tabs.**
+
+### Calibration corrections to carry
+
+- The **Printed Invoices role gate is NOT distinctive** — `Global Invoice Configuration administrator`
+  is a product-wide Global/Group scoping model shared with `page.exceptions`, `page.expense-types` and
+  `page.workflows`. Page-hood rests on tests (a)+(c).
+- **Localization has NO role gate at all** — test (b) is EMPTY, not weak, verified across every gate
+  form in the corpus.
+- The only genuinely 1-of-1 gate in the compliance domain is **`Digital Compliance Administrator`**
+  (e-Bunsho), 1 file / 1 surface.
+- **Run gate counts CASE-INSENSITIVELY.** The roster's were case-sensitive and understated
+  (`Invoice Configuration Administrator` is 71 files, not 28).
+- **Key every merge and boundary check on the `pageId` attribute, never on the id prefix.** The graph
+  already carries `field.image-handling.ebunshotimestampconfigurationlist` with
+  `pageId: page.policies` — a prior correction repaired the binding and left the id string behind.
 
 ## After the workflow returns
 
