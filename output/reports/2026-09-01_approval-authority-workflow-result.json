@@ -1,0 +1,654 @@
+{
+  "summary": "Concur Invoice KG - Authorized Approval Limits (Administration > Company > User Administration)",
+  "agentCount": 14,
+  "logs": [
+    "Authorized Approval Limits - mapping 1 page",
+    "Authorized Approval Limits: basis=moderate, mustRead=17 files, rawTables=2",
+    "Authorized Approval Limits: 9 candidate controls from 3 lenses -> 2 refuters",
+    "Authorized Approval Limits: dispositions -> keep 4 | repair 5 | drop 0",
+    "Authorized Approval Limits: roster 9 fields, 0 dropped, 5 repaired, coverage partial",
+    "Synthesis: valueSets=0 dependencies=16 steps=6 contradictions=2",
+    "Critic input: 9 fields across 1 page; 0 must-read files never cited"
+  ],
+  "result": {
+    "group": "Approval Authority",
+    "corpusVersion": "2026_08",
+    "partsDir": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts",
+    "files": {
+      "mapNavigationMd": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/map-navigation.md",
+      "mapInventoryMd": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/map-inventory.md",
+      "rosters": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/roster-authorized-approval-limits.json"
+      ],
+      "extracts": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/extract-authorized-approval-limits-procedure.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/extract-authorized-approval-limits-tables.json",
+        "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/extract-authorized-approval-limits-crosscut.json"
+      ],
+      "valueSets": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-valuesets.json",
+      "dependencies": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-dependencies.json",
+      "steps": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-steps.json",
+      "contradictions": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-contradictions.json",
+      "ranges": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-ranges.json",
+      "criticCompleteness": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/critic-completeness.md",
+      "criticCorrectness": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/critic-correctness.md"
+    },
+    "pages": [
+      {
+        "page": "Authorized Approval Limits",
+        "documentedBasis": "moderate",
+        "coverage": "partial",
+        "uiVariant": "undifferentiated",
+        "fields": 9,
+        "dropped": 0,
+        "repaired": 5,
+        "splitsProposed": 0,
+        "mustReadNeverCited": [],
+        "lensHeadlines": [
+          "procedures-and-controls: Emitted 9 controls across the two mutually-exclusive branches of the Authorized Approval Limits surface (5 window controls including the trigger link, 3 branch-A/Global-group-only controls), zero fields from a9522ec8/procedure-2d20b513 (both boundary-only, already owned by Workflows), and 3 contradiction nodes (feature-gate naming, the contested Level control, and the one-act-vs-two-act unlimited recipe). Never emitted a field literally labeled \"Approval Limit\" or an \"Approver\" control — both deliberately withheld as duplicates/negatives per the run's central judgement. All 22 sourceQuotes (9 fields + 7 deps + 3 contradictions x readings) verified via grep -F -c/python substring match, JSON is valid, and all 9 field names are unique.",
+          "tables: This page has ZERO native tables and therefore ZERO fields under the table lens - I re-measured both primaries myself (user-administrator-fcfd570c.md and user-administration-8b167b96.md each return 0 for grep -c \"<table\", 0 for grep -o \"<tr\" | wc -l, and 0 for grep -cP '^\\s*\\|'), and every control lives in procedure prose that belongs to another lens. Both raw <table> elements in the candidate set are illustrative example data and were correctly skipped with reasons recorded: aae69350's four-step approval-chain example (the row-count trap confirmed - grep -c \"<tr\" returns 1 and lies, grep -o returns 3) and fbb5034c's six example approvers A-F with limits. What I did capture, enumerated in full and never sampled: the 25-row configuration-step matrix from 8a960238 whose step-4 row is marked X in BOTH deployment columns and so decides that branch A and branch B are one page, plus the two record-set-710 rows from employee-import-e28f2294.md that are the ONLY documented value domains anywhere in this corpus for the currency+Amount pair - and the currency list itself is never enumerated, only referenced as \"the list of system (reimbursement) currencies\", so no value catalogue for it can exist. Two contradictions are emitted unresolved with three grounded readings each: whether a Level control exists on this window at all (8b167b96 says select one, aae69350 says levels cannot be added via User Administration), and whether an unlimited amount takes one act or two. All 13 sourceQuotes were re-verified with grep -F -c against their cited files, 13/13 at count >= 1, and no fifth \"Approval Limit\" was minted.",
+          "C-tools-guides-and-cross-cutting: Lens C emits ZERO fields on this page, and that is the finding rather than a gap: I exhausted tools-guides first as instructed, and \"Authorized Approval Limits\" returns ZERO tools-guides files (both primaries are admin-guides), while all fourteen tools-guides files that mention User Administration defer to the external Shared: User Administration User Guide and name no control in this window. What tools-guides does carry is the scope sentence that puts this page in the graph and the downstream consumption of the value it sets, so I delivered 21 dependencyCandidates and 5 contradictions instead — including the em-dash precedence rule, the exception-range scope fence into the built Workflows min/max fields, the conditional-visibility feature gate, the employee-import 710 value domains for the currency/amount pair, and the flat Level contradiction between 8b167b96 and aae69350, all left unresolved on purpose. All 37 quotes in the file were extracted from the files themselves and re-verified mechanically at count >= 1; valueSetCandidates and compressedRanges are empty because nothing in this corpus enumerates a currency list or compresses a range for this surface."
+        ]
+      }
+    ],
+    "synthesis": {
+      "valueSets": {
+        "kind": "valueSets",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-valuesets.json",
+        "jsonValid": true,
+        "count": 0,
+        "unresolvedCount": 3,
+        "headline": "Zero value sets for Authorized Approval Limits, evidenced not assumed: both primaries have no tables of any kind, and a corpus-wide sweep of both guide directories found no enumerated option list for any of the nine roster fields. validValuesAdditions is also empty by deliberate judgement - the employee-import 710 material is a declared DOMAIN (Numeric / 3 characters / currency-by-reference), not an enumeration, and the roster already carries it correctly as field notes; materialising it as unconditional value sets would falsely constrain an open numeric field and an unenumerated currency list. Three orphan candidates filed instead: the real Level/Limit cost-object-approval-type enumeration from b335cf33 (which decides which half of this window is authoritative but is owned by no field on this page and by no field on the built Workflows page), the three-setter route enumeration from 82481079, and the 710 declared domains logged with empty values so the absence reads as a decision. All 22 embedded quotes verified verbatim. The one raw-HTML table in scope (fbb5034c) is a worked example of tenant-shaped sample data and was deliberately excluded from every channel. No Workflows field re-homed, no fifth Approval Limit minted, no appliesToPage asserted."
+      },
+      "dependencies": {
+        "kind": "dependencies",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-dependencies.json",
+        "jsonValid": true,
+        "count": 16,
+        "unresolvedCount": 2,
+        "headline": "16 grounded ConfigDependencies for Authorized Approval Limits, all 16 quotes verbatim-verified and every built-page endpoint name matched against the graph; the two link-visibility conjuncts, the em-dash precedence rule (targeting Workflows.cost_object_hierarchy_type), the exception-range scope fence to min/max_exception_level, the three-setter edge to authorized_approver_approval_limit with precedence stated as UNDETERMINED, and the role gate are all present; 2 forward references (User Administration rights, Employee Import Approval Limit) stay unresolved, and dep.gworkflows.060 remains existing graph debt needing a post-merge retarget."
+      },
+      "steps": {
+        "kind": "contradictions",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-contradictions.json",
+        "jsonValid": true,
+        "count": 6,
+        "unresolvedCount": 0,
+        "headline": "6 contradictions merged from 10 raw lens records and 28 verbatim readings (28/28 grep -F verified, zero misses); all 6 home to page \"Authorized Approval Limits\" on roster-legal field names, so unresolvedCount is 0. compressedRanges is EMPTY and that is a measured finding, not a skipped step: I grepped every candidate file for range syntax ([0-9]+ *[-–—] *[0-9]+, \"Custom N\", \"through N\") and the ONLY hits corpus-wide in the candidate set were the crawled_at timestamps in the front-matter. Nothing on this page compresses. The three known contradictions are all present and expanded past their briefed form: (a) FEATURE GATE gained a 4th reading — configuration-8b3cce3f.md's \"Step 1: Define the Concur Invoice Cost Object Approver hierarchy:\" shows the Cost Object thread prescribes a DIFFERENTLY NAMED hierarchy than the one both gate sentences require, so it is not settled which hierarchy needs a non-Global level. (b) NAV DEPTH is now a 6-reading node spanning four depths: fcfd570c's 4-segment form twice, its own 2-segment \"(Administration > User Administration)\", 20294611's 3-segment \"Company Administration\" variant, f772bed1's independent 2-segment corroboration, and 8b167b96 giving NO path at all. Text trap recorded: 20294611 separates its path segments with U+00A0 non-breaking spaces and no \">\" at all, so a grep written with ordinary spaces returns zero and looks like a missing citation — the exact bytes are preserved. (c) LEVEL-EXISTS gained two readings: 8b167b96 attests the Level field a second time in its precedence rule (\"If you complete both areas in this window—the Approval Limit area and the Level field—\"), and fcfd570c's left-side \"selects the appropriate level in the hierarchy\" is recorded as ambiguous evidence that cannot be counted for either side. The 710-vs-720 record-set split stays a stated HYPOTHESIS; no side is picked. Also emitted: SECTION-LABEL DRIFT, now a 5-reading node — the decisive new evidence is INTRA-FILE, since 8b167b96 writes the corpus-majority \"Expense and Invoice Settings\" in its own summary and \"Expense and Invoices Settings\" in its own procedure step; measured weight is 6 files / 1 / 1, so the majority form is the first probe, not a coequal candidate. TAB-NAME DRIFT is re-homed onto this page's can_approve_exception (fcfd570c states it here) rather than onto page \"Workflows\", which this run may not own — and I CORRECTED a lens record: measured corpus-wide, \"Authorized Approvers tab\" is in 6 files against \"Authorized Approver tab\" in 3, so the PLURAL is the first probe, the reverse of the 2-against-1 recommendation the extraction carried. UNLIMITED RECIPE is recorded as UNDETERMINED as instructed: 8b167b96 and 9d98b489 both state one act, a9522ec8's two-act form is cited as boundary evidence about the Workflows surface only, and e28f2294's conditional currency requirement is added as the reading that keeps the currency question genuinely open. Boundary held throughout: no new field, value set or contradiction owner is written against \"Workflows\"; a9522ec8 is cited only for tab wording and the sibling recipe, never as a sourceFile for a control here, and field.workflows.authorized-approver-approval-limit and field.workflows.authorized-approver-level are named as siblings, never re-homed."
+      },
+      "contradictions": {
+        "kind": "steps",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-steps.json",
+        "jsonValid": true,
+        "count": 2,
+        "unresolvedCount": 0,
+        "headline": "Two ConfigSteps written for Authorized Approval Limits (hierarchy-branch window procedure, 8 entries; Global-group-only inline variant, 4 entries), all quotes verbatim-verified, zero unresolved endpoints."
+      }
+    },
+    "critics": {
+      "completeness": {
+        "lens": "completeness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/critic-completeness.md",
+        "findingCount": 11,
+        "severeFindings": [
+          {
+            "title": "FALSE PREMISE: the orphan Level/Limit value set was refused on the ground that no owner field exists — it exists and is already populated",
+            "detail": "synth-valuesets.json -> orphanCandidates[0] states verbatim: \"The Workflows page is already built with 114 fields but carries no such type field in this graph, so there is currently nothing legal to wire to.\" That is false. The built graph carries field.workflows.cost-object-hierarchy-type (pageId page.workflows, label \"Cost Object Hierarchy Type\", fieldType dropdown, validValues [\"Level\",\"Limit\"], sourceQuote \"In the Cost Object Hierarchy Type field, select the desired type: Level or Limit.\", sourceFile concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md). Its own notes already cite level-based-approvals-and-limit-based-approvals-b335cf33.md, how-level-based-cost-object-approvals-work-8b3cf6b4.md and how-limit-based-cost-object-approvals-work-8b3d0a3b.md — the exact files the run treated as orphan-only. CONSEQUENCE: the precedence rule the run itself calls \"the single most valuable sentence on this page for a config writer\" (8b167b96: \"The cost object configuration defines the type-either limit or level. If you complete both areas in this window-the Approval Limit area and the Level field-Concur Invoice will use the one that applies to your configuration and ignore the other.\") is emitted as two page-internal depends_on edges (synth-dependencies #7 and #8) with the deciding setting left as unresolved prose. It should terminate at field.workflows.cost-object-hierarchy-type. As built, a driver standing on cost_object_approval_level or approval_limit_amount is told its value may be silently ignored and given no path to the control that decides — even though the graph already knows where that control is and what its two values are. FIX: re-point deps #7 and #8; drop orphanCandidates[0] (whyNoOwner and whatWouldFixIt are both wrong). Invents nothing — both endpoints already exist and the value set is already on the target."
+          },
+          {
+            "title": "37 of 64 inventoried files (58%) were never opened by any extraction lens; seven of them carry content the graph should have",
+            "detail": "Measured: map-inventory.md names 64 unique corpus files; the union of filesRead across extract-*.json is 37; the set difference is 37 files never opened. The must-read list itself is clean (I re-verified all 17 skip declarations and every measurement in them reproduces exactly, including the aae69350 trap where grep -c \"<tr\" returns 1 and grep -o \"<tr\" | wc -l returns 3). The defect is downstream of the map: the map did its job and the extract phase read 42% of it. I opened all 37. Nineteen are correct no-gain skips (Accounting Administration account-code files, Peppol limitations-f5fac4b5, tools-guides import-limits-d1b4e727 which is a pure term collision on \"limit\", Delegates/Run B files including a SECOND file titled \"User Administrator\" — user-administrator-5aa3eb5e.md — documenting the sibling Invoice Delegates links, and already-built Workflows fields; using-the-default-approver-hierarchy-for-authorized-approvers-e977da80.md matched \"Authorized Approver check box\" only as a substring of \"Use default approver lookup to find authorized approver check boxes\", a false positive). Nine are marginal. Two are revision histories (authorized-approvers-8b3c26cc.md is 21 rows, not the 20 catalogued; cost-object-approval-8b3d1e0f.md is 27, exact). SEVEN carry real content: authorized-approvers-overview-8b3bd2d0.md, authorized-approvers-8b3ab7ad.md, approval-status-flags-4f534f16.md, approver-terminology-8559861c.md, how-limit-based-cost-object-approvals-work-8b3d0a3b.md, understand-the-hierarchy-b65d7089.md, employee-import-f6a516c8.md. Every quote I recommend from them verifies at grep -F -c = 1."
+          },
+          {
+            "title": "Branch A's Save is documented verbatim and is missing; the true control count is 10, not 9",
+            "detail": "grep -F -c \"The administrator makes the appropriate choices and clicks Save.\" on concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md returns 1. The procedure lens considered it and withheld it because \"neither primary documents Save/Cancel/Done for the window itself,\" calling it an honest coverage gap. That reasoning flattens the branch distinction the rest of the run defends everywhere else: branch A is not the window, it is the inline User Administration rendering, and for branch A the commit action is documented in the SAME sentence the run already used as the reveal-dependency for manager_approval_limit and approval_limit_currency_branch_a. Precedent is near-universal: 21 of the 22 built pages carry a Save or Done button field (field.group-configurations.save, field.exceptions.savebutton, field.image-handling.imagingconfigsave, field.audit-rules.save-exception, field.tax-administration.buttonsave, field.feature-hierarchies.save-button with sourceQuote \"Click Save.\", field.workflows.btn-save-step, and 18 more). Without the node a driver on branch A fills two fields and never persists them. The honest shape: branch A has a documented Save, branch B has NO documented commit action at all (8b167b96's procedure ends at step 3) — that asymmetry belongs in the undetermined list, not as a reason to withhold the attested half. Separately, on the count question: the run emitted 9 against recon's 8 and the delta is exactly authorized_approval_limits_link. That is NOT over-emission — the graph carries 149 button/link fields across 22 pages including pure navigation triggers. Keep it."
+          },
+          {
+            "title": "Two different documented definitions of the amount this page's limit is compared against; only one reached the graph",
+            "detail": "The run captured definition-of-amount-for-limit-approval-06806875.md (authorized-approver path: the requested/approved INVOICE amount). It never opened how-limit-based-cost-object-approvals-work-8b3d0a3b.md, which gives the different rule for the cost-object path that branch B (8b167b96) configures: \"The cost object approval limit logic uses the net amount of the line, not the gross amount.\" and \"Tax and shipping amounts are not included in the limit calculation.\" (both grep -F -c = 1), plus \"If the net amount of a line is 0.00 (for example, when the total consists entirely of tax), the line does not trigger limit-based approval.\" Same control, two documented semantics, path-dependent — exactly the provisioning-dependent divergence this graph exists to record, and half of it is absent. This also directly qualifies the 0-value semantics already carried on approval_limit_amount."
+          },
+          {
+            "title": "The contested Level contradiction has two more readings the run never found, and they disagree inside the same guide family",
+            "detail": "The run recorded the Level contradiction with two readings (8b167b96 \"For level-based cost object approval, select a level.\" vs aae69350 \"Levels cannot be added to approvers via User Administration.\"). Two more exist in files the inventory listed and nobody opened. authorized-approvers-overview-8b3bd2d0.md enumerates TWO authority kinds only: \"Limit approval: If the company wants to use limit approval, the administrator assigns each authorized approver an amount limit.\" / \"Exception approval: If the company wants to use exception approval, the administrator defines a minimum and maximum exception level.\" / \"An authorized approver can have limit approval, exception approval, or both.\" authorized-approvers-8b3ab7ad.md enumerates THREE: \"Authorized approvers will have limit, level, and/or exception approval and are affected by the authorized approver hierarchy.\" (all four quotes grep -F -c = 1). The corpus does not agree with itself about whether \"level\" is an authorized-approver authority at all. 8b3bd2d0's exception bullet is also a THIRD independent attestation of the min/max exception-range scope fence into field.workflows.minimum-exception-level / maximum-exception-level, and the only one that says the administrator DEFINES it."
+          },
+          {
+            "title": "The only documented setup-ordering prerequisite for the hierarchy this page's selector reads was never captured",
+            "detail": "understand-the-hierarchy-b65d7089.md (69 pipe rows, never opened by any lens) states: \"You must define the authorized approver hierarchy (Invoice > Feature Hierarchies) and import/create its associated source list before the authorized approver feature can be activated.\" (grep -F -c = 1). This is a hard precedes edge into the already-built page.feature-hierarchies, and it is corroborated by row 1 of the 8a960238 matrix — \"Define the Invoice Authorized Approver hierarchy\" is X-marked under the Authorized Approver hierarchy column ONLY, which is also what makes branch B possible in the first place. synth-dependencies mentions Feature Hierarchies in prose but carries no edge sourced to b65d7089. Related menu-alias finding from the same sweep: hierarchies-7f68a876.md writes the node as \"Administration  Invoice  Hierarchies\" (glyphs stripped, named Hierarchies not Feature Hierarchies) where b65d7089 writes \"(Invoice > Feature Hierarchies)\" and the built page.feature-hierarchies navPath is ['Administration','Invoice','Feature Hierarchies',...] — a third alias, unrecorded."
+          },
+          {
+            "title": "CLEAN BILLS worth recording: the raw-table sweep, the tools-guides sweep, truncation, compressed ranges, and the UI-variant question all come back exactly as claimed",
+            "detail": "RAW TABLES: I rebuilt the relevant set by content rather than trusting the inventory — grep -rilE \"authorized approver|approval limit|cost object approv|approval authority\" across BOTH dirs returns 86 files; grep -c \"<table\" on all 86 yields exactly THREE hits: fbb5034c (1 table / 7 <tr>, six example approvers, correctly skipped), aae69350 (1 / 3, trap reproduced, correctly skipped), and invoice-settings-cace748d.md which belongs to the already-built Invoice Settings surface. Nothing in the settings-table category is missing. One undeclared skip: global-level-a53bf756.md also carries 1 table / 4 <tr> / 44 pipes but is Accounting-Administration account-code example data pulled in on a \"Global level\" term collision — correct to skip, never written down. TOOLS-GUIDES: grep -rilF \"User Administration\" tools-guides returns 14 files and ALL 14 are in filesActuallyRead; \"signing authority\", \"limit approver\", \"exception approver\", \"cost object approval\", \"approval authority\" all return ZERO tools-guides hits. Hard-won rule #1 was obeyed. TRUNCATION: zero defects — 8a960238 is 4 data rows (graph has 4), e28f2294 is 2 (graph has 2), a9522ec8 is 4 (Workflows-owned, correct boundary). COMPRESSED RANGES: regex sweep for Custom-NN-style ranges across all 86 files returns NO MATCHES; synth-ranges.json = [] is correct and now measured. VARIANTS: 8 variant-marked filenames corpus-wide, none touching this surface; grep -c \"Fiori\" on both primaries = 0 and 0; the \"SAP Fiori UI themes are implemented\" hedge appears on 57 files corpus-wide as boilerplate and on exactly one candidate (8b3bd2d0) — do not let it become a fourth unearned \"both\" claim. THINNESS IS HONEST: two admin-guides topics are dedicated to this window and both name it by its literal UI label; the page node is justified. validValues:[] on both numeric controls is also correct — all 21 number fields in the built graph carry validValues:[] and no configValueSet anywhere uses a 0/null sentinel, so notes is the only slot the schema offers. ASYMMETRY, as required: the built Workflows page carries no left-side group/level selector across all 114 field.workflows.* records even though a9522ec8 steps 4-5 describe one there; this run does emit hierarchy_level_selector. Keep this page's (doubly attested, an explicit numbered step in both primaries) and log the Workflows omission for Run B."
+          }
+        ],
+        "verdict": "MERGE AFTER FIXES. The build is honest, well-grounded and genuinely not padded — zero truncation, zero fabricated values, the raw-table and compressed-range sweeps come back clean when re-measured independently, and the must-read skip declarations all reproduce exactly. Two classes of defect block a clean merge. (1) One factual error: synth-valuesets.json orphanCandidates[0] refuses to wire the Level/Limit enumeration on the stated ground that no owner field exists in the graph — field.workflows.cost-object-hierarchy-type exists with validValues [\"Level\",\"Limit\"] already populated, which leaves the page's most valuable rule (the limit-vs-level precedence) terminating in prose instead of at the control that decides it. (2) Under-reading: 37 of 64 inventoried files (58%) were never opened by any lens; seven carry real content, including a documented Save on branch A (making the true count 10, not 9), a second path-dependent definition of the limit amount, two further readings on the contested Level, and the only documented setup-ordering prerequisite into the built Feature Hierarchies page. All 14 recommended quotes verify at grep -F -c = 1. None of the fixes invents a value, re-homes a Workflows field, or pads a page."
+      },
+      "correctness": {
+        "lens": "correctness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/critic-correctness.md",
+        "findingCount": 10,
+        "severeFindings": [
+          {
+            "title": "C-1 BLOCKING: can_approve_exception fails bin/check-approval-authority.py — the run's own boundary gate exits 1",
+            "detail": "I merged into an isolated copy of the graph and ran both gates. validate-graph.py: ERROR none, 616/616 quotes verbatim. check-approval-authority.py: 'BOUNDARY FINDINGS: 1 — collides with Workflows [field.workflows.authorized-approver-can-approve-exception] and does not name the sibling in notes: field.authorized-approval-limits.can-approve-exception', exit 1. The gate's rule (bin/check-approval-authority.py ~line 55) is `if 'sibling' not in (f.get('notes') or '').lower()`. Measured across the roster, 'sibling' is present in the notes of cost_object_approval_level, authorized_approver_checkbox, manager_approval_limit and approval_limit_currency_branch_a, and ABSENT from can_approve_exception — the one field besides cost_object_approval_level whose LABEL collides exactly with a Workflows field. This is word choice, not reasoning: the notes already name field.workflows.authorized-approver-can-approve-exception by exact id and give the distinct-surface/one-record verdict in full. FIX: in roster-authorized-approval-limits.json, field can_approve_exception, change the notes phrase 'SAME visible label as the built field.workflows.authorized-approver-can-approve-exception' to 'SIBLING CONTROL, SAME visible label: the built field.workflows.authorized-approver-can-approve-exception'. One word. Re-run the checker; expect 'BOUNDARY CHECK: clean'."
+          },
+          {
+            "title": "C-2 BLOCKING: the page's click path, role gates, aliases and identity notes are silently lost on merge",
+            "detail": "This is the first page in the graph not reached under Administration > Invoice and the brief orders the click path recorded faithfully. Assembled from the parts directory as staged, it is recorded nowhere. `python3 bin/assemble-parts.py <parts> out.json --group \"Approval Authority\"` prints 'basis ?' and emits navPathEvidence=[], documentedBasis=\"\", roleGates=[], aliases=[], identityNotes=\"\", tabs=[]. After merge the page node carries keys [coverage, group, id, name, navPath, navPathAlternates, navPathSourceFile, navPathSourceQuote, uiVariant, url, verifyNotes] with navPath [] — while page.workflows carries documentedBasis 'rich', roleGates 6, aliases 28, identityNotes and tabs. Root cause located: bin/assemble-parts.py line 80 nav_from_journal() sources all six keys ONLY from the workflow journal (--journal <journal.jsonl>); the map agent's NAV_SCHEMA-validated return (workflows/2026-09-01_kg-authorized-approval-limits.mjs line 256) is written to no file in aal-parts/. Lost content: the nine distinct documented click paths incl. the 4-segment vs 2-segment contradiction inside fcfd570c and the 'Company Administration' / '(left menu)' variants; the three-condition role gate whose third condition is about the record being edited, not the operator; the three section-label aliases (re-measured: 1 / 1 / 6 files); the branch-A/branch-B identity verdict and the confirmed 'Approver' negative. FIX: run assemble-parts.py with --journal for this run, or hand-write a map-nav.json. Do not merge without one."
+          },
+          {
+            "title": "C-8 The reversed 2026-08-31 scope call is carried by SIX built nodes, not the four the roster named — and the two missed are configSteps",
+            "detail": "I walked every string of every node in the built graph for /out of scope|2026-08-31|not a page to build/ within 260 chars of /User Administration|Company Admin|Administration > Company/. Six hits: dep.gworkflows.046 @/condition, dep.gworkflows.060 @/condition, vset.gworkflows.unnamed.the-four-configuration-steps-... @/notes, vset.gworkflows.unnamed.two-further-named-feature-hierarchies-... @/notes — the four the roster listed — PLUS configSteps grpworkflows-s2-configure-authorized-approver-feature @/sequence[27]/rationale (order 28): 'The destination is Administration > Company > Company Admin > User Administration, which is OUT OF SCOPE for this graph by the 2026-08-31 decision; no page node exists and none should be created.' — now flatly false and squarely on this page's subject; that leg should point at Authorized Approval Limits / authorized_approval_limits_link. AND configSteps grpworkflows-s3-vendor-employee-access-hierarchy-six-tool-sequence @/sequence[23]/rationale: 'Administration > Company surfaces are out of scope for this graph, so no page node exists for it.' — a scope blanket now falsified, though its own subject legitimately stays unbuilt (repair the reasoning, keep the conclusion). The brief forbids that prose about this page anywhere; two built nodes say exactly it and neither was on the remediation list."
+          },
+          {
+            "title": "C-9 dep.gworkflows.060 does NOT self-resolve and never will — both halves of its targetRef are wrong",
+            "detail": "The roster's carry-forward asserts this edge 'IS RESOLVED by this run'. It is not. `python3 bin/merge-group.py` on the simulated merge prints 'unresolved endpoints in this group: 2 | earlier edges newly resolved: 0', and after merge dep.gworkflows.060 still reads targetId None, targetRef {page 'User Administration', field 'Authorized Approval Limits', resolved False}. merge-group.py re-resolves by exact (page, field) match; the page is named 'Authorized Approval Limits' (not 'User Administration') and the field is named authorized_approval_limits_link (not 'Authorized Approval Limits'), so BOTH halves miss. It needs an explicit bin/apply-corrections.py patch, not an expectation that the merge notices. dep.gworkflows.046 correctly stays unresolved (documentary gap, external Shared guide) — preserve that distinction in the repaired rationale."
+          },
+          {
+            "title": "C-3 The branch-A / branch-B mutual-exclusion edge was dropped in synthesis — the one dropped candidate whose endpoints both resolve",
+            "detail": "extract-authorized-approval-limits-procedure.json proposed (authorized_approver_checkbox -> Authorized Approval Limits / authorized_approval_limits_link) quoting 'The settings that appear in User Administration (Administration > User Administration) differ depending on whether the configuration includes:' (grep -F -c = 1 in user-administrator-fcfd570c.md). It is absent from synth-dependencies.json. Mutual exclusion is the most operationally load-bearing structural fact on the page — the roster, both step goals and four field notes all call it out — but it survives only as prose. The graph encodes the gate from each side separately (dep 0/1 and dep 4, both targeting Feature Hierarchies / level) and never encodes that the two renderings exclude each other. Both endpoints are local fields on this page, so unlike the other 13 dropped candidates (which name endpoints existing nowhere in the graph and were rightly dropped) this one resolves cleanly. Reverse the drop; if no type expresses exclusion, emit depends_on with the exclusion stated in condition, as every other conditional-visibility fact in this graph is carried."
+          },
+          {
+            "title": "C-4 Two verified behavioural facts were extracted, promised in the roster, then dropped — they reach no node at all",
+            "detail": "grep -l -F over roster-*.json and synth-*.json returns nothing for either 'goes into effect immediately' or 'does not delete the standard Invoice approver role'. Both were extracted and verified by the crosscut lens, then dropped in synthesis because their proposed endpoints (invoice_approval_routing, invoice_approver_role) do not exist — dropping the endpoint was right, dropping the fact was not. Both are verbatim (grep -F -c = 1 each): 'An edit to an authorized approver record goes into effect immediately upon save. The new values are used to search for and evaluate that approver from the point of save forward.' (admin-guides/edit-authorized-approver-information-8b3c119a.md, with the in-flight consequence in the next bullet) and 'Removing a user's authorized approver permissions does not delete the standard Invoice approver role nor does it delete the approver from the system.' (admin-guides/remove-authorized-approvers-8b3c5273.md). This is a broken promise inside the run: the roster's own mustReadSkipsDeclared for 8b3c119a calls the immediate-effect fact 'a dependency for the prose lens' — explicitly handed off — and the dependency layer dropped it. FIX: append both verbatim, with their files, to the notes of approval_limit_amount or manager_approval_limit. No new field or edge needed."
+          },
+          {
+            "title": "C-5 A 14-value verified catalogue from 8a960238 was dropped silently — rule 2's exact failure shape",
+            "detail": "extract-authorized-approval-limits-tables.json carries a valueSetCandidate with appliesToField '' holding 14 values from the global-group-vs-authorized-approver-hierarchy-8a960238.md configuration-step matrix (25 pipe rows, 4 data steps). I re-verified all 14 against the file: 14/14 verbatim. It appears in neither valueSets nor orphanCandidates in synth-valuesets.json — it vanished with no reason recorded, which is precisely the shape rule 2 exists to prevent. Severity held to low only because the built graph already carries the same matrix as vset.gworkflows.unnamed.the-four-configuration-steps-for-authorized-approvers-and-wh, but at just 4 values (the step headers, colons stripped). The 10 lost members are the sub-bullets, including the three assignment routes ('Authorized Approver List', 'Employee import', 'User Administration') that decide this page's identity. FIX: record the drop as a deliberate duplicate-of-Workflows decision, or extend that Workflows set to 14 — it needs editing anyway under C-8."
+          },
+          {
+            "title": "C-6 / C-7 Two small shape defects in synth-valuesets.json",
+            "detail": "C-6: orphanCandidate #3 ('NOT AN ENUMERATION - a DECLARED DOMAIN...') carries values: [] and assemble-parts.py materialises it anyway. Census of the built graph: zero of 114 value sets have empty values. Confirmed on the simulated merge, it lands as vset.gapproval-authority.unnamed.not-an-enumeration-a-declared-domain-logged-here-so-it-is-no with values []— the first zero-value value set in the graph. Its content (the employee-import 710 domain rules) already lives verbatim in the notes of all four owner fields, which the orphan itself calls 'the right channel'. Delete it; nothing is lost. C-7: the roster's verifyNotes carry-forward item (a) still instructs the merge to 'rewire to approval_limit_amount and approval_limit_currency_window ... or those two sets land unwired'. Synthesis instead deleted both sets — correctly, because their members were Type/Description column cells ('Numeric', '3 characters') and not selectable values. The instruction is now stale and, if acted on, would re-create the two sets synthesis deliberately refused. Strike it or mark it superseded."
+          }
+        ],
+        "verdict": "MERGE-BLOCKED ON TWO ITEMS, BOTH CHEAP TO FIX — then this is the cleanest build audited on this project. Grounding is perfect and exhaustively re-verified: 58/58 strings verbatim (9 field quotes + 16 dependency quotes + 28 contradiction readings + 5 value-set values), and every field quote is UNIQUE corpus-wide (checked against all 1,859 guide files), which closes the reformatted-twin defect class outright. Zero invented values; both checkboxes correctly left with empty validValues and no Yes/No pair minted. Zero unwired value sets (valueSets: [] — the 16-of-18 failure cannot recur). Zero mis-homed fields: I grepped all nine distinctive labels corpus-wide and every hit describes this window or the declared Workflows sibling; employee-import-e28f2294.md is cited only in notes and one INFERRED-marked edge, never as a field sourceFile. All hard rules PASS — no field cites authorized-approver-list-a9522ec8.md or procedure-2d20b513.md, and none of the three Workflows exception/activation fields is re-emitted. The reverse-drop trap was avoided: 'Can approve exception' is present and sourced to fcfd570c, with only the tenant-wide RANGE fenced off to Workflows. Repair discipline is clean (9 in, 9 out, no record created during Repair). fromRawHtmlTable is false on all nine and both primaries genuinely return 0 for <table>, <tr> and indented pipe rows. All 16 dependency endpoints resolve or are declared forward references; the two new steps carry the grpapproval-authority- prefix, use field names not labels, and introduced zero new validator warnings. uiVariant 'undifferentiated' is measured, not asserted, and no unearned 'both' was added. The blockers are C-1, a single missing word that trips the run's own purpose-built boundary gate (exit 1, demonstrated on an isolated merge), and C-2, a build-step omission that silently deletes this page's click path, role gates, aliases and identity notes — the very facts the scope adjudication turned on. Four further findings recover real content dropped between extract and synthesis, and two built configSteps still carry the reversed 2026-08-31 'out of scope' prose that the roster's own remediation list missed. The graph on disk was not modified; all merge testing ran in a disposable copy."
+      }
+    },
+    "navPages": [
+      {
+        "id": "authorized-approval-limits",
+        "name": "Authorized Approval Limits",
+        "documentedBasis": "moderate",
+        "coverageGuess": "partial",
+        "uiVariant": "undifferentiated",
+        "aliases": [
+          "Authorized Approval Limits window",
+          "Authorized Approval Limits link",
+          "Authorized Approver check box (branch A, Global-group-only inline rendering)",
+          "host section: Expense and Invoices Setting section (fcfd570c, 1 file - the branch-attached form)",
+          "host section alias: Expense and Invoices Settings section (8b167b96, 1 file)",
+          "host section alias: Expense and Invoice Settings (6 files - corpus-majority form: 20294611, 5e3daf7c, f772bed1, 8b167b96, bb58ded2, da376eef)",
+          "container tool label variant: Company Admin (fcfd570c, bb58ded2)",
+          "container tool label variant: Company Administration (20294611)",
+          "container search gate: User Administration (Search & Select) (20294611)"
+        ],
+        "navPathEvidence": [
+          {
+            "navPath": [
+              "Administration",
+              "Company",
+              "Company Admin",
+              "User Administration",
+              "Expense and Invoices Setting section",
+              "Authorized Approval Limits (link)"
+            ],
+            "sourceQuote": "If the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level (in addition to Global), then the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Company",
+              "Company Admin",
+              "User Administration",
+              "Expense and Invoices Setting section",
+              "Authorized Approval Limits (link)",
+              "Authorized Approval Limits (window)"
+            ],
+            "sourceQuote": "The administrator clicks the link. The Authorized Approval Limits window appears.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Company",
+              "Company Admin",
+              "User Administration",
+              "Expense and Invoices Setting section",
+              "Authorized Approver (check box)"
+            ],
+            "sourceQuote": "If the Authorized Approver feature is activated and the company has only one group (Global), then the Authorized Approver check box appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "User Administration"
+            ],
+            "sourceQuote": "The settings that appear in User Administration (Administration > User Administration) differ depending on whether the configuration includes:",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "User Administration",
+              "Expense and Invoice Settings"
+            ],
+            "sourceQuote": "by accessing that user in Administration > User Administration. With the user loaded in the form, scroll to Expense and Invoice Settings.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+          },
+          {
+            "navPath": [
+              "User Administration",
+              "Expense and Invoices Settings section",
+              "Authorized Approval Limits (link)",
+              "Authorized Approval Limits (window)"
+            ],
+            "sourceQuote": "In the Expense and Invoices Settings section of User Administration, click the Authorized Approval Limits link.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+          },
+          {
+            "navPath": [
+              "User Administration",
+              "Expense and Invoices Settings section",
+              "Authorized Approval Limits (link)"
+            ],
+            "sourceQuote": "When the Cost Object Approver feature is activated, the Authorized Approval Limits link appears in the Expense and Invoices Settings section in User Administration.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Company",
+              "Company Admin",
+              "User Administration"
+            ],
+            "sourceQuote": "Click User Administration (left menu).",
+            "sourceFile": "concur-invoice-professional-edition-tools-guides/step-6-select-the-vendor-access-group-for-the-user-bb58ded2.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Company",
+              "Company Admin",
+              "User Administration",
+              "Expense and Invoice Settings"
+            ],
+            "sourceQuote": "Under Expense and Invoice Settings, select the named vendor group from the list.",
+            "sourceFile": "concur-invoice-professional-edition-tools-guides/step-6-select-the-vendor-access-group-for-the-user-bb58ded2.md"
+          },
+          {
+            "navPath": [
+              "Administration",
+              "Company Administration",
+              "User Administration (Search & Select)",
+              "Expense and Invoice Settings"
+            ],
+            "sourceQuote": "User Administration (Search & Select)",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/assigning-the-approver-for-the-purchase-request-user-20294611.md"
+          }
+        ],
+        "roleGates": [
+          {
+            "role": "User Admin rights (to see the branch A Authorized Approver check box)",
+            "sourceQuote": "In order to see the check box described here, the user must have the User Admin rights and the Invoice User Administration rights.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "role": "Invoice User Administration rights (to see the branch A Authorized Approver check box)",
+            "sourceQuote": "In order to see the check box described here, the user must have the User Admin rights and the Invoice User Administration rights.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "role": "User Admin rights (to see the Authorized Approval Limits link)",
+            "sourceQuote": "To see the link described here, the administrator must have the User Admin rights and the Invoice User Administration rights. In addition, the employee must be an approver.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "role": "Invoice User Administration rights (to see the Authorized Approval Limits link)",
+            "sourceQuote": "To see the link described here, the administrator must have the User Admin rights and the Invoice User Administration rights. In addition, the employee must be an approver.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          },
+          {
+            "role": "the employee (the user record being edited) must be an approver - a THIRD condition, about the record, not the administrator",
+            "sourceQuote": "To see the link described here, the administrator must have the User Admin rights and the Invoice User Administration rights. In addition, the employee must be an approver.",
+            "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+          }
+        ],
+        "tabs": [],
+        "tabsSourceFile": "",
+        "tabsSourceQuote": "",
+        "identityNotes": "ONE PAGE, ONE MODAL WINDOW, NO TABS. The literal string \"Authorized Approval Limits\" occurs in exactly two files corpus-wide (user-administrator-fcfd570c.md and user-administration-8b167b96.md, both admin-guides; I swept tools-guides with equal weight and it returns nothing). Both call it a WINDOW opened from a LINK, never a left-menu tool. url is deliberately empty: the corpus publishes no .asp URLs and there is no live-UI observation for this surface, so the click path is the only navigation knowledge this page will ever have.\n\n(a) ONE SURFACE OR TWO - I TESTED THE PRIOR ~75% VERDICT AND AGREE. fcfd570c documents two MUTUALLY EXCLUSIVE renderings of one section, selected by hierarchy shape. BRANCH A (Global group only): an inline \"Authorized Approver\" check box whose selection reveals two controls - \"When the administrator selects the check box, the Manager Approval Limit field and the Approval Limit Currency list appear.\" In that configuration the Authorized Approval Limits window DOES NOT EXIST, and the branch is limit-only: \"This method is used only for limit-based authorized approvers. It cannot be used for exception-based authorized approvers.\" BRANCH B (hierarchy with at least one non-Global level): the link appears and opens the window. Deciding evidence for one page: global-group-vs-authorized-approver-hierarchy-8a960238.md puts User Administration in a SINGLE step-4 row marked X under BOTH the \"Global group only\" and the \"Authorized Approver hierarchy\" columns - the corpus splits the HIERARCHY SETUP by branch, not the surface; and both renderings sit under one lead sentence in one topic. No corpus topic names a second page, so minting one would be invention. Branch A controls therefore belong on this page WITH explicit conditional visibility (\"Global group only; in this configuration the Authorized Approval Limits window does not exist\") and a mutual-exclusion relationship against branch B. Branch A is SINGLE-SOURCED - grep -rn -F \"Manager Approval Limit\" returns fcfd570c and nothing else across both guide directories - and that is not a reason to drop it; there is no second attestation to wait for.\n\n(b) THE LINK IS ITS OWN SURFACE; User Administration is a CONTAINER. The same Expense and Invoice Settings section hosts several unrelated links: Invoice Preferences (f772bed1), Approvers (20294611), a vendor-group list (tools-guides/bb58ded2). fields-overview-5e3daf7c.md confirms the section is a region of a user record populated by employee form fields (\"Employee Fields: Used by the Expense and Invoice Settings section of the User Details page.\"). The title-collision file admin-guides/user-administrator-5aa3eb5e.md (1,432 B) carries the SAME title as the primary but documents the Invoice Delegates / Purchase Request Delegates links - I did NOT open or mine it, per scope, but its existence corroborates the container reading. THIS page is the Authorized Approval Limits link and its window, not the User Administration tool. The general User Administration user-profile surface stays unbuilt and defers to an external Shared guide absent from this corpus - a DOCUMENTARY gap, not a menu-location judgement.\n\n(c) TABS: NONE. tabs [] is a POSITIVE FINDING, not a skip. Neither primary describes a tab strip, tab label or second pane; both describe one modal with a left side (hierarchy selector - \"On the left side, the administrator selects the appropriate level in the hierarchy.\") and a right side (value controls). tabsSourceQuote and tabsSourceFile are empty because there is no quote that attests an absence.\n\nSCOPE. This is the FIRST page in this graph not reached under Administration > Invoice, and that navigational fact matters enormously to a driver - but it is Invoice configuration reached through the Company admin menu, not another product's page. It configures Concur Invoice through the non-PO capability: a PO-based invoice carries approval authority on the purchase order, a non-PO invoice has none, so the approver's authorization limit IS the authority. tools-guides/workflow-and-approval-routing-8b4ff6c9.md: \"All workflow options available for non-PO policies are also available to a PO-based invoice policy. This includes options such as workflow rules and Authorized Approvers.\" Menu location is a navigation fact, not a product-scope fact.\n\nCLICK-PATH SELF-CONTRADICTION INSIDE ONE FILE - RECORDED, NOT RECONCILED. 4-segment (majority, twice in fcfd570c): \"in Administration > Company > Company Admin > User Administration\". 2-segment (fcfd570c lead sentence): \"(Administration > User Administration)\". A driver should try the longer form first. The 2-segment form is NOT a one-off: set-a-default-shipping-and-billing-address-f772bed1.md independently writes \"in Administration > User Administration\", so the disagreement is corpus-wide.\n\nTWO CONTAINER-LABEL VARIANTS MY OWN SWEEP ADDED BEYOND THE SEED LIST. tools-guides/bb58ded2 is the only file that tells a driver User Administration is a LEFT-MENU entry under Company Admin (its preceding step reads Administration / Company / Company Admin). admin-guides/20294611 writes the container as \"Company Administration\" rather than \"Company Admin\" and names the search gate \"User Administration (Search & Select)\".\n\nMEASURED TOOLING FINDING, 2026-09-01 - U+00A0 DOES NOT SURVIVE INTO A TOOL CALL. bb58ded2 (4 NBSPs), da376eef (4) and 20294611 (12) write their menu paths with DOUBLE U+00A0 and no \">\" glyph at all. I typed those sentences verbatim and grep -F -c returned 0; the ASCII-space form also returns 0. The character is normalised in transport. Consequence: NO NBSP-bearing sentence is used as a sourceQuote in this run - both NBSP-file paths are attested instead by ASCII-only substrings of the same sentences (\"Click User Administration (left menu).\" and \"User Administration (Search & Select)\", each grep -F -c = 1), with their upstream segments described in prose in the survey. By contrast I VERIFIED that em dash U+2014 and curly apostrophe U+2019 DO survive: \"The cost object configuration defines the type—either limit or level.\" returns 1, and the 8b167b96 sentence returns 1 with U+2019 and 0 with ASCII apostrophe. The two primaries contain ZERO NBSP, so quotes taken from them are safe.\n\nSECTION-LABEL DRIFT, RE-MEASURED (the brief said 4 files for the majority form; my count is 6). \"Expense and Invoices Setting section\" = 1 file (fcfd570c) and is the BRANCH-ATTACHED form, so it is primary. \"Expense and Invoices Settings section\" = 1 file (8b167b96). \"Expense and Invoice Settings\" = 6 files (20294611, 5e3daf7c, f772bed1, 8b167b96, bb58ded2, da376eef) and is the corpus-majority form; 5e3daf7c and f772bed1 confirm it names the same region of the User Details page. A driver searching the rendered page for a section header needs all three.\n\nROLE GATE HAS THREE CONDITIONS, NOT TWO, and the third is about the RECORD not the administrator: an admin with both rights will still find the link missing on a non-approver's user record. grep -rn -F \"Invoice User Administration\" returns fcfd570c and nothing else corpus-wide.\n\nCONTRADICTION 1 - THE ACTIVATION GATE NAMES TWO DIFFERENT FEATURES, and it is load-bearing because a driver must know which flag to check before hunting for the link. fcfd570c: \"If the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level (in addition to Global), then the Authorized Approval Limits link appears...\". 8b167b96: \"When the Cost Object Approver feature is activated, the Authorized Approval Limits link appears in the Expense and Invoices Settings section in User Administration.\" NUANCE I MEASURED THAT THE BRIEF DID NOT STATE: 8b167b96 ALSO carries the Authorized-Approver condition in its own Note, so that file internally requires BOTH features while fcfd570c names only Authorized Approver. Likely explanation offered as HYPOTHESIS only - chapter provenance: 8b167b96 is the Cost Object Approval guide's topic, fcfd570c the Authorized Approver/Workflows guide's topic, each naming its own chapter's feature. Both recorded; not reconciled.\n\nCONTRADICTION 2 - THE LEVEL CONTROL IS CONTESTED AND STAYS OPEN. 8b167b96 puts one in this window (\"For level-based cost object approval, select a level.\"); filter-authorized-approvers-by-workflow-approval-step-aae69350.md states the opposite outright (\"Levels cannot be added to approvers via User Administration.\" and \"The levels can be added to users via the Employee Import or the Authorized Approver list (Administration > Invoice > Workflows > Authorized Approver tab).\"). Both grep -F verify. HYPOTHESIS, not a resolution: two different values sharing one label - aae69350's Level is the authorized-approver workflow-step filter (employee import record type 720 per step-2-assign-the-level-to-the-approver-d8bf669c.md; Authorized Approver Hierarchy), while 8b167b96's Level is the level-based COST OBJECT approval level (record set 710 per employee-import-e28f2294.md; Cost Object Approver Hierarchy). If emitted it must take a DISTINCT name such as cost_object_approval_level and must NEVER be presented as a sibling of the built field.workflows.authorized-approver-level.\n\nCONTRADICTION 3 - THE UNLIMITED RECIPE DIFFERS BY SURFACE. Workflows/a9522ec8 requires TWO acts (\"set to no approval limit currency, and leave the approval limit amount blank\"); this window states ONE (8b167b96: \"For an unlimited approval amount, leave blank (null).\"); 9d98b489 is surface-agnostic and also states one. Whether the currency must ALSO be cleared here is UNDETERMINED BY THE DOCUMENTATION - say so, do not import the Workflows recipe. The ZERO semantics are uniform across all attestations and can be stated flatly.\n\nCONTRADICTION 4 - TAB-NAME DRIFT on the referenced Workflows tab: fcfd570c writes \"Authorized Approvers tab\", configuration-8b3be88b.md and aae69350 write \"Authorized Approver tab\".\n\nBOUNDARY AGAINST THE BUILT WORKFLOWS PAGE. Workflows already owns four colliding controls, all from authorized-approver-list-a9522ec8.md whose own path is \"Click Administration > Invoice > Workflows (left menu). The Workflows page appears.\" - so nothing may be sourced from that file as a field here; it is boundary evidence only. VERDICT, corpus-stated rather than inferred and corroborated five times (configuration-8b3be88b.md \"The amount is set for each approver in the Authorized Approver List, in User Administration, or in the employee import.\"; step-4-assign-the-proper-rights-to-users-86389a18.md \"There are three ways to enter and define authorized approvers in Invoice:\" and decisively \"Regardless of how the authorized approvers are entered into Invoice, they all appear in the Authorized Approver List.\"; plus 82481079, 8b3c119a, 8b3c5273): THE THREE SURFACES ARE DISTINCT UI PRESENTATIONS WRITING ONE UNDERLYING PER-APPROVER RECORD, so this window's controls are real fields, each carrying a note naming its Workflows counterpart by exact field id. PER-CONTROL: (i) NEVER emit a field labelled \"Approval Limit\" here - Workflows has one field literally so named (field.workflows.authorized-approver-approval-limit), whereas this window has an unnamed \"Approval Limit area\" holding TWO controls, a currency selector and an Amount field, and branch A has two further, differently-named controls (Manager Approval Limit field, Approval Limit Currency list); a fifth \"Approval Limit\" is the exact duplicate this run exists to avoid. (ii) \"Approver\" is a CLEAN NEGATIVE - not on this page. On Workflows you select an approver because you are creating a list row via New; here the approver is the RECORD CONTEXT (\"User Administration (Search & Select)\"; \"With the user loaded in the form\"), and neither primary names an Approver control anywhere in its full description of the window. Do not emit field.workflows.authorized-approver-list-approver's twin. (iii) \"Can approve exception\" KEEPS, with a scope fence: fcfd570c's parenthetical \"(The actual exception levels apply to all authorized approvers and are defined on the Authorized Approvers tab in Workflows.)\" settles the split - the PER-APPROVER boolean is set here, the TENANT-WIDE min/max exception RANGE on Workflows (field.workflows.minimum-exception-level / maximum-exception-level); corroborated from a second file by 8b3be88b (\"The range is set in Administration > Invoice > Workflows > Authorized Approver tab.\"). Emit as a dependency. (iv) The left-side hierarchy selector is attested twice (fcfd570c \"On the left side, the administrator selects the appropriate level in the hierarchy.\"; 8b167b96 step 2) and emitting it is defensible as an explicit procedure step - but note plainly that the Workflows sibling describes the same picker (a9522ec8 step 4, d8bf669c step 3) and was NOT emitted there.\n\nZERO-FIELD SEEDS, verdict not re-derived: procedure-2d20b513.md yields ZERO fields (all three of its controls are already built on Workflows) and serves here only as the FEATURE-GATE dependency source; definition-of-amount-for-limit-approval-06806875.md is pure semantics, yields ZERO fields, and its only control reference is already homed twice on Workflows. employee-import-e28f2294.md is cited for VALUE DOMAINS of the amount/currency pair only (\"Numeric\"; \"Specified in the approval limit currency. If used, then Approval Limit Currency Code below is required.\"; \"3 characters\"; \"must be a valid currency in the list of system (reimbursement) currencies\") - Employee Import is not a page and no employee-import field may be emitted.\n\nSEMANTICS CAUTION SO OLD NEWS IS NOT MISTAKEN FOR A FINDING: the built field.workflows.authorized-approver-approval-limit ALREADY records both the 0 and null/unlimited semantics and already cites setting-an-unlimited-approval-amount-9d98b489.md. What IS distinct here is that this surface states the 0 rule against TWO DIFFERENT LABELS - \"You can enter 0 in the Manager Approval Limit field\" (branch A) and \"You can enter 0 in the Amount field\" (branch B), both in fcfd570c. Any approval-limit record emitted here must be justified by the DIFFERENT LABEL and DIFFERENT SURFACE, named against the sibling field id, never by the value semantics alone. The PRECEDENCE RULE (single-sourced to 8b167b96, two U+2014 em dashes, quotable in full) is the most valuable sentence on the page and must become a dependency, not a footnote.\n\nuiVariant = undifferentiated, MEASURED: eight *-new-experience-* / *-legacy-* / *-classic-* files exist corpus-wide and none touches this surface; grep -rilF \"Authorized Approval Limits\" piped through grep -ilE \"new experience|legacy|classic\" returns ZERO. ONE HEDGE recorded and NOT acted on: tools-guides/how-single-step-approval-workflow-works-40145f24.md says amounts are established via \"the Authorized Approvers link from workflows in the classic interface\" - that describes the WORKFLOWS SIBLING, not this window, and must not become an unearned \"both\".\n\nDOCUMENTED BASIS = moderate (not rich, not sparse). Every control is named, in prose, across two independent topics plus supporting ones - so this is well past named-and-reachable. But BOTH primaries carry ZERO tables (grep -c \"<table\" and grep -cP \"^\\s*\\|\" both return 0 on fcfd570c and 8b167b96), the total documented surface is roughly 11,000 bytes, there are no value enumerations native to this surface (the currency domain is documented only on the employee-import record set, a different surface), no Save/Cancel documentation for the window itself (only branch A says \"clicks Save\"), the Level control is flatly contradicted by a third file, the unlimited recipe is undetermined, and branch A rests on one file. coverageGuess = partial: extraction will capture essentially everything the corpus says, but the corpus itself leaves two of the roughly seven-to-eight controls unresolved. Expected shape, offered as a shape and not a quota: eight controls, or seven if the left-side hierarchy selector is treated as navigation - branch B (hierarchy level selector, Can approve exception, currency, Amount, Level [contested]) and branch A (Authorized Approver check box, Manager Approval Limit, Approval Limit Currency)."
+      }
+    ],
+    "navNarrative": "# MAP / Navigation & Taxonomy Survey — Authorized Approval Limits\n\nRun date 2026-09-01. Corpus: `/mnt/c/Users/manci/PROJECTS/concur-corpus/CONCUR_INVOICE`, SAP version 2026_08, Professional Edition, crawled 2026-08-29. One page added: `authorized-approval-limits`.\n\n---\n\n## 1. Does the page exist? Yes, and it is a WINDOW, not a tool.\n\nThe literal string `Authorized Approval Limits` occurs in exactly **two files corpus-wide** — I swept both guide directories with equal weight:\n\n```\ngrep -rlF \"Authorized Approval Limits\" <admin-guides> <tools-guides>\n  concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md\n  concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md\n```\n\nBoth name it a **window** opened from a **link**, never a left-menu tool:\n\n* fcfd570c — \"The administrator clicks the link. The Authorized Approval Limits window appears.\"\n* 8b167b96 — \"The Authorized Approval Limits window appears.\"\n\nThat is a genuine, twice-attested surface. It is not a \"no documentary basis\" case.\n\n---\n\n## 2. Page identity — the three questions\n\n### (a) One surface or two? **ONE page. I tested the prior 75%-confidence verdict and I agree with it.**\n\n`user-administrator-fcfd570c.md` documents two **mutually exclusive renderings** of one section of the User Details page, selected by the tenant's hierarchy shape:\n\n* **Branch A — Global group only.** Verbatim: \"If the Authorized Approver feature is activated and the company has only one group (Global), then the Authorized Approver check box appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.\" Selecting it reveals two controls: \"When the administrator selects the check box, the Manager Approval Limit field and the Approval Limit Currency list appear.\" **In this configuration the Authorized Approval Limits window does not exist at all**, and the branch is limit-only: \"This method is used only for limit-based authorized approvers. It cannot be used for exception-based authorized approvers.\"\n* **Branch B — hierarchy with at least one non-Global level.** The link appears and opens the window.\n\nEvidence I checked for the one-page verdict:\n\n1. `global-group-vs-authorized-approver-hierarchy-8a960238.md` puts **User Administration in a single step-4 row marked X under BOTH** the \"Global group only\" and the \"Authorized Approver hierarchy\" columns. The corpus does not split the surface by branch; it splits the *hierarchy setup* by branch.\n2. Both renderings live under one lead sentence in one topic (fcfd570c), under one title.\n3. No corpus topic names a second page. Minting one would be an invention.\n\nSo: emit branch A's controls on this page **with explicit conditional visibility** and a mutual-exclusion relation against branch B. Do not create a second page. Tension recorded in identityNotes.\n\n**Branch A is single-sourced and that is not a reason to drop it.** `grep -rn -F \"Manager Approval Limit\"` returns fcfd570c and nothing else across both guide directories. There is no second attestation to wait for.\n\n### (b) Does the link belong to User Administration, or is the window its own surface? **Its own surface.**\n\nUser Administration is a **container** hosting several independent links, not this page:\n\n* `fields-overview-5e3daf7c.md`: \"Employee Fields: Used by the Expense and Invoice Settings section of the User Details page.\" — the section is a *region of a user record*, populated by employee form fields.\n* `set-a-default-shipping-and-billing-address-f772bed1.md` reaches a **different** link from the same section (\"Click Invoice Preferences to open a window…\").\n* `assigning-the-approver-for-the-purchase-request-user-20294611.md` reaches an **Approvers** control from the same section.\n* `step-6-select-the-vendor-access-group-for-the-user-bb58ded2.md` (tools-guides) selects a **vendor group** from the same section.\n* The title-collision file `user-administrator-5aa3eb5e.md` (1,432 B) — same title \"User Administrator\" as the primary, **not opened or mined here**, out of scope — is further evidence that the container hosts several unrelated links.\n\nTHIS page is therefore the **Authorized Approval Limits link and the window it opens**, not the User Administration tool. The general User Administration user-profile surface remains unbuilt and defers to an external *Shared* guide absent from this corpus — a **documentary** gap, not a menu-location judgement.\n\nBoth the path **to the link** and the step **into the window** are recorded as separate navPathEvidence entries.\n\n### (c) Tabs? **None. `tabs: []` is a positive finding.**\n\nNeither primary describes a tab strip, a tab label, or a second pane. Both describe one modal window with a left side (hierarchy selector) and a right side (the value controls): \"On the left side, the administrator selects the appropriate level in the hierarchy.\" `tabsSourceQuote` and `tabsSourceFile` are deliberately empty — there is no quote to attest an absence.\n\n---\n\n## 3. Navigation — the click path, and it is NOT under Administration > Invoice\n\n`url` is deliberately empty. The corpus publishes zero `.asp` URLs and there is no live-UI observation for this surface. The click path is all the navigation knowledge this page will ever have.\n\n**Ten distinct documented paths recorded**, every quote grep -F verified:\n\n| # | Path | File |\n|---|---|---|\n| 1 | Administration > Company > Company Admin > User Administration > Expense and Invoices Setting section > Authorized Approval Limits (link) | fcfd570c |\n| 2 | …the same, continuing into the window | fcfd570c |\n| 3 | …same 4 segments… > Authorized Approver (check box) — **branch A** | fcfd570c |\n| 4 | Administration > User Administration — **2-segment**, lead sentence | fcfd570c |\n| 5 | Administration > User Administration > Expense and Invoice Settings — 2-segment **corroborated in a second file** | f772bed1 |\n| 6 | User Administration > Expense and Invoices Settings section > Authorized Ap",
+    "inventoryNarrative": "## Inventory complete — `authorized-approval-limits`\n\nReport at `/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/map-inventory.md` (581 lines). 17 mustRead, 29 alsoRelevant.\n\n### The finding that reframes the whole run\n\n**The two primaries belong to two different guide threads, and each documents a DIFFERENT feature's rendering of a link with the same name in the same section.**\n\n- `user-administrator-fcfd570c.md` sits in the **Authorized Approvers** guide (rev-history root `authorized-approvers-8b3c26cc.md`). Its gate: *\"If the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level…\"*. Its Step 4 sibling is `86389a18`; its Configuration sibling is `8b3be88b`. No Level control.\n- `user-administration-8b167b96.md` sits in the **Cost Object Approval** guide (rev-history root `cost-object-approval-8b3d1e0f.md`). Its gate: *\"When the **Cost Object Approver feature** is activated, the Authorized Approval Limits link appears…\"* (grep -F verified, 1 hit). Its Step 4 sibling is `82481079`; its Configuration sibling is `8b3cce3f`. Level control present.\n\n`grep -rlF \"Cost Object Approver feature\"` returns exactly two files: `8b167b96` and `8b3cce3f`. That is materially stronger support for brief item (C) than the brief itself claims — the contested Level is not a shared label by accident, it is a second feature's window. **Record both gate sentences; do not reconcile.**\n\n### Boundary check against the built graph (python3, 22 pages / 607 fields)\n\n`user-administrator-fcfd570c.md` — one of your two primaries — **is already cited by three built nodes**, and all three carry the now-reversed scope claim:\n\n- `dep.gworkflows.060` → targetRef `{page:\"User Administration\", field:\"Authorized Approval Limits\", resolved:false}`, condition text: *\"…is out of scope for this graph by the 2026-08-31 decision, and the Authorized Approval Limits window is real and documented but is not a page to build.\"* This run **resolves** that forward reference; the stale prose needs repair.\n- `vset.gworkflows.unnamed.two-further-named-feature-hierarchies…` and `vset.gworkflows.unnamed.the-four-configuration-steps…` (the latter cites `8a960238`) — same stale \"out of scope\" sentence in their notes.\n\nNone of the three mines a *field*, so no field here is a re-home, and both files remain legitimate mustReads. But the merge must not leave three nodes asserting the reversed decision.\n\n### Census: the zeros are the finding\n\nBoth primaries: `grep -c \"<table\"` = **0**, `grep -o \"<tr\" | wc -l` = **0**, `grep -cP '^\\s*\\|'` = **0**. Every field is procedure prose, as predicted. Full 44-file census in §3.\n\nLong catalogs (none on a primary): `8a960238` 25 pipe rows (page identity), `a9522ec8` 16 rows (Workflows-owned), `e28f2294` 19 rows (only value domains for the amount/currency pair), `aae69350` raw `<table>` at **3 `<tr` via -o** (`grep -c \"<tr\"` lies with 1, as warned). Plus two **revision-history** tables catalogued so nobody re-discovers them as \"missed value tables\": `8b3c26cc` (20 rows) and `8b3d1e0f` (~27 rows) — never field sources, but `8b3c26cc` carries a dated third attestation of the zero/NULL semantics.\n\n### Beating the seed floor\n\n- **`understand-the-process-3966259c.md`** — a **sixth** attestation of the three-setter claim, absent from the seeds. The brief named five.\n- **`configuration-8b3cce3f.md`** — the Cost Object Approver 4-step config; second of only two files naming that feature. Not in the seeds.\n- **`assigning-the-approver-for-the-purchase-request-user-20294611.md`** — a **fourth** click-path rendering, with the `>` glyphs stripped to double spaces: `Administration  Company Administration  User Administration (Search & Select)  Expense and Invoice Settings  Approvers.` Note \"Company **Administration**\", not \"Company Admin\".\n- `\"Expense and Invoice Settings\"` returns **6** files, not the 4 the brief predicted (two extra in tools-guides). And `8b167b96` **drifts internally** — \"Expense and Invoice Settings\" at line 21, \"Expense and Invoices Settings section\" at line 43.\n- The two `step-4-assign-the-proper-rights-to-users-*` topics have **distinct loios** — not a republish pair, two guides' step 4, materially different bodies. `82481079` adds a fourth host-page label: \"User Admin\".\n- `grep -rliF \"Authorized Approval Limits\"` across **all four** directories returns only the two primaries. No release-note dating, no variant corroboration. `uiVariant = undifferentiated` re-confirmed by measurement.\n- Filename sweep: **`approval-limit` returns zero filenames.** No topic is named after the control — which is precisely why a filename-led recon misses this page.\n\n### Byte traps, measured not assumed\n\nTypo `needs to have at least on level` = 1, corrected form = 0. Apostrophes differ *between* the primaries (8b167b96 curly U+2019 = 1 / ASCII = 0; fcfd570c the reverse). The precedence sentence's three em dashes confirmed with `cat -A` → `M-bM-^@M-^T`. All 19 candidate anchors in §6 pre-verified at `grep -F -c` = 1.\n\n### Shape\n\nSupports the expected eight controls (seven if the hierarchy selector is navigation). Branch A is single-sourced to `fcfd570c` — `grep -rlF \"Manager Approval Limit\"` returns exactly one file, so there is no corroboration to wait for and dropping it would delete three real controls. §8 also records the asymmetry that Workflows never emitted a left-side selector despite `a9522ec8` and `d8bf669c` describing the same picker."
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Map"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Extract"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 4,
+      "title": "Repair"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 5,
+      "title": "Synthesize"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 6,
+      "title": "Critic"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "map:navigation",
+      "phaseIndex": 1,
+      "phaseTitle": "Map",
+      "agentId": "aea6f6be2025e4eb7",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788257705494,
+      "queuedAt": 1788257705421,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77…",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788258276042,
+      "tokens": 124395,
+      "toolCalls": 32,
+      "durationMs": 570519,
+      "resultPreview": "{\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/map-navigation.md\",\"pages\":[{\"id\":\"authorized-approval-limits\",\"name\":\"Authorized Approval Limits\",\"documentedBasis\":\"moderate\",\"coverageGuess\":\"partial\",\"uiVariant\":\"undifferentiated\",\"aliases\":[\"Authorized Approval Limits window\",\"Authorized Approval Limits link\",\"Authorized Approver check b…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "map:inventory",
+      "phaseIndex": 1,
+      "phaseTitle": "Map",
+      "agentId": "ad58c16965a612234",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788257705520,
+      "queuedAt": 1788257705423,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77…",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788258451304,
+      "tokens": 154125,
+      "toolCalls": 32,
+      "durationMs": 745778,
+      "resultPreview": "{\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/map-inventory.md\",\"narrativeMarkdown\":\"## Inventory complete — `authorized-approval-limits`\\n\\nReport at `/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/map-inventory.md` (581 lines). 17 mustRead, 29 alsoRelevant.\\n\\n### The finding that reframes …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "extract:authorized-approval-limits:procedure",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a050f0f6a99f48afd",
+      "model": "claude-sonnet-5",
+      "state": "done",
+      "startedAt": 1788258451360,
+      "queuedAt": 1788258451340,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "authorized-approval-limits",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788258695852,
+      "tokens": 134786,
+      "toolCalls": 21,
+      "durationMs": 244486,
+      "resultPreview": "{\"pageId\":\"authorized-approval-limits\",\"lens\":\"procedures-and-controls\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/extract-authorized-approval-limits-procedure.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md\",\"concur-invoice-professional-edition-admin-guides/user-admin…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "extract:authorized-approval-limits:tables",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "ab9d6fe520466d451",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788258451364,
+      "queuedAt": 1788258451341,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "authorized-approval-limits",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788258795873,
+      "tokens": 132375,
+      "toolCalls": 21,
+      "durationMs": 344506,
+      "resultPreview": "{\"pageId\":\"authorized-approval-limits\",\"lens\":\"tables\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/extract-authorized-approval-limits-tables.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md\",\"concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.m…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "extract:authorized-approval-limits:crosscut",
+      "phaseIndex": 2,
+      "phaseTitle": "Extract",
+      "agentId": "a4715550958e66ac3",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788258451365,
+      "queuedAt": 1788258451341,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "authorized-approval-limits",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788258846279,
+      "tokens": 136075,
+      "toolCalls": 19,
+      "durationMs": 394912,
+      "resultPreview": "{\"pageId\":\"authorized-approval-limits\",\"lens\":\"C-tools-guides-and-cross-cutting\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/extract-authorized-approval-limits-crosscut.json\",\"jsonValid\":true,\"filesRead\":[\"concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md\",\"concur-invoice-professional-edition-tool…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify:authorized-approval-limits:grounding",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a7d851637f6e041a8",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788258846350,
+      "queuedAt": 1788258846314,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "authorized-approval-limits",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259188597,
+      "tokens": 128859,
+      "toolCalls": 21,
+      "durationMs": 342243,
+      "resultPreview": "{\"pageId\":\"authorized-approval-limits\",\"refuter\":\"grounding-and-control-identity (refuter 1 of 2)\",\"verdicts\":[{\"fieldName\":\"hierarchy_level_selector\",\"disposition\":\"repair\",\"verbatimVariantIndex\":0,\"reason\":\"Grounding is clean. grep -F -c \\\"On the left side, the administrator selects the appropriate level in the hierarchy.\\\" on admin-guides/user-administrator-fcfd570c.md returns 1 (file line 63),…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify:authorized-approval-limits:ownership",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "abe263a075501b188",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788258846353,
+      "queuedAt": 1788258846315,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "authorized-approval-limits",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259210529,
+      "tokens": 136752,
+      "toolCalls": 29,
+      "durationMs": 362322,
+      "resultPreview": "{\"pageId\":\"authorized-approval-limits\",\"refuter\":\"refuter 2 of 2 — page ownership, duplication and scope\",\"pageLevelFindings\":\"SWEEPS I RAN. (1) grep -rlF over BOTH guide directories for each distinctive label: \\\"Manager Approval Limit\\\" -> fcfd570c ONLY; \\\"Authorized Approver check box\\\" -> fcfd570c ONLY; \\\"the Amount field\\\" -> fcfd570c ONLY; \\\"Authorized Approval Limits\\\" -> fcfd570c + 8b167b96…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "repair:authorized-approval-limits",
+      "phaseIndex": 4,
+      "phaseTitle": "Repair",
+      "agentId": "a08bb71eec9801da8",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259210619,
+      "queuedAt": 1788259210562,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "authorized-approval-limits",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259471494,
+      "tokens": 135328,
+      "toolCalls": 19,
+      "durationMs": 260873,
+      "resultPreview": "{\"pageId\":\"authorized-approval-limits\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/roster-authorized-approval-limits.json\",\"jsonValid\":true,\"inputCount\":9,\"finalFieldNames\":[\"authorized_approval_limits_link\",\"hierarchy_level_selector\",\"can_approve_exception\",\"approval_limit_currency_window\",\"approval_limit_amount\",\"cost_object_approval_l…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "synth:valueSets",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a1380ca9994ab40bb",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259471537,
+      "queuedAt": 1788259471511,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "valueSets",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259804361,
+      "tokens": 102946,
+      "toolCalls": 24,
+      "durationMs": 332819,
+      "resultPreview": "{\"kind\":\"valueSets\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-valuesets.json\",\"jsonValid\":true,\"count\":0,\"unresolvedCount\":3,\"headline\":\"Zero value sets for Authorized Approval Limits, evidenced not assumed: both primaries have no tables of any kind, and a corpus-wide sweep of both guide directories found no enumerated option lis…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "synth:dependencies",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "ab785e3939d3fc648",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259471539,
+      "queuedAt": 1788259471512,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "dependencies",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259845501,
+      "tokens": 107980,
+      "toolCalls": 24,
+      "durationMs": 372530,
+      "resultPreview": "{\"kind\":\"dependencies\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-dependencies.json\",\"jsonValid\":true,\"count\":16,\"unresolvedCount\":2,\"headline\":\"16 grounded ConfigDependencies for Authorized Approval Limits, all 16 quotes verbatim-verified and every built-page endpoint name matched against the graph; the two link-visibility conjun…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 11,
+      "label": "synth:contradictions",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a5272cefaff5e3d54",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259471540,
+      "queuedAt": 1788259471512,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "contradictions",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259967084,
+      "tokens": 125922,
+      "toolCalls": 33,
+      "durationMs": 494112,
+      "resultPreview": "{\"kind\":\"contradictions\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-contradictions.json\",\"jsonValid\":true,\"count\":6,\"unresolvedCount\":0,\"headline\":\"6 contradictions merged from 10 raw lens records and 28 verbatim readings (28/28 grep -F verified, zero misses); all 6 home to page \\\"Authorized Approval Limits\\\" on roster-legal field…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 12,
+      "label": "synth:steps",
+      "phaseIndex": 5,
+      "phaseTitle": "Synthesize",
+      "agentId": "a590704a9986bc386",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259471542,
+      "queuedAt": 1788259471512,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "steps",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788259851682,
+      "tokens": 119882,
+      "toolCalls": 23,
+      "durationMs": 378710,
+      "resultPreview": "{\"kind\":\"steps\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/synth-steps.json\",\"jsonValid\":true,\"count\":2,\"unresolvedCount\":0,\"headline\":\"Two ConfigSteps written for Authorized Approval Limits (hierarchy-branch window procedure, 8 entries; Global-group-only inline variant, 4 entries), all quotes verbatim-verified, zero unresolved endpoint…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 13,
+      "label": "critic:completeness",
+      "phaseIndex": 6,
+      "phaseTitle": "Critic",
+      "agentId": "a208cc4c8939157fd",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259967160,
+      "queuedAt": 1788259967116,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "completeness",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788260694163,
+      "tokens": 170384,
+      "toolCalls": 54,
+      "durationMs": 726999,
+      "resultPreview": "{\"lens\":\"completeness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/critic-completeness.md\",\"findingCount\":11,\"severeFindings\":[{\"title\":\"FALSE PREMISE: the orphan Level/Limit value set was refused on the ground that no owner field exists — it exists and is already populated\",\"detail\":\"synth-valuesets.json -> orphanCandidates[0] states ve…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 14,
+      "label": "critic:correctness",
+      "phaseIndex": 6,
+      "phaseTitle": "Critic",
+      "agentId": "addf116cc7323ee6a",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788259967163,
+      "queuedAt": 1788259967117,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "correctness",
+      "promptPreview": "You are building part of a KNOWLEDGE GRAPH OF THE SAP CONCUR INVOICE ADMIN CONFIGURATION SURFACE,\nderived BLIND FROM DOCUMENTATION. The graph answers: for a desired config change, which pages,\nwhich fields, which valid values, in what order. A future Chromium automation will drive the\nadmin UI from it.\n\nCORPUS - read files directly with Bash (cat / sed -n / grep / rg). There is NO MCP server.\n  RO…",
+      "lastProgressAt": 1788260947889,
+      "tokens": 240154,
+      "toolCalls": 87,
+      "durationMs": 979463,
+      "resultPreview": "{\"lens\":\"correctness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/7a585e6d-f82b-458a-aa77-3ab10457ee03/scratchpad/aal-parts/critic-correctness.md\",\"findingCount\":10,\"severeFindings\":[{\"title\":\"C-1 BLOCKING: can_approve_exception fails bin/check-approval-authority.py — the run's own boundary gate exits 1\",\"detail\":\"I merged into an isolated copy of the graph and ran both gates. validate-graph.py…"
+    }
+  ],
+  "totalTokens": 1949963,
+  "totalToolCalls": 439
+}

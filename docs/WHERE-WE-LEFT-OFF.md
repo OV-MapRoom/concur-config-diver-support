@@ -1,6 +1,6 @@
 # Where we left off
 
-_Last updated: 2026-08-31_
+_Last updated: 2026-09-01_
 
 ## Start here
 
@@ -13,18 +13,20 @@ _Last updated: 2026-08-31_
 
 ## Status
 
-**22 of ~24 pages · 607 fields · 436 dependencies · 41 steps · 114 value sets (1,011 values) ·
-60 contradictions (179 readings) · 17 compressed ranges (411 members).**
+**23 of ~25 pages · 617 fields · 454 dependencies · 43 steps · 115 value sets (1,014 values) ·
+66 contradictions (209 readings) · 17 compressed ranges (411 members).**
 `output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Validator: ERROR-clean, exit 0.**
+`bin/check-approval-authority.py` (the Approval Authority boundary gate) also exits 0.
 
 Built: Group 1 (Policy & Scope), Group 2 (Routing & Approval, incl. an Audit Rules deep-dive that
 took that page 36 → 91 fields), Group 3 (PO Matching — 2 pages, not the 11 the lost map claimed),
 Group 4 (Capture & Vendors), Group 5A + 5B (Data Structure & Accounting),
 **Workflows Run A (Workflows + Feature Hierarchies — 4 pages in the group, not the 13 the lost map
-claimed).**
+claimed)**, and **Approval Authority (Authorized Approval Limits — the first page in this graph not
+reached under `Administration > Invoice`).**
 
-Quality: **607/607 sourceQuotes verify verbatim** against their cited corpus file; 606/607
-validValue lists fully found in source; 179/179 contradiction readings verbatim; zero dangling
+Quality: **617/617 sourceQuotes verify verbatim** against their cited corpus file; 616/617
+validValue lists fully found in source; 209/209 contradiction readings verbatim; zero dangling
 dependency endpoints.
 
 > The denominator moved twice now. The old "37 pages" came from the lost map, which counted
@@ -51,6 +53,7 @@ dependency endpoints.
 | Invoice Settings | 13 | good | 1 |
 | Routing Configuration | 10 | good | 2 |
 | Exceptions | 8 | good | 2 |
+| Authorized Approval Limits | 10 | partial | Approval Authority |
 | Feature Hierarchies | 7 | partial | Workflows |
 | Units Of Measure | 3 | thin | 4 |
 | Vendor Search Admin | 2 | thin | 4 |
@@ -63,10 +66,15 @@ sentence anywhere in this corpus lists them together.
 
 ## Next
 
-**Workflows Run A is DONE (2026-08-31).** Two pages, 121 fields, validator exit 0. Details in
-`output/kg-build-log.md`; the recon that retired the 13-page figure is in
-`output/reports/2026-08-31_workflows-recon/`, the build in
-`output/reports/2026-08-31_workflows-run-a-*`.
+**Workflows Run A is DONE (2026-08-31)** — two pages, 121 fields, validator exit 0.
+**Approval Authority is DONE (2026-09-01)** — one page, 10 fields, 18 dependencies, 6 contradictions
+(one carrying 7 readings), 2 steps, validator and boundary gate both exit 0. Run `wf_c5bf5b7e-134`,
+14 agents, 0 errors. Reports in `output/reports/2026-09-01_approval-authority-*`.
+
+**Read the Approval Authority section of `output/kg-build-log.md` before the next build.** It
+records six toolchain defects fixed that session — five latent for every future group — and two
+claims in this file and the 2026-09-01 handoff that were FALSE, one of which was aimed squarely at
+Run B (see item 1 below).
 
 ### ▶ RESUME HERE — Workflows Run B
 
@@ -74,14 +82,20 @@ sentence anywhere in this corpus lists them together.
 Both are real left-menu pages the lost map never counted; both were found and page-hood-endorsed by
 the recon. Start from `workflows/2026-08-31_kg-workflows-run-a.mjs` and change the usual knobs, plus:
 
-1. **Merge WITH `--patch`.** The group label `Workflows` now EXISTS in the graph, so a non-patch
-   merge would DELETE Run A's 121 fields. Set `patchPage` in the return. Run B's two pages are new,
-   so `--patch` strips nothing — verified against `merge-group.py:62-76`.
-2. **FIX `NAV_SCHEMA` FIRST — it has `additionalProperties: false` and no `tabs` property**, so the
-   map agent is schema-blocked from emitting page tabs and silently returns `tabs: None`. This is
-   link 1 of a three-link chain; links 2 and 3 (`assemble-parts.py`, `merge-group.py`) are fixed.
-   Email Reminders has TWO documented tabs (Rules, Email Reminders) and Delegate Configurations has
-   two (Invoice, Purchase Request), so this bites immediately.
+1. **Merge WITH `--patch`, and pass `--patch-page "Workflows"` to `assemble-parts.py`.** The group
+   label `Workflows` now EXISTS, so a non-patch merge would DELETE Run A's 121 fields. **The claim
+   filed here that `patchPage` comes from the workflow return and that "`--patch` strips nothing"
+   was FALSE** — it comes from `assemble-parts.py --patch-page`, and `--patch` with a null
+   `patchPage` deletes every node from every non-patch merge while the validator still exits 0
+   (measured 2026-09-01: 436 deps → 115). `merge-group.py` now aborts on that combination. See the
+   Approval Authority section of `output/kg-build-log.md`.
+2. ~~**FIX `NAV_SCHEMA` FIRST**~~ — **DONE 2026-09-01, and proven end-to-end.** Link 1 of the
+   three-link `tabs` chain is fixed in
+   `workflows/2026-09-01_kg-authorized-approval-limits.mjs` (`tabs` / `tabsSourceQuote` /
+   `tabsSourceFile` declared, `tabs` in `required`). The Approval Authority page merged carrying
+   `tabs: []` — a positive finding for a modal window, and the first proof the whole chain carries.
+   **Copy that `NAV_SCHEMA` verbatim into the Run B script.** Email Reminders has two documented
+   tabs and Delegate Configurations two, so it would have bitten immediately.
 3. **Exactly ONE file is shared with Run A** — `delegate-self-approval-1b627285.md` (1,284 B) —
    and its field belongs to the Workflows **General page**. **Run B must not extract it.**
 4. Seed corrections the recon critics already made are in the Run A page briefs; the Email Reminders
@@ -100,18 +114,47 @@ lines 102–110), then the remediation sweep.
 Set `meta.status = "COMPLETE"` only when every non-deferred group is in and
 `bin/validate-graph.py` exits 0.
 
-### A SCOPE DECISION THAT IS LUKE'S, NOT THE BUILD'S
+### ~~A SCOPE DECISION THAT IS LUKE'S~~ — DECIDED, AND THE PAGE IS BUILT (2026-09-01)
 
-The Workflows recon's two critics split on whether to add a fifth page,
-**`Authorized Approval Limits`**. Adjudicated 2026-08-31: **completeness was right on the fact**
-(the roster deferred it on a claim that is demonstrably false — `user-administrator-fcfd570c.md` and
-`user-administration-8b167b96.md` document it directly, all anchor quotes verify, and the per-user
-approval LIMIT currently has no home anywhere in the graph); **page-hood was right on the action**
-(it sits under `Administration > **Company**`, and all 22 built pages are under
-`Administration > Invoice`, with five prior groups leaving these surfaces unresolved eight times).
+The Workflows recon's two critics split on whether to add a fifth page, **`Authorized Approval
+Limits`**. On 2026-08-31 it was adjudicated as "completeness right on the fact, page-hood right on
+the action" and no page was built, because it sits under `Administration > Company`.
 
-**No fifth page was built.** Whether `Administration > Company` surfaces enter this graph at all is
-a scope expansion Luke owns. Everything needed to build it later is recorded in the build log.
+**Luke reversed that on 2026-09-01 and the page is now built.** The 2026-08-31 reasoning used MENU
+LOCATION as a proxy for PRODUCT SCOPE, and `navPath` is a navigation fact that says nothing about
+which product a control configures. This window configures Concur Invoice through the **non-PO
+capability**: a PO-based invoice carries approval authority on the purchase order; a non-PO invoice
+has none, so the approver's authorization limit *is* the authority
+(`tools-guides/workflow-and-approval-routing-8b4ff6c9.md`).
+
+**`Administration > Company` is therefore no longer a blanket exclusion.** The test is whether a
+control governs Invoice behaviour. The general **User Administration user profile** and the
+**Employee Import** remain unbuilt — but for a DOCUMENTARY reason (both defer to external *Shared*
+guides absent from this corpus), not a menu-location one. Keep that distinction in anything you
+write: six built nodes asserted the old rule and all six were repaired on 2026-09-01.
+
+### Six MORE toolchain defects fixed during Approval Authority (2026-09-01)
+
+Full detail in `output/kg-build-log.md`. All six would have hit future groups; one destroys the graph.
+
+- **`merge-group.py --patch` with a null `patchPage` deletes every node from every non-patch merge**
+  and `validate-graph.py` still exits 0 over it (436 deps → 115, measured). Now guarded. **This is
+  the one aimed at Run B** — see item 1 above.
+- **`apply-corrections.py` `wire_by_name` wired a value set across pages**, turning a caught
+  validator ERROR into a green build with a false owner.
+- **`apply-corrections.py` `repoint_endpoints` never wrote `ref['page']`**, so a cross-page repoint
+  silently un-resolved on the next merge.
+- **`assemble-parts.py` never checked dependency endpoints into already-built pages** — the exact
+  class this run was most likely to produce (LABEL vs NAME).
+- **The value-set id collision detector drifted from the id minter**, and nothing checked node-id
+  uniqueness. `validate-graph.py` gained a `duplicate-node-id` invariant.
+- **`NAV_SCHEMA` tabs**, above.
+- Also added: `DEP_CONDITION`, `STEP_RATIONALE`, `STEP_SEQ_RETARGET` and `VALUESET_NOTE_APPEND_BY_ID`
+  ops in `apply-corrections.py` — dependency `condition` and step `rationale` prose was previously
+  unreachable by every existing op, and `VALUESET_NOTE_APPEND` is keyed by a *value marker*, so an
+  id key silently matches nothing.
+- New: **`bin/check-approval-authority.py`** — a post-merge boundary gate for the one thing
+  `validate-graph.py` is structurally incapable of checking (a control duplicated across two pages).
 
 ### Four toolchain defects fixed during Workflows — all would have hit every future group
 

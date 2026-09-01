@@ -1162,3 +1162,202 @@ Confirmation Agreements 4, Reason Category and Codes 3.
 fields). Merge **WITH `--patch`** — the `Workflows` group label now exists. Exactly one 1,284 B file
 is shared with Run A (`delegate-self-approval-1b627285.md`), whose field belongs to the Workflows
 General page: **Run B must not extract it.** Fix `NAV_SCHEMA` to declare `tabs` before running.
+
+---
+
+## Approval Authority — Authorized Approval Limits (2026-09-01)
+
+**23 pages · 617 fields · 454 dependencies · 43 steps · 115 value sets · 66 contradictions
+(209 readings) · 17 compressed ranges. `bin/validate-graph.py` exits 0, ERROR-clean, 617/617
+sourceQuotes verbatim.** Run `wf_c5bf5b7e-134`, 14 agents, **0 errors**.
+
+One page, 10 fields. The corpus freeze held: `concur-corpus` at `fbd8751`, 0 files modified.
+
+### THE SCRIPT WAS NOT READY, AND THE HANDOFF SAID IT WAS
+
+The 2026-09-01 handoff and `docs/RESUME-PROMPT.md` both said to *"change exactly ONE thing"* (the
+`const PARTS` scratchpad). **That was wrong by a wide margin, and `const PARTS` was the one thing
+that did not strictly need changing** — it was an absolute path to a provisioned, empty directory.
+
+A pre-flight audit (`wf_4ed79cf0-9f6`, 151 agents, 76 findings, **71 surviving two adversarial
+refuters each**) found the script was adapted from Workflows Run A by turning the top-of-file knobs
+only. `diff` against the parent showed 19 hunks, 13 of them above line 126 — **essentially every
+agent-facing prompt below the constants was still Run A text**, and in three places still Group 3
+text. Full findings in `output/reports/2026-09-01_approval-authority-preflight-audit.md`.
+
+**The blocker:** `ALREADY_BUILT`, injected into all six agent families (Map, Extract, Verify,
+Repair, Synthesize, Critic), told every agent:
+
+> *"OUT OF SCOPE FOR THE WHOLE GRAPH, decided 2026-08-31: surfaces under Administration > COMPANY …
+> The Authorized Approval Limits window … is NOT a page for you to build. Write forward references
+> to it and let them stay unresolved."*
+
+The run would have been instructed not to build the page it exists to build. The same constant also
+**omitted Workflows (114 fields) and Feature Hierarchies from the built-pages list** while calling
+Feature Hierarchies "this run" — so the one page this build had to draw a boundary against was
+invisible to every agent. 22 further stale passages were fixed: the seven-tab Workflows recon block
+in the Map prompt, Workflows/Feature-Hierarchies search terms, "the two pages" arity throughout,
+"20 pages / 486 fields", two Synthesize prompts headed *"FOR GROUP 3"*, a dependency prompt naming
+nine Workflows endpoints, a contradiction prompt ordering nine phantom *C1–C9* nodes, and a
+refuter-2 boundary item naming the **Group 5B** List Management line instead of the Workflows one.
+
+> **Standing rule, and it is now the third instance of this class:** when adapting a build script,
+> diff it against its parent and read every hunk that did **not** change. An unchanged prompt in a
+> script about a different page is the default failure mode, not the exception.
+
+### Six toolchain defects fixed before the run — five were latent for every future group
+
+1. **`apply-corrections.py` `wire_by_name` wired across pages.** Its graph-wide fallback ignores the
+   stated page, and `Level` matches exactly one field graph-wide: `field.feature-hierarchies.level`.
+   A value set written `{page: 'Authorized Approval Limits', field: 'Level'}` merged unwired
+   (validator ERROR, exit 1) and `apply-corrections.py` — which runs **between** the merge and the
+   validator — then wired it to Feature Hierarchies and turned exit 1 into a green build carrying a
+   false owner. Now a stated page that does not carry the field is evidence *against* a graph-wide
+   guess. Verified zero-regression against all 13 existing wire-by-name cases.
+2. **`apply-corrections.py` `repoint_endpoints` never wrote `ref['page']`.** `merge-group.py`
+   re-resolves endpoints from the stable `(page, field)` ref on every merge, so a cross-page repoint
+   silently un-resolved on the next merge. The only two existing entries already had the correct
+   page, so the branch had never executed. This run needed it.
+3. **`assemble-parts.py` never checked dependency endpoints into already-built pages.** The check
+   was scoped to this run's own rosters. Cross-page edges are written against a control's LABEL
+   ("Approval Limit") rather than its NAME (`authorized_approver_approval_limit`), and such an edge
+   dangles forever while the validator files it among the 243 legitimate forward references. Added
+   `DEP-ENDPOINT-NOT-ON-BUILT-PAGE`, advisory not fatal.
+4. **`assemble-parts.py`'s value-set collision detector drifted from `merge-group.py`'s id minter**
+   (no `[:60]` truncation), and nothing anywhere checked node-id uniqueness. Detector now uses the
+   same `slug()`; `validate-graph.py` gained a graph-wide `duplicate-node-id` invariant.
+5. **`NAV_SCHEMA` — link 1 of the three-link `tabs` chain, still broken.** Links 2 and 3 were fixed
+   2026-08-31 and reported done. The schema sets `additionalProperties: false` and declared no
+   `tabs`, so the map agent was schema-blocked and silently returned nothing. **Now fixed and proven
+   end-to-end: this page merged with `tabs: []`, which is a positive finding for a modal window.**
+   Carry this `NAV_SCHEMA` into the Run B script.
+6. **`merge-group.py --patch` with a null `patchPage` silently wipes the graph.** See below.
+
+### ⚠ `--patch` DOES NOT "strip nothing" — both handoffs were wrong, and Run B was aimed at it
+
+`docs/WHERE-WE-LEFT-OFF.md` and `docs/2026-09-01_HANDOFF-APPROVAL-AUTHORITY-AND-RUN-B.md` both
+stated *"`--patch` strips nothing — verified against `merge-group.py:62-76`"* and told Run B to
+*"set `patchPage` in the return"*. **`patchPage` comes from `assemble-parts.py --patch-page`, not
+from the workflow's return value.** `assemble-parts.py` always writes the key (as `None`), so
+`merge-group.py:66`'s `.get()` default never fires, `tag` becomes `None`, and the five filters that
+follow keep only patched nodes — deleting every node minted by every non-patch merge.
+
+Measured on a sandbox copy: **436 dependencies → 115, 41 steps → 12, 114 value sets → 37, 60
+contradictions → 24, 17 ranges → 10 — and `validate-graph.py` then printed "ERROR: none" and exited
+0 over the wreckage.** A hard guard now aborts the merge. Both docs corrected.
+
+### The central risk: the boundary, and how it was answered
+
+The built Workflows page owns four controls whose labels collide with this page, all from
+`authorized-approver-list-a9522ec8.md`, and `configuration-8b3be88b.md` says one value has three
+setter surfaces. The verdict, per control, each grounded:
+
+| Colliding label | Verdict here | Evidence |
+|---|---|---|
+| **"Approval Limit"** | **Never emitted under that label.** The shape differs by surface: Workflows has ONE field named "Approval Limit"; this window has an unnamed *"Approval Limit area"* holding a currency selector and an **Amount** field; branch A has *"Manager Approval Limit"* + *"Approval Limit Currency"*. Four controls, no duplicate. | `fcfd570c` names only *"the Amount field"*; `8b167b96` calls it an *area* |
+| **"Level"** | Emitted as **`cost_object_approval_level`**, deliberately NOT a sibling id — two different values sharing a label (this is the level-based **cost object** level, record set 710; the Workflows one is the authorized-approver step filter, record type 720). | `aae69350` vs `8b167b96`, recorded as a contradiction with 7 readings |
+| **"Can approve exception"** | **Kept.** The per-approver boolean is set here; only the tenant-wide min/max RANGE belongs to Workflows. The parenthetical is a scope fence, not a delete order. | `fcfd570c`: *"(The actual exception levels … are defined on the Authorized Approvers tab in Workflows.)"* |
+| **"Approver"** | **Not emitted — a clean negative.** On Workflows you *select* an approver because you are creating a list row via New; here the approver is the record context you arrived with. | Neither primary names an Approver control anywhere |
+
+Zero fields cite `authorized-approver-list-a9522ec8.md` or `procedure-2d20b513.md` (both
+Workflows-owned); none of the three Workflows exception/activation fields was re-emitted.
+`bin/check-approval-authority.py` was written to enforce exactly this and exits 0.
+
+**Page identity resolved as ONE page with two mutually exclusive renderings.** Branch A
+(Global-group-only) has no Authorized Approval Limits window at all — an inline check box reveals
+Manager Approval Limit + Approval Limit Currency, and it is limit-only. Branch B opens the window.
+`global-group-vs-authorized-approver-hierarchy-8a960238.md` puts User Administration in a single
+step-4 row marked X under **both** branch columns, and no corpus topic names a second page.
+
+### What the critics found, and what was verified before acting
+
+Both critics returned MERGE-AFTER-FIXES. Every claim was re-verified against the corpus first, and
+**two did not survive that check**:
+
+- The completeness critic said the precedence-rule edges "terminate in prose" and should point at
+  `field.workflows.cost-object-hierarchy-type`. **They already did.** Its other half was right: the
+  orphan candidate refusing to wire `Level`/`Limit` gave a false premise, and that field already
+  carries `validValues: ["Level","Limit"]`. The orphan was dropped rather than landed.
+- The correctness critic called it BLOCKING that `can_approve_exception` fails
+  `check-approval-authority.py`. It did — but the note already named
+  `field.workflows.authorized-approver-can-approve-exception` by exact id with a full verdict. **The
+  gate was testing for the literal word "sibling", a proxy rather than the rule.** The check was
+  fixed to test for the sibling's id or name; the analysis was left alone. It also flagged the
+  page's click path as lost — that was the critic simulating **without `--journal`**. With it:
+  10 navPathEvidence entries, 5 role gates, 9 aliases, 16 KB of identityNotes.
+- The correctness critic **retyped a quote with a curly apostrophe** that the corpus writes as
+  ASCII, and it failed `grep -F` on first use — the exact trap the pre-flight had predicted.
+
+Acted on, all quote-verified, all flagged `CRITIC-ADDED … AFTER THE ADVERSARIAL REFUTERS RAN` in
+their own notes so they are never mistaken for refuter-passed content:
+
+- **`branch_a_save` added** (10 fields, not 9). *"The administrator makes the appropriate choices and
+  clicks Save."* Without it a driver on branch A fills two fields and never persists them; 12 built
+  pages carry a Save. **Honest asymmetry recorded: branch B has no documented commit action at all.**
+- **Two dependencies the synthesis dropped**: the branch-A/branch-B **mutual exclusion** (the most
+  load-bearing structural fact on the page, surviving only as prose), and the only documented
+  **setup-ordering prerequisite** into the built Feature Hierarchies page.
+- **Two more readings on the contested Level** (now 7): the corpus does not agree with itself about
+  whether "level" is an authorized-approver authority at all — `8b3bd2d0` enumerates two kinds,
+  `8b3ab7ad` enumerates three.
+- **Four behavioural facts** appended to field notes: the cost-object path uses the **net** amount of
+  the line, not gross, and excludes tax and shipping (a *second, path-dependent* definition of the
+  amount this limit is compared against); edits take effect immediately on save; removing authorized
+  approver permissions does not delete the standard Invoice approver role.
+- **Two bad orphan value sets dropped**: the `Level`/`Limit` duplicate, and one carrying `values: []`
+  which would have been the first zero-value set in the graph.
+
+### Six built nodes carried the reversed 2026-08-31 scope decision — two more than were known
+
+The roster's remediation list named four; the correctness critic found **six**, and the two extra
+were `configSteps` rationales — a node type no correction op could reach. `DEP_CONDITION`,
+`STEP_RATIONALE` and `STEP_SEQ_RETARGET` ops were added to `bin/apply-corrections.py`, plus an
+id-keyed `VALUESET_NOTE_APPEND_BY_ID` (the existing `VALUESET_NOTE_APPEND` is keyed by a *value
+marker*, so id keys silently matched nothing). All six repaired; the reasons were rewritten without
+changing any conclusion that is still correct.
+
+**`dep.gworkflows.060` now RESOLVES** onto `field.authorized-approval-limits.authorized-approval-limits-link`.
+**`dep.gworkflows.046` deliberately stays unresolved** — its `approver` is the per-employee
+assignment on the User Administration **user profile**, a genuinely different surface with no
+control in this window. Retargeting it would have encoded a corpus falsehood that then reads as a
+win to the validator. Only its *reason* was corrected: that surface is unbuilt because its
+documentation defers to an external Shared guide absent from this corpus, **not** because of its
+menu location.
+
+### Open debt from this run
+
+1. **37 of 64 inventoried files (58%) were never opened by any extraction lens.** The map did its
+   job; the extract phase read 42% of it. The completeness critic opened all 37: 19 are correct
+   no-gain skips, 9 marginal, 2 revision histories, and **7 carried real content** — five of those
+   are now landed above. Remaining: `approval-status-flags-4f534f16.md`,
+   `approver-terminology-8559861c.md`, `employee-import-f6a516c8.md`.
+2. **A 14-value catalogue from `8a960238` vanished between extract and synthesis with no reason
+   recorded** — rule 2's exact failure shape. Mitigated only because the built graph already carries
+   the same matrix as a Workflows value set, but at 4 values (the step headers) rather than 14. The
+   10 lost members include the three assignment routes that decide this page's identity.
+3. **A third `Feature Hierarchies` menu alias is unrecorded**: `hierarchies-7f68a876.md` writes
+   *"Administration Invoice Hierarchies"* (glyphs stripped, singular "Hierarchies") where
+   `b65d7089` writes *"(Invoice > Feature Hierarchies)"*.
+4. **A seventh attestation of the three-setter claim** was found during verification and is not
+   cited: `remove-authorized-approvers-8b3c5273.md:21`.
+5. `dep.gapproval-authority.004` and `.013` are unresolved by design (User Administration user
+   profile; Employee Import).
+
+### Tooling note — the `node --check` recipe in the resume prompt does not work
+
+A Workflow script legally carries **both** a top-level `export const meta` and a top-level `return`,
+so neither raw `node --check` nor a bare async wrapper can validate one. The working form:
+
+```bash
+printf 'async function __w(){\n' > /tmp/chk.mjs \
+  && sed 's/^export const meta/const meta/' workflows/<script>.mjs >> /tmp/chk.mjs \
+  && printf '\n}\n' >> /tmp/chk.mjs && node --check /tmp/chk.mjs && echo PARSE OK
+```
+
+### Tooling note — `grep` on this machine is ugrep, and `-P '\xc2\xa0'` returns a SILENT ZERO
+
+Measured: `grep -rlP '\xc2\xa0'` over admin-guides returns **0 files** while python counts **1,729
+NBSPs across 117 files**, even under `LC_ALL=C`. The forms that work are `grep -P '\x{00a0}'` or the
+bash literal. The corpus's NBSP navigation hazard is real (after "Administration": 96 ASCII `>` vs
+65 NBSP-only), and the instruction telling agents to check for it was itself unrunnable. Fixed in
+the workflow template.

@@ -399,17 +399,30 @@ def main(parts, out_path, journal=None, group=None, patch_page=None):
             if (str(ref['page']).strip().lower(), str(ref['field']).strip().lower()) not in known_refs:
                 problems.append(('RANGE-REF-UNKNOWN', who, '%s / %s' % (ref.get('page'), ref.get('field'))))
 
+    # Two distinct endpoint checks. The first covers pages built IN THIS RUN; the second covers pages
+    # ALREADY IN THE GRAPH, which went unchecked entirely until 2026-09-01. Cross-page edges are usually
+    # written against a control's LABEL ("Approval Limit") rather than its name
+    # ("authorized_approver_approval_limit"), and such an edge dangles forever while validate-graph.py
+    # files it among the legitimate forward references to unbuilt groups. Both are advisory, not FATAL:
+    # a page-level forward reference with no field is deliberate, and many built-page endpoints are
+    # conceptual prose references rather than exact field names.
     page_names = {p['name'].strip().lower() for p in pages}
+    live_pages = {p for p, _ in known_refs}
     for d in deps:
         for side in ('source', 'target'):
             pg, fl = str(d[side + 'Page']).strip().lower(), str(d[side + 'Field']).strip().lower()
+            if not fl:
+                continue  # a deliberate page-level forward reference
             if pg in page_names and (pg, fl) not in by_page_field:
                 problems.append(('DEP-ENDPOINT-NOT-IN-ROSTER', d['type'], '%s / %s' % (d[side + 'Page'], d[side + 'Field'])))
+            elif pg in live_pages and (pg, fl) not in known_refs:
+                problems.append(('DEP-ENDPOINT-NOT-ON-BUILT-PAGE', d['type'], '%s / %s' % (d[side + 'Page'], d[side + 'Field'])))
 
     seen_vs = {}
     for v in value_sets:
-        k = (re.sub(r'[^a-z0-9]+', '-', str(v['appliesToField']).lower()).strip('-') or 'unnamed',
-             (re.sub(r'[^a-z0-9]+', '-', str(v['context']).lower()).strip('-') or 'x')[:60])
+        # MUST use the same slug() merge-group.py mints ids with (both truncate at 60 chars), or two
+        # sets diverging only after 60 slug-chars read as distinct here and collide in the graph.
+        k = (slug(str(v['appliesToField'])), slug(str(v['context'])))
         if k in seen_vs:
             problems.append(('VALUE-SET-ID-COLLISION', '/'.join(k), 'two sets would mint the same node id'))
         seen_vs[k] = True

@@ -30,10 +30,22 @@ Repo is **pushed and clean at `159f62e`.**
 fields**. It was launched once, stopped 2 agents in when a framing error surfaced, and the script
 was corrected rather than patched afterwards. **It has not produced any output yet.**
 
-### Change exactly ONE thing before launching
+### ~~Change exactly ONE thing before launching~~ — THIS WAS WRONG. **DONE 2026-09-01.**
 
-`const PARTS` on line ~70 points at the previous session's scratchpad. **Repoint it at yours.**
-Everything else — `GROUP`, the step-id prefix, `PAGES`, the absent `patchPage` — is already correct.
+The script needed a full stale-content pass, not a one-line change, and `const PARTS` was the one
+thing that did NOT strictly need changing (an absolute path to a provisioned, empty directory).
+A pre-flight audit (151 agents, 76 findings, 71 surviving two adversarial refuters each) found that
+`diff` against the Run A parent showed 19 hunks, 13 of them above line 126 — essentially every
+agent-facing prompt below the constants was still Run A text. `ALREADY_BUILT`, injected into all six
+agent families, told every agent that Administration > Company was out of scope and that *"The
+Authorized Approval Limits window … is NOT a page for you to build"*, and omitted Workflows and
+Feature Hierarchies from the built list. 23 stale passages were fixed before the run.
+`GROUP`, the step-id prefix, `PAGES`/seeds, the header and the absent `patchPage` WERE correct.
+Findings: `output/reports/2026-09-01_approval-authority-preflight-audit.md`.
+
+**Standing rule this produced:** when adapting a build script, diff it against its parent and read
+every hunk that did NOT change. An unchanged prompt in a script about a different page is the
+default failure mode, not the exception.
 
 ```bash
 python3 bin/assemble-parts.py <your-parts-dir> <out.json> \
@@ -103,9 +115,19 @@ counted; both were found and page-hood-endorsed by the recon
 (`output/reports/2026-08-31_workflows-recon/`). Start from
 `workflows/2026-08-31_kg-workflows-run-a.mjs` and change the usual knobs, **plus**:
 
-1. **Merge WITH `--patch`.** The label `Workflows` now EXISTS, so a non-patch merge would DELETE
-   Run A's 121 fields. Set `patchPage` in the return. Run B's two pages are new, so `--patch`
-   strips nothing — verified against `merge-group.py:62-76`.
+1. **Merge WITH `--patch`** — and read this whole item, because the version filed here on
+   2026-09-01 was WRONG in a way that would have destroyed the graph.
+   The label `Workflows` now EXISTS, so a non-patch merge would DELETE Run A's 121 fields. That part
+   stands. But **`patchPage` does NOT come from the workflow's return value — it comes from
+   `assemble-parts.py --patch-page`.** `assemble-parts.py` always writes the key (as `None` when the
+   flag is absent), so `merge-group.py`'s `.get('patchPage', <fallback>)` default never fires, `tag`
+   becomes `None`, and the five filters that follow keep ONLY patched nodes — deleting every
+   dependency, step, value set, contradiction and range minted by every non-patch merge.
+   Measured 2026-09-01 on a sandbox copy: **436 deps → 115, 41 steps → 12, 114 value sets → 37,
+   60 contradictions → 24, 17 ranges → 10 — and `validate-graph.py` then printed "ERROR: none" and
+   exited 0 over the wreckage.** The earlier claim that "`--patch` strips nothing" was false.
+   `merge-group.py` now aborts if `--patch` is passed without a `patchPage`. **Pass
+   `--patch-page "Workflows"` to `assemble-parts.py`.**
 2. **FIX `NAV_SCHEMA` FIRST.** It sets `additionalProperties: false` and declares no `tabs`
    property, so the map agent is schema-blocked and silently returns `tabs: None`. This is link 1
    of a three-link chain; links 2 and 3 (`assemble-parts.py`, `merge-group.py`) are already fixed.

@@ -1,0 +1,5 @@
+{
+ "BRANCH_B_ZERO": "This puts the approver into the authorized approver workflow but will prevent that approver from having final authority to approve the invoice. They can approve the invoice to move it forward in the workflow but, since the Limit Approved status is not changed, the invoice moves to the next authorized approver or processor – depending on how the workflow is designed.",
+ "BRANCH_A_ZERO": "This puts the approver into the authorized approver workflow but will prevent that approver from having final authority to approve the invoice (cannot limit-approve). They can approve the invoice to move it forward in the workflow but, since the Limit Approved status is not changed, the invoice moves to the next authorized approver or processor – depending on how the workflow is designed.",
+ "PREC": "The cost object configuration defines the type—either limit or level. If you complete both areas in this window—the Approval Limit area and the Level field—Concur Invoice will use the one that applies to your configuration and ignore the other."
+}

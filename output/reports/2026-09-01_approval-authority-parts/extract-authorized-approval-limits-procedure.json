@@ -1,0 +1,269 @@
+{
+  "pageId": "authorized-approval-limits",
+  "pageName": "Authorized Approval Limits",
+  "lens": "procedures-and-controls",
+  "filesRead": [
+    "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+    "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md",
+    "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md",
+    "concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md",
+    "concur-invoice-professional-edition-admin-guides/step-4-assign-the-proper-rights-to-users-86389a18.md",
+    "concur-invoice-professional-edition-admin-guides/step-4-assign-the-proper-rights-to-users-82481079.md",
+    "concur-invoice-professional-edition-admin-guides/employee-import-e28f2294.md",
+    "concur-invoice-professional-edition-admin-guides/step-2-assign-the-level-to-the-approver-d8bf669c.md",
+    "concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md",
+    "concur-invoice-professional-edition-admin-guides/configuration-8b3cce3f.md",
+    "concur-invoice-professional-edition-admin-guides/understand-the-process-3966259c.md",
+    "concur-invoice-professional-edition-admin-guides/setting-an-unlimited-approval-amount-9d98b489.md",
+    "concur-invoice-professional-edition-admin-guides/edit-authorized-approver-information-8b3c119a.md",
+    "concur-invoice-professional-edition-admin-guides/remove-authorized-approvers-8b3c5273.md",
+    "concur-invoice-professional-edition-admin-guides/level-based-approvals-and-limit-based-approvals-b335cf33.md",
+    "concur-invoice-professional-edition-admin-guides/assigning-the-approver-for-the-purchase-request-user-20294611.md",
+    "concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md"
+  ],
+  "fields": [
+    {
+      "name": "hierarchy_level_selector",
+      "label": "the appropriate level in the hierarchy",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "On the left side, the administrator selects the appropriate level in the hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH B, left side of the Authorized Approval Limits window. NO discrete on-screen control label is documented on either primary — both describe the action ('selects the appropriate level in the hierarchy' / 'select the appropriate level in the hierarchy'), never a field/list name, so the 'label' here is the corpus's own descriptive phrase, not an attested widget caption; record this as a documentary gap, not an omission. Attested twice, independently, by both primaries (fcfd570c and 8b167b96 step 2) — treated here as navigation/selection rather than an omission per (J) in the brief; emitting it as its own control is the defensible choice since it is an explicit numbered procedure step in both files. ASYMMETRY: the built Workflows page (field set on the Authorized Approver List tab) does NOT carry an equivalent left-side hierarchy/group picker even though the same picker is described there too (authorized-approver-list-a9522ec8.md step 4, step-2-assign-the-level-to-the-approver-d8bf669c.md step 3) — stating this plainly rather than silently duplicating an unbuilt Workflows control under a new name.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "can_approve_exception",
+      "label": "Can approve exception",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "For exception approvers, the administrator selects the Can approve exception check box. (The actual exception levels apply to all authorized approvers and are defined on the Authorized Approvers tab in Workflows.)",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH B, right side of the Authorized Approval Limits window. SAME visible label as the built field.workflows.authorized-approver-can-approve-exception (source authorized-approver-list-a9522ec8.md, click path Administration > Invoice > Workflows), but this is a DISTINCT SURFACE writing the same underlying per-approver record: step-4-assign-the-proper-rights-to-users-86389a18.md states plainly 'Regardless of how the authorized approvers are entered into Invoice, they all appear in the Authorized Approver List.' — the three-setter verdict corroborated 6 times across the corpus (86389a18, 82481079, configuration-8b3be88b, understand-the-process-3966259c, edit-authorized-approver-information-8b3c119a, remove-authorized-approvers-8b3c5273). SCOPE FENCE, load-bearing: the parenthetical in the sourceQuote settles a split between this PER-APPROVER boolean (set here) and a TENANT-WIDE min/max exception RANGE (set on Workflows > Authorized Approvers > Configuration sub-tab as field.workflows.minimum-exception-level and field.workflows.maximum-exception-level). See dependencyCandidates. TAB-NAME DRIFT: this file says 'Authorized Approvers tab', configuration-8b3be88b.md and filter-authorized-approvers-by-workflow-approval-step-aae69350.md say 'Authorized Approver tab' (singular) for the same Workflows tab.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "approval_limit_currency_window",
+      "label": "currency",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "For limit approvers, the administrator selects the desired currency and enters the amount.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH B, right side of the window, one of the two controls in the unnamed 'Approval Limit area' (per 8b167b96: 'For limit-based cost object approval, select a currency and enter an amount.'). NO discrete on-screen label is documented for this currency control on this window — unlike branch A, which names its currency control 'the Approval Limit Currency list' explicitly. Distinct from field.workflows.authorized-approver-approval-limit (labeled 'Approval Limit' on Workflows) and from the branch-A control approval_limit_currency_branch_a (labeled 'Approval Limit Currency'); see field-level notes there. Value domain for the amount/currency pair is documented only on the employee-import Cost Object Approver record set (710): 'Can be either three-digit or three-letter currency code; must be a valid currency in the list of system (reimbursement) currencies' (employee-import-e28f2294.md) — cited for value domain context only, never as an employee-import field on this page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "approval_limit_amount",
+      "label": "Amount",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "You can enter 0 in the Amount field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH B, right side of the window; the second control in the unnamed 'Approval Limit area'. NEVER the same field record as field.workflows.authorized-approver-approval-limit (labeled 'Approval Limit', from authorized-approver-list-a9522ec8.md, Workflows-path only) — this window's own control is explicitly labeled 'the Amount field', a different label on a different surface writing the same underlying per-approver value (three-setter verdict, see step-4-assign-the-proper-rights-to-users-86389a18.md). VALUE SEMANTICS: 0 = 'This puts the approver into the authorized approver workflow but will prevent that approver from having final authority to approve the invoice (cannot limit-approve)... since the Limit Approved status is not changed, the invoice moves to the next authorized approver or processor' (fcfd570c). NULL/blank = unlimited, stated here as ONE act: 'For an unlimited approval amount, leave blank (null).' (8b167b96) — surface-agnostic corroboration in setting-an-unlimited-approval-amount-9d98b489.md: 'a limit amount of null will result in an unlimited approval/no limit approval amount.' CONTRADICTION 3: Workflows/a9522ec8 requires a TWO-ACT unlimited recipe ('set to no approval limit currency, and leave the approval limit amount blank'); this window and 9d98b489 each state only ONE act. Whether the currency must ALSO be cleared here is UNDETERMINED BY THE DOCUMENTATION — do not import the Workflows two-act recipe onto this window. Value domain 'Numeric' / 'Specified in the approval limit currency' is documented only on employee-import-e28f2294.md (value-domain citation only, not a page source).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "cost_object_approval_level",
+      "label": "Level",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "For level-based cost object approval, select a level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md",
+      "notes": "BRANCH B, right side of the window, CONTESTED. 8b167b96 documents this control on the window; filter-authorized-approvers-by-workflow-approval-step-aae69350.md states the flat opposite: 'Levels cannot be added to approvers via User Administration.' and 'The levels can be added to users via the Employee Import or the Authorized Approver list (Administration > Invoice > Workflows > Authorized Approver tab).' Both grep -F verify; see contradictions[] — NOT RESOLVED, recorded as a hypothesis only. HYPOTHESIS (not adopted as fact): these are two DIFFERENT VALUES sharing one label. aae69350's 'Level' is the authorized-approver workflow-step FILTER (employee import record TYPE 720 per step-2-assign-the-level-to-the-approver-d8bf669c.md — 'authorized approvers may be assigned to levels via record type 720 in the employee import' — feeding the Authorized Approver Hierarchy), while 8b167b96's 'Level' is the level-based COST OBJECT APPROVAL level (employee import record SET 710 per employee-import-e28f2294.md, feeding a separately-named Cost Object Approver Hierarchy per step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md). Given this distinction, name it cost_object_approval_level and NEVER present it as a sibling of the built field.workflows.authorized-approver-level. STRUCTURAL CONTEXT for the contradiction: 8b167b96 belongs to the Cost Object Approval guide thread (gates on 'the Cost Object Approver feature'; rev-history root cost-object-approval-8b3d1e0f.md; Step 4 sibling step-4-assign-the-proper-rights-to-users-82481079.md; Configuration sibling configuration-8b3cce3f.md), a materially different chapter than fcfd570c's Authorized Approvers guide thread — offered as a hypothesis for why the two attestations diverge, not as a resolution. PRECEDENCE RULE (see dependencyCandidates): if BOTH the Approval Limit area and this Level field are completed, 'Concur Invoice will use the one that applies to your configuration and ignore the other' (8b167b96) — the cost object configuration (limit vs level, per level-based-approvals-and-limit-based-approvals-b335cf33.md) decides which is authoritative.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "authorized_approver_checkbox",
+      "label": "Authorized Approver",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "If the Authorized Approver feature is activated and the company has only one group (Global), then the Authorized Approver check box appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH A: Global-group-only rendering. Conditionally visible INSTEAD of the Authorized Approval Limits link/window (mutually exclusive with branch B — see identity notes/dependencyCandidates). In this configuration the Authorized Approval Limits window DOES NOT EXIST; the inline check box on the User Administration user record is the whole control. SINGLE-SOURCED: grep -rn -F for this control's Manager Approval Limit sibling returns fcfd570c and nothing else corpus-wide — not a reason to drop it, there is no second attestation to wait for. Limit-only: 'This method is used only for limit-based authorized approvers. It cannot be used for exception-based authorized approvers.' Selecting it reveals manager_approval_limit and approval_limit_currency_branch_a: 'When the administrator selects the check box, the Manager Approval Limit field and the Approval Limit Currency list appear. The administrator makes the appropriate choices and clicks Save.' ROLE GATE: 'the user must have the User Admin rights and the Invoice User Administration rights.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "manager_approval_limit",
+      "label": "Manager Approval Limit",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "You can enter 0 in the Manager Approval Limit field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH A companion of authorized_approver_checkbox, revealed only when that check box is selected; appears in User Administration itself, not in a separate window. Value semantics identical in wording to approval_limit_amount's zero rule (same paragraph structure, different field label): 'This puts the approver into the authorized approver workflow but will prevent that approver from having final authority to approve the invoice (cannot limit-approve)... the invoice moves to the next authorized approver or processor – depending on how the workflow is designed.' NEVER labeled 'Approval Limit' — do not conflate with field.workflows.authorized-approver-approval-limit (Workflows sibling) or with this page's own branch-B approval_limit_amount; this is a THIRD, differently-labeled surface for a value that can be set on up to three UI surfaces per the three-setter verdict (step-4-assign-the-proper-rights-to-users-86389a18.md). NULL semantics not separately attested for this specific label — setting-an-unlimited-approval-amount-9d98b489.md is surface-agnostic ('a limit amount of null...') and applies here by extension, but no primary states the null-blank recipe against the 'Manager Approval Limit' label by name.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "approval_limit_currency_branch_a",
+      "label": "Approval Limit Currency",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "the Manager Approval Limit field and the Approval Limit Currency list appear.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH A companion of authorized_approver_checkbox and manager_approval_limit; documented as 'the Approval Limit Currency list', a dropdown/list control. Distinct name and distinct surface from approval_limit_currency_window (branch B's unnamed currency control) and from field.workflows.authorized-approver-approval-limit (Workflows). Currency value domain not enumerated on this surface; the only documented domain for the amount/currency pair anywhere in this page's evidence is on the employee-import 710 record set (employee-import-e28f2294.md): 'Can be either three-digit or three-letter currency code; must be a valid currency in the list of system (reimbursement) currencies.' — cited for context only.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "authorized_approval_limits_link",
+      "label": "Authorized Approval Limits",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "The administrator clicks the link. The Authorized Approval Limits window appears.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+      "notes": "BRANCH B trigger control: a link (not a button per se) in the Expense and Invoices Setting(s) section that opens the modal window holding hierarchy_level_selector, can_approve_exception, approval_limit_currency_window, approval_limit_amount, and cost_object_approval_level. CONDITIONALLY VISIBLE and gated by TWO DIFFERENT feature-activation sentences depending on which guide thread's topic is read (see contradictions[] 'activation gate names two different features'): fcfd570c gates on 'the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level (in addition to Global)'; 8b167b96 gates on 'the Cost Object Approver feature is activated' and, separately in its own Note, ALSO restates the Authorized-Approver/hierarchy condition — so 8b167b96 internally requires BOTH named features while fcfd570c names only Authorized Approver. ROLE GATE, three conditions: 'the administrator must have the User Admin rights and the Invoice User Administration rights. In addition, the employee must be an approver.' — the third condition is about the record (the user being edited), not the administrator. MUTUALLY EXCLUSIVE with authorized_approver_checkbox (branch A) — see dependencyCandidates.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [],
+  "dependencyCandidates": [
+    {
+      "type": "triggers",
+      "sourceField": "authorized_approver_checkbox",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "manager_approval_limit",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "Selecting the branch-A Authorized Approver check box reveals the Manager Approval Limit field (and the Approval Limit Currency list); the two fields are not visible until the check box is checked.",
+      "sourceQuote": "When the administrator selects the check box, the Manager Approval Limit field and the Approval Limit Currency list appear.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "authorized_approver_checkbox",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "approval_limit_currency_branch_a",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "Selecting the branch-A Authorized Approver check box reveals the Approval Limit Currency list (and the Manager Approval Limit field); the two fields are not visible until the check box is checked.",
+      "sourceQuote": "When the administrator selects the check box, the Manager Approval Limit field and the Approval Limit Currency list appear.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "cost_object_approval_level",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "approval_limit_amount",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "PRECEDENCE RULE, the most valuable sentence on this page (8b167b96, single-sourced): if the administrator completes BOTH the Approval Limit area (currency + Amount) and the Level field, the system uses only the one that matches the underlying cost object configuration (limit-type or level-type) and silently ignores the other. A driver must know the site's cost-object-approval type (limit vs level, per level-based-approvals-and-limit-based-approvals-b335cf33.md) before deciding which control's value actually takes effect.",
+      "sourceQuote": "The cost object configuration defines the type—either limit or level. If you complete both areas in this window—the Approval Limit area and the Level field—Concur Invoice will use the one that applies to your configuration and ignore the other.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "authorized_approval_limits_link",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "authorized_approver_feature_available_for_workflows",
+      "targetPage": "Workflows",
+      "condition": "The Authorized Approval Limits link (branch B) appears only if the Authorized Approver feature has been activated on the Workflows > Authorized Approvers > Configuration sub-tab AND the Authorized Approver hierarchy has at least one non-Global level; without both, either the Global-group branch-A check box appears instead, or neither control is shown. This is the feature-gate dependency identified in procedure-2d20b513.md (a zero-field seed for this page, already fully consumed by the built Workflows page).",
+      "sourceQuote": "If the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level (in addition to Global), then the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "can_approve_exception",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "minimum_exception_level",
+      "targetPage": "Workflows",
+      "condition": "SCOPE FENCE: the per-approver Can approve exception boolean is set on THIS window, but the tenant-wide minimum exception level that the exception approver's authority is bounded by is defined once, for all exception-based authorized approvers, on Workflows > Authorized Approvers > Authorized Approver tab — not per approver and not on this page.",
+      "sourceQuote": "(The actual exception levels apply to all authorized approvers and are defined on the Authorized Approvers tab in Workflows.)",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "can_approve_exception",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "maximum_exception_level",
+      "targetPage": "Workflows",
+      "condition": "SCOPE FENCE, second half of the same rule (corroborated from a second file): the per-approver Can approve exception boolean is set here; the tenant-wide maximum exception level is defined once for all exception-based authorized approvers on Workflows > Authorized Approvers > Configuration sub-tab.",
+      "sourceQuote": "The range is set in Administration > Invoice > Workflows > Authorized Approver tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "authorized_approver_checkbox",
+      "sourcePage": "Authorized Approval Limits",
+      "targetField": "authorized_approval_limits_link",
+      "targetPage": "Authorized Approval Limits",
+      "condition": "MUTUAL EXCLUSION, not a dependency chain in the ordering sense but recorded here as the closest available relationship type: fcfd570c documents two mutually exclusive renderings of one section, selected by hierarchy shape. If the company has only the Global group, the Authorized Approver check box (branch A) appears and the Authorized Approval Limits link/window (branch B) does not exist. If the company's hierarchy has at least one non-Global level, the link (branch B) appears and the inline check box (branch A) does not. A driver should determine hierarchy shape once, then choose exactly one branch's controls.",
+      "sourceQuote": "The settings that appear in User Administration (Administration > User Administration) differ depending on whether the configuration includes:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "requirement",
+      "topic": "Whether a Level control exists on the Authorized Approval Limits window at all",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "cost_object_approval_level"
+      },
+      "readings": [
+        {
+          "summary": "8b167b96 documents a Level control directly in the Authorized Approval Limits window, for level-based cost object approval.",
+          "sourceQuote": "For level-based cost object approval, select a level.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "filter-authorized-approvers-by-workflow-approval-step-aae69350.md states flatly that levels cannot be added to approvers via User Administration at all, and names only the Employee Import and the Workflows Authorized Approver list as the places levels can be added.",
+          "sourceQuote": "Levels cannot be added to approvers via User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md"
+        }
+      ],
+      "consequenceForWriter": "Do not assume this control is reachable through User Administration until it is confirmed against a live instance. If it is missing at runtime, fall back to the Employee Import (record type 720) or the Authorized Approver List on Workflows (Administration > Invoice > Workflows > Authorized Approver tab) to set an approver's level. Treat the two Level values as potentially DIFFERENT underlying fields (see hypothesis in notes) rather than one shared control, so do not write cost_object_approval_level and field.workflows.authorized-approver-level as interchangeable targets for the same driver action.",
+      "notes": "HYPOTHESIS, not adopted as resolved: the two sentences may not actually be describing the same field. aae69350's 'Level' is the authorized-approver workflow-step filter, fed by employee import record TYPE 720 (per step-2-assign-the-level-to-the-approver-d8bf669c.md) into the Authorized Approver Hierarchy. 8b167b96's 'Level' is the level-based cost object approval level, fed by employee import record SET 710 (per employee-import-e28f2294.md) into a separately-named Cost Object Approver Hierarchy. Structurally, 8b167b96 and aae69350 also come from different guide chapters (Cost Object Approval vs Workflows/Authorized Approvers), which may explain the divergence without either file being simply wrong."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Which feature activation gates visibility of the Authorized Approval Limits link",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "authorized_approval_limits_link"
+      },
+      "readings": [
+        {
+          "summary": "fcfd570c (Authorized Approvers guide thread) names only the Authorized Approver feature plus at least one non-Global hierarchy level as the gate.",
+          "sourceQuote": "If the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level (in addition to Global), then the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "8b167b96 (Cost Object Approval guide thread) leads with the Cost Object Approver feature as the gate, then separately restates the Authorized-Approver/hierarchy condition in its own Note — so this file's own text requires BOTH named features together, unlike fcfd570c which names only one.",
+          "sourceQuote": "When the Cost Object Approver feature is activated, the Authorized Approval Limits link appears in the Expense and Invoices Settings section in User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        }
+      ],
+      "consequenceForWriter": "Before relying on this link's visibility as a precondition, check BOTH the Authorized Approver feature and the Cost Object Approver feature (plus the non-Global hierarchy level) rather than assuming either one alone is sufficient — the two guide threads describe the same link from two different chapters' vantage points and neither states outright that both features are simultaneously required, but 8b167b96 internally names both.",
+      "notes": "HYPOTHESIS for the cause: chapter provenance. fcfd570c is in the Authorized Approvers guide (rev-history root authorized-approvers-8b3c26cc.md; Step 4 sibling step-4-assign-the-proper-rights-to-users-86389a18.md); 8b167b96 is in the Cost Object Approval guide (rev-history root cost-object-approval-8b3d1e0f.md; Step 4 sibling step-4-assign-the-proper-rights-to-users-82481079.md; Configuration sibling configuration-8b3cce3f.md), each naming its own chapter's feature as the headline gate. grep -rlF 'Cost Object Approver feature' across both guide directories returns only 8b167b96 and configuration-8b3cce3f.md."
+    },
+    {
+      "kind": "requirement",
+      "topic": "The unlimited-approval-amount recipe: does clearing the currency matter, in addition to leaving the amount blank",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "approval_limit_amount"
+      },
+      "readings": [
+        {
+          "summary": "On this window, 8b167b96 states a ONE-act recipe: leave the amount blank/null. No mention of the currency.",
+          "sourceQuote": "For an unlimited approval amount, leave blank (null).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "The Workflows sibling surface (Authorized Approver List, a9522ec8.md — boundary evidence only, not a source for this page's fields) requires a TWO-act recipe: clear the currency AND leave the amount blank.",
+          "sourceQuote": "set to no approval limit currency, and leave the approval limit amount blank",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+        }
+      ],
+      "consequenceForWriter": "Do not import the Workflows two-act recipe onto this window. Whether the currency must also be cleared here is UNDETERMINED by the documentation; a driver automating 'set unlimited' on this window should leave the amount blank per 8b167b96/9d98b489, and only additionally clear the currency if a live-instance check shows the amount alone is insufficient.",
+      "notes": "setting-an-unlimited-approval-amount-9d98b489.md is surface-agnostic and also states only one act ('a limit amount of null will result in an unlimited approval/no limit approval amount'), matching this window's single-act recipe rather than the Workflows two-act one. No third file breaks the tie."
+    }
+  ],
+  "compressedRanges": [],
+  "coverageVerdict": "partial",
+  "notes": "THIN IS THE CORRECT SHAPE HERE and both primaries return zero raw <table> and zero markdown pipe rows, exactly as predicted; every field lives in procedure prose. Emitted 8 fields: 5 for BRANCH B (hierarchy_level_selector, can_approve_exception, approval_limit_currency_window, approval_limit_amount, cost_object_approval_level [contested]) plus the authorized_approval_limits_link trigger control itself, and 2 for BRANCH A (authorized_approver_checkbox, manager_approval_limit, approval_limit_currency_branch_a — that is 3, so 8 total including the link). Deliberately did NOT emit: an 'Approval Limit' field under that exact label (Workflows already owns it under field.workflows.authorized-approver-approval-limit — a fifth copy would be the exact duplicate this run exists to avoid); an 'Approver' field (confirmed negative — neither primary names one; the approver is the record context reached by search, per assigning-the-approver-for-the-purchase-request-user-20294611.md's '(Search & Select)' and set-a-default-shipping-and-billing-address-f772bed1.md's 'With the user loaded in the form'); a Save/Cancel/Done button as a distinct control beyond branch A's 'The administrator makes the appropriate choices and clicks Save' — branch A explicitly documents a Save click but neither primary documents Save/Cancel/Done for the window itself, so no window-level button field is emitted (an honest coverage gap, not an oversight); anything from Employee Import as a page (it is cited only for the amount/currency value domains, never as a field source — it defers to the external Shared: Employee Import Specification, absent from this corpus); the Level control's Workflows twin (field.workflows.authorized-approver-level is never re-homed). ROLE GATES for both branches, and the click-path facts (four navPath renderings, section-label drift across three forms) are already captured at the map-phase level and not re-derived here in fields[], since they are not themselves controls a user fills in — they inform notes on authorized_approver_checkbox and authorized_approval_limits_link instead. UNDETERMINED, stated plainly: whether the branch-B currency must be cleared to achieve 'unlimited' (see contradictions[]); whether cost_object_approval_level and the Workflows Level field are the same underlying value or two distinct ones (see contradictions[], stated as hypothesis only); whether a Save/Cancel exists on the window itself (no attestation either way). mustReadSkipped is empty — every mustRead file was opened and used, either as a field source, a boundary/contradiction source, or explicit notes evidence."
+}

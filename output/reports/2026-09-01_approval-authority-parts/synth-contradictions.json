@@ -1,0 +1,226 @@
+{
+  "contradictions": [
+    {
+      "kind": "requirement",
+      "topic": "Which activated feature makes the Authorized Approval Limits link appear - the Authorized Approver feature, or the Cost Object Approver feature. A driver has to know which flag to check before it goes looking for the link.",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "authorized_approval_limits_link"
+      },
+      "readings": [
+        {
+          "summary": "The Authorized Approvers guide thread gates the link on the AUTHORIZED APPROVER feature plus an Authorized Approver hierarchy carrying at least one level in addition to Global, and names no other feature anywhere in the topic.",
+          "sourceQuote": "If the Authorized Approver feature is activated and the company's Authorized Approver hierarchy has at least one level (in addition to Global), then the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "The Cost Object Approval guide thread gates the SAME link on the COST OBJECT APPROVER feature instead - a different feature, activated at a different step of a different configuration sequence, and it leads with that condition as its opening sentence.",
+          "sourceQuote": "When the Cost Object Approver feature is activated, the Authorized Approval Limits link appears in the Expense and Invoices Settings section in User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "Yet that same Cost Object Approval topic ALSO carries the Authorized-Approver-plus-hierarchy condition in its own Note, so this one file internally requires BOTH named features while the other file names only one. The corpus typo 'at least on level' is reproduced verbatim and is not a transcription slip on our side.",
+          "sourceQuote": "To view the Authorized Approval Limits link, you need to have activated the Authorized Approver feature and the company’s Authorized Approver hierarchy needs to have at least on level (in addition to Global).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "Complicating the prerequisite further: the Cost Object Approval guide's own Configuration topic prescribes a DIFFERENTLY NAMED hierarchy as its Step 1 - a Cost Object Approver hierarchy - not the Authorized Approver hierarchy that both gate sentences above require. So it is not settled which hierarchy a driver must find a non-Global level in.",
+          "sourceQuote": "Step 1: Define the Concur Invoice Cost Object Approver hierarchy:",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-8b3cce3f.md"
+        }
+      ],
+      "consequenceForWriter": "Do not pick a side. Before treating the link's absence as a navigation failure, check BOTH feature flags plus the hierarchy precondition. Practical probe order, driven by corpus weight rather than by a resolution: the Authorized Approver feature plus a non-Global hierarchy level is asserted by BOTH primaries, so check it first (it is available on the built Workflows page as field.workflows.authorized_approver_feature_available_for_workflows); the Cost Object Approver feature is asserted by only one, so check it second, and check it FIRST if what is missing is specifically the Level control rather than the whole link. If the link still does not appear, do not conclude the page does not exist - conclude the provisioning is undetermined by the documentation and report that.",
+      "notes": "HYPOTHESIS, offered as a hypothesis and never as a resolution: chapter provenance rather than a product disagreement. Each guide names its own chapter's feature as the headline gate because each is describing the rendering its own feature produces. Circumstantial support: 'Cost Object Approver feature' occurs in exactly two files corpus-wide - user-administration-8b167b96.md and configuration-8b3cce3f.md - and both belong to the Cost Object Approval guide thread (rev-history root cost-object-approval-8b3d1e0f.md, Step 4 sibling step-4-assign-the-proper-rights-to-users-82481079.md), while user-administrator-fcfd570c.md belongs to the Authorized Approvers guide thread (Step 4 sibling step-4-assign-the-proper-rights-to-users-86389a18.md). The corpus never states this reconciliation, so it stays open. A second, equally unproven reading is that the two features produce two different renderings of one link, which would make the visibility rule genuinely provisioning-dependent and would mean no single correct list exists to find. MERGED from three lens records (crosscut, procedure) that reported the same disagreement; readings deduplicated on (sourceFile, sourceQuote) and the fourth reading added from an independent read of the Cost Object Approval guide's Configuration topic."
+    },
+    {
+      "kind": "scope",
+      "topic": "Whether a Level control exists on this surface at all - one topic tells the administrator to select a level in this window, another states outright that levels cannot be added through User Administration.",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "cost_object_approval_level"
+      },
+      "readings": [
+        {
+          "summary": "The Cost Object Approval guide's User Administration topic puts a Level control on the right side of this window, as the level branch of the same step-3 choice that offers the currency-and-amount pair.",
+          "sourceQuote": "For level-based cost object approval, select a level.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "The same topic attests the control a SECOND time, independently, by naming it as one of two completable areas of this window in its precedence rule - so the Level field is not a one-sentence mention.",
+          "sourceQuote": "If you complete both areas in this window—the Approval Limit area and the Level field—Concur Invoice will use the one that applies to your configuration and ignore the other.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "The Workflows level-filter topic denies it flatly: levels cannot be added to approvers through User Administration at all.",
+          "sourceQuote": "Levels cannot be added to approvers via User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md"
+        },
+        {
+          "summary": "The same passage enumerates the surfaces that CAN take a level - the Employee Import and the Workflows Authorized Approver list - excluding this window by omission as well as by the explicit prohibition.",
+          "sourceQuote": "The levels can be added to users via the Employee Import or the Authorized Approver list (Administration > Invoice > Workflows > Authorized Approver tab).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md"
+        },
+        {
+          "summary": "A third attestation muddies rather than settles it: the Authorized Approvers guide has the administrator selecting a level on the LEFT side of this same window. Whether that is the hierarchy-section selector or an approver level is not stated, so it cannot be counted as a clean vote for either side - but it does mean a level-shaped selection demonstrably occurs on this surface.",
+          "sourceQuote": "On the left side, the administrator selects the appropriate level in the hierarchy.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "The Authorized Approvers overview enumerates only TWO authority kinds for an authorized approver - limit and exception - with no level among them, which is evidence that \"level\" is not an authorized-approver authority at all on this surface.",
+          "sourceQuote": "An authorized approver can have limit approval, exception approval, or both.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approvers-overview-8b3bd2d0.md"
+        },
+        {
+          "summary": "A second topic in the same guide family enumerates THREE authority kinds and DOES include level, directly disagreeing with the overview about whether level is an authorized-approver authority.",
+          "sourceQuote": "Authorized approvers will have limit, level, and/or exception approval and are affected by the authorized approver hierarchy.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approvers-8b3ab7ad.md"
+        }
+      ],
+      "consequenceForWriter": "Do NOT resolve this in either direction and do not treat the two Level controls as interchangeable targets for one driver action. Treat the Level control on this window as PRESENT-BUT-UNCERTAIN: locate the Approval Limit area first, then probe for a Level control, and if it is absent record that as an expected outcome rather than a failed step - aae69350 predicts its absence. To set a WORKFLOW-STEP filter level, do not attempt it here: go to the built Workflows page (Administration > Invoice > Workflows), whose Authorized Approvers > Authorized Approver List tab carries field.workflows.authorized-approver-level, or use the employee import record type 720. To set a LEVEL-BASED COST OBJECT approval level, this window is the only surface the corpus offers; if the control is not rendered, the cost object configuration is limit-based and the Level half does not apply. Never present a level found here as the same value as field.workflows.authorized-approver-level.",
+      "notes": "HYPOTHESIS, stated as a hypothesis and not adopted as a resolution: these are TWO DIFFERENT VALUES SHARING ONE ENGLISH LABEL, carried on two different employee-import record structures and belonging to two differently-named hierarchies. The level-based COST OBJECT approval level travels on record set 710 (employee-import-e28f2294.md, 'For the Limit hierarchy type, you will use the 710 Cost Object Approver record set...'), feeding the Cost Object Approver hierarchy that configuration-8b3cce3f.md defines in its Step 1. The authorized-approver WORKFLOW-STEP filter level travels on record type 720 (step-2-assign-the-level-to-the-approver-d8bf669c.md), feeding the Authorized Approver Hierarchy. The 720-versus-710 split is the concrete circumstantial evidence and the two topics sit in different guide threads (aae69350 in Authorized Approvers, 8b167b96 in Cost Object Approval), but no topic in this corpus states the reconciliation, so it stays open. Naming consequence already applied by the roster: the control on this window is named cost_object_approval_level precisely so it can never be confused with the built field.workflows.authorized-approver-level, which this run does not re-home and does not touch. MERGED from three lens records (crosscut, procedure, tables) reporting the same disagreement; readings deduplicated on (sourceFile, sourceQuote), with the second and fifth readings added from a direct re-read of the two primaries. CRITIC-ADDED 2026-09-01, AFTER THE ADVERSARIAL REFUTERS RAN. Quote grep -F verified. TWO FURTHER READINGS ADDED: the corpus does not agree with itself about whether \"level\" is an authorized-approver authority at all - authorized-approvers-overview-8b3bd2d0.md enumerates two kinds (limit, exception) and authorized-approvers-8b3ab7ad.md enumerates three (limit, level, exception). That widens this from a two-file disagreement about one control to a four-file disagreement about whether the concept belongs to this feature. Still NOT reconciled."
+    },
+    {
+      "kind": "requirement",
+      "topic": "How many acts it takes to configure an UNLIMITED approval amount on this window - clear the amount alone, or clear both the currency and the amount.",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "approval_limit_amount"
+      },
+      "readings": [
+        {
+          "summary": "Describing THIS window, the Cost Object Approval guide states a ONE-act recipe: leave the amount blank. The currency is not mentioned at all.",
+          "sourceQuote": "For an unlimited approval amount, leave blank (null).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "The surface-agnostic topic likewise states a single act - a null limit amount yields unlimited approval - and likewise says nothing about the currency.",
+          "sourceQuote": "When configuring the approver, a limit amount of null will result in an unlimited approval/no limit approval amount.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/setting-an-unlimited-approval-amount-9d98b489.md"
+        },
+        {
+          "summary": "The Workflows sibling surface requires TWO acts - clear the currency AND leave the amount blank. This file is cited as BOUNDARY EVIDENCE about a different page, never as a source for a control on this one: its own click path is Administration > Invoice > Workflows and all four of its field rows are already built on the Workflows page.",
+          "sourceQuote": "If they are to have unlimited approval, set to no approval limit currency, and leave the approval limit amount blank.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+        },
+        {
+          "summary": "The employee import record set pulls in the opposite direction from the one-act reading by making the currency conditionally REQUIRED whenever an amount is used - which leaves open what the currency should hold when the amount is deliberately null.",
+          "sourceQuote": "If Approval Limit is used, then this is required.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/employee-import-e28f2294.md"
+        }
+      ],
+      "consequenceForWriter": "On THIS window, clear the Amount and change nothing else - that is what both topics describing this surface say. Do NOT import the Workflows two-act recipe on the assumption the two surfaces behave identically. Whether the currency must ALSO be cleared here is UNDETERMINED BY THE DOCUMENTATION; if the save is rejected or the saved result reads as limited, additionally clearing the currency is the documented fallback for the sibling surface, but it must be logged as an observation, not executed as the documented procedure. Resolving it for certain would require a live tenant, which is out of bounds for a blind build. Separately and NOT part of this disagreement, a driver must never treat a blank amount as 'unset': blank means UNLIMITED, so a driver that leaves the amount empty because it had no value to write configures the exact opposite of a restriction. Zero, not blank, is the way to place an approver in the chain with no signing authority, and the zero semantics are uniform across every attestation.",
+      "notes": "HYPOTHESIS, unproven either way: the difference may be surface-real (the Workflows New Authorized Approver form exposes a currency selector that must be explicitly emptied, while this window's Approval Limit area may not) or it may be a simple omission in the Cost Object Approval guide's much shorter procedure. Nothing in the corpus decides it, and no third file breaks the tie - 9d98b489 is surface-agnostic and sides with the one-act form only by silence about the currency. BOUNDARY NOTE, deliberate: the Workflows page already carries a sibling control for the same underlying value, field.workflows.authorized-approver-approval-limit, and it already records both the zero and the null semantics and already cites 9d98b489. Nothing here re-homes it and nothing here mints a fifth 'Approval Limit'. What is genuinely open on this surface is only the CURRENCY half of the recipe. MERGED from three lens records (crosscut, procedure, tables) that reported this disagreement against three different field names; homed on approval_limit_amount, the branch-B amount control on the roster, with the currency control approval_limit_currency_window implicated by the same open question."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The name of the host section inside User Administration that holds the Authorized Approval Limits link drifts three ways across the corpus - and two of the three forms occur inside a single file.",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "authorized_approval_limits_link"
+      },
+      "readings": [
+        {
+          "summary": "Singular 'Setting' - the form attached to the branch-conditional sentence that actually describes this link. It occurs in exactly one file corpus-wide.",
+          "sourceQuote": "the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "Plural 'Invoices Settings' - the second primary's own procedure step, the sentence a driver would follow to click the link.",
+          "sourceQuote": "In the Expense and Invoices Settings section of User Administration, click the Authorized Approval Limits link.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "The SAME file writes the corpus-majority singular 'Expense and Invoice Settings' in its own opening summary, so the drift is inside one topic and not only between topics.",
+          "sourceQuote": "User Administration enables assignment of authorized approval limits for cost object approvers in Expense and Invoice Settings",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        },
+        {
+          "summary": "Singular 'Invoice Settings' - the corpus-majority form, used from tools-guides to name the same region of the same user record for an unrelated control, which is evidence the majority form names the live section rather than being a local slip.",
+          "sourceQuote": "Under Expense and Invoice Settings, select the named vendor group from the list.",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/step-6-select-the-vendor-access-group-for-the-user-bb58ded2.md"
+        },
+        {
+          "summary": "The majority form is confirmed to name a region of the User Details page populated by employee form fields, tying all three variants to one physical section rather than to three different places.",
+          "sourceQuote": "Employee Fields: Used by the Expense and Invoice Settings section of the User Details page.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/fields-overview-5e3daf7c.md"
+        }
+      ],
+      "consequenceForWriter": "Do not reconcile, and do not hard-match one literal string and fail. A driver searching the rendered page for the section header must accept all three forms, probing in corpus-weight order: 'Expense and Invoice Settings' FIRST, then 'Expense and Invoices Settings', then 'Expense and Invoices Setting'. Better still, match on the link text 'Authorized Approval Limits' - stable across every attestation in the corpus - and treat the section header as a locality hint only. Record the literal header text actually seen so later steps reuse the observed string rather than a guessed one.",
+      "notes": "CORPUS WEIGHT, measured rather than assumed: grep -rlF over BOTH guide directories returns 'Expense and Invoice Settings' in six files (assigning-the-approver-for-the-purchase-request-user-20294611.md, fields-overview-5e3daf7c.md, set-a-default-shipping-and-billing-address-f772bed1.md, user-administration-8b167b96.md, tools-guides/step-6-select-the-vendor-access-group-for-the-user-bb58ded2.md, tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md), 'Expense and Invoices Settings' in exactly one (user-administration-8b167b96.md), and 'Expense and Invoices Setting section' in exactly one (user-administrator-fcfd570c.md). HYPOTHESIS: the two 'Invoices' variants are typos local to the Authorized Approvers and Cost Object Approval guide threads respectively, and the live UI most likely reads 'Expense and Invoice Settings'. Unproven - a blind build cannot check the rendered UI, and singular/plural drift is exactly the kind of defect SAP guides carry for years. The intra-file evidence (reading 3 against reading 2, same file) is the strongest support for the typo reading, and is the reason the majority form is recommended as the first probe rather than as a coequal candidate."
+    },
+    {
+      "kind": "structure",
+      "topic": "How deep the click path to this page actually is. The corpus renders the route to the containing User Administration surface at four different depths, twice inside one file, and this is the first page in this graph not reached under Administration > Invoice.",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "authorized_approval_limits_link"
+      },
+      "readings": [
+        {
+          "summary": "FOUR SEGMENTS. The sentence that describes this very link places it under Administration > Company > Company Admin > User Administration.",
+          "sourceQuote": "the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "The same file writes the same four-segment path a second time, for the branch-A check box on the same surface - so the long form is not a single slip.",
+          "sourceQuote": "the Authorized Approver check box appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "TWO SEGMENTS, in that same file's own opening paragraph: the whole surface is reached at Administration > User Administration, with Company and Company Admin absent.",
+          "sourceQuote": "The settings that appear in User Administration (Administration > User Administration) differ depending on whether the configuration includes:",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "THREE SEGMENTS, and a different middle node: 'Company Administration' rather than 'Company Admin', with a Search & Select step between the surface and the section. Note that this file separates the segments with non-breaking spaces rather than the '>' character used elsewhere.",
+          "sourceQuote": "using Administration  Company Administration  User Administration (Search & Select)  Expense and Invoice Settings  Approvers.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/assigning-the-approver-for-the-purchase-request-user-20294611.md"
+        },
+        {
+          "summary": "A second, independent file corroborates the two-segment form for reaching the same section of the same user record, which means the short form is not unique to one writer.",
+          "sourceQuote": "accessing that user in Administration > User Administration. With the user loaded in the form, scroll to Expense and Invoice Settings.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/set-a-default-shipping-and-billing-address-f772bed1.md"
+        },
+        {
+          "summary": "ZERO SEGMENTS. The second primary names no click path at all, giving only the container name - so a driver reading only this topic has no route to follow.",
+          "sourceQuote": "the Authorized Approval Limits link appears in the Expense and Invoices Settings section in User Administration.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administration-8b167b96.md"
+        }
+      ],
+      "consequenceForWriter": "Do not reconcile these into one canonical path. Try the LONGER four-segment form first - Administration > Company > Company Admin > User Administration - because it is the form written by the only sentences that describe this link specifically, and because a driver that guesses short will stall on an intermediate menu it did not expect. If Company Admin is not present, fall back to Administration > Company > Company Administration, then to the bare two-segment Administration > User Administration. Assert on arrival at the User Administration surface with an employee record loaded, never on the exact menu wording. Two further facts that are NOT in dispute and must not be dropped while resolving the depth: the employee record must be loaded first (a Search & Select step precedes the section), and 'Invoice Processing Admin' appears in none of this page's documented paths and must never be offered as an alternate node here - this page is reached through Administration > Company, which makes it the first page in this graph not reached under Administration > Invoice.",
+      "notes": "HYPOTHESIS: the short forms are abbreviations of the same route rather than a second entry point, and 'Company Admin' versus 'Company Administration' is menu-label drift of the kind this corpus carries throughout. Unproven, and deliberately not resolved: a site could legitimately render either, and menu labels are known to drift in this product. TEXT TRAP RECORDED: reading 4 uses U+00A0 non-breaking spaces as its separators, with no '>' characters at all, so any grep of that path written with ordinary spaces will return zero and wrongly look like a missing citation. The verbatim bytes are preserved here. SCOPE NOTE for whoever reads this next: the menu location recorded above is a navigation fact and says nothing about product scope. This page configures Concur Invoice through the non-PO capability - a PO-based invoice carries its approval authority on the purchase order while a non-PO invoice has none, so the approver authorization limit is that authority - and tools-guides/workflow-and-approval-routing-8b4ff6c9.md states that the workflow options available to non-PO policies, Authorized Approvers included, are also available to PO-based invoice policies."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The name of the Workflows tab where this window's exception levels are actually defined - 'Authorized Approvers tab' or 'Authorized Approver tab'. It sits on this page's outbound dependency path: the check box is set here, the levels it refers to are set there.",
+      "appliesTo": {
+        "page": "Authorized Approval Limits",
+        "field": "can_approve_exception"
+      },
+      "readings": [
+        {
+          "summary": "PLURAL. The sentence that documents this window's Can approve exception check box sends the reader to the 'Authorized Approvers tab' in Workflows for the actual levels.",
+          "sourceQuote": "(The actual exception levels apply to all authorized approvers and are defined on the Authorized Approvers tab in Workflows.)",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+        },
+        {
+          "summary": "SINGULAR, from the same guide. The Authorized Approvers Configuration topic writes the same destination as the 'Authorized Approver tab' inside a full menu path.",
+          "sourceQuote": "The range is set in Administration > Invoice > Workflows > Authorized Approver tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md"
+        },
+        {
+          "summary": "SINGULAR again, from a third file and a different guide thread, also inside a full menu path.",
+          "sourceQuote": "The levels can be added to users via the Employee Import or the Authorized Approver list (Administration > Invoice > Workflows > Authorized Approver tab).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md"
+        },
+        {
+          "summary": "PLURAL, as an executable click step on the Workflows page itself - the numbered instruction a driver would follow after opening Workflows.",
+          "sourceQuote": "Click the Authorized Approvers tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+        }
+      ],
+      "consequenceForWriter": "When following this page's exception dependency out into the already-built Workflows page, accept either spelling; probe for the plural 'Authorized Approvers' FIRST, since it is the form written by the six files that include both executable click steps, and accept the singular 'Authorized Approver' as a fallback rather than as a coequal candidate. Do not fail the run on the tab's exact word - assert on the tab contents. This drift is recorded against this page because it sits on this page's outbound dependency path, not because the tab is a control on this window.",
+      "notes": "CORPUS WEIGHT, measured: grep -rlF over both guide directories returns 'Authorized Approvers tab' in six files (authorized-approver-list-a9522ec8.md, procedure-2d20b513.md, step-2-assign-the-level-to-the-approver-d8bf669c.md, step-4-assign-the-proper-rights-to-users-82481079.md, understand-ad-hoc-steps-ce0af3e7.md, user-administrator-fcfd570c.md) against 'Authorized Approver tab' in three (approver-terminology-8559861c.md, configuration-8b3be88b.md, filter-authorized-approvers-by-workflow-approval-step-aae69350.md). This corrects a lens record that recommended the singular first on a 2-against-1 count taken from a narrower file set. HYPOTHESIS: almost certainly pure editorial drift rather than two tabs - the built Workflows page already models a single Authorized Approvers tab, and no structural claim is being made here. BOUNDARY NOTE: nothing on this node emits, re-homes or renames anything on the Workflows page; a9522ec8 is cited for its tab wording only, never as a field source for this page, because its own click path is Administration > Invoice > Workflows."
+    }
+  ]
+}

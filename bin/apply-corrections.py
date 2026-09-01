@@ -132,6 +132,14 @@ DROP_FIELDS = {
 # An existing edge whose textual endpoint never matched any field name, so it dangles forever
 # while looking like it should resolve.
 REPOINT_ENDPOINT = {
+    # 2026-09-01: the Authorized Approval Limits page now exists, but this edge names the
+    # CONTAINING surface ('User Administration') and the page's UI label rather than the field
+    # name, so merge-group.py's exact (page, field) re-resolve misses on BOTH halves.
+    # dep.gworkflows.046 is deliberately NOT here: its 'approver' is the per-employee assignment
+    # on the User Administration user profile, a genuinely different surface. Resolving it would
+    # encode a corpus falsehood that then looks like a win to the validator.
+    ('dep.gworkflows.060', 'targetRef'): ('Authorized Approval Limits', 'authorized_approval_limits_link'),
+
     # dep.g1.057 / .058 targeted {page: Purchase Order Configuration, field: "PO Configuration"}.
     # Group 3 created the page but no such field: "PO Configuration" was the PAGE name written
     # into a field slot. dep.g1.057's sourceQuote is BYTE-IDENTICAL to group_selector's, from the
@@ -214,12 +222,16 @@ def repoint_endpoints(kg):
                 continue
             page, field = fix
             ref = d.get(key) or {}
-            if ref.get('field') == field and ref.get('resolved'):
+            if ref.get('page') == page and ref.get('field') == field and ref.get('resolved'):
                 continue
             fid = names.get((page.lower(), field.lower()))
             if not fid:
                 print('  ! repoint target not found: %s %s -> %s' % (d['id'], key, field))
                 continue
+            # merge-group.py re-resolves endpoints by the STABLE (page, field) ref on every merge
+            # (merge-group.py:222-233). Writing only the field leaves the old page name in place,
+            # so a cross-page repoint silently un-resolves on the next merge. Found 2026-09-01.
+            ref['page'] = page
             ref['field'] = field
             ref['resolved'] = True
             d[key] = ref
@@ -285,7 +297,11 @@ def wire_by_name(kg):
         pid = pages.get(str((v.get('appliesToRef') or {}).get('page') or '').strip().lower())
         same = [f for f in fields if _norm(f['name']) == want and f['pageId'] == pid]
         allm = [f for f in fields if _norm(f['name']) == want]
-        pick = same[0] if len(same) == 1 else (allm[0] if len(allm) == 1 else None)
+        # A STATED page that does not carry the field is evidence AGAINST a graph-wide guess.
+        # Without this, a set written {page: 'Authorized Approval Limits', field: 'Level'} silently
+        # wires to field.feature-hierarchies.level — turning validate-graph.py's unwired-value-set
+        # ERROR into a green build carrying a false owner. Found 2026-09-01.
+        pick = same[0] if len(same) == 1 else (allm[0] if (pid is None and len(allm) == 1) else None)
         if not pick:
             continue
         v['appliesToFieldId'] = pick['id']
@@ -438,6 +454,26 @@ NOTE_APPEND = {
         'keep the identical collision visible and did not apply the same discipline here.',
 }
 
+# Keyed by value-set NODE ID (VALUESET_NOTE_APPEND above is keyed by a VALUE MARKER — two different
+# lookups, and using the wrong one silently applies nothing). Added 2026-09-01.
+VALUESET_NOTE_APPEND_BY_ID = {
+    'vset.gworkflows.unnamed.the-four-configuration-steps-for-authorized-approvers-and-wh':
+        ' SCOPE CORRECTION 2026-09-01: this note says User Administration is out of scope for this '
+        'whole graph. That decision was REVERSED. One of the three assignment routes it names - '
+        'User Administration - is now the built page Authorized Approval Limits (group Approval '
+        'Authority). The other two routes, the Authorized Approver List (built, on Workflows) and '
+        'the employee import (unbuilt, defers to an external Shared guide), are unchanged. The '
+        'value set stays a deliberate knownGap for the reason given: it is a procedure-ordering '
+        'matrix in the wrong shape, not an option list.',
+    'vset.gworkflows.unnamed.two-further-named-feature-hierarchies-attested-in-the-corpus':
+        ' SCOPE CORRECTION 2026-09-01: this note declines these names partly because '
+        'user-administrator-fcfd570c.md "sits under Administration > Company, which is out of scope '
+        'for this graph". That decision was REVERSED and that file is now the primary source of the '
+        'built page Authorized Approval Limits. THE CONCLUSION STILL STANDS on its own merits: the '
+        'names remain unattested as rows of the Feature Hierarchies selector, which is the real and '
+        'sufficient reason to leave them unwired.',
+}
+
 VALUESET_NOTE_APPEND = {
     '%L_WhoChanged%':
         'MARKDOWN ESCAPE, documented 2026-08-31 (Workflows correctness critic): 9 of these 18 '
@@ -588,6 +624,102 @@ def blank_endpoint_fields(kg):
     return changed
 
 
+# Prose that lives inside a dependency `condition` or a step sequence `rationale` was unreachable by
+# every existing op, and the validator reads neither. Added 2026-09-01, when the 2026-08-31 "Administration
+# > Company is out of scope" decision was reversed and five nodes were left asserting the superseded rule —
+# two of them saying that the page merged alongside them "is not a page to build".
+DEP_CONDITION = {      # dep id -> replacement condition string
+    # The 2026-08-31 "Administration > Company is out of scope" decision was REVERSED by Luke on
+    # 2026-09-01 and the Authorized Approval Limits page was built. Six nodes were left asserting the
+    # superseded rule; two of them said the page merged alongside them "is not a page to build".
+    # These rewrite the REASON without changing any conclusion that is still correct.
+    'dep.gworkflows.046':
+        'FORWARD REFERENCE, EXPECTED TO STAY UNRESOLVED - and note WHY, because the reason changed on '
+        '2026-09-01. The per-employee approver assignment lives on the User Administration USER PROFILE, '
+        'which is a DIFFERENT surface from the Authorized Approval Limits window built that day (that '
+        'window sets a hierarchy level, a currency and amount, and a Can approve exception flag; it has no '
+        'approver-assignment control - verified against user-administrator-fcfd570c.md and '
+        'user-administration-8b167b96.md). The user-profile surface is unbuilt because its documentation '
+        'defers to an external Shared guide absent from this corpus - a DOCUMENTARY gap, NOT a '
+        'menu-location judgement. Recorded because it is a hard operational consequence: clearing the '
+        'Settings-tab checkbox activates a centralized approver workflow in which every employee must '
+        'already have an approver set in User Administration or via the employee import, or submission '
+        'fails with an error.',
+    'dep.gworkflows.060':
+        'RESOLVED 2026-09-01 against the Authorized Approval Limits page (group Approval Authority). The '
+        'state of the Feature Hierarchies page decides whether that window is reachable at all: if the '
+        'Authorized Approver feature is activated and the hierarchy built here carries at least one Level '
+        'in addition to Global, the Authorized Approval Limits link appears; with the Global group alone '
+        'it does not, and the inline Authorized Approver check box appears instead. The earlier text on '
+        'this edge asserted that Administration > Company was out of scope for this graph and that the '
+        'window was "not a page to build"; that decision was reversed - menu location is not product '
+        'scope, and the window configures Concur Invoice through the non-PO capability.',
+}
+
+STEP_RATIONALE = {     # (step id, sequence order) -> replacement rationale
+    ('grpworkflows-s2-configure-authorized-approver-feature', 28):
+        "CORPUS-STATED alternative path: step-4-assign-the-proper-rights-to-users-86389a18.md lists three "
+        "routes and states 'Regardless of how the authorized approvers are entered into Invoice, they all "
+        "appear in the Authorized Approver List.' - so this leg is interchangeable with orders 22-25, not "
+        "additional to them. The destination IS a built page as of 2026-09-01: the Authorized Approval "
+        "Limits window (group Approval Authority), reached through Administration > Company > Company "
+        "Admin > User Administration. The earlier claim that it was out of scope and that no page node "
+        "should be created was reversed that day.",
+    ('grpworkflows-s3-vendor-employee-access-hierarchy-six-tool-sequence', 24):
+        "CORPUS-STATED as step 6 of the ordered tool list, but recorded as a FORWARD REFERENCE THAT STAYS "
+        "UNRESOLVED: 'The User Administrator accesses User Administration and uses the newly-added field "
+        "in Step 6 to select the named vendor group' (overview-of-steps-37e3c289.md). The same source "
+        "flags this as the one tool NOT covered by the Invoice Configuration administrator role. The "
+        "conclusion stands but the reason has changed: the vendor-group selector lives on the User "
+        "Administration USER PROFILE, which is unbuilt because its documentation defers to an external "
+        "Shared guide absent from this corpus - NOT because of its menu location. Administration > "
+        "Company is no longer out of scope for this graph; the Authorized Approval Limits window under it "
+        "was built 2026-09-01.",
+}
+
+STEP_SEQ_RETARGET = {  # (step id, sequence order) -> (new page, new field or None)
+    ('grpworkflows-s2-configure-authorized-approver-feature', 28):
+        ('Authorized Approval Limits', 'authorized_approval_limits_link'),
+}
+
+
+def fix_dep_conditions(kg):
+    changed = 0
+    for d in kg['nodes']['configDependencies']:
+        new = DEP_CONDITION.get(d['id'])
+        if new and d.get('condition') != new:
+            d['condition'] = new
+            changed += 1
+            print('  rewrote condition on %s' % d['id'])
+    return changed
+
+
+def fix_step_rationales(kg):
+    changed = 0
+    for st in kg['nodes']['configSteps']:
+        for e in (st.get('sequence') or []):
+            key = (st['id'], e.get('order'))
+            new = STEP_RATIONALE.get(key)
+            if new and e.get('rationale') != new:
+                e['rationale'] = new
+                changed += 1
+                print('  rewrote rationale on %s order %s' % key)
+            tgt = STEP_SEQ_RETARGET.get(key)
+            if tgt:
+                page, field = tgt
+                if e.get('page') != page:
+                    old_page = e.get('page')
+                    e['page'] = page
+                    if old_page in (st.get('pages') or []):
+                        st['pages'] = [page if p == old_page else p for p in st['pages']]
+                    changed += 1
+                    print('  retargeted %s order %s: %s -> %s' % (key[0], key[1], old_page, page))
+                if field and e.get('field') != field:
+                    e['field'] = field
+                    changed += 1
+    return changed
+
+
 def append_notes(kg):
     changed = 0
     for f in kg['nodes']['configFields']:
@@ -597,6 +729,11 @@ def append_notes(kg):
             changed += 1
             print('  note appended: %s' % f['id'])
     for v in kg['nodes'].get('configValueSets', []):
+        note = VALUESET_NOTE_APPEND_BY_ID.get(v.get('id'))
+        if note and note not in (v.get('notes') or ''):
+            v['notes'] = ((v.get('notes') or '').rstrip() + ' ' + note).strip()
+            changed += 1
+            print('  note appended (by id): %s' % v['id'])
         for marker, note in VALUESET_NOTE_APPEND.items():
             if marker in (v.get('values') or []) and note not in (v.get('notes') or ''):
                 v['notes'] = ((v.get('notes') or '').rstrip() + ' ' + note).strip()
@@ -626,6 +763,8 @@ def main():
     changed += fix_sourcequotes(kg)
     changed += blank_endpoint_fields(kg)
     changed += append_notes(kg)
+    changed += fix_dep_conditions(kg)
+    changed += fix_step_rationales(kg)
     changed += add_contradiction_readings(kg)
     changed += set_page_tabs(kg)
     changed += wire_value_sets(kg)

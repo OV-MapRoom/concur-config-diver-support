@@ -1,0 +1,17 @@
+{
+  "valueSets": [],
+  "validValuesAdditions": [],
+  "orphanCandidates": [
+    {
+      "enumerates": "The three setter surfaces through which authorized approver rights (the approval limit / level this window writes) can be entered. Lead-in verbatim: \"The company adds the proper authorized approver rights to users using:\" then three bullets, complete and in source order.",
+      "values": [
+        "The employee import",
+        "User Admin",
+        "The Authorized Approvers tab in Workflows."
+      ],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-4-assign-the-proper-rights-to-users-82481079.md",
+      "whyNoOwner": "This is a ROUTE enumeration, not a field-option enumeration - it names three admin surfaces, not three values any control on this page offers. It is recorded here so a later pass does not re-discover it and mistake it for a missed option list. It matters to the boundary this run draws: one of the three routes IS this page (\"User Admin\"), one is the already-built Workflows page (\"The Authorized Approvers tab in Workflows.\", i.e. the tab carrying field.workflows.authorized-approver-approval-limit, field.workflows.authorized-approver-level, field.workflows.authorized-approver-can-approve-exception and field.workflows.authorized-approver-list-approver), and one - the employee import - is a surface this corpus cannot support because it defers to the external Shared: Employee Import Specification. Wiring these as values of any field would assert that a control on this window offers a choice of surface, which no file says.",
+      "whatWouldFixIt": "Nothing at the value-set layer; it is already correctly represented as dependency/boundary edges rather than as values. It stays here only as an explicit negative finding."
+    }
+  ]
+}

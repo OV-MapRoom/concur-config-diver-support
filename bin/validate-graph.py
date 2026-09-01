@@ -58,6 +58,15 @@ def main():
     fields = n['configFields']
     field_ids = {f['id'] for f in fields}
 
+    # ---- graph-wide id uniqueness. Node ids are the only handle apply-corrections.py has, so a
+    # duplicate silently shadows one node for every id-keyed consumer. Added 2026-09-01 after a
+    # sandbox run minted two identical vset ids from two orphan candidates whose 'enumerates' text
+    # agreed for the first 60 slug-characters; nothing anywhere caught it.
+    for coll, arr in n.items():
+        for i, c in Counter(x.get('id') for x in arr).items():
+            if c > 1:
+                errors.append(('duplicate-node-id', str(i), '%s x%d' % (coll, c)))
+
     # ---- ConfigField invariants
     for f in fields:
         stats['fields'] += 1

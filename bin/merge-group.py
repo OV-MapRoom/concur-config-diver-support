@@ -56,6 +56,19 @@ def main(src_path, group, patch=False):
     gnum = re.search(r'Group (\d+)', group)
     gtag = gnum.group(1) if gnum else slug(group)
     ptag = r.get('patchPage')
+    # --patch WITHOUT a patchPage is a silent graph-wipe, not a no-op. assemble-parts.py ALWAYS writes
+    # the key (as None when --patch-page is absent), so the .get() default below never fires; tag becomes
+    # None, and the five filters that follow keep only nodes whose 'patch' equals None-the-tag — deleting
+    # every dependency, step, value set, contradiction and range minted by every NON-patch merge.
+    # Measured 2026-09-01 on a sandbox copy: 436 deps -> 115, 41 steps -> 12, 114 value sets -> 37, and
+    # validate-graph.py then reported "ERROR: none" and exited 0 over the wreckage.
+    # NOTE FOR THE NEXT RUN: patchPage comes from assemble-parts.py --patch-page, NOT from the workflow's
+    # return value. Both handoffs said otherwise; they were wrong.
+    if patch and not ptag:
+        sys.exit('--patch requires patchPage in the result, and it comes from assemble-parts.py\n'
+                 '--patch-page, NOT from the workflow return value. Without it every node whose\n'
+                 '"patch" is None -- i.e. every node from every non-patch merge -- is deleted,\n'
+                 'and validate-graph.py still exits 0 over the result.')
     if patch and ptag:
         gtag = '%s%s' % (gtag, ''.join(w[0] for w in slug(ptag).split('-'))[:3])
 
