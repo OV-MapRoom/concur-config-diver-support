@@ -27,6 +27,7 @@ KG = os.path.join(ROOT, 'output', 'kg-invoice-config.json')
 # ids from the built Group 2), so nothing else in the pipeline would have named it.
 ALL_GROUPS = [
     'Group 1 — Policy & Scope', 'Group 2 — Routing & Approval', 'Workflows',
+    'Approval Authority',
     'Group 3 — PO Matching',
     'Group 4 — Capture & Vendors', 'Group 5 — Data Structure & Accounting',
     'Group 6 — Compliance / E-Invoicing', 'Group 7 — Ops (deferred)',
