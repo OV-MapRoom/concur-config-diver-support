@@ -101,7 +101,13 @@ way across four sessions and every one was latent for every future group.
   6. Save critics, mapping, raw result and the parts into `output/reports/` with a date prefix.
   7. Append to `output/kg-build-log.md`, update `docs/WHERE-WE-LEFT-OFF.md`, commit.
 
-Then: **the remediation sweep**, and its highest-value item is now measured rather than estimated —
+Then: **the remediation sweep — and it is now a REGISTERED GROUP, not a wishlist.**
+`'Remediation Sweep'` sits in `merge-group.py`'s `ALL_GROUPS` and BLOCKS `meta.status` from
+flipping to COMPLETE (Luke's call, 2026-09-01: Group 6 was the last non-Ops entry, so merging it
+would have declared the graph finished over 13-of-24 Invoice Settings, an Audit Rules roster
+inflated by ~8, and 636 of 674 fields nobody had UI-variant-checked). Retire it by MERGING a
+result under that label, never by editing the list. Its highest-value item is now measured rather
+than estimated —
 **`page.invoice-settings` carries 13 of the 24 documented rows** of
 `available-invoice-settings-8b3411f0.md`, with 11 named settings absent, each with a documented
 Default Status. The list is in the Workflows Run B section of the build log. Scope it as a full page

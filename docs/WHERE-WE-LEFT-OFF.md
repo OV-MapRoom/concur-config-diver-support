@@ -109,8 +109,20 @@ page-specific measurement forward: the Run B script says Email Reminders carries
 role-gate sentences, and Delegate Configurations does not. Both facts are wrong for Group 6.
 Re-measure everything you carry.
 
-Set `meta.status = "COMPLETE"` only when every non-deferred group is in and
-`bin/validate-graph.py` exits 0.
+### `meta.status` will NOT flip to COMPLETE when Group 6 merges — deliberately
+
+Group 6 was the last non-Ops entry in `merge-group.py`'s `ALL_GROUPS`, so merging it would have
+declared the graph COMPLETE while `page.invoice-settings` carried **13 of 24** documented rows, the
+Audit Rules 91-entry roster encoded **~68** real controls, and **636 of 674** fields were
+`uiVariant: undifferentiated` (nobody checked). A config writer reading COMPLETE would reasonably
+assume the surface is covered.
+
+`'Remediation Sweep'` is now registered in `ALL_GROUPS` and blocks the flag (Luke's call,
+2026-09-01). After Group 6, `groupsRemaining` reads `['Group 7 — Ops (deferred)', 'Remediation
+Sweep']` and `status` stays `IN_PROGRESS`. **Retire it by MERGING a result under that label, never by
+editing the list.** Its scope is the open debt in `output/kg-build-log.md`, highest-value first:
+Invoice Settings (13/24, the 11 missing settings are named), the Audit Rules alias collapse, and the
+New Experience retrofit over Groups 1-2.
 `bin/validate-graph.py` exits 0.
 
 ### ~~A SCOPE DECISION THAT IS LUKE'S~~ — DECIDED, AND THE PAGE IS BUILT (2026-09-01)

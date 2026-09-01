@@ -31,6 +31,16 @@ ALL_GROUPS = [
     'Group 3 — PO Matching',
     'Group 4 — Capture & Vendors', 'Group 5 — Data Structure & Accounting',
     'Group 6 — Compliance / E-Invoicing', 'Group 7 — Ops (deferred)',
+    # DELIBERATE, 2026-09-01, and do NOT remove it to make the graph look finished.
+    # `status` is COMPLETE when every non-Ops entry here is done, and Group 6 was the last of them —
+    # so merging it would have flipped the graph to COMPLETE while page.invoice-settings carried 13
+    # of the 24 documented rows of available-invoice-settings-8b3411f0.md, Audit Rules' 91-entry
+    # roster encoded ~68 real controls, and 636 of 674 fields were uiVariant 'undifferentiated'
+    # (i.e. nobody checked). A config writer reading COMPLETE would reasonably assume the surface is
+    # covered. It is not. This entry makes the coverage debt block the claim instead of living only
+    # in the build log. Retire it by MERGING a remediation result under this label, never by editing
+    # this list. Luke's call, 2026-09-01.
+    'Remediation Sweep',
 ]
 
 def slug(s):
