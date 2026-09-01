@@ -5,8 +5,10 @@ _Last updated: 2026-09-01. Copy the block below into a fresh session._
 ---
 
 Continue the Concur Invoice config knowledge-graph build. Next job: **Group 6 — Compliance /
-E-Invoicing** (Peppol Configuration, Shipping Configuration, Localization). Workflows Run B is DONE
-and the Workflows group is complete.
+E-Invoicing**, the last build group. **Its page recon is already DONE and it is SIX pages, not the
+three the lost map claimed** — Printed Invoices, Peppol Configuration, Invoice E-Bunsho Timestamp
+Validation Request, Localization, Change Log, Shipping Configuration. Do not re-run that recon.
+Workflows Run B is DONE and the Workflows group is complete at four pages.
 
 Read these three files first, in order:
   /mnt/c/Users/manci/PROJECTS/concur-config-diver-support/docs/2026-08-31_HANDOFF-KG-BUILD-v2.md
