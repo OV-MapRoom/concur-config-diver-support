@@ -13,23 +13,28 @@ _Last updated: 2026-08-31_
 
 ## Status
 
-**20 of ~24 pages · 486 fields · 375 dependencies · 34 steps · 80 value sets (850 values) ·
-36 contradictions (110 readings) · 12 compressed ranges (106 members).**
+**22 of ~24 pages · 607 fields · 436 dependencies · 41 steps · 114 value sets (1,011 values) ·
+60 contradictions (179 readings) · 17 compressed ranges (411 members).**
 `output/kg-invoice-config.json` — `meta.status: IN_PROGRESS`. **Validator: ERROR-clean, exit 0.**
 
 Built: Group 1 (Policy & Scope), Group 2 (Routing & Approval, incl. an Audit Rules deep-dive that
-took that page 36 → 91 fields), **Group 3 (PO Matching — 2 pages, not the 11 the lost map claimed)**,
-Group 4 (Capture & Vendors), Group 5A + 5B (Data Structure & Accounting).
+took that page 36 → 91 fields), Group 3 (PO Matching — 2 pages, not the 11 the lost map claimed),
+Group 4 (Capture & Vendors), Group 5A + 5B (Data Structure & Accounting),
+**Workflows Run A (Workflows + Feature Hierarchies — 4 pages in the group, not the 13 the lost map
+claimed).**
 
-Quality: **486/486 sourceQuotes verify verbatim** against their cited corpus file; 485/486
-validValue lists fully found in source; zero dangling dependency endpoints.
+Quality: **607/607 sourceQuotes verify verbatim** against their cited corpus file; 606/607
+validValue lists fully found in source; 179/179 contradiction readings verbatim; zero dangling
+dependency endpoints.
 
-> The denominator moved. The old "37 pages" came from the lost map, which counted *surfaces*
-> rather than pages — Group 3's "11" re-derived to 2. Treat any remaining page count from that
-> map as an upper bound, Workflows' 13 especially.
+> The denominator moved twice now. The old "37 pages" came from the lost map, which counted
+> *surfaces* rather than pages — Group 3's "11" re-derived to 2, and Workflows' "13" re-derived to
+> 4 (and reconciles exactly as 7 tabs + 3 wizard pages + 3 settings tables). **Treat every
+> remaining page count from that map as an upper bound.**
 
 | Page | Fields | Coverage | Group |
 |---|---|---|---|
+| Workflows | 114 | good | Workflows |
 | Audit Rules | 91 | good | 2 |
 | Tax Administration | 59 | good | 5 |
 | Policies | 46 | good | 1 |
@@ -46,31 +51,82 @@ validValue lists fully found in source; zero dangling dependency endpoints.
 | Invoice Settings | 13 | good | 1 |
 | Routing Configuration | 10 | good | 2 |
 | Exceptions | 8 | good | 2 |
+| Feature Hierarchies | 7 | partial | Workflows |
 | Units Of Measure | 3 | thin | 4 |
 | Vendor Search Admin | 2 | thin | 4 |
 | Map Invoice Concept Fields | 0 | thin | 5 |
 | Budget Configuration | 0 | thin | 5 |
 
-`uiVariant`: 448 undifferentiated · 27 both · 6 legacy · 5 new.
+`page.workflows` is the graph's second page (after Forms and Fields) to carry machine-readable
+`tabs` — seven of them. They are **individually attested by click path, not enumerated**: no
+sentence anywhere in this corpus lists them together.
 
 ## Next
 
-**Group 3 — PO Matching is DONE (2026-08-31).** Two pages, 49 fields, validator exit 0. Details in
-`output/kg-build-log.md`; the page recon that retired the 11-page figure is in
-`output/reports/2026-08-31_group3-recon/`.
+**Workflows Run A is DONE (2026-08-31).** Two pages, 121 fields, validator exit 0. Details in
+`output/kg-build-log.md`; the recon that retired the 13-page figure is in
+`output/reports/2026-08-31_workflows-recon/`, the build in
+`output/reports/2026-08-31_workflows-run-a-*`.
 
-**Next up: Workflows.** The lost map called it 13 pages — under ONE left-menu entry, which is the
-same surfaces-vs-pages error Group 3 just disproved. **Run a page recon first**
-(`workflows/2026-08-31_kg-group3-page-recon.mjs` is the reusable template — change the domain
-terms, the sweep charters and the reconciliation target). Do not budget 13 pages until a recon
-says so. It is still the largest remaining build.
+### ▶ RESUME HERE — Workflows Run B
 
-Then: Group 6 (Peppol / Shipping / Localization — a complete 6-step Localization click path is
+**Email Reminders + Delegate Configurations.** 34 unique files, 70,074 B, ~50 estimated fields.
+Both are real left-menu pages the lost map never counted; both were found and page-hood-endorsed by
+the recon. Start from `workflows/2026-08-31_kg-workflows-run-a.mjs` and change the usual knobs, plus:
+
+1. **Merge WITH `--patch`.** The group label `Workflows` now EXISTS in the graph, so a non-patch
+   merge would DELETE Run A's 121 fields. Set `patchPage` in the return. Run B's two pages are new,
+   so `--patch` strips nothing — verified against `merge-group.py:62-76`.
+2. **FIX `NAV_SCHEMA` FIRST — it has `additionalProperties: false` and no `tabs` property**, so the
+   map agent is schema-blocked from emitting page tabs and silently returns `tabs: None`. This is
+   link 1 of a three-link chain; links 2 and 3 (`assemble-parts.py`, `merge-group.py`) are fixed.
+   Email Reminders has TWO documented tabs (Rules, Email Reminders) and Delegate Configurations has
+   two (Invoice, Purchase Request), so this bites immediately.
+3. **Exactly ONE file is shared with Run A** — `delegate-self-approval-1b627285.md` (1,284 B) —
+   and its field belongs to the Workflows **General page**. **Run B must not extract it.**
+4. Seed corrections the recon critics already made are in the Run A page briefs; the Email Reminders
+   and Delegate Configurations additions are in
+   `output/reports/2026-08-31_workflows-recon/critic-completeness.md` finding 6
+   (`pre-defined-rules-220a1fe7.md`, `overview-8b2c769e.md`,
+   `best-practices-when-localizing-subject-and-email-message-fields-48515f40.md`,
+   `terminology-e1e1ed99.md`, `overview-8b2ba917.md`).
+5. Drop the `"two user interfaces"` UI hint from Delegate Configurations — it is **2014 boilerplate
+   present in 40 files**, including most of the twenty already-built pages, not a page property.
+
+Then: **Group 6** (Peppol / Shipping / Localization — a complete 6-step Localization click path is
 already sitting in `step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md`
 lines 102–110), then the remediation sweep.
 
 Set `meta.status = "COMPLETE"` only when every non-deferred group is in and
 `bin/validate-graph.py` exits 0.
+
+### A SCOPE DECISION THAT IS LUKE'S, NOT THE BUILD'S
+
+The Workflows recon's two critics split on whether to add a fifth page,
+**`Authorized Approval Limits`**. Adjudicated 2026-08-31: **completeness was right on the fact**
+(the roster deferred it on a claim that is demonstrably false — `user-administrator-fcfd570c.md` and
+`user-administration-8b167b96.md` document it directly, all anchor quotes verify, and the per-user
+approval LIMIT currently has no home anywhere in the graph); **page-hood was right on the action**
+(it sits under `Administration > **Company**`, and all 22 built pages are under
+`Administration > Invoice`, with five prior groups leaving these surfaces unresolved eight times).
+
+**No fifth page was built.** Whether `Administration > Company` surfaces enter this graph at all is
+a scope expansion Luke owns. Everything needed to build it later is recorded in the build log.
+
+### Four toolchain defects fixed during Workflows — all would have hit every future group
+
+- **`bin/assemble-parts.py` hard-coded `grp5b-unnamed`** as the step-id fallback.
+- **`bin/merge-group.py` `ALL_GROUPS` had no `Workflows` entry**, so `groupsRemaining` omitted it
+  and merging Group 6 would have flipped `meta.status` to COMPLETE with Workflows unbuilt.
+- **`bin/assemble-parts.py` `group_tag()` called an undefined `slug()`.** Every prior label matched
+  `/Group (\d+)/` so the fallback branch had never executed; `Workflows` reached it and raised
+  `NameError`. Backwards compatible — `grp3-`/`grp5b-` unchanged.
+- **The `tabs` chain has three links and only the last was fixed at first.** See Run B item 2.
+
+**The group label is `Workflows`, deliberately carrying no "Group N".** `merge-group.py` derives
+`gtag` from `/Group (\d+)/`, so any label containing "Group 2" (where the lost map files Workflows)
+would mint `dep.g2.*` ids colliding with the built Group 2 — and a non-patch merge under that label
+would delete Audit Rules' 91 fields.
 
 ### Two tooling defects fixed during Group 3 — they would have hit every future group
 

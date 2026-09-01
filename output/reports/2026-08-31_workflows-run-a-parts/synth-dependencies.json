@@ -1,0 +1,614 @@
+{
+  "dependencies": [
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "expire_after_this_many_days",
+      "targetPage": "Workflows",
+      "targetField": "approval_time_expired_action",
+      "condition": "CONDITIONAL VISIBILITY, General page (wizard page 1). Expire After This Many Days is not rendered at all until an option has been chosen in Approval Time Expired Action. A driver must set the action first, then look for the day count. NOTE the label drift inside the quote: SAP writes 'Approval Time Expired field' where the field roster carries 'Approval Time Expired Action'.",
+      "sourceQuote": "This setting only appears if the admin has selected an option in the Approval Time Expired field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "allow_timeout_extensions_for_this_many_days",
+      "targetPage": "Workflows",
+      "targetField": "approval_time_expired_action",
+      "condition": "CONDITIONAL AVAILABILITY, General page. First arm of a documented OR gate: the extension-days field is available if EITHER Approval Time Expired Action OR Assignment Timeout Action is enabled. Either target alone satisfies the dependency - this is not an AND.",
+      "sourceQuote": "This option is only available if either the Approval Time Expired Action or Assignment Timeout Action options are enabled.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "allow_timeout_extensions_for_this_many_days",
+      "targetPage": "Workflows",
+      "targetField": "assignment_timeout_action",
+      "condition": "Second arm of the same documented OR gate on the General page. Recorded separately because either master independently makes the field available; the graph must not represent this as requiring both.",
+      "sourceQuote": "This option is only available if either the Approval Time Expired Action or Assignment Timeout Action options are enabled.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "email_employee_when_employee_added_step_is_complete",
+      "targetPage": "Workflows",
+      "targetField": "steps_can_be_added_by",
+      "condition": "CONDITIONAL AVAILABILITY, General page. The employee-added-step email option is hidden until Steps Can Be Added By carries a value.",
+      "sourceQuote": "This field is available only if you have chosen an option in the Steps Can Be Added field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "restrict_authorized_approver_for",
+      "targetPage": "Workflows",
+      "targetField": "steps_can_be_added_by",
+      "condition": "CONDITIONAL AVAILABILITY, General page. Restrict Authorized Approver for is hidden until Steps Can Be Added By carries a value. The quote reproduces SAP's own duplicated word ('field field') verbatim - it is not a transcription error.",
+      "sourceQuote": "This field is only available if you have chosen an option in the Steps Can Be Added field field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "allow_self_cost_object_approval",
+      "targetPage": "Workflows",
+      "targetField": "allow_self_approval",
+      "condition": "FUNCTIONAL GATE, General page. Allow Self Cost Object Approval can be ticked on its own but has no effect unless Allow Self Approval is also selected, so a driver must set both - a silent no-op otherwise.",
+      "sourceQuote": "This feature will only work if the Allow Self Approval option is also selected (enabled).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "allow_invoice_processor_to_process_own_invoices",
+      "targetPage": "Workflows",
+      "targetField": "allow_self_approval",
+      "condition": "FUNCTIONAL GATE, General page. Second dependent of the Allow Self Approval master switch, stated as a hard prerequisite rather than a visibility rule.",
+      "sourceQuote": "The Allow Self Approval option must be enabled (checked) in order for the Allow Invoice Processor to Process their own Invoices option to work.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "steps_can_be_added_by",
+      "targetPage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_payment_requests",
+      "condition": "CROSS-TAB OPTION-LIST DEPENDENCY inside one page: a Settings-tab checkbox removes 'Employee' from the option list of a General-page dropdown. Both endpoints are fields on page Workflows; the Settings tab is a tab, never its own page.",
+      "sourceQuote": "If you have the Allow users to select their own approver for payment requests field on the Settings page cleared (disabled), then the employee does not appear as an option since they cannot approve invoices.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "step_approver_editable_by",
+      "targetPage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_payment_requests",
+      "condition": "The same cross-tab option-list gate restated for the Steps page (wizard page 2). CONTRADICTION IN LABEL, recorded not reconciled: this file writes the Settings label in the SINGULAR, 'for payment request', where create-a-new-workflow-554e86aa.md and invoice-settings-cace748d.md write the plural 'for payment requests'.",
+      "sourceQuote": "If you have the Allow users to select their own approver for payment request field on the Settings page not selected, then the employee does not appear as an option.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "editable_by_groups",
+      "targetPage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_payment_requests",
+      "condition": "THE CROSS-SURFACE OVERRIDE. When the Settings-tab approver checkbox is NOT selected it OVERRIDES Editable By Group(s) on the Edit Workflow page and the Add/Edit Workflow Steps page, and if those fields were already set the administrator receives a conflict error while the system enforces the override anyway. Ordering consequence for a driver: set the Settings tab BEFORE the per-workflow fields, or the per-workflow setting is silently overridden.",
+      "sourceQuote": "If this check box is not selected, then it overrides the Editable By Group(s) and Steps Can Be Added By fields on the Edit Workflow page and the Add/Edit Workflow Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "steps_can_be_added_by",
+      "targetPage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_payment_requests",
+      "condition": "Second, HARDER statement of the same relationship than the option-list edge above, from a different file: this is an override plus a raised conflict error, not merely a shortened option list. Kept as a distinct edge because the consequence differs (the system enforces the override even when the workflow field is already set).",
+      "sourceQuote": "If this check box is not selected, then it overrides the Editable By Group(s) and Steps Can Be Added By fields on the Edit Workflow page and the Add/Edit Workflow Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "editable_by_groups",
+      "targetPage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_purchase_requests",
+      "condition": "PURCHASE-REQUEST TWIN of the cross-surface override. The Purchase Request Settings block of the Settings tab carries the identical override paragraph, so the PR-flavoured checkbox overrides the same two per-workflow fields. Two settings, one override behaviour - a driver configuring PR workflows must clear or set the PR checkbox, not the invoice one.",
+      "sourceQuote": "If this check box is not selected, then it overrides the Editable By Group(s) and Steps Can Be Added By fields on the Edit Workflow page and the Add/Edit Workflow Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "steps_can_be_added_by",
+      "targetPage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_purchase_requests",
+      "condition": "PURCHASE-REQUEST TWIN of the cross-surface override, second affected field. Same paragraph, same page, PR block of the Settings tab.",
+      "sourceQuote": "If this check box is not selected, then it overrides the Editable By Group(s) and Steps Can Be Added By fields on the Edit Workflow page and the Add/Edit Workflow Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Workflows",
+      "sourceField": "require_hardcopy_receipts",
+      "targetPage": "Workflows",
+      "targetField": "step_name",
+      "condition": "CONDITIONAL VISIBILITY OF A WHOLE STEP. Enabling Require Hardcopy Receipts on the General page makes a 'Hold for Invoice Hard Copy' workflow step appear on the Steps page. The step does not exist to be selected until the checkbox is set. The quote reproduces SAP's duplicated 'the the' verbatim.",
+      "sourceQuote": "When the the admin selects (enables) the Require Hardcopy Receipts option on the Workflows page, they will be able to see the Hold for Invoice Hard Copy step on the Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Workflows",
+      "sourceField": "require_hardcopy_receipts",
+      "targetPage": "Workflows",
+      "targetField": "step_rule_name",
+      "condition": "Second surface revealed by the same checkbox: the Hold for Invoice Hard Copy step also appears on the Step Rules page (wizard page 3), so step rules can be attached to it. Recorded separately because it is a different wizard page and a distinct sentence in the source.",
+      "sourceQuote": "In addition, the admin will see the Hold for Invoice Hard Copy step on the Step Rules page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "step_authorized_approver_level",
+      "targetPage": "Workflows",
+      "targetField": "step_role",
+      "condition": "CONDITIONAL VISIBILITY on the Add/Modify Workflow Step page: the Authorized Approver Level field is rendered only when Role is set to Authorized Approver.",
+      "sourceQuote": "The Authorized Approver Level field appears only if the Authorized Approver option is selected in the Role field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-assign-the-level-to-the-workflow-step-6035f10a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "authorized_approver_level",
+      "targetPage": "Workflows",
+      "targetField": "step_authorized_approver_level",
+      "condition": "CROSS-TAB CONDITIONAL VISIBILITY: the Level field in the New/Modify Authorized Approver window (Authorized Approvers > Authorized Approver List sub-tab) does not appear until a level has first been assigned to a workflow step on the Add/Modify Workflow Step page. Documented two-step order: assign the level to the step, then to the approver.",
+      "sourceQuote": "Once the level is added to the workflow step (described above), the Level field will appear in the New Authorized Approver and Modify Authorized Approver window.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-level-to-the-approver-d8bf669c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "restrict_authorized_approver_for",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_feature_available_for_workflows",
+      "condition": "CROSS-TAB VISIBILITY GATE. The ad hoc restriction options are entirely ABSENT from the workflow object until the master checkbox on Authorized Approvers > Configuration is selected - a driver that opens the General page first will not find the field at all.",
+      "sourceQuote": "The workflow options you need to make these choices do not appear in Workflow until you have selected Authorized Approver feature is available for workflows on the Configuration tab of the Authorized Approvers tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "restrict_approvers_limit_authority_employee_added_steps",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_feature_available_for_workflows",
+      "condition": "Same cross-tab visibility gate. The quoted sentence says 'The workflow options you need to make these choices', plural, and this is one of the ad hoc restriction options it governs.",
+      "sourceQuote": "The workflow options you need to make these choices do not appear in Workflow until you have selected Authorized Approver feature is available for workflows on the Configuration tab of the Authorized Approvers tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "restrict_approvers_exception_authority_employee_added_steps",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_feature_available_for_workflows",
+      "condition": "Same cross-tab visibility gate, third governed option.",
+      "sourceQuote": "The workflow options you need to make these choices do not appear in Workflow until you have selected Authorized Approver feature is available for workflows on the Configuration tab of the Authorized Approvers tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Workflows",
+      "sourceField": "authorized_approver_feature_available_for_workflows",
+      "targetPage": "Workflows",
+      "targetField": "minimum_exception_level",
+      "condition": "INFERRED: the corpus does not state this ordering in words; it follows from the numbered Configuration-tab procedure, where activating the feature is step 4 and defining the exception limits is step 5 of the same procedure. Both endpoints are on the Authorized Approvers > Configuration sub-tab of page Workflows.",
+      "sourceQuote": "To activate the feature, select Authorized Approver feature is available for workflows.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Workflows",
+      "sourceField": "authorized_approver_feature_available_for_workflows",
+      "targetPage": "Workflows",
+      "targetField": "maximum_exception_level",
+      "condition": "INFERRED: same numbered-procedure ordering as the Minimum Exception Level edge - activation is step 4, the exception-limit pair is step 5. Recorded as two edges because the two limit fields are two separate controls in the step-5 table.",
+      "sourceQuote": "To activate the feature, select Authorized Approver feature is available for workflows.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "submit_confirmation_agreement",
+      "targetPage": "Workflows",
+      "targetField": "confirmation_agreement_name",
+      "condition": "TWO-SURFACE PATTERN 1 of 3: a Confirmation Agreement is AUTHORED as an object on the Confirmation Agreements tab and then SELECTED on the workflow General page. The agreement must exist before it can be chosen, and the same object is then carried onward to a policy.",
+      "sourceQuote": "After creating the agreement, you associate the confirmation agreement with the workflow, and then associate the workflow with the policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "approval_confirmation_agreement",
+      "targetPage": "Workflows",
+      "targetField": "confirmation_agreement_name",
+      "condition": "Second selector of the same two-surface pattern: the Approval Confirmation Agreement list on the General page is populated from the same Confirmation Agreements tab objects.",
+      "sourceQuote": "After creating the agreement, you associate the confirmation agreement with the workflow, and then associate the workflow with the policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "approval_request_notification",
+      "targetPage": "Workflows",
+      "targetField": "email_notification_name",
+      "condition": "TWO-SURFACE PATTERN 2 of 3: an Email Notification is AUTHORED on the Email Notifications tab and then SELECTED in the workflow's General-page properties. Creation precedes selection.",
+      "sourceQuote": "Once the email is created, the administrator selects the appropriate email in the workflow properties.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/select-an-email-notification-in-the-workflows-tab-663bb8ac.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "email_notifications_field",
+      "targetPage": "Workflows",
+      "targetField": "email_notification_name",
+      "condition": "Umbrella statement of the same two-surface pattern, from a second file, naming both tabs explicitly: notifications are created and maintained on the Email Notifications tab and assigned to a workflow on the Workflows tab. email_notifications_field is the General-page table row that fans out into the three named notification selectors.",
+      "sourceQuote": "Once the email notification is configured, the administrator assigns it to a workflow on the Workflows tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Workflows",
+      "sourceField": "approval_status_status",
+      "targetPage": "Workflows",
+      "targetField": "step_initial_status",
+      "condition": "TWO-SURFACE PATTERN 3 of 3: custom approval statuses are AUTHORED on the Approval Statuses tab and then SELECTED as a step's Initial Status on the Steps page. This is step 1 of SAP's documented eight-step workflow creation order - the statuses must exist before the workflow that consumes them is built.",
+      "sourceQuote": "Create any custom approval statuses that you may use in the workflow.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "step_approval_actions",
+      "targetPage": "Workflows",
+      "targetField": "step_initial_status",
+      "condition": "RUNTIME COUPLING between two fields on the Add/Modify Workflow Step page: a custom approval action selected by an approver makes the engine jump to whichever step carries the matching custom status as its Initial Status. Configuring an action without a step whose Initial Status matches it degrades to a plain approval step.",
+      "sourceQuote": "If an approver or processor selects a custom approval action, the workflow engine looks for the next workflow step that carries that custom approval status as its initial status.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Workflows",
+      "sourceField": "step_role",
+      "targetPage": "Workflows",
+      "targetField": "step_order_column",
+      "condition": "HARD STEP-ORDERING CONSTRAINT the driver must not violate when ordering or reordering steps on the Steps page: a Vendor Approval system step may not sit before a Cost Object Approval step. Both step kinds are chosen through Role, and the ordering is expressed through Step Order.",
+      "sourceQuote": "The Vendor Approval system step _cannot_ precede the Cost Object Approval step.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-edit-the-workflow-steps-f2731590.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "use_default_approver_lookup_to_find_authorized_approver",
+      "targetPage": "Workflows",
+      "targetField": "step_role",
+      "condition": "CARDINALITY CONSTRAINT: selecting the default-approver-lookup option on the General page restricts the whole workflow to exactly ONE Authorized Approval step, which is a constraint on how many steps may carry Role = Authorized Approver.",
+      "sourceQuote": "The workflow can only contain one Authorized Approval step when using this option.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-5ce8a567.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "authorized_approver_list_approver",
+      "targetPage": "Workflows",
+      "targetField": "step_role",
+      "condition": "An approver added on the Authorized Approvers > Authorized Approver List sub-tab is inert until a workflow step is configured with the Authorized Approver role. Activating the feature and listing approvers is necessary but not sufficient.",
+      "sourceQuote": "An authorized approver is only used if set up as a step(s) in a workflow process.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approvers-8b3ab7ad.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "workflow_condition_field_value_c",
+      "targetPage": "Workflows",
+      "targetField": "workflow_condition_data_object_b",
+      "condition": "OPTION-LIST DEPENDENCY on the Condition page (Step Rules > New rule > Edit Condition): the contents of the C: Field/Value helper pane are determined by what was chosen in B: Data Object. The driver must set the Data Object before it can resolve a Field/Value.",
+      "sourceQuote": "Select an item from the helper pane that appears. The information that appears in this pane is based upon the selection made in the Data Object list.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Workflows",
+      "sourceField": "workflow_name",
+      "targetPage": "Policies",
+      "targetField": "Invoice Workflow",
+      "condition": "HAND-OFF EDGE OUT OF THIS PAGE, and the resolution side of the pre-existing unresolved endpoint dep.g1.026. A workflow is built on Workflows and is inert until it is associated to a policy on the Policies page; one workflow may serve several policies.",
+      "sourceQuote": "Once you have created the workflow, you must associate it to a policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-15992497.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Policies",
+      "sourceField": "Invoice Workflow",
+      "targetPage": "Workflows",
+      "targetField": "btn_remove_workflow",
+      "condition": "DELETION GATE, and the resolution side of the pre-existing unresolved endpoint dep.g1.021 (which pointed at a non-field, 'workflow deletion'). The policy's Invoice Workflow reference must be cleared FIRST; only then does the Remove button on the Workflows tab become available.",
+      "sourceQuote": "The system does not allow you to delete a workflow that is currently assigned to a policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "step_rule_generate_exception_select",
+      "targetPage": "Exceptions",
+      "targetField": "exceptionCode",
+      "condition": "EXCEPTIONS IS A DOCUMENTED HUB. The exception offered by the Step Rules 'Generate Exception' action is an object authored on the Exceptions page; every exception created there becomes an option in the Workflows tool when creating rules. The exception must exist (or be created inline from the helper pane) before the rule action can reference it.",
+      "sourceQuote": "All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "minimum_exception_level",
+      "targetPage": "Exceptions",
+      "targetField": "exceptionCode",
+      "condition": "INFERRED: no single sentence states that Minimum Exception Level reads the levels carried by Exceptions-page objects. It follows from the Exceptions page being the documented origin of every exception and its severity level, which the Workflows tool then consumes. NOTE FOR THE MERGER: the level itself is a row of the Exception Fields table in add-exceptions-7b73d8f0.md ('Exception Level') but the BUILT Exceptions page carries no field of that name, so this edge anchors on exceptionCode, the exception object's identity field. Maximum Exception Level has the identical relationship and is not emitted twice.",
+      "sourceQuote": "All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Audit Rules",
+      "sourceField": "exception_level",
+      "targetPage": "Workflows",
+      "targetField": "settings_prevent_payment_request_submission_exception_level",
+      "condition": "RESOLUTION SIDE of the pre-existing unresolved endpoints dep.g2.014 and dep.g2ar.024 (which named a placeholder field 'exception_level_limit'). An exception level number has no blocking power on its own; the threshold that gives it effect is the Settings-tab control on page Workflows. The old endpoints stay unresolved by design - this is the correctly named edge.",
+      "sourceQuote": "A workflow setting exists that prevents an invoice from being submitted if it has an exception of a certain level.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Audit Rules",
+      "sourceField": "exception_level",
+      "targetPage": "Workflows",
+      "targetField": "settings_prevent_payment_request_submission_exception_level",
+      "condition": "Second, more specific attestation of the same relationship, naming the exact navigation path to the control: Invoice Admin > Workflows > Settings. Kept as a distinct edge because it is the sentence that actually locates the threshold for an automation driver, where the add-exceptions sentence only asserts that such a setting exists.",
+      "sourceQuote": "The limit is set using the Invoice Admin, Workflows, and Settings.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/exceptions-then-portion-of-the-if-then-statement-6a3d96b1.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Audit Rules",
+      "sourceField": "exception_level",
+      "targetPage": "Workflows",
+      "targetField": "settings_prevent_purchase_request_submission_exception_level",
+      "condition": "RESOLUTION SIDE of dep.g2.012, whose target named a page that DOES NOT EXIST ('Purchase Request Settings'). Purchase Request Settings is a table on the Settings TAB of page Workflows, never its own page. When an exception raised against a purchase request carries this level or above, the employee is blocked from submitting the PR.",
+      "sourceQuote": "Any purchase request that meets the criteria for an exception with this level or above prevents the employee from submitting the PR.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Audit Rules",
+      "sourceField": "exception_level",
+      "targetPage": "Workflows",
+      "targetField": "settings_prevent_purchase_order_transmission_exception_level",
+      "condition": "RESOLUTION SIDE of dep.g2.013, whose target named a page that DOES NOT EXIST ('Purchase Order Settings'). Purchase Order Settings is the single-control table in the purchase-order block of the Settings TAB on page Workflows. An exception at or above this level blocks the PO from being transmitted to the vendor once it is created from its purchase request.",
+      "sourceQuote": "Any purchase order that meets the criteria for an exception with this level or above prevents the PO from being transmitted once it is created from its associated purchase request (PR).",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Audit Rules",
+      "sourceField": "validation_rule_event",
+      "targetPage": "Workflows",
+      "targetField": "settings_prevent_payment_request_submission_exception_level",
+      "condition": "RESOLUTION SIDE of dep.g2ar.026 (placeholder target 'exception_level_limit'). A validation rule whose action is Exception only flags the line item or allocation; whether that flag actually blocks submission is decided by the Settings-tab threshold on page Workflows.",
+      "sourceQuote": "Exception only: If the rule is triggered, it will flag the line item or line item allocation. Depending on your exception level settings, it may prevent invoice submission.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-validation-rule-0b31c4c0.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Audit Rules",
+      "sourceField": "custom_audit_rule_event",
+      "targetPage": "Workflows",
+      "targetField": "step_name",
+      "condition": "RESOLUTION SIDE of dep.g2ar.021 (placeholder target 'workflow_first_step', which is not a field). The event chosen on a custom audit rule fixes the rule's position relative to the workflow steps built on the Steps page: Payment Post Request Submit fires immediately after the invoice enters the FIRST workflow step, which is why exceptions it raises cannot block submission.",
+      "sourceQuote": "Payment Post Request Submit: The rule is triggered immediately after an invoice enters the first step of workflow. Any exceptions generated will not prevent the invoice from being submitted.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-72339a13.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Audit Rules",
+      "sourceField": "random_audit_rule_event",
+      "targetPage": "Workflows",
+      "targetField": "step_name",
+      "condition": "RESOLUTION SIDE of dep.g2ar.022 (placeholder target 'workflow_approval_steps', which is not a field). For a RANDOM audit rule the same event name fires at the opposite end of the workflow - after every approval and processor step has completed. CONTRADICTION WORTH KEEPING VISIBLE: the identical event label 'Payment Post Request Submit' is documented with two different firing points, one per rule type, in two different files.",
+      "sourceQuote": "Payment Post Request Submit: The rule is triggered when the invoice has gone through all the approval and processor workflow steps but before the pre-payment validation occurs.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/events-triggers-ad6bfc67.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "approval_status_editable_by_groups",
+      "targetPage": "Group Configurations",
+      "targetField": "Group Name",
+      "condition": "GROUP-SCOPED ADMINISTRATION. The Editable By Group(s) control on the Approval Statuses tab selects among group configurations, which are authored on the Group Configurations page. The group must exist there before it can be granted edit rights here.",
+      "sourceQuote": "Select the group configuration(s) that can edit this workflow.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-invoice-approval-status-d8cbbe5d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "editable_by_groups",
+      "targetPage": "Group Configurations",
+      "targetField": "Group Name",
+      "condition": "INFERRED: the quoted General-page description says 'group rights' without naming the Group Configurations page. The dependency follows from the only documented named option being 'Global Group' and from the sibling Approval Statuses control, whose own description does name group configurations explicitly. A group must exist before it can be selected here.",
+      "sourceQuote": "Select the group rights that an administrator must have in order to modify this workflow.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Workflows",
+      "sourceField": "settings_allow_users_select_own_approver_payment_requests",
+      "targetPage": "User Administration",
+      "targetField": "approver",
+      "condition": "FORWARD REFERENCE, EXPECTED TO STAY UNRESOLVED. Administration > Company > Company Admin > User Administration is out of scope for this graph by the 2026-08-31 decision. Recorded because it is a hard operational consequence: clearing the Settings-tab checkbox activates a centralized approver workflow in which every employee must already have an approver set in User Administration or via the employee import, or submission fails with an error.",
+      "sourceQuote": "every employee must have an approver set for them in the User Administration page or through the employee import.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "feature_name",
+      "targetPage": "Workflows",
+      "targetField": "cost_object_hierarchy_type",
+      "condition": "INFERRED: the corpus does not state the ordering in a single sentence; it follows from the two-step procedure whose Step 1 is 'Define the Cost Object Approver Hierarchy' on Feature Hierarchies and whose Step 2 is 'Activate the Feature', where the only control set is Cost Object Hierarchy Type on a workflow's General page. The Step 1 topic also notes the permission boundary - it requires the Feature Hierarchies section, not Workflows.",
+      "sourceQuote": "Set up the Cost Object Hierarchy just like any other hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "source_list",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_feature_available_for_workflows",
+      "condition": "THE HARD PREREQUISITE OF THE WHOLE AUTHORIZED-APPROVER SURFACE. The authorized approver hierarchy must be defined on Feature Hierarchies and its source list imported or created BEFORE the Authorized Approver feature can be activated on the Workflows Configuration sub-tab. A driver that opens Workflows > Authorized Approvers first will find the feature unavailable.",
+      "sourceQuote": "You must define the authorized approver hierarchy (Invoice > Feature Hierarchies) and import/create its associated source list before the authorized approver feature can be activated.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "feature_name",
+      "targetPage": "Workflows",
+      "targetField": "authorized_approver_list_approver",
+      "condition": "Second, softer ordering statement from SAP's eight-step workflow creation sequence: setting up the Payment Authorized Approvers hierarchy is step 3, ahead of adding authorized approvers (step 4) and creating the workflow (step 5). CONTRADICTION KEPT, NOT RECONCILED: this file marks the hierarchy step '(Optional)' while understand-the-hierarchy-b65d7089.md states the feature 'cannot be activated' without it. The two are about different things - creating a workflow versus activating the feature - and both stand.",
+      "sourceQuote": "(Optional) Set up the Payment Authorized Approvers hierarchy if you choose to use authorized approvers.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "feature_name",
+      "targetPage": "Policies",
+      "targetField": "PR hierarchy selection",
+      "condition": "FORWARD REFERENCE WITH AN UNRESOLVED FIELD ON A BUILT PAGE. Purchase Request hierarchies - both Authorized Approval and Cost Object Approval - are configured on Feature Hierarchies and only then become selectable through the Policy tool. The built Policies page carries no field for hierarchy selection, so this endpoint is expected to stay unresolved until such a field is added. The quote is deliberately cut before the menu separator: workflow-667cee21.md writes 'Invoice  Feature Hierarchies' with U+00A0 and no '>' glyph, so any quote spanning the arrow fails grep -F.",
+      "sourceQuote": "PR hierarchies are set up independently, including Authorized Approval and COA. These must be configured using Invoice",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-667cee21.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "source_list",
+      "targetPage": "List Management",
+      "targetField": "listName",
+      "condition": "PROVENANCE OF THE SOURCE LIST OPTION SET. The list chosen here must already exist in List Management - it is created and named there in Step 1 and merely selected here in Step 2. This is the resolution side of the pre-existing forward endpoints dep.g5g5.050 and dep.g5g5.051.",
+      "sourceQuote": "In the Source List, select the name of the list you created in Step 1",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "level",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "source_list",
+      "condition": "CARDINALITY RULE. The number of Level rows is not free choice: it is dictated by the shape of the list selected in Source List. A multi-level source list forces matching additional levels.",
+      "sourceQuote": "If a multi-level list was created, be sure to add additional levels and segments to match the list levels.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "segment_name",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "source_list",
+      "condition": "Same cardinality rule, second governed control: Segment Name rows are paired one-to-one with Level rows and their count must match the source list's level count.",
+      "sourceQuote": "If a multi-level list was created, be sure to add additional levels and segments to match the list levels.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "feature_name",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "modify_hierarchy_button",
+      "condition": "NAVIGATION ORDERING on the Feature Hierarchies landing screen, stated explicitly with 'and then': the named feature hierarchy row is selected FIRST, and only then is Modify Hierarchy clicked. A driver must match the feature name by text, never by ordinal position.",
+      "sourceQuote": "On the Feature Hierarchies, select _Invoice Vendor Employee Access_, and then click Modify Hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "modify_hierarchy_button",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "source_list",
+      "condition": "INFERRED: the corpus does not state this ordering in a sentence; it follows from the numbered procedure in professional-edition-fb3e6aa2.md, where 'Select Modify Hierarchy.' is step 3 and 'Select the source list to use to identify the various funding accounts.' is step 4. Modify Hierarchy is the GATE - Source List, Level and Segment Name are unreachable until it is clicked.",
+      "sourceQuote": "Select Modify Hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "new_level_button",
+      "targetPage": "Feature Hierarchies",
+      "targetField": "level",
+      "condition": "The New button inside the Modify Hierarchy editor is what creates a Level row and populates its value. The action is repeatable - one click per hierarchy level required by the source list.",
+      "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+      "type": "depends_on",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "segment_name",
+      "targetPage": "Forms and Fields",
+      "targetField": "fieldName",
+      "condition": "PREREQUISITE DIRECTION. The custom field offered in the Segment Name list must already be configured before the Feature Hierarchies procedure is started. Stated as an explicit precondition note above the numbered steps of the Invoice Payment hierarchy procedure.",
+      "sourceQuote": "The source list and custom field referenced in the steps below must already be configured before you proceed.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "segment_name",
+      "targetPage": "Forms and Fields",
+      "targetField": "fieldName",
+      "condition": "CONSUMPTION DIRECTION, the reciprocal of the prerequisite edge above. The Custom field designated as a segment HERE (Step 2) is afterwards added to the Employee form on Forms and Fields (Step 4), which is what exposes it to end users. The two pages are mutually ordered around one custom field; both edges are real and neither replaces the other.",
+      "sourceQuote": "In this step you will add the field (Custom 02) specified in the Feature Hierarchies step (Step 2) to the Employee form.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "source_list",
+      "targetPage": "Routing Configuration",
+      "targetField": "level_1_10_code",
+      "condition": "The Invoice Routing feature hierarchy's source list and segments are specified on Feature Hierarchies, not on Routing Configuration, which then consumes the resulting hierarchy path. DEDUPE NOTE FOR THE MERGER: the pre-existing dep.g2.003 encodes the same relationship from the Routing side with a different quote from the same file, and its source field name 'Source list' differs in case from the roster name 'source_list'; this edge is emitted with the exact roster name so the endpoint resolves. Merge rather than double-count.",
+      "sourceQuote": "The user first specifies the source list and relevant segments using the Invoice Routing hierarchy in the Feature Hierarchies area.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md"
+    },
+    {
+      "type": "triggers",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "level",
+      "targetPage": "User Administration",
+      "targetField": "Authorized Approval Limits",
+      "condition": "FORWARD REFERENCE, EXPECTED TO STAY UNRESOLVED - Administration > Company > Company Admin > User Administration is out of scope for this graph by the 2026-08-31 decision, and the Authorized Approval Limits window is real and documented but is not a page to build. Recorded because the state of THIS page decides which control that window shows: if the Authorized Approver feature is activated and the hierarchy built here has at least one Level in addition to Global, the Authorized Approval Limits link appears; with the Global group alone it does not.",
+      "sourceQuote": "then the Authorized Approval Limits link appears in the Expense and Invoices Setting section",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    },
+    {
+      "type": "precedes",
+      "sourcePage": "Feature Hierarchies",
+      "sourceField": "feature_name",
+      "targetPage": "Payment Group Configuration",
+      "targetField": "payment group",
+      "condition": "FORWARD REFERENCE TO A PAGE THAT IS NOT IN THE GRAPH AND SHOULD STAY UNRESOLVED. The corpus names the surface 'Payment Group Configuration'; it is neither one of the twenty built pages nor one of the named unbuilt ones, and the quote states the requirement without naming a destination page, so the endpoint is deliberately NOT force-bound to Invoice Settings or Group Configurations. The Invoice Payment feature hierarchy must exist before payment groups can be configured.",
+      "sourceQuote": "Feature hierarchy configuration is required before you can configure payment groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+    }
+  ]
+}

@@ -1,0 +1,1049 @@
+{
+  "steps": [
+    {
+      "id": "grpworkflows-s1-stand-up-invoice-approval-workflow-end-to-end",
+      "name": "Stand up a new invoice approval workflow end to end (Approval Statuses -> Copy -> General -> Steps -> Step Rules -> Policy)",
+      "goal": "A brand-new invoice approval workflow exists, is fully stepped and ruled, and is actually in force because a policy points at it. Half-works if a leg is skipped: (a) skip the Approval Statuses tab and the Initial Status list on every step offers only the shipped defaults, so the custom status you meant to drive skip-to-step behaviour with silently does not exist; (b) skip the Copy and there is nothing to configure at all - the corpus states the administrator cannot create a workflow from scratch; (c) build steps but never attach the workflow to a policy and the whole object is inert - nothing routes through it, and worse, once it IS attached it can no longer be deleted; (d) author step rules before the steps exist and the Step Rules page has nothing to attach them to.",
+      "pages": ["Workflows", "Policies"],
+      "fields": [
+        "approval_status_status",
+        "approval_status_action_text",
+        "approval_status_description",
+        "approval_status_editable_by_groups",
+        "btn_copy_workflow",
+        "workflow_type",
+        "workflow_name",
+        "editable_by_groups",
+        "steps_can_be_added_by",
+        "approval_time_expired_action",
+        "expire_after_this_many_days",
+        "btn_next_wizard",
+        "btn_new_step",
+        "step_name",
+        "step_role",
+        "step_approval_actions",
+        "step_approver_editable_by",
+        "step_deletable_by",
+        "step_initial_status",
+        "btn_save_step",
+        "step_order_column",
+        "step_rule_name",
+        "step_rule_force_evaluation",
+        "step_rule_action_name",
+        "btn_ok_condition",
+        "btn_done_workflow",
+        "Invoice Workflow",
+        "Save"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Workflows",
+          "action": "on the Approval Statuses tab > Invoice sub-tab, click New and type the name of each custom approval status the workflow will use",
+          "field": "approval_status_status",
+          "rationale": "CORPUS-STATED, and it is literally step 1 of SAP's own ordered list: 'When creating custom invoice workflows, an administrator should perform these steps in the following order:' followed by 'Create any custom approval statuses that you may use in the workflow.' (workflow-creation-process-1d37b85f.md). Run out of order and the Initial Status list on the Add Workflow Step page has no custom entry to offer - work-with-the-steps-page-fab249d1.md states 'You can also create custom approval statuses.' as the source of that list."
+        },
+        {
+          "order": 2,
+          "page": "Workflows",
+          "action": "type the action text that will become the approver's button label for this status",
+          "field": "approval_status_action_text",
+          "rationale": "CORPUS-STATED: 'Type descriptive text to be used as the action text. This text becomes button text for the approver.' (adding-an-invoice-approval-status-d8cbbe5d.md). This is the only place the on-screen button label is set; leaving it until after the workflow is built means approvers see an unlabelled or default action for whatever period elapses."
+        },
+        {
+          "order": 3,
+          "page": "Workflows",
+          "action": "type the description text for the status",
+          "field": "approval_status_description",
+          "rationale": "CORPUS-STATED: 'Type the description text.' (adding-an-invoice-approval-status-d8cbbe5d.md). Ordering is internal to the Request Status window - it must be filled before Save on the same window, not after."
+        },
+        {
+          "order": 4,
+          "page": "Workflows",
+          "action": "select the group configuration(s) permitted to edit this status, then Save the Request Status window",
+          "field": "approval_status_editable_by_groups",
+          "rationale": "CORPUS-STATED: 'Select the group configuration(s) that can edit this workflow.' (adding-an-invoice-approval-status-d8cbbe5d.md). INFERRED consequence of running it late: this is a rights field, so a status saved with the wrong group is editable by the wrong administrators from the moment it is saved."
+        },
+        {
+          "order": 5,
+          "page": "Workflows",
+          "action": "on the Workflows tab select the workflow that most closely matches the target and click Copy",
+          "field": "btn_copy_workflow",
+          "rationale": "CORPUS-STATED and non-negotiable: 'To create a new workflow, an administrator must copy an existing invoice workflow and make the appropriate edits.' and 'The administrator cannot create a workflow from scratch.' (create-a-new-workflow-15992497.md). There is no 'New' entry point on the Workflows tab; an automation driver that looks for one stalls. The documented order agrees: 'Create a workflow by copying an existing workflow or the default workflow.' (workflow-creation-process-1d37b85f.md)."
+        },
+        {
+          "order": 6,
+          "page": "Workflows",
+          "action": "on the General page (wizard page 1 of 3) read back Workflow Type and confirm it is the flavour you intended",
+          "field": "workflow_type",
+          "rationale": "CORPUS-STATED: 'This field is read-only. It identifies the type of workflow that you chose to edit.' (create-a-new-workflow-554e86aa.md). Because it is read-only and inherited from the copy source, order 5 is the ONLY moment the type can be chosen. Discovering the wrong type after the steps are built means discarding the object and copying again."
+        },
+        {
+          "order": 7,
+          "page": "Workflows",
+          "action": "type a new name for the workflow",
+          "field": "workflow_name",
+          "rationale": "CORPUS-STATED: 'Type a new name for the workflow. This name does not have to be unique.' (create-a-new-workflow-554e86aa.md). Because names need not be unique, an unrenamed copy is indistinguishable from its source in the Workflows tab list and in the Policies page's workflow list - a driver that assigns by name can bind the policy to the wrong object. Rename before anything selects the workflow by name."
+        },
+        {
+          "order": 8,
+          "page": "Workflows",
+          "action": "select the group rights an administrator must hold to modify this workflow",
+          "field": "editable_by_groups",
+          "rationale": "CORPUS-STATED: 'Select the group rights that an administrator must have in order to modify this workflow.' (create-a-new-workflow-554e86aa.md). CONTRADICTION WORTH DRIVING CAREFULLY: invoice-settings-cace748d.md states that if the Settings-tab own-approver check box is cleared, 'If this check box is not selected, then it overrides the Editable By Group(s) and Steps Can Be Added By fields on the Edit Workflow page and the Add/Edit Workflow Steps page.' - so a value set here can be silently overridden by a control on a different tab, and setting the Settings tab afterwards raises a conflict error."
+        },
+        {
+          "order": 9,
+          "page": "Workflows",
+          "action": "choose who may add ad hoc steps to this workflow",
+          "field": "steps_can_be_added_by",
+          "rationale": "CORPUS-STATED gate on two later General-page fields: 'This field is available only if you have chosen an option in the Steps Can Be Added field.' gates the employee-added-step email option, and 'This field is only available if you have chosen an option in the Steps Can Be Added field field.' (SAP's own duplicated word) gates Restrict Authorized Approver for - both in create-a-new-workflow-554e86aa.md. Leave this empty and those two controls are not merely default, they are absent from the page."
+        },
+        {
+          "order": 10,
+          "page": "Workflows",
+          "action": "select the action to take when an approver has not approved within the allowed time",
+          "field": "approval_time_expired_action",
+          "rationale": "CORPUS-STATED: 'This setting only appears if the admin has selected an option in the Approval Time Expired field.' (create-a-new-workflow-554e86aa.md) - the day-count field below does not render until this list has a value. The same file gives the OR-gate for the extension field: 'This option is only available if either the Approval Time Expired Action or Assignment Timeout Action options are enabled.'"
+        },
+        {
+          "order": 11,
+          "page": "Workflows",
+          "action": "type the number of days after which the approval expires",
+          "field": "expire_after_this_many_days",
+          "rationale": "CORPUS-STATED conditional visibility, the reverse side of order 10: 'This setting only appears if the admin has selected an option in the Approval Time Expired field.' (create-a-new-workflow-554e86aa.md). A driver that tries this field first finds nothing and, if it silently continues, ships a timeout action with no timeout."
+        },
+        {
+          "order": 12,
+          "page": "Workflows",
+          "action": "click Next to leave the General page",
+          "field": "btn_next_wizard",
+          "rationale": "CORPUS-STATED wizard transition: 'Click Next.' followed by 'The Steps page appears.' (create-a-new-workflow-554e86aa.md). The Steps page is a wizard page reached only through this button on a workflow already copied - it is not a separate left-menu destination, so there is no way to reach it before orders 5-11 are done."
+        },
+        {
+          "order": 13,
+          "page": "Workflows",
+          "action": "on the Steps page click New to open the Add Workflow Step window",
+          "field": "btn_new_step",
+          "rationale": "CORPUS-STATED: 'On the Steps page, click New.' (work-with-the-steps-page-fab249d1.md). INFERRED from the wizard structure documented in create-a-new-workflow-554e86aa.md: the Steps page only exists inside the workflow object opened at order 5, so every step created here belongs to that copy and cannot be authored in advance."
+        },
+        {
+          "order": 14,
+          "page": "Workflows",
+          "action": "type the step name the employee will see on the Approval Flow page",
+          "field": "step_name",
+          "rationale": "CORPUS-STATED: 'Type any alphanumeric name for the workflow step.' (work-with-the-steps-page-fab249d1.md), which also warns the name appears to the employee. INFERRED: naming is first in the window because the remaining fields (Role, Approval Actions) change which controls render, and renaming afterwards means re-opening a saved step."
+        },
+        {
+          "order": 15,
+          "page": "Workflows",
+          "action": "select the role responsible for completing this step",
+          "field": "step_role",
+          "rationale": "CORPUS-STATED, and the single most order-sensitive control on the Steps page. work-with-the-steps-page-fab249d1.md: 'such as Authorized Approver, Invoice Approver, Invoice Processor, Invoice Processor Manager, or Invoice Vendor Manager' - and if it is a non-system role 'you must select an action or multiple actions in the Approval Actions field.' The same file: 'If you select Authorized Approver, two check boxes appear to select whether or not the authorized approver is based on limit or exception level of the invoice.' Set Role last and the fields you needed were never on screen."
+        },
+        {
+          "order": 16,
+          "page": "Workflows",
+          "action": "pick the approval actions this approver may take",
+          "field": "step_approval_actions",
+          "rationale": "CORPUS-STATED: 'From the Approval Actions helper pane, click an action that an approver can make to an invoice that is awaiting approval.' (work-with-the-steps-page-fab249d1.md). The same file states this field is REQUIRED for any non-system role, and that the control switches between multi-select and single-select depending on the Role chosen at order 15 - so it must follow Role, never precede it."
+        },
+        {
+          "order": 17,
+          "page": "Workflows",
+          "action": "select who may edit the approver on this step",
+          "field": "step_approver_editable_by",
+          "rationale": "CORPUS-STATED CROSS-TAB GATE: 'If you have the Allow users to select their own approver for payment request field on the Settings page not selected, then the employee does not appear as an option.' (work-with-the-steps-page-fab249d1.md). The employee option is missing from this list entirely unless the Settings tab was set first - so if a centralized workflow is intended, set the Settings tab BEFORE this step, or the value you pick here is later overridden with a conflict error per invoice-settings-cace748d.md."
+        },
+        {
+          "order": 18,
+          "page": "Workflows",
+          "action": "select who may delete this step from the Approval Flow page",
+          "field": "step_deletable_by",
+          "rationale": "CORPUS-STATED: 'Select who can delete this step on the Approval Flow page within Invoice, the employee, approver, or both.' (work-with-the-steps-page-fab249d1.md). INFERRED ordering: this is a per-step right, so it must be set while the step window is open; there is no documented bulk pass to apply it to steps already saved."
+        },
+        {
+          "order": 19,
+          "page": "Workflows",
+          "action": "select the approval status the invoice takes when this step begins",
+          "field": "step_initial_status",
+          "rationale": "CORPUS-STATED dependency on order 1: 'Click an approval status that represents what the invoice status should be set to when the Step begins, such as Pending Approval.' and, in the same row, 'You can also create custom approval statuses.' (work-with-the-steps-page-fab249d1.md). If the Approval Statuses tab was skipped, this list simply lacks the custom status and the step silently keeps a default - a workflow that looks configured and routes wrongly."
+        },
+        {
+          "order": 20,
+          "page": "Workflows",
+          "action": "save the step",
+          "field": "btn_save_step",
+          "rationale": "CORPUS-STATED: 'Click Save to return to the Workflows page.' (work-with-the-steps-page-fab249d1.md). INFERRED: the save is what makes the step addressable by the Step Rules page at order 22 - an unsaved step cannot carry a rule."
+        },
+        {
+          "order": 21,
+          "page": "Workflows",
+          "action": "use the Step Order column to put the saved steps in the intended sequence",
+          "field": "step_order_column",
+          "rationale": "CORPUS-STATED: 'To place the steps in the proper workflow order, use the Step Order column.' (work-with-the-steps-page-fab249d1.md). HARD ORDERING RULE that must be honoured here and not discovered later: 'The Vendor Approval system step _cannot_ precede the Cost Object Approval step.' (step-3-edit-the-workflow-steps-f2731590.md). ROLE GATE on this action, quoted: 'This portion of the configuration requires permissions for the Workflows section in Administration.' (same file)."
+        },
+        {
+          "order": 22,
+          "page": "Workflows",
+          "action": "on the Step Rules page select a step and click New, then name the rule",
+          "field": "step_rule_name",
+          "rationale": "CORPUS-STATED, and the reason this leg is last: 'Once you have created the workflow steps, you can attach rules to each step.' (work-with-the-step-rules-page-4c33cda0.md). The same file also states 'Not all steps can have rules. If the selected step can have a rule, the New button becomes available.' - so a driver must select a step first and read the New button's state rather than assume every step accepts a rule."
+        },
+        {
+          "order": 23,
+          "page": "Workflows",
+          "action": "decide whether this rule is always evaluated or only when the other rules on the step are false",
+          "field": "step_rule_force_evaluation",
+          "rationale": "CORPUS-STATED: 'If the check box is _not_ selected, then the rule is evaluated and executed only if all other rules in this step were determined to be false.' (work-with-the-step-rules-page-4c33cda0.md). INFERRED ordering consequence: because the default behaviour is order-dependent across rules on the same step, adding a second rule later can change whether the first one ever fires - set this deliberately on every rule, not just the first."
+        },
+        {
+          "order": 24,
+          "page": "Workflows",
+          "action": "in the Edit Action window select the action the rule performs",
+          "field": "step_rule_action_name",
+          "rationale": "CORPUS-STATED CARDINALITY LIMIT that constrains what can be added afterwards: 'A single workflow rule can contain only one of these actions:' - Skip step, Change approver, Send back to employee (work-with-the-step-rules-page-4c33cda0.md), while Generate an exception and Send email may repeat. A driver that appends a second exclusive action to an existing rule is rejected; it must author a second rule instead."
+        },
+        {
+          "order": 25,
+          "page": "Workflows",
+          "action": "confirm the condition in the Edit Condition window",
+          "field": "btn_ok_condition",
+          "rationale": "CORPUS-STATED: 'Click OK.' (edit-workflow-rules-and-actions-abdf9b11.md). INFERRED: the condition is the 'if' half of the rule described in work-with-the-step-rules-page-4c33cda0.md ('Create a condition (the \"if\" portion...)'), so it must be committed before the action window can be reached and before the rule is meaningful."
+        },
+        {
+          "order": 26,
+          "page": "Workflows",
+          "action": "click Done to leave the workflow wizard",
+          "field": "btn_done_workflow",
+          "rationale": "CORPUS-STATED: 'Click Done.' (edit-workflow-properties-409a8f0b.md). INFERRED: Done is the exit from the three-page wizard; until it is clicked the workflow object is still in the editor and the Policies page has nothing new to select."
+        },
+        {
+          "order": 27,
+          "page": "Policies",
+          "action": "open the target policy and select the new workflow in the Invoice Workflow list",
+          "field": "Invoice Workflow",
+          "rationale": "CORPUS-STATED, step 8 of the documented order: 'Assign the invoice workflow to a policy.' (workflow-creation-process-1d37b85f.md), reinforced by 'Once you have created the workflow, you must associate it to a policy.' (create-a-new-workflow-15992497.md). Skip this and the workflow exists but nothing routes through it. LABEL DRIFT TO EXPECT: activating-the-confirmation-agreement-feature-bdfc1dce.md describes this same list as 'In the Expense Report Workflow list, choose the appropriate workflow.' - two different labels in the corpus for the same association."
+        },
+        {
+          "order": 28,
+          "page": "Policies",
+          "action": "save the policy",
+          "field": "Save",
+          "rationale": "CORPUS-STATED: 'Click Save.' (activating-the-confirmation-agreement-feature-bdfc1dce.md, policy association procedure). ONE-WAY DOOR the operator should know before saving: 'The system does not allow you to delete a workflow that is currently assigned to a policy.' (delete-a-workflow-or-workflow-steps-e9a84a07.md) - after this save, removing the workflow requires unassigning it here first."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-s2-configure-authorized-approver-feature",
+      "name": "Configure the Authorized Approver feature (hierarchy first, then activation, then steps, then the approver list)",
+      "goal": "Invoices route to approvers whose authority is bounded by an approval limit and/or an exception range, driven by a real hierarchy. The corpus makes the ordering a hard blocker rather than a preference: without the Feature Hierarchies leg the feature cannot even be activated; without activation the ad hoc restriction options are absent from the workflow; without a step whose Role is Authorized Approver the feature is inert; and without a level on that step the Level field never appears on the approver record, so every approver ends up unlevelled and the filtering silently does nothing.",
+      "pages": ["List Management", "Feature Hierarchies", "Workflows", "User Administration"],
+      "fields": [
+        "listName",
+        "itemCode",
+        "itemName",
+        "addSubLevels",
+        "doneButton",
+        "feature_name",
+        "modify_hierarchy_button",
+        "source_list",
+        "new_level_button",
+        "level",
+        "segment_name",
+        "save_button",
+        "authorized_approver_feature_available_for_workflows",
+        "minimum_exception_level",
+        "maximum_exception_level",
+        "btn_modify_workflow",
+        "step_role",
+        "step_restrict_approvers_limit_authority_checkbox",
+        "step_restrict_approvers_exception_authority_checkbox",
+        "step_authorized_approver_level",
+        "btn_save_step",
+        "authorized_approver_list_approver",
+        "authorized_approver_approval_limit",
+        "authorized_approver_can_approve_exception",
+        "authorized_approver_level",
+        "steps_can_be_added_by",
+        "restrict_authorized_approver_for"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "List Management",
+          "action": "create the list that will back the Authorized Approver hierarchy and give it a descriptive name",
+          "field": "listName",
+          "rationale": "CORPUS-STATED HARD BLOCKER: 'and import/create its associated source list before the authorized approver feature can be activated.' (understand-the-hierarchy-b65d7089.md). The Global-group-vs-hierarchy matrix states the same requirement as step 1 of the hierarchy column: 'Create a connected (multi-level) list of the hierarchy levels.' (global-group-vs-authorized-approver-hierarchy-8a960238.md). A driver that opens Workflows first finds the feature unactivatable."
+        },
+        {
+          "order": 2,
+          "page": "List Management",
+          "action": "add each list item's code",
+          "field": "itemCode",
+          "rationale": "CORPUS-STATED, and the reason codes must be settled before anything downstream reads them: 'The code format (EAST; NORTH) for each list item must be typed exactly as you have entered them here in your import.' (step-1-create-the-source-list-in-list-management-cc91aa73.md). Changing a code after the hierarchy and any import reference it breaks the match silently."
+        },
+        {
+          "order": 3,
+          "page": "List Management",
+          "action": "add each list item's display name",
+          "field": "itemName",
+          "rationale": "CORPUS-STATED: the source list items are what the hierarchy levels resolve to - 'The source list is the hierarchical structure that will become the named vendor groups to which vendors will be assigned.' (step-1-create-the-source-list-in-list-management-cc91aa73.md, describing the same list-building procedure). INFERRED: names are cosmetic where codes are load-bearing, so they may be edited later without breaking the match - unlike order 2."
+        },
+        {
+          "order": 4,
+          "page": "List Management",
+          "action": "add sub-levels if the hierarchy is to be multi-level, then click Done",
+          "field": "addSubLevels",
+          "rationale": "CORPUS-STATED: 'Create a connected (multi-level) list of the hierarchy levels.' (global-group-vs-authorized-approver-hierarchy-8a960238.md) and, from the parallel vendor-access procedure, 'If a multi-level list was created, be sure to add additional levels and segments to match the list levels.' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). Depth added after the hierarchy is mapped leaves hierarchy levels and list levels out of step."
+        },
+        {
+          "order": 5,
+          "page": "List Management",
+          "action": "click Done to close out the list",
+          "field": "doneButton",
+          "rationale": "INFERRED from the list-building procedure in step-1-create-the-source-list-in-list-management-cc91aa73.md, which ends the item loop with 'Click Done when all list items have been added.' The list must be complete and closed before it can be picked as a Source List on Feature Hierarchies."
+        },
+        {
+          "order": 6,
+          "page": "Feature Hierarchies",
+          "action": "select the Invoice Authorized Approver feature hierarchy from the landing screen",
+          "field": "feature_name",
+          "rationale": "CORPUS-STATED: the hierarchy is defined here and nowhere else - 'You must define the authorized approver hierarchy (Invoice' ... 'Feature Hierarchies)' per understand-the-hierarchy-b65d7089.md (quote continues 'and import/create its associated source list before the authorized approver feature can be activated.'). The workflow-creation order names the same leg: '(Optional) Set up the Payment Authorized Approvers hierarchy if you choose to use authorized approvers.' (workflow-creation-process-1d37b85f.md) - optional only because authorized approvers themselves are optional, not because the ordering is."
+        },
+        {
+          "order": 7,
+          "page": "Feature Hierarchies",
+          "action": "click Modify Hierarchy to open the detail editor",
+          "field": "modify_hierarchy_button",
+          "rationale": "CORPUS-STATED: 'Select Modify Hierarchy.' (professional-edition-fb3e6aa2.md). ROLE GATE, quoted: 'This portion of the configuration requires permissions for the Feature Hierarchies section in Administration.' (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md) - a Workflows-only administrator cannot complete this leg at all."
+        },
+        {
+          "order": 8,
+          "page": "Feature Hierarchies",
+          "action": "select the list built in orders 1-5 as the Source List",
+          "field": "source_list",
+          "rationale": "CORPUS-STATED, and the resolution of the prerequisite: 'In the Source List, select the name of the list you created in Step 1' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). The corpus is explicit that the list must pre-exist: 'The source list and custom field referenced in the steps below must already be configured before you proceed.' (professional-edition-fb3e6aa2.md)."
+        },
+        {
+          "order": 9,
+          "page": "Feature Hierarchies",
+          "action": "click New to add a level row",
+          "field": "new_level_button",
+          "rationale": "CORPUS-STATED: 'Click New to add Employee as the value for Level (this is the default and cannot be changed).' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). INFERRED: level rows and segment rows are paired one-to-one, so a level must be created before a segment can be assigned to it."
+        },
+        {
+          "order": 10,
+          "page": "Feature Hierarchies",
+          "action": "set the level for the row",
+          "field": "level",
+          "rationale": "CORPUS-STATED, AND THE CORPUS CONTRADICTS ITSELF HERE - recorded rather than reconciled: step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md says of the Vendor Employee Access hierarchy 'Click New to add Employee as the value for Level (this is the default and cannot be changed).', while professional-edition-fb3e6aa2.md instructs 'Set the level to Request.' for the Invoice Payment hierarchy. The corpus gives different level behaviour per feature hierarchy; do not assume either is universal. CONSEQUENCE OF LEVEL COUNT, corpus-stated in the same family: whether the hierarchy carries at least one level beyond Global determines which control User Administration later exposes."
+        },
+        {
+          "order": 11,
+          "page": "Feature Hierarchies",
+          "action": "select the field that acts as the hierarchy path segment for this level",
+          "field": "segment_name",
+          "rationale": "CORPUS-STATED: 'In the Segment Name list, select the field that will act as the list in User Permissions' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). The field must already exist and already be tied to the source list - 'The source list and custom field referenced in the steps below must already be configured before you proceed.' (professional-edition-fb3e6aa2.md) - so a segment chosen before the field is configured resolves to nothing."
+        },
+        {
+          "order": 12,
+          "page": "Feature Hierarchies",
+          "action": "click Save to commit the hierarchy",
+          "field": "save_button",
+          "rationale": "CORPUS-STATED: 'Click Save.' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). This save is the boundary the Workflows leg depends on: only after it does the activation gate in order 13 become satisfiable."
+        },
+        {
+          "order": 13,
+          "page": "Workflows",
+          "action": "on the Authorized Approvers tab > Configuration sub-tab, select the feature activation check box",
+          "field": "authorized_approver_feature_available_for_workflows",
+          "rationale": "CORPUS-STATED: 'To activate the feature, select Authorized Approver feature is available for workflows.' (procedure-2d20b513.md), and this is step 2 of the two-column configuration matrix in global-group-vs-authorized-approver-hierarchy-8a960238.md (required for BOTH the global-group-only path and the hierarchy path). It is also a visibility gate on a General-page control: the ad hoc restriction options 'do not appear in Workflow until you have selected Authorized Approver feature is available for workflows on the Configuration tab of the Authorized Approvers tab.' (understand-ad-hoc-steps-ce0af3e7.md)."
+        },
+        {
+          "order": 14,
+          "page": "Workflows",
+          "action": "enter the minimum exception level authorized approvers may approve",
+          "field": "minimum_exception_level",
+          "rationale": "CORPUS-STATED: 'Enter the minimum exception level that authorized approvers can approve.' (procedure-2d20b513.md), listed as step 2's second half in the matrix: 'For exception-based approval configurations, define the upper and lower exception level.' (global-group-vs-authorized-approver-hierarchy-8a960238.md). SCOPE WARNING, corpus-stated: 'The range is set in Administration > Invoice > Workflows > Authorized Approver tab.' and it applies to ALL exception-based authorized approvers (configuration-8b3be88b.md) - it is not a per-approver value, so setting it after approvers exist retroactively changes every one of them."
+        },
+        {
+          "order": 15,
+          "page": "Workflows",
+          "action": "enter the maximum exception level authorized approvers may approve, then Save the Configuration sub-tab",
+          "field": "maximum_exception_level",
+          "rationale": "CORPUS-STATED: 'Enter the maximum exception level that authorized approvers can approve.' (procedure-2d20b513.md). Same all-approver scope as order 14 per configuration-8b3be88b.md. INFERRED: leaving the range unset while giving individual approvers the exception right at order 25 ('Select the check box to give this authorized approver exception approval.' - authorized-approver-list-a9522ec8.md) produces approvers with exception rights but no band to exercise them in."
+        },
+        {
+          "order": 16,
+          "page": "Workflows",
+          "action": "on the Workflows tab select the target workflow and click Modify, then open the Steps page",
+          "field": "btn_modify_workflow",
+          "rationale": "CORPUS-STATED: 'Select the desired workflow and click Modify.' (edit-workflow-properties-409a8f0b.md); the authorized-approver procedure enters the same way and then goes 'On the  Steps page, click New. The Add Workflow Step window appears.' (create-an-authorized-approver-step-4640b5a5.md). INFERRED: the workflow must already exist - this step presumes the workflow from grpworkflows-s1, or an existing one."
+        },
+        {
+          "order": 17,
+          "page": "Workflows",
+          "action": "set the step's Role to Authorized Approver",
+          "field": "step_role",
+          "rationale": "CORPUS-STATED, and the reason activation alone is not enough: 'An authorized approver is only used if set up as a step(s) in a workflow process.' (authorized-approvers-8b3ab7ad.md). Setting Role is also what renders the next three controls: 'If you select Authorized Approver, two check boxes appear to select whether or not the authorized approver is based on limit or exception level of the invoice.' (work-with-the-steps-page-fab249d1.md)."
+        },
+        {
+          "order": 18,
+          "page": "Workflows",
+          "action": "select the limit-authority restriction if the step should only accept limit-approved approvers",
+          "field": "step_restrict_approvers_limit_authority_checkbox",
+          "rationale": "CORPUS-STATED: 'Select Restrict approvers to those with limit authority to limit the type of authorized approver.' (create-an-authorized-approver-step-4640b5a5.md). The same file states the fail-open consequence of skipping both check boxes: 'If neither of these is checked, any approver may be used for the step, but the limit-approved or exception-approved indicator will be set only if the approver is authorized.' - the step LOOKS restricted and is not."
+        },
+        {
+          "order": 19,
+          "page": "Workflows",
+          "action": "select the exception-authority restriction if the step should only accept exception-approved approvers",
+          "field": "step_restrict_approvers_exception_authority_checkbox",
+          "rationale": "CORPUS-STATED: 'Select Restrict approvers to those with exception authority to limit the type of authorized approver.' (create-an-authorized-approver-step-4640b5a5.md). Depends on the exception range set at orders 14-15: configuration-8b3be88b.md states the min/max 'range applies to all exception-based authorized approvers', so this restriction is meaningless until that range exists."
+        },
+        {
+          "order": 20,
+          "page": "Workflows",
+          "action": "enter the authorized approver level that this step requires",
+          "field": "step_authorized_approver_level",
+          "rationale": "CORPUS-STATED VISIBILITY GATE: 'The Authorized Approver Level field appears only if the Authorized Approver option is selected in the Role field.' (step-1-assign-the-level-to-the-workflow-step-6035f10a.md). This is also the hinge for order 23 - see that entry."
+        },
+        {
+          "order": 21,
+          "page": "Workflows",
+          "action": "save the workflow step",
+          "field": "btn_save_step",
+          "rationale": "CORPUS-STATED: the authorized-approver step procedure ends 'Click Save.' before moving to rules (create-an-authorized-approver-step-4640b5a5.md). INFERRED: the save is what publishes the level to the Authorized Approver List, which is why order 23 can only work afterwards."
+        },
+        {
+          "order": 22,
+          "page": "Workflows",
+          "action": "on the Authorized Approvers tab > Authorized Approver List sub-tab, expand the hierarchy tree, select the group, click New and pick the approver",
+          "field": "authorized_approver_list_approver",
+          "rationale": "CORPUS-STATED dependency back on the Feature Hierarchies leg: 'The groups that appear here are from the Authorized Approver Hierarchy.' (authorized-approver-list-a9522ec8.md). Run this before orders 6-12 and the left-hand tree has no groups to select, so 'Select the group that is associated this authorized approver.' (same file) cannot be performed. The documented workflow order also puts this after the hierarchy: '(Optional) Add authorized approvers, if you choose to use authorized approvers.' (workflow-creation-process-1d37b85f.md)."
+        },
+        {
+          "order": 23,
+          "page": "Workflows",
+          "action": "enter the level number on the approver record so this approver matches the step's required level",
+          "field": "authorized_approver_level",
+          "rationale": "CORPUS-STATED, the sharpest ordering trap in this procedure: 'Once the level is added to the workflow step (described above), the Level field will appear in the New Authorized Approver and Modify Authorized Approver window.' (step-2-assign-the-level-to-the-approver-d8bf669c.md), corroborated by 'The Level field appears if levels have been assigned to a workflow approval step.' (authorized-approver-list-a9522ec8.md). Do order 20 first or this field is simply not on screen and every approver is saved unlevelled - the step's level filter then matches nobody."
+        },
+        {
+          "order": 24,
+          "page": "Workflows",
+          "action": "set the approver's approval limit currency and amount",
+          "field": "authorized_approver_approval_limit",
+          "rationale": "CORPUS-STATED: 'If you want this authorized approver to have limit approval, select the currency and the amount.' (authorized-approver-list-a9522ec8.md). Per-approver by design: 'The amount is set for each approver in the Authorized Approver List, in User Administration, or in the employee import.' (configuration-8b3be88b.md) - unlike the exception range, which is global."
+        },
+        {
+          "order": 25,
+          "page": "Workflows",
+          "action": "tick the exception-approval right for this approver",
+          "field": "authorized_approver_can_approve_exception",
+          "rationale": "CORPUS-STATED: 'Select the check box to give this authorized approver exception approval.' (authorized-approver-list-a9522ec8.md). Order matters against orders 14-15: without the global min/max range the exception-approval right exists with no band, and against order 19: the step restriction filters on this flag, so approvers ticked after the step goes live are invisible to it until then."
+        },
+        {
+          "order": 26,
+          "page": "Workflows",
+          "action": "back on the workflow's General page, choose who may add ad hoc steps",
+          "field": "steps_can_be_added_by",
+          "rationale": "CORPUS-STATED prerequisite for order 27: 'This field is only available if you have chosen an option in the Steps Can Be Added field field.' (create-a-new-workflow-554e86aa.md - SAP's duplicated word preserved). Without a value here the ad hoc restriction control does not render."
+        },
+        {
+          "order": 27,
+          "page": "Workflows",
+          "action": "restrict ad hoc approval steps to authorized approvers",
+          "field": "restrict_authorized_approver_for",
+          "rationale": "CORPUS-STATED DOUBLE GATE - this control needs BOTH order 13 and order 26: 'do not appear in Workflow until you have selected Authorized Approver feature is available for workflows on the Configuration tab of the Authorized Approvers tab.' (understand-ad-hoc-steps-ce0af3e7.md), plus the Steps-Can-Be-Added gate quoted at order 26. Skip either and users keep inserting ad hoc steps to unauthorized approvers while the workflow appears configured."
+        },
+        {
+          "order": 28,
+          "page": "User Administration",
+          "action": "assign authorized approver rights to users as an alternative or supplement to the Authorized Approver List",
+          "field": "",
+          "rationale": "CORPUS-STATED alternative path, recorded as a FORWARD REFERENCE THAT STAYS UNRESOLVED: step-4-assign-the-proper-rights-to-users-86389a18.md lists three routes and states 'Regardless of how the authorized approvers are entered into Invoice, they all appear in the Authorized Approver List.' - so this leg is interchangeable with orders 22-25, not additional to them. The destination is Administration > Company > Company Admin > User Administration, which is OUT OF SCOPE for this graph by the 2026-08-31 decision; no page node exists and none should be created."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-s3-vendor-employee-access-hierarchy-six-tool-sequence",
+      "name": "Build a Vendor Employee Access hierarchy across the six tools in SAP's stated order",
+      "goal": "Vendors are partitioned into named groups and each employee can be pointed at exactly one group, so an invoice user only sees their own vendors. This is the procedure the corpus most explicitly orders, and every leg is load-bearing: the list supplies the codes, the hierarchy binds a custom field to those codes, Group Configurations creates groups whose names must match the list levels, and Forms and Fields is what EXPOSES the custom field on the Employee form. Skip the Forms and Fields leg and the whole chain is invisible - the User Administrator has no field to pick the vendor group from, so the hierarchy exists and nothing uses it.",
+      "pages": ["List Management", "Feature Hierarchies", "Group Configurations", "Forms and Fields", "User Administration"],
+      "fields": [
+        "listName",
+        "itemCode",
+        "itemName",
+        "addSubLevels",
+        "doneButton",
+        "feature_name",
+        "modify_hierarchy_button",
+        "source_list",
+        "new_level_button",
+        "level",
+        "segment_name",
+        "save_button",
+        "Vendor Access tab",
+        "New",
+        "Group (Vendor Access list)",
+        "Group Name",
+        "Save",
+        "formType",
+        "formsTabList",
+        "addFieldsButton",
+        "addFieldsToFormsFieldSelector",
+        "addFieldsConfirmButton",
+        "modifyFormFieldsWindowSingle",
+        "connectedListsTab"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "List Management",
+          "action": "create the source list and name it",
+          "field": "listName",
+          "rationale": "CORPUS-STATED, step 1 of an explicitly ordered six-tool sequence: 'The administrator uses the following tools in the order presented to configure the feature.' - List Management, Feature Hierarchies, Group Configurations, Forms and Fields, Vendor Employee Access Import, User Administration (overview-of-steps-37e3c289.md). ROLE GATE, quoted from the same sentence: 'All tasks require the Invoice Configuration administrator role unless' (noted otherwise)."
+        },
+        {
+          "order": 2,
+          "page": "List Management",
+          "action": "add each list item's code, recording it exactly",
+          "field": "itemCode",
+          "rationale": "CORPUS-STATED and the single most brittle value in this procedure: 'The code format (EAST; NORTH) for each list item must be typed exactly as you have entered them here in your import.' (step-1-create-the-source-list-in-list-management-cc91aa73.md). The Vendor Employee Access import at tool 5 matches on these codes; changing one afterwards breaks the mapping with no error at configuration time."
+        },
+        {
+          "order": 3,
+          "page": "List Management",
+          "action": "add each list item's name - these become the named vendor groups",
+          "field": "itemName",
+          "rationale": "CORPUS-STATED: 'The source list is the hierarchical structure that will become the named vendor groups to which vendors will be assigned.' (step-1-create-the-source-list-in-list-management-cc91aa73.md). Order 6 depends directly on these names: 'In this step you will create groups that match the source list levels you created in Step 1 and matched to the feature hierarchy in Step 2.' (step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md)."
+        },
+        {
+          "order": 4,
+          "page": "List Management",
+          "action": "add sub-levels now if multi-level vendor groups are intended",
+          "field": "addSubLevels",
+          "rationale": "CORPUS-STATED: 'If a multi-level list was created, be sure to add additional levels and segments to match the list levels.' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). Depth decided here propagates into the hierarchy segments (order 9), the group tree (order 7) and the Connected Lists tab (order 14); adding it later means revisiting all four."
+        },
+        {
+          "order": 5,
+          "page": "List Management",
+          "action": "click Done to close the list",
+          "field": "doneButton",
+          "rationale": "INFERRED from the list procedure's own closing instruction, 'Click Done when all list items have been added.' (step-1-create-the-source-list-in-list-management-cc91aa73.md). A list left open is not selectable as a Source List on the next page."
+        },
+        {
+          "order": 6,
+          "page": "Feature Hierarchies",
+          "action": "select the Invoice Vendor Employee Access feature hierarchy and click Modify Hierarchy",
+          "field": "feature_name",
+          "rationale": "CORPUS-STATED, step 2 of the six-tool order: 'On the Feature Hierarchies, select _Invoice Vendor Employee Access_, and then click Modify Hierarchy.' and 'In this step you will associate the source list you created in Step 1' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). The page is a sibling left-menu tool, not a sub-page of List Management: 'Click List Management (left menu).' appears in step-1-create-the-source-list-in-list-management-cc91aa73.md and 'Click Feature Hierarchies (left menu).' in step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md."
+        },
+        {
+          "order": 7,
+          "page": "Feature Hierarchies",
+          "action": "click Modify Hierarchy to open the editor",
+          "field": "modify_hierarchy_button",
+          "rationale": "CORPUS-STATED: 'Select Modify Hierarchy.' (professional-edition-fb3e6aa2.md). INFERRED: the Source List, Level and Segment Name controls live inside this editor, so nothing on this page can be configured from the landing screen alone."
+        },
+        {
+          "order": 8,
+          "page": "Feature Hierarchies",
+          "action": "pick the list created at order 1 in Source List",
+          "field": "source_list",
+          "rationale": "CORPUS-STATED: 'In the Source List, select the name of the list you created in Step 1' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). This is exactly why List Management is step 1 and not step 2 - the list must be selectable before the hierarchy can bind to it."
+        },
+        {
+          "order": 9,
+          "page": "Feature Hierarchies",
+          "action": "click New to add a level row",
+          "field": "new_level_button",
+          "rationale": "CORPUS-STATED: 'Click New to add Employee as the value for Level (this is the default and cannot be changed).' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). The row must exist before a segment can be attached to it."
+        },
+        {
+          "order": 10,
+          "page": "Feature Hierarchies",
+          "action": "accept Employee as the level for this hierarchy",
+          "field": "level",
+          "rationale": "CORPUS-STATED, and explicitly not a choice on this hierarchy: 'Click New to add Employee as the value for Level (this is the default and cannot be changed).' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). CONTRADICTION ACROSS FEATURE HIERARCHIES, recorded not reconciled: professional-edition-fb3e6aa2.md instructs 'Set the level to Request.' for the Invoice Payment hierarchy - so a driver must not carry either level value across hierarchies."
+        },
+        {
+          "order": 11,
+          "page": "Feature Hierarchies",
+          "action": "select the custom field that will act as the segment (the corpus example uses Custom 02)",
+          "field": "segment_name",
+          "rationale": "CORPUS-STATED, and the field named HERE is the one exposed at order 13: 'In this step you will add the field (Custom 02) specified in the Feature Hierarchies step (Step 2) to the Employee form.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md). Choose a different field on the form than the one named here and the two ends of the chain never meet."
+        },
+        {
+          "order": 12,
+          "page": "Feature Hierarchies",
+          "action": "click Save",
+          "field": "save_button",
+          "rationale": "CORPUS-STATED: 'Click Save.' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). INFERRED: the hierarchy must be committed before the group names created at order 13 can be checked against the list levels it maps."
+        },
+        {
+          "order": 13,
+          "page": "Group Configurations",
+          "action": "open the Vendor Access tab",
+          "field": "Vendor Access tab",
+          "rationale": "CORPUS-STATED, step 3 of the six-tool order: 'Click the Vendor Access tab.' within 'In this step you will create groups that match the source list levels you created in Step 1 and matched to the feature hierarchy in Step 2.' (step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md). Both prior legs must be finished because this step is defined by matching them."
+        },
+        {
+          "order": 14,
+          "page": "Group Configurations",
+          "action": "click New to open the Select Group window",
+          "field": "New",
+          "rationale": "CORPUS-STATED: the procedure at step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md runs 'Click New to open the Select Group window.' INFERRED: the Global tree it opens is only meaningful once the hierarchy from orders 6-12 exists."
+        },
+        {
+          "order": 15,
+          "page": "Group Configurations",
+          "action": "open the Global list, select the group name at its level and click Done",
+          "field": "Group (Vendor Access list)",
+          "rationale": "CORPUS-STATED, including the multi-level case: 'Multi-level list: To select a sub-group, open the list further and select the group name at its level, then click Done.' (step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md). The depth available here is the depth created at order 4 - which is why sub-levels cannot be deferred."
+        },
+        {
+          "order": 16,
+          "page": "Group Configurations",
+          "action": "type the vendor group name and Save, repeating until the named groups match the source list items",
+          "field": "Group Name",
+          "rationale": "CORPUS-STATED naming constraint that only bites at this point in the order: 'In this instance, the name does not need to match any existing code and may be descriptive. It cannot be the name of any existing group name already in the system.' (step-3-set-up-the-named-vendor-groups-in-group-configurations-abf369db.md). The same step requires 'repeating until the named groups match those you created for your source list in Step 1' - a mismatch here is the classic silent half-configuration."
+        },
+        {
+          "order": 17,
+          "page": "Forms and Fields",
+          "action": "set Form Type to Employee",
+          "field": "formType",
+          "rationale": "CORPUS-STATED, step 4 of the six-tool order: 'In Form Type, select Employee.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md). This is the leg whose omission makes the whole chain invisible - the same file states the purpose plainly: 'Doing this allows this field to be exposed in the User Administration' (Expense and Invoice Settings page)."
+        },
+        {
+          "order": 18,
+          "page": "Forms and Fields",
+          "action": "select the form under Form Name on the Forms tab",
+          "field": "formsTabList",
+          "rationale": "CORPUS-STATED: 'In the Forms tab, first select the form under Form Name, then click Add Fields.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md). The corpus states the selection order explicitly in that one sentence - form first, Add Fields second - so a driver that clicks Add Fields with no form selected has nothing to add to."
+        },
+        {
+          "order": 19,
+          "page": "Forms and Fields",
+          "action": "click Add Fields",
+          "field": "addFieldsButton",
+          "rationale": "CORPUS-STATED, same sentence as order 18: 'first select the form under Form Name, then click Add Fields.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md)."
+        },
+        {
+          "order": 20,
+          "page": "Forms and Fields",
+          "action": "select the custom field named at order 11 in the Add Fields to Forms selector",
+          "field": "addFieldsToFormsFieldSelector",
+          "rationale": "CORPUS-STATED: 'In Add Fields to Forms, select a field (Custom 02 in example below) and click Add Fields, repeating the process if multiple levels are to be added.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md). It must be the SAME field chosen as the hierarchy segment - the file ties the two steps together explicitly ('the field (Custom 02) specified in the Feature Hierarchies step (Step 2)')."
+        },
+        {
+          "order": 21,
+          "page": "Forms and Fields",
+          "action": "confirm the addition",
+          "field": "addFieldsConfirmButton",
+          "rationale": "CORPUS-STATED: the same instruction ends 'and click Add Fields, repeating the process if multiple levels are to be added.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md). INFERRED: the repetition count is set by the level depth chosen at order 4 - one field per level."
+        },
+        {
+          "order": 22,
+          "page": "Forms and Fields",
+          "action": "optionally rename the field on the Form Fields tab so users see a meaningful label",
+          "field": "modifyFormFieldsWindowSingle",
+          "rationale": "CORPUS-STATED and explicitly optional, but the corpus flags that its example depends on it: 'In the example below, Custom 02 is renamed to _Choose Vendor Access Group_ and is used for examples in this document. You have the option of renaming the Custom field in Step 4.' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). INFERRED ordering: rename AFTER adding, since the rename acts on a field already on the form."
+        },
+        {
+          "order": 23,
+          "page": "Forms and Fields",
+          "action": "if the vendor groups are multi-level, configure the fields on the Connected Lists tab",
+          "field": "connectedListsTab",
+          "rationale": "CORPUS-STATED and conditional on order 4: 'Use the Connected Lists tab if you have created a multi-level vendor group list' and '(Optional): If creating a multi-level list, click the Connected Lists tab and configure your fields by first selecting the list, then following the steps.' (step-4-add-the-custom-field-to-the-employee-form-da376eef.md). Skip it on a multi-level list and the second and third fields do not filter from the first."
+        },
+        {
+          "order": 24,
+          "page": "User Administration",
+          "action": "select the named vendor group for the user using the newly added field",
+          "field": "",
+          "rationale": "CORPUS-STATED as step 6 of the ordered tool list, but recorded as a FORWARD REFERENCE THAT STAYS UNRESOLVED: 'The User Administrator accesses User Administration and uses the newly-added field in Step 6 to select the named vendor group' (overview-of-steps-37e3c289.md). The same source flags this as the one tool NOT covered by the Invoice Configuration administrator role. Administration > Company surfaces are out of scope for this graph, so no page node exists for it."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-s4-author-email-notification-and-select-it-on-a-workflow",
+      "name": "Author a workflow email notification on its tab, then select it on the workflow's General page",
+      "goal": "Approvers and submitters receive a customised notification rather than the shipped default. Two things half-work if the order is broken: authoring a notification and never selecting it on a workflow means it is inert (the corpus is explicit that assignment happens on a different tab); and selecting a notification before authoring one means the General-page lists offer only the stock entries. A third, non-configurable dependency exists downstream: whatever is set here, delivery still depends on the recipient's own Profile setting.",
+      "pages": ["Workflows"],
+      "fields": [
+        "email_notif_find_workflow_emails_where",
+        "email_notification_name",
+        "email_notification_display_as_from",
+        "btn_next_wizard",
+        "email_subject",
+        "email_body",
+        "email_notification_use_primary_recipient_email",
+        "email_notification_overwrite_all_languages",
+        "btn_done_workflow",
+        "approval_request_notification",
+        "status_change_notification",
+        "sent_back_notification",
+        "expiration_email_to_approver"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Workflows",
+          "action": "on the Email Notifications tab, filter the list to Payment Requests Notifications or Purchase Request Notifications and select a notification to copy",
+          "field": "email_notif_find_workflow_emails_where",
+          "rationale": "CORPUS-STATED, and the reason a copy is the only entry point: 'Add a new email notification by copying an existing notification, then editing the copy.' (add-an-email-notification-c237a2de.md), reached via 'in the Find workflow emails where list, select Payment Requests Notifications or Purchase Request Notifications.' (same file). A driver looking for a 'New' button on this tab finds none."
+        },
+        {
+          "order": 2,
+          "page": "Workflows",
+          "action": "on the General step of the Modify Email Notification window, set the notification name",
+          "field": "email_notification_name",
+          "rationale": "CORPUS-STATED HARD LIMIT ON THE FRESH COPY: 'The only fields that can be edited at this time are Email Notification Name and Display as From.' (add-an-email-notification-c237a2de.md). Everything else on the General step is locked until the copy is saved and reopened - the same file says 'If you need to make changes to the other fields, save this copy and then edit it as detailed in Modifying an Email Notification in this guide.' This name is also what appears in the workflow's notification lists at orders 8-11 (modify-an-email-notification-a6e5f4ba.md: 'This name will appear in the email notification list while editing the workflow.'), so an unrenamed copy is unpickable."
+        },
+        {
+          "order": 3,
+          "page": "Workflows",
+          "action": "set the from-address recipients will see",
+          "field": "email_notification_display_as_from",
+          "rationale": "CORPUS-STATED: 'Type the email address you would like the recipient to see when they receive the notification.' (modify-an-email-notification-a6e5f4ba.md), and it is the second of only two fields editable on the fresh copy per add-an-email-notification-c237a2de.md. Miss it in this window and it requires a second save-and-reopen pass."
+        },
+        {
+          "order": 4,
+          "page": "Workflows",
+          "action": "click Next to move to the Primary Recipient step",
+          "field": "btn_next_wizard",
+          "rationale": "CORPUS-STATED wizard transition within the Modify Email Notification window - the procedure at add-an-email-notification-c237a2de.md runs General -> Primary Recipient -> Delegate Recipient via Next. INFERRED: the Subject and Body controls are per wizard step, so a driver must traverse the steps rather than expecting one flat form."
+        },
+        {
+          "order": 5,
+          "page": "Workflows",
+          "action": "edit the Email Subject on the Primary Recipient step",
+          "field": "email_subject",
+          "rationale": "CORPUS-STATED: 'Make the desired changes to the Email Subject field.' (add-an-email-notification-c237a2de.md). SPLIT WARNING FOR AN AUTOMATION DRIVER: the same file documents this field TWICE, once on the Primary Recipient step and once on the Delegate Recipient step. Filling the primary subject does NOT fill the delegate subject; they are two controls sharing one label and must be addressed separately."
+        },
+        {
+          "order": 6,
+          "page": "Workflows",
+          "action": "edit the Email Body on the Primary Recipient step",
+          "field": "email_body",
+          "rationale": "CORPUS-STATED: 'Make the desired changes to the Email Body field.' (add-an-email-notification-c237a2de.md). Same two-instance caveat as order 5. INFERRED: the body must be authored before the delegate decision at order 7, because that decision is whether to reuse THIS body."
+        },
+        {
+          "order": 7,
+          "page": "Workflows",
+          "action": "on the Delegate Recipient step, either tick Use Primary Recipient Email or author a separate delegate body",
+          "field": "email_notification_use_primary_recipient_email",
+          "rationale": "CORPUS-STATED: 'If you want the primary recipient email and the delegate email to be the same, select (enable) the Use Primary Recipient Email check box.' (add-an-email-notification-c237a2de.md). This is the one place the two-instance split can be collapsed; leave it clear and skip the delegate body and delegates receive the unedited stock text while the primary text looks correct."
+        },
+        {
+          "order": 8,
+          "page": "Workflows",
+          "action": "decide whether the new text overwrites every language",
+          "field": "email_notification_overwrite_all_languages",
+          "rationale": "CORPUS-STATED: 'Select Yes if you would like to apply the new text to all languages.' (modify-an-email-notification-a6e5f4ba.md). ORDER MATTERS BECAUSE IT IS DESTRUCTIVE ACROSS LOCALES - set it before saving edited text, since applying to all languages after per-language work has been done overwrites that work."
+        },
+        {
+          "order": 9,
+          "page": "Workflows",
+          "action": "click Done to finish the notification",
+          "field": "btn_done_workflow",
+          "rationale": "CORPUS-STATED: the notification procedure ends 'Click Done.' (add-an-email-notification-c237a2de.md). INFERRED: until the notification is committed it does not appear in the workflow General-page lists at orders 10-12."
+        },
+        {
+          "order": 10,
+          "page": "Workflows",
+          "action": "open the workflow's General page and select the notification sent to the approver on submission",
+          "field": "approval_request_notification",
+          "rationale": "CORPUS-STATED CROSS-TAB ORDERING, the crux of this whole procedure: 'Once the email notification is configured, the administrator assigns it to a workflow on the Workflows tab.' (overview-8b3df67d.md). The field itself: 'This notification is sent to the approver when the invoice is submitted by the employee.' (select-an-email-notification-in-the-workflows-tab-663bb8ac.md). Author-then-assign; a notification never assigned here never sends."
+        },
+        {
+          "order": 11,
+          "page": "Workflows",
+          "action": "select the status-change notification",
+          "field": "status_change_notification",
+          "rationale": "CORPUS-STATED: 'This notification is sent to the submitter when the workflow status of the invoice changes.' (select-an-email-notification-in-the-workflows-tab-663bb8ac.md). Same author-then-assign ordering as order 10. CONTRADICTION IN THE CORPUS, carried not resolved: create-a-new-workflow-554e86aa.md presents Email Notifications as one General-page control, while 663bb8ac presents three separate per-slot selectors - a driver should expect either rendering."
+        },
+        {
+          "order": 12,
+          "page": "Workflows",
+          "action": "select the sent-back notification",
+          "field": "sent_back_notification",
+          "rationale": "CORPUS-STATED: 'This notification is sent to the submitter when the invoice is sent back to them.' (select-an-email-notification-in-the-workflows-tab-663bb8ac.md). NOTE recorded on this field in the roster: this notification is always sent and is not configurable on/off - only WHICH template is used is configurable here."
+        },
+        {
+          "order": 13,
+          "page": "Workflows",
+          "action": "select the template used when an approval times out",
+          "field": "expiration_email_to_approver",
+          "rationale": "CORPUS-STATED: 'When the time for approving an invoice has expired, the system can send out an expiration email to the approver' (create-a-new-workflow-554e86aa.md), and add-an-email-notification-c237a2de.md states these copies exist precisely for this slot - 'These email notifications appear for use in Workflows when selecting an optional email notification template to send to an approver when a workflow step has timed out.' DEPENDS ON THE TIMEOUT LEG: with no Approval Time Expired Action set (grpworkflows-s1, order 10) there is no timeout to email about."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-s5-set-exception-level-submission-and-transmission-blocks",
+      "name": "Set the three exception-level thresholds on the Workflows Settings tab (invoice, purchase request, purchase order)",
+      "goal": "Documents carrying a severe enough exception are stopped before they move - an invoice cannot be submitted, a purchase request cannot be submitted, a purchase order cannot be transmitted. The threshold is a bare number and means nothing on its own: the exceptions and their levels must already exist, or the number blocks nothing and the configuration looks complete while being inert. Note that these three controls sit on three separate settings tables of the SAME Settings tab of the Workflows page - they are NOT the already-built 'Invoice Settings' page.",
+      "pages": ["Exceptions", "Audit Rules", "Workflows"],
+      "fields": [
+        "exceptionCode",
+        "exception_level",
+        "settings_prevent_payment_request_submission_exception_level",
+        "settings_prevent_purchase_request_submission_exception_level",
+        "settings_prevent_purchase_order_transmission_exception_level",
+        "btn_save_step"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Exceptions",
+          "action": "create the exception and give it a code, then set its level",
+          "field": "exceptionCode",
+          "rationale": "CORPUS-STATED, and the Exceptions page's own documentation points forward at this very procedure: 'A workflow setting exists that prevents an invoice from being submitted if it has an exception of a certain level.' (add-exceptions-7b73d8f0.md). The level is defined here - 'Type any number between 0 and 99.' (same file). Set the Workflows threshold first and there is no exception at or above it, so nothing is ever blocked."
+        },
+        {
+          "order": 2,
+          "page": "Audit Rules",
+          "action": "attach the exception to the rule that will raise it, confirming the level it carries",
+          "field": "exception_level",
+          "rationale": "INFERRED from the direction of the reference, not stated as a numbered sequence: an exception blocks submission only when something raises it, and the Audit Rules editor is where a defined exception is bound to a rule - 'It appears in the Exception Code, Exception Level, and Exception Text fields at the top of the page.' (add-a-custom-audit-rule-0f1d320e.md), i.e. the rule editor echoes the level defined at order 1. Skip this and the threshold is armed against an exception nothing ever generates."
+        },
+        {
+          "order": 3,
+          "page": "Workflows",
+          "action": "on the Settings tab, invoice settings table, type the level above which an invoice cannot be submitted",
+          "field": "settings_prevent_payment_request_submission_exception_level",
+          "rationale": "CORPUS-STATED: 'Type a number from one to 99. Any invoice that meets the criteria for an exception with this level or above prevents the employee from submitting the invoice.' (invoice-settings-cace748d.md, a packed raw <table> row - a markdown-only parse misses it). CROSS-PAGE CONTRADICTION, recorded not reconciled: this file's range is 'one to 99' while the Exceptions page that defines the levels says 'Type any number between 0 and 99.' (add-exceptions-7b73d8f0.md). A level-0 exception can therefore be defined that this threshold cannot be set to match."
+        },
+        {
+          "order": 4,
+          "page": "Workflows",
+          "action": "on the Settings tab, purchase request settings table, type the level above which a PR cannot be submitted",
+          "field": "settings_prevent_purchase_request_submission_exception_level",
+          "rationale": "CORPUS-STATED, and it is a genuinely separate control rather than the same one relabelled: 'Type a number from one to 99. Any purchase request that meets the criteria for an exception with this level or above prevents the employee from submitting the PR.' (purchase-request-settings-b0bce285.md). Setting only the invoice threshold leaves purchase requests unblocked - the classic half-configuration this step exists to prevent."
+        },
+        {
+          "order": 5,
+          "page": "Workflows",
+          "action": "on the Settings tab, purchase order settings table, type the level above which a PO cannot be transmitted",
+          "field": "settings_prevent_purchase_order_transmission_exception_level",
+          "rationale": "CORPUS-STATED, and note the different verb - this one gates TRANSMISSION, not submission: 'Type a number from one to 99. Any purchase order that meets the criteria for an exception with this level or above prevents the PO from being transmitted once it is created from its associated purchase request (PR).' (purchase-order-settings-a5a997b4.md). It fires later in the lifecycle than orders 3-4, so a PR that passed its own threshold can still stall here."
+        },
+        {
+          "order": 6,
+          "page": "Workflows",
+          "action": "click Save on the Workflow Settings page",
+          "field": "btn_save_step",
+          "rationale": "CORPUS-STATED, with an explicit warning about immediacy: 'On the Workflow Settings page, select a setting option.' then Save, after which 'The system applies the setting immediately.' (enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md). There is no staging - a threshold saved before the exceptions at orders 1-2 exist takes effect at once and blocks nothing, and a wrong number blocks live traffic the moment it is saved."
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-s6-configure-cost-object-approval",
+      "name": "Configure Cost Object Approval (hierarchy, then the workflow's Cost Object Hierarchy Type, then step order and self-approval)",
+      "goal": "Invoices route to the approver who owns the cost object they are charged to. The corpus orders this as define-hierarchy then activate-on-workflow then edit-steps, and each leg fails quietly on its own: the Cost Object Hierarchy Type list has nothing coherent to resolve without the hierarchy; the step order can violate a documented hard rule; and Allow Self Cost Object Approval is a check box that can be ticked with no effect at all unless Allow Self Approval is also on. Note the two legs sit behind DIFFERENT permissions.",
+      "pages": ["Feature Hierarchies", "Workflows"],
+      "fields": [
+        "feature_name",
+        "modify_hierarchy_button",
+        "source_list",
+        "level",
+        "segment_name",
+        "save_button",
+        "btn_modify_workflow",
+        "cost_object_hierarchy_type",
+        "btn_next_wizard",
+        "step_order_column",
+        "allow_self_approval",
+        "allow_self_cost_object_approval",
+        "settings_filter_payment_request_items_cost_object"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Feature Hierarchies",
+          "action": "select the Cost Object Approver hierarchy",
+          "field": "feature_name",
+          "rationale": "CORPUS-STATED as step 1 of the Cost Object Approval configuration, and explicitly generic: 'Set up the Cost Object Hierarchy just like any other hierarchy.' (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md) - SAP publishes no COA-specific hierarchy procedure, so the generic Feature Hierarchies flow applies. ROLE GATE, quoted from the same file: 'This portion of the configuration requires permissions for the Feature Hierarchies section in Administration.'"
+        },
+        {
+          "order": 2,
+          "page": "Feature Hierarchies",
+          "action": "click Modify Hierarchy",
+          "field": "modify_hierarchy_button",
+          "rationale": "CORPUS-STATED: 'Select Modify Hierarchy.' (professional-edition-fb3e6aa2.md), the generic editor entry point that step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md defers to with 'Set up the Cost Object Hierarchy just like any other hierarchy.'"
+        },
+        {
+          "order": 3,
+          "page": "Feature Hierarchies",
+          "action": "select the source list backing the cost object structure",
+          "field": "source_list",
+          "rationale": "CORPUS-STATED prerequisite carried by the generic procedure: 'The source list and custom field referenced in the steps below must already be configured before you proceed.' (professional-edition-fb3e6aa2.md). The list is built in List Management, which is why that page precedes Feature Hierarchies in SAP's stated tool order (overview-of-steps-37e3c289.md)."
+        },
+        {
+          "order": 4,
+          "page": "Feature Hierarchies",
+          "action": "add the level rows",
+          "field": "level",
+          "rationale": "INFERRED from the generic instruction 'Set up the Cost Object Hierarchy just like any other hierarchy.' (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md) combined with the two documented level behaviours - Employee, fixed, for Vendor Employee Access (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md) and Request for Invoice Payment (professional-edition-fb3e6aa2.md). THE CORPUS DOES NOT STATE WHICH LEVEL VALUE THE COA HIERARCHY TAKES; do not assume either."
+        },
+        {
+          "order": 5,
+          "page": "Feature Hierarchies",
+          "action": "select the field acting as each hierarchy path segment",
+          "field": "segment_name",
+          "rationale": "CORPUS-STATED for the generic editor: 'In the Segment Name list, select the field that will act as the list in User Permissions' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). INFERRED for COA specifically, via 'Set up the Cost Object Hierarchy just like any other hierarchy.' (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md) - the segments are what an invoice's cost object values are matched against, so a hierarchy with no segments resolves no approver."
+        },
+        {
+          "order": 6,
+          "page": "Feature Hierarchies",
+          "action": "click Save",
+          "field": "save_button",
+          "rationale": "CORPUS-STATED: 'Click Save.' (step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md). This save is the boundary: order 7 is titled 'Step 2: Activate the Feature' precisely because the hierarchy is Step 1."
+        },
+        {
+          "order": 7,
+          "page": "Workflows",
+          "action": "from the Invoice Processing Admin menu open Workflows, then select the workflow and click Modify (or Copy to create a new one)",
+          "field": "btn_modify_workflow",
+          "rationale": "CORPUS-STATED: 'Modify an existing workflow by selecting it and clicking Modify (or double-click the desired workflow).' (step-2-activate-the-feature-27a421e2.md). ROLE GATE, quoted from the same file and DIFFERENT from order 1's: 'This portion of the configuration requires permissions for the Workflows section in Administration.' - one operator may be able to do the hierarchy leg and not this one."
+        },
+        {
+          "order": 8,
+          "page": "Workflows",
+          "action": "on the General page set the Cost Object Hierarchy Type",
+          "field": "cost_object_hierarchy_type",
+          "rationale": "CORPUS-STATED: 'In the Cost Object Hierarchy Type field, select the desired type: Level or Limit.' (step-2-activate-the-feature-27a421e2.md), which is the topic SAP titles 'Step 2: Activate the Feature' - the activation is this field, not a separate switch. The same file adds the conditional follow-on: '(Optional) If Limit is selected, you can also select Cost Object Hierarchy Type to route the cost object _directly_ to that approver with the required approval limit amount.'"
+        },
+        {
+          "order": 9,
+          "page": "Workflows",
+          "action": "click Next to reach the Steps page",
+          "field": "btn_next_wizard",
+          "rationale": "CORPUS-STATED: 'Click Next. The Steps page appears (see next section).' (step-2-activate-the-feature-27a421e2.md). The Steps page is reachable only through the wizard on an opened workflow, so the General-page value at order 8 is necessarily committed first."
+        },
+        {
+          "order": 10,
+          "page": "Workflows",
+          "action": "reorder the workflow steps so the Cost Object Approval step sits correctly",
+          "field": "step_order_column",
+          "rationale": "CORPUS-STATED HARD RULE, and the one thing in this procedure that produces an invalid workflow rather than an inert one: 'The Vendor Approval system step _cannot_ precede the Cost Object Approval step.' (step-3-edit-the-workflow-steps-f2731590.md). The same file gives the default placement to reason from: 'By default, the new workflow step appears in the workflow just prior to the Prepayment Validation step.'"
+        },
+        {
+          "order": 11,
+          "page": "Workflows",
+          "action": "on the General page enable Allow Self Approval",
+          "field": "allow_self_approval",
+          "rationale": "CORPUS-STATED MASTER GATE that must precede order 12: 'This feature will only work if the Allow Self Approval option is also selected (enabled).' (create-a-new-workflow-554e86aa.md, of Allow Self Cost Object Approval). Tick the cost-object option alone and it is saved, displayed as on, and does nothing - the textbook silent half-configuration. The same file gates a second control the same way: 'The Allow Self Approval option must be enabled (checked) in order for the Allow Invoice Processor to Process their own Invoices option to work.'"
+        },
+        {
+          "order": 12,
+          "page": "Workflows",
+          "action": "enable Allow Self Cost Object Approval",
+          "field": "allow_self_cost_object_approval",
+          "rationale": "CORPUS-STATED: 'Allows the cost object approver to approve invoices regardless of whether they are the owner of the invoice or not.' (create-a-new-workflow-554e86aa.md), subject to the master gate quoted at order 11. DOCUMENTED NON-INTERACTION worth knowing here: 'The _prompt for approver_ setting has no affect within the cost object approval step.' (additional-approver-situations-fbb5034c.md) - do not expect the own-approver Settings control to influence this step."
+        },
+        {
+          "order": 13,
+          "page": "Workflows",
+          "action": "on the Settings tab, decide whether cost object approvers see only their own line items",
+          "field": "settings_filter_payment_request_items_cost_object",
+          "rationale": "CORPUS-STATED: 'When selected, filters a Cost Object Approver's view to only those cost object line items and amount totals that apply to that approver; all others are removed from view.' (invoice-settings-cace748d.md, packed raw <table> row). INFERRED ordering: it is a Settings-tab control that applies globally, so it changes what EVERY cost object approver on every workflow sees - set it once, deliberately, after the workflow-level legs, and note enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md's warning that 'The system applies the setting immediately.'"
+        }
+      ]
+    },
+    {
+      "id": "grpworkflows-s7-activate-confirmation-agreement-on-a-workflow",
+      "name": "Create a confirmation agreement and put it in force on submit and approve actions",
+      "goal": "Users and approvers must accept a legal disclaimer at submit and/or approve time. The corpus states the chain in one sentence - create, associate to the workflow, associate the workflow to the policy - and every link is required: an agreement with no workflow association never renders, and a workflow with no policy association is never used, so the agreement appears configured and no user ever sees it.",
+      "pages": ["Workflows", "Policies"],
+      "fields": [
+        "confirmation_agreement_name",
+        "confirmation_agreement_title",
+        "confirmation_agreement_text",
+        "confirmation_agreement_editable_by_groups",
+        "btn_save_step",
+        "submit_confirmation_agreement",
+        "approval_confirmation_agreement",
+        "btn_done_workflow",
+        "Invoice Workflow",
+        "Save"
+      ],
+      "sequence": [
+        {
+          "order": 1,
+          "page": "Workflows",
+          "action": "on the Confirmation Agreements tab click New and enter a unique internal name",
+          "field": "confirmation_agreement_name",
+          "rationale": "CORPUS-STATED, and this is link 1 of the chain SAP states in one sentence: 'After creating the agreement, you associate the confirmation agreement with the workflow, and then associate the workflow with the policy.' (activating-the-confirmation-agreement-feature-bdfc1dce.md). The name is internal only - 'This name is used internally in the workflow; the user or approver cannot see this.' (create-a-confirmation-agreement-3e153f29.md) - so it is what the General-page lists at orders 6-7 match on, and must be distinctive enough to pick correctly there."
+        },
+        {
+          "order": 2,
+          "page": "Workflows",
+          "action": "enter the title shown in bold above the message body",
+          "field": "confirmation_agreement_title",
+          "rationale": "CORPUS-STATED: 'The text that is typed here appears in bold (no HTML tagging is required) and appears at the top of the message body area, directly below the title bar.' (create-a-confirmation-agreement-3e153f29.md). Unlike the name at order 1, THIS is what users see - conflating the two produces an agreement whose visible heading is an internal code."
+        },
+        {
+          "order": 3,
+          "page": "Workflows",
+          "action": "enter the agreement text",
+          "field": "confirmation_agreement_text",
+          "rationale": "CORPUS-STATED HARD LIMIT that constrains drafting before it constrains configuration: 'You may type up to 2000 characters.' (create-a-confirmation-agreement-3e153f29.md). The same row enumerates the HTML tags permitted inside this free-text field - those are markup allowed in the body, NOT selectable values for the control."
+        },
+        {
+          "order": 4,
+          "page": "Workflows",
+          "action": "select the groups permitted to edit the agreement",
+          "field": "confirmation_agreement_editable_by_groups",
+          "rationale": "CORPUS-STATED: 'Select the group or groups that can edit the agreement.' (create-a-confirmation-agreement-3e153f29.md). LABEL CASING TO EXPECT, verbatim from the corpus: this control is labelled 'Editable by Group(s)' with a lower-case 'by', unlike the General-page 'Editable By Group(s)' - a driver matching on exact label text must carry both forms."
+        },
+        {
+          "order": 5,
+          "page": "Workflows",
+          "action": "save the Confirmation Agreement window",
+          "field": "btn_save_step",
+          "rationale": "INFERRED from the create-then-associate ordering stated at activating-the-confirmation-agreement-feature-bdfc1dce.md ('After creating the agreement, you associate the confirmation agreement with the workflow'): the object must be committed before the workflow's General-page lists can offer it. Save is the shared commit control across the object-edit dialogs on this page."
+        },
+        {
+          "order": 6,
+          "page": "Workflows",
+          "action": "open the workflow's General page and choose the agreement shown on submit",
+          "field": "submit_confirmation_agreement",
+          "rationale": "CORPUS-STATED, link 2 of the chain: 'In the Submit Confirmation Agreement list, choose the agreement to be displayed when submitting the invoice.' (activating-the-confirmation-agreement-feature-bdfc1dce.md). The list is populated from the Confirmation Agreements tab objects, so running this before orders 1-5 offers nothing to choose."
+        },
+        {
+          "order": 7,
+          "page": "Workflows",
+          "action": "choose the agreement shown on approval actions",
+          "field": "approval_confirmation_agreement",
+          "rationale": "CORPUS-STATED, and a genuinely separate slot: 'In the Approval Confirmation Agreement list, choose the agreement to be displayed when approving the invoice.' (activating-the-confirmation-agreement-feature-bdfc1dce.md). Setting only the submit slot leaves approvers with no confirmation at all - the half-works case for this procedure."
+        },
+        {
+          "order": 8,
+          "page": "Workflows",
+          "action": "click Done to commit the workflow",
+          "field": "btn_done_workflow",
+          "rationale": "CORPUS-STATED: the association procedure ends 'Click Done.' (activating-the-confirmation-agreement-feature-bdfc1dce.md). INFERRED: the workflow must be committed before the policy at order 9 binds to the version carrying these two selections."
+        },
+        {
+          "order": 9,
+          "page": "Policies",
+          "action": "open the policy and select this workflow, then save",
+          "field": "Invoice Workflow",
+          "rationale": "CORPUS-STATED, link 3 and the reason the whole chain can silently do nothing: 'then associate the workflow with the policy.' (activating-the-confirmation-agreement-feature-bdfc1dce.md). LABEL DRIFT IN THE SOURCE, recorded verbatim rather than smoothed: the same file's procedure says 'In the Expense Report Workflow list, choose the appropriate workflow.' while the built Policies page carries this control as Invoice Workflow - two labels in the corpus for the same association."
+        },
+        {
+          "order": 10,
+          "page": "Policies",
+          "action": "save the policy",
+          "field": "Save",
+          "rationale": "CORPUS-STATED: 'Click Save.' (activating-the-confirmation-agreement-feature-bdfc1dce.md). ONE-WAY DOOR: after this save the workflow is assigned, and 'The system does not allow you to delete a workflow that is currently assigned to a policy.' (delete-a-workflow-or-workflow-steps-e9a84a07.md)."
+        }
+      ]
+    }
+  ]
+}

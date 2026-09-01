@@ -1,0 +1,1547 @@
+{
+  "summary": "Re-derive the lost Workflows admin-page roster from the Concur Invoice corpus",
+  "agentCount": 9,
+  "logs": [
+    "Workflows recon: six blind sweeps for the lost workflow/approval page roster",
+    "clickpaths: 13 candidates, 20 rejected",
+    "adminfiles: 12 candidates, 20 rejected",
+    "toolsguides: 12 candidates, 18 rejected",
+    "rolesmenus: 3 candidates, 29 rejected",
+    "graphrefs: 15 candidates, 17 rejected",
+    "setupflow: 11 candidates, 20 rejected",
+    "Roster: 4 pages, 41 deferred",
+    "  Workflows — basis rich, ~100 fields, 84 files",
+    "  Email Reminders — basis moderate, ~25 fields, 17 files",
+    "  Delegate Configurations — basis moderate, ~25 fields, 17 files",
+    "  Feature Hierarchies — basis sparse, ~5 fields, 12 files",
+    "  finding: confirmed — (1) Purchase Order Settings and Purchase Request Settings belong to Workflows, not to the built Invoice Settings page — and the unsettled part: where does the WHOLE THREE-MEMBER family live, (a) all Workflows, (b) all on some other page, or (c) the invoice member is Invoice Settings rebuild debt?",
+    "  finding: confirmed — (2) Is \"Workflows\" one page with tabs, or several pages? Settle on click-path evidence and role gates.",
+    "  finding: confirmed — (3) Does Feature Hierarchies belong to this group?",
+    "  finding: confirmed — (4) Where is the boundary against the built Routing Configuration page (Group 2, 10 fields)? Does tools-guides/workflow-and-approval-routing-8b4ff6c9.md straddle it?",
+    "  finding: confirmed — (5) End-user traps: this domain is the worst in the product for approver-side runtime screens, and every rejection must name where its configuration lives.",
+    "Critics: pagehood=9 completeness=14"
+  ],
+  "result": {
+    "outDir": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon",
+    "files": {
+      "sweeps": [
+        "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-clickpaths.md",
+        "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-adminfiles.md",
+        "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-toolsguides.md",
+        "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-rolesmenus.md",
+        "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-graphrefs.md",
+        "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-setupflow.md"
+      ],
+      "roster": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/roster.md",
+      "criticPagehood": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/critic-pagehood.md",
+      "criticCompleteness": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/critic-completeness.md"
+    },
+    "sweepHeadlines": [
+      "clickpaths: Workflows is ONE admin page with SEVEN tabs, not thirteen pages - the corpus says it outright: \"The Workflows tab on the Workflows page appears.\" Only one workflow-domain label is ever a left-menu destination (Workflows); every other named surface is reached only by clicking a tab inside it, and the role gate is stated for \"the Workflows section\", not per-tab - so this is the Audit Rules precedent, not the Forms and Fields precedent. The seven tabs are Workflows, Settings, Email Notifications, Approval Statuses, Authorized Approvers, and two that no inherited artefact mentions: Confirmation Agreements and Reason Category and Codes. Finding (1) resolves to answer (a): all three Settings siblings (Invoice / Purchase Request / Purchase Order) live on Workflows > Settings tab - there is no Invoice Settings rebuild debt, because zero graph fields ever cited invoice-settings-cace748d.md and the built page's roster comes from a different file entirely.",
+      "adminfiles: \"Workflows\" is ONE admin page with its own left-menu entry and SEVEN tabs (Workflows, Settings, Email Notifications, Authorized Approvers, Approval Statuses, Confirmation Agreements, Reason Category and Codes) — two of which carry sub-tabs, and the Workflows tab opens a General/Steps/Step Rules wizard over the workflow OBJECT. Finding (1) is CONFIRMED as answer (a): all three settings tables (Invoice/Purchase Request/Purchase Order Settings) live on the Workflows > Settings tab, proven four independent ways including the guide's own revision history; and invoice-settings-cace748d.md carries FIVE settings, not three, because three are hidden in a packed HTML <tr>. Three genuinely separate left-menu pages sit adjacent and must not be collapsed into Workflows: Email Reminders (own role gate), Delegate Configurations, and Feature Hierarchies.",
+      "toolsguides: Workflows is ONE page with SEVEN tabs (Workflows, Settings, Approval Statuses, Email Notifications, Authorized Approvers, Confirmation Agreements, Reason Category and Codes) — the Audit Rules precedent, not the Forms and Fields precedent. Finding (1) is settled as answer (a): all THREE settings-family members live on Workflows > Settings tab, proven by preventing-po-transmittal-...-51b11602.md naming the PO row on that tab and by the Workflows guide's own revision history (general-information-8b3b0308.md) logging the INVOICE member's rows as \"Addition of two new options to the Settings tab\" — so it is a name collision with the built Invoice Settings page, not rebuild debt. Two genuinely separate left-menu pages sit adjacent: Feature Hierarchies (aliased \"Hierarchies\", belongs to no single group, will be thin) and Delegate Configurations, which no prior handoff names at all.",
+      "rolesmenus: Workflows is ONE PAGE with five tabs, and a July 2025 release note enumerating a restricted role's read-only reach states it in one heading (\"Workflows Page\") plus three bullets covering the workflow list, the Approval Statuses and the workflow Settings. The Invoice/Purchase Request/Purchase Order Settings family all live together on that page's Settings tab — inherited finding (1) resolves to answer (a), with the caveat that the invoice member is a LABEL COLLISION with the built Invoice Settings page and must be named \"Settings tab\", never \"Invoice Settings\". Entering from the left-menu census rather than the topic side, the only other unbuilt left-menu pages in or beside this domain are Delegate Configurations and Feature Hierarchies; the corpus supports THREE pages here, not thirteen, and there is no cost-object page and no New Experience twin anywhere in the workflow admin area.",
+      "graphrefs: Workflows is ONE page with SEVEN top-level tabs (Workflows, Approval Statuses, Email Notifications, Settings, Authorized Approvers, Confirmation Agreements, Reason Category and Codes), reached by its own left-menu entry under Invoice Processing Admin with 13 independent click paths — the Audit Rules precedent, not the Forms and Fields one, because nothing beneath it has an independent entry point. Finding (1) resolves to option (a): all three members of the Invoice/PR/PO settings family live on the Workflows > Settings tab, proven by the Workflows guide's own revision table naming two of the invoice member's settings as Settings tab additions — so invoice-settings-cace748d.md is NOT Invoice Settings page content and is NOT rebuild debt (zero graph fields cite it; it was simply never built). Correcting the brief: \"Approval Statuses > Purchase Request\" and \"Email Notifications tab\" appear ZERO times in the graph — they came from the lost map, not from any built group — though both are fully corroborated verbatim in the corpus as tabs; and the graph's single \"Workflows > Settings\" string is a defect, filed as a navPathAlternate on page.exceptions.",
+      "setupflow: The workflow area is ONE admin page with seven tabs, not thirteen pages: a 2025 release note enumerates \"Workflows Page\" as containing General/Steps/Step Rules, Approval Statuses and workflow Settings under one heading, and no tab anywhere in the corpus has its own left-menu entry (Workflows has 8 left-menu citations, its tabs zero). Inherited finding (1) settles as answer (a) — all three of Invoice Settings/Purchase Request Settings/Purchase Order Settings live on Workflows > Settings tab, proven by \"Settings tab and is shown in the following figure.\" plus the Workflow – General Information guide's own revision history naming two of invoice-settings-cace748d.md's packed rows as Settings-tab additions; that file is a NAME COLLISION with the built Invoice Settings page, not rebuild debt. Two unclaimed left-menu pages surfaced: Feature Hierarchies (its own role gate, named in contrast to the Workflows gate inside a single 3-step flow) and Delegate Configurations, which I believe is unique to this sweep — ~14.7 KB across 6 files, the admin home of every delegate/proxy approval behaviour, absent from the 20 built pages and from every dependency endpoint in the graph."
+    ],
+    "sweepCandidateNames": [
+      {
+        "sweep": "clickpaths",
+        "candidates": [
+          "Workflows [admin-page/high]",
+          "Workflows tab [tab-within-page/high]",
+          "Settings tab [tab-within-page/high]",
+          "Email Notifications tab [tab-within-page/high]",
+          "Approval Statuses tab [tab-within-page/high]",
+          "Authorized Approvers tab [tab-within-page/high]",
+          "Confirmation Agreements tab [tab-within-page/high]",
+          "Reason Category and Codes tab [tab-within-page/high]",
+          "Workflow General page [wizard-or-dialog/high]",
+          "Steps page [wizard-or-dialog/high]",
+          "Step Rules page [wizard-or-dialog/high]",
+          "Email Reminders [admin-page/high]",
+          "Feature Hierarchies [admin-page/high]"
+        ],
+        "rejected": [
+          "Approval Flow page (Approval Flow for Invoice / Approval Flow for Purchase Request)",
+          "My Work approval links on the home page",
+          "Requests Pending Your Approval window",
+          "Approve / Send Back to Employee / Recall buttons and their labels",
+          "Invoice Manager page (New Experience) / Unassigned Invoice page (New Experience)",
+          "Approve Invoices / Approvals list / Send an invoice to an additional approver / Approve and forward a purchase request / batch verification",
+          "Delegate / proxy switching and the delegate experience",
+          "Workflow Guides (four files: workflow-guides-8b3b85da / 8b3c7b2a / 8b3d6ede / 8b3e09a7)",
+          "Workflow Settings (workflow-settings-8b3b98e1.md, 743 B)",
+          "Workflow and Approval Routing (tools-guides/workflow-and-approval-routing-8b4ff6c9.md, 1,502 B)",
+          "Routing Configuration",
+          "Audit Rules",
+          "Exceptions",
+          "Invoice Settings (the built page)",
+          "Policies / Group Configurations",
+          "Email Administration tab / Supplier Email Administration tab",
+          "Cost Object Approval",
+          "Condition page / Condition Editor",
+          "Authorized Approver Hierarchy",
+          "Localization (email reminder / instructional text localization)"
+        ]
+      },
+      {
+        "sweep": "adminfiles",
+        "candidates": [
+          "Workflows [admin-page/high]",
+          "Workflows > Settings tab [tab-within-page/high]",
+          "Workflows > Email Notifications tab [tab-within-page/high]",
+          "Workflows > Authorized Approvers tab [tab-within-page/high]",
+          "Workflows > Approval Statuses tab [tab-within-page/high]",
+          "Workflows > Confirmation Agreements tab [tab-within-page/high]",
+          "Workflows > Reason Category and Codes tab [tab-within-page/high]",
+          "Workflow editor wizard: General page / Steps page / Step Rules page [wizard-or-dialog/high]",
+          "Email Reminders [separate-tool/high]",
+          "Delegate Configurations [separate-tool/high]",
+          "Feature Hierarchies [admin-page/high]",
+          "Workflow Settings [unclear/medium]"
+        ],
+        "rejected": [
+          "Approval Flow page",
+          "Approve / Send Back to Employee links under My Work on the home page",
+          "Requests Pending Your Approval window",
+          "Approver experience / Approver user interface / approver-action-* topics",
+          "Recall (employee or processor recalls a submitted invoice)",
+          "Delegate / proxy switching and acting-on-behalf-of screens",
+          "Reason code selection when a processor returns an invoice",
+          "Final Review / Confirmation windows on submit and approve",
+          "Invoice Manager page / Unassigned Invoice page / Approvals list / batch verification",
+          "Cost Object Approval",
+          "Workflow and Approval Routing (tools-guides/workflow-and-approval-routing-8b4ff6c9.md, 1502 B)",
+          "Routing Configuration (as a Workflows candidate)",
+          "Audit Rules exception level (as a Workflows field)",
+          "Invoice Settings (the built page) as home for the settings family",
+          "Change Log",
+          "Workflow Guides (the four workflow-guides-*.md files)",
+          "Exception Helper",
+          "Purchase Request Workflow / Default PO Payment Workflow / Default Workflows",
+          "Authorized Approvers as a separate page",
+          "Approver / Default Approver / Budget Approver assignment"
+        ]
+      },
+      {
+        "sweep": "toolsguides",
+        "candidates": [
+          "Workflows [admin-page/high]",
+          "Workflows > Settings tab [tab-within-page/high]",
+          "Workflows > Authorized Approvers tab [tab-within-page/high]",
+          "Workflows > Approval Statuses tab [tab-within-page/high]",
+          "Workflows > Email Notifications tab [tab-within-page/high]",
+          "Workflows > Confirmation Agreements tab [tab-within-page/high]",
+          "Workflows > Reason Category and Codes tab [tab-within-page/medium]",
+          "Create / Modify Workflow (General - Steps - Step Rules) [wizard-or-dialog/high]",
+          "Delegate Configurations [admin-page/high]",
+          "Feature Hierarchies [separate-tool/high]",
+          "Workflow and Approval Routing (boundary topic, finding 4) [feature-name-only/high]",
+          "User Administration / User Permissions / Employee Import [separate-tool/high]"
+        ],
+        "rejected": [
+          "Approval Flow page / Approval Flow for Invoice window",
+          "Approval Flow for Purchase Request window",
+          "Add Approval Steps (processor action)",
+          "Send Invoice to Approver window / User-Added Approver step",
+          "Requests Pending Your Approval window / My Work approval links on the home page",
+          "Verification page / batch verification workflow",
+          "Invoice Manager / My Invoices / Unassigned Invoices pages (incl. both -new-experience- twins)",
+          "Invoice Proxy Logon",
+          "Email notification received by a user (status change / required approval)",
+          "Cost Object Approval",
+          "Workflow Settings (workflow-settings-8b3b98e1.md)",
+          "Authorized Approver Hierarchy / Cost Object Approver Hierarchy",
+          "Confirmation Agreements window / New Authorized Approver window / Report Status window / Add Workflow Step page",
+          "Approval Statuses > Purchase Request (existing graph endpoint)",
+          "Workflow Guides (four files, workflow-guides-8b3b85da / -8b3c7b2a / -8b3d6ede / -8b3e09a7)",
+          "Policies",
+          "Invoice Settings (the built page)",
+          "Audit Rules / Exceptions"
+        ]
+      },
+      {
+        "sweep": "rolesmenus",
+        "candidates": [
+          "Workflows [admin-page/high]",
+          "Delegate Configurations [admin-page/high]",
+          "Feature Hierarchies [admin-page/high]"
+        ],
+        "rejected": [
+          "Approval Flow page",
+          "Requests Pending Your Approval window",
+          "My Work / approval links on the home page",
+          "Approve / Send Back to Employee / Recall buttons",
+          "Invoice Manager page (including using-the-invoice-manager-page-new-experience-f83ba5fa.md)",
+          "Approvals list / Approve Invoices / approve-invoices-ff0ac72c.md",
+          "Moving through the batch verification workflow (tools-guides/moving-through-the-batch-verification-workflow-01738020.md)",
+          "Delegate / proxy switching, Delegate Experience (delegate-experience-8b30fb06.md, delegates-and-proxies-a88c80e0.md, delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md, when-the-delegate-cannot-submit-53c9cb69.md)",
+          "View the Approval Flow / View the approval workflow of an invoice (view-approval-flow-ce872c13.md, view-the-approval-flow-0887542c.md, view-the-approval-flow-08cb8cc1.md, view-the-approval-flow-70da32a3.md, view-the-approval-workflow-of-an-invoice-d8046bec.md)",
+          "Purchase Request Approver Experience (purchase-request-approver-experience-8b50b701.md), Approve a Purchase Request, Approve and Forward a Purchase Request",
+          "Workflow Settings (as a separate page)",
+          "Approval Statuses",
+          "Authorized Approvers",
+          "Email Notifications",
+          "Purchase Request Settings / Purchase Order Settings (as pages)",
+          "Invoice Settings (the Workflows Settings-tab table, invoice-settings-cace748d.md)",
+          "General page / Steps page / Step Rules page",
+          "Add Workflow Step / Modify Workflow Step / New Authorized Approver / Modify Authorized Approver / Report Status / Request Status / Edit Condition / Edit Action windows",
+          "Conditional Expressions and the Condition Page (conditional-expressions-and-the-condition-page-4d98af34.md, 9,326 B)",
+          "Workflow and Approval Routing (tools-guides/workflow-and-approval-routing-8b4ff6c9.md, 1,502 B)",
+          "Cost Object Approval (as a page)",
+          "Authorized Approver hierarchy / Payment Authorized Approvers hierarchy (as a page)",
+          "Workflow Guides (four files: workflow-guides-8b3b85da 1,473 B / 8b3c7b2a 1,784 B / 8b3d6ede 1,769 B / 8b3e09a7 1,663 B)",
+          "Create a New Workflow (as a page)",
+          "Exception Helper (exception-helper-within-the-audit-rules-and-workflow-tools-07dfd781.md)",
+          "Attendees (7 '(left menu)' hits, with its own Settings tab and procedure-configure-settings-068fa6f3.md)",
+          "Workflow Administrator (as a role gate)",
+          "Approver / Authorized Approver / Cost Object Approver / Invoice Processor / Invoice Vendor Manager (as page-reaching roles)",
+          "Vendor Approval step timeout (about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md)"
+        ]
+      },
+      {
+        "sweep": "graphrefs",
+        "candidates": [
+          "Workflows [admin-page/high]",
+          "Workflows tab (on the Workflows page) [tab-within-page/high]",
+          "Settings tab (on the Workflows page) [tab-within-page/high]",
+          "Approval Statuses tab (on the Workflows page) [tab-within-page/high]",
+          "Approval Statuses > Purchase Request [tab-within-page/high]",
+          "Email Notifications tab (on the Workflows page) [tab-within-page/high]",
+          "Authorized Approvers tab (on the Workflows page) [tab-within-page/high]",
+          "Confirmation Agreements tab (on the Workflows page) [tab-within-page/high]",
+          "Reason Category and Codes tab (on the Workflows page) [tab-within-page/high]",
+          "General page (workflow properties) [wizard-or-dialog/high]",
+          "Steps page [wizard-or-dialog/high]",
+          "Step Rules page [wizard-or-dialog/high]",
+          "Delegate Configurations [admin-page/high]",
+          "Feature Hierarchies [separate-tool/high]",
+          "Workflow Guides [feature-name-only/high]"
+        ],
+        "rejected": [
+          "Approval Flow page / Approval Flow for Invoice page",
+          "Requests Pending Your Approval window",
+          "My Work approval links on the home page",
+          "Approve / Send Back to Employee / Recall buttons",
+          "Add Approval Steps (Invoice Processor runtime)",
+          "Invoice Manager page / Unassigned Invoice page (New Experience)",
+          "View the approval flow / View the approval workflow of an invoice (5 near-duplicate tools-guides topics)",
+          "Moving through the batch verification workflow",
+          "Delegate / proxy switching, delegate experience, when the delegate cannot submit",
+          "Approver experience / approver actions (~15 topics: approver-action-approved, approver-action-return-to-the-employee, what-happens-when-an-approver-clicks-an-approval-action, approver-user-interface, approvers-and-processors, …)",
+          "Purchase request approver experience / approve-and-forward a purchase request",
+          "Workflow and Approval Routing (tools-guides/workflow-and-approval-routing-8b4ff6c9.md)",
+          "Cost Object Approval",
+          "Authorized Approver Hierarchy",
+          "Payment Group Configuration",
+          "'Overview: Settings' (admin-guides/overview-settings-78643171.md)",
+          "Change Log / Invoice Preferences"
+        ]
+      },
+      {
+        "sweep": "setupflow",
+        "candidates": [
+          "Workflows [admin-page/high]",
+          "Workflows > Settings tab [tab-within-page/high]",
+          "Workflows > Workflows tab [tab-within-page/high]",
+          "Workflow object wizard: General page > Steps page > Step Rules page [wizard-or-dialog/high]",
+          "Workflows > Authorized Approvers tab [tab-within-page/high]",
+          "Workflows > Approval Statuses tab [tab-within-page/high]",
+          "Workflows > Email Notifications tab [tab-within-page/high]",
+          "Workflows > Confirmation Agreements tab [tab-within-page/high]",
+          "Workflows > Reason Category and Codes tab [tab-within-page/medium]",
+          "Feature Hierarchies [separate-tool/high]",
+          "Delegate Configurations [admin-page/high]"
+        ],
+        "rejected": [
+          "Approval Flow page (Approval Flow for Invoice)",
+          "Requests Pending Your Approval window",
+          "My Work approval links on the home page (Approve, Send Back to Employee)",
+          "Invoice Manager page / Unassigned Invoices page (including their *-new-experience-* twins)",
+          "View the Approval Workflow of an Invoice",
+          "Batch verification / Verification page",
+          "Single Step Approval Workflow",
+          "Delegate / proxy switching, Act as a Proxy for a Purchase Request User, Invoice Proxy Logon",
+          "Invoice Preferences",
+          "Workflow Errors",
+          "Approve / Send Back to Employee / Recall buttons",
+          "Workflow and Approval Routing (tools-guides/workflow-and-approval-routing-8b4ff6c9.md)",
+          "Routing Configuration (re-homing check)",
+          "Audit Rules / Exceptions (exception-level threshold check)",
+          "Invoice Settings (the built Group 1 page) - re-homing check",
+          "Workflow Guides (workflow-guides-*.md, four files)",
+          "Default Payment Workflow, Default PO Payment Workflow, Default Purchase Request Workflow, Purchase Request Workflow, Example of Typical Purchase Order Workflow",
+          "Vendor Management Lifecycle steps 1-8 (step-1-new-vendor-sends-invoice-... through step-8-vendor-approved-workflow-step-2f0d90b9.md)",
+          "Site Settings",
+          "General Information / Workflow Settings / Create and Configure Workflows / Edit and Delete Workflows, Properties, and Steps (section stubs)"
+        ]
+      }
+    ],
+    "roster": {
+      "headline": "Four pages, not thirteen: the workflow/approval surface is ONE admin page with seven tabs (Workflows) plus three genuinely separate, never-claimed left-menu pages — Email Reminders, Delegate Configurations, Feature Hierarchies. A corpus-wide `(left menu)` census returns 30 distinct labels and not one is a workflow tab, and a July 2025 release note enumerates the workflow list, Approval Statuses and Settings under a single heading \"Workflows Page\" beside three pages already in the graph — so this is the Audit Rules precedent, not Forms and Fields. Finding (1) is CONFIRMED as answer (a): all three Settings-family siblings live on Workflows > Settings tab and the invoice member is a LABEL COLLISION with the built Invoice Settings page, not rebuild debt (zero graph fields ever cited it, verified). Two corrections to the brief: the graph does NOT carry \"Approval Statuses > Purchase Request\" or \"Email Notifications tab\" endpoints (0 occurrences each — those came from the lost map, not from a built group), and the graph's single \"Workflows > Settings\" string is a defect sitting in page.exceptions.navPathAlternates.",
+      "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/roster.md",
+      "pages": [
+        {
+          "id": "workflows",
+          "name": "Workflows",
+          "aliases": [
+            "Workflows tool",
+            "Workflow tool",
+            "Workflows page",
+            "Workflows Page",
+            "Workflows section in Administration",
+            "Workflows area",
+            "Invoice Admin > Workflows"
+          ],
+          "documentedBasis": "rich",
+          "richness": {
+            "fileCount": 84,
+            "totalBytes": 217634,
+            "rawTableFiles": 3,
+            "longCatalogs": 10,
+            "estimatedFields": 100
+          },
+          "uiVariantEvidence": "NO New Experience twin exists anywhere in this domain. `ls | grep -i new-experience` over both guide dirs returns exactly 5 files corpus-wide (end-user-experience-new-experience-85c2652b.md, policies-the-purchase-order-policy-new-experience-5a1ba7ef.md, purchase-order-matching-rules-new-experience-6c8fb80f.md, tools-guides/using-the-invoice-manager-page-new-experience-f83ba5fa.md, tools-guides/using-the-unassigned-invoice-page-new-experience-072e2f18.md); `grep -rl \"New Experience\"` returns 9 files. NONE is workflow configuration — the two tools-guides NE files are AP-processor runtime lists. The only UI-generation signals in the area are tools-guides/how-single-step-approval-workflow-works-40145f24.md saying the admin 'uses the Authorized Approvers link from workflows in the classic interface', and a September 2025 line in general-information-8b3b0308.md recording that the Workflows topics were rewritten in place for a new UI. uiVariant = undifferentiated. THIS IS A BUILD RISK, NOT A MISSING PAGE: if the automation targets New Experience, Workflows is the one config area for which the corpus offers no New Experience guidance at all. Also verified: `grep -rl -e \"Workflows tool\" -e \"Workflows page\" -e \"Workflows tab\"` over the 650 tools-guides files returns ZERO — aim the build at admin-guides only.",
+          "navPathEvidence": [
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows"
+              ],
+              "sourceQuote": "From the Invoice Processing Admin menu, click Workflows.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows",
+                "Workflows tab"
+              ],
+              "sourceQuote": "The Workflows tab on the Workflows page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows"
+              ],
+              "sourceQuote": "Click Administration > Invoice > Workflows (left menu). The Workflows page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows"
+              ],
+              "sourceQuote": "Click Workflows (left menu). The Workflows page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/select-an-email-notification-in-the-workflows-tab-663bb8ac.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows"
+              ],
+              "sourceQuote": "The Workflows page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-workflow-properties-409a8f0b.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows",
+                "Approval Statuses tab"
+              ],
+              "sourceQuote": "Select the Approval Statuses tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/accessing-the-approval-statuses-tab-7ec7bb6e.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows"
+              ],
+              "sourceQuote": "From the Invoice Processing Admin menu, click Workflows.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/accessing-the-approval-statuses-tab-7ec7bb6e.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Approval Statuses",
+                "Purchase Request"
+              ],
+              "sourceQuote": "Administration > Invoice > Workflows > Approval Statuses > Purchase Request",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-purchase-requests-approvals-1c39ee21.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Approval Statuses tab",
+                "Invoice tab"
+              ],
+              "sourceQuote": "Click Approval Statuses tab, and then the Invoice tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/adding-an-invoice-approval-status-d8cbbe5d.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Email Notifications tab"
+              ],
+              "sourceQuote": "The administrator creates and maintains email notifications in Administration > Invoice > Workflows, on the Email Notifications tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Settings tab"
+              ],
+              "sourceQuote": "Settings tab and is shown in the following figure.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows"
+              ],
+              "sourceQuote": "From the Invoice Processing Admin menu, select Workflows.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-the-confirmation-agreement-tab-666fa0ac.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows",
+                "Confirmation Agreements tab"
+              ],
+              "sourceQuote": "Select the Confirmation Agreements tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-the-confirmation-agreement-tab-666fa0ac.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Confirmation Agreements tab"
+              ],
+              "sourceQuote": "On the Confirmation Agreements tab of the Workflows page, select the desired agreement:",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/deleting-a-confirmation-agreement-8cc92339.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Reason Category and Codes tab"
+              ],
+              "sourceQuote": "Click the Reason Category and Codes tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Authorized Approvers tab"
+              ],
+              "sourceQuote": "Click the Authorized Approvers tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Authorized Approvers tab",
+                "Authorized Approver List tab"
+              ],
+              "sourceQuote": "Click the Authorized Approvers tab and then the Authorized Approver List tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-assign-the-level-to-the-approver-d8bf669c.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Authorized Approvers tab",
+                "Configuration tab"
+              ],
+              "sourceQuote": "Click the Configuration tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Authorized Approver tab"
+              ],
+              "sourceQuote": "The range is set in Administration > Invoice > Workflows > Authorized Approver tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Workflow tab"
+              ],
+              "sourceQuote": "The setting appears in Administration > Invoice > Workflows > Workflow tab",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Workflows tab",
+                "Copy or Modify",
+                "General page"
+              ],
+              "sourceQuote": "On the Workflows tab, select the desired workflow and click Copy.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Workflows",
+                "Workflows tab",
+                "Modify",
+                "Steps page"
+              ],
+              "sourceQuote": "On the Steps page, click New.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Workflows"
+              ],
+              "sourceQuote": "choose a page from the Invoice Processing Admin list.",
+              "sourceFile": "concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md"
+            }
+          ],
+          "roleGates": [
+            {
+              "role": "Global Invoice Configuration administrator / Group Invoice Configuration administrator (view the tool)",
+              "sourceQuote": "Both the Global Invoice Configuration administrator and the Group Invoice Configuration administrator can view the Workflows tool.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/workflows-tool-8b3b4dbe.md"
+            },
+            {
+              "role": "Global vs Group Invoice Configuration administrator (edit scope on workflow objects)",
+              "sourceQuote": "The Global Invoice Configuration administrator can edit all workflows.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-6e3fab65.md"
+            },
+            {
+              "role": "unnamed permission — the Workflows SECTION in Administration (stated for the whole surface, never per tab; occurrence 1 of 2)",
+              "sourceQuote": "This portion of the configuration requires permissions for the Workflows section in Administration.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md"
+            },
+            {
+              "role": "unnamed permission — the Workflows SECTION in Administration (independent occurrence 2 of 2)",
+              "sourceQuote": "This portion of the configuration requires permissions for the Workflows section in Administration.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-edit-the-workflow-steps-f2731590.md"
+            },
+            {
+              "role": "Invoice Configuration Administrator (Restricted) — READ-ONLY on the whole page; New/Copy/Remove disabled [RELEASE NOTE]",
+              "sourceQuote": "The Invoice Configuration Administrator (Restricted) can view invoice configuration settings for Workflows, Policies, Group Configurations, and Forms and Fields.",
+              "sourceFile": "concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md"
+            },
+            {
+              "role": "Invoice Configuration Administrator (Restricted) — read-only qualifier [RELEASE NOTE]",
+              "sourceQuote": "This role has read-only access; therefore, actions such as New, Copy, and Remove are disabled.",
+              "sourceFile": "concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md"
+            },
+            {
+              "role": "Invoice Configuration administrator (Restricted) — REQUIRED to EDIT the Reason Category and Codes tab. CONTRADICTS the release note above; unresolved.",
+              "sourceQuote": "The Invoice Configuration administrator (_Restricted_) role is required to use the options on this tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md"
+            }
+          ],
+          "identityNotes": "ONE PAGE, SEVEN TABS — the Audit Rules precedent, settled on the two stated tiebreakers and agreed by all six sweeps.\n\nLEFT-MENU TEST. A corpus-wide census `grep -rhoP \"[A-Z][A-Za-z &/-]{2,40}\\(left menu\\)\"` over both guide dirs (1,859 files) returns 30 distinct labels. Workflows scores 8 (6 x 'Workflows (left menu)' + 2 x 'Click Workflows (left menu)'), second only to Forms and Fields. 'Approval Statuses', 'Authorized Approvers', 'Email Notifications', 'Workflow Settings', 'Confirmation Agreements', 'Reason Category and Codes', 'Purchase Request Settings' and 'Purchase Order Settings' score ZERO between them. `\"Steps tab\"` returns ZERO corpus-wide, so Steps is a wizard page and not a tab.\n\nROLE-GATE TEST. One gate for the whole surface, stated TWICE, verbatim, as 'permissions for the Workflows SECTION in Administration' — never per tab. This is the opposite of the Forms and Fields situation, where the Capture Processing Admin twin had a stricter gate of its own.\n\nRELEASE-NOTE STRUCTURE [labelled: release note, cited for page NAME and STRUCTURE only]. updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md is organised under four headings — 'Forms and Fields Page', 'Group Configurations Page', 'Policies Page', 'Workflows Page' — the first three already pages in the graph. Under the fourth: 'View the list of Workflows and click on each item to view General, Steps, and Step Rules details', 'View the Approval Statuses and click on each item to view status details', 'View the workflow Settings'. One page containing all three, and General/Steps/Step Rules explicitly described as DETAILS OF A LIST ITEM, not pages.\n\nTHE SEVEN TABS, each with a verified click path from inside Workflows: Workflows, Settings, Email Notifications, Approval Statuses, Authorized Approvers, Confirmation Agreements, Reason Category and Codes. Two carry SUB-TABS: Approval Statuses > {Invoice, Purchase Request}; Authorized Approvers > {Configuration, Authorized Approver List}. Corroborated by understand-ad-hoc-steps-ce0af3e7.md ('on the Configuration tab of the Authorized Approvers tab').\n\nPAGE vs OBJECT, kept apart. The page LISTS and EDITS workflow objects; a workflow is an object and there can be many. Both create-a-new-workflow files are about the OBJECT and were diffed by loio — genuinely two topics, NOT a gerund/imperative republish: 15992497 (2,017 B, loio 1599249793e440e794e4293a73dc68b4) is the conceptual note; 554e86aa (14,383 B, loio 554e86aad4494ef2b3af767ea746e15f) is the full General-page field procedure. 15992497 carries the only nested nav phrasing in the corpus: 'the General page in the Workflows tab of the Workflows tool'. The wizard General -> Steps -> Step Rules returns you to the tab ('When done with all rules and actions, click Done on the Workflows tab.') — the giveaway that it is a modal sequence, not navigation.\n\nTHE FOUR workflow-guides-*.md FILES, DIFFED AS INSTRUCTED: four distinct loio, four distinct body md5 (93fa7bbfd6 / 1ad7eaa05e / 1f30c5b2b4 / e052eac989), identical 4-row payload listing four EXTERNAL setup guides ('Refer to these guides when configuring and maintaining workflows.'). They are why this area LOOKS like four pages — SAP split the DOCUMENTATION by topic, not the UI. No node.\n\nCONTRADICTIONS RECORDED, NOT RECONCILED. C1 Settings: 'Settings tab' vs 'Settings section of the Workflows tool' vs 'Settings page' vs 'Workflow Settings page' — tab wins because only the tab reading carries a click path. C2 Authorized Approvers: 'Authorized Approvers tab' (plural, 3 click paths) vs 'Authorized Approver tab' (singular, 2 paths) vs 'the Workflows, Authorized Approvers page' vs 'Authorized Approvers section' vs 'Add Authorized Approvers page within Workflows' — five labels, one surface, all paths land inside Workflows. C3 'Workflows tab' (14 topics) vs 'Workflow tab' (1). C4 'Email Notifications tab' vs singular. C5 'Confirmation Agreements tab' (the click step) vs 'Confirmation Agreement tab' (title and prose). C6 wizard vocabulary: General page / General step / Edit Workflow page; Add Workflow Step page vs window; Modify Workflow Step vs Steps window. C7 DEPTH COLLAPSE: administrator-experience-8b302852.md and approve-forward-feature-b847d65b.md put General-page fields 'on the Workflows page' — the ancestor; do NOT create a second node. C8 NAV DEPTH: 5 topics use the Invoice Processing Admin middle node, 8 omit it — abbreviation per the brief's own rule, both recorded, automation should try the middle node first.\n\nC9 — THE ROLE-GATE CONTRADICTION, UNRESOLVED AND THE MOST IMPORTANT ONE FOR THE AUTOMATION. creating-a-reason-code-b2b61596.md says the Invoice Configuration administrator (Restricted) role IS REQUIRED to use the options on the Reason Category and Codes tab, then walks through New -> Save. The July 2025 release note says that same role has READ-ONLY access to Workflows with New/Copy/Remove disabled, and its enumeration covers only three of the seven tabs. Either that tab is carved out of the read-only rule or one statement is stale. I cannot settle it from the corpus. If the automation ever hits a permission wall on Workflows, this tab is the likely cause.\n\nWHY REASON CATEGORY AND CODES IS STILL A TAB (the closest call in the group, and two sweeps rated it only 'medium'): it is the ONE surface here with a role gate different from the page's, and the brief's tiebreaker says own left-menu entry OR own role gate = page. Half the tiebreaker fires. Against it: zero left-menu hits, zero independent click paths, the gate sentence is explicitly tab-scoped ('the options on this tab'), and the Workflows guide's own revision history lists it as a tab beside Confirmation Agreements ('Reason Category and Codes tab and options'). Forms and Fields needed TWO ENTRY POINTS; this has none. Verdict: tab, with C9 attached.\n\nBOUNDARY AGAINST BUILT PAGES, checked field by field. Routing Configuration (10 fields, all hierarchy-mapping import/search mechanics) — nothing in the Workflows tree duplicates it; no mis-homed field found; no finding raised against the graph on that axis. Audit Rules (91 fields) — REAL OVERLAP that is duplication, not new pages: the condition editor is explicitly shared ('The Condition page in the Workflows tool is similar to the Condition Editor page used in the Audit Rules tool'), so dedupe the Step Rules condition roster before extracting. Exceptions (8 fields) — the documented hub ('appear as options for the Audit Rules tool and Workflows tool when creating rules'); its LEVELS are consumed by three Workflows surfaces (Settings-tab thresholds, Authorized Approvers > Configuration Min/Max Exception Level, the Step Rules 'generate an exception' action) — all consumption, no new page. Invoice Settings (13 fields) — label collision only; NOTHING MOVES. Purchase Order Matching Rules (33 fields) carries confirmation_type / edit_confirmation_button from Receipt Confirmation Type, a DIFFERENT feature from workflow Confirmation Agreements — do not merge. Capture Processing Admin's Email Administration / Supplier Email Administration tabs are inbound image-capture aliases, not workflow notification surfaces.",
+          "seedFiles": [
+            "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md",
+            "concur-invoice-professional-edition-admin-guides/work-with-the-step-rules-page-4c33cda0.md",
+            "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+            "concur-invoice-professional-edition-admin-guides/additional-approver-situations-fbb5034c.md",
+            "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md",
+            "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md",
+            "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md",
+            "concur-invoice-professional-edition-admin-guides/filter-authorized-approvers-by-workflow-approval-step-aae69350.md",
+            "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md",
+            "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+            "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md",
+            "concur-invoice-professional-edition-admin-guides/cost-object-approval-8b3d1e0f.md",
+            "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md",
+            "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+            "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+            "concur-invoice-professional-edition-admin-guides/default-approval-statuses-34c83d58.md",
+            "concur-invoice-professional-edition-admin-guides/email-notifications-8b3dbad4.md",
+            "concur-invoice-professional-edition-admin-guides/authorized-approvers-8b3c26cc.md",
+            "concur-invoice-professional-edition-admin-guides/work-with-purchase-requests-approvals-1c39ee21.md",
+            "concur-invoice-professional-edition-admin-guides/modify-an-email-notification-a6e5f4ba.md",
+            "concur-invoice-professional-edition-admin-guides/create-an-authorized-approver-step-4640b5a5.md",
+            "concur-invoice-professional-edition-admin-guides/select-an-email-notification-in-the-workflows-tab-663bb8ac.md",
+            "concur-invoice-professional-edition-admin-guides/create-a-confirmation-agreement-3e153f29.md",
+            "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md",
+            "concur-invoice-professional-edition-admin-guides/workflows-tool-8b3b4dbe.md",
+            "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-15992497.md",
+            "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md",
+            "concur-invoice-professional-edition-admin-guides/overview-9c8ca06e.md",
+            "concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md",
+            "concur-invoice-professional-edition-admin-guides/adding-an-invoice-approval-status-d8cbbe5d.md",
+            "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md",
+            "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md",
+            "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md",
+            "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md",
+            "concur-invoice-professional-edition-admin-guides/accessing-the-approval-statuses-tab-7ec7bb6e.md",
+            "concur-invoice-professional-edition-admin-guides/enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md"
+          ],
+          "foundBySweeps": [
+            "clickpaths",
+            "adminfiles",
+            "toolsguides",
+            "rolesmenus",
+            "graphrefs",
+            "setupflow"
+          ]
+        },
+        {
+          "id": "email-reminders",
+          "name": "Email Reminders",
+          "aliases": [
+            "Email Reminders tool",
+            "Email Reminders page"
+          ],
+          "documentedBasis": "moderate",
+          "richness": {
+            "fileCount": 17,
+            "totalBytes": 37033,
+            "rawTableFiles": 0,
+            "longCatalogs": 2,
+            "estimatedFields": 25
+          },
+          "uiVariantEvidence": "None found. No *-new-experience-* file exists for this page and `grep -rl \"New Experience\"` returns no reminder file. All 17 files are legacy-only. uiVariant = undifferentiated.",
+          "navPathEvidence": [
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Email Reminders"
+              ],
+              "sourceQuote": "From the Invoice Processing Admin navigation menu, choose Email Reminders.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Email Reminders"
+              ],
+              "sourceQuote": "The Email Reminders page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Email Reminders",
+                "Rules tab"
+              ],
+              "sourceQuote": "On the Email Reminders page, select the Rules tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Email Reminders",
+                "Email Reminders tab"
+              ],
+              "sourceQuote": "On the Email Reminders tab of the Email Reminders page, create a new configuration.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Email Reminders",
+                "Rules tab"
+              ],
+              "sourceQuote": "The rules are set up in the Rules tab of the Email Reminders page.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Invoice Processing Admin",
+                "Email Reminders",
+                "Email Reminders tab"
+              ],
+              "sourceQuote": "In Email Reminders, select the Email Reminders tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md"
+            }
+          ],
+          "roleGates": [
+            {
+              "role": "Invoice Configuration administrator (Restricted) — visibility gate, DIFFERENT from the Workflows gate",
+              "sourceQuote": "The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+            },
+            {
+              "role": "Global and Group Configuration administrator — group-scoped CRUD",
+              "sourceQuote": "allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md"
+            },
+            {
+              "role": "Group administrator with explicit create rights (rule creation)",
+              "sourceQuote": "Group administrators can only create email reminder rules if given \"create\" rights.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md"
+            }
+          ],
+          "identityNotes": "A PAGE, and it passes BOTH halves of the brief's tiebreaker. FOUND BY ONLY 2 OF 6 SWEEPS — and I verified the singleton myself because the reason four sweeps missed it is mechanical, not evidential: they censused the `(left menu)` idiom, and this page's access topic uses the other phrasing. The complementary census settles it. `grep -rhoP \"Invoice Processing Admin (menu|navigation menu|list)[,]? (click|select|choose) [A-Z][A-Za-z ]{2,40}\"` returns 11 distinct destinations: Policies (4), Workflows (5), Invoice Settings, Group Configurations, Routing Configuration, Forms and Fields, Expense Types, Exceptions, Change Log, and EMAIL REMINDERS. Six of those are ALREADY-BUILT PAGES. Email Reminders occupies exactly the same syntactic slot. That, plus a role gate stated for this tool alone, plus its own two-tab strip (Email Reminders tab, Rules tab), plus its own object model (a rule must exist before a reminder), makes it a page.\n\nTHIS IS THE EASIEST COLLAPSE ERROR IN THE DOMAIN AND I AM FLAGGING IT LOUDLY. Email Reminders (this page) and the Workflows > Email Notifications tab are two different surfaces that both email approvers. NOTIFICATIONS are event-driven templates authored INSIDE Workflows and assigned to a workflow object. REMINDERS are interval-driven nag emails with their own rule engine on their OWN page, assigned by GROUP. Do not merge them.\n\nINDEPENDENT CORROBORATION FROM INSIDE THE GRAPH ITSELF. The Group 3 build left a value set deliberately orphaned — vset.g3.unnamed.email-message-replacement-tokens-..., knownGap: true — whose note reads: 'WHAT WOULD FIX IT: SAP publishing the PO transmittal tooltip's own token roster, or an Email Reminders page node that owns this table properly.' The existing graph is already asking for this page node. Accordingly, email-message-replacement-tokens-c9cc4af4.md (2,796 B, a 4-row %1%-%4% token roster) belongs HERE, not to the Email Notifications tab: 'how those options are used on the Add Email Reminder page'. One sweep filed it under Email Notifications; that is a mis-file and I correct it. This page's build should claim that value set and close the known gap.\n\nCENSUS CAUTION. create-email-reminders-604c4a46.md is 10,163 B and returns 0 on `grep -c \"^| \"` but 49 on `grep -cP \"^\\s*\\|\"` — the indented-table trap, live. Of the two long catalogs, email-reminders-8b2caa99.md (3,921 B, 91 indented rows) is the guide's REVISION HISTORY, not a field roster; do not mine it as one.\n\nLABEL COLLISION TO CARRY: 'Rules tab' is also a tab of the already-built Purchase Order Matching Rules page (`In Purchase Order Matching Set, click the Rules tab.`) and shadows the workflow Step Rules page. Three different 'Rules' surfaces in this product.\n\nBOUNDARY: group-level reminder assignment touches the built Group Configurations page (22 fields). Verified against the graph — NO built field cites any reminder file, so there is no duplication. Scheduling may require an SAP Concur service request (scheduling-email-reminders-8b2ceaea.md), which is a constraint the build should capture, not a field. Localizing reminder text (localizing-email-reminder-text-8b2cc1b0.md) sits on the Group 6 Localization boundary.",
+          "seedFiles": [
+            "concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md",
+            "concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md",
+            "concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md",
+            "concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md",
+            "concur-invoice-professional-edition-admin-guides/scheduling-email-reminders-8b2ceaea.md",
+            "concur-invoice-professional-edition-admin-guides/localizing-email-reminder-text-8b2cc1b0.md",
+            "concur-invoice-professional-edition-admin-guides/delete-reminder-rules-ab4f8d33.md",
+            "concur-invoice-professional-edition-admin-guides/edit-email-reminders-2a2638ad.md",
+            "concur-invoice-professional-edition-admin-guides/edit-reminder-rules-8f2edae9.md",
+            "concur-invoice-professional-edition-admin-guides/delete-email-reminders-8f693700.md",
+            "concur-invoice-professional-edition-admin-guides/copy-email-reminders-cb75f9fd.md",
+            "concur-invoice-professional-edition-admin-guides/copy-reminder-rules-9350776e.md",
+            "concur-invoice-professional-edition-admin-guides/configuring-email-reminders-8b2c3cca.md",
+            "concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md",
+            "concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md",
+            "concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md"
+          ],
+          "foundBySweeps": [
+            "clickpaths",
+            "adminfiles"
+          ]
+        },
+        {
+          "id": "delegate-configurations",
+          "name": "Delegate Configurations",
+          "aliases": [
+            "Delegate Configurations tool",
+            "Delegate Configuration",
+            "Payment Delegate Configurations",
+            "Invoice delegates",
+            "Delegate Configuration area"
+          ],
+          "documentedBasis": "moderate",
+          "richness": {
+            "fileCount": 17,
+            "totalBytes": 33041,
+            "rawTableFiles": 0,
+            "longCatalogs": 2,
+            "estimatedFields": 25
+          },
+          "uiVariantEvidence": "None found for the page itself. Note that delegate-configuration-8b2bd26d.md's revision history records 'added information about two user interfaces', which is a UI-variant HINT with no accompanying variant topic — record it, do not act on it. No *-new-experience-* delegate file exists. uiVariant = undifferentiated.",
+          "navPathEvidence": [
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Delegate Configurations"
+              ],
+              "sourceQuote": "Select Delegate Configurations (left menu) , the Delegate Configurations page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Delegate Configurations",
+                "Invoice tab or Purchase Request tab"
+              ],
+              "sourceQuote": "Select the Invoice or Purchase Request tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Delegate Configurations",
+                "Invoice tab or Purchase Request tab"
+              ],
+              "sourceQuote": "On the Delegate Configurations page, select either the Invoice or Purchase Request tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Delegate Configurations",
+                "Invoice tab",
+                "New",
+                "Add Delegate Configuration - Invoice"
+              ],
+              "sourceQuote": "Choose New. The Add Delegate Configuration - Invoice page appears.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Delegate Configurations",
+                "Invoice tab or Purchase Request tab"
+              ],
+              "sourceQuote": "On the Delegate Configurations page, choose either the Invoice or Purchase Request tab.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md"
+            },
+            {
+              "navPath": [
+                "Invoice Admin",
+                "Delegate Configurations"
+              ],
+              "sourceQuote": "Invoice delegates are accessed from the Invoice Admin link.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md"
+            }
+          ],
+          "roleGates": [
+            {
+              "role": "Configuration administrator — named as the actor who sets delegate restrictions. NOTE: this is the ONLY role sentence in the family and it is NOT an access gate. No explicit visibility/permission gate for this page exists anywhere in the corpus — record as UNDETERMINED rather than inferring one.",
+              "sourceQuote": "The Configuration administrator can restrict the delegates based on the following choices:",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md"
+            }
+          ],
+          "identityNotes": "A PAGE. Own left-menu entry directly under Administration > Invoice (one of only two unbuilt labels in the corpus-wide `(left menu)` census, alongside Feature Hierarchies), its own two tabs (Invoice / Purchase Request — the same shape as the Workflows Approval Statuses tab), its own child pages (Add Delegate Configuration - Invoice, Modify/Edit Delegate Configuration) and a full CRUD topic set. Found by 5 of 6 sweeps; the one that missed it was the click-path sweep, whose charter was workflow-domain click paths and which therefore never reached a sibling menu entry.\n\nTHE CORPUS NEVER PLACES IT UNDER WORKFLOWS — not once in 17 delegate-named admin files. It is a sibling page, not a tab, and it is on this roster on SUBSTANCE: it is where an admin decides who may prepare, submit and approve on behalf of whom and for how long (Can Prepare, Can Submit, Can Approve (Any Time), Can Approve Temporary, Need Approver Role to Approve, Maximum Time Period to Approve). One of its own fields reads directly against the Workflows Authorized Approvers tab: 'Restrict approvers to those with equal or higher authorized approver limit'.\n\nRESOLVES AN ALREADY-WRITTEN GRAPH ENDPOINT. dep.g1.059 targets {page: 'Delegate Configurations', field: 'Delegate Configuration'}, unresolved, carrying the exact cardinality sentence 'Each group within your company can only have one Invoice delegate configuration.' That endpoint was written by an agent with no roster, so it is independent corroboration of the NAME. Verified: 'Delegate Configuration' occurs twice in the graph, both inside that dependency; no built page carries any delegate field.\n\nADMIN vs END-USER, kept apart explicitly. THIS PAGE is where the admin defines the cascading permission TEMPLATE. delegate-experience-8b30fb06.md, delegates-and-proxies-a88c80e0.md, delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md and when-the-delegate-cannot-submit-53c9cb69.md are RUNTIME and are deferred — their configuration lives here plus, for the self-approval half, on the Workflows General page.\n\nBOUNDARY WITH WORKFLOWS — exactly ONE shared source file, computed with `comm`: delegate-self-approval-1b627285.md (1,284 B), which documents the workflow General-page field 'Allow delegated approvers to approve their own requests'. THAT FIELD BELONGS TO WORKFLOWS. The Delegate Configurations run must NOT extract it. The per-user delegate ASSIGNMENT is made in Profile / User Administration, outside this graph — the page's own text ties the Maximum Time Period field to 'the Choose Dates link in the Delegates area of both My Info and User Administration'.\n\nCENSUS CAUTION: both field rosters return 0 on the naive `^| ` anchor — create-a-new-invoice-delegate-configuration-fcf42662.md (6,302 B) has 22 indented rows and access-and-view-payment-delegate-configurations-8ed1298f.md (3,872 B) has 37. Of the two long catalogs, delegate-configuration-8b2bd26d.md (4,236 B, 91 rows) is the guide's REVISION HISTORY, not a roster. Two near-twin constraint topics exist — special-considerations-for-delegate-configurations-8b2bfccb.md (2,195 B) and special-considerations-for-payment-delegate-configurations-77a887a4.md (2,029 B) — DIFF THEM before treating either as canonical.",
+          "seedFiles": [
+            "concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md",
+            "concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md",
+            "concur-invoice-professional-edition-admin-guides/special-considerations-for-delegate-configurations-8b2bfccb.md",
+            "concur-invoice-professional-edition-admin-guides/special-considerations-for-payment-delegate-configurations-77a887a4.md",
+            "concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md",
+            "concur-invoice-professional-edition-admin-guides/delete-an-invoice-delegate-configuration-92627a9b.md",
+            "concur-invoice-professional-edition-admin-guides/audit-invoice-delegate-actions-3660a51f.md",
+            "concur-invoice-professional-edition-admin-guides/delegate-configuration-8b2bd26d.md",
+            "concur-invoice-professional-edition-admin-guides/delegates-proxies-approvers-and-processors-8b283bfd.md"
+          ],
+          "foundBySweeps": [
+            "adminfiles",
+            "toolsguides",
+            "rolesmenus",
+            "graphrefs",
+            "setupflow"
+          ]
+        },
+        {
+          "id": "feature-hierarchies",
+          "name": "Feature Hierarchies",
+          "aliases": [
+            "Feature Hierarchies section in Administration",
+            "Feature Hierarchies area",
+            "Hierarchies"
+          ],
+          "documentedBasis": "sparse",
+          "richness": {
+            "fileCount": 12,
+            "totalBytes": 23239,
+            "rawTableFiles": 0,
+            "longCatalogs": 1,
+            "estimatedFields": 5
+          },
+          "uiVariantEvidence": "None found. No *-new-experience-* hierarchy file exists and no hierarchy file mentions 'New Experience'. uiVariant = undifferentiated.",
+          "navPathEvidence": [
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Feature Hierarchies"
+              ],
+              "sourceQuote": "Click Feature Hierarchies (left menu).",
+              "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Feature Hierarchies",
+                "select a feature name"
+              ],
+              "sourceQuote": "Select the Invoice Payment feature name.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Feature Hierarchies",
+                "select a feature name",
+                "Modify Hierarchy"
+              ],
+              "sourceQuote": "Select Modify Hierarchy.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Feature Hierarchies",
+                "Modify Hierarchy",
+                "Source List"
+              ],
+              "sourceQuote": "In the Source List, select the name of the list you created in Step 1",
+              "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+            },
+            {
+              "navPath": [
+                "Invoice",
+                "Feature Hierarchies"
+              ],
+              "sourceQuote": "You must define the authorized approver hierarchy (Invoice > Feature Hierarchies)",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Hierarchies"
+              ],
+              "sourceQuote": "Hierarchies (explained below).",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Feature Hierarchies"
+              ],
+              "sourceQuote": "the Invoice Routing hierarchy in the Feature Hierarchies area",
+              "sourceFile": "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md"
+            },
+            {
+              "navPath": [
+                "Administration",
+                "Invoice",
+                "Feature Hierarchies"
+              ],
+              "sourceQuote": "Step 2: Feature Hierarchies",
+              "sourceFile": "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md"
+            }
+          ],
+          "roleGates": [
+            {
+              "role": "unnamed permission — the Feature Hierarchies SECTION in Administration. Worded identically to the Workflows gate and stated as step 1 of the SAME numbered flow whose step 3 states the Workflows gate: two gates, two peer surfaces.",
+              "sourceQuote": "This portion of the configuration requires permissions for the Feature Hierarchies section in Administration.",
+              "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md"
+            }
+          ],
+          "identityNotes": "SETTLES INHERITED FINDING (3), and I am CLAIMING it rather than deferring it a second time. VERDICT: it belongs to NEITHER Workflows NOR Routing Configuration — it is its own page, a shared prerequisite, and it should be built ONCE with both pointing at it. Found by all six sweeps; all six reached the same conclusion.\n\nIT IS A REAL PAGE, by both halves of the tiebreaker. Own left-menu entry ('Click Feature Hierarchies (left menu).' — one of only two unbuilt labels in the corpus-wide census). Own role gate, worded exactly like the Workflows gate and stated IN CONTRAST to it inside a single three-step setup flow (step 1 = Feature Hierarchies permission, step 3 = Workflows permission). It is never a tab of anything.\n\nWHY IT IS NOT A WORKFLOWS SURFACE. One page hosts at least five named feature hierarchies serving four config domains: Invoice Routing (feeds the BUILT Routing Configuration page), Invoice Payment (feeds Payment Group Configuration, Ops), Invoice Vendor Employee Access (feeds Group Configurations / vendor work), Payment Authorized Approver (feeds Workflows > Authorized Approvers tab), and Cost Object Approver (feeds the Workflows General page). Folding it into Workflows would mis-file routing and vendor access; folding it into Routing Configuration would mis-file the COA hierarchy that only Workflows uses. It resolves FOUR already-written unresolved endpoints — dep.g1.061, dep.g2.003, dep.g5g5.050, dep.g5g5.051 — every one of which is about a SOURCE LIST, exactly the one field this page documents well. That fan-out is the signature of a shared page.\n\nNAVIGATION — LOAD-BEARING AND EASY TO GET WRONG. Both click paths go Administration > Invoice > Feature Hierarchies with NO middle segment. The 'Invoice Processing Admin' node is UNATTESTED for this page — record as unattested, not absent. Because the left-menu entry is a SIBLING of Workflows and not a child, an automation driver told to reach it via a Workflows path will fail. That is an active harm, not a filing preference.\n\nMENU-LABEL ALIAS NO PRIOR ARTEFACT RECORDS: hierarchies-7f68a876.md writes the label as plain 'Hierarchies' — 'first configure their hierarchy structure in Administration' ... 'Hierarchies (explained below).' GREP HAZARD: that sentence and both nav paths in professional-edition-fb3e6aa2.md and workflow-667cee21.md use U+00A0 separators with NO '>' characters at all. Never grep -F across a menu arrow here; quote around the separators, as I did.\n\nTHIN IS THE CORRECT ANSWER AND THE BUILD MUST BE TOLD BEFORE IT STARTS. 20 files corpus-wide mention Feature Hierarchies but most only in passing; the 12-file core totals 23,239 B and EVERY field-bearing file returns 0 indented table rows and 0 raw tables. The single long catalog, understand-the-hierarchy-b65d7089.md (69 rows), is a WORKED EXAMPLE of an approver hierarchy — example data, not a field roster. SAP files the substance in the external 'Shared: Feature Hierarchies Setup Guide', which is NOT in this corpus. Expect roughly five fields (Source List, Level, Segment Name, feature-name selector, Modify Hierarchy). This is the Budget Configuration failure mode; predict it and record coverage as partial rather than manufacturing fields.\n\nHARD FORWARD REFERENCE INTO THE WORKFLOWS BUILD: 'You must define the authorized approver hierarchy (Invoice > Feature Hierarchies)' — the Authorized Approver feature cannot be activated without it, so leaving this page unbuilt leaves a dangling prerequisite in the workflow chain.\n\nROUTING BOUNDARY: the tools-guides filename says ROUTING (create-the-invoice-routing-feature-hierarchy-8b510285.md) but the file describes a hierarchy DEFINED HERE, upstream of the Routing Configuration import. I read all 10 built Routing Configuration fields and none overlaps. No re-homing.",
+          "seedFiles": [
+            "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+            "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md",
+            "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md",
+            "concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md",
+            "concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md",
+            "concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md",
+            "concur-invoice-professional-edition-admin-guides/overview-8b2edfd0.md",
+            "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md",
+            "concur-invoice-professional-edition-admin-guides/step-1-define-the-invoice-authorized-approver-hierarchy-fed7c7fe.md",
+            "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md",
+            "concur-invoice-professional-edition-admin-guides/create-hierarchy-and-import-connected-list-data-c6ab8a52.md",
+            "concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md"
+          ],
+          "foundBySweeps": [
+            "clickpaths",
+            "adminfiles",
+            "toolsguides",
+            "rolesmenus",
+            "graphrefs",
+            "setupflow"
+          ]
+        }
+      ],
+      "deferred": [
+        {
+          "name": "Workflows tab",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1). Its configuration lives on Workflows itself — it is the DEFAULT LANDING TAB, named in the same sentence as its page ('The Workflows tab on the Workflows page appears.'), never reached from a menu. It lists the workflow OBJECTS and launches the object wizard. Alias contradiction recorded: 'Workflow tab' singular in one full path."
+        },
+        {
+          "name": "Settings tab",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1). Its configuration lives on Workflows > Settings tab. Only the tab reading carries a click path ('Settings tab and is shown in the following figure.'); 'Settings section of the Workflows tool', 'Settings page' and 'Workflow Settings page' are the three path-less prose alternates, recorded as contradiction C1. This tab HOLDS all three settings-family tables (9 settings total) and resolves dep.g2.012, dep.g2.013 and dep.g2.014."
+        },
+        {
+          "name": "Email Notifications tab",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1). Its configuration lives on Workflows > Email Notifications tab, where notification TEMPLATES are authored; the three fields that ASSIGN a notification to a workflow (Approval Request / Status Change / Sent Back Notification) live on the workflow object's General page. Model BOTH halves. CORRECTION TO THE BRIEF: this name occurs ZERO times in kg-invoice-config.json — it came from the lost map, not from a built group. It is nonetheless fully corpus-attested. Do NOT confuse with the Email Reminders page (PAGE 2) or with Capture Processing Admin's Email Administration tab (G4, built)."
+        },
+        {
+          "name": "Approval Statuses tab (and its Invoice / Purchase Request sub-tabs)",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1), with two sub-tabs. Its configuration lives on Workflows > Approval Statuses tab; two independent access topics reach it only after clicking Workflows. CORRECTION TO THE BRIEF: 'Approval Statuses' occurs ZERO times in kg-invoice-config.json — 'Approval Statuses > Purchase Request' came from the lost map, not from a built group, though the five-segment path is verbatim in the corpus. RENAME recorded from the guide's own revision history: 'Payment Request Approval Statuses tab' is the former label. DIALOG ASYMMETRY to record, not reconcile: the Invoice sub-tab's New opens a Request Status window, the Purchase Request sub-tab's New opens a Report Status window."
+        },
+        {
+          "name": "Authorized Approvers tab (and its Configuration / Authorized Approver List sub-tabs)",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1), with two sub-tabs — a tab within a tab, which is decisive. Its configuration lives on Workflows > Authorized Approvers tab. Five competing labels recorded as contradiction C2, but every topic carrying an actual click path says 'tab' and starts from the Workflows left-menu entry. The Configuration sub-tab carries Minimum/Maximum Exception Level — an exception-level control on the Audit Rules boundary; dedupe against the built Audit Rules 91 fields before extracting. PREREQUISITE: the approver hierarchy itself is built on Feature Hierarchies (PAGE 4), not here."
+        },
+        {
+          "name": "Confirmation Agreements tab",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1). Its configuration lives on Workflows > Confirmation Agreements tab (the agreement text is authored here) plus the workflow General page (Submit Confirmation Agreement / Approval Confirmation Agreement select which agreement each action shows). Found only by content grep — no filename in the corpus links it to 'workflow', so a filename-driven sweep misses it entirely. Do not merge with the built Purchase Order Matching Rules page's Receipt Confirmation Type, a different feature."
+        },
+        {
+          "name": "Reason Category and Codes tab",
+          "kind": "tab-within-page",
+          "why": "Tab of the Workflows page (PAGE 1) — the closest call in this group, carried at medium confidence. Its configuration lives on Workflows > Reason Category and Codes tab. It is the ONE surface with a role gate different from the page's, which is half the page tiebreaker; but it has zero left-menu hits, zero independent click paths, the gate sentence is explicitly tab-scoped ('the options on this tab'), and the Workflows guide's revision history lists it as a tab. Forms and Fields needed TWO ENTRY POINTS; this has none. The role-gate contradiction against the release note is recorded UNRESOLVED as C9."
+        },
+        {
+          "name": "General page (aka General step, Edit Workflow page, workflow properties)",
+          "kind": "wizard-or-dialog",
+          "why": "Wizard step over the workflow OBJECT, inside PAGE 1. Its configuration lives on Workflows > Workflows tab > select a workflow > Copy or Modify. Reached only from a row of the Workflows tab, advanced with Next, exited with 'Done on the Workflows tab'. The release note describes General/Steps/Step Rules as DETAILS of a list item, not as pages. THIS IS WHERE THE SINGLE DENSEST FIELD HAUL IN THE GROUP SITS (create-a-new-workflow-554e86aa.md, 14,383 B, 85 indented rows, ~25 fields) — attach those fields to the Workflows page, do not create a node."
+        },
+        {
+          "name": "Steps page (aka Add/Edit Workflow Steps page) and the Add / Modify Workflow Step window",
+          "kind": "wizard-or-dialog",
+          "why": "Wizard step over the workflow OBJECT, inside PAGE 1. Its configuration lives on the same wizard, reached by Next from the General page. `\"Steps tab\"` returns ZERO hits corpus-wide, so it is definitively not a tab. THE ADMIN/END-USER HOMONYM LIVES EXACTLY HERE: an approval STEP is CONFIGURED on this surface by an admin and EXECUTED by an approver on the Approval Flow page. Dialog-name inconsistency recorded: 'Add Workflow Step page' vs 'window'; 'Modify Workflow Step window' vs 'Modify Workflow Steps window'."
+        },
+        {
+          "name": "Step Rules page and the Edit Condition / Edit Action windows",
+          "kind": "wizard-or-dialog",
+          "why": "Wizard step over the workflow OBJECT, inside PAGE 1. Its configuration lives on the workflow wizard, off the Steps page. 'Rules' is AMBIGUOUS in this product and the build must not collapse it: there is a Step Rules page inside a workflow, a Rules tab on the Email Reminders page, and a Rules tab on the built Purchase Order Matching Rules page. The Condition page it opens is EXPLICITLY shared with Audit Rules ('The Condition page in the Workflows tool is similar to the Condition Editor page used in the Audit Rules tool'), so its field/operator/value roster is very likely a duplicate of material already in the built Audit Rules page — dedupe before extracting."
+        },
+        {
+          "name": "Approval Flow page / Approval Flow for Invoice / Approval Flow for Purchase Request",
+          "kind": "end-user-screen",
+          "why": "APPROVER/EMPLOYEE RUNTIME. 'The Approval Flow for Invoice page appears by clicking Details' — opened from inside an invoice, never from Administration. ITS CONFIGURATION LIVES ON: the workflow object's General page (Steps Can Be Added By, Do not display the skip steps to the employee, Restrict Authorized Approver for, Editable By Group(s)) and Steps page (Approver Editable By, Deletable By), ALL of which are overridden by Workflows > Settings tab 'Allow users to select their own approver for payment requests' — invoice-settings-cace748d.md states the override explicitly ('the Edit Workflow page and the Add/Edit Workflow Steps page')."
+        },
+        {
+          "name": "My Work approval links on the home page",
+          "kind": "end-user-screen",
+          "why": "HOME-PAGE RUNTIME AREA. ITS CONFIGURATION LIVES ON: Workflows > Settings tab, the setting 'Display payment request approval links to approvers on the home page' — the corpus describes the result as appearing 'under the My Work area on the home page' (invoice-settings-cace748d.md). One checkbox, already accounted for as a Settings tab field."
+        },
+        {
+          "name": "Requests Pending Your Approval window",
+          "kind": "end-user-screen",
+          "why": "APPROVER RUNTIME WINDOW. ITS CONFIGURATION LIVES ON: Workflows > Settings tab, the purchase-request member — 'Display purchase request approval links to approvers on the home page', whose description names the 'Requests Pending Your Approval window' (purchase-request-settings-b0bce285.md). The PR-side twin of the My Work control."
+        },
+        {
+          "name": "Approve / Send Back to Employee / Recall buttons and their labels",
+          "kind": "end-user-screen",
+          "why": "APPROVER AND PROCESSOR RUNTIME CONTROLS. ITS CONFIGURATION LIVES IN THREE PLACES: the button TEXT on Workflows > Approval Statuses tab > Invoice tab, field Action Text ('This text becomes button text for the approver'); WHICH actions an approver is offered at a given step on the workflow Steps page, field Approval Actions; and recall on the workflow General page (Allow employee to recall payment requests) plus Workflows > Settings tab (Allow processor to recall a payment request to last processor step)."
+        },
+        {
+          "name": "Add Approval Steps / Send an invoice to an additional approver / Approve and Forward (tools-guides)",
+          "kind": "end-user-screen",
+          "why": "PROCESSOR AND APPROVER RUNTIME ACTIONS. ITS CONFIGURATION LIVES ON: the workflow General page field 'Steps Can Be Added By' (which enables ad hoc steps at all, and which approve-forward-feature-b847d65b.md ties directly to the Approve & Forward feature), plus Workflows > Authorized Approvers tab for whether an ad hoc step must go to an authorized approver (restrict-ad-hoc-steps-to-authorized-approvers-8a523257.md). Same noun as the admin Steps page; only the admin one is a config surface."
+        },
+        {
+          "name": "Approver experience / approver user interface / the ~15 approver-action-*.md topics",
+          "kind": "end-user-screen",
+          "why": "RUNTIME NARRATIVES of clicking approval actions. ITS CONFIGURATION LIVES ON: Workflows > Steps page, field Approval Actions ('The Workflow administrator can select which of these actions should be available to the approver'), and Workflows > Approval Statuses tab > Invoice tab (Status, Action Text, Description, Editable By Group(s)) which supplies the button label and the resulting status. Self-approval variants are the workflow General page (Allow Self Approval, Allow Self Cost Object Approval, Allow Invoice Processor to Process their own Invoices)."
+        },
+        {
+          "name": "Reason code picker shown when a processor returns an invoice",
+          "kind": "end-user-screen",
+          "why": "PROCESSOR RUNTIME, and a mandatory step. ITS CONFIGURATION LIVES ON: Workflows > Reason Category and Codes tab, where the Reason Category and Reason Code set is created (creating-a-reason-code-b2b61596.md), gated on the Invoice Configuration administrator (Restricted) role."
+        },
+        {
+          "name": "Final Review / Confirmation modal on submit and on approve",
+          "kind": "end-user-screen",
+          "why": "RUNTIME MODAL. ITS CONFIGURATION LIVES ON: Workflows > Confirmation Agreements tab (creates the agreement Name, Title, Text with its allowed-HTML-tag whitelist, Editable By Group(s)) plus the workflow General page fields Submit Confirmation Agreement and Approval Confirmation Agreement, which select which agreement each action shows (activating-the-confirmation-agreement-feature-bdfc1dce.md)."
+        },
+        {
+          "name": "Delegate / proxy switching, delegate experience, acting-on-behalf-of screens, Invoice Proxy Logon",
+          "kind": "end-user-screen",
+          "why": "RUNTIME BEHAVIOUR (delegate-experience-8b30fb06.md, delegates-and-proxies-a88c80e0.md, delegates-submit-a-payment-or-purchase-request-0ee0f0b9.md, when-the-delegate-cannot-submit-53c9cb69.md, and 15 tools-guides proxy topics). ITS CONFIGURATION LIVES ON: the Delegate Configurations page (PAGE 3 on this roster) for the cascading permission template, plus the workflow General page field 'Allow delegated approvers to approve their own requests' for the self-approval half. The per-user delegate assignment and the Invoice Proxy Logon role are in Profile / User Administration / User Permissions, outside the Invoice admin config surface entirely."
+        },
+        {
+          "name": "Invoice Manager page / Unassigned Invoice page (both New Experience) / Approvals list / Approve Invoices / view-the-approval-flow topics",
+          "kind": "end-user-screen",
+          "why": "PROCESSOR AND APPROVER RUNTIME LISTS AND VIEWS, all in tools-guides. ITS CONFIGURATION LIVES ON: invoice OWNERSHIP assignment is the built Routing Configuration page (G2) plus Feature Hierarchies (PAGE 4); the Invoice AP User / Invoice Processor ROLE assignment is User Administration, outside this graph; the steps these screens display come from the workflow object's Steps page, and whether skipped steps are shown from the General page field 'Do not display the skip steps to the employee'. Nothing on the Workflows page configures the screens themselves. These are also the ONLY New Experience files anywhere near this domain, and they are end-user."
+        },
+        {
+          "name": "Batch verification workflow / Verification page",
+          "kind": "end-user-screen",
+          "why": "VERIFIER RUNTIME, and a PURE NAME COLLISION on the word 'workflow' — it is the capture/OCR verification process, not approval workflow. ITS CONFIGURATION LIVES ON: the built Capture Processing Admin page (G4) — its Task Definitions tab for the Verification task and its Other Settings tab for the default policy and ledger the Verifier's invoices inherit — plus the Client Managed Capture Verifier role in User Permissions."
+        },
+        {
+          "name": "Email notifications received by users; Profile > Invoice Preferences opt-in",
+          "kind": "end-user-screen",
+          "why": "END-USER EMAIL and an end-user Profile page ('Click Invoice Preferences (left menu)' is under Profile > Profile Settings, which pollutes the left-menu census with a Profile-scope hit that looks like an admin entry). ITS CONFIGURATION LIVES ON: the mail's content and existence on Workflows > Email Notifications tab; the assignment of a mail to a workflow on the workflow General page (Approval Request / Status Change / Sent Back Notification). Its Default Shipping Address field is governed by the built Company Locations page."
+        },
+        {
+          "name": "Cost Object Approval",
+          "kind": "feature-name-only",
+          "why": "A FEATURE AND A GUIDE, 13 files and ~20.8 KB of rich material, but NO SCREEN OF ITS OWN. I looked hard for a cost-object page because it was the likeliest place for an undiscovered one; there is not one. ITS CONFIGURATION LIVES ON: the workflow General page (Cost Object Hierarchy Type = Level or Limit; Allow Self Cost Object Approval — 'In the General step, select the Allow Self Cost Object Approval option.'), Workflows > Settings tab (Filter payment request items to those that are applicable to Cost Object), the workflow Steps page (the COA step), and Feature Hierarchies (the Cost Object Approver hierarchy, which 'requires permissions for the Feature Hierarchies section in Administration'). DO NOT create a Cost Object Approval page."
+        },
+        {
+          "name": "Authorized Approver Hierarchy / Cost Object Approver Hierarchy / Payment Authorized Approvers hierarchy",
+          "kind": "feature-name-only",
+          "why": "HIERARCHY OBJECTS, not screens. ITS CONFIGURATION LIVES ON: the Feature Hierarchies page (PAGE 4 on this roster) — the Workflows > Authorized Approvers tab merely CONSUMES them ('The groups that appear here are from the Authorized Approver Hierarchy'). step-1-define-the-invoice-authorized-approver-hierarchy-fed7c7fe.md is 985 B of description with no click path and no field: coverage evidence, not field evidence."
+        },
+        {
+          "name": "Workflow and Approval Routing (tools-guides/workflow-and-approval-routing-8b4ff6c9.md, 1,502 B)",
+          "kind": "feature-name-only",
+          "why": "OPENED AS INSTRUCTED FOR FINDING (4). NOT A PAGE, and it does NOT straddle — it falls squarely on the WORKFLOWS side. Its entire body is prose best practice: 'All workflow options available for non-PO policies are also available to a PO-based invoice policy.' and 'This includes options such as workflow rules and Authorized Approvers.' plus a Best Practice paragraph and two cross-references. No page, no tab, no field, no click path, no role, and it never mentions hierarchy mappings or the Routing Configuration page — the word 'Routing' in its title means APPROVAL routing. ITS CONFIGURATION LIVES ON: the Workflows page (workflow rules on the Step Rules page, Authorized Approvers tab, and the Steps page for the minimal straight-to-Processor flow it recommends), assigned to a PO policy on the built Policies page. IT SHOULD NOT SEED FIELDS ON EITHER PAGE."
+        },
+        {
+          "name": "Workflow Guides (workflow-guides-8b3b85da / -8b3c7b2a / -8b3d6ede / -8b3e09a7)",
+          "kind": "feature-name-only",
+          "why": "A DOCUMENTATION INDEX, not a screen. Diffed as instructed: four distinct loio and four distinct body md5 (93fa7bbfd6 / 1ad7eaa05e / 1f30c5b2b4 / e052eac989), identical 4-row payload listing four EXTERNAL setup guides ('Refer to these guides when configuring and maintaining workflows.'). ITS CONFIGURATION LIVES NOWHERE — a guide is not a screen. These four files are precisely why this area LOOKS like four pages, and a node here would repeat the documented past error of creating a node for a label with no screen."
+        },
+        {
+          "name": "Workflow Settings (workflow-settings-8b3b98e1.md, 743 B)",
+          "kind": "feature-name-only",
+          "why": "A CONTENT-FREE SECTION HEADER and an ALIAS for the Settings tab. Its entire body is 'Workflow settings provide configuration options to tailor workflow behavior to specific business requirements.' Zero fields, zero click paths, zero left-menu hits. ITS CONFIGURATION LIVES ON: Workflows > Settings tab. Listed here explicitly so the label contradiction (tab vs 'Workflow Settings page' in enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md) is on the record and a later builder does not rediscover it as a page."
+        },
+        {
+          "name": "Purchase Request Settings / Purchase Order Settings as pages",
+          "kind": "feature-name-only",
+          "why": "SETTINGS TABLES, not pages: zero left-menu hits, zero click paths of their own. ITS CONFIGURATION LIVES ON: Workflows > Settings tab, whose click path the PO member's own topic states ('Settings tab and is shown in the following figure.') while grouping all three siblings ('works just as the payment or purchase request settings of this type'). The graph endpoints dep.g2.012 and dep.g2.013 record them as `page:` values, but those endpoints were written by an agent with no roster and corroborate the NAMES only, not page-hood."
+        },
+        {
+          "name": "Invoice Settings (the settings-family table, invoice-settings-cace748d.md)",
+          "kind": "feature-name-only",
+          "why": "A SETTINGS TABLE on the Workflows > Settings tab AND a LABEL COLLISION with the already-built Invoice Settings page (Group 1, 13 fields, 9 of them citing available-invoice-settings-8b3411f0.md). ITS CONFIGURATION LIVES ON: Workflows > Settings tab. NAMING RULE, LOAD-BEARING: name the child node 'Settings tab' or 'Workflow Settings', NEVER 'Invoice Settings', or the graph will merge two different surfaces. It is NOT rebuild debt — zero graph fields ever cited it, so it never belonged to the built page."
+        },
+        {
+          "name": "Default Workflows / Default PO Payment Workflow / Default Purchase Request Workflow / Purchase Request Workflow",
+          "kind": "feature-name-only",
+          "why": "WORKFLOW OBJECTS shipped by default, not pages — and a valid-value source for step names and roles. ITS CONFIGURATION LIVES ON: Workflows > Workflows tab (select the default object, Copy or Modify, then edit it through the General / Steps / Step Rules wizard). PR hierarchies come from Feature Hierarchies and the workflow is then selected via the built Policies tool."
+        },
+        {
+          "name": "Condition page / Condition Editor / Exception Helper",
+          "kind": "wizard-or-dialog",
+          "why": "SHARED SUB-DIALOGS, not pages for either group. The Condition page is opened inside the Edit Condition window on the Step Rules page and the corpus says it is the same editor used by Audit Rules, Validation Rules, Print Condition Rules and the Processor. The Exception Helper is opened from inside BOTH the Audit Rules tool and the Workflows Step Rules page. ITS CONFIGURATION LIVES ON: whichever rule is being edited — the built Audit Rules page or Workflows > Step Rules. Model each once; expect duplication against the built Audit Rules 91 fields."
+        },
+        {
+          "name": "Approver / Default Approver / Budget Approver assignment; Employee Import record type 720",
+          "kind": "end-user-screen",
+          "why": "NOT A WORKFLOWS SURFACE and not an Invoice admin page in this corpus. 'An Approver is set within User Permissions' (approver-terminology-8559861c.md), and every tools-guides topic that touches it defers to the external Shared: User Administration User Guide, which is NOT in this corpus. ITS CONFIGURATION LIVES IN: Administration > Company > User Administration / User Permissions and the employee import (record type 720 for authorized approver levels) — shared-product surfaces outside this graph's scope. Budget approvers are governed by the built Budget Configuration page. Model these as permanently-unresolved external endpoints; do NOT create page nodes."
+        },
+        {
+          "name": "Vendor Approval step timeout (about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md, 2,346 B)",
+          "kind": "feature-name-only",
+          "why": "NOT A PAGE — and a deliberate 'I am not sure'. It names two ORPHAN fields, Workflow Step Timeout Duration and Approval Action, with NO CLICK PATH ANYWHERE in the corpus; `grep -rn \"Workflow Step Timeout Duration\"` returns hits in this one file only. Structurally they must be step-level fields on the Workflows Steps page, but the corpus never says so. ITS CONFIGURATION LIVES, on structural inference only, on Workflows > Workflows tab > Steps page — RECORD AS UNRESOLVED rather than inferring a home. Flagged so the build does not silently attach them."
+        },
+        {
+          "name": "Change Log",
+          "kind": "end-user-screen",
+          "why": "A REAL Invoice Processing Admin left-menu page ('From the Invoice Processing Admin menu, select Change Log.') but a READ-ONLY AUDIT VIEWER of configuration changes — it configures nothing, so it is not a config page for this graph's purpose. ITS CONFIGURATION LIVES NOWHERE: nothing configures it; it reports on other pages' changes. Reported so it is not lost — it is an unclaimed left-menu page and belongs to Group 7 (Ops), not to Workflows."
+        },
+        {
+          "name": "Localization",
+          "kind": "end-user-screen",
+          "why": "OUT OF SCOPE — Group 6, already scoped as unbuilt. It IS a genuine left-menu page ('Click Localization (left menu)'), but Localization's, not this group's. Flagged only because localizing email reminder text (localizing-email-reminder-text-8b2cc1b0.md) and the reminder subject/message best practices sit on this group's boundary and Group 6 will need them. Its configuration lives on the Localization page."
+        },
+        {
+          "name": "Attendees",
+          "kind": "end-user-screen",
+          "why": "CORRECTION TO A SWEEP: one sweep flagged Attendees (7 left-menu hits, the second-highest count in the corpus) as an unclaimed INVOICE admin page. It is not. Every hit reads 'Click Administration  Expense  Attendees (left menu)' — it is an Administration > EXPENSE page, outside the Invoice admin configuration surface entirely, and outside this graph's product scope. Its configuration lives on the Expense Attendees page. Recorded so no later run chases it as an Invoice page."
+        },
+        {
+          "name": "Routing Configuration",
+          "kind": "admin-page",
+          "why": "ALREADY BUILT (Group 2, 10 fields) and NOT re-homed. I read all 10 field names out of the graph first: search_routing_mappings, employee_last_name, segment_1_3, delete_flag, employee_id, level_1_10_code, browse_button, import_button, download_template_button, import_details_type_filter — all hierarchy-mapping SEARCH and spreadsheet-IMPORT mechanics for auto-assigning an invoice OWNER, nine of ten cited to tools-guides import topics. It contains no approver, step, rule, notification or status control, and nothing in the Workflows tree duplicates any of them. I found NO mis-homed field and raise no finding against the existing graph on this axis. The single contact point is Feature Hierarchies (PAGE 4), which precedes both."
+        },
+        {
+          "name": "Audit Rules / Exceptions",
+          "kind": "admin-page",
+          "why": "ALREADY BUILT (Group 2, 91 and 8 fields). Real overlap exists and must be treated as DUPLICATION TO DEDUPE, not as new pages: (a) the condition editor is explicitly shared, so dedupe the Step Rules condition roster against the built Audit Rules columns before extracting; (b) Exceptions is the documented HUB ('appear as options for the Audit Rules tool and Workflows tool when creating rules') and its LEVELS are consumed by three Workflows surfaces while the BLOCKING THRESHOLDS are separate Workflows controls — different fields, different pages, both needed; dep.g2ar.024 already states this correctly. Note a genuine cross-page value discrepancy: the Settings-tab family says 'Type a number from one to 99.' while Exceptions spells the same range 0 to 99."
+        },
+        {
+          "name": "Invoice Settings (the built page), Policies, Group Configurations",
+          "kind": "admin-page",
+          "why": "ALREADY BUILT (Group 1). NOTHING MOVES. Invoice Settings is a LABEL COLLISION only — its 13 fields come from available-invoice-settings-8b3411f0.md and four other files, and zero fields cite any settings-family file. Policies is where a workflow is ASSIGNED to a policy and a workflow cannot be deleted while assigned — a dependency, not co-location (dep.g1.021, dep.g1.026). Group Configurations likewise assigns email reminders by group. All three are cross-references FROM this group, not surfaces OF it."
+        },
+        {
+          "name": "Capture Processing Admin (Email Administration / Supplier Email Administration tabs)",
+          "kind": "admin-page",
+          "why": "ALREADY BUILT (Group 4). These are INBOUND image-capture email alias surfaces, not workflow notification surfaces, and the graph's existing Capture Processing Admin navPath already includes 'Email Administration tab'. Do not confuse them with the Workflows page's Email Notifications tab or with the Email Reminders page (PAGE 2). Capture Processing Admin is also where the batch-verification runtime screens are configured."
+        },
+        {
+          "name": "Purchase Order Matching Rules (Receipt Confirmation Type)",
+          "kind": "admin-page",
+          "why": "ALREADY BUILT (Group 3, 33 fields). It carries confirmation_type and edit_confirmation_button, sourced from confirmation-types-b4a94761.md and step-5-change-localize-receipt-confirmation-type-instructional-text-5328a8e1.md. That is RECEIPT Confirmation Type — a DIFFERENT feature from the workflow Confirmation Agreements tab. Flagged so the build does not merge them on the shared word 'confirmation'. Its Rules tab is also a third 'Rules' label collision."
+        }
+      ],
+      "reconciliation": "The lost map recorded THIRTEEN pages of workflow config UNDER ONE LEFT-MENU ENTRY, and that parenthetical is the tell: it was counting NAMED SURFACES INSIDE the Workflows page, and it never counted the three adjacent left-menu pages at all.\n\nMY COUNT: 4 pages — ONE where the lost map recorded 13 surfaces, plus THREE the lost map never counted because they sit outside that one left-menu entry (Email Reminders, Delegate Configurations, Feature Hierarchies).\n\nATTRIBUTION OF THE SURPLUS — and it maps cleanly, which is why I present it as a mapping rather than an apology. The 13 are, most likely, exactly these:\n  1-7  the SEVEN TABS: Workflows, Settings, Email Notifications, Approval Statuses, Authorized Approvers, Confirmation Agreements, Reason Category and Codes.\n  8-10 the THREE WIZARD PAGES over the workflow object: General, Steps, Step Rules — SAP itself calls each of them a \"page\", which is exactly the trap.\n  11-13 the THREE SETTINGS TABLES on the Settings tab: Invoice Settings, Purchase Request Settings, Purchase Order Settings — each has its own topic title that reads like a page name, and the graph's own dep.g2.012 and dep.g2.013 endpoints literally record two of them as `page:` values.\n7 + 3 + 3 = 13. Every one of those thirteen is corpus-attested. Not one is a page.\n\nAn alternative accounting also reaches 13 (7 tabs + 4 sub-tabs + 2 of the 3 wizard pages) and I cannot choose between them on evidence alone. I prefer the first because it maps onto NAMED ARTEFACTS WITH THEIR OWN TOPIC TITLES, which is what an agent reading topic files would have counted, and because two of its last three members already appear as `page:` endpoints in the graph — direct evidence of exactly this confusion happening once before.\n\nWHAT SETTLES IT MECHANICALLY, not by intuition: a corpus-wide census `grep -rhoP \"[A-Z][A-Za-z &/-]{2,40}\\(left menu\\)\"` over both guide directories (1,859 files) returns 30 distinct labels. Workflows scores 8. Every one of the thirteen candidate surfaces above scores ZERO. `\"Steps tab\"` returns ZERO corpus-wide. There is ONE role gate for the whole surface, stated twice as \"the Workflows SECTION in Administration\", never per tab. And a July 2025 release note enumerates the workflow list, the Approval Statuses and the Settings under a single heading \"Workflows Page\", beside \"Forms and Fields Page\", \"Group Configurations Page\" and \"Policies Page\" — three pages already in the graph.\n\nCALIBRATION AGAINST THE LAST GROUP, which should temper confidence in lost-map numbers generally: that group's map claimed 11 pages and the real answer was 2. Here the map claimed 13 and the real answer is 1 + 3 uncounted siblings. The surplus is not error — it is a category confusion between a SURFACE and a PAGE, and this time it maps one-for-one. I have neither padded to 13 nor trimmed to it: I added Email Reminders on evidence four sweeps structurally could not reach, and I refused to promote seven tabs, four sub-tabs, three wizard pages and a dozen dialogs that have no menu entry and no role gate of their own.\n\nTHIN IS PART OF THE ANSWER HERE TOO. Feature Hierarchies is a genuine page whose documentation is deliberately thin — SAP defers the substance to an external Shared guide absent from this corpus — and it will yield roughly five fields. That is the correct answer for it, not a reason to fold it into a bigger page.",
+      "inheritedFindings": [
+        {
+          "finding": "(1) Purchase Order Settings and Purchase Request Settings belong to Workflows, not to the built Invoice Settings page — and the unsettled part: where does the WHOLE THREE-MEMBER family live, (a) all Workflows, (b) all on some other page, or (c) the invoice member is Invoice Settings rebuild debt?",
+          "verdict": "confirmed",
+          "evidence": "ANSWER (a): ALL THREE ARE SETTINGS TABLES ON THE WORKFLOWS > SETTINGS TAB. (c) IS REFUTED — there is NO Invoice Settings rebuild debt.\n\nClincher reproduced verbatim: `grep -c \"select their own approver\" <admin>/available-invoice-settings-8b3411f0.md` -> 0 ; `grep -c \"select their own approver\" <admin>/invoice-settings-cace748d.md` -> 2. Bytes: 8,368 vs 4,901. NEW DATUM NOBODY REPORTED: the same grep returns 2 on purchase-request-settings-b0bce285.md as well — a third family member sharing the phrase.\n\nFamily cohesion is mechanically provable: `grep -rl \"apply globally to\"` over BOTH guide directories returns EXACTLY THREE FILES AND NOTHING ELSE — 'The following settings apply globally to invoices.' (invoice-settings-cace748d.md), 'The following settings apply globally to purchase requests (PR).' (purchase-request-settings-b0bce285.md), 'The following settings apply globally to purchase orders (PO).' (purchase-order-settings-a5a997b4.md).\n\nGRAPH VERIFIED MYSELF with python3 over /mnt/c/Users/manci/PROJECTS/concur-config-diver-support/output/kg-invoice-config.json: of 486 configFields, ZERO cite invoice-settings-cace748d.md, ZERO cite purchase-request-settings-b0bce285.md, ZERO cite purchase-order-settings-a5a997b4.md. The built Invoice Settings page has 13 fields, 9 citing available-invoice-settings-8b3411f0.md ('The Invoice Settings page includes the following settings used to activate a feature') and 4 citing four other unrelated files.\n\nPOSITIVE PLACEMENT, FOUR INDEPENDENT STRANDS. (i) preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md: 'A setting in Workflows can be used to prevent PO transmission' + 'Settings tab and is shown in the following figure.' + 'works just as the payment or purchase request settings of this type' — SAP tying all three siblings to one tab in one topic. (ii) The Workflows guide's OWN revision history, general-information-8b3b0308.md: 'New Settings tab option: Prevent purchase order transmissions setting.' and 'Addition of two new options to the Settings tab:' followed by two rows that are literally rows 4 and 5 of the packed <table> inside invoice-settings-cace748d.md. (iii) workflow-creation-process-1d37b85f.md: 'you must clear a setting in the Settings section of the Workflows tool' — the same centralized-workflow control that is row 1 of the invoice member. (iv) Two topics INSIDE the Workflows wizard refer outward to it: 'field on the Settings page cleared (disabled)' (create-a-new-workflow-554e86aa.md).\n\nCORRECTION TO THE BRIEF: invoice-settings-cace748d.md is described as 'a 3-row Setting|Description table'. It is FIVE settings. `grep -c \"<tr\"` returns 1 but `grep -o \"<tr\" | wc -l` returns 3, and `<p` returns 6 — two markdown rows plus three packed into one raw <table>. Tab payload = 5 + 3 + 1 = NINE settings.\n\nPROSE RANGE CONFIRMED: `grep -F -c \"Type a number from one to 99.\"` returns 1 in EACH of the three files.",
+          "consequence": "The Workflows build claims all nine Settings-tab settings cleanly; nothing is re-homed off the built Invoice Settings page and no Invoice Settings rebuild is triggered. NAMING RULE, LOAD-BEARING: name the child node 'Settings tab' or 'Workflow Settings' and NEVER 'Invoice Settings', or the graph will merge two different surfaces that share a title. dep.g2.012, dep.g2.013 and dep.g2.014 all resolve to Workflows > Settings tab. BUILD FLAG 1: parse the raw <table> in invoice-settings-cace748d.md or lose three of its five settings — a markdown-only extractor mis-reports the very file that settles this finding. BUILD FLAG 2: 'Type a number from one to 99.' is a PROSE range in all three files; no digit-based range regex will find it, and note the built Exceptions page spells the same range '0 and 99' — a genuine cross-page discrepancy to record. THREE GRAPH DEFECTS TO REPORT TO GROUP 2, not fixed here: dep.g2.011 targets page 'Invoice Settings' while citing invoice-settings-cace748d.md and should target Workflows > Settings tab; dep.g2ar.025 targets 'Invoice Settings' on a quote that names Workflows and Settings and duplicates the already-correct dep.g2ar.024; and page.exceptions.navPathAlternates contains 'Administration > Invoice > Workflows > Settings', which is not a route to Exceptions."
+        },
+        {
+          "finding": "(2) Is \"Workflows\" one page with tabs, or several pages? Settle on click-path evidence and role gates.",
+          "verdict": "confirmed",
+          "evidence": "ONE PAGE, SEVEN TABS — the Audit Rules precedent. All six sweeps agreed; I re-derived it three independent ways.\n\nLEFT-MENU TEST. `grep -rhoP \"[A-Z][A-Za-z &/-]{2,40}\\(left menu\\)\"` over both guide dirs (1,859 files) returns 30 distinct labels. Workflows scores 8 ('Click Administration > Invoice > Workflows (left menu). The Workflows page appears.', 'Click Workflows (left menu). The Workflows page appears.'), plus 5 hits in the complementary census 'From the Invoice Processing Admin menu, click/select Workflows.' EVERY candidate tab scores ZERO: Approval Statuses, Authorized Approvers, Email Notifications, Workflow Settings, Confirmation Agreements, Reason Category and Codes, Purchase Request Settings, Purchase Order Settings. `\"Steps tab\"` returns ZERO corpus-wide, so Steps is a wizard page and not a tab.\n\nROLE-GATE TEST. ONE gate for the whole surface: 'Both the Global Invoice Configuration administrator and the Group Invoice Configuration administrator can view the Workflows tool.' (workflows-tool-8b3b4dbe.md), plus the same sentence twice in two different step topics — 'This portion of the configuration requires permissions for the Workflows section in Administration.' (step-2-activate-the-feature-27a421e2.md AND step-3-edit-the-workflow-steps-f2731590.md). SECTION, never tab. This is the opposite of the Forms and Fields situation, where the twin had a stricter gate of its own.\n\nRELEASE-NOTE STRUCTURE [labelled: release note, cited for page NAME and STRUCTURE only]. updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md is organised under four headings — 'Forms and Fields Page', 'Group Configurations Page', 'Policies Page', 'Workflows Page' — the first three already pages in the graph. Under the fourth heading: 'View the list of Workflows and click on each item to view General, Steps, and Step Rules details' / 'View the Approval Statuses and click on each item to view status details' / 'View the workflow Settings'. And the access sentence 'choose a page from the Invoice Processing Admin list.'\n\nEVERY TAB'S CLICK PATH VERIFIED, each landing on Workflows first: 'The Workflows tab on the Workflows page appears.' · 'Settings tab and is shown in the following figure.' · 'The administrator creates and maintains email notifications in Administration > Invoice > Workflows, on the Email Notifications tab.' · 'Select the Approval Statuses tab.' · 'Click the Authorized Approvers tab.' · 'Select the Confirmation Agreements tab.' · 'Click the Reason Category and Codes tab.' Sub-tabs: 'Click the Authorized Approvers tab and then the Authorized Approver List tab.' · 'Click the Configuration tab.' · 'Click Approval Statuses tab, and then the Invoice tab.' · 'Administration > Invoice > Workflows > Approval Statuses > Purchase Request'.\n\nPAGE vs OBJECT. Both create-a-new-workflow files are about the OBJECT and were diffed by loio: 15992497 (2,017 B, loio 1599249793e440e794e4293a73dc68b4, conceptual) vs 554e86aa (14,383 B, loio 554e86aad4494ef2b3af767ea746e15f, the full field procedure). 15992497 nests all three nouns: 'the General page in the Workflows tab of the Workflows tool'. The wizard exits with 'When done with all rules and actions, click Done on the Workflows tab.' — it returns to the tab, so it is a modal sequence, not navigation.\n\nCORRECTION TO THE BRIEF: the graph does NOT carry endpoint references to four workflow surfaces. Raw string counts over the whole 1.84 MB kg-invoice-config.json: 'Approval Statuses' -> 0, 'Email Notifications' -> 0, 'Authorized Approver' -> 0, 'Step Rules' -> 0. Only 'Workflows' (36) and 'Workflows > Settings' (1) exist, and that single string is a defect in page.exceptions.navPathAlternates. The two absent names came from the LOST MAP, not from any built group — they are corpus-attested but they are NOT independent corroboration.",
+          "consequence": "Build ONE page node named 'Workflows' with seven tabs, four sub-tabs and a three-page wizard, not several pages. Record BOTH nav forms (with and without the Invoice Processing Admin middle node — 5 topics vs 8) and have the automation try the middle node first. Do NOT create nodes for the tabs, the wizard pages, the dialogs, or the four workflow-guides-*.md files (diffed: four distinct loio, four distinct body md5, identical payload listing four EXTERNAL setup guides — SAP split the documentation by topic, not the UI, and that is why the area looks like four pages). ONE UNRESOLVED CONTRADICTION THE BUILD MUST CARRY: creating-a-reason-code-b2b61596.md says the Invoice Configuration administrator (Restricted) role 'is required to use the options on this tab' and then walks through New -> Save, while the release note says that role is read-only with 'actions such as New, Copy, and Remove are disabled' and enumerates only three of the seven tabs. If the automation hits a permission wall anywhere on Workflows, the Reason Category and Codes tab is the likely cause."
+        },
+        {
+          "finding": "(3) Does Feature Hierarchies belong to this group?",
+          "verdict": "confirmed",
+          "evidence": "IT IS A REAL PAGE AND IT BELONGS TO NEITHER WORKFLOWS NOR ROUTING CONFIGURATION — it is its own thing. I am CLAIMING it on this roster rather than deferring it a second time. Found by all six sweeps, all reaching the same conclusion.\n\nPAGE-HOOD, both halves of the tiebreaker. Own left-menu entry: 'Click Feature Hierarchies (left menu).' (tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md) — one of only TWO unbuilt labels in the corpus-wide 30-label left-menu census. Own role gate: 'This portion of the configuration requires permissions for the Feature Hierarchies section in Administration.' (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md) — worded identically to the Workflows gate and stated as step 1 of the SAME numbered flow whose step 3 states the Workflows gate. Two gates, two peer surfaces, in SAP's own contrast. Second click path: 'Select the Invoice Payment feature name.' -> 'Select Modify Hierarchy.' (professional-edition-fb3e6aa2.md). Third: 'Step 2: Feature Hierarchies' in a six-step configuration flow (tools-guides/overview-of-steps-37e3c289.md).\n\nWHY NEITHER GROUP OWNS IT. One page hosts at least five named feature hierarchies serving four config domains: Invoice Routing ('the Invoice Routing hierarchy in the Feature Hierarchies area' — feeds the BUILT Routing Configuration page), Invoice Payment, Invoice Vendor Employee Access, Payment Authorized Approver ('You must define the authorized approver hierarchy (Invoice > Feature Hierarchies)'), and Cost Object Approver. 'PR hierarchies are set up independently, including Authorized Approval and COA.' (workflow-667cee21.md). All FOUR unresolved graph endpoints that name it — dep.g1.061, dep.g2.003, dep.g5g5.050, dep.g5g5.051 — are about a SOURCE LIST ('In the Source List, select the name of the list you created in Step 1'), which is the one field this page documents well. That fan-out across four groups is the signature of a shared page.\n\nCOVERAGE IS THIN AND THAT IS THE CORRECT ANSWER. 12-file core, 23,239 B. EVERY field-bearing file returns 0 indented table rows and 0 raw tables. The single long catalog, understand-the-hierarchy-b65d7089.md (69 rows), is a WORKED EXAMPLE of an approver hierarchy — example data, not a roster. SAP defers the substance to the external 'Shared: Feature Hierarchies Setup Guide', which is NOT in this corpus.\n\nMENU-LABEL ALIAS no prior artefact records: hierarchies-7f68a876.md writes the label as plain 'Hierarchies' — 'Hierarchies (explained below).'",
+          "consequence": "Build it as its own page node with navPath Administration > Invoice > Feature Hierarchies, and have Workflows AND the built Routing Configuration page both point AT it. NAVIGATION IS LOAD-BEARING AND EASY TO GET WRONG: the 'Invoice Processing Admin' middle node is UNATTESTED for this page — both click paths go straight from Administration > Invoice, so the left-menu entry is a SIBLING of Workflows, not a child, and an automation driver told to reach it via a Workflows path WILL FAIL. Record the middle node as unattested, not absent. TELL THE BUILD BEFORE IT STARTS that this page will yield roughly FIVE fields (Source List, Level, Segment Name, feature-name selector, Modify Hierarchy) and record coverage as partial — this is the Budget Configuration failure mode and predicting it beats manufacturing fields around it. Carry the 'Hierarchies' alias. GREP HAZARD: the nav sentences use U+00A0 separators with no '>' at all; never grep -F across a menu arrow here. It resolves four unresolved endpoints at once and closes the Workflows build's hard forward reference — the Authorized Approver feature cannot be activated without this page."
+        },
+        {
+          "finding": "(4) Where is the boundary against the built Routing Configuration page (Group 2, 10 fields)? Does tools-guides/workflow-and-approval-routing-8b4ff6c9.md straddle it?",
+          "verdict": "confirmed",
+          "evidence": "THE BOUNDARY IS CLEAN. I RE-HOMED NOTHING AND I RAISE NO FINDING AGAINST THE EXISTING GRAPH ON THIS AXIS.\n\nI read all 10 Routing Configuration field names out of the graph FIRST, as instructed: search_routing_mappings, employee_last_name, segment_1_3 (all from search-for-hierarchy-mappings-1dea6bb6.md); delete_flag, employee_id, level_1_10_code (from the-import-template-fields-and-descriptions-8b4aa547.md); browse_button, import_button (from step-3-upload-and-import-template-and-data-b9a80bb6.md); download_template_button (from step-1-download-hierarchy-mappings-template-excel-spreadsheet-d981b372.md); import_details_type_filter (from step-4-review-import-details-414c8cd5.md). ALL TEN are hierarchy-mapping SEARCH and spreadsheet-IMPORT mechanics; nine of ten cite tools-guides import topics. That page configures invoice OWNERSHIP assignment, upstream of approval. It contains no approver, no step, no rule, no notification, no status control, and nothing in the Workflows tree duplicates any of them. I found NO mis-homed Routing Configuration field.\n\nTHE BOUNDARY IS A NOUN BOUNDARY, and 'routing' is a THREE-WAY HOMONYM in this product: (1) Routing Configuration (built) = employee-to-hierarchy mapping import -> invoice OWNERSHIP; (2) approval routing = the ordered approval chain -> Workflows Steps + Step Rules; (3) Invoice Routing feature hierarchy = a hierarchy object -> the Feature Hierarchies page.\n\ntools-guides/workflow-and-approval-routing-8b4ff6c9.md OPENED AS INSTRUCTED — 1,502 B, and I read the whole file. Its ENTIRE body is: 'All workflow options available for non-PO policies are also available to a PO-based invoice policy.' + 'This includes options such as workflow rules and Authorized Approvers.' + a 'Best Practice: Workflow for PO-Based Invoices' paragraph recommending minimal workflow straight to the Processor + two cross-references. NO page, NO tab, NO field, NO click path, NO role. It never mentions hierarchy mappings, imports, Level codes or the Routing Configuration page. VERDICT: IT FALLS ON THE WORKFLOWS SIDE AND IT DOES NOT STRADDLE — its only two substantive nouns, workflow rules and Authorized Approvers, are both Workflows surfaces, and the 'Routing' in its title means APPROVAL routing. Classification: feature-name-only.\n\nAUDIT RULES / EXCEPTIONS boundary, checked separately: real overlap exists but it is DUPLICATION, not new pages. 'The Condition page in the Workflows tool is similar to the Condition Editor page used in the Audit Rules tool' (conditional-expressions-and-the-condition-page-4d98af34.md). 'All exceptions created in the Exceptions page appear as options for the Audit Rules tool and Workflows tool when creating rules.' (access-exceptions-90e45318.md).",
+          "consequence": "Nothing moves between Workflows and Routing Configuration in either direction. workflow-and-approval-routing-8b4ff6c9.md must NOT seed fields on either page — it configures nothing. The build must carry the three-way 'routing' homonym explicitly so a downstream agent does not file an approval-chain control on Routing Configuration or a hierarchy-mapping control on Workflows. The single contact point between the two pages is Feature Hierarchies (PAGE 4), which precedes both — build it once, point both at it. Against Audit Rules: dedupe the Step Rules condition/operator/value roster against the built Audit Rules 91 fields BEFORE extracting, because the corpus says the editor is shared; and keep the exception-LEVEL field (Audit Rules, built) separate from the three exception-level THRESHOLD controls on Workflows > Settings tab and the Min/Max Exception Level on Workflows > Authorized Approvers > Configuration — four surfaces touch one concept, and dep.g2ar.024 already models it correctly."
+        },
+        {
+          "finding": "(5) End-user traps: this domain is the worst in the product for approver-side runtime screens, and every rejection must name where its configuration lives.",
+          "verdict": "confirmed",
+          "evidence": "CONFIRMED, and the trap is worse than filename-level. The 23 workflow/approval-named files in tools-guides are ALL approver/processor RUNTIME, and `grep -rl -e \"Workflows tool\" -e \"Workflows page\" -e \"Workflows tab\"` over all 650 tools-guides files returns ZERO — the config surface lives entirely in admin-guides.\n\nTHE INVERSE TRAP IS ALSO LIVE AND THE FILENAME WILL NOT SEPARATE THEM: an approval STEP is CONFIGURED on the Workflows wizard's Steps page ('On the Steps page, click New.', admin-guides/work-with-the-steps-page-fab249d1.md) and EXECUTED at runtime on the Approval Flow page ('The Approval Flow for Invoice page appears by clicking Details', admin-guides/approval-flow-page-c73e063f.md) and inserted ad hoc by a processor (tools-guides/add-approval-steps-2e17fab0.md). Same noun, three surfaces, ONE of which is config. The discriminator is voice and directory: imperative admin procedure in admin-guides under the Workflows wizard = config; narrative 'the invoice moves to' / 'the approver sees' = runtime.\n\nTWO NAME COLLISIONS ON 'WORKFLOW' THAT ARE NOT APPROVAL WORKFLOW AT ALL: tools-guides/moving-through-the-batch-verification-workflow-01738020.md is capture/OCR verifier runtime (config home: the built Capture Processing Admin page), and configuring-batch-settings-*.md is Payment Manager batch settings.\n\nEVERY REJECTION IN THE `deferred` LIST NAMES ITS CONFIG HOME. The load-bearing ones, each with a verified anchor quote: Approval Flow page -> workflow General page + Steps page, OVERRIDDEN by Workflows > Settings tab, and invoice-settings-cace748d.md states the override explicitly ('the Edit Workflow page and the Add/Edit Workflow Steps page'). My Work links -> Settings tab, 'under the My Work area on the home page'. Requests Pending Your Approval window -> Settings tab PR member, 'Requests Pending Your Approval window'. Approve / Send Back button LABELS -> Approval Statuses tab, Action Text, 'This text becomes button text for the approver'. Reason picker -> Reason Category and Codes tab. Final Review modal -> Confirmation Agreements tab + General page. Delegate/proxy runtime -> the Delegate Configurations page (PAGE 3) + General page 'Allow delegated approvers to approve their own requests'. Invoice Manager / Unassigned Invoice (the only New Experience files near this domain) -> Routing Configuration + Feature Hierarchies for ownership, User Administration for the role. Approver/Default Approver assignment -> 'An Approver is set within User Permissions' (approver-terminology-8559861c.md), a Shared admin tool outside this graph.",
+          "consequence": "The build must classify by DIRECTORY AND VOICE, not by filename: admin-guides + imperative procedure under the Workflows wizard = config; tools-guides or narrative = runtime. Every runtime screen in the deferred list already carries its config home, so the field build has a target for each and no orphan behaviour. Model the ADMIN-CONFIGURED / APPROVER-EXECUTED homonym explicitly on the Steps page so a downstream agent does not create a runtime node. Model the three two-surface patterns (Email Notifications, Confirmation Agreements, Approval Statuses are all AUTHORED on their tab and then SELECTED on the workflow General page) or the dependency graph will be wrong. Model the cross-surface OVERRIDE (the Settings-tab approver checkbox overrides the per-workflow Editable By Group(s) and Steps Can Be Added By) as an explicit dependency — it is the single most consequential runtime-vs-config interaction in the group. Two orphan fields are recorded UNRESOLVED rather than inferred: Workflow Step Timeout Duration and Approval Action (about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md) have no click path anywhere in the corpus."
+        }
+      ],
+      "splitProposal": "SPLIT INTO TWO RUNS. Measured inventories (real `wc -c`), with overlaps computed by `comm`:\n\n  Workflows               84 files   217,634 B   ~100 est. fields   (shares 2 files with Feature Hierarchies, 1 with Delegate Configurations)\n  Feature Hierarchies     12 files    23,239 B     ~5 est. fields    (shares 2 files with Workflows)\n  Email Reminders         17 files    37,033 B    ~25 est. fields    (shares nothing)\n  Delegate Configurations 17 files    33,041 B    ~25 est. fields    (shares 1 file with Workflows)\n\nRUN A — \"Workflows\" + \"Feature Hierarchies\". 94 unique files, 234,519 B, ~105 estimated fields.\nThey are paired for the stated reason: THEY SHARE SOURCE FILES — step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md and understand-the-hierarchy-b65d7089.md, the second of which is a 69-row long catalog that two separate runs would otherwise read twice. Feature Hierarchies adds almost no cost (~5 fields, zero tables, zero raw-HTML) and it carries the Workflows build's hard forward reference ('You must define the authorized approver hierarchy (Invoice > Feature Hierarchies)'), so building them together also keeps that prerequisite edge inside one run's head.\n\nRUN B (merged with --patch) — \"Email Reminders\" + \"Delegate Configurations\". 34 unique files, 70,074 B, ~50 estimated fields. Zero overlap with each other; exactly ONE 1,284 B file shared with Run A (delegate-self-approval-1b627285.md), whose field belongs to the WORKFLOWS General page — RUN B MUST NOT EXTRACT IT. Both are structurally simple: an object list plus an editor, two tabs each, no raw HTML tables.\n\nTHE IMBALANCE IS IRREDUCIBLE AND I AM NOT GOING TO PRETEND OTHERWISE. Run A is roughly 70/30 by bytes and 2:1 by estimated fields. That is not a cutting error — Workflows is a SINGLE INDIVISIBLE page holding about two thirds of the group's material (more than the built Audit Rules page's 91 fields), and because --patch REPLACES a page's fields wholesale, a split can never cut through it. Give Run A the stronger model tier and budget for a page with seven tabs, four sub-tabs, a three-page wizard and roughly a dozen dialogs, three of whose source files hide payload in raw HTML. Run B can run cheaper.\n\nIF A THREE-WAY SPLIT IS PREFERRED, the only clean cut is {Workflows + Feature Hierarchies} / {Email Reminders} / {Delegate Configurations} — but it buys nothing, because the binding constraint is Workflows and not the tail.\n\nDO NOT split Feature Hierarchies away from Workflows into Run B: it would duplicate the shared long catalog and separate the prerequisite from its consumer. DO NOT attempt to split Workflows by tab: --patch would overwrite the first half's fields."
+    },
+    "critics": {
+      "pagehood": {
+        "lens": "pagehood",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/critic-pagehood.md",
+        "findingCount": 9,
+        "verdict": "ENDORSE THE FOUR-PAGE ROSTER — no page added, removed, merged or split. I attacked each on click-path, role gate, graph collision and census, and every structural claim reproduced, several to the byte: all 144 sourceQuotes verify with grep -F (0 misses); the left-menu census returns 30 distinct labels with Workflows=8 and every candidate tab=0; \"Steps tab\"=0 corpus-wide; tools-guides hits for Workflows tool/page/tab=0; totalBytes exact on all four pages (217,634 / 37,033 / 33,041 / 23,239); rawTableFiles=3 exact; split arithmetic exact (Run A 94/234,519, Run B 34/70,074, overlaps 2/1/0). I also censused every \"<Label> tab\" string corpus-wide hunting an eighth Workflows tab and found none — the remainder all home to already-built pages. All five inherited verdicts are sound, settled with commands not plausibility, and I STRENGTHENED finding (1): the Workflows guide's own revision history (general-information-8b3b0308.md:299) names \"Filter invoice items...\" and \"Allow processor to recall an invoice...\" as \"Addition of two new options to the Settings tab\", and those two strings appear nowhere else in the corpus except rows 4-5 of the packed raw <table> in invoice-settings-cace748d.md — direct proof the invoice member sits on Workflows > Settings tab, which the roster had only indirectly. THE ROSTER IS WRONG ABOUT WHAT IS IN THE PAGES, NOT WHICH PAGES EXIST. Two defects cost real fields: it seeded a revision-history file as the Email Notifications source while leaving that tab's actual 18-variable catalog out of every seed set, and it proposes a node with no machine-readable `tabs`, which would let the seven tabs it fought to establish die in prose. Neither is a page-hood error. Fix the six substantive findings and the roster is build-ready.",
+        "severeFindings": [
+          {
+            "title": "Email Notifications tab: the real 18-variable catalog is unseeded, and a revision-history file was seeded in its place",
+            "detail": "email-notifications-8b3dbad4.md (3,139 B, 61 indented rows) is named in seedFiles as the Email Notifications source. It is the guide's Revision History: `grep -o \"%[A-Za-z_\\\\]*%\" | sort -u` returns exactly ONE variable, %L\\_EmpName%. The actual catalog is variables-for-invoices-or-purchase-requests-26e917cb.md (2,609 B, 58 indented rows) — a Field|Variable|Description table with 18 distinct variables in nine label/value pairs (%L_EmpName%/%EmpName%, %L_PayStatus%/%PayStatus%, %L_RequestDate%, %L_RequestName%, %L_StepApprovalStatus%, %L_SubmitDate%, %L_SubmittingUserName%, %L_Total%, %L_WhoChanged%). Its semantics parent general-information-00eca1ce.md (2,281 B) carries the rule that makes the set usable: 'Adding an \"L\" (L) and underscore (\\_) to the beginning of the variable name tells the system to replace that variable with the field label.' Neither file is in ANY of the four seed lists (grep -cx against their union = 0). This is a different token family from the Email Reminders %1%-%4% set the roster correctly re-homed — so the roster caught the smaller token trap and missed the larger one. I initially hypothesised the file was missed because it contains no 'workflow' string; I ran the check and was WRONG — grep -ic workflow returns 3, so a plain workflow content grep would have caught it, which makes the selection-method gap worse, not better.",
+            "action": "Add concur-invoice-professional-edition-admin-guides/variables-for-invoices-or-purchase-requests-26e917cb.md and concur-invoice-professional-edition-admin-guides/general-information-00eca1ce.md to the Workflows seed set under the Email Notifications tab; relabel email-notifications-8b3dbad4.md 'revision history — not a field roster'. Workflows becomes 86 files / 222,524 B."
+          },
+          {
+            "title": "The page node has no machine-readable `tabs`, so seven tabs and four sub-tabs die in prose and two graph endpoints become permanently unresolvable",
+            "detail": "The roster invokes Audit Rules as its precedent. That is right for IDENTITY and wrong for SHAPE. Read from the graph: page.audit-rules has navPathAlternates: [] and NO tabs key at all — its three tabs (Custom/Validation/Random) are unrecorded. page.forms-and-fields — the precedent the roster explicitly REJECTS — is the only built page that actually encodes tabs: tabs: [Forms, Form Fields, Fields, Connected Lists, Validations], tabsSourceQuote, and six navPathAlternates entries one per tab in the form 'Forms and Fields > Connected Lists (tab)'. The proposed Workflows node has none of that, and its aliases array (7 entries) contains only page-name variants — no tab name, no settings-family name. Verified consequences in the graph: dep.g2.012 targets {page: 'Purchase Request Settings'} and dep.g2.013 targets {page: 'Purchase Order Settings'} — both become permanently unresolvable; dep.g2.014 {page:'Workflows', field:'Settings'} resolves to the page but not the tab; and every future endpoint against 'Approval Statuses' / 'Authorized Approvers' / 'Email Notifications' / 'Step Rules' (all currently 0 occurrences) never resolves. The roster fought hard and correctly for seven tabs and would then lose them at serialisation.",
+            "action": "Keep Audit Rules as the identity precedent, adopt Forms and Fields as the ENCODING precedent: add `tabs` (the seven names), `tabsSourceQuote`, and one `navPathAlternates` entry per tab and sub-tab in the existing 'Workflows > Approval Statuses (tab)' idiom; extend `aliases` with Workflow Settings, Settings tab, Purchase Request Settings, Purchase Order Settings, Approval Statuses, Authorized Approvers, Email Notifications, Confirmation Agreements, Reason Category and Codes. Set url: \"\" per the page.purchase-order-matching-rules precedent."
+          },
+          {
+            "title": "37% of the Workflows set's table payload is revision history, and three of the four contaminated files sit unflagged in seedFiles",
+            "detail": "Measured over the 84-file set: 954 total table units (indented rows + <p>), of which 349 (37%) are in files whose body opens 'Revision History'. The four: general-information-8b3b0308.md (6,719 B, 139 rows), cost-object-approval-8b3d1e0f.md (4,040 B, 85), authorized-approvers-8b3c26cc.md (3,067 B, 64), email-notifications-8b3dbad4.md (3,139 B, 61). Ranked by row count they occupy positions #1, #3, #5 and #6 in the entire set — the single largest 'catalog' in the Workflows group is a revision history. All four appear in seedFiles as if they were field rosters for the Settings tab, Cost Object Approval, the Authorized Approvers tab and the Email Notifications tab. The roster ran precisely this audit for Email Reminders (email-reminders-8b2caa99.md, 91 rows) and Delegate Configurations (delegate-configuration-8b2bd26d.md, 91 rows) and warned about both — then never ran it on the page it was building. Note general-information-8b3b0308.md must STAY: its revision history is the proof for inherited finding (1). Also, the real Authorized Approvers content is in the duplicate-title twin authorized-approvers-8b3ab7ad.md (1,853 B), which is in the 84-file set but is not the one named in seedFiles.",
+            "action": "Label all four 'revision history — mine for STRUCTURE and history claims only, never as a field roster'; swap authorized-approvers-8b3c26cc.md for authorized-approvers-8b3ab7ad.md in the seedFiles highlight list; restate Workflows richness as 605 payload table units, not 954. The split proposal survives unchanged (72/28 on payload units vs 76/24 on bytes)."
+          },
+          {
+            "title": "administrator-experience-8b302852.md is cited by the roster but is in no seed set, costing a dependency edge and a third page-hood corroboration",
+            "detail": "1,605 B, admin-guides. The roster's contradiction C7 cites this file by name, yet it appears in none of the four seed lists — an internal inconsistency, and the only such case among the 56 files the roster cites in prose. It carries three things the build would otherwise lose: (1) a third independent page-enumeration — 'The Configuration administrator will see the following pages in Invoice Administrator ... Image Handling / Policies / Workflows' — page-hood corroboration from an angle neither the left-menu census nor the release note covers; (2) a Workflows field, 'On the Workflow page, admin will see the Require Hardcopy Receipts option.'; (3) a conditional-visibility DEPENDENCY — 'When the admin selects (enables) the Require Hardcopy Receipts option on the Workflows page, they will be able to see the Hold for Invoice Hard Copy step on the Steps page' plus 'In addition, the admin will see the Hold for Invoice Hard Copy step on the Step Rules page.' The field itself survives via the seeded create-a-new-workflow-554e86aa.md, so this is moderate not severe — but the dependency edge is lost, and 'Hardcopy' occurs exactly once in the whole 1.84 MB graph today. The file also contains a page-level singular/plural contradiction ('On the Workflow page' and 'on the Workflows page' in adjacent sentences) that C3 does not cover, since C3 addresses only tab singular/plural.",
+            "action": "Add concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md to the Workflows seed set; extend contradiction C3 to cover page-level singular/plural; record the Require Hardcopy Receipts -> Hold for Invoice Hard Copy conditional-visibility edge as an explicit build target."
+          },
+          {
+            "title": "Existing-graph defect: Audit Rules' condition roster is internally duplicated ~8 times, so the dedupe baseline the roster hands the build is contaminated",
+            "detail": "16 of the 91 built Audit Rules fields cite the-condition-page-5d4ea870.md, and seven labels are exact duplicates: 'A: Left Parenthesis' -> condition_left_parenthesis + left_parenthesis; 'B: Data Object' -> condition_data_object_left + data_object + condition_data_object_b (three); 'C: Field/Value' -> condition_field_value_left + field_value; 'D: Operator' -> condition_operator + operator; 'F: Field/Value' -> condition_field_value_right + second_field_value; 'G: Right Parenthesis' -> condition_right_parenthesis + right_parenthesis; 'H: And/Or' -> condition_and_or + and_or. The roster instructs the Workflows build to 'dedupe the Step Rules condition roster against the built Audit Rules 91 fields BEFORE extracting' — deduping against a list that already double-counts propagates the error into Workflows. Separately confirmed and endorsed: the roster picked the right one of a confusable pair — the-condition-page-5d4ea870.md is the Audit Rules side (already mined, 16 fields) and is correctly NOT seeded here, while conditional-expressions-and-the-condition-page-4d98af34.md (9,326 B, 38 rows) is the Workflows side, correctly seeded and cited by zero graph fields.",
+            "action": "Report to Group 2 as an existing-graph defect (the Audit Rules field count of 91 is inflated by roughly 8). Change the roster's dedupe instruction to operate on SOURCE FILES — the-condition-page-5d4ea870.md versus conditional-expressions-and-the-condition-page-4d98af34.md — not on the contaminated field list."
+          },
+          {
+            "title": "The NBSP navigation hazard is corpus-wide (57 files), not a Feature Hierarchies quirk",
+            "detail": "The roster flags this only under Feature Hierarchies as a 'GREP HAZARD'. Measured across both guide directories: 57 files render menu paths with the '>' glyph ENTIRELY ABSENT, separators being U+00A0 U+00A0 (confirmed by cat -A: 'AdministrationM-BM-M-BM- InvoiceM-BM-M-BM- Hierarchies'); 84 files use the 'Administration > ' arrow form. Roughly 40% of nav sentences in this corpus lose the arrow. This is not incidental to the Workflows group: several load-bearing nav paths exist ONLY in the NBSP form, including 'Administration > Invoice > Workflows > Settings tab' — the very sentence that anchors inherited finding (1) — plus 'Administration > Invoice > Workflows > Workflows tab' and 'Administration > Invoice > Hierarchies'. The built page.exceptions node's own navPathSourceQuote is itself in NBSP form ('Select Administration  Invoice.'). Any future nav census that greps '>' undercounts by about 40%.",
+            "action": "Promote the hazard from a Feature Hierarchies footnote to a group-level build note applying to all four pages; require any nav census to run both separator forms (arrow and U+00A0 U+00A0) or declare itself incomplete."
+          },
+          {
+            "title": "Three deferred entries carry the wrong `kind`, misstating the reason for a correct decision",
+            "detail": "Change Log, Localization and Attendees are all typed kind: 'end-user-screen'. All three are genuine ADMIN pages, verified: 'From the Invoice Processing Admin menu, select Change Log.' (accessing-the-change-log-8b2b0deb.md:27) and 'The configuration Change Log page records all configuration activity in Concur Invoice'; 'Click Localization (left menu)'; and Attendees is reached via 'Administration  Expense  Attendees (left menu)' — an Administration > Expense admin page, 7 left-menu hits. Each is correctly DEFERRED (read-only auditor with nothing to configure; Group 6 scope; Expense product scope), but the kind label states the wrong reason. A downstream agent reading `kind` will conclude these are runtime screens and stop looking — when Change Log is in fact an unclaimed admin left-menu page belonging to Group 7 (Ops) and Localization is a scoped Group 6 page. I found no genuine admin surface wrongly deferred as end-user, so this is a labelling defect only.",
+            "action": "Retype all three to kind: 'admin-page' and move the exclusion reason into the `why` field (read-only auditor / other group / other product), so the deferral survives as scope rather than as a miscategorisation."
+          },
+          {
+            "title": "Two Feature Hierarchies navPathEvidence entries are misfiled — one weaker than its slot, one stronger",
+            "detail": "(a) hierarchies-7f68a876.md is cited with quote 'Hierarchies (explained below).' for navPath [Administration, Invoice, Hierarchies]. The quote verifies with grep -F but does not CARRY the path — it names a label in passing. The path is real but sits in the preceding clause and is NBSP-separated: 'first configure their hierarchy structure in Administration[NBSP][NBSP]Invoice[NBSP][NBSP]Hierarchies (explained below).' The 'Hierarchies' alias claim is sound; the chosen quote does not demonstrate it. (b) overview-of-steps-37e3c289.md is cited with 'Step 2: Feature Hierarchies' as navPath evidence. It is not nav evidence — but it is STRONGER than the roster credits when filed correctly: its framing sentence is 'The administrator uses the following tools in the order presented', and the list reads Step 1: List Management, Step 2: Feature Hierarchies, Step 3: Group Configurations, Step 4: Forms and Fields, Step 5: Vendor Employee Access Import, Step 6: User Administration. Feature Hierarchies is named as a peer TOOL of three already-built pages — first-class page-hood evidence sitting in the wrong field.",
+            "action": "Replace the hierarchies-7f68a876.md quote with one spanning the NBSP-separated path, or demote that entry to an aliases citation; move the overview-of-steps-37e3c289.md entry out of navPathEvidence into identityNotes as tool-peer page-hood evidence."
+          },
+          {
+            "title": "Unrecorded label drift on two Settings-tab controls will defeat label-based automation",
+            "detail": "The Workflows guide revision history (general-information-8b3b0308.md:299) names the two controls 'Filter invoice items to those that are applicable to Cost Object' and 'Allow processor to recall an invoice to last processor step'. The settings file invoice-settings-cace748d.md names the same two controls 'Filter payment request items to those that are applicable to Cost Object' and 'Allow processor to recall a payment request to last processor step'. Same controls, two labels, invoice <-> payment request. Verified: grep -rl for each long form returns exactly one file, and they are different files. Since a Chromium driver will locate these checkboxes by visible label, an extractor that records only one form will fail against a tenant rendering the other. Related and already correctly flagged by the roster: 'Type a number from one to 99.' is a PROSE range present once in each of the three settings-family files, invisible to any digit-based range regex, and the built Exceptions page spells the same range '0 and 99'.",
+            "action": "Record both label forms as aliases on the two affected Settings-tab settings (filter-items-applicable-to-cost-object and allow-processor-recall-to-last-processor-step), so the automation can match either rendering."
+          }
+        ]
+      },
+      "completeness": {
+        "lens": "completeness",
+        "wroteTo": "/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/critic-completeness.md",
+        "findingCount": 14,
+        "severeFindings": [
+          {
+            "title": "The \"Approver assignment\" deferral rejects a documented admin surface on a false factual claim — the Authorized Approval Limits window",
+            "detail": "The roster says 'every tools-guides topic that touches it defers to the external Shared: User Administration User Guide, which is NOT in this corpus ... Model these as permanently-unresolved external endpoints; do NOT create page nodes.' That is false. TWO admin-guides files document the surface directly: <admin>/user-administrator-fcfd570c.md (4,603 B) and <admin>/user-administration-8b167b96.md (2,314 B). Verified verbatim (grep -F -c -> 1 each): 'The Authorized Approval Limits window appears.'; 'the user must have the User Admin rights and the Invoice User Administration rights'; 'The actual exception levels apply to all authorized approvers and are defined on the Authorized Approvers tab in Workflows.' Click path is explicit: Administration > Company > Company Admin > User Administration > Expense and Invoices Setting section > Authorized Approval Limits link > window. Named fields: Authorized Approver check box, Manager Approval Limit, Approval Limit Currency, hierarchy Level, Can approve exception check box, currency + Amount, Approval Limit area vs Level field (with a stated precedence rule). Valid-value semantics documented: 0 = in chain but no final authority; null = unlimited (setting-an-unlimited-approval-amount-9d98b489.md). It passes BOTH halves of the brief's tiebreaker. And the corpus explicitly enumerates THREE ways authorized approvers are defined — 'Assign the permissions manually in User Administration' (step-4-assign-the-proper-rights-to-users-86389a18.md, -> 1) and 'The amount is set for each approver in the Authorized Approver List, in User Administration, or in the employee import.' (configuration-8b3be88b.md, -> 1) — of which the roster models exactly one. The per-user approval LIMIT, the value that decides whether limit-approval can happen at all, currently has no home on the roster. The employee-import half of the same deferral IS correct (both employee-import-*.md files defer to an external Shared spec). Honest caveat: this surface sits under Administration > Company, not Administration > Invoice, so scoping is a real question — but the roster forecloses it with a false claim rather than a scoping argument.",
+            "action": "Add page node `authorized-approval-limits` in RUN A, seedFiles user-administrator-fcfd570c.md, user-administration-8b167b96.md, setting-an-unlimited-approval-amount-9d98b489.md, definition-of-amount-for-limit-approval-06806875.md, configuration-8b3be88b.md, both step-4-assign-the-proper-rights-to-users-*.md; flag it as outside the Invoice left menu. If non-Invoice-menu pages are out of scope, then at minimum replace the deferral's false sentence with the click path and field list."
+          },
+          {
+            "title": "A Group Configurations overview is seeded on Feature Hierarchies — the thinnest page in the group",
+            "detail": "<admin>/overview-8b2edfd0.md (3,485 B) is the THIRD-LARGEST seed on Feature Hierarchies, and it is a Group Configurations topic. Verified verbatim: 'Group Configurations in Concur Invoice allow administrators to define and manage hierarchical groups' (-> 1) and 'The Group Configurations tool is not visible if you have the Invoice Configuration administrator (Restricted) role.' (-> 1). Its body describes the Group Configurations tool and its Invoice and Vendor Access tabs; Feature Hierarchies appears once, as step 2 of a three-step narrative. Group Configurations is BUILT (Group 1, 22 fields). Seeding it on a page the roster itself predicts will yield ~5 fields, whose named risk is 'this is the Budget Configuration failure mode, do not manufacture fields', is the exact setup for re-homing built G1 fields — which the brief forbids. It also inflates the page's measured richness so the thinness the roster correctly predicts is disguised. Separately, the roster seeds step-2 of a six-step tools-guides flow but not step-1, which is where the Source List — the one field the roster says this page documents well — is created.",
+            "action": "Drop overview-8b2edfd0.md from feature-hierarchies.seedFiles. Add <tools>/step-1-create-the-source-list-in-list-management-cc91aa73.md (2,231 B) as a seed, and <tools>/the-import-template-fields-and-descriptions-8b51ca3d.md (3,319 B, 47 rows) as a dedupe-flagged reference for the Level semantics — deduping against the existing vset.g5g5.unnamed.level-1-code-level-10-code-... which already owns that value set."
+          },
+          {
+            "title": "The \"Vendor Approval step timeout\" deferral records four documented General-page fields as homeless",
+            "detail": "The roster defers about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md with 'NO CLICK PATH ANYWHERE in the corpus ... RECORD AS UNRESOLVED rather than inferring a home.' The literal claim is true (grep -rn 'Workflow Step Timeout Duration' hits that one file only), but the conclusion is wrong: the timeout family has an explicit, fully nested click path. Verified verbatim (-> 1): 'the Approval Time Expired Action list on the General page in the Workflows tab of the Workflows tool' (create-a-new-workflow-15992497.md). And create-a-new-workflow-554e86aa.md documents FOUR General-page timeout fields at lines 69/99/136/152: Approval Time Expired Action, Expire After This Many Days, Assignment Timeout Action, Allow Timeout Extensions for This Many Days — plus the conditional 'This option is only available if either the Approval Time Expired Action or Assignment Timeout Action options are enabled.' The family also surfaces as a valid value in default-approval-statuses-34c83d58.md ('Approval Time Expired') and as a feature in default-workflows-a6fa157a.md. MEASURED: four named fields with a nested path. INFERRED (hypothesis): b3d1bd2c's 'Workflow Step Timeout Duration'/'Approval Action' are prose labels for 'Expire After This Many Days'/'Approval Time Expired Action'; the check that would settle it is comparing b3d1bd2c's 5-day worked example against 554e86aa's description of Expire After This Many Days. Leaving this 'unresolved' tells the build not to extract four fields it can see.",
+            "action": "Rewrite the deferral: attach the four-field timeout family to Workflows > Workflows tab > General page, and record b3d1bd2c as a LABEL CONTRADICTION (Workflow Step Timeout Duration vs Expire After This Many Days) rather than as two orphan fields."
+          },
+          {
+            "title": "The Workflows uiVariant verdict is inverted — the corpus documents the NEW UI, rewritten in place",
+            "detail": "The roster says 'uiVariant = undifferentiated. THIS IS A BUILD RISK ... Workflows is the one config area for which the corpus offers no New Experience guidance at all.' But the Workflows guide's own revision history, dated September 19, 2025, reads: 'Updated images and text to the new UI for the Workflows Tool' (general-information-8b3b0308.md, grep -F -c -> 1). `grep -rn \"new UI\"` over both guide dirs returns 6 hits corpus-wide and this is the only one naming an admin config tool. So the absence of a *-new-experience-* twin is a REPLACEMENT (revised in place, legacy dropped), not a coverage gap — which is exactly the question item 4 asks and the roster answers backwards. Counter-evidence that must be RECORDED not reconciled: '<tools>/how-single-step-approval-workflow-works-40145f24.md' says the admin 'uses the Authorized Approvers link from workflows in the classic interface' (-> 1). Two dated statements, opposite directions, one corpus version. This matters more than any single page: click paths are the ONLY navigation knowledge this group will ever have, so if they describe a superseded UI, every navPath is wrong at once. I nominate this as a SIXTH inherited finding — findings (1)-(5) settle which page owns what, none settles which UI generation the paths describe. Also a new text trap: that line misspells 'Worflows'.",
+            "action": "Rewrite workflows.uiVariantEvidence to read 'new UI, rewritten in place 2025-09-19 (general-information-8b3b0308.md); one contradicting classic-interface reference in tools-guides/how-single-step-approval-workflow-works-40145f24.md', and add this as inherited finding (6) with verdict 'undetermined by the corpus'."
+          },
+          {
+            "title": "The roster names 3 of the graph's 9 unresolved page:\"Workflows\" endpoints, and misses three that pre-commit FIELD NAMES",
+            "detail": "Enumerating every unresolved dependency endpoint whose page is not one of the built 20: Workflows has NINE — dep.g1.021, dep.g1.026, dep.g2.014, dep.g4.045, dep.g2ar.021, dep.g2ar.022, dep.g2ar.023, dep.g2ar.024, dep.g2ar.026. The roster names four (g1.021, g1.026, g2.014, g2ar.024). The five it misses include three that name specific fields the graph has already committed to on the Workflows page: `workflow_first_step` (dep.g2ar.021, dep.g2ar.023), `workflow_approval_steps` (dep.g2ar.022), `exception_level_limit` (dep.g2ar.024, dep.g2ar.026). dep.g4.045 adds an e-Bunsho timestamp precondition on 'invoice submission for approval'. A build that does not know these names will either invent different ones or leave five edges dangling. Correction to my own reading: dep.g1.060 (page 'User Administration') is about vendor availability, NOT approval limits — it does not corroborate the Authorized Approval Limits finding, which stands on corpus evidence alone.",
+            "action": "List all nine unresolved Workflows endpoints in the roster, with the three pre-committed field names called out as reconciliation targets for the build."
+          },
+          {
+            "title": "Unseeded valid-value files on both Run-B pages and on the group's closest call",
+            "detail": "EMAIL REMINDERS (16 seeds): <admin>/pre-defined-rules-220a1fe7.md is the pre-defined reminder rule catalog and a two-value valid-value set for the Rules tab — 'Overdue Payment Request Approvals: Invoices that have not been approved within 7 days of submission of the invoice.' (-> 1); <admin>/overview-8b2c769e.md (1,488 B) names the reminder types (Overdue Disbursement, Approving); <admin>/best-practices-when-localizing-subject-and-email-message-fields-48515f40.md (1,317 B) is mentioned only inside the Localization deferral and seeded nowhere. DELEGATE CONFIGURATIONS (9 seeds): <admin>/terminology-e1e1ed99.md (2,026 B) is a six-entry terminology catalog naming Invoice Delegates, Invoice Request Delegates, Purchase Request Delegates, Temporary Approval Delegation, Delegate Restriction to Group, Delegated Approver — 'Temporary Approval Delegation: A method for designating an employee to act as an approver for a specified duration of time.' (-> 1); two of those six are controls the roster names in prose with no seeded source. <admin>/overview-8b2ba917.md (1,223 B) carries the page's whole semantics — 'Concur Invoice delegate configurations define the subset of invoice permissions that delegates are allowed to have within Concur Invoice.' (-> 1). REASON CATEGORY AND CODES, carried at medium confidence on three files, actually has five: modifying-a-reason-code-91457a6d.md (1,123 B) and reason-category-and-codes-8b3b27d4.md (866 B) are unseeded.",
+            "action": "Add the five files above to the Email Reminders and Delegate Configurations seedFiles, and the two Reason Category files to the Workflows seedFiles."
+          },
+          {
+            "title": "tools-guides is written off by a phrasing test, not by content — the 'admin-guides only' instruction is over-broad",
+            "detail": "The roster ran `grep -rl -e \"Workflows tool\" -e \"Workflows page\" -e \"Workflows tab\"` over the 650 tools-guides files, got ZERO (I reproduced it), and concluded 'aim the build at admin-guides only.' The conclusion does not follow. SIXTEEN tools-guides files say 'Invoice Configuration administrator', including <tools>/how-single-step-approval-workflow-works-40145f24.md — the only topic anywhere that ties the Authorized Approvers link, the approval-limit value and the skip-step rule into one configuration narrative, and which the roster quotes but never seeds — plus three required-roles-*.md role matrices (one with 36 indented table rows) and both 9 KB the-query-builder-and-the-condition-editor-*.md files (af058a80 78 rows / e10473f9 59 rows, duplicate titles, different loio, unmentioned anywhere in the roster). Those two are NOT workflow config (they are the Processor's runtime Query Builder) but they describe the shared Condition surface — 'The Query Builder window in Invoice Processor is very similar to the Condition page within several of the other features in the Invoice Configuration administrator.' (-> 1) — and 19 KB of unnamed table is exactly what a later run rediscovers and mis-files. On the previous group the critic's single most valuable addition was a tools-guides corroboration; this roster has excluded the directory by phrasing.",
+            "action": "Replace 'aim the build at admin-guides only' with 'admin-guides is the field source; tools-guides is checked for corroboration via Invoice Configuration administrator / (left menu) / Invoice Processing Admin'. Seed <tools>/how-single-step-approval-workflow-works-40145f24.md on Workflows, and name both the-query-builder-and-the-condition-editor-*.md files in the Step Rules deferral as do-not-confuse / do-not-seed."
+          },
+          {
+            "title": "The Delegate Configurations 'two user interfaces' UI hint is 2014 boilerplate present in 40 files",
+            "detail": "The roster records: \"delegate-configuration-8b2bd26d.md's revision history records 'added information about two user interfaces', which is a UI-variant HINT with no accompanying variant topic — record it, do not act on it.\" `grep -rn \"two user interfaces\"` over both guide dirs returns 40 FILES, including audit-rules-8b297db8.md, policies-8b34cecf.md, forms-and-fields-8b2e66f6.md, invoice-settings-8b345df1.md, routing-configuration-8b511516.md — i.e. most of the twenty already-built pages. It is a September 17, 2014 boilerplate revision-history line, not a page-specific signal. Recording it on one page and not the other thirty-nine invites a downstream builder to act on noise, and it is the same observation-vs-inference error the brief calibrates on.",
+            "action": "Delete the 'two user interfaces' sentence from delegate-configurations.uiVariantEvidence; if kept anywhere, keep it as a corpus-wide boilerplate note, not a page property."
+          },
+          {
+            "title": "The 13-attribution: a THIRD accounting fits the roster's own stated criterion better than its preferred one",
+            "detail": "The roster offers two accountings and prefers 7 tabs + 3 wizard pages + 3 settings tables 'because it maps onto NAMED ARTEFACTS WITH THEIR OWN TOPIC TITLES'. My independent 'X page' census over the 120-file workflow superset returns: Approval Flow 13, Workflows 12, Steps 8, Step Rules 7, General 6, Settings 2, Authorized Approvers 2, Edit Workflow 1, Condition Editor 1. A third accounting therefore also reaches thirteen — 7 tabs + General + Steps + Step Rules + The Condition Page + Edit Condition window + Edit Action window — and The Condition Page has its OWN TOPIC TITLE three times over (the-condition-page-5d4ea870.md, the-condition-page-3408dec8.md, conditional-expressions-and-the-condition-page-4d98af34.md), whereas Invoice/Purchase Request/Purchase Order Settings are the members the roster has to argue are page-like. This does NOT change the page count and does not weaken the one-page verdict, which I could not break: my tab census over 95 workflow-domain files returns exactly the seven tabs, exactly four sub-tabs and one historical rename (Payment Request Approval Statuses), with no eighth. It weakens only the confidence with which the reconciliation picks a winner.",
+            "action": "Add the third accounting to the reconciliation and state that three accountings now reach thirteen and the corpus cannot choose between them — rather than presenting one as the best fit for the stated criterion."
+          }
+        ],
+        "verdict": "The roster's page count, its one-page/seven-tab verdict, and its hardest calls all survive adversarial attack. I reproduced every load-bearing mechanical claim: the Finding (1) clincher (0/2 on \"select their own approver\"; `grep -rl \"apply globally to\"` returns exactly the three family files; \"Type a number from one to 99.\" returns 1 in each; cace748d `<tr`=3 `<p`=6), the left-menu census (30 labels — and I added the calibration the roster omitted: all 60 raw \"(left menu)\" occurrences are accounted for by those 30, so nothing is hidden), the graph string counts (Approval Statuses 0, Email Notifications 0, Authorized Approver 0, Step Rules 0, Workflows 36), the New Experience census (5 filename hits, 9 content hits, none workflow config), the raw <table> census (3 real tables in the workflow domain, all 3 seeded; the 4th is Print Condition Rules), and 16 spot-checked sourceQuotes, all verbatim. The deliberate exclusion of the-condition-page-5d4ea870.md (11,176 B, the domain's 3rd-largest file) is CORRECT — it already sources 16 built Audit Rules fields. Workflows' seed list covers the entire top ten by bytes; no stub-aiming there. The failures are all failures of REACH, not judgement, and there are nine. The most consequential: a documented admin surface (Authorized Approval Limits, 6,917 B across two admin-guides files, own click path, own role gate, seven named fields) rejected on a false claim that the corpus defers it externally — leaving the per-user approval limit with no home anywhere; a Group Configurations overview seeded on Feature Hierarchies, the thinnest page in the group, risking re-homing of built G1 fields; four documented General-page timeout fields recorded as homeless; and a uiVariant verdict that is backwards — a dated 2025-09-19 line says the Workflows topics were rewritten to the new UI in place, so the missing twin is a replacement, not a gap. That last one I nominate as a SIXTH inherited finding: it is the only ambiguity that, if wrong, invalidates every navPath in the group simultaneously. Split verdict: keep the two-run shape (it does not cut through a page, so --patch is safe), but Authorized Approval Limits must go in Run A because it shares the limit-definition topics with the Authorized Approvers tab, which makes Run A's irreducible imbalance slightly worse. Out-of-scope surfaces surfaced and reported so they are not lost: Vendor Manager (5 unresolved endpoints), Print Condition Rules (a real <table> and a List page), Vendor Handling, Form Types, and details-section-49500221.md (29,059 B / 1,360 rows, uncited, import-extract domain). One correction to my own work is recorded in the file rather than deleted: I first called the-import-template-fields-and-descriptions-8b51ca3d.md uncited; the graph references it 4 times and Group 5 already owns its Level value set, so it is a dedupe reference, not unread material."
+      }
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Sweep"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Roster"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Challenge"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "sweep:clickpaths",
+      "phaseIndex": 1,
+      "phaseTitle": "Sweep",
+      "agentId": "a292fd6b14ac2c4e6",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788218856590,
+      "queuedAt": 1788218856559,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "clickpaths",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788219781537,
+      "tokens": 170174,
+      "toolCalls": 53,
+      "durationMs": 924939,
+      "resultPreview": "{\"sweep\":\"clickpaths\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-clickpaths.md\",\"headline\":\"Workflows is ONE admin page with SEVEN tabs, not thirteen pages - the corpus says it outright: \\\"The Workflows tab on the Workflows page appears.\\\" Only one workflow-domain label is ever a left-menu destination (Workflows); every other named…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "sweep:adminfiles",
+      "phaseIndex": 1,
+      "phaseTitle": "Sweep",
+      "agentId": "a6591e9e61d634f90",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788218856592,
+      "queuedAt": 1788218856560,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "adminfiles",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788219961570,
+      "tokens": 204340,
+      "toolCalls": 67,
+      "durationMs": 1103452,
+      "resultPreview": "{\"sweep\":\"adminfiles\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-adminfiles.md\",\"headline\":\"\\\"Workflows\\\" is ONE admin page with its own left-menu entry and SEVEN tabs (Workflows, Settings, Email Notifications, Authorized Approvers, Approval Statuses, Confirmation Agreements, Reason Category and Codes) — two of which carry sub-tabs…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "sweep:toolsguides",
+      "phaseIndex": 1,
+      "phaseTitle": "Sweep",
+      "agentId": "ad2e12b7b94129589",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788218856593,
+      "queuedAt": 1788218856561,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "toolsguides",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788219809395,
+      "tokens": 186871,
+      "toolCalls": 52,
+      "durationMs": 951278,
+      "resultPreview": "{\"sweep\":\"toolsguides\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-toolsguides.md\",\"headline\":\"Workflows is ONE page with SEVEN tabs (Workflows, Settings, Approval Statuses, Email Notifications, Authorized Approvers, Confirmation Agreements, Reason Category and Codes) — the Audit Rules precedent, not the Forms and Fields precedent. …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "sweep:rolesmenus",
+      "phaseIndex": 1,
+      "phaseTitle": "Sweep",
+      "agentId": "a00e6a21aa33cbd25",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788218856594,
+      "queuedAt": 1788218856562,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "rolesmenus",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788219771855,
+      "tokens": 175062,
+      "toolCalls": 66,
+      "durationMs": 913736,
+      "resultPreview": "{\"sweep\":\"rolesmenus\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-rolesmenus.md\",\"headline\":\"Workflows is ONE PAGE with five tabs, and a July 2025 release note enumerating a restricted role's read-only reach states it in one heading (\\\"Workflows Page\\\") plus three bullets covering the workflow list, the Approval Statuses and the wor…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "sweep:graphrefs",
+      "phaseIndex": 1,
+      "phaseTitle": "Sweep",
+      "agentId": "a81930e7254f19c8b",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788218856595,
+      "queuedAt": 1788218856562,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "graphrefs",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788220006917,
+      "tokens": 211212,
+      "toolCalls": 74,
+      "durationMs": 1148798,
+      "resultPreview": "{\"sweep\":\"graphrefs\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-graphrefs.md\",\"headline\":\"Workflows is ONE page with SEVEN top-level tabs (Workflows, Approval Statuses, Email Notifications, Settings, Authorized Approvers, Confirmation Agreements, Reason Category and Codes), reached by its own left-menu entry under Invoice Processin…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "sweep:setupflow",
+      "phaseIndex": 1,
+      "phaseTitle": "Sweep",
+      "agentId": "a7a5fbd07ff3a627d",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788218856596,
+      "queuedAt": 1788218856562,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "setupflow",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788219897506,
+      "tokens": 195285,
+      "toolCalls": 60,
+      "durationMs": 1039387,
+      "resultPreview": "{\"sweep\":\"setupflow\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/sweep-setupflow.md\",\"headline\":\"The workflow area is ONE admin page with seven tabs, not thirteen pages: a 2025 release note enumerates \\\"Workflows Page\\\" as containing General/Steps/Step Rules, Approval Statuses and workflow Settings under one heading, and no tab anywhere i…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "roster:merge",
+      "phaseIndex": 2,
+      "phaseTitle": "Roster",
+      "agentId": "ae76b5231b2133d6a",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788220006976,
+      "queuedAt": 1788220006940,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Four pages, not thirteen: the workflow/approval surface is …",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788221322500,
+      "tokens": 357279,
+      "toolCalls": 47,
+      "durationMs": 1315523,
+      "resultPreview": "{\"headline\":\"Four pages, not thirteen: the workflow/approval surface is ONE admin page with seven tabs (Workflows) plus three genuinely separate, never-claimed left-menu pages — Email Reminders, Delegate Configurations, Feature Hierarchies. A corpus-wide `(left menu)` census returns 30 distinct labels and not one is a workflow tab, and a July 2025 release note enumerates the workflow list, Approva…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "critic:pagehood",
+      "phaseIndex": 3,
+      "phaseTitle": "Challenge",
+      "agentId": "aee16b4baabf7dcd3",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788221322561,
+      "queuedAt": 1788221322528,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "pagehood",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788222510066,
+      "tokens": 229238,
+      "toolCalls": 58,
+      "durationMs": 1187501,
+      "resultPreview": "{\"lens\":\"pagehood\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/critic-pagehood.md\",\"findingCount\":9,\"verdict\":\"ENDORSE THE FOUR-PAGE ROSTER — no page added, removed, merged or split. I attacked each on click-path, role gate, graph collision and census, and every structural claim reproduced, several to the byte: all 144 sourceQuotes verify…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "critic:completeness",
+      "phaseIndex": 3,
+      "phaseTitle": "Challenge",
+      "agentId": "a921a704acf5e0fa6",
+      "model": "claude-opus-5[1m]",
+      "state": "done",
+      "startedAt": 1788221322565,
+      "queuedAt": 1788221322529,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "completeness",
+      "promptPreview": "You are re-deriving a LOST PAGE ROSTER for a knowledge graph of the SAP CONCUR INVOICE ADMIN\nCONFIGURATION SURFACE, built BLIND FROM DOCUMENTATION. The graph answers: for a desired config\nchange, which pages, which fields, which valid values, in what order. A future Chromium automation\nwill drive the admin UI from it.\n\nTHIS RUN EXTRACTS NO FIELDS. Your product is PAGE IDENTITY: which distinct admi…",
+      "lastProgressAt": 1788222516035,
+      "tokens": 237861,
+      "toolCalls": 74,
+      "durationMs": 1191289,
+      "resultPreview": "{\"lens\":\"completeness\",\"wroteTo\":\"/tmp/claude-1000/-mnt-c-Users-manci/bc53169c-7f0a-473a-a07f-cf6d37ca509c/scratchpad/wf-recon/critic-completeness.md\",\"findingCount\":14,\"severeFindings\":[{\"title\":\"The \\\"Approver assignment\\\" deferral rejects a documented admin surface on a false factual claim — the Authorized Approval Limits window\",\"detail\":\"The roster says 'every tools-guides topic that touches …"
+    }
+  ],
+  "totalTokens": 1967322,
+  "totalToolCalls": 551
+}

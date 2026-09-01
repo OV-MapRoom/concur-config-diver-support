@@ -975,3 +975,190 @@ that items 2, 4 and 8 must not be resolved by re-homing onto a Group 3 page, and
 - **`purchase-request-settings-b0bce285.md`** (3 rows, plus a prose range *"Type a number from one
   to 99"* that no digit regex finds) belongs to the unbuilt Workflows group.
 - **A complete 6-step Localization click path** sits in `step-5-...-5328a8e1.md` for Group 6.
+
+---
+
+## Workflows — page recon + Run A (Workflows, Feature Hierarchies) — 2026-08-31
+
+**Result: 22 pages · 607 fields · 436 dependencies · 41 steps · 114 value sets (1,011 values) ·
+60 contradictions (179 readings) · 17 compressed ranges. `bin/validate-graph.py` exit 0, ERROR none.
+607/607 sourceQuotes verbatim; 179/179 contradiction readings verbatim.**
+
+### The recon retired "13 pages" — run `wf_f4d39441-6cb`, 9 agents, 0 errors, 1.97M tokens, 61 min
+
+`INVOICE-CONFIG-MAP.md` recorded *"13 pages of workflow config"* under ONE left-menu entry. Six
+blind sweeps converged with no dissent: **the workflow area is FOUR pages.**
+
+| Page | Basis | Files | Est. fields | Found by |
+|---|---|---|---|---|
+| Workflows — ONE page, SEVEN tabs | rich | 86 | ~100 | 6 of 6 |
+| Email Reminders | moderate | 17 | ~25 | 2 of 6 |
+| Delegate Configurations | moderate | 17 | ~25 | 5 of 6 |
+| Feature Hierarchies | sparse | 12 | ~5 | 6 of 6 |
+
+**The 13 reconcile exactly:** 7 tabs + 3 wizard pages (General / Steps / Step Rules) + 3 settings
+tables (Invoice / Purchase Request / Purchase Order Settings). Every one corpus-attested; not one
+is a page. Settled mechanically, not by intuition: a corpus-wide `(left menu)` census over 1,859
+files returns 30 distinct labels — Workflows scores 8, every candidate tab scores **0**;
+`"Steps tab"` returns **0** corpus-wide; and there is ONE role gate for the whole surface, stated
+twice as *"permissions for the Workflows section in Administration"*, never per tab. Audit Rules
+precedent, not Forms and Fields. The page-hood critic **endorsed the roster outright** — no page
+added, removed, merged or split — after reproducing every mechanical claim to the byte.
+
+### The five inherited findings, all settled with commands
+
+1. **PO/PR Settings belong to Workflows — CONFIRMED as answer (a), and the third sibling settled.**
+   All three settings tables live on **Workflows > Settings tab**. Family cohesion is mechanically
+   provable: `grep -rl "apply globally to"` over both guide dirs returns **exactly those three
+   files and nothing else**. This is a **LABEL COLLISION** with the built Invoice Settings page,
+   **not rebuild debt** — zero of the 486 prior fields cite any of the three, and the built page's
+   13 fields come from `available-invoice-settings-8b3411f0.md`, a different file. Nothing moved.
+2. **Workflows is ONE page with SEVEN tabs** — see above.
+3. **Feature Hierarchies belongs to no single group** — claimed here rather than deferred a second
+   time. Own left-menu entry, own role gate stated *in contrast to* the Workflows gate inside one
+   three-step flow. It is a **sibling of Workflows, not a child**: its click paths carry no
+   `Invoice Processing Admin` middle segment, so a driver routed via a Workflows path **will fail**.
+4. **Routing Configuration boundary is clean** — all 10 of its fields re-read; nothing re-homed in
+   either direction. `"routing"` is a **three-way homonym**: hierarchy-mapping import (built page),
+   approval chain (Workflows Steps/Step Rules), and the Invoice Routing feature hierarchy.
+5. **End-user traps confirmed and worse than filename-level** — an approval STEP is configured on
+   the Workflows wizard and executed on the Approval Flow page. All 41 deferred surfaces name where
+   their configuration lives.
+
+**A sixth finding was added by the recon completeness critic and is UNDETERMINED:** the Workflows
+guide's own revision history (2025-09-19) says *"Updated images and text to the new UI for the
+Workflows Tool"*, while `tools-guides/how-single-step-approval-workflow-works-40145f24.md` says the
+admin uses *"the classic interface"*. Two dated statements, opposite directions, one corpus version.
+It matters more than any single field: click paths are the only navigation knowledge this group will
+ever have. `uiVariant: undifferentiated` is the honest answer. (Text trap: that revision line
+misspells **"Worflows"**, once corpus-wide.)
+
+### Where the two recon critics disagreed — and how it was settled
+
+Completeness said ADD a fifth page (`authorized-approval-limits`); page-hood endorsed four. A split
+is **two findings, not a tie**:
+
+- **Completeness was right on the fact.** The roster deferred it claiming the corpus defers it to an
+  external Shared guide. **False** — `user-administrator-fcfd570c.md` (4,603 B) and
+  `user-administration-8b167b96.md` (2,314 B) document it directly; all three anchor quotes verify.
+- **Page-hood was right on the action.** Click path is `Administration > **Company** > Company Admin
+  > User Administration` — outside the Invoice menu. Verified precedent: **all 20 built pages** sit
+  under `Administration > Invoice`, zero exceptions, and five prior groups met these surfaces
+  **eight times** and left every one an unresolved endpoint.
+
+**Verdict: no fifth page.** Building it is a scope expansion of the whole graph — Luke's call, not a
+roster conclusion. The deferral's *reason* was corrected and the click path, seven field names and
+value semantics (0 = in chain but no final authority; null = unlimited) are recorded as scoped debt.
+
+### Run A — `wf_bc0c21da-8dc`, 20 agents, 0 errors, 3.74M tokens, ~100 min
+
+| Page | Fields | Dropped | Repaired | Coverage | mustReadNeverCited |
+|---|---|---|---|---|---|
+| Workflows | 114 | 86 | 18 | good | 57 |
+| Feature Hierarchies | 7 | 5 | 2 | partial | 0 |
+
+Plus 34 value sets (161 values, 8 knownGap), 61 dependencies, 24 contradictions (68 readings),
+5 compressed ranges, 7 ConfigSteps / 122 sequence entries.
+
+**Feature Hierarchies came in thin exactly as forecast** — ~5 predicted, 7 delivered, both lenses
+independently agreeing, and the extractor said plainly it did not pad. SAP files the substance in
+the external *Shared: Feature Hierarchies Setup Guide*, absent from this corpus. That is the Budget
+Configuration failure mode predicted and avoided rather than repeated.
+
+**The packed raw table was recovered.** `invoice-settings-cace748d.md` returns `grep -c '<tr'` = 1
+but `grep -o '<tr' | wc -l` = 3 — three rows on one physical line. Settings-tab payload is **nine**
+controls (5 invoice + 3 PR + 1 PO), not the three a markdown-only extractor would see. The brief
+that settles finding (1) is the same file that would have been mis-read.
+
+### Both critics: MERGE WITH FIXES. Three blocking, all verified before applying
+
+1. **`step_role` asserted a closed 6-value list from a HEDGE** — *"such as Authorized Approver, ..."*.
+   `"such as"` does not close a list, and the corpus attests a seventh value the list omitted:
+   `Employee` is the Role of step 1 in BOTH shipped default workflows. **The build had already
+   reached this conclusion in its own contradiction node** ("Treat the Role list as OPEN") and the
+   roster then emitted the closed list anyway. Same family as the two deleted invented "Yes" values.
+   `validate-graph.py` could NOT catch it — all six strings are verbatim. → `validValues = []`.
+2. **A repair swapped a control-naming quote for a non-discriminating one on a false premise.** The
+   repair claimed no markup-free quote existed; `grep -F -c` of the restored string returns 1. The
+   discarded quote, *"Type a number from one to 99."*, names no control and describes three
+   different controls in three different files. → quote restored.
+3. **`repairedCount` understated 17 vs 18** — and repairs are precisely the records that never face
+   the adversarial refuter, so an undercount hides one from review. The hidden one was defect 2.
+
+**Both critics independently found the SAME pattern on two different fields** — a list closed or
+declared open on partial evidence, omitting the attested value `Employee`. That agreement is the
+strongest signal this pipeline emits. The second instance was a **false claim written into the
+graph**: `contr.gworkflows.015` asserted a third employee-only value "is likely present — it is
+deliberately NOT invented here", when `approver-terminology-8559861c.md:66` enumerates it outright
+(`grep -F -c` = 1, one line corpus-wide) in a file this run had already cited. A third grounded
+reading was added rather than the claim softened.
+
+### FOUR toolchain defects found and fixed — the "grep the whole toolchain" lesson, again
+
+1. `bin/assemble-parts.py` hard-coded `'grp5b-unnamed'` as the step-id fallback.
+2. `bin/merge-group.py` `ALL_GROUPS` had **no Workflows entry** — `groupsRemaining` omitted it, and
+   merging Group 6 would have flipped `meta.status` to COMPLETE with Workflows unbuilt.
+3. **`bin/assemble-parts.py` `group_tag()` called an undefined `slug()`.** Every prior group label
+   matched `/Group (\d+)/`, so the fallback branch had **never executed**. `Workflows` — which
+   deliberately carries no "Group N", because any label containing "Group 2" would derive gtag `2`
+   and mint `dep.g2.*` ids colliding with the built Group 2 — was the first to reach it, and it
+   raised `NameError`. Backwards compatible: `grp3-` and `grp5b-` unchanged.
+4. **The `tabs` chain has THREE links and only one was fixed at first.** `NAV_SCHEMA`
+   (`additionalProperties:false`, no `tabs` property — the agent was schema-blocked and returned
+   `tabs: None`) → `assemble-parts.py` (dropped the key) → `merge-group.py` (fixed first). Links 2
+   and 3 are now fixed; **link 1 must be fixed in the Run B script.** Run A's tabs were added via
+   `apply-corrections.py`.
+
+**The seven tabs are individually attested, NOT enumerated.** Unlike Forms and Fields — whose tabs
+come from one sentence, *"The tool consists of the following tabs:"* — **no sentence anywhere in
+this corpus lists the Workflows tabs together** (that phrase returns exactly one hit corpus-wide and
+it is Forms and Fields). Each of the seven is attested separately by its own click path: Workflows
+14 files, Settings 15, Email Notifications 7, Authorized Approvers 6, Approval Statuses 5,
+Confirmation Agreements 4, Reason Category and Codes 3.
+
+### Open debt from this run
+
+1. **F-2 SEVERE — 433 condition-editor entries and 12 compressed ranges in two never-opened
+   tools-guides files.** `the-query-builder-and-the-condition-editor-e10473f9.md` (Invoice Processor:
+   7 Data Objects, 217 Field/Value entries, 7 ranges) and `-af058a80.md` (PR + PO Processor: two
+   further Data Object lists, 216 entries, 5 ranges). They were collapsed into one "do-not-confuse"
+   skip and neither was opened. **Do NOT home these on Workflows** — they belong to deferred
+   Processor surfaces. Owed: a contradiction node (the graph carries 15 entries from a table SAP
+   itself opens *"The table below shows a partial list"*), a corroboration note, and an
+   unbuilt-surface pointer so a future run inherits them instead of re-discovering them at cost.
+2. **F-3 — flat editability contradiction unrecorded** on `workflow_condition_data_object_e`:
+   *"Change it if necessary"* (Workflows) vs *"This field will always display as Value and you
+   cannot change this"* (Processor), on a control SAP calls "very similar".
+3. **F-6 — `Table 2` governs BOTH `C: Field/Value` and `F: Field/Value`**; the value sets are wired
+   only to C, so a driver filling column F has no values at all.
+4. **F-7 — `H: And/Or` declines a pair the corpus enumerates in prose** (*"separated by either and
+   or or"*). Two grounded values, not a toggle completion.
+5. **F-5 — Feature Hierarchies `feature_name` withheld two placement-attested names** on a ground
+   two read files refute.
+6. **Value-set hygiene** (5 WARNs added this run, all diagnosed): `email_body`/`email_subject` carry
+   9 de-escaped variables — the corpus writes `%L\_WhoChanged%`, the graph records `%L_WhoChanged%`;
+   the **unescaped form is correct for a driver** and the catalog is complete and verified, so the
+   WARN is now a documented decision. `feature_name` cites one file for 3 values, 2 of which are
+   elsewhere → split into three one-value sets. `segment_name` expands *"Custom 10, 11, and 12"* →
+   should be a compressedRange.
+7. **A de-dupe drop silently lost its note** — `wf_workflow_type`'s reasoning about a 5-row table
+   enumerating approval APPROACHES did not survive into the merged record despite boilerplate
+   claiming every note was folded in. **Worth auditing the other 85 Workflows drops for the same loss.**
+8. **57 `mustReadNeverCited` on Workflows** (benchmark was 19 on a rich page). The completeness
+   critic adjudicated and found the coverage sound, but the number is high and the F-2 skip sits
+   inside it.
+9. **Three existing-graph defects reported, not fixed here:** `dep.g2.011` targets page
+   `Invoice Settings` while citing `invoice-settings-cace748d.md` (should be Workflows > Settings
+   tab); `dep.g2ar.025` duplicates the already-correct `dep.g2ar.024`; and
+   `page.exceptions.navPathAlternates` contains `Administration > Invoice > Workflows > Settings`,
+   which is not a route to Exceptions. A second instance of that last class was found in
+   `page.image-handling.navPathAlternates`.
+10. **The built Exceptions page is missing its documented Exception Level field**, so all
+    exception-level edges anchor on Audit Rules instead.
+
+### Still to do
+
+**Workflows Run B — Email Reminders + Delegate Configurations** (34 unique files, 70,074 B, ~50 est.
+fields). Merge **WITH `--patch`** — the `Workflows` group label now exists. Exactly one 1,284 B file
+is shared with Run A (`delegate-self-approval-1b627285.md`), whose field belongs to the Workflows
+General page: **Run B must not extract it.** Fix `NAV_SCHEMA` to declare `tabs` before running.

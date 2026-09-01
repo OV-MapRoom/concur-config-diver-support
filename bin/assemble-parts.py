@@ -128,6 +128,16 @@ def norm_field(f):
     return out
 
 
+def slug(s):
+    r"""Byte-identical to merge-group.py's slug. group_tag()'s non-numeric branch called this
+    and it was never defined: every group label so far matched /Group (\d+)/, so the branch
+    had never executed. The 'Workflows' label (deliberately carrying no "Group N", to avoid
+    minting dep.g2.* ids that collide with the built Group 2) is the first to reach it, and it
+    raised NameError. Found 2026-08-31."""
+    s = re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
+    return re.sub(r'-+', '-', s)[:60] or 'unnamed'
+
+
 def group_tag(group, patch_page=None):
     """Step-id prefix for a group label. 'Group 3 — PO Matching' -> 'grp3-'.
 
@@ -183,6 +193,14 @@ def main(parts, out_path, journal=None, group=None, patch_page=None):
             'roleGates': n.get('roleGates') or [],
             'aliases': n.get('aliases') or [],
             'identityNotes': n.get('identityNotes') or '',
+            # tabs added 2026-08-31. The chain that carries a page's tabs to the graph has THREE
+            # links (NAV_SCHEMA -> here -> merge-group.py) and only the last was fixed first; a
+            # page's tabs die silently if any one of them drops the key. NAV_SCHEMA must also
+            # declare `tabs` / `tabsSourceQuote` / `tabsSourceFile` (it sets additionalProperties
+            # false, so an undeclared key cannot even be emitted). Absent keys stay absent.
+            'tabs': n.get('tabs') or [],
+            'tabsSourceQuote': n.get('tabsSourceQuote') or '',
+            'tabsSourceFile': n.get('tabsSourceFile') or '',
         })
 
     by_page_field = {(p['name'].strip().lower(), f['name'].strip().lower()): f
@@ -306,7 +324,7 @@ def main(parts, out_path, journal=None, group=None, patch_page=None):
     steps = []
     for s in (read_json(os.path.join(parts, 'synth-steps.json'), {}) or {}).get('steps') or []:
         steps.append({
-            'id': s.get('id') or 'grp5b-unnamed',
+            'id': s.get('id') or (step_prefix + 'unnamed'),
             'name': s.get('name') or '',
             'goal': s.get('goal') or '',
             'pages': list(s.get('pages') or []),

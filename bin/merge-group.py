@@ -19,8 +19,15 @@ from collections import Counter
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KG = os.path.join(ROOT, 'output', 'kg-invoice-config.json')
 
+# Every non-deferred label MUST appear here. groupsRemaining is computed as the set
+# difference against it, and `status` flips to COMPLETE when every non-Ops entry is done —
+# so a group missing from this list is invisible in groupsRemaining AND cannot block
+# COMPLETE. 'Workflows' was absent until 2026-08-31: it carries no "Group N" in its label
+# (deliberately — 'Group 2W' would derive gtag '2' and collide with the existing dep.g2.*
+# ids from the built Group 2), so nothing else in the pipeline would have named it.
 ALL_GROUPS = [
-    'Group 1 — Policy & Scope', 'Group 2 — Routing & Approval', 'Group 3 — PO Matching',
+    'Group 1 — Policy & Scope', 'Group 2 — Routing & Approval', 'Workflows',
+    'Group 3 — PO Matching',
     'Group 4 — Capture & Vendors', 'Group 5 — Data Structure & Accounting',
     'Group 6 — Compliance / E-Invoicing', 'Group 7 — Ops (deferred)',
 ]
@@ -99,7 +106,14 @@ def main(src_path, group, patch=False):
         # node (Map Invoice Concept Fields) drew exactly that charge from the Group 5A critic. Carry the
         # evidence forward when the build supplies it, so "thin" can be read as a finding about the
         # corpus rather than a gap in the build. Absent keys leave older results byte-identical.
-        for key in ('documentedBasis', 'verifyNotes', 'roleGates', 'aliases', 'identityNotes'):
+        # tabs/tabsSourceQuote/tabsSourceFile added 2026-08-31 (Workflows recon, pagehood critic).
+        # They were NOT in this list, so a build emitting tabs had them silently dropped at merge —
+        # page.forms-and-fields carries tabs ONLY because apply-corrections.py:322 hard-codes a
+        # value-set-to-tabs conversion for that one page. Generalised here rather than hard-coding a
+        # second page: Workflows is one page with seven tabs and four sub-tabs, and losing them would
+        # strand every future endpoint against a tab name.
+        for key in ('documentedBasis', 'verifyNotes', 'roleGates', 'aliases', 'identityNotes',
+                    'tabs', 'tabsSourceQuote', 'tabsSourceFile'):
             if p.get(key):
                 n['configPages'][-1][key] = p[key]
         for f in p['fields']:

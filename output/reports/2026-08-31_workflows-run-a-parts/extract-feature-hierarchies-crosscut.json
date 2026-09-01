@@ -1,0 +1,392 @@
+{
+  "pageId": "feature-hierarchies",
+  "pageName": "Feature Hierarchies",
+  "lens": "C",
+  "filesRead": [
+    "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+    "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md",
+    "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md",
+    "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md",
+    "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md",
+    "concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md",
+    "concur-invoice-professional-edition-tools-guides/before-you-begin-9b98872a.md",
+    "concur-invoice-professional-edition-tools-guides/vendor-manager-terminology-8b54bff7.md",
+    "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md",
+    "concur-invoice-professional-edition-tools-guides/overview-8b4a5692.md",
+    "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md",
+    "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md",
+    "concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md",
+    "concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md",
+    "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md",
+    "concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md",
+    "concur-invoice-professional-edition-admin-guides/step-1-define-the-invoice-authorized-approver-hierarchy-fed7c7fe.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-667cee21.md",
+    "concur-invoice-professional-edition-admin-guides/create-hierarchy-and-import-connected-list-data-c6ab8a52.md",
+    "concur-invoice-professional-edition-admin-guides/vendor-group-mapping-record-type-310-6eb8ffdc.md",
+    "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md",
+    "concur-invoice-professional-edition-admin-guides/details-section-49500221.md",
+    "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md",
+    "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+  ],
+  "fields": [
+    {
+      "name": "feature_name",
+      "label": "feature name",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Invoice Vendor Employee Access",
+        "Invoice Payment"
+      ],
+      "sourceQuote": "On the Feature Hierarchies, select _Invoice Vendor Employee Access_, and then click Modify Hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "The list/selector of named feature hierarchies on the Feature Hierarchies page; you pick one, then click Modify Hierarchy. fieldType 'dropdown' is my reading of a selection control; the corpus never states the widget, so treat the type as undetermined. validValues holds ONLY the two names the corpus writes as an explicit selection on this page: 'select _Invoice Vendor Employee Access_' (bcaf1f5a) and 'Select the Invoice Payment feature name.' (professional-edition-fb3e6aa2.md). THREE FURTHER FEATURE-HIERARCHY NAMES ARE ATTESTED BY NAME BUT NOT AS A SELECTOR OPTION, SO THEY ARE DELIBERATELY NOT IN validValues: 'Invoice Routing hierarchy in the Feature Hierarchies area' (create-the-invoice-routing-feature-hierarchy-8b510285.md), 'Authorized Approver Feature Hierarchy' (user-administrator-fcfd570c.md) / 'Payment Authorized Approvers hierarchy' (workflow-creation-process-1d37b85f.md), and the Cost Object Approver hierarchy (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md). No file enumerates the selector contents, and what a site offers is provisioning-dependent, so no complete list is recoverable from this corpus. THIS FAN-OUT ACROSS FIVE NAMED HIERARCHIES SERVING FOUR CONFIG DOMAINS IS WHY THIS IS A SHARED PAGE, NOT A WORKFLOWS OR ROUTING SURFACE.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "modify_hierarchy",
+      "label": "Modify Hierarchy",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Select Modify Hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md",
+      "notes": "Opens the editable hierarchy definition for the selected feature name. Corroborated in the tools-guides procedure: 'On the Feature Hierarchies, select _Invoice Vendor Employee Access_, and then click Modify Hierarchy.' (step-2-...-bcaf1f5a.md). Both procedures place it immediately after the feature-name selection and immediately before the Source List selection, so it is the gate to every other control on this page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "source_list",
+      "label": "Source List",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "In the Source List, select the name of the list you created in Step 1",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "THE ONE FIELD THIS PAGE DOCUMENTS WELL, and the exact field name the corpus uses ('Source List'). It resolves four already-written dependency endpoints in the graph (dep.g1.061, dep.g2.003, dep.g5g5.050, dep.g5g5.051), every one of which is about a source list. validValues is EMPTY AND THAT IS CORRECT: the options are the tenant's own lists created in List Management, so no documented enumeration exists and none may be invented. The second procedure words the same control without a label: 'Select the source list to use to identify the various funding accounts.' (professional-edition-fb3e6aa2.md). Prerequisite stated verbatim in create-the-invoice-routing-feature-hierarchy-8b510285.md: 'A source list is required to map the hierarchy path segments for use.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "new_level",
+      "label": "New",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "Adds a level/segment row to the hierarchy definition. Load-bearing rather than generic chrome: the Level value is set BY this action in the Vendor Employee Access procedure, and the Invoice Payment procedure has the matching bare step '5.  Select New.' (professional-edition-fb3e6aa2.md) immediately before 'Set the level to Request.' Step 7 of bcaf1f5a repeats the action for multi-level lists: 'If you intend to use multi-level named vendor groups (Level 1; Level 2; Level 3) add additional levels and segments now to match.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "level",
+      "label": "Level",
+      "fieldType": "unknown",
+      "validValues": [],
+      "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "THE CORPUS CONTRADICTS ITSELF ON THIS CONTROL AND I HAVE NOT RECONCILED IT - see contradictions[0]. For the Invoice Vendor Employee Access feature hierarchy the value is 'Employee' and bcaf1f5a says explicitly it 'is the default and cannot be changed'; for the Invoice Payment feature hierarchy professional-edition-fb3e6aa2.md says 'Set the level to Request.', which is an ACT OF SETTING, i.e. changeable. Both readings are recorded as separate context-scoped value sets keyed on feature_name. Most likely provisioning/feature-dependent: what the level control offers varies with which feature hierarchy is selected. validValues left EMPTY at field level on purpose so neither reading is silently promoted to the whole page. fieldType 'unknown' because no file states the widget - it may be a fixed display for Employee and a selector for Request. SEPARATELY, 'Level' has a documented DEPTH range of 1..10 for the Invoice Vendor Employee Access source list, attested identically in two import specs ('Level 1 of the source list attached to the Invoice Vendor Employee Access feature hierarchy.' through Level 10, the-import-template-fields-and-descriptions-8b51ca3d.md and vendor-group-mapping-record-type-310-6eb8ffdc.md) - that is IMPORT-RECORD depth, not a value list for this page control, and per instruction I did NOT re-emit the Group 5 Level value set.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "segment_name",
+      "label": "Segment Name",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "In the Segment Name list, select the field that will act as the list in User Permissions",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "Selects the form field that becomes a segment of the hierarchy path. Options are the tenant's own custom fields, so validValues is EMPTY AND CORRECT. Both worked examples name Custom fields ILLUSTRATIVELY and I did not lift them into a value set: bcaf1f5a uses Custom 02 ('Custom 02 is renamed to _Choose Vendor Access Group_'), and create-the-invoice-routing-feature-hierarchy-8b510285.md says 'three invoice header fields (Custom 10, 11, and 12) have been designated as segments to make up the full hierarchy path' - example data, not a roster of valid options. The Invoice Payment procedure words the same control without the label: 'Select the custom field configured to the selected source list.' (professional-edition-fb3e6aa2.md).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "save",
+      "label": "Save",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "8.  Click Save.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "Commits the hierarchy definition; the terminal step of BOTH documented procedures (professional-edition-fb3e6aa2.md ends '8.  Select Save.'). Emitted because an automation driver needs the commit control, and it is verbatim-documented rather than assumed - but flagged honestly as generic chrome, not a configuration decision.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "level",
+      "contextField": "feature_name",
+      "context": "When the selected feature name is Invoice Vendor Employee Access, the documented Level value is Employee, and the doc states it is fixed.",
+      "values": [
+        "Employee"
+      ],
+      "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "A ONE-VALUE SET, WHICH IS THE HONEST ANSWER: SAP documents exactly one value here and explicitly says it cannot be changed. NO SECOND VALUE MAY BE INFERRED to 'complete' the list. Contradicted by the Invoice Payment set below - see contradictions[0]."
+    },
+    {
+      "appliesToField": "level",
+      "contextField": "feature_name",
+      "context": "When the selected feature name is Invoice Payment, the documented Level value is Request, and it is set by the administrator.",
+      "values": [
+        "Request"
+      ],
+      "sourceQuote": "Set the level to Request.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md",
+      "notes": "Second one-value set, from the payment-groups procedure. Recorded ALONGSIDE the Employee set, not merged with it and not reconciled: the two topics describe different feature hierarchies and there is no documentary basis for a single combined option list. Do not infer that Employee and Request are both offered under either feature."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "source_list",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "List Management",
+      "condition": "The list selected in Source List must already exist: it is created in List Management (Administration > Invoice > List Management) BEFORE the Feature Hierarchies step. This is Step 1 of a numbered two-step procedure whose Step 2 is this page.",
+      "sourceQuote": "Create the source list, match to Vendor Employee Access.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "List Management",
+      "targetField": "source_list",
+      "targetPage": "Feature Hierarchies",
+      "condition": "List Management is its own left-menu page reached the same way as Feature Hierarchies (Administration > Invoice > List Management), confirming the two are sibling tools rather than one nested in the other. Ordering evidence for the FH -> List Management prerequisite; do NOT re-home any List Management field here, that page is already built in Group 5.",
+      "sourceQuote": "Click List Management (left menu). The List Management page appears.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-1-create-the-source-list-in-list-management-cc91aa73.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "HARD FORWARD REFERENCE INTO THE WORKFLOWS BUILD. The authorized approver hierarchy must be defined on this page, and its source list imported or created, BEFORE the authorized approver feature can be activated on Workflows. The Workflows Authorized Approvers surface is therefore BLOCKED on this page.",
+      "sourceQuote": "You must define the authorized approver hierarchy (Invoice > Feature Hierarchies) and import/create its associated source list before the authorized approver feature can be activated.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Policies",
+      "condition": "Purchase Request hierarchies - both Authorized Approval and COA - are set up here and only then become selectable via the Policy tool. Forward reference from the Workflow topic to the BUILT Policies page.",
+      "sourceQuote": "Feature Hierarchies before selection via the Policy tool.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-667cee21.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "source_list",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Routing Configuration",
+      "condition": "The Invoice Routing feature hierarchy - its source list and its segments - is defined on THIS page, and feeds the BUILT Routing Configuration page. This is one of the four config domains that make Feature Hierarchies a shared surface rather than a Routing sub-page.",
+      "sourceQuote": "The user first specifies the source list and relevant segments using the Invoice Routing hierarchy in the Feature Hierarchies area.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "source_list",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Routing Configuration",
+      "condition": "BOUNDARY EVIDENCE, recorded so nobody re-homes it: the Hierarchy Mapping List tab of the Invoice Routing Feature Hierarchy lives on the Routing Configuration page, NOT on Feature Hierarchies. Feature Hierarchies defines the hierarchy; Routing Configuration hosts the imported mapping list.",
+      "sourceQuote": "Hierarchy Mapping List tab for the Invoice Routing Feature Hierarchy in Administration",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/overview-8b4a5692.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Invoice Settings",
+      "condition": "Feature hierarchy configuration is a hard prerequisite for payment group configuration. The Payment Group Configuration surface is not one of the twenty built pages; if it is not Invoice Settings this endpoint should be left UNRESOLVED rather than forced - the quote names the requirement, not the destination page.",
+      "sourceQuote": "Feature hierarchy configuration is required before you can configure payment groups.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "segment_name",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Forms and Fields",
+      "condition": "The custom field chosen in Segment Name must already exist and be configured against the source list before this page is opened. Reciprocally, the field named here in Step 2 is then added to the Employee form in Forms and Fields (Step 4) - so the two pages are mutually ordered around one custom field.",
+      "sourceQuote": "The source list and custom field referenced in the steps below must already be configured before you proceed.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "segment_name",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Forms and Fields",
+      "condition": "The field designated as a segment HERE is afterwards added to the Employee form on the BUILT Forms and Fields page, which is what exposes it for vendor-group selection. Explicit back-reference to 'the Feature Hierarchies step (Step 2)'.",
+      "sourceQuote": "In this step you will add the field (Custom 02) specified in the Feature Hierarchies step (Step 2) to the Employee form.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-4-add-the-custom-field-to-the-employee-form-da376eef.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Group Configurations",
+      "condition": "A Vendor Employee Access Group is produced by three tools acting in sequence, of which this page is the middle one; the named vendor groups are then set up in the BUILT Group Configurations page. Ordering edge only - NO Group Configurations field is re-homed here.",
+      "sourceQuote": "A vendor group created using List Management, Feature Hierarchies, and Group Configurations.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/vendor-manager-terminology-8b54bff7.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Routing Configuration",
+      "condition": "Auto-assignment of an invoice owner is a joint product of Routing Configuration, List Management and Feature Hierarchy; the corroborating tools-guides statement that this page is a MODULE peer of the other two, not a sub-surface of either.",
+      "sourceQuote": "This feature relies on the Routing Configuration and associated import, List Management, and Feature Hierarchy modules of Concur Invoice.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/auto-assign-an-invoice-using-hierarchies-c4035783.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "level",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "",
+      "condition": "UNRESOLVED BY DESIGN - the target is Administration > Company > Company Admin > User Administration, which is OUT OF SCOPE for this graph. If the Authorized Approver feature is activated and the hierarchy defined here has at least one level in addition to Global, the Authorized Approval Limits link appears there. CARDINALITY RULE, VERBATIM: 'At least one level in the Authorized Approver Hierarchy'.",
+      "sourceQuote": "then the Authorized Approval Limits link appears in the Expense and Invoices Setting section in Administration > Company > Company Admin > User Administration.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/user-administrator-fcfd570c.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "ORDERING EVIDENCE from the 25-row Global-group-vs-Authorized-Approver-hierarchy matrix: defining the hierarchy - setting it up and creating a connected (multi-level) list of its levels - is step 1 of the authorized-approver configuration and is marked only for the Authorized Approver hierarchy column, i.e. it is the step you can skip if you use the global group alone. This file is legitimately a must-read for BOTH this page and Workflows; stated, not arbitrarily assigned.",
+      "sourceQuote": "Create a connected (multi-level) list of the hierarchy levels.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "Second ordering statement from the workflow creation process: setting up the Payment Authorized Approvers hierarchy is an OPTIONAL step, taken only if authorized approvers are used - a softer requirement than b65d7089's hard 'cannot be activated' block. Both stand; the difference is between activating the feature and merely creating a workflow.",
+      "sourceQuote": "(Optional) Set up the Payment Authorized Approvers hierarchy if you choose to use authorized approvers.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "level",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "",
+      "condition": "CARDINALITY / DEFAULT-COMPOSITION RULE recorded verbatim, target unresolved: the Request Authorized Approver hierarchy's levels default to the Request and Employee fields. Stated as a default of the hierarchy, NOT as an option list for the Level control - do not promote it to validValues.",
+      "sourceQuote": "By default, the Request Authorized Approver hierarchy uses the Request and Employee fields",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "",
+      "condition": "UNIFORMITY RULE, target unresolved: the Cost Object Approver hierarchy is built with the same controls as every other feature hierarchy on this page - SAP gives no COA-specific procedure. This is the sentence that makes the page generic across features, and it sits immediately under the page's own role gate.",
+      "sourceQuote": "Set up the Cost Object Hierarchy just like any other hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "source_list",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "List Management",
+      "condition": "The hierarchy and its connected (multi-level) list data are created together; the list data may be imported OR entered. Corroborates that multi-level source lists, not just flat ones, are in scope for the Source List control.",
+      "sourceQuote": "Create the hierarchy and import or enter the connected (multi-level) list data.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-hierarchy-and-import-connected-list-data-c6ab8a52.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Feature Hierarchies",
+      "targetField": "",
+      "targetPage": "Group Configurations",
+      "condition": "TOOL-ORDER EVIDENCE and the Lens C role corroboration in one sentence: the whole six-tool sequence runs List Management, Feature Hierarchies, Group Configurations, Forms and Fields, Vendor Employee Access Import, User Administration - naming this page a PEER TOOL of three pages already built in this graph, and stating the role gate for all of them.",
+      "sourceQuote": "The administrator uses the following tools in the order presented to configure the feature.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "option-list",
+      "topic": "What value the Level control takes on Feature Hierarchies, and whether it can be changed at all",
+      "appliesTo": {
+        "page": "Feature Hierarchies",
+        "field": "level"
+      },
+      "readings": [
+        {
+          "summary": "For the Invoice Vendor Employee Access feature hierarchy, Level is Employee, and the topic states outright that this is the default and CANNOT BE CHANGED - i.e. a fixed, single-valued control.",
+          "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+        },
+        {
+          "summary": "For the Invoice Payment feature hierarchy, the administrator SETS the level, and sets it to Request - an act of choosing, on the same control in the same position of the same procedure shape.",
+          "sourceQuote": "Set the level to Request.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+        }
+      ],
+      "consequenceForWriter": "DO NOT hardcode a Level option list, and do not assume the control is editable. Drive it by the feature name already selected: under Invoice Vendor Employee Access, expect Employee to be pre-filled and treat any attempt to change it as an error state; under Invoice Payment, expect to have to set Request explicitly. For any OTHER feature name, the corpus documents no Level value at all - read what the UI actually offers and report it rather than guessing, and never carry a value across from one feature hierarchy to another.",
+      "notes": "HYPOTHESIS, not a finding: the Level control is probably feature-scoped - each feature hierarchy declares which entity its levels hang off (Employee for vendor-employee access, Request for payment), so the two topics may both be right about different provisioning. The corpus never says so. A third data point that neither confirms nor resolves it: understand-the-hierarchy-b65d7089.md says the Request Authorized Approver hierarchy 'uses the Request and Employee fields' - BOTH names, in a third feature hierarchy. I did not reconcile."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Whether the left-menu entry under Administration > Invoice reads 'Feature Hierarchies' or plain 'Hierarchies'",
+      "appliesTo": {
+        "page": "Feature Hierarchies"
+      },
+      "readings": [
+        {
+          "summary": "The tools-guides procedure gives the click target as the full label 'Feature Hierarchies' in the left menu - this is the only file corpus-wide carrying that exact click instruction.",
+          "sourceQuote": "Click Feature Hierarchies (left menu).",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+        },
+        {
+          "summary": "The admin-guides Hierarchies topic writes the same menu destination as bare 'Hierarchies', with the word 'Feature' absent from both the page title and the navigation clause.",
+          "sourceQuote": "Hierarchies (explained below).",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md"
+        }
+      ],
+      "consequenceForWriter": "PROBE 'Feature Hierarchies' FIRST - it is the label used in every procedural click instruction and in the page's own role gate - and FALL BACK to a substring match on 'Hierarchies' if the exact label is not found. Do not fail the step on a label miss. Also note this quote is an ALIAS citation only: the 7f68a876 fragment verifies but does NOT carry the navigation path, which sits in the preceding clause separated by U+00A0 characters with no '>' glyph anywhere in the file.",
+      "notes": "HYPOTHESIS: the admin-guides topic is written at a shorter register and drops the qualifier, rather than documenting a genuinely different menu label. No corpus file states a UI change, and no 'new experience' twin exists for any Feature Hierarchies file - so this is recorded as label drift, NOT as a UI variant."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The name of the external setup guide that holds the substance SAP omits from this corpus",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The tools-guides documentation index names it 'Shared: Feature Hierarchies Setup Guide' - the form used by five further in-corpus topics that defer to it.",
+          "sourceQuote": "Feature Hierarchies: The _Shared: Feature Hierarchies Setup Guide_",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md"
+        },
+        {
+          "summary": "The PO-transmittal topic names the same guide with a DIFFERENT publisher prefix, 'Concur Invoice:' rather than 'Shared:'.",
+          "sourceQuote": "_Concur Invoice: Feature Hierarchies Setup Guide_",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md"
+        },
+        {
+          "summary": "The proxy prerequisites topic names a MERGED guide covering Feature Hierarchies and Group Configuration together, a third distinct title.",
+          "sourceQuote": "_Shared: Feature Hierarchies and Group Configuration Setup Guide_",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/before-you-begin-9b98872a.md"
+        }
+      ],
+      "consequenceForWriter": "NO UI CONSEQUENCE - this is a documentation-sourcing consequence, and it is the reason this page's coverage is 'partial'. When the graph is extended, search for all three titles, plus the fourth variant 'Shared: Feature Hierarchies and Group Configurations Setup Guide' in workflow-creation-process-1d37b85f.md and delete-group-configurations-cd57af7a.md's 'Shared: Feature Hierarchies and Concur Invoice: Group Configurations Setup Guide'. NONE of them is in this corpus. Do not treat any in-corpus topic as the complete field roster for this page.",
+      "notes": "HYPOTHESIS: SAP split and re-merged the Feature Hierarchies and Group Configurations guides over successive releases and the cross-references were never normalised. appliesTo is {} DELIBERATELY - this is about the product's documentation set, not about any control on the page, and attaching it to a plausible neighbouring field would be false precision."
+    }
+  ],
+  "compressedRanges": [],
+  "coverageVerdict": "partial",
+  "notes": "THIN IS THE CORRECT ANSWER HERE AND I AM SAYING SO RATHER THAN PADDING. Seven fields, all from two procedures. WHY COVERAGE IS 'partial': SAP files the substance of this page in the external Shared: Feature Hierarchies Setup Guide, WHICH IS NOT IN THIS CORPUS. Six in-corpus topics defer to it by name and I verified each (6e7b7dc6, c6ab8a52, b65d7089, a105a5d7, 51b11602, and the deferral in bcaf1f5a itself), under at least four DIFFERENT titles - see contradictions[2]. What remains in-corpus is two worked procedures and a scatter of cross-references. THE MISSING MATERIAL IS THE PAGE'S OWN REFERENCE DOCUMENTATION, NOT A GAP IN MY SEARCH.\\n\\nLENS C EXECUTION. I started in tools-guides and exhausted it before opening admin-guides, per the lens. grep -rl 'Feature Hierarch' returns NINE tools-guides files and ELEVEN admin-guides files; I read all twenty. FOUR of my seven fields cite tools-guides as their primary source (feature_name, source_list, new_level, level, segment_name, save = six of seven, with only modify_hierarchy primarily cited to admin-guides), which pushes hard against the 60-of-486 admin-guides skew this lens exists to correct. The corroboration sweep the lens prescribes found: 'Invoice Configuration administrator' as the role gate for the whole six-tool sequence including this page (overview-of-steps-37e3c289.md), '(left menu)' as the click idiom shared with List Management and Forms and Fields, and 'Invoice Processing Admin' NOWHERE in any Feature Hierarchies topic - 31 corpus hits, not one of them this page. THE MIDDLE NAV NODE IS UNATTESTED FOR THIS PAGE, NOT ABSENT.\\n\\nNAVIGATION IS LOAD-BEARING AND EASY TO GET WRONG. Both documented click paths are Administration > Invoice > Feature Hierarchies with NO middle segment. THE LEFT-MENU ENTRY IS A SIBLING OF WORKFLOWS, NOT A CHILD - an automation driver told to reach it via a Workflows path WILL FAIL. That is an active harm, not a filing preference. GREP HAZARD, VERIFIED: hierarchies-7f68a876.md, professional-edition-fb3e6aa2.md and workflow-667cee21.md write their menu separators as U+00A0 with ZERO '>' characters in the file, so every quote I emit from them deliberately stops short of the separators. understand-the-hierarchy-b65d7089.md, by contrast, does use a real '>' and my quote from it spans it.\\n\\nPAGE-HOOD, SETTLED. It belongs to NEITHER Workflows NOR Routing Configuration. It has its own left-menu label, its own role gate ('permissions for the Feature Hierarchies section in Administration', 6e7b7dc6) worded exactly like the Workflows gate and stated IN CONTRAST to it inside one three-step flow, and it is named a peer TOOL of List Management, Group Configurations and Forms and Fields - three pages already built - in overview-of-steps-37e3c289.md. It is never a tab of anything. One page hosts at least five named feature hierarchies serving four config domains, which is why it must be built ONCE with both Workflows and Routing Configuration pointing AT it.\\n\\nWHAT I COULD NOT DETERMINE. (1) The complete list of selectable feature names - no file enumerates the selector, and it is provisioning-dependent, so validValues holds only the two names shown being selected. (2) The widget type of Level and whether it is editable - the corpus contradicts itself, recorded as contradictions[0] and NOT reconciled. (3) The Segment Name option list - it is the tenant's own custom fields; the Custom 02 and Custom 10/11/12 mentions are EXAMPLE DATA and were not promoted. (4) Whether Save/New behave differently per feature. (5) Any field-level validation, character limits or required flags - the corpus states none.\\n\\nANTI-PADDING GUARDS APPLIED, EACH DELIBERATE. (a) overview-8b2edfd0.md WAS NOT READ AS A FIELD SOURCE - it is a Group Configurations topic and Group Configurations is BUILT (G1, 22 fields); seeding it on the thinnest page in the group is the exact setup for re-homing built fields while inflating measured richness. (b) understand-the-hierarchy-b65d7089.md's 69 rows are a WORKED EXAMPLE of approver data (approver numbers, companies, cost centres, limits), NOT a roster - SKIPPED AS A FIELD AND VALUE SOURCE ON PURPOSE, kept only for the hard forward reference and the Request/Employee default sentence. Saying so beats silently dropping it. (c) the-import-template-fields-and-descriptions-8b51ca3d.md (47 rows) and vendor-group-mapping-record-type-310-6eb8ffdc.md (74 rows) were read for Level SEMANTICS only; I did NOT re-emit a Level value set, per instruction, and note the brief's file identities are swapped - the Group 5 set cites the duplicate-title 8b4aa547, and 8b51ca3d is cited by nothing. (d) NO compressedRanges node: 'Level 1; Level 2; Level 3' (bcaf1f5a) and 'Level 1' through 'Level 10' (both import specs) are ENUMERATED in source, not compressed, so there is no range node to make - Group 3 lost two ranges to exactly this mistake.\\n\\nuiVariant: 'undifferentiated' on every field. I grepped 'new experience', 'new ui', 'legacy' and 'current user interface' across BOTH guide directories and intersected the hits with the 20 Feature Hierarchies files: ZERO overlap. NO NEW EXPERIENCE TWIN EXISTS. I am not claiming 'both' - that is a positive verification claim and this page has earned neither half of it.\\n\\nFILES LEGITIMATELY SHARED WITH THE WORKFLOWS BUILD, stated rather than arbitrarily assigned: global-group-vs-authorized-approver-hierarchy-8a960238.md, understand-the-hierarchy-b65d7089.md, workflow-667cee21.md, step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md, step-1-define-the-invoice-authorized-approver-hierarchy-fed7c7fe.md, user-administrator-fcfd570c.md, workflow-creation-process-1d37b85f.md."
+}

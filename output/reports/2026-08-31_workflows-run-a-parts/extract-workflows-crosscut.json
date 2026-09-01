@@ -1,0 +1,950 @@
+{
+  "pageId": "workflows",
+  "pageName": "Workflows",
+  "lens": "C",
+  "filesRead": [
+    "concur-invoice-professional-edition-tools-guides/how-single-step-approval-workflow-works-40145f24.md",
+    "concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md",
+    "concur-invoice-professional-edition-tools-guides/add-approval-steps-2e17fab0.md",
+    "concur-invoice-professional-edition-tools-guides/recall-invoice-to-last-processor-step-27ae1061.md",
+    "concur-invoice-professional-edition-tools-guides/send-an-invoice-to-an-additional-approver-afd572de.md",
+    "concur-invoice-professional-edition-tools-guides/view-the-approval-workflow-of-an-invoice-d8046bec.md",
+    "concur-invoice-professional-edition-tools-guides/email-notifications-of-status-change-and-required-approvals-6d58db17.md",
+    "concur-invoice-professional-edition-tools-guides/purchase-request-approver-experience-8b50b701.md",
+    "concur-invoice-professional-edition-tools-guides/automatically-transmit-purchase-orders-f1b1147c.md",
+    "concur-invoice-professional-edition-tools-guides/notify-purchase-request-users-when-purchase-order-transmitted-055f367e.md",
+    "concur-invoice-professional-edition-tools-guides/understand-conditional-expressions-db3d7418.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-476a5f62.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-69c1016a.md",
+    "concur-invoice-professional-edition-tools-guides/required-roles-ef2c2901.md",
+    "concur-invoice-professional-edition-admin-guides/workflows-tool-8b3b4dbe.md",
+    "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md",
+    "concur-invoice-professional-edition-admin-guides/required-steps-43399a5d.md",
+    "concur-invoice-professional-edition-admin-guides/general-workflow-terminology-48a34eb8.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-errors-6b89e3f8.md",
+    "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+    "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md",
+    "concur-invoice-professional-edition-admin-guides/enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-settings-8b3b98e1.md",
+    "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md",
+    "concur-invoice-professional-edition-admin-guides/step-3-optional-select-enable-the-required-hardcopy-receipt-setting-c50e377e.md",
+    "concur-invoice-professional-edition-admin-guides/allowing-automatic-transmittal-of-purchase-orders-0f2e7fae.md",
+    "concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md",
+    "concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md",
+    "concur-invoice-professional-edition-admin-guides/step-3-edit-the-workflow-steps-f2731590.md",
+    "concur-invoice-professional-edition-admin-guides/workflow-667cee21.md",
+    "concur-invoice-professional-edition-admin-guides/step-2-activate-the-authorized-approver-feature-c87493ee.md",
+    "concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md",
+    "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md",
+    "concur-invoice-professional-edition-admin-guides/exception-helper-within-the-audit-rules-and-workflow-tools-07dfd781.md",
+    "concur-invoice-professional-edition-admin-guides/overview-5ce8a567.md",
+    "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md",
+    "concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md",
+    "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md",
+    "concur-invoice-professional-edition-admin-guides/additional-approver-situations-fbb5034c.md",
+    "concur-invoice-professional-edition-admin-guides/general-information-00eca1ce.md",
+    "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md",
+    "concur-invoice-professional-edition-admin-guides/approve-forward-feature-b847d65b.md",
+    "concur-invoice-professional-edition-admin-guides/allowing-the-approver-to-approve-and-then-forward-the-invoice-31e0b70c.md",
+    "concur-invoice-professional-edition-admin-guides/setting-an-unlimited-approval-amount-9d98b489.md",
+    "concur-invoice-professional-edition-admin-guides/definition-of-amount-for-limit-approval-06806875.md",
+    "concur-invoice-professional-edition-admin-guides/authorized-approvers-8b3ab7ad.md",
+    "concur-invoice-professional-edition-admin-guides/authorized-approvers-overview-8b3bd2d0.md",
+    "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md",
+    "concur-invoice-professional-edition-admin-guides/overview-9c8ca06e.md",
+    "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md",
+    "concur-invoice-professional-edition-admin-guides/cost-object-approval-differences-between-concur-invoice-and-concur-expense-8b3ce225.md",
+    "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md",
+    "concur-invoice-professional-edition-admin-guides/how-the-system-determines-which-approver-an-employee-uses-1c83d905.md",
+    "concur-invoice-professional-edition-admin-guides/variables-for-invoices-or-purchase-requests-26e917cb.md",
+    "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+    "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md",
+    "concur-invoice-professional-edition-admin-guides/approval-flow-page-c73e063f.md",
+    "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+  ],
+  "fields": [
+    {
+      "name": "require_hardcopy_receipts",
+      "label": "Require Hardcopy Receipts",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "On the Workflow page, admin will see the Require Hardcopy Receipts option.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md",
+      "notes": "Cross-cutting find: this control is documented in the IMAGE HANDLING guide's administrator-experience topic, not in the Workflows field roster. C7 depth collapse: this file homes the option on 'the Workflows page' while create-a-new-workflow-554e86aa.md homes it on the General page inside a workflow - one node only. Second, procedural source with an explicit click path is step-3-optional-select-enable-the-required-hardcopy-receipt-setting-c50e377e.md ('Select (enable) the Require Hardcopy Receipts option.'). Built page Image Handling already carries a cross-reference alternate to this field; Workflows owns it.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "allow_employee_auto_transmit_purchase_orders",
+      "label": "Allow employee to automatically transmit Purchase Orders",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "by opening a PR workflow and selecting the Allow employee to automatically transmit Purchase Orders option.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/allowing-automatic-transmittal-of-purchase-orders-0f2e7fae.md",
+      "notes": "Reached by opening a Purchase Request workflow on the Workflows tab. Corroborated INDEPENDENTLY in tools-guides/automatically-transmit-purchase-orders-f1b1147c.md: 'The administrator may enable (select) an option in Workflows, which removes a workflow step in the purchase order process.' - that tools-guides topic never names the label, so admin-guides is the field source and tools-guides is corroboration only. Documented failure mode: bad vendor email forces manual PO processing.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "consolidate_pr_items_same_vendor",
+      "label": "Consolidate all items on a Purchase Request for the same vendor into a single Purchase Order",
+      "fieldType": "checkbox",
+      "validValues": [
+        "Selected/Enabled (default value)",
+        "Cleared/Disabled"
+      ],
+      "sourceQuote": "The Consolidate all items on a Purchase Request for the same vendor into a single Purchase Order workflow setting has the following two options:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md",
+      "notes": "BOTH states are explicitly documented here, so the two validValues are enumerated, not completed - this is the legitimate opposite of the invented Yes values previously deleted from this graph. Reached by opening a PR workflow. This file is also the corpus's cleanest source of the SINGULAR 'Workflow tab' (C3).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "cost_object_hierarchy_type",
+      "label": "Cost Object Hierarchy Type",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Level",
+        "Limit"
+      ],
+      "sourceQuote": "In the Cost Object Hierarchy Type field, select the desired type: Level or Limit.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md",
+      "notes": "On the General page of a workflow, reached via the Invoice Processing Admin middle node. Semantics for the two values are in level-based-approvals-and-limit-based-approvals-b335cf33.md, how-level-based-cost-object-approvals-work-8b3cf6b4.md and how-limit-based-cost-object-approvals-work-8b3d0a3b.md. A documented optional sub-choice exists when Limit is selected (direct routing to the approver with the required approval limit).",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "steps_can_be_added_by",
+      "label": "Steps Can Be Added By",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Approver Only",
+        "Both Employee and Approver"
+      ],
+      "sourceQuote": "The administrator sets the Steps Can Be Added By option to Approver Only or Both Employee and Approver on the Workflows page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/approve-forward-feature-b847d65b.md",
+      "notes": "VALUES COME FROM THIS CROSS-CUTTING TOPIC ONLY. create-a-new-workflow-554e86aa.md, the primary roster, describes the field but enumerates NO values ('Indicates who can add steps during the workflow process, such as the employee and/or the approver.'), so this list is not a reconciliation - it is the only enumeration in the corpus. Do not assume the list is exhaustive. Same control in a PR flavour in allowing-the-approver-to-approve-and-then-forward-the-invoice-31e0b70c.md ('selecting an approver under the Steps Can Be Added By list').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "use_default_approver_lookup",
+      "label": "Use default approver lookup to find authorized approver",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "The option is on the Workflows page (in Step 1) labeled Use default approver lookup to find authorized approver.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-5ce8a567.md",
+      "notes": "'Step 1' here is a naming variant for the wizard's General page (C6/C7). Five documented constraints: only one Authorized Approval step per workflow; the Authorized Approval step's approver field should not be editable; user-added steps should not be Authorized Approval steps; the feature does not apply to the Cost Object Approval step; it works best with a flat (no levels) hierarchy. Runtime effect corroborated in how-the-system-determines-which-approver-an-employee-uses-1c83d905.md.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "submit_confirmation_agreement",
+      "label": "Submit Confirmation Agreement",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "In the Submit Confirmation Agreement list, choose the agreement to be displayed when submitting the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md",
+      "notes": "General page of a workflow. Consumes an object created on the Confirmation Agreements tab, so the agreement must exist first. No value list is documented - the list is populated by tenant-created agreements, which is exactly the kind of value this blind build must not invent.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "approval_confirmation_agreement",
+      "label": "Approval Confirmation Agreement",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "In the Approval Confirmation Agreement list, choose the agreement to be displayed when approving the invoice.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md",
+      "notes": "General page of a workflow; same tenant-populated list situation as Submit Confirmation Agreement.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "authorized_approver_feature_available",
+      "label": "Authorized Approver feature is available for workflows",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "To activate the feature, select Authorized Approver feature is available for workflows.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md",
+      "notes": "Authorized Approvers > Configuration sub-tab. This is a PREREQUISITE GATE: understand-ad-hoc-steps-ce0af3e7.md states the ad hoc workflow options do not appear in Workflow until this checkbox is selected. Also step 2 of the config matrix in global-group-vs-authorized-approver-hierarchy-8a960238.md, required for BOTH the global-group-only and the hierarchy configurations.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "minimum_exception_level",
+      "label": "Minimum Exception Level",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "Enter the minimum exception level that authorized approvers can approve.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md",
+      "notes": "Authorized Approvers > Configuration sub-tab. Pairs with Maximum Exception Level to define exception-based approval authority (authorized-approvers-overview-8b3bd2d0.md: 'the administrator defines a minimum and maximum exception level'). Likely the resolution for unresolved endpoints dep.g2ar.024 / dep.g2ar.026 ('exception_level_limit'). No numeric range is documented for these two fields - do NOT borrow the 'one to 99' range from the Settings-tab exception-level controls.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "maximum_exception_level",
+      "label": "Maximum Exception Level",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "Enter the maximum exception level that authorized approvers can approve.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md",
+      "notes": "Authorized Approvers > Configuration sub-tab. See Minimum Exception Level. No documented range.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_allow_users_select_own_approver_payment_requests",
+      "label": "Allow users to select their own approver for payment requests",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Allow users to select their own approver for payment requests",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+      "notes": "WORKFLOWS > SETTINGS TAB - deliberately NOT named 'Invoice Settings'. This file is titled 'Invoice Settings' but is a DIFFERENT surface from the built Invoice Settings page (whose fields all come from available-invoice-settings-8b3411f0.md). Clearing this checkbox activates a centralized approver workflow and OVERRIDES Editable By Group(s) and Steps Can Be Added By, raising a conflict error. Applies globally ('The following settings apply globally to invoices.').",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_display_payment_request_approval_links",
+      "label": "Display payment request approval links to approvers on the home page",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Display payment request approval links to approvers on the home page",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+      "notes": "Workflows > Settings tab. When selected, Approve and Send Back to Employee appear as links under My Work on the home page.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_prevent_payment_request_submission_exception_level",
+      "label": "Prevent this payment request submission when exception level exceeds X",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "<p>Prevent this payment request submission when exception level exceeds <cite class=\"cite\">X</cite></p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+      "notes": "PACKED RAW <table> - this control is invisible to a markdown-only extractor. grep -c '<tr' returns 1 on this file but grep -o '<tr' | wc -l returns 3: three settings share one single-line raw table. Range documented in prose as 'Type a number from one to 99.' - see the compressedRange and the contradiction against the built Exceptions page's '0 and 99'.",
+      "fromRawHtmlTable": true,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_filter_payment_request_items_cost_object",
+      "label": "Filter payment request items to those that are applicable to Cost Object",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "<p>Filter payment request items to those that are applicable to Cost Object</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+      "notes": "PACKED RAW <table>. LABEL DRIFT: general-information-8b3b0308.md (the guide's own revision history) names this same control 'Filter invoice items to those that are applicable to Cost Object'. A Chromium driver matching on visible label must try BOTH forms - see the contradiction node.",
+      "fromRawHtmlTable": true,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_allow_processor_recall_payment_request",
+      "label": "Allow processor to recall a payment request to last processor step",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "<p>Allow processor to recall a payment request to last processor step</p>",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+      "notes": "PACKED RAW <table>. LABEL DRIFT: general-information-8b3b0308.md names it 'Allow processor to recall an invoice to last processor step'. Runtime effect corroborated in tools-guides/recall-invoice-to-last-processor-step-27ae1061.md, which also independently attributes the setting to the Invoice Configuration Administrator role and warns that recalling ignores any workflow skip step.",
+      "fromRawHtmlTable": true,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_allow_users_select_own_approver_purchase_requests",
+      "label": "Allow users to select their own approver for purchase requests",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Allow users to select their own approver for purchase requests",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+      "notes": "Workflows > Settings tab, purchase-request family. Text is the PR-flavoured twin of the payment-request control, including the same override of Editable By Group(s) and Steps Can Be Added By.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_display_purchase_request_approval_links",
+      "label": "Display purchase request approval links to approvers on the home page",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "Display purchase request approval links to approvers on the home page",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+      "notes": "Workflows > Settings tab. NOTE THE DIFFERENCE FROM ITS INVOICE TWIN: here the links appear 'as buttons in the Requests Pending Your Approval window', not as links under My Work on the home page. Do not assume the two controls render the same way.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_prevent_purchase_request_submission_exception_level",
+      "label": "Prevent purchase request submission when exception level exceeds X",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "Prevent purchase request submission when exception level exceeds X",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+      "notes": "Workflows > Settings tab. RESOLVES unresolved endpoint dep.g2.012, which currently points at page 'Purchase Request Settings' - that is a TAB-LEVEL table on Workflows, not a page. Range 'Type a number from one to 99.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "settings_prevent_purchase_order_transmission_exception_level",
+      "label": "Prevent purchase order transmission when exception level exceeds X",
+      "fieldType": "number",
+      "validValues": [],
+      "sourceQuote": "Prevent purchase order transmission when exception level exceeds X",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md",
+      "notes": "Workflows > Settings tab; the ONLY control in the purchase-order settings family. RESOLVES dep.g2.013. A SHORTER LABEL VARIANT without the trailing X is used in preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md ('The setting Prevent purchase order transmission when exception level exceeds prevents purchase order transmission') - a label-matching driver needs both forms. Range 'Type a number from one to 99.'",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "remove_workflow",
+      "label": "Remove",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "If the workflow is available for deletion, the Remove button becomes available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md",
+      "notes": "Workflows tab. RESOLVES unresolved endpoint dep.g1.021 ('workflow deletion'). GATING, both conditions documented: the workflow must have been created for your group or you must be the global administrator, AND it must not be currently assigned to a policy. The button is disabled otherwise, so an automation must detect availability rather than assume it.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "remove_workflow_step",
+      "label": "Remove",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "If the step is available for deletion, the Remove button becomes available.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md",
+      "notes": "The SAME visible label on the Steps page inside the wizard, acting on a step rather than a workflow. Two distinct machine names for one visible label: a driver must disambiguate by which page it is on, not by label text. Deleting a step ends with Click Done.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "restrict_approvers_limit_authority",
+      "label": "Restrict approvers to those with limit authority",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "be sure to select the Restrict approvers to those with limit authority check box when defining the workflow step",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/definition-of-amount-for-limit-approval-06806875.md",
+      "notes": "Documented here, in an Authorized Approver semantics topic, as the control that sends the invoice directly to the approver with the appropriate limit. NOTE: create-a-new-workflow-554e86aa.md carries a longer General-page label 'Restrict approvers to those with limit authority for employee-added steps'; whether that is the same control with a truncated reference here or a separate step-level control is NOT determinable from this corpus - see notes.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "reason_category",
+      "label": "Reason Category",
+      "fieldType": "dropdown",
+      "validValues": [],
+      "sourceQuote": "Select a category for the reason under Reason Category.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md",
+      "notes": "Reason Category and Codes tab. New -> select category -> type code -> Save. No category list is enumerated anywhere in this corpus, so validValues stays empty - THIN IS THE CORRECT ANSWER here. Role gate on this tab is contradicted; see the role contradiction node.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "reason_code",
+      "label": "Reason Code",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Under Reason Code, type in a descriptive name that fits within the category and best explains the error.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md",
+      "notes": "Reason Category and Codes tab. Free text; visible to both processor and user. Purpose stated in overview-9c8ca06e.md: structured tracking of why invoices are sent back.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "find_workflow_emails_where",
+      "label": "Find workflow emails where",
+      "fieldType": "dropdown",
+      "validValues": [
+        "Payment Requests Notifications",
+        "Purchase Request Notifications"
+      ],
+      "sourceQuote": "in the Find workflow emails where list, select Payment Requests Notifications or Purchase Request Notifications.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+      "notes": "Email Notifications tab filter. Prose-only field: this file has ZERO markdown table rows, so a table-driven extractor loses it and the four fields below entirely.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "email_subject",
+      "label": "Email Subject",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Make the desired changes to the Email Subject field. You can use \"variable\" fields to enter specific data in this field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+      "notes": "Appears on BOTH the Primary Recipient and the Delegate Recipient steps of the Modify Email Notification wizard - one label, two occurrences in one dialog sequence. Accepts the data variables catalogued in variables-for-invoices-or-purchase-requests-26e917cb.md.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "email_body",
+      "label": "Email Body",
+      "fieldType": "text",
+      "validValues": [],
+      "sourceQuote": "Make the desired changes to the Email Body field.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+      "notes": "Rich-text editor with a toolbar; a Source Edit button exposes the raw HTML. Also appears on both the Primary and Delegate Recipient steps. Accepts the 18 data variables.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "use_primary_recipient_email",
+      "label": "Use Primary Recipient Email",
+      "fieldType": "checkbox",
+      "validValues": [],
+      "sourceQuote": "select (enable) the Use Primary Recipient Email check box",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+      "notes": "Delegate Recipient step. When selected, the delegate email is the same as the primary recipient email, which suppresses the need to fill the delegate Email Body.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    },
+    {
+      "name": "source_edit",
+      "label": "Source Edit",
+      "fieldType": "button",
+      "validValues": [],
+      "sourceQuote": "click the Source Edit button at the rightmost end of the toolbar.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+      "notes": "Toolbar button on the Email Body editor; switches to direct HTML editing.",
+      "fromRawHtmlTable": false,
+      "uiVariant": "undifferentiated"
+    }
+  ],
+  "valueSetCandidates": [
+    {
+      "appliesToField": "cost_object_hierarchy_type",
+      "contextField": "",
+      "context": "The two documented types selectable on the General page of a workflow.",
+      "values": [
+        "Level",
+        "Limit"
+      ],
+      "sourceQuote": "In the Cost Object Hierarchy Type field, select the desired type: Level or Limit.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md",
+      "notes": "Only these two values are enumerated in this corpus. level-based-approvals-and-limit-based-approvals-b335cf33.md supplies their semantics but adds no third value."
+    },
+    {
+      "appliesToField": "steps_can_be_added_by",
+      "contextField": "",
+      "context": "The only enumeration of this dropdown's options anywhere in the corpus; the primary General-page roster describes the field but lists no options.",
+      "values": [
+        "Approver Only",
+        "Both Employee and Approver"
+      ],
+      "sourceQuote": "The administrator sets the Steps Can Be Added By option to Approver Only or Both Employee and Approver on the Workflows page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/approve-forward-feature-b847d65b.md",
+      "notes": "NOT presented as exhaustive by the source - it names the two values that produce the Approve & Forward button. workflow-creation-process-1d37b85f.md independently says the Approver-Directed Approval type 'is available if the Steps Can Be Added By field is set to Approver or Both Employee and Approver' - note 'Approver' there versus 'Approver Only' here. Probe both strings."
+    },
+    {
+      "appliesToField": "consolidate_pr_items_same_vendor",
+      "contextField": "",
+      "context": "Both states of the checkbox are explicitly documented, including which is the default.",
+      "values": [
+        "Selected/Enabled (default value)",
+        "Cleared/Disabled"
+      ],
+      "sourceQuote": "Selected/Enabled (default value), which means that the system will consolidate items on a purchase request that belong to the same vendor on a single purchase order",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md",
+      "notes": "This is an enumerated two-state control, not an inferred one. Clearing it lets processors change vendors on individual purchase orders."
+    },
+    {
+      "appliesToField": "find_workflow_emails_where",
+      "contextField": "",
+      "context": "The two notification families the Email Notifications tab filter offers.",
+      "values": [
+        "Payment Requests Notifications",
+        "Purchase Request Notifications"
+      ],
+      "sourceQuote": "in the Find workflow emails where list, select Payment Requests Notifications or Purchase Request Notifications.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-an-email-notification-c237a2de.md",
+      "notes": "Whether more families appear on a site with other modules provisioned is not determinable from this corpus."
+    },
+    {
+      "appliesToField": "email_body",
+      "contextField": "",
+      "context": "The complete data-variable catalog usable in Email Subject and Email Body. Enumerated in full, in source order, across the file's two sections: 'Invoice or Purchase Request Change' (Changed By, Request Name, Request Date, Submit Date, Total Amount, Approval Status of the Workflow Step, Pay Status) and 'Invoice or Purchase Request Pending Approval' (Report From x2, Request Name, Total). Nine label/value pairs = 18 distinct variable strings; %L_RequestName%/%RequestName% and %L_Total%/%Total% each appear in both sections.",
+      "values": [
+        "%L_WhoChanged%",
+        "%WhoChanged%",
+        "%L_RequestName%",
+        "%RequestName%",
+        "%L_RequestDate%",
+        "%RequestDate%",
+        "%L_SubmitDate%",
+        "%SubmitDate%",
+        "%L_Total%",
+        "%Total%",
+        "%L_StepApprovalStatus%",
+        "%StepApprovalStatus%",
+        "%L_PayStatus%",
+        "%PayStatus%",
+        "%L_EmpName%",
+        "%EmpName%",
+        "%L_SubmittingUserName%",
+        "%SubmittingUserName%"
+      ],
+      "sourceQuote": "Field Value: %WhoChanged%",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/variables-for-invoices-or-purchase-requests-26e917cb.md",
+      "notes": "CHARACTER NOTE: the markdown escapes the underscore as '%L\\_WhoChanged%'. The backslash is markdown escaping, not a character of the variable, so the values above are written unescaped - that is a deliberate transcription decision, flagged here. SEMANTICS PARENT general-information-00eca1ce.md: variables are enclosed in percentage signs; adding an L and an underscore to the beginning substitutes the field LABEL rather than the value, and if the variable is blank neither the label nor the value variable prints. The same catalog applies to email_subject; it is not repeated as a second value set. Do NOT source this catalog from email-notifications-8b3dbad4.md, which is a 61-row revision history containing exactly one variable."
+    }
+  ],
+  "dependencyCandidates": [
+    {
+      "type": "depends_on",
+      "sourceField": "steps_can_be_added_by",
+      "sourcePage": "Workflows",
+      "targetField": "settings_allow_users_select_own_approver_payment_requests",
+      "targetPage": "Workflows",
+      "condition": "When the Settings-tab checkbox is cleared, the employee stops appearing as an option in Steps Can Be Added By - a Settings-tab value constrains a General-page dropdown's available options.",
+      "sourceQuote": "If you have the Allow users to select their own approver for payment requests field on the Settings page cleared (disabled), then the employee does not appear as an option since they cannot approve invoices.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "settings_allow_users_select_own_approver_payment_requests",
+      "sourcePage": "Workflows",
+      "targetField": "steps_can_be_added_by",
+      "targetPage": "Workflows",
+      "condition": "Stated from the other side and harder: clearing the checkbox OVERRIDES the Editable By Group(s) and Steps Can Be Added By fields, and the system raises a conflict error if they were already set. Order matters - set the Settings tab before the workflow object.",
+      "sourceQuote": "then it overrides the Editable By Group(s) and Steps Can Be Added By fields on the Edit Workflow page and the Add/Edit Workflow Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "authorized_approver_feature_available",
+      "targetPage": "Workflows",
+      "condition": "CONDITIONAL VISIBILITY across tabs: the ad hoc workflow options do not appear on the workflow object at all until the Configuration sub-tab checkbox is selected. The driver must set the Authorized Approvers > Configuration checkbox BEFORE looking for ad hoc options.",
+      "sourceQuote": "do not appear in Workflow until you have selected Authorized Approver feature is available for workflows on the Configuration tab of the Authorized Approvers tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md"
+    },
+    {
+      "type": "triggers",
+      "sourceField": "require_hardcopy_receipts",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "Enabling Require Hardcopy Receipts REVEALS the 'Hold for Invoice Hard Copy' step on the Steps page (and, per the next sentence of the same file, on the Step Rules page). A step that does not exist until a checkbox is set.",
+      "sourceQuote": "they will be able to see the Hold for Invoice Hard Copy step on the Steps page.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "submit_confirmation_agreement",
+      "targetPage": "Workflows",
+      "condition": "The confirmation agreement OBJECT must be created on the Confirmation Agreements tab before it can be chosen in the Submit/Approval Confirmation Agreement lists on a workflow's General page.",
+      "sourceQuote": "After creating the agreement, you associate the confirmation agreement with the workflow, and then associate the workflow with the policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Policies",
+      "condition": "A finished workflow is consumed by the Policies page - the workflow is chosen from a list there. This is the hand-off edge out of this page.",
+      "sourceQuote": "In the Expense Report Workflow list, choose the appropriate workflow.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/activating-the-confirmation-agreement-feature-bdfc1dce.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "remove_workflow",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Policies",
+      "condition": "A workflow assigned to a policy CANNOT be deleted; it must first be removed from that policy on the Policies page. Hard gate on the Remove button.",
+      "sourceQuote": "The system does not allow you to delete a workflow that is currently assigned to a policy.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-a-workflow-or-workflow-steps-e9a84a07.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Feature Hierarchies",
+      "condition": "PREREQUISITE: for the Authorized Approver hierarchy configuration, the Invoice Authorized Approver hierarchy must be defined (hierarchy plus a connected multi-level list) before the Workflows-side steps. Step 1 of the two-column configuration matrix, marked only for the hierarchy column - it is NOT required for the global-group-only path.",
+      "sourceQuote": "Define the Invoice Authorized Approver hierarchy:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Feature Hierarchies",
+      "condition": "Second, independent statement of the same prerequisite, from the ordered workflow creation process: set up the Payment Authorized Approvers hierarchy before adding authorized approvers and before creating the workflow.",
+      "sourceQuote": "(Optional) Set up the Payment Authorized Approvers hierarchy if you choose to use authorized approvers.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "ORDERING WITHIN THIS PAGE: custom approval statuses (Approval Statuses tab) must exist before the workflow that uses them is built. Step 1 of the documented eight-step creation order.",
+      "sourceQuote": "Create any custom approval statuses that you may use in the workflow.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "An email notification must be created on the Email Notifications tab before it can be assigned to a workflow on the Workflows tab - a cross-tab ordering constraint inside one page.",
+      "sourceQuote": "Once the email notification is configured, the administrator assigns it to a workflow on the Workflows tab.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md"
+    },
+    {
+      "type": "precedes",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "HARD STEP-ORDERING CONSTRAINT the driver must not violate when reordering steps on the Steps page.",
+      "sourceQuote": "The Vendor Approval system step _cannot_ precede the Cost Object Approval step.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/step-3-edit-the-workflow-steps-f2731590.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "use_default_approver_lookup",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "CARDINALITY: selecting this option restricts the workflow to exactly one Authorized Approval step, and the feature does not apply to the Cost Object Approval step.",
+      "sourceQuote": "The workflow can only contain one Authorized Approval step when using this option.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-5ce8a567.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "SCOPE RULE for every General-page control: workflow-level settings apply to the ENTIRE workflow, so the same choices (approval time out, email notifications) must be made when a default workflow and a cost object workflow are both used.",
+      "sourceQuote": "Any settings configured at the workflow level apply for the entire workflow",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/additional-approver-situations-fbb5034c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "DOCUMENTED NON-INTERACTION: the prompt-for-approver setting has no effect inside the cost object approval step. Configuring one does not change the other.",
+      "sourceQuote": "The _prompt for approver_ setting has no affect within the cost object approval step.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/additional-approver-situations-fbb5034c.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "settings_allow_users_select_own_approver_payment_requests",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "User Administration",
+      "condition": "FORWARD REFERENCE, EXPECTED TO STAY UNRESOLVED (Administration > Company is out of scope for this graph): when the checkbox is cleared, every employee must have an approver set in User Administration or via the employee import, or submission fails with an error.",
+      "sourceQuote": "every employee must have an approver set for them in the User Administration page or through the employee import.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Profile > Profile Settings > Invoice Preferences",
+      "condition": "END-USER SIDE, NOT AN ADMIN CONTROL: workflow-generated notification emails only reach a user who has selected the setting in their own Profile. Admin configuration alone does not guarantee delivery.",
+      "sourceQuote": "to receive notification emails, the user must select the desired setting in Profile",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/email-notifications-of-status-change-and-required-approvals-6d58db17.md"
+    },
+    {
+      "type": "depends_on",
+      "sourceField": "authorized_approver_feature_available",
+      "sourcePage": "Workflows",
+      "targetField": "",
+      "targetPage": "Workflows",
+      "condition": "An authorized approver only participates if a workflow step is configured for it - activating the feature is necessary but not sufficient.",
+      "sourceQuote": "An authorized approver is only used if set up as a step(s) in a workflow process.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approvers-8b3ab7ad.md"
+    }
+  ],
+  "contradictions": [
+    {
+      "kind": "scope",
+      "topic": "Which UI generation the Workflows click paths describe - the corpus states both, in the same version",
+      "appliesTo": {},
+      "readings": [
+        {
+          "summary": "The Workflows guide's own revision history, dated September 2025, says the Workflows tool documentation was updated to the NEW UI - implying the screens and paths shown are current-generation and that no legacy twin survives.",
+          "sourceQuote": "Updated images and text to the new UI for the Workflows Tool and Edit and Delete Worflows, Properties, and Steps sections.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md"
+        },
+        {
+          "summary": "A tools-guides topic in the same corpus version describes the administrator reaching Authorized Approvers from workflows in the CLASSIC interface.",
+          "sourceQuote": "the Invoice Configuration administrator uses the Authorized Approvers link from workflows in the classic interface",
+          "sourceFile": "concur-invoice-professional-edition-tools-guides/how-single-step-approval-workflow-works-40145f24.md"
+        }
+      ],
+      "consequenceForWriter": "Set uiVariant 'undifferentiated' on every Workflows record and treat every navPath as UNVERIFIED as to UI generation. An automation must probe for the element and fail soft rather than assert a path; if the first click path misses, the correct hypothesis is a UI-generation mismatch, not a wrong label. Do not claim 'both' - nobody has read two variants of this page.",
+      "notes": "Hypothesis: SAP revised the Workflows admin topics in place for the new UI but left older cross-references in the tools guides un-updated. Supporting observation, not proof: the corpus DOES draw the distinction explicitly elsewhere - approval-flow-page-c73e063f.md contrasts the legacy UI and the new UI for the end-user Approval Flow page - so the absence of any such sentence for the admin Workflows surface is a documentation gap, not evidence of a single UI. There is no *-new-experience-* twin for any workflow file. TEXT TRAP: the revision line misspells 'Worflows' (once corpus-wide)."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The Settings surface inside Workflows is named four different ways",
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "settings_allow_users_select_own_approver_payment_requests"
+      },
+      "readings": [
+        {
+          "summary": "Calls it the Settings tab.",
+          "sourceQuote": "Settings tab and is shown in the following figure.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md"
+        },
+        {
+          "summary": "Calls it the Settings section of the Workflows tool.",
+          "sourceQuote": "you must clear a setting in the Settings section of the Workflows tool",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+        },
+        {
+          "summary": "Calls it the Workflow Settings page.",
+          "sourceQuote": "On the Workflow Settings page, select a setting option.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md"
+        },
+        {
+          "summary": "Calls it the Settings page, in a cross-reference from the General-page roster.",
+          "sourceQuote": "field on the Settings page cleared (disabled)",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+        }
+      ],
+      "consequenceForWriter": "Treat all four as one surface. A driver should locate the tab by the visible string 'Settings' inside the Workflows page and must NOT search for a separate page named 'Workflow Settings'. Never name these controls 'Invoice Settings' - that title belongs to a different, already-built page and merging them would corrupt both.",
+      "notes": "Hypothesis: SAP split one tab's documentation across four guides written at different times; the 'page' forms are writing drift, since the left-menu census returns zero hits for any of these as a menu label."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Two Settings-tab controls are named with 'invoice' in one file and 'payment request' in another",
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "settings_filter_payment_request_items_cost_object"
+      },
+      "readings": [
+        {
+          "summary": "The settings table names the control with 'payment request'.",
+          "sourceQuote": "<p>Filter payment request items to those that are applicable to Cost Object</p>",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+        },
+        {
+          "summary": "The guide's revision history announces the same new Settings-tab option with 'invoice'.",
+          "sourceQuote": "Filter invoice items to those that are applicable to Cost Object",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md"
+        }
+      ],
+      "consequenceForWriter": "Record both label forms as aliases of one control and have the driver probe 'Filter payment request items...' first, falling back to 'Filter invoice items...'. The same drift applies to the recall control: 'Allow processor to recall a payment request to last processor step' (invoice-settings-cace748d.md) versus 'Allow processor to recall an invoice to last processor step' (general-information-8b3b0308.md). Matching on one form alone WILL fail on a tenant rendering the other.",
+      "notes": "Hypothesis: the release-note text was written against the older 'invoice' vocabulary and the settings table was later re-worded to the 'payment request' object name; SAP uses both terms for the same object throughout this corpus. Which string the UI actually renders is not determinable from documentation."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "The four General-page workflow timeout controls are named differently in the Vendor Approval topic",
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "cost_object_hierarchy_type"
+      },
+      "readings": [
+        {
+          "summary": "The primary General-page roster names the timeout controls Approval Time Expired Action and Assignment Timeout Action.",
+          "sourceQuote": "This option is only available if either the Approval Time Expired Action or Assignment Timeout Action options are enabled.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+        },
+        {
+          "summary": "The Vendor Approval topic names the same behaviour Workflow Step Timeout Duration and Approval Action.",
+          "sourceQuote": "The Workflow Step Timeout Duration setting specifies the number of days an invoice can remain at a workflow step before it times out.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md"
+        }
+      ],
+      "consequenceForWriter": "Do NOT create separate fields for Workflow Step Timeout Duration or Approval Action - treat them as alternative descriptive names for the documented General-page timeout family (Approval Time Expired Action, Expire After This Many Days, Assignment Timeout Action, Allow Timeout Extensions for This Many Days). A driver should look for the 554e86aa labels and only fall back to the b3d1bd2c wording.",
+      "notes": "Hypothesis: b3d1bd2c is a Vendor-guide topic describing the timeout behaviour generically rather than quoting the UI. It is a LABEL contradiction, not evidence of extra fields; the recon's earlier reading of these as homeless orphan fields was wrong. appliesTo is attached to a General-page field because the contradiction is about General-page controls; no timeout field is emitted by this lens."
+    },
+    {
+      "kind": "requirement",
+      "topic": "Which role may use the Workflows surface",
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "reason_category"
+      },
+      "readings": [
+        {
+          "summary": "The Workflows tool identity topic grants view and use to the Global and Group Invoice Configuration administrators and never mentions a Restricted role.",
+          "sourceQuote": "Both the Global Invoice Configuration administrator and the Group Invoice Configuration administrator can view the Workflows tool.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/workflows-tool-8b3b4dbe.md"
+        },
+        {
+          "summary": "The Reason Category and Codes topic REQUIRES the Restricted role to use that tab's options, and then walks a write flow (New, Save).",
+          "sourceQuote": "The Invoice Configuration administrator (_Restricted_) role is required to use the options on this tab.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md"
+        }
+      ],
+      "consequenceForWriter": "Do not assume one role opens the whole page. Provision an unrestricted Global Invoice Configuration administrator for the workflow object, steps and Settings tab, and separately confirm write access on the Reason Category and Codes tab before automating New/Save there. A permission wall on Workflows is most likely to appear on that tab.",
+      "notes": "Hypothesis: the Restricted role was scoped to reason codes only and the two guides were never reconciled. A July 2025 release note is reported to make that same Restricted role READ-ONLY on Workflows with New/Copy/Remove disabled, which would be a THIRD reading - release notes are not a citable sourceFile in this graph, so it is recorded here as unverified context, not as a reading. overview-9c8ca06e.md agrees with b2b61596 that the Restricted role creates the codes."
+    },
+    {
+      "kind": "label-drift",
+      "topic": "Workflows page named singular and plural in adjacent sentences of one file",
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "require_hardcopy_receipts"
+      },
+      "readings": [
+        {
+          "summary": "Singular: 'the Workflow page'.",
+          "sourceQuote": "On the Workflow page, admin will see the Require Hardcopy Receipts option.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+        },
+        {
+          "summary": "Plural, in the very next sentence of the same file: 'the Workflows page'.",
+          "sourceQuote": "the Require Hardcopy Receipts option on the Workflows page",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+        }
+      ],
+      "consequenceForWriter": "Match the page and its tabs on a case-insensitive prefix ('Workflow') rather than an exact string. The same singular/plural drift is measured across the corpus for the tab, tool, Email Notification(s), Confirmation Agreement(s) and Authorized Approver(s) labels; never gate an automation on the trailing 's'.",
+      "notes": "Hypothesis: pure editorial inconsistency - the two readings are consecutive sentences describing the same screen, which is why this is recorded as drift rather than as two surfaces. The two readings cite the same file but different quotes, deliberately: this contradiction only exists inside one file."
+    },
+    {
+      "kind": "option-list",
+      "topic": "The lower bound of the exception-level scale: 'one to 99' on the Workflows Settings tab versus '0 and 99' on the built Exceptions page",
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "settings_prevent_purchase_order_transmission_exception_level"
+      },
+      "readings": [
+        {
+          "summary": "All three Workflows Settings-tab exception-level thresholds are documented as starting at ONE.",
+          "sourceQuote": "Type a number from one to 99.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md"
+        },
+        {
+          "summary": "The Exceptions page, already built in this graph, documents the exception level itself as starting at ZERO, and explicitly gives 0 a meaning (non-urgent).",
+          "sourceQuote": "Type any number between 0 and 99.",
+          "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+        }
+      ],
+      "consequenceForWriter": "DO NOT RECONCILE. Write exception levels in the range 1-99 when setting the three Workflows Settings-tab thresholds, and permit 0 only where the Exceptions page itself is being configured. If a driver needs a value that disables the threshold, the corpus does not document one - leave the field alone rather than writing 0 to a Workflows threshold.",
+      "notes": "Hypothesis, not a finding: the two fields are different things - the Exceptions page assigns a level to an exception (where 0 is a legitimate 'non-urgent' level), while the Settings-tab controls set a THRESHOLD above which submission or transmission is blocked, for which a threshold of 0 would be meaningless. That would make both statements correct and the apparent conflict an artefact of comparing two different fields. The corpus never says so, so the discrepancy is recorded rather than explained away."
+    }
+  ],
+  "compressedRanges": [
+    {
+      "label": "Type a number from one to 99.",
+      "expandsTo": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75",
+        "76",
+        "77",
+        "78",
+        "79",
+        "80",
+        "81",
+        "82",
+        "83",
+        "84",
+        "85",
+        "86",
+        "87",
+        "88",
+        "89",
+        "90",
+        "91",
+        "92",
+        "93",
+        "94",
+        "95",
+        "96",
+        "97",
+        "98",
+        "99"
+      ],
+      "count": 99,
+      "appliesTo": {
+        "page": "Workflows",
+        "field": "settings_prevent_purchase_request_submission_exception_level"
+      },
+      "sourceQuote": "Type a number from one to 99.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+      "notes": "A PROSE range no digit regex finds. The identical sentence appears once in EACH of the three Settings-tab files - invoice-settings-cace748d.md (inside the packed raw <table>), purchase-request-settings-b0bce285.md and purchase-order-settings-a5a997b4.md - so it governs settings_prevent_payment_request_submission_exception_level and settings_prevent_purchase_order_transmission_exception_level identically; one node is emitted rather than three duplicates. The expansion is MECHANICAL (integers 1 through 99 inclusive); the corpus enumerates no member. The built Exceptions page states the same concept's range as 0 and 99 - recorded as a contradiction, not reconciled."
+    }
+  ],
+  "coverageVerdict": "good",
+  "notes": "LENS C (tools-guides and cross-cutting). TOOLS-GUIDES WAS EXHAUSTED FIRST AND YIELDED ZERO FIELDS - that is the finding, not a shortfall. The three prescribed sweeps were run over all 650 tools-guides files: 'Invoice Configuration administrator' returns 16 files, '(left menu)' returns 10, 'Invoice Processing Admin' returns 4, and none of the intersecting topics configures a Workflows control. Every workflow-bearing tools-guides topic is RUNTIME (processor/approver behaviour): add-approval-steps-2e17fab0, send-an-invoice-to-an-additional-approver-afd572de, view-the-approval-workflow-of-an-invoice-d8046bec, purchase-request-approver-experience-8b50b701. Tools-guides did earn its keep three ways, all recorded above: (a) the uiVariant COUNTER-EVIDENCE in how-single-step-approval-workflow-works-40145f24.md ('the classic interface'), which is one of the two readings of the uiVariant contradiction; (b) INDEPENDENT CORROBORATION of two admin controls - automatically-transmit-purchase-orders-f1b1147c.md for the auto-transmit option and recall-invoice-to-last-processor-step-27ae1061.md for the recall setting, the latter also independently naming the Invoice Configuration Administrator role and warning that a recall ignores any workflow skip step; (c) the end-user Profile precondition for notification delivery (6d58db17). The two the-query-builder-and-the-condition-editor-*.md files were deliberately NOT read as field sources: they are the Processor RUNTIME Query Builder. So admin-guides is the field source for this page and tools-guides is corroboration only, exactly as the brief predicted. This does NOT relieve the graph's admin-guides skew; it documents why it cannot be relieved here.\n\nuiVariant IS 'undifferentiated' ON EVERY RECORD AND THAT IS THE HONEST ANSWER, NOT A DEFAULT. A corpus-wide search for 'new experience', 'new ui', 'legacy' and 'current user interface' across BOTH guide directories returns no workflow-domain file except approval-flow-page-c73e063f.md - and that topic is the END-USER Approval Flow page, where the corpus DOES draw the distinction explicitly ('in the legacy UI. In the new UI, users click Actions > Approval Flow.'). The corpus is therefore capable of marking UI generation and simply does not do it for the admin Workflows surface, while two dated statements point in opposite directions. NO 'both' CLAIM IS MADE ANYWHERE IN THIS FILE - nobody read two variants of any Workflows screen. THE CONSEQUENCE IS LARGER THAN ANY FIELD: click paths are the only knowledge a driver cannot re-derive at runtime, so if they describe a superseded UI, every navPath fails at once.\n\nWHAT I COULD NOT DETERMINE. (1) Whether 'Restrict approvers to those with limit authority' (definition-of-amount-for-limit-approval-06806875.md) is the same control as the longer General-page label 'Restrict approvers to those with limit authority for employee-added steps' in create-a-new-workflow-554e86aa.md, or a second step-level control. Emitted once, under the short label, with the ambiguity stated - not silently merged and not duplicated. (2) The Reason Category value list: no category is enumerated anywhere in this corpus, so validValues is empty. THIN IS THE CORRECT ANSWER. (3) Any numeric range for Minimum/Maximum Exception Level on the Authorized Approvers > Configuration sub-tab - the 'one to 99' range belongs to the Settings-tab threshold controls and was deliberately NOT borrowed. (4) Whether the Find workflow emails where list offers more than two families on a differently-provisioned site. (5) Which of the two label forms each drifted control actually renders.\n\nNO VALUE WAS COMPLETED. steps_can_be_added_by carries two values because ONE cross-cutting topic enumerates two; the primary roster enumerates none, and workflow-creation-process-1d37b85f.md writes 'Approver' where approve-forward-feature-b847d65b.md writes 'Approver Only' - both strings are recorded in the value set's notes rather than reconciled. consolidate_pr_items_same_vendor carries two values because the source states BOTH, which is the legitimate opposite of the invented Yes values previously deleted from this graph.\n\nRAW-HTML PARSING CONFIRMED. Three of the nine Settings-tab controls exist ONLY inside a single-line raw <table> in invoice-settings-cace748d.md and are emitted with fromRawHtmlTable true and raw-HTML sourceQuotes (including the <cite class=\"cite\">X</cite> markup, quoted verbatim rather than cleaned). Settings-tab payload confirmed at 5 (invoice) + 3 (purchase request) + 1 (purchase order) = NINE, all nine emitted. The 'apply globally to' family check reproduces: exactly those three files.\n\nNAMING RULE HONOURED: no control here is named 'Invoice Settings'. All nine settings-family controls carry the settings_ prefix and are documented as living on Workflows > Settings tab. Nothing is re-homed off the built Invoice Settings page, whose fields come from a different file (available-invoice-settings-8b3411f0.md).\n\nEXISTING-GRAPH DEFECTS REPORTED, NOT FIXED: dep.g2.011 targets page 'Invoice Settings' while citing invoice-settings-cace748d.md and should target Workflows > Settings tab; dep.g2ar.025 duplicates dep.g2ar.024 and targets 'Invoice Settings' on a quote naming Workflows and Settings; page.exceptions.navPathAlternates contains 'Administration > Invoice > Workflows > Settings', which routes to the Settings tab and not to Exceptions. Also a G1 gap found while ruling out: prevent-approver-from-adding-and-deleting-line-items-in-an-invoice-9de9dba8.md and prevent-processor-to-change-vendor-pending-processor-in-workflow-edbca7d1.md both say 'On the Invoice Settings page' (the BUILT page) and are cited by zero graph nodes - report to G1, do NOT home them here. dep.g2.012 and dep.g2.013 are resolved by two fields above; dep.g1.021 is resolved by remove_workflow.\n\nNO PAGE NODE was created for any tab, sub-tab, wizard page (General/Steps/Step Rules) or dialog, and none for the four workflow-guides-*.md index files."
+}

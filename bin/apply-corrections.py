@@ -58,6 +58,29 @@ VALUE_FIXES = {
         'appears nowhere in the cited file, and the only "double-byte" text in the corpus is in an '
         'unrelated topic about email message character limits. Conflated from another context.'),
 }
+
+# ---------------------------------------------------------------------------
+# WORKFLOWS RUN A critics, 2026-08-31. The correctness critic named three BLOCKING
+# defects and both critics independently found the SAME pattern on two different
+# fields: a list closed from a hedge that omits the attested value "Employee".
+# Every fix below was re-verified with grep before being written here.
+# ---------------------------------------------------------------------------
+VALUE_FIXES.update({
+    'field.workflows.step-role': (
+        [],
+        'Corrected 2026-08-31 (Workflows correctness critic, BLOCKING): the six values were '
+        'derived from a HEDGE, not an enumeration - work-with-the-steps-page-fab249d1.md line 55 '
+        'reads "If it is a non-system role, such as Authorized Approver, ...". "such as" does not '
+        'close a list. The corpus attests a seventh value the list omitted: "Employee" is the Role '
+        'of step 1 in BOTH shipped default workflows (grep -c "^    Employee$" '
+        'default-workflows-a6fa157a.md = 2) and does not appear on line 55 at all. This build had '
+        'ALREADY reached that conclusion in its own contradiction node, whose consequenceForWriter '
+        'says "Treat the Role list as OPEN, not closed" - and then the roster emitted the closed '
+        'list anyway. Same family as the two deleted invented "Yes" values. validValues emptied; '
+        'the open list survives in the value set and in the contradiction node, so nothing is lost. '
+        'validate-graph.py could NOT catch this: all six strings are verbatim in the file.'),
+})
+
 CLEAR_RAWHTML_FLAG = {
     # flagged fromRawHtmlTable but grep -c '<table' on the cited file returns 0
     'field.exceptions.editablebygroups':
@@ -372,6 +395,216 @@ def resolve_orphan_sets(kg):
     return changed
 
 
+# A repair that swapped a control-naming quote for a non-discriminating one. The repair's own
+# note claimed no markup-free quote existed; a single grep disproves it. Repair-created records
+# never face the adversarial refuter, which is exactly why they need this pass.
+SOURCEQUOTE_FIXES = {
+    'field.workflows.settings-prevent-payment-request-submission-exception-level': (
+        'Prevent this payment request submission when exception level exceeds',
+        'concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md',
+        'Corrected 2026-08-31 (Workflows correctness critic, BLOCKING): the repaired quote was '
+        '"Type a number from one to 99." - which names NO control, and which describes three '
+        'DIFFERENT controls in three different files (invoice-settings-cace748d.md, '
+        'purchase-request-settings-b0bce285.md, purchase-order-settings-a5a997b4.md), so as a graph '
+        'claim it cannot distinguish which field it grounds. It was also already in use as the '
+        'sourceQuote of this field\'s compressedRange. The repair justified itself with "every '
+        'available quote for this control carried raw HTML markup"; grep -F -c of the restored '
+        'string against the same file returns 1. This was the ONLY one of the nine Settings-tab '
+        'fields not carrying its own label.'),
+}
+
+
+# An endpoint naming a field that does not exist on a page that DOES. Different defect from a
+# forward reference to an unbuilt page, and invisible to the validator: it looks like it is merely
+# awaiting a build. Blanking the field keeps the claim and removes the phantom control.
+BLANK_ENDPOINT_FIELD = {
+    ('dep.gworkflows.050', 'targetRef'):
+        'Corrected 2026-08-31 (Workflows correctness critic): targetField was "PR hierarchy '
+        'selection", a control that does not exist on the built Policies page - its nearest match '
+        'is field.policies.invoice-workflow, a workflow selector, not a hierarchy selector. Left as '
+        'a page-level forward reference so the relationship survives without rendering a phantom '
+        'field on a built page.',
+}
+
+
+# Notes a build cannot add about itself: cross-page homonyms, and a documented reason for a
+# validator WARN so it reads as a decision rather than an unexplained regression.
+NOTE_APPEND = {
+    'field.feature-hierarchies.segment-name':
+        'HOMONYM 2026-08-31 (Workflows correctness critic): field.accounting-administration.'
+        'segment-name is a DIFFERENT control of the same name - an account-code hierarchy segment '
+        'from adding-a-new-segment-d6dfb07b.md. Not a validator ERROR (duplicate-field-name is '
+        'scoped per page), but this run named its own button modify_hierarchy_button precisely to '
+        'keep the identical collision visible and did not apply the same discipline here.',
+}
+
+VALUESET_NOTE_APPEND = {
+    '%L_WhoChanged%':
+        'MARKDOWN ESCAPE, documented 2026-08-31 (Workflows correctness critic): 9 of these 18 '
+        'values will not verify as literal substrings of the cited file, because the corpus escapes '
+        'the underscore for markdown - the file writes "%L\\_WhoChanged%" and this set records '
+        '"%L_WhoChanged%". The UNESCAPED form is correct for the graph: a driver typing into an '
+        'email template types %L_WhoChanged%, and the backslash is markdown syntax, not part of the '
+        'variable. The catalog itself is COMPLETE and verified - all 18 variables (9 %L\\_X% label '
+        'forms and 9 %X% value forms) are genuinely present in the file; nothing was inferred from '
+        'the documented "add L and underscore" rule. The value-set-entries-not-in-file WARN on these '
+        'two sets is therefore expected and accepted, not a regression.',
+}
+
+
+# A contradiction node whose consequenceForWriter asserted something the corpus refutes. Both
+# Workflows critics independently found the SAME pattern on two different fields - a list closed
+# or declared open on partial evidence, omitting the attested value "Employee". That agreement is
+# the strongest signal this pipeline emits, so the false assertion is corrected rather than noted.
+CONTRADICTION_READING_ADDS = {
+    'contr.gworkflows.015': {
+        'reading': {
+            'summary': 'A third value, Employee, IS enumerated: the approver-terminology topic '
+                       'states the employee-only setting outright.',
+            'sourceQuote': 'If the Steps Can Be Added By field is set to Employee, then the '
+                           'employee can choose their own approvers using the Approval Flow page.',
+            'sourceFile': 'concur-invoice-professional-edition-admin-guides/'
+                          'approver-terminology-8559861c.md',
+        },
+        'consequence': (
+            "Probe for an option whose visible text CONTAINS 'Approver' but not 'Employee', rather "
+            "than matching either full string. THREE values are attested, not two: 'Approver Only' "
+            "/ 'Approver', 'Both Employee and Approver', and 'Employee'. Only the LABEL FORM of the "
+            "approver-side option remains undetermined; the Employee value is documented."),
+        'note': (
+            ' Corrected 2026-08-31 (Workflows completeness critic, F-1): this node previously '
+            'asserted that a third employee-only value "is likely present - it is deliberately NOT '
+            'invented here, and the driver must read the live list". That was FALSE and the build '
+            'had the file in hand: approver-terminology-8559861c.md line 66 enumerates it, '
+            'grep -F -c = 1, and a corpus-wide grep returns exactly that one line. The file was '
+            'cited elsewhere in this same run for a nav-label reading, so the sentence was in reach '
+            'and was not taken. A third grounded reading has been added rather than the claim '
+            'merely being softened.'),
+    },
+}
+
+
+# Page tabs the BUILD COULD NOT EMIT: NAV_SCHEMA sets additionalProperties:false and declares no
+# `tabs` property, so the map agent was schema-blocked and returned tabs:None. (bin/assemble-parts.py
+# and bin/merge-group.py were both fixed to carry tabs on 2026-08-31; the workflow schema is fixed
+# for Run B.) This is the same value-set-to-tabs mechanism page.forms-and-fields already uses.
+PAGE_TABS = {
+    'page.workflows': {
+        'tabs': ['Workflows', 'Settings', 'Email Notifications', 'Approval Statuses',
+                 'Authorized Approvers', 'Confirmation Agreements', 'Reason Category and Codes'],
+        'quote': 'The Workflows tab on the Workflows page appears.',
+        'file': 'concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md',
+        'note': (
+            'TABS ARE INDIVIDUALLY ATTESTED, NOT ENUMERATED. Unlike Forms and Fields - whose tabs '
+            'come from one sentence, "The tool consists of the following tabs:" '
+            '(terminology-4b6cb686.md) - NO sentence anywhere in this corpus lists the Workflows '
+            'tabs together. Verified: that phrase and its variants return exactly one hit '
+            'corpus-wide and it is Forms and Fields. Each of these seven is attested separately by '
+            'its own click path, in this many admin-guides files: Workflows 14, Settings 15, Email '
+            'Notifications 7, Authorized Approvers 6, Approval Statuses 5, Confirmation Agreements '
+            '4, Reason Category and Codes 3. tabsSourceQuote below anchors only the first. Four '
+            'SUB-TABS also exist and are recorded in navPathAlternates, not here: Approval Statuses '
+            '> {Invoice, Purchase Request} and Authorized Approvers > {Configuration, Authorized '
+            'Approver List}. Added 2026-08-31 by apply-corrections.py because the build was '
+            'schema-blocked from emitting them.'),
+    },
+}
+
+
+def set_page_tabs(kg):
+    changed = 0
+    for pg in kg['nodes']['configPages']:
+        fx = PAGE_TABS.get(pg['id'])
+        if not fx:
+            continue
+        if pg.get('tabs') != fx['tabs']:
+            pg['tabs'] = list(fx['tabs'])
+            pg['tabsSourceQuote'] = fx['quote']
+            pg['tabsSourceFile'] = fx['file']
+            changed += 1
+            print('  page tabs set: %s (%d tabs)' % (pg['id'], len(fx['tabs'])))
+        if fx['note'] not in (pg.get('identityNotes') or ''):
+            pg['identityNotes'] = ((pg.get('identityNotes') or '').rstrip() + ' ' + fx['note']).strip()
+            changed += 1
+    return changed
+
+
+def add_contradiction_readings(kg):
+    changed = 0
+    for c in kg['nodes'].get('configContradictions', []):
+        fx = CONTRADICTION_READING_ADDS.get(c['id'])
+        if not fx:
+            continue
+        quotes = {r.get('sourceQuote') for r in (c.get('readings') or [])}
+        if fx['reading']['sourceQuote'] not in quotes:
+            c.setdefault('readings', []).append(dict(fx['reading']))
+            changed += 1
+            print('  contradiction reading added: %s (now %d readings)' % (c['id'], len(c['readings'])))
+        if fx.get('consequence') and c.get('consequenceForWriter') != fx['consequence']:
+            c['consequenceForWriter'] = fx['consequence']
+            changed += 1
+        if fx.get('note') and fx['note'].strip() not in (c.get('notes') or ''):
+            c['notes'] = ((c.get('notes') or '').rstrip() + fx['note']).strip()
+            changed += 1
+    return changed
+
+
+def fix_sourcequotes(kg):
+    changed = 0
+    for f in kg['nodes']['configFields']:
+        fx = SOURCEQUOTE_FIXES.get(f['id'])
+        if not fx:
+            continue
+        quote, src, note = fx
+        if f.get('sourceQuote') != quote:
+            f['sourceQuote'] = quote
+            f['sourceFile'] = src
+            changed += 1
+            print('  sourceQuote restored: %s' % f['id'])
+        if note not in (f.get('notes') or ''):
+            f['notes'] = ((f.get('notes') or '').rstrip() + ' ' + note).strip()
+            changed += 1
+    return changed
+
+
+def blank_endpoint_fields(kg):
+    changed = 0
+    for d in kg['nodes']['configDependencies']:
+        for key in ('sourceRef', 'targetRef'):
+            note = BLANK_ENDPOINT_FIELD.get((d['id'], key))
+            if not note:
+                continue
+            ref = d.get(key) or {}
+            if ref.get('field'):
+                ref['field'] = ''
+                ref['resolved'] = False
+                d['sourceId' if key == 'sourceRef' else 'targetId'] = None
+                d[key] = ref
+                changed += 1
+                print('  blanked phantom endpoint field: %s.%s' % (d['id'], key))
+            if note not in (d.get('notes') or ''):
+                d['notes'] = ((d.get('notes') or '').rstrip() + ' ' + note).strip()
+                changed += 1
+    return changed
+
+
+def append_notes(kg):
+    changed = 0
+    for f in kg['nodes']['configFields']:
+        note = NOTE_APPEND.get(f['id'])
+        if note and note not in (f.get('notes') or ''):
+            f['notes'] = ((f.get('notes') or '').rstrip() + ' ' + note).strip()
+            changed += 1
+            print('  note appended: %s' % f['id'])
+    for v in kg['nodes'].get('configValueSets', []):
+        for marker, note in VALUESET_NOTE_APPEND.items():
+            if marker in (v.get('values') or []) and note not in (v.get('notes') or ''):
+                v['notes'] = ((v.get('notes') or '').rstrip() + ' ' + note).strip()
+                changed += 1
+                print('  note appended: %s' % v['id'])
+    return changed
+
+
 def main():
     kg = json.load(open(KG))
     changed = 0
@@ -390,6 +623,11 @@ def main():
     changed += repoint_endpoints(kg)
     changed += fix_valueset_values(kg)
     changed += fix_values(kg)
+    changed += fix_sourcequotes(kg)
+    changed += blank_endpoint_fields(kg)
+    changed += append_notes(kg)
+    changed += add_contradiction_readings(kg)
+    changed += set_page_tabs(kg)
     changed += wire_value_sets(kg)
     changed += wire_by_name(kg)
     changed += resolve_orphan_sets(kg)

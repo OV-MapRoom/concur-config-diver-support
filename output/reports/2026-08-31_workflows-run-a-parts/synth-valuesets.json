@@ -1,0 +1,323 @@
+{
+  "valueSets": [
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "workflow_condition_field_value_c",
+      "contextField": "workflow_condition_data_object_b",
+      "context": "B: Data Object = Employee. The Field/Value helper pane repopulates from the Data Object selection, so this is a context-dependent enumeration, not a flat list. THE SOURCE ITSELF DECLARES THIS BRANCH PARTIAL.",
+      "values": ["All custom fields", "Reimbursement Currency"],
+      "sourceQuote": "Reimbursement Currency: The currency in which the vendor has chosen to be reimbursed.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+      "notes": "Table 2 of the Condition page topic, Employee row. NOT CLOSED, and the shortfall is documented rather than a coverage failure: 'The table below shows a partial list of the options that appear for the Field / Value based on your selection from the Data Object list. Most are self-explanatory, such as Employee Name is the employee name. The ones listed in the table have additional definitions for more clarification.' - so the Employee branch has more choices than these two; only these two carry extra definitions. Note that 'Employee Name' is named in that same sentence as a self-explanatory example but is NOT a row of the table, so it is deliberately not added to the values array. ALSO APPLIES TO F: the F: Field/Value row of Table 1 carries the identical pointer ('For specific field/value choices, refer to Table 2 for more information.'), so this catalog supplies both Field/Value columns of one condition row; C is the canonical owner, matching the established practice on the built Audit Rules condition editor (vset.g2ar.* use alsoAppliesToFieldId for the right-hand column rather than a duplicate set). WORKFLOWS-SIDE ONLY: this file is the Workflows condition editor; the Audit Rules editor is the-condition-page-5d4ea870.md, a different file with a different catalog, and the two must never be merged - 'The Condition page in the Workflows tool is similar to the Condition Editor page used in the Audit Rules tool and Expense Processor.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "workflow_condition_field_value_c",
+      "contextField": "workflow_condition_data_object_b",
+      "context": "B: Data Object = Request. The Field/Value helper pane repopulates from the Data Object selection. THE SOURCE ITSELF DECLARES THIS BRANCH PARTIAL.",
+      "values": ["Creation Date", "Currency", "Custom Fields", "Exception Total", "Is Exception Approved", "Detail Mode", "Is Limit Approved", "Payment Due Date", "Request ID", "Request Name", "Request Purpose", "Request Total", "Source"],
+      "sourceQuote": "Source: Whether the invoice was imported",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+      "notes": "THIRTEEN entries, enumerated in full, in source order - nothing sampled, nothing truncated. NOT ALPHABETICAL: the source places 'Detail Mode' between 'Is Exception Approved' and 'Is Limit Approved', and that order is preserved rather than tidied. Explicitly a PARTIAL list per the same framing sentence that governs the Employee branch. NESTED ENUMERATION worth carrying to the driver: 'Is Limit Approved: Only two options appear for this value, Yes or No.' - the one place in this group where a Yes/No pair is documented on BOTH sides and therefore legitimate; do not generalise it to any other control. 'Custom Fields' is open by the source's own words: 'Any custom fields created by the Forms administrator and given any name can exist in this list as well.' ALSO APPLIES TO F: Field/Value, which points at the same Table 2 (see the Employee-branch set's notes). Only two of the seven B: Data Object values (Employee, Request) get a Table 2 branch at all; Detail, Detail Allocation, Request Exception, Vendor Remittance and Vendor Ship From have NO documented Field/Value catalog anywhere in this corpus - a real, publishable gap, not an extraction miss."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "workflow_condition_operator_d",
+      "contextField": "",
+      "context": "The operator list is data-type dependent, not fixed: it changes with the data type of the field chosen in C: Field/Value. THE SOURCE NAMES THREE OPERATORS AND THEN WRITES 'and so on' - this list is EXPLICITLY OPEN and must not be treated as the operator catalog.",
+      "values": ["equals", "not equals", "is greater than"],
+      "sourceQuote": "An operator is one of several pre-defined comparison operators (equals, not equals, is greater than, and so on). The list of operators changes depending on the type of data the system is comparing.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+      "notes": "Emitted as a value SET rather than as validValues precisely because it is open and context-dependent; the roster deliberately left workflow_condition_operator_d.validValues empty and that decision stands. Case is lower-case because the source writes these mid-sentence in prose, not as UI strings - the on-screen strings may well be title case, and normalising them would be inventing. Two more operator words appear elsewhere in the same file inside worked examples: 'Is Greater Than' (in 'Approved Amount Is Greater Than 1000' and 'Request Date Is Greater Than 9/30/02') and 'Equals' (in 'Employee Group Equals GermanGroup'), i.e. the same two operators in title case - recorded here as evidence of the case drift rather than added as extra values. The type-matching rule the driver must honour: 'The data type of the value must match the data type of the field.' and 'If the condition uses a second field, its data type must match that of the first field.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "workflow_condition_left_parenthesis",
+      "contextField": "",
+      "context": "A COMPRESSED COUNT RANGE, not an option list. The source states a permitted count of parentheses and never enumerates the individual dropdown strings.",
+      "values": ["zero to three"],
+      "sourceQuote": "Select zero to three parentheses, depending on the complexity of the condition.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+      "notes": "RANGE STRING KEPT AS THE SOURCE WRITES IT ('zero to three'); the MECHANICAL expansion is the four counts 0, 1, 2, 3. The corpus never states what the option strings look like on screen (whether the list shows '(', '((', '(((' or the words), so nothing is invented here. The identical sentence governs G: Right Parenthesis - grep -F -c returns 2 for this quote in this file, once per row. Ceiling restated a second way in the same file: 'You can use up to three parentheses for both left and right sides.' HARD SYNTAX RULES a driver must honour beyond the count: 'If a conditional expression contains parentheses, the count of left parentheses must match the count of right parentheses.' and 'Parentheses are optional and are used to define order of operation for the and/or operators. If the parentheses are omitted, and/or operations are carried out left to right.' The file gives three worked examples where left and right counts MATCH and the expression is still rejected, so count parity alone is not sufficient."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "workflow_condition_right_parenthesis_g",
+      "contextField": "",
+      "context": "A COMPRESSED COUNT RANGE, not an option list - the right-hand twin of the A: Left Parenthesis range, governed by the same sentence and additionally by an explicit ceiling statement.",
+      "values": ["zero to three"],
+      "sourceQuote": "You can use up to three parentheses for both left and right sides.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+      "notes": "RANGE STRING KEPT AS WRITTEN; MECHANICAL expansion is 0, 1, 2, 3. The G: Right Parenthesis row of Table 1 carries the same sentence as the A row - 'Select zero to three parentheses, depending on the complexity of the condition.' (grep -F -c = 2 in this file, once for A and once for G). A separate quote was chosen here so that the two sets do not rest on the same ambiguous line. Left and right counts must match; see the A-side set for the syntax rules."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_initial_status",
+      "contextField": "",
+      "context": "The shipped catalog of default approval statuses, which is the selectable set for a step's Initial Status BEFORE any tenant-created status exists. An OPEN set by construction: the Approval Statuses tab lets an admin add custom statuses and rename any default, so a live tenant list will differ.",
+      "values": ["Accounting Review", "Approval Time Expired", "Approved", "Auto Approved", "Extracted", "Submitted", "Not Submitted", "Paid", "Pending Approval", "Pending Payment", "Pending Validation", "Sent Back to Employee", "Vendor Approval"],
+      "sourceQuote": "Table 4: Default approval statuses",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/default-approval-statuses-34c83d58.md",
+      "notes": "ALL 13 ROWS, IN SOURCE ORDER, NONE OMITTED. NOT ALPHABETICAL: 'Submitted' precedes 'Not Submitted' in the source and that order is preserved. Renaming is explicitly supported - 'You can edit the approval name, such as Approved to Approving, edit the action text, or edit the description text.' - so a driver must not assume a default name is still present. WIRED TO step_initial_status, NOT TO approval_status_status: the Approval Statuses tab's own Status field is a free-text box you TYPE into ('Type a name for the new status.', adding-an-invoice-approval-status-d8cbbe5d.md), so these 13 are that tab's existing ROWS rather than that field's options; attaching them there would be a wrong owner. The Steps page confirms this field consumes them: 'Click an approval status that represents what the invoice status should be set to when the Step begins, such as Pending Approval.' (work-with-the-steps-page-fab249d1.md). The table's third column, Approval Action, is populated on only FOUR of the 13 rows (Accounting Review -> Approve, Auto Approved -> Auto Approved, Pending Approval -> Approve, Sent Back to Employee -> Send Back to Employee) and blank on the other nine; that column is recorded here and NOT emitted as a value set for step_approval_actions, because the corpus never says those are that field's options - see orphanCandidates."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_approval_actions",
+      "contextField": "",
+      "context": "The approver-facing action list on the Add/Modify Workflow Step page. EXPLICITLY PARTIAL - the source hedges with 'such as' - and written in lower-case prose, so the on-screen strings are not established.",
+      "values": ["approve", "reject", "send back to employee"],
+      "sourceQuote": "The approval actions outlined on this page dictate the actions an approver can make on an invoice that is awaiting approval, such as approve, reject, or send back to employee.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md",
+      "notes": "The roster left this field's validValues empty on the reading that the approver-facing list is never enumerated; it is enumerated, but only as a hedged 'such as' clause inside a Note, which is why it belongs in a value SET carrying its own openness caveat rather than in a flat validValues array. THE FIELD IS POPULATED FROM A HELPER PANE - 'From the Approval Actions helper pane, click an action that an approver can make to an invoice that is awaiting approval.' - so the full pane contents are tenant/provisioning dependent and cannot be derived from this corpus. HARD SEPARATION the same Note insists on: 'These approval actions are different from the Workflow rule approval actions, which designate an action to take once a workflow condition is met.' Do not merge these three with the five step-rule actions. Cardinality: multi-select for approver roles, and the Role field description makes selection mandatory for every non-System role - 'then you must select an action or multiple actions in the Approval Actions field.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_rule_action_name",
+      "contextField": "",
+      "context": "MUTUAL-EXCLUSIVITY CONSTRAINT SET, not a picker list: a single workflow rule may contain only ONE action drawn from these three. Emitted as its own set because the constraint is invisible in a flat validValues array and a driver that ignores it hits a hard error.",
+      "values": ["Skip step", "Change approver", "Send back to employee"],
+      "sourceQuote": "A single workflow rule can contain only one of these actions:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-step-rules-page-4c33cda0.md",
+      "notes": "WORDING DIFFERS FROM THE ACTION TABLE'S OWN ROW LABELS AND IS NOT RECONCILED: this list writes 'Skip step', 'Change approver', 'Send back to employee' in sentence case, while the Edit Action table in the SAME FILE labels the rows 'Skip Step', 'Change Approver', 'Send Back to Employee' (those title-case strings are what the roster carries in step_rule_action_name.validValues). Both are recorded; neither is corrected into the other. Failure mode if violated: 'You may have multiple actions, but they cannot conflict with each other. If the actions conflict with each other, an error message appears.' Worked example from the source: 'you can have a rule that says skip this workflow step when the invoice total is less than 25 USD, but to send an email when you skip. You cannot have a rule that states, \"skip this workflow step and change the approver.\"'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_rule_action_name",
+      "contextField": "",
+      "context": "REPEATABILITY CONSTRAINT SET, the complement of the mutual-exclusivity set: a single workflow rule may contain MULTIPLE instances of these two actions, and they may combine with one action from the exclusive three.",
+      "values": ["Generate an exception", "Send email"],
+      "sourceQuote": "A workflow rule can contain multiple instances of these actions:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-step-rules-page-4c33cda0.md",
+      "notes": "A THIRD WORDING OF THE SAME TWO ACTIONS: 'Generate an exception' here versus the Edit Action table row label 'Generate Exception' in the same file, and 'Send email' versus 'Send Email'. Recorded, not reconciled. Together with the exclusivity set this gives the complete rule-composition law the automation needs: at most one of {Skip step, Change approver, Send back to employee}, plus any number of {Generate an exception, Send email}. The two lists partition all five actions with no overlap and no omission."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_rule_action_name",
+      "contextField": "",
+      "context": "A FOURTH WORDING of the same five-action catalog, this one stated on the Steps page as a cross-reference while warning that these are NOT the same as the step's own Approval Actions.",
+      "values": ["generate an exception", "send an email", "send back to employee", "skip this step", "change approver"],
+      "sourceQuote": "There are five standard approval actions for workflow rules: generate an exception, send an email, send back to employee, skip this step, and change approver.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md",
+      "notes": "FOUR WORDINGS OF ONE CATALOG ACROSS TWO FILES, ALL RECORDED, NONE RECONCILED: (1) title-case Edit Action table rows in work-with-the-step-rules-page-4c33cda0.md - 'Change Approver', 'Generate Exception', 'Send Back to Employee', 'Send Email', 'Skip Step' - which is what step_rule_action_name.validValues carries; (2) the mutual-exclusivity list; (3) the repeatability list; (4) this one. This wording is the only one that writes 'send an email' (with the article) and 'skip this step' (with the demonstrative), and it is the only enumeration of the five that lives OUTSIDE the Step Rules topic. It also fixes the count at five, which corroborates that the Edit Action table has no sixth row. The same sentence is the corpus's explicit firewall against merging this catalog with step_approval_actions."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_role",
+      "contextField": "",
+      "context": "SECOND, CONFLICTING READING of the Role catalog: the distinct Role values actually used by the two workflows SAP ships, in order of first appearance. Recorded alongside the Add Workflow Step page's own list rather than merged with it.",
+      "values": ["Employee", "Invoice Approver", "Invoice Processor", "Invoice Vendor Manager (a System role)", "System"],
+      "sourceQuote": "In the table below, the Role column defines the type of user that takes action at this step.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md",
+      "notes": "THE CONTRADICTION, STATED AND NOT RESOLVED. Reading A (work-with-the-steps-page-fab249d1.md, carried in step_role.validValues) enumerates System, Authorized Approver, Invoice Approver, Invoice Processor, Invoice Processor Manager, Invoice Vendor Manager - and is itself an OPEN list, hedged 'If it is a non-system role, such as Authorized Approver, ...'. Reading B, here, ADDS 'Employee' - a value reading A never offers - and OMITS 'Authorized Approver' and 'Invoice Processor Manager'. Neither list can be derived from the other. The most likely explanation, UNPROVEN from this corpus, is that 'Employee' denotes the submitter at the Payment Request Submitted system step rather than a selectable Role option; a driver must probe rather than assume. 'Invoice Vendor Manager (a System role)' is transcribed exactly as the table cell writes it, parenthetical included, even though the parenthetical is almost certainly documentation gloss and not the on-screen string - normalising it would be inventing a UI string. Semantics from the same file: 'If no approvers are involved, then the role is System. If the role is marked System, then Concur Invoice moves the invoice along to the next step automatically without human interaction.' and, for the Vendor Approval step, 'For the Vendor Approval step, the Role is a System role.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_name",
+      "contextField": "",
+      "context": "Shipped step names of the Default Payment Workflow, in Step Order 1-8. NOT A PICKER LIST - Step Name is free text ('Type any alphanumeric name for the workflow step.') - but the shipped names are what a driver will actually find on a fresh site and must match against.",
+      "values": ["Payment Request Submitted", "Manager Approval", "Limit Approval", "Approval For Processing", "Vendor Approval", "Prepayment Validation", "Pending Payment", "Payment Accounting Extract"],
+      "sourceQuote": "Default Payment Workflow: This workflow by default does not display any skip steps to the employee",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md",
+      "notes": "A 3-column Step Order | Step Name | Role table nested INSIDE a bullet, so it is indented and a census anchored on '^|' misses it entirely. Roles in step order: Employee, Invoice Approver, Invoice Approver, Invoice Processor, Invoice Vendor Manager (a System role), System, System, System. Two behavioural facts the same file attaches: the Vendor Approval step ships with a condition that skips it when the invoice's vendor matches the nightly vendor import, and 'If you are implementing COA with a Vendor Approval step, ensure that the Vendor Approval step does _not_ precede the COA steps. (the source italicises 'not' as _not_; reproduced)' Not immutable: 'Administrators may change the workflows at any time as required by the needs of the company.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_name",
+      "contextField": "",
+      "context": "Shipped step names of the Default PO Payment Workflow, in Step Order 1-2, per the Workflows guide. CONTRADICTED by a seven-step enumeration of the same named workflow in the purchase-order guide - both are emitted, neither is reconciled.",
+      "values": ["Payment Request Submitted", "Approval For Processing"],
+      "sourceQuote": "Default PO Payment Workflow: This workflow by default is very simple. The default steps are:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md",
+      "notes": "Roles in step order: Employee, Invoice Processor. THE CONTRADICTION: example-of-typical-purchase-order-workflow-6d3b90d0.md enumerates SEVEN steps for a workflow of the same name (see the sibling set), and required-steps-43399a5d.md states that every invoice workflow contains Payment Request Submitted, Prepayment Validation, Pending Payment and Payment Accounting Extract - three of which this two-step list does not contain. So this corpus asserts, in three places, three mutually incompatible contents for the shipped PO workflow. Provisioning is a plausible but UNPROVEN cause. A driver must read the live step grid rather than trust any of the three."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_name",
+      "contextField": "",
+      "context": "COMPETING enumeration of the SAME 'Default PO Payment Workflow', from the purchase-order guide: seven steps, sentence case, and one step that appears nowhere else in the corpus.",
+      "values": ["Submit of purchase request (system step)", "Approval for processing", "Vendor approval", "Prepayment validation (system step)", "Pending payment (system step)", "Payment accounting extract (system step)", "(Optional) Re-extract if changes detected (system step)"],
+      "sourceQuote": "As an example, the workflow for the Default PO Payment Workflow included in Concur Invoice is:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/example-of-typical-purchase-order-workflow-6d3b90d0.md",
+      "notes": "SEVEN entries against the two that default-workflows-a6fa157a.md gives for the identically named workflow. Written in SENTENCE case here versus TITLE case there, and each system step is annotated '(system step)' inline - transcribed exactly, parentheses and all, because the annotation may or may not be part of the on-screen name and normalising it would be inventing. Names a step no other topic mentions: '(Optional) Re-extract if changes detected (system step)'. Also uses 'Submit of purchase request' where the other list writes 'Payment Request Submitted'. EMITTED AS A SEPARATE SET, DELIBERATELY NOT MERGED. The source frames it as an example and says it is customisable: 'The client can copy and modify the Default PO Payment Workflow to match site requirements.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "step_name",
+      "contextField": "",
+      "context": "THE MANDATORY FLOOR: steps every invoice workflow must contain. This is the hard constraint on what a driver may delete or reorder, and it is a different kind of claim from the two 'shipped default' catalogs.",
+      "values": ["Payment Request Submitted", "Prepayment Validation", "Pending Payment", "Payment Accounting Extract"],
+      "sourceQuote": "An invoice workflow always consists of at least three steps, but additional steps may be added:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/required-steps-43399a5d.md",
+      "notes": "INTERNAL DISCREPANCY INSIDE THE SOURCE, CARRIED NOT SMOOTHED: the sentence says 'at least three steps' and the bullet list that immediately follows contains FOUR. The corpus is not corrected here. It also contradicts the shipped Default PO Payment Workflow, which default-workflows-a6fa157a.md lists as only two steps and which contains neither Prepayment Validation nor Pending Payment nor Payment Accounting Extract - so either the two-step list is incomplete or 'always' is not literal. Purpose of each, per the same file: Prepayment Validation validates Journal Entry integrity before extract, Pending Payment waits for the scheduled extract, and Payment Accounting Extract completes the workflow."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "steps_can_be_added_by",
+      "contextField": "",
+      "context": "SECOND, CONFLICTING WORDING of this dropdown's options. The roster carries the approve-and-forward topic's wording; this is the workflow-creation-process topic's, which writes the first option WITHOUT the word 'Only'.",
+      "values": ["Approver", "Both Employee and Approver"],
+      "sourceQuote": "This is available if the Steps Can Be Added By field is set to Approver or Both Employee and Approver.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md",
+      "notes": "LABEL DRIFT, STATED NOT RECONCILED: approve-forward-feature-b847d65b.md writes 'Approver Only' and this file writes 'Approver' for what is plainly the same option. A driver matching the option string exactly will fail against one of the two; probe both. NEITHER TOPIC CLAIMS THE LIST IS EXHAUSTIVE, and the field's own defining row on the General page enumerates nothing at all - 'Indicates who can add steps during the workflow process, such as the employee and/or the approver.' (create-a-new-workflow-554e86aa.md) - whose 'and/or' hints at an employee-only third option that NO file in this corpus names. That third option is deliberately NOT invented here. Same control appears in a purchase-request flavour in allowing-the-approver-to-approve-and-then-forward-the-invoice-31e0b70c.md."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "email_notifications_field",
+      "contextField": "",
+      "context": "SECOND, CONFLICTING LABELLING of the three workflow notification events, from the Email Notifications overview topic: different order, and a longer third label.",
+      "values": ["Status Change", "Sent Back to Employee", "Approval Request"],
+      "sourceQuote": "The workflows feature generates email notifications when certain actions occur for invoices and purchase requests:",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md",
+      "notes": "CONTRADICTS THE GENERAL-PAGE LABELS, RECORDED NOT RECONCILED: create-a-new-workflow-554e86aa.md lists the same three as 'Approval Request', 'Status Change', 'Sent Back' (that order, and the short third form), which is what email_notifications_field.validValues carries. Here the order is Status Change, Sent Back to Employee, Approval Request and the third label is the LONGER form. A driver matching 'Sent Back' exactly will miss 'Sent Back to Employee' and vice versa. GRANULARITY CONTRADICTION ON TOP OF THE LABEL ONE: select-an-email-notification-in-the-workflows-tab-663bb8ac.md models the same area as THREE separate per-slot dropdowns (approval_request_notification, status_change_notification, sent_back_notification) rather than one multi-select - so the corpus disagrees with itself about both the labels and the widget. Hard operational limit from this same file: 'The limit for emails that use the SAP Concur notification service is 10MB.'"
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "email_body",
+      "contextField": "",
+      "context": "The complete data-variable catalog that may be typed into an email body. A STRUCTURED catalog, not a picker: every row of the source table yields a LABEL form and a VALUE form of one variable, and the label form is the value form with 'L_' inserted after the opening percent sign.",
+      "values": ["%L_WhoChanged%", "%WhoChanged%", "%L_RequestName%", "%RequestName%", "%L_RequestDate%", "%RequestDate%", "%L_SubmitDate%", "%SubmitDate%", "%L_Total%", "%Total%", "%L_StepApprovalStatus%", "%StepApprovalStatus%", "%L_PayStatus%", "%PayStatus%", "%L_EmpName%", "%EmpName%", "%L_SubmittingUserName%", "%SubmittingUserName%"],
+      "sourceQuote": "Field Label: %L\\_WhoChanged%",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/variables-for-invoices-or-purchase-requests-26e917cb.md",
+      "notes": "ALL 18 DISTINCT VARIABLES, IN SOURCE ORDER, NONE SAMPLED. ESCAPING - A DELIBERATE, FLAGGED TRANSCRIPTION DECISION: the markdown source writes every underscore escaped as backslash-underscore (the sourceQuote above preserves that exactly, which is why it reads '%L\\_WhoChanged%'), but the backslash is markdown escaping, not a character of the variable. The values array therefore carries the UNESCAPED strings a user actually types, which is what the automation needs. STRUCTURE: eleven table rows in two labelled sections - 'Invoice or Purchase Request Change' (Changed By, Request Name*, Request Date, Submit Date, Total Amount, Approval Status of the Workflow Step, Pay Status = 7 rows) and 'Invoice or Purchase Request Pending Approval' (Report From, Report From, Request Name, Total = 4 rows). Eleven rows yield 18 rather than 22 distinct variables because %L_RequestName%/%RequestName% and %L_Total%/%Total% appear in BOTH sections; and two different rows share the Field label 'Report From' while carrying DIFFERENT variables (%EmpName% = 'The name of the user who owns the invoice', %SubmittingUserName% = 'The name of the user who submitted the invoice'). The asterisk on 'Request Name*' resolves to the table's own footer row, which the markdown escapes the leading asterisk of: '\\*These fields use the configured form field label, if available, instead of the default label.' SEMANTICS from general-information-00eca1ce.md: 'The variables are enclosed in percentage signs, which indicate to the system that they need to be replaced.', 'Adding an “L” (L) and underscore (\\_) to the beginning of the variable name tells the system to replace that variable with the field label.', and 'NOTE: If the variable is blank, then both label and value variables will not print in the resulting email.' DO NOT SOURCE THIS CATALOG FROM email-notifications-8b3dbad4.md, which is a 61-row revision history containing exactly one variable."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "email_subject",
+      "contextField": "",
+      "context": "The same data-variable catalog, wired to the Email Subject field as well: the corpus states explicitly that variables work in the subject line, not only the body.",
+      "values": ["%L_WhoChanged%", "%WhoChanged%", "%L_RequestName%", "%RequestName%", "%L_RequestDate%", "%RequestDate%", "%L_SubmitDate%", "%SubmitDate%", "%L_Total%", "%Total%", "%L_StepApprovalStatus%", "%StepApprovalStatus%", "%L_PayStatus%", "%PayStatus%", "%L_EmpName%", "%EmpName%", "%L_SubmittingUserName%", "%SubmittingUserName%"],
+      "sourceQuote": "Field Value: %WhoChanged%",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/variables-for-invoices-or-purchase-requests-26e917cb.md",
+      "notes": "EMITTED AS A SECOND SET RATHER THAN FOLDED INTO email_body's, because appliesToField is singular and the subject-line applicability is separately attested rather than assumed. GROUNDING FOR THE SUBJECT: 'Data from the invoice can be added to the email subject or body text, using data variables.' (general-information-00eca1ce.md) and, in the procedure itself, 'Make the desired changes to the Email Subject field. You can use \"variable\" fields to enter specific data in this field.' (add-an-email-notification-c237a2de.md, where that sentence occurs twice - once on the Primary Recipient step and once on the Delegate Recipient step of the wizard). Same escaping caveat as the email_body set: the source escapes underscores as backslash-underscore in markdown; the values here are unescaped. Same 18 variables, same source order, same file. A subject line is plain text, so the HTML affordances that apply to the body (rich-text toolbar, Source Edit button) do not apply here."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "settings_prevent_payment_request_submission_exception_level",
+      "contextField": "",
+      "context": "A COMPRESSED NUMERIC RANGE stated in prose, not an option list. Settings tab, Invoice sub-tab.",
+      "values": ["one to 99"],
+      "sourceQuote": "Type a number from one to 99.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md",
+      "notes": "RANGE STRING KEPT AS THE SOURCE WRITES IT - note the MIXED FORM, low bound spelled as the word 'one' and high bound as the digits '99', which is why no digit-only regex finds this range. MECHANICAL expansion: the integers 1 through 99 inclusive, 99 members; the source enumerates none of them. This row lives inside a raw HTML <table> in this file, invisible to a markdown-pipe parser. Effect, from the same cell: 'Any invoice that meets the criteria for an exception with this level or above prevents the employee from submitting the invoice.' CROSS-PAGE DISCREPANCY, NOT RECONCILED: the already-built Exceptions page states the same concept's bounds as 0 and 99, i.e. it admits zero where this sentence starts at one. The identical sentence governs the purchase-request and purchase-order twins of this field - see their own sets, each cited to its own file."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "settings_prevent_purchase_request_submission_exception_level",
+      "contextField": "",
+      "context": "A COMPRESSED NUMERIC RANGE stated in prose, not an option list. Settings tab, Purchase Request sub-tab.",
+      "values": ["one to 99"],
+      "sourceQuote": "Type a number from one to 99.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md",
+      "notes": "RANGE STRING KEPT AS WRITTEN; MECHANICAL expansion is the integers 1 through 99 inclusive. Cited to the Purchase Request settings file in its own right rather than inherited from the Invoice settings file, so that the range is independently grounded per field. grep -F -c returns exactly 1 for this sentence in this file. Same 0-versus-1 discrepancy against the built Exceptions page as the payment-request twin."
+    },
+    {
+      "appliesToPage": "Workflows",
+      "appliesToField": "settings_prevent_purchase_order_transmission_exception_level",
+      "contextField": "",
+      "context": "A COMPRESSED NUMERIC RANGE stated in prose, not an option list. Settings tab, Purchase Order sub-tab. NOTE THE DIFFERENT VERB: this one blocks TRANSMISSION of a purchase order, where the other two block SUBMISSION.",
+      "values": ["one to 99"],
+      "sourceQuote": "Type a number from one to 99.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md",
+      "notes": "RANGE STRING KEPT AS WRITTEN; MECHANICAL expansion is the integers 1 through 99 inclusive. Third and last of the three Settings-tab exception-level controls, each carrying the identical sentence in its own file (grep -F -c = 1 here). The three fields are distinct controls on three sub-tabs of ONE page - Workflows - and the sub-tab name belongs in the field notes, never as a page name."
+    },
+    {
+      "appliesToPage": "Feature Hierarchies",
+      "appliesToField": "level",
+      "contextField": "feature_name",
+      "context": "feature name = Invoice Vendor Employee Access. A ONE-VALUE SET, and that is the honest answer: SAP documents exactly one Level value here and states in the same breath that it cannot be changed.",
+      "values": ["Employee"],
+      "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "NO SECOND VALUE IS IMPLIED AND NONE WAS ADDED. Completing a plausible pair is the exact defect that already cost this graph two deleted values, and it is refused here. DIRECTLY CONTRADICTED by the Invoice Payment reading ('Set the level to Request.'), which is emitted as its own set and NOT reconciled with this one: if Level were a single global control, 'cannot be changed' and 'set the level to' cannot both be true. The most likely - but UNPROVEN - cause is that the Level control's options vary with the selected feature hierarchy, in which case both statements are locally true. Whether 'cannot be changed' is a property of THIS hierarchy or of the first Level row of EVERY feature hierarchy is UNDETERMINED from this corpus. Immutability does not mean a single row: step 7 of the same procedure permits more - '(Optional): If you intend to use multi-level named vendor groups (Level 1; Level 2; Level 3) add additional levels and segments now to match.' - and the count is dictated by the chosen source list, 'If a multi-level list was created, be sure to add additional levels and segments to match the list levels.' Level rows pair one-to-one with Segment Name rows."
+    },
+    {
+      "appliesToPage": "Feature Hierarchies",
+      "appliesToField": "level",
+      "contextField": "feature_name",
+      "context": "feature name = Invoice Payment. A second ONE-VALUE SET, from the payment-groups/funding-accounts procedure. Recorded ALONGSIDE the Invoice Vendor Employee Access set, deliberately not merged and not reconciled.",
+      "values": ["Request"],
+      "sourceQuote": "Set the level to Request.",
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md",
+      "notes": "Step 6 of an 8-step procedure whose steps 5-8 are 'Select New.' / 'Set the level to Request.' / 'Select the custom field configured to the selected source list.' / 'Select Save.' - the same New / Level / Segment / Save sequence as the Invoice Vendor Employee Access procedure, with a DIFFERENT Level value and NO immutability claim. THE CONTRADICTION IS THE FINDING: do not infer that Employee and Request are both offered under either feature, and do not infer a combined two-value option list - no documented list enumerates them together. Corroborating but NOT sufficient to settle it: 'By default, the Request Authorized Approver hierarchy uses the Request and Employee fields' (admin-guides/understand-the-hierarchy-b65d7089.md) shows Request and Employee coexisting as hierarchy field sources in a THIRD feature, which is why neither value was promoted to the field's own validValues. Precondition the driver must satisfy first: 'The source list and custom field referenced in the steps below must already be configured before you proceed.'"
+    },
+    {
+      "appliesToPage": "Feature Hierarchies",
+      "appliesToField": "segment_name",
+      "contextField": "feature_name",
+      "context": "feature name = Invoice Routing. The three invoice HEADER fields the source designates as the hierarchy path segments. A PREFIX-ELIDED enumeration: the source writes the word 'Custom' once and then three bare numerals.",
+      "values": ["Custom 10", "Custom 11", "Custom 12"],
+      "sourceQuote": "three invoice header fields (Custom 10, 11, and 12) have been designated as segments to make up the full hierarchy path.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md",
+      "notes": "COMPRESSED-RANGE HANDLING: the source's own string is 'Custom 10, 11, and 12' - ASCII commas, an Oxford 'and' before the final member, NO dash or en-dash of any kind - and it is preserved verbatim in the sourceQuote. The values array carries the EXPANSION because it is load-bearing for automation: '11' and '12' are not field names, 'Custom 11' and 'Custom 12' are, and a driver reading the string literally would hunt for a field called '11'. The expansion is mechanical and every member is given explicitly by the source; nothing is inferred. THESE ARE THE SOURCE'S EXAMPLE CHOICES, NOT MANDATED FIELD NUMBERS - 'In the example below, the source list \"sample\" is selected' frames the whole passage as an example. COLLISION WITH A DIFFERENT CUSTOM FIELD ON THIS SAME PAGE: the Invoice Vendor Employee Access procedure uses Custom 02 as its Segment Name ('In the example below, Custom 02 is renamed to Choose Vendor Access Group', step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md), and that is an EMPLOYEE form field, where Custom 10/11/12 here are INVOICE HEADER fields. Same control, different form, different numbering - do not treat either set as required configuration. Cascade behaviour the segments produce: 'when a value is selected in the first field, the next field shows only those values the first field supports (Sales > North).' LABEL DRIFT: professional-edition-fb3e6aa2.md calls this same control 'the custom field' rather than Segment Name."
+    },
+    {
+      "appliesToPage": "Feature Hierarchies",
+      "appliesToField": "feature_name",
+      "contextField": "",
+      "context": "AN ATTESTED-NAMES CATALOG, NOT A DOCUMENTED OPTION LIST. No file in this corpus enumerates this selector's options; these are the three named feature hierarchies that separate topics explicitly describe as being SELECTED on, or configured through, the Feature Hierarchies page. The list is a FLOOR, not a closed set.",
+      "values": ["Invoice Vendor Employee Access", "Invoice Payment", "Invoice Routing"],
+      "sourceQuote": "On the Feature Hierarchies, select _Invoice Vendor Employee Access_, and then click Modify Hierarchy.",
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md",
+      "notes": "ASSEMBLED ACROSS THREE FILES, PROVENANCE GIVEN PER VALUE SO NOTHING RIDES ON THE SINGLE CITATION ABOVE. (1) 'Invoice Vendor Employee Access' - 'On the Feature Hierarchies, select _Invoice Vendor Employee Access_, and then click Modify Hierarchy.' in tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md (the sourceQuote of this set; note the markdown italic underscores, which are formatting, not part of the name). (2) 'Invoice Payment' - 'Select the Invoice Payment feature name.' in admin-guides/professional-edition-fb3e6aa2.md, step 2 of a procedure whose step 1 is 'Go to Administration   Invoice   Feature Hierarchies.' - NOTE THE SEPARATORS ARE NON-BREAKING SPACES (U+00A0), not plain spaces, and not the '>' the menu label suggests; a plain-space grep for that line returns 0 (3) 'Invoice Routing' - 'The user first specifies the source list and relevant segments using the Invoice Routing hierarchy in the Feature Hierarchies area.' in tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md. WHY THIS IS A VALUE SET AND NOT validValues: the roster deliberately leaves feature_name.validValues empty because no documented LIST exists, and that decision is respected - a set carrying its own 'floor, not closed' caveat is the honest vehicle for cross-topic attestation. TWO FURTHER HIERARCHY NAMES ARE WITHHELD, deliberately, and reported in orphanCandidates instead: 'Payment Authorized Approvers' and the Cost Object Approver hierarchy are attested as hierarchy names but no file states they are selected on THIS page. ORDERING FOR THE DRIVER: the feature name is chosen FIRST, then Modify Hierarchy, and only then do Source List, Level and Segment Name become reachable."
+    }
+  ],
+  "validValuesAdditions": [],
+  "orphanCandidates": [
+    {
+      "enumerates": "The three Exception Visibility audiences offered when a rule generates an exception",
+      "values": ["Invoice Owner, Approver, and Invoice Processor", "Approver and Invoice Processor", "Invoice Processor"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/add-a-custom-audit-rule-0f1d320e.md",
+      "whyNoOwner": "The Workflows page has a field for this control - step_rule_exception_visibility, on the Step Rules page's Edit Action window for the Generate Exception action - but the ONLY file that mentions it there does not enumerate anything: 'A message appears to those you designate in the Exception Visibility field.' (work-with-the-step-rules-page-4c33cda0.md). The three values above are enumerated exclusively on AUDIT RULES topics ('From the Exception Visibility list, select the users who are able to see the exception message by selecting:', add-a-custom-audit-rule-0f1d320e.md and add-a-random-audit-rule-3127d83a.md; the same three appear in a field table in add-a-validation-rule-0b31c4c0.md with the first written WITHOUT the Oxford comma as 'Invoice Owner, Approver and Invoice Processor'). Audit Rules is a DIFFERENT, ALREADY-BUILT page and it already carries these values twice - field.audit-rules.exception-visibility and field.audit-rules.randomexceptionvisibility. Transplanting them onto Workflows would be inferring one surface's options from another's, which this build forbids; an honest null beats a wrong owner.",
+      "whatWouldFixIt": "A Workflows-side topic that enumerates the Exception Visibility choices on the Step Rules Edit Action window, or any statement that the Workflows and Audit Rules exception editors share one control. Until then, treat it as a documented field with an undocumented option list and let the driver read it live."
+    },
+    {
+      "enumerates": "The Approval Action values that the default-approval-statuses table pairs with four of its thirteen statuses",
+      "values": ["Approve", "Auto Approved", "Send Back to Employee"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/default-approval-statuses-34c83d58.md",
+      "whyNoOwner": "These are the three distinct entries in the third column of Table 4, populated on only four of thirteen rows (Accounting Review -> Approve, Auto Approved -> Auto Approved, Pending Approval -> Approve, Sent Back to Employee -> Send Back to Employee) and blank on the other nine. The obvious candidate owner is step_approval_actions, but the corpus NEVER says these are that field's options - it says the opposite about scope, distinguishing the step's approver-facing actions from the workflow-rule actions, and giving the approver-facing list separately and only as 'such as approve, reject, or send back to employee'. The column is a per-status property, not a picker's contents. The second candidate owner, approval_status_action_text, is explicitly a free-text box that becomes button text ('Type descriptive text to be used as the action text. This text becomes button text for the approver.'), so it has no option list either. Attaching a nine-of-thirteen-blank column to either field would be a wrong owner.",
+      "whatWouldFixIt": "A topic that states what the Approval Actions helper pane contains, or that names this column as the source of a field's options. Note the collision risk if that ever arrives: 'Send Back to Employee' is simultaneously a status name, an Approval Action value, and a step-rule action name in this corpus."
+    },
+    {
+      "enumerates": "The eight HTML tags whitelisted inside a Confirmation Agreement's Text field",
+      "values": ["<B>", "<BIG>", "<BR>", "<CENTER>", "<I>", "<SMALL>", "<STRIKE>", "<u>"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-confirmation-agreement-3e153f29.md",
+      "whyNoOwner": "This is a MARKUP WHITELIST, not a value enumeration, and it has already been removed from confirmation_agreement_text.validValues once during roster repair for exactly that reason: the field is free text with a 2000-character cap ('You may type up to 2000 characters.'), and a driver trying to SELECT '<BIG>' from a list would fail. Re-wiring it as a value set would reintroduce the defect the repair fixed. Recorded here so the constraint is not lost. Source order preserved and CASE REPRODUCED EXACTLY: seven tags upper-case and the last one lower-case, '<u>' - the source's own inconsistency, not a transcription slip, and a case-sensitive validator would care.",
+      "whatWouldFixIt": "Nothing about the corpus - this needs a different graph primitive. It belongs on a field-level constraint or format facet ('allowed markup', alongside the 2000-character maximum), not on any ConfigValueSet."
+    },
+    {
+      "enumerates": "The four grid columns displayed on the Workflows tab list",
+      "values": ["Workflow Name", "Workflow Type", "Steps Can Be Added By", "Editable By"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md",
+      "whyNoOwner": "These are COLUMN HEADINGS of the workflow list grid, and hard-won rule 7 forbids attaching a value set to a column heading. They are already modelled correctly as four separate roster fields on the Workflows page - workflows_list_workflow_name_column, workflows_list_workflow_type_column, workflows_list_steps_can_be_added_by_column and workflows_list_editable_by_column - so there is no field whose OPTIONS this list enumerates; it enumerates the grid's shape. The table is INDENTED markdown nested under a numbered step, so a census anchored on '^|' does not see it at all. One constraint from the Workflow Type cell is worth keeping: 'You cannot use one type of workflow to create another type of workflow.'",
+      "whatWouldFixIt": "Nothing - the correct modelling already exists as four fields. This entry is a deliberate no-op so a later pass does not 'discover' the list and wire it to a heading."
+    },
+    {
+      "enumerates": "The four configuration steps for authorized approvers, and which deployment shape requires each",
+      "values": ["Define the Invoice Authorized Approver hierarchy", "Activate the Authorized Approver feature", "Add/Edit the workflow, workflow steps, and workflow rules to require authorized approvers", "Assign the proper rights to users"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/global-group-vs-authorized-approver-hierarchy-8a960238.md",
+      "whyNoOwner": "This is a PROCEDURE-ORDERING MATRIX (# | Step | Global group only | Authorized Approver hierarchy, marked with X), not an option list for any control. An earlier extraction wired it to the master activation checkbox authorized_approver_feature_available_for_workflows because that is the field the procedure governs - which is precisely the 'attach it to a neighbour' move this run is told not to make. The matrix's entire informational content is one asymmetry: step 1 is marked X ONLY in the Authorized Approver hierarchy column and is blank for Global group only; steps 2, 3 and 4 are marked X in BOTH. Step 4 sub-enumerates three assignment routes - Authorized Approver List, Employee import, and User Administration - and User Administration sits under Administration > Company, which is out of scope for this whole graph and must stay an unresolved forward reference.",
+      "whatWouldFixIt": "A configSteps / ordering node rather than a value set. It is genuine, well-grounded content in the wrong shape. This file is ALSO a Feature Hierarchies must-read, because its step 1 is 'Define the Invoice Authorized Approver hierarchy' - dual membership stated rather than arbitrarily assigned to one page."
+    },
+    {
+      "enumerates": "The depth ceiling of the source list attached to the Invoice Vendor Employee Access feature hierarchy - Level 1 through Level 10",
+      "values": ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10"],
+      "sourceFile": "concur-invoice-professional-edition-tools-guides/the-import-template-fields-and-descriptions-8b51ca3d.md",
+      "whyNoOwner": "Attested identically ten times in this file, once per level, as 'Level N of the source list attached to the Invoice Vendor Employee Access feature hierarchy.', and again in vendor-group-mapping-record-... import documentation. But this is a property of the SOURCE LIST's depth as exposed by an IMPORT TEMPLATE, not an enumeration of the Level control's options on the Modify Hierarchy screen - and the Level control's documented values are the entirely different strings 'Employee' and 'Request'. Wiring 1-10 onto the level field would collide with those two and would be inferring a screen's contents from an import spec. The Feature Hierarchies procedure itself gives only a soft, uncapped statement of repeatability: '(Optional): If you intend to use multi-level named vendor groups (Level 1; Level 2; Level 3) add additional levels and segments now to match.' with the count dictated by the list - 'If a multi-level list was created, be sure to add additional levels and segments to match the list levels.'",
+      "whatWouldFixIt": "A Feature Hierarchies topic stating the maximum number of Level rows the Modify Hierarchy screen accepts. If ten is confirmed to be that ceiling, this becomes a cardinality constraint on the Level/Segment Name row pair - still not a value set, because the values would be row counts, not option strings."
+    },
+    {
+      "enumerates": "Two further named feature hierarchies attested in the corpus but never stated to be selected on the Feature Hierarchies page",
+      "values": ["Payment Authorized Approvers", "Cost Object Approver Hierarchy", "Authorized Approver Feature Hierarchy"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md",
+      "whyNoOwner": "Each name is verbatim-attested - '(Optional) Set up the Payment Authorized Approvers hierarchy if you choose to use authorized approvers.' (workflow-creation-process-1d37b85f.md); 'Step 1: Define the Cost Object Approver Hierarchy' (step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md); 'Authorized Approver Feature Hierarchy' (user-administrator-fcfd570c.md) - but NOT ONE of those sentences says the name appears in, or is chosen from, the Feature Hierarchies selector, the way the three values in the feature_name value set do ('On the Feature Hierarchies, select ...', 'Select the Invoice Payment feature name.', '... using the Invoice Routing hierarchy in the Feature Hierarchies area'). Promoting them into feature_name's set would smuggle three unattested memberships in behind three attested ones. It is also unresolved whether 'Authorized Approver Feature Hierarchy' and 'Payment Authorized Approvers' name the same object, and user-administrator-fcfd570c.md sits under Administration > Company > User Administration, which is out of scope for this graph.",
+      "whatWouldFixIt": "Any sentence placing one of these names on the Feature Hierarchies page - a 'select X on the Feature Hierarchies page' or a screenshot caption listing the selector's rows. Then it joins the feature_name set, which is explicitly a floor rather than a closed list."
+    },
+    {
+      "enumerates": "The two join operators for the H: And/Or control on the Workflows condition editor",
+      "values": ["and", "or"],
+      "sourceFile": "concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md",
+      "whyNoOwner": "workflow_condition_and_or_h is a real, documented field, but its own row enumerates nothing - 'Select either option to join the current condition to the next condition; this line appears when there are multiple conditions, and only between conditions, never after the final condition.' The words 'and' and 'or' appear only in PROSE ABOUT EXPRESSION SYNTAX elsewhere in the file ('When a conditional expression is composed of multiple conditions, each condition is separated by either and or or.' and 'There is no precedence of and over or.'), describing the operators of the expression language rather than the strings on the control. The roster deliberately left validValues empty for exactly this reason and that decision is respected here rather than overturned by a different lens. The file itself shows the case is unstable: worked examples write 'And' and 'and' in the same passage.",
+      "whatWouldFixIt": "A row, bullet list or procedure step naming the control's two option strings as UI values. This is a case where the answer is almost certainly {And, Or} and the corpus still does not say so - and 'obviously the other half of the pair' is precisely the reasoning that already cost this graph two deleted values."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md	From the Invoice Processing Admin menu, click Workflows.
+concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md	The Workflows tab on the Workflows page appears.
+concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md	Click Administration > Invoice > Workflows (left menu). The Workflows page appears.
+concur-invoice-professional-edition-admin-guides/select-an-email-notification-in-the-workflows-tab-663bb8ac.md	Click Workflows (left menu). The Workflows page appears.
+concur-invoice-professional-edition-admin-guides/accessing-the-approval-statuses-tab-7ec7bb6e.md	Select the Approval Statuses tab.
+concur-invoice-professional-edition-admin-guides/accessing-the-approval-statuses-tab-7ec7bb6e.md	From the Invoice Processing Admin menu, click Workflows.
+concur-invoice-professional-edition-admin-guides/work-with-purchase-requests-approvals-1c39ee21.md	Administration > Invoice > Workflows > Approval Statuses > Purchase Request
+concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md	The administrator creates and maintains email notifications in Administration > Invoice > Workflows, on the Email Notifications tab.
+concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md	Settings tab and is shown in the following figure.
+concur-invoice-professional-edition-admin-guides/access-the-confirmation-agreement-tab-666fa0ac.md	Select the Confirmation Agreements tab.
+concur-invoice-professional-edition-admin-guides/access-the-confirmation-agreement-tab-666fa0ac.md	From the Invoice Processing Admin menu, select Workflows.
+concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md	Click the Reason Category and Codes tab.
+concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md	Click the Authorized Approvers tab.
+concur-invoice-professional-edition-admin-guides/procedure-2d20b513.md	Click the Configuration tab.
+concur-invoice-professional-edition-admin-guides/step-2-assign-the-level-to-the-approver-d8bf669c.md	Click the Authorized Approvers tab and then the Authorized Approver List tab.
+concur-invoice-professional-edition-admin-guides/adding-an-invoice-approval-status-d8cbbe5d.md	Click Approval Statuses tab, and then the Invoice tab.
+concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md	On the Workflows tab, select the desired workflow and click Copy.
+concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md	On the Steps page, click New.
+concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md	The range is set in Administration > Invoice > Workflows > Authorized Approver tab.
+concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md	The setting appears in Administration > Invoice > Workflows > Workflow tab
+concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md	choose a page from the Invoice Processing Admin list.
+concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md	The Invoice Configuration Administrator (Restricted) can view invoice configuration settings for Workflows, Policies, Group Configurations, and Forms and Fields.
+concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md	View the list of Workflows and click on each item to view General, Steps, and Step Rules details
+concur-invoice-professional-edition-release-notes/updated-read-only-access-for-invoice-configuration-administrator-restricted-role-6df11845.md	This role has read-only access; therefore, actions such as New, Copy, and Remove are disabled.
+concur-invoice-professional-edition-admin-guides/workflows-tool-8b3b4dbe.md	Both the Global Invoice Configuration administrator and the Group Invoice Configuration administrator can view the Workflows tool.
+concur-invoice-professional-edition-admin-guides/step-2-activate-the-feature-27a421e2.md	This portion of the configuration requires permissions for the Workflows section in Administration.
+concur-invoice-professional-edition-admin-guides/step-3-edit-the-workflow-steps-f2731590.md	This portion of the configuration requires permissions for the Workflows section in Administration.
+concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md	The Invoice Configuration administrator (_Restricted_) role is required to use the options on this tab.
+concur-invoice-professional-edition-admin-guides/overview-6e3fab65.md	The Global Invoice Configuration administrator can edit all workflows.
+concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md	From the Invoice Processing Admin navigation menu, choose Email Reminders.
+concur-invoice-professional-edition-admin-guides/access-email-reminders-96f3ca18.md	The Email Reminders page appears.
+concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md	On the Email Reminders page, select the Rules tab.
+concur-invoice-professional-edition-admin-guides/configuration-process-8b2c271f.md	On the Email Reminders tab of the Email Reminders page, create a new configuration.
+concur-invoice-professional-edition-admin-guides/before-you-begin-448d2513.md	The rules are set up in the Rules tab of the Email Reminders page.
+concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md	The Email Reminders tool is visible if you have the Invoice Configuration administrator (Restricted) role.
+concur-invoice-professional-edition-admin-guides/email-reminders-tool-8b2c8a11.md	allows a Global and Group Configuration administrator to create, edit, and delete email reminders by group
+concur-invoice-professional-edition-admin-guides/create-email-reminders-604c4a46.md	In Email Reminders, select the Email Reminders tab.
+concur-invoice-professional-edition-admin-guides/email-message-replacement-tokens-c9cc4af4.md	how those options are used on the Add Email Reminder page
+concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md	Select Delegate Configurations (left menu) , the Delegate Configurations page appears.
+concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md	Select the Invoice or Purchase Request tab.
+concur-invoice-professional-edition-admin-guides/access-and-view-payment-delegate-configurations-8ed1298f.md	Invoice delegates are accessed from the Invoice Admin link.
+concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md	On the Delegate Configurations page, select either the Invoice or Purchase Request tab.
+concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md	Choose New. The Add Delegate Configuration - Invoice page appears.
+concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md	Each group within your company can only have one Invoice delegate configuration.
+concur-invoice-professional-edition-admin-guides/create-a-new-invoice-delegate-configuration-fcf42662.md	The Configuration administrator can restrict the delegates based on the following choices:
+concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md	Click Feature Hierarchies (left menu).
+concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md	In the Source List, select the name of the list you created in Step 1
+concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md	Select the Invoice Payment feature name.
+concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md	Select Modify Hierarchy.
+concur-invoice-professional-edition-admin-guides/step-1-define-the-cost-object-approver-hierarchy-6e7b7dc6.md	This portion of the configuration requires permissions for the Feature Hierarchies section in Administration.
+concur-invoice-professional-edition-admin-guides/understand-the-hierarchy-b65d7089.md	You must define the authorized approver hierarchy (Invoice > Feature Hierarchies)
+concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md	Hierarchies (explained below).
+concur-invoice-professional-edition-tools-guides/create-the-invoice-routing-feature-hierarchy-8b510285.md	the Invoice Routing hierarchy in the Feature Hierarchies area
+concur-invoice-professional-edition-tools-guides/overview-of-steps-37e3c289.md	Step 2: Feature Hierarchies
+concur-invoice-professional-edition-admin-guides/workflow-667cee21.md	PR hierarchies are set up independently, including Authorized Approval and COA.
+concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md	The following settings apply globally to invoices.
+concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md	The following settings apply globally to purchase requests (PR).
+concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md	The following settings apply globally to purchase orders (PO).
+concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md	Type a number from one to 99.
+concur-invoice-professional-edition-admin-guides/available-invoice-settings-8b3411f0.md	The Invoice Settings page includes the following settings used to activate a feature
+concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md	works just as the payment or purchase request settings of this type
+concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md	Addition of two new options to the Settings tab:
+concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md	New Settings tab option: Prevent purchase order transmissions setting.
+concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md	you must clear a setting in the Settings section of the Workflows tool
+concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md	field on the Settings page cleared (disabled)
+concur-invoice-professional-edition-admin-guides/enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md	On the Workflow Settings page, select a setting option.
+concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md	All workflow options available for non-PO policies are also available to a PO-based invoice policy.
+concur-invoice-professional-edition-tools-guides/workflow-and-approval-routing-8b4ff6c9.md	This includes options such as workflow rules and Authorized Approvers.
+concur-invoice-professional-edition-admin-guides/conditional-expressions-and-the-condition-page-4d98af34.md	The Condition page in the Workflows tool is similar to the Condition Editor page used in the Audit Rules tool
+concur-invoice-professional-edition-admin-guides/access-exceptions-90e45318.md	appear as options for the Audit Rules tool and Workflows tool when creating rules
+concur-invoice-professional-edition-admin-guides/approval-flow-page-c73e063f.md	The Approval Flow for Invoice page appears by clicking Details
+concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md	under the My Work area on the home page
+concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md	Requests Pending Your Approval window
+concur-invoice-professional-edition-admin-guides/adding-an-invoice-approval-status-d8cbbe5d.md	This text becomes button text for the approver
+concur-invoice-professional-edition-admin-guides/accessing-the-change-log-8b2b0deb.md	From the Invoice Processing Admin menu, select Change Log.
+concur-invoice-professional-edition-admin-guides/workflow-guides-8b3b85da.md	Refer to these guides when configuring and maintaining workflows.
+concur-invoice-professional-edition-admin-guides/workflow-settings-8b3b98e1.md	Workflow settings provide configuration options to tailor workflow behavior to specific business requirements.
+concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md	The groups that appear here are from the Authorized Approver Hierarchy
+concur-invoice-professional-edition-admin-guides/self-approval-of-cost-object-based-workflows-20fd435d.md	In the General step, select the Allow Self Cost Object Approval option.
+concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md	An Approver is set within User Permissions
+concur-invoice-professional-edition-admin-guides/create-a-new-workflow-15992497.md	the General page in the Workflows tab of the Workflows tool
+concur-invoice-professional-edition-admin-guides/work-with-the-step-rules-page-4c33cda0.md	When done with all rules and actions, click Done on the Workflows tab.
+concur-invoice-professional-edition-admin-guides/deleting-a-confirmation-agreement-8cc92339.md	On the Confirmation Agreements tab of the Workflows page, select the desired agreement:
+concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md	Reason Category and Codes tab and options
+concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md	Confirmation Agreements tab and options
+concur-invoice-professional-edition-admin-guides/edit-workflow-properties-409a8f0b.md	The Workflows page appears.
+concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md	on the Configuration tab of the Authorized Approvers tab
+concur-invoice-professional-edition-admin-guides/edit-an-invoice-delegate-configuration-c7f51424.md	On the Delegate Configurations page, choose either the Invoice or Purchase Request tab.
+concur-invoice-professional-edition-admin-guides/create-reminder-rules-b0a7fac5.md	Group administrators can only create email reminder rules if given "create" rights.

@@ -1,0 +1,626 @@
+{
+ "contradictions": [
+  {
+   "kind": "label-drift",
+   "topic": "The Settings surface inside the Workflows page is named four different ways across four topics: 'Settings tab', 'Settings section of the Workflows tool', 'Workflow Settings page' and 'Settings page'.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "settings_allow_users_select_own_approver_payment_requests"
+   },
+   "readings": [
+    {
+     "summary": "Names it the Settings tab, inside a full click path - the only one of the four readings that carries a click path.",
+     "sourceQuote": "Settings tab and is shown in the following figure.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md"
+    },
+    {
+     "summary": "Names it the Settings section of the Workflows tool.",
+     "sourceQuote": "To set up the centralized workflow, you must clear a setting in the Settings section of the Workflows tool.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+     "summary": "Names it the Workflow Settings page.",
+     "sourceQuote": "On the Workflow Settings page, select a setting option.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/enabling-and-disabling-an-invoice-workflow-setting-0e1e6d33.md"
+    },
+    {
+     "summary": "Names it the Settings page, in a cross-reference written from the General-page field roster.",
+     "sourceQuote": "field on the Settings page cleared (disabled)",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    }
+   ],
+   "consequenceForWriter": "Treat all four names as ONE surface and register all four as aliases of the Settings tab of the Workflows page. A driver must locate it by the visible string 'Settings' inside the Workflows page and must NOT go looking for a separate left-menu page called 'Workflow Settings' - a corpus-wide '(left menu)' census scores zero for that label. Never resolve any of the four to the already-built 'Invoice Settings' page: that is a different surface with a colliding title, and merging them would corrupt both.",
+   "notes": "Recon contradiction C1, carried forward with its readings re-grounded. Hypothesis (not a finding): four SAP guides written at different times each chose their own noun for the same tab, and the 'page' forms are writing drift rather than a second surface. The tables lens and the crosscut lens raised this independently; their readings are merged here, and where both cited the same file the longer, self-contained sentence was kept (the shorter crosscut quote 'you must clear a setting in the Settings section of the Workflows tool' is a substring of the kept one, so no evidence is lost)."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The Authorized Approvers surface is named five different ways: 'Authorized Approvers tab' (plural), 'Authorized Approver tab' (singular), 'the Workflows, Authorized Approvers page', 'Authorized Approvers section of the Workflows tool' and 'Add Authorized Approvers page within Workflows'.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "authorized_approver_feature_available_for_workflows"
+   },
+   "readings": [
+    {
+     "summary": "The plural tab name, as an executable click step.",
+     "sourceQuote": "Click the Authorized Approvers tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+    },
+    {
+     "summary": "The singular tab name, inside a full Administration menu path.",
+     "sourceQuote": "The range is set in Administration > Invoice > Workflows > Authorized Approver tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/configuration-8b3be88b.md"
+    },
+    {
+     "summary": "Named as a page reached through the Workflows page, comma-separated rather than as a tab.",
+     "sourceQuote": "through the Workflows, Authorized Approvers page",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/approver-terminology-8559861c.md"
+    },
+    {
+     "summary": "Named as a section of the Workflows tool, twice in one sentence (and once as 'the Workflows tools', plural).",
+     "sourceQuote": "have set up in the Authorized Approvers section of the Workflows tool",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+     "summary": "Named as an 'Add Authorized Approvers page within Workflows' - a fifth form, with an added verb.",
+     "sourceQuote": "use the Add Authorized Approvers page within Workflows",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+     "summary": "A sub-tab structure is documented inside it, which is why 'tab' readings and 'page' readings can both feel right.",
+     "sourceQuote": "on the Configuration tab of the Authorized Approvers tab",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/understand-ad-hoc-steps-ce0af3e7.md"
+    }
+   ],
+   "consequenceForWriter": "Five labels, ONE surface: a tab of the Workflows page carrying two sub-tabs (Configuration and Authorized Approver List). Match on a case-insensitive prefix 'Authorized Approver' and never gate on the trailing 's'. Do not create a page node for any of the 'page' forms - all five readings resolve inside Workflows, including both singular ones, which give the parent path explicitly.",
+   "notes": "Recon contradiction C2, grounded here for the first time (no extraction lens raised it). Hypothesis: SAP topic prose uses 'page' loosely for any addressable screen area, and the singular/plural split is editorial. Counter-signal worth carrying: the two singular readings are the ones that spell out a full Administration path, so the singular form is not confined to casual prose."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The tab that lists workflow objects is 'Workflows tab' in fourteen topics and 'Workflow tab' in one - and the lone singular occurrence is inside a full Administration menu path.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "consolidate_pr_items_same_vendor_into_single_po"
+   },
+   "readings": [
+    {
+     "summary": "Plural, as an executable click step in the canonical create-a-workflow procedure.",
+     "sourceQuote": "On the Workflows tab, select the desired workflow and click Copy.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+     "summary": "Plural again, as the destination the access procedure asserts on.",
+     "sourceQuote": "The Workflows tab on the Workflows page appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md"
+    },
+    {
+     "summary": "Singular, and it is the only navigation the corpus gives for the Consolidate-items setting.",
+     "sourceQuote": "The setting appears in Administration > Invoice > Workflows > Workflow tab",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/managing-items-on-purchase-request-belonging-to-the-same-vendor-37e7bf0f.md"
+    }
+   ],
+   "consequenceForWriter": "Probe the plural 'Workflows' tab first - it carries fourteen topics including every click step - and accept the singular as an alias. Do not fail the Consolidate-items path because its only documented route names the tab in the singular.",
+   "notes": "Recon contradiction C3. Corpus weight is 14:1 by file count, which is why the plural is the primary probe; the count is not itself a quote and is recorded as context, not as a reading. Hypothesis: a one-off transcription slip. This is a DIFFERENT contradiction from the Workflow/Workflows PAGE drift recorded separately from administrator-experience-8b302852.md - that one is about the page, this one about the tab."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The email-template tab is 'Email Notification tab' (singular) in the create-a-workflow procedure and 'Email Notifications tab' (plural) everywhere else.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "email_notification_name"
+   },
+   "readings": [
+    {
+     "summary": "Singular, as an executable click step inside the General-page procedure.",
+     "sourceQuote": "To customize the email message, click the Email Notification tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+     "summary": "Plural, as the click step of the tab's own access topic.",
+     "sourceQuote": "Select the Email Notifications tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/access-email-notifications-9f806b0b.md"
+    },
+    {
+     "summary": "Plural, inside a full Administration path that also names the sibling Workflows tab.",
+     "sourceQuote": "The administrator creates and maintains email notifications in Administration > Invoice > Workflows, on the Email Notifications tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/overview-8b3df67d.md"
+    }
+   ],
+   "consequenceForWriter": "Probe the plural 'Email Notifications' first - it is the label used by the tab's own access topic and by every add/modify/remove procedure - and keep the singular as a fallback alias. Separately and more importantly: do NOT confuse this tab with the Email Reminders page, which is a different surface not yet built in this graph.",
+   "notes": "Recon contradiction C4. Hypothesis: the singular is a slip inside 554e86aa, which is the one topic that reaches the tab from elsewhere rather than documenting it directly. The singular/plural split recurs across this page for Confirmation Agreement(s), Authorized Approver(s), the Workflow(s) tab and the Workflow(s) page - it is a corpus-wide pattern, not a one-off."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The Confirmation Agreements tab is singular in one topic and plural in another - and the plural appears inside a file whose own title is singular.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "confirmation_agreement_name"
+   },
+   "readings": [
+    {
+     "summary": "The create procedure says the tab is the 'Confirmation Agreement' tab, singular.",
+     "sourceQuote": "On the Confirmation Agreement tab, click New.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-confirmation-agreement-3e153f29.md"
+    },
+    {
+     "summary": "The access topic instructs you to select the 'Confirmation Agreements' tab, plural - in a file whose own title uses the singular.",
+     "sourceQuote": "Select the Confirmation Agreements tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/access-the-confirmation-agreement-tab-666fa0ac.md"
+    }
+   ],
+   "consequenceForWriter": "Register both 'Confirmation Agreement' and 'Confirmation Agreements' as tab aliases and match on the prefix. Never gate the step on the trailing 's'.",
+   "notes": "Recon contradiction C5, and independently raised by the tables lens. Hypothesis: SAP topic titles are habitually singular while the rendered UI is plural. Counter-evidence carried deliberately: access-the-confirmation-agreement-tab-666fa0ac.md is singular in its own filename and plural in its own click step, so the inconsistency exists INSIDE a single file and cannot be explained as a per-guide style difference."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The workflow wizard surfaces are called 'pages' in some topics, 'steps' in others and 'windows' in others - the same modal sequence, three different nouns.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "step_name"
+   },
+   "readings": [
+    {
+     "summary": "The Steps-page topic calls the step editor a PAGE.",
+     "sourceQuote": "The Add Workflow Step page appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md"
+    },
+    {
+     "summary": "The authorized-approver-step topic calls the same editor, reached by the same New button, a WINDOW.",
+     "sourceQuote": "The Add Workflow Step window appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-an-authorized-approver-step-4640b5a5.md"
+    },
+    {
+     "summary": "The create-a-workflow procedure calls the first wizard surface the General PAGE.",
+     "sourceQuote": "The General page appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+     "summary": "The delegate-self-approval topic places a control on the General STEP of the same create/edit flow.",
+     "sourceQuote": "is available in the General step",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/delegate-self-approval-1b627285.md"
+    },
+    {
+     "summary": "The edit-and-reorder topic names the step editor in the PLURAL, as Modify Workflow Steps.",
+     "sourceQuote": "The Modify Workflow Steps window appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/edit-and-reorder-workflow-steps-41535156.md"
+    },
+    {
+     "summary": "The level-assignment topic names the same editor in the SINGULAR, as Modify Workflow Step.",
+     "sourceQuote": "The Modify Workflow Step window appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/step-1-assign-the-level-to-the-workflow-step-6035f10a.md"
+    }
+   ],
+   "consequenceForWriter": "Do not create separate nodes per noun: General page = General step; Add Workflow Step page = Add Workflow Step window; Modify Workflow Step = Modify Workflow Steps. Assert on the CONTROLS the surface offers, never on the word 'page', 'step' or 'window' in a heading, and never on the trailing 's'. These are wizard surfaces reached from inside Workflows, not pages in the graph's sense - the wizard returns you to the Workflows tab when done.",
+   "notes": "Recon contradiction C6. Kept as ONE node because the disagreement is a single one - what noun SAP uses for a wizard surface - expressed over three surfaces; splitting it into three would triple-count one editorial habit. Hypothesis: 'page' and 'window' reflect two UI generations of the same modal (a full page in one, a dialog in the other), which would make this a symptom of the unresolved UI-generation contradiction recorded separately. That is a hypothesis; no corpus sentence links them."
+  },
+  {
+   "kind": "scope",
+   "topic": "Two topics place General-page controls 'on the Workflows page' - the ancestor - while the General-page field table places the same controls on the General page.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "require_hardcopy_receipts"
+   },
+   "readings": [
+    {
+     "summary": "The canonical procedure puts the fields on the General page, reached by copying a workflow from the Workflows tab, and its field table carries both Require Hardcopy Receipts and Steps Can Be Added By.",
+     "sourceQuote": "On the General page, complete all required fields.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+     "summary": "The administrator-experience topic places Require Hardcopy Receipts on the Workflows page, collapsing the wizard depth.",
+     "sourceQuote": "the Require Hardcopy Receipts option on the Workflows page",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+    },
+    {
+     "summary": "The Approve & Forward topic places Steps Can Be Added By on the Workflows page in the same collapsed way.",
+     "sourceQuote": "The administrator sets the Steps Can Be Added By option to Approver Only or Both Employee and Approver on the Workflows page.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/approve-forward-feature-b847d65b.md"
+    }
+   ],
+   "consequenceForWriter": "Do NOT create a second field node from the collapsed phrasing, and do not re-home these fields to the page root. To reach either control the driver must open a workflow from the Workflows tab first; 'on the Workflows page' is an abbreviation of that path, not an alternative location.",
+   "notes": "Recon contradiction C7. Hypothesis: feature-note topics name the top-level page because that is what a reader searches for, while the procedure names the wizard surface it actually opens. The same abbreviating habit is recorded independently at the navigation level, where five topics use the Invoice Processing Admin middle node and eight omit it - so abbreviation is this corpus's normal register, which is exactly why the collapsed form must not be read as a second location."
+  },
+  {
+   "kind": "scope",
+   "topic": "The Workflows navigation path is documented both with and without the 'Invoice Processing Admin' middle node, in the same corpus version.",
+   "appliesTo": {
+    "page": "Workflows"
+   },
+   "readings": [
+    {
+     "summary": "With the middle node: the access topic routes through the Invoice Processing Admin menu.",
+     "sourceQuote": "From the Invoice Processing Admin menu, click Workflows.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/access-workflow-fa9892a7.md"
+    },
+    {
+     "summary": "With the middle node again, worded 'select' rather than 'click', in the Confirmation Agreement access topic.",
+     "sourceQuote": "From the Invoice Processing Admin menu, select Workflows.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/access-the-confirmation-agreement-tab-666fa0ac.md"
+    },
+    {
+     "summary": "Without the middle node: the click path goes straight from Administration > Invoice to Workflows in the left menu.",
+     "sourceQuote": "Click Administration > Invoice > Workflows (left menu). The Workflows page appears.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/authorized-approver-list-a9522ec8.md"
+    }
+   ],
+   "consequenceForWriter": "Try the path WITH the Invoice Processing Admin middle node first, and fall back to the two-segment path. Treat the middle segment as UNATTESTED on the shorter paths rather than as evidence it does not exist - the corpus documents it explicitly for this same destination. Both forms end on the same page, so the driver should assert on the Workflows page appearing, not on the number of menu hops.",
+   "notes": "Recon contradiction C8. Hypothesis: SAP abbreviates the middle node in topics whose subject is not navigation. Note the two forms are not merely different words - one is a menu-then-item sequence and the other a single left-menu click, so a driver that hard-codes either shape will miss the other. This mirrors the middle-node treatment already applied to both Group 3 pages."
+  },
+  {
+   "kind": "requirement",
+   "topic": "Which role may use the Workflows surface: the tool's own identity topic grants it to the Global and Group Invoice Configuration administrators, while the Reason Category and Codes tab REQUIRES the Invoice Configuration administrator (Restricted) role and then walks a write flow.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "reason_category"
+   },
+   "readings": [
+    {
+     "summary": "The Workflows tool identity topic grants view and use to the Global and Group Invoice Configuration administrators and never mentions a Restricted role.",
+     "sourceQuote": "Both the Global Invoice Configuration administrator and the Group Invoice Configuration administrator can view the Workflows tool.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/workflows-tool-8b3b4dbe.md"
+    },
+    {
+     "summary": "The Reason Category and Codes topic REQUIRES the Restricted role to use that tab's options, and then walks a create-and-save flow.",
+     "sourceQuote": "The Invoice Configuration administrator (_Restricted_) role is required to use the options on this tab.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/creating-a-reason-code-b2b61596.md"
+    }
+   ],
+   "consequenceForWriter": "Do not assume one role opens the whole page. Provision an unrestricted Global Invoice Configuration administrator for the workflow object, its steps and the Settings tab, and separately confirm WRITE access on the Reason Category and Codes tab before automating New/Save there. If the automation ever hits a permission wall on Workflows, this tab is the likely cause.",
+   "notes": "Recon contradiction C9 - the most consequential one on this page - and independently raised by the crosscut lens. Hypothesis: the Restricted role was scoped to reason codes only and the two guides were never reconciled. A THIRD reading is reported to exist in a July 2025 release note making that same Restricted role read-only on Workflows with New/Copy/Remove disabled; release notes are not a citable sourceFile in this graph, so it is recorded here as unverified context, NOT as a reading. This is also why Reason Category and Codes was the closest page-hood call in the area: it is the one surface with a role gate different from the page's own."
+  },
+  {
+   "kind": "scope",
+   "topic": "Which UI generation the Workflows click paths describe: the guide's own revision history says the Workflows topics were rewritten to the new UI in place, while a tools-guides topic in the same corpus version says the administrator reaches Authorized Approvers in the classic interface.",
+   "appliesTo": {
+    "page": "Workflows"
+   },
+   "readings": [
+    {
+     "summary": "The Workflows guide's revision history, dated September 2025, records that the images and text were updated to the NEW UI - implying the classic screens were replaced in place and no legacy twin survives.",
+     "sourceQuote": "Updated images and text to the new UI for the Workflows Tool and Edit and Delete Worflows, Properties, and Steps sections.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md"
+    },
+    {
+     "summary": "A tools-guides topic in the same 2026_08 corpus says the administrator uses the Authorized Approvers link from workflows in the CLASSIC interface.",
+     "sourceQuote": "the Invoice Configuration administrator uses the Authorized Approvers link from workflows in the classic interface",
+     "sourceFile": "concur-invoice-professional-edition-tools-guides/how-single-step-approval-workflow-works-40145f24.md"
+    }
+   ],
+   "consequenceForWriter": "Set uiVariant 'undifferentiated' on every Workflows record and treat EVERY navPath on this page as unverified against a UI generation. Build the driver to try the documented path, detect failure, and re-read the live menu rather than asserting a route. This matters more than any single field: if the paths describe a superseded UI then every path on the page is wrong at once, and navigation is the one thing here that cannot be re-derived from the corpus. Do NOT record uiVariant 'both' - nobody has read two variants of this page.",
+   "notes": "Inherited finding 6, raised independently by the tables lens and the crosscut lens with identical readings. Hypothesis: the admin guides were revised to the new UI while the tools guides were not, leaving one corpus version describing two generations. Supporting observation, not proof: the corpus DOES draw the distinction explicitly elsewhere (approval-flow-page-c73e063f.md contrasts the legacy UI and the new UI for the end-user Approval Flow page), so its absence for the admin Workflows surface is a documentation gap rather than evidence of a single UI; and there is no *-new-experience-* twin for any workflow file. TEXT TRAP: the revision line misspells 'Worflows', which occurs exactly once corpus-wide - a grep on the correct spelling will not find it."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The Cost-Object filter checkbox on the Settings tab is named for 'payment request items' in the settings table and for 'invoice items' in the guide's revision history.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "settings_filter_payment_request_items_cost_object"
+   },
+   "readings": [
+    {
+     "summary": "The Settings-tab reference table - a raw <table> cell - names the control with 'payment request items'.",
+     "sourceQuote": "<p>Filter payment request items to those that are applicable to Cost Object</p>",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+     "summary": "The Workflows guide's own revision history announces the same new Settings-tab option with 'invoice items'.",
+     "sourceQuote": "-   Filter invoice items to those that are applicable to Cost Object",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md"
+    }
+   ],
+   "consequenceForWriter": "Store BOTH strings as aliases of ONE checkbox. Probe the 'payment request' form first - it comes from the current reference table rather than a change log - and fall back to the 'invoice' form. A driver that locates checkboxes by visible label will otherwise fail outright against a tenant rendering the other wording.",
+   "notes": "Raised by all three lenses; readings merged, keeping the longer self-contained form from each file (the raw-<table> cell on one side, the revision-history bullet on the other), each of which contains the shorter quote the other lenses cited. Hypothesis: SAP renamed 'invoice' to 'payment request' across the UI and the revision-history entry preserves the pre-rename label. The corpus dates neither string, and which one the UI actually renders is not determinable from documentation."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The processor-recall checkbox on the Settings tab is named for 'a payment request' in the settings table and for 'an invoice' in the guide's revision history.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "settings_allow_processor_recall_payment_request"
+   },
+   "readings": [
+    {
+     "summary": "The Settings-tab reference table writes 'Allow processor to recall a payment request to last processor step'.",
+     "sourceQuote": "Allow processor to recall a payment request to last processor step",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+     "summary": "The revision history logs the same addition as 'Allow processor to recall an invoice to last processor step'.",
+     "sourceQuote": "-   Allow processor to recall an invoice to last processor step",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/general-information-8b3b0308.md"
+    }
+   ],
+   "consequenceForWriter": "Carry both labels as aliases of one checkbox and probe the 'payment request' form first, exactly as for the Cost-Object filter checkbox.",
+   "notes": "Kept SEPARATE from the Cost-Object filter drift on purpose: they are two different controls with two different labels, and merging them would hide one of the two from a label-matching driver. They are recorded as a pair because the two rows appear consecutively in BOTH files and were announced in the same revision-history entry, which supports a single documentation event rather than two independent typos - that is a hypothesis about cause, not a reason to merge the nodes."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The workflow-step timeout controls are named 'Approval Time Expired Action' / 'Assignment Timeout Action' / 'Expire After This Many Days' on the General page and 'Workflow Step Timeout Duration' / 'Approval Action' in the Vendor Approval topic.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "approval_time_expired_action"
+   },
+   "readings": [
+    {
+     "summary": "The General-page field roster names the timeout controls Approval Time Expired Action and Assignment Timeout Action, in one sentence.",
+     "sourceQuote": "This option is only available if either the Approval Time Expired Action or Assignment Timeout Action options are enabled.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+     "summary": "The Vendor Approval topic names the same duration control 'Workflow Step Timeout Duration'.",
+     "sourceQuote": "The Workflow Step Timeout Duration setting specifies the number of days an invoice can remain at a workflow step before it times out.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md"
+    },
+    {
+     "summary": "The same Vendor Approval topic names the paired action control 'Approval Action'.",
+     "sourceQuote": "The Approval Action setting determines what the workflow engine should do with the invoice if a workflow step times out.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/about-vendor-approval-workflow-step-and-timeout-b3d1bd2c.md"
+    }
+   ],
+   "consequenceForWriter": "Treat 'Workflow Step Timeout Duration' and 'Approval Action' as ALIASES of the documented General-page timeout family (Approval Time Expired Action, Expire After This Many Days, Assignment Timeout Action, Allow Timeout Extensions for This Many Days). Do NOT create orphan fields for them. Drive the General-page labels first; fall back to the vendor-approval wording only if those miss.",
+   "notes": "Raised by all three lenses (the crosscut lens mis-wired it to a Cost Object field; corrected here to a real timeout field from the roster). Hypothesis: b3d1bd2c describes the timeout behaviour from the workflow engine's internal vocabulary rather than by quoting the screen - it gives no click path of its own, which is consistent with that. An earlier recon reading of these as homeless orphan fields was WRONG and is explicitly retracted: this is a label contradiction, not evidence of extra controls."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The checkbox governing default-approver eligibility by level is 'Use default approver at or above the current approver's level' in the General-page field table and 'Only display approvers at or above the current approver...' in the default-approver-hierarchy topic.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "use_default_approver_at_or_above_current_level"
+   },
+   "readings": [
+    {
+     "summary": "The General-page field table gives the field name.",
+     "sourceQuote": "Use default approver at or above the current approver's level",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/create-a-new-workflow-554e86aa.md"
+    },
+    {
+     "summary": "The default-approver-hierarchy topic names what appears to be the same control differently.",
+     "sourceQuote": "Only display approvers at or above the current approver",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/using-the-default-approver-hierarchy-for-authorized-approvers-e977da80.md"
+    }
+   ],
+   "consequenceForWriter": "A label-matching driver must probe BOTH 'Use default approver at or above...' and 'Only display approvers at or above...' before concluding the control is absent. Prefer the first: it is the form given in the field table that actually rosters the General page.",
+   "notes": "Hypothesis: the second topic paraphrases the effect rather than quoting the label. Kept as label drift rather than as two controls because the two effect descriptions overlap completely and no second navPath or field table names a second control - but note the alternative reading has not been excluded, and if a live screen shows both strings this node is the record that predicted it."
+  },
+  {
+   "kind": "option-list",
+   "topic": "The value of Steps Can Be Added By that enables Approve & Forward is given as 'Approver Only' in one topic and 'Approver' in another.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "steps_can_be_added_by"
+   },
+   "readings": [
+    {
+     "summary": "The Approve & Forward topic gives the options as 'Approver Only or Both Employee and Approver'.",
+     "sourceQuote": "The administrator sets the Steps Can Be Added By option to Approver Only or Both Employee and Approver on the Workflows page.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/approve-forward-feature-b847d65b.md"
+    },
+    {
+     "summary": "The workflow-creation topic gives the same two options without 'Only'.",
+     "sourceQuote": "This is available if the Steps Can Be Added By field is set to Approver or Both Employee and Approver.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    }
+   ],
+   "consequenceForWriter": "Probe for an option whose visible text CONTAINS 'Approver' but not 'Employee', rather than matching either full string. Do NOT treat either two-value list as exhaustive: the General-page description of this field speaks of 'the employee and/or the approver', so a third, employee-only value is likely present - it is deliberately NOT invented here, and the driver must read the live list.",
+   "notes": "Raised by the procedure lens and the tables lens with the same two quotes. Hypothesis: 'Approver Only' is the on-screen label and the second topic paraphrased it; the reverse is equally possible and nothing in the corpus decides it. No topic in this run's file set enumerates this field's option list on the field's own definition - create-a-new-workflow-554e86aa.md describes the field but lists no values - so the canonical option text is undetermined from this corpus."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The purchase-order exception-level setting is labelled with a trailing 'X' in the Purchase Order Settings table and without it in the how-to topic.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "settings_prevent_purchase_order_transmission_exception_level"
+   },
+   "readings": [
+    {
+     "summary": "The Purchase Order Settings reference table gives the label with a trailing X placeholder.",
+     "sourceQuote": "Prevent purchase order transmission when exception level exceeds X",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md"
+    },
+    {
+     "summary": "The PO-transmittal how-to names the same setting WITHOUT the trailing X, mid-sentence.",
+     "sourceQuote": "The setting Prevent purchase order transmission when exception level exceeds prevents purchase order transmission when the configured exception level is exceeded",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md"
+    }
+   ],
+   "consequenceForWriter": "Match on the stable prefix 'Prevent purchase order transmission when exception level exceeds' and treat any trailing token as optional. Do not require an exact full-string match on either form.",
+   "notes": "Raised by the procedure lens and the tables lens; readings merged keeping the longer form from each file. Hypothesis: the X is a documentation placeholder for the numeric input rather than part of the rendered label - the payment-request twin wraps its X in a <cite> element, which supports that reading. The corpus never says so, so both forms are carried. The same X/no-X drift is present on the payment-request and purchase-request twins of this control."
+  },
+  {
+   "kind": "option-list",
+   "topic": "The exception-level scale starts at ONE on the three Workflows Settings-tab thresholds and at ZERO on the already-built Exceptions page.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "settings_prevent_payment_request_submission_exception_level"
+   },
+   "readings": [
+    {
+     "summary": "The payment-request threshold on the Settings tab: a number from ONE to 99.",
+     "sourceQuote": "Type a number from one to 99.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/invoice-settings-cace748d.md"
+    },
+    {
+     "summary": "The purchase-order threshold on the Settings tab: the identical sentence, in its own file.",
+     "sourceQuote": "Type a number from one to 99.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-order-settings-a5a997b4.md"
+    },
+    {
+     "summary": "The purchase-request threshold on the Settings tab: the identical sentence again, in a third file.",
+     "sourceQuote": "Type a number from one to 99.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/purchase-request-settings-b0bce285.md"
+    },
+    {
+     "summary": "The Exceptions page, already built in this graph, documents the exception level itself as starting at ZERO.",
+     "sourceQuote": "Type any number between 0 and 99.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/add-exceptions-7b73d8f0.md"
+    }
+   ],
+   "consequenceForWriter": "DO NOT RECONCILE. Write 1-99 when setting any of the three Workflows Settings-tab thresholds; permit 0 only where the Exceptions page itself is being configured. The corpus documents NO value that disables a threshold - if a driver needs one, leave the field alone rather than writing 0, and surface a rejection rather than silently coercing.",
+   "notes": "Raised by the tables lens and the crosscut lens against two different Settings files; all three Settings files are cited here so the reading is not mistaken for a single file's quirk. Hypothesis, not a finding: the two are different fields - the Exceptions page assigns a LEVEL to an exception (where 0 is a legitimate non-urgent level) while the Settings-tab controls set a THRESHOLD above which submission or transmission is blocked, for which 0 would block everything. That would make both statements locally correct. The corpus never says so, so the discrepancy is recorded rather than explained away. This is a CROSS-PAGE contradiction: it touches the built Exceptions page and must not be resolved by editing that page."
+  },
+  {
+   "kind": "option-list",
+   "topic": "The Role value list differs between the Add Workflow Step field description and the shipped default workflows: the field description names System plus five non-system roles and omits Employee, while both shipped workflows use Employee as the Role of step 1.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "step_role"
+   },
+   "readings": [
+    {
+     "summary": "The Add Workflow Step field table names five non-system roles after 'such as', and does NOT include Employee.",
+     "sourceQuote": "If it is a non-system role, such as Authorized Approver, Invoice Approver, Invoice Processor, Invoice Processor Manager, or Invoice Vendor Manager, then you must select an action or multiple actions in the Approval Actions field.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/work-with-the-steps-page-fab249d1.md"
+    },
+    {
+     "summary": "The default-workflow tables define a Role column for the shipped workflows, whose step 1 Role is Employee - a value the field description never lists.",
+     "sourceQuote": "In the table below, the Role column defines the type of user that takes action at this step.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md"
+    }
+   ],
+   "consequenceForWriter": "Treat the Role list as OPEN, not closed - the field description hedges with 'such as', so it is explicitly not an enumeration. Expect at least seven candidates (System, Employee, Authorized Approver, Invoice Approver, Invoice Processor, Invoice Processor Manager, Invoice Vendor Manager) and READ the live dropdown rather than asserting a fixed set. Do not emit a value set for this field from the 'such as' sentence.",
+   "notes": "Hypothesis: Employee is the role of the submission step only and may be system-assigned rather than selectable, which would explain its absence from the field description. The corpus does not say so, so this is carried as a genuine disagreement. Note the practical asymmetry: an over-narrow list here would make a driver reject a legitimate value, which is worse than leaving the list open."
+  },
+  {
+   "kind": "cardinality",
+   "topic": "The Default PO Payment Workflow is documented with two steps in one guide and seven in another.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "step_name"
+   },
+   "readings": [
+    {
+     "summary": "The Default Workflows topic calls the PO workflow 'very simple' and lists exactly two default steps.",
+     "sourceQuote": "Default PO Payment Workflow: This workflow by default is very simple. The default steps are:",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md"
+    },
+    {
+     "summary": "The purchase-order guide enumerates seven steps for the same named workflow, including steps the other list lacks entirely.",
+     "sourceQuote": "As an example, the workflow for the Default PO Payment Workflow included in Concur Invoice is:",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/example-of-typical-purchase-order-workflow-6d3b90d0.md"
+    }
+   ],
+   "consequenceForWriter": "Never assume the shipped PO workflow's shape. Read the actual Steps page before copying or reordering it. If the driver must reason about it, treat the seven-step list as the superset - it contains the mandatory system steps the two-step list omits.",
+   "notes": "Hypothesis: the two-step table lists only the CONFIGURABLE steps and silently omits the mandatory system steps, while the seven-step list includes them and tags them '(system step)'. That would reconcile the two - but the corpus never says so, and the two-step table DOES include system steps for the other default workflow, which undercuts the hypothesis. Recorded unreconciled."
+  },
+  {
+   "kind": "cardinality",
+   "topic": "The set of steps every workflow must contain is stated as at least three, then bulleted as four named steps, and contradicted by a shipped workflow that has two.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "step_name"
+   },
+   "readings": [
+    {
+     "summary": "The Required Steps topic says at least three, then bullets four named steps.",
+     "sourceQuote": "An invoice workflow always consists of at least three steps, but additional steps may be added:",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/required-steps-43399a5d.md"
+    },
+    {
+     "summary": "The shipped Default PO Payment Workflow contains only two steps, none of them the named required ones.",
+     "sourceQuote": "Default PO Payment Workflow: This workflow by default is very simple. The default steps are:",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/default-workflows-a6fa157a.md"
+    }
+   ],
+   "consequenceForWriter": "Do not encode a minimum step count and do not pre-validate a workflow against one. Before removing any step, attempt the removal and read the UI's own gating - the corpus offers no more reliable signal than the Remove button becoming available.",
+   "notes": "Kept separate from the PO-workflow step-count contradiction because the claim is different: that one is about how many steps a NAMED shipped workflow has, this one about how many steps ANY workflow must have. They share one reading, which is deliberate - the two-step shipped workflow is the counter-example in both. Hypotheses: the 'at least three' sentence is stale and was not updated when a fourth step joined the list; and/or the PO workflow table is abridged. Both are hypotheses."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "The page itself is named singular and plural in two consecutive sentences of one file: 'the Workflow page' and 'the Workflows page'.",
+   "appliesTo": {
+    "page": "Workflows",
+    "field": "require_hardcopy_receipts"
+   },
+   "readings": [
+    {
+     "summary": "Singular: 'On the Workflow page, admin will see the Require Hardcopy Receipts option.'",
+     "sourceQuote": "On the Workflow page, admin will see the Require Hardcopy Receipts option.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+    },
+    {
+     "summary": "Plural, in the very next sentence of the same file.",
+     "sourceQuote": "the Require Hardcopy Receipts option on the Workflows page",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/administrator-experience-8b302852.md"
+    }
+   ],
+   "consequenceForWriter": "Match the page and its tabs on a case-insensitive prefix 'Workflow' and never gate an automation on the trailing 's'. The same singular/plural drift affects the Workflow(s) tab, Email Notification(s), Confirmation Agreement(s) and Authorized Approver(s) - it is a corpus-wide pattern on this page.",
+   "notes": "The two readings cite the SAME file and different quotes, deliberately: this contradiction exists only inside one file, which is what makes it evidence of editorial inconsistency rather than of two surfaces. Distinct from the Workflows-tab drift (recorded separately), which is about the tab and spans fourteen files against one. Hypothesis: pure editorial inconsistency."
+  },
+  {
+   "kind": "option-list",
+   "topic": "What value the Level control takes on a feature hierarchy, and whether it can be changed at all: 'Employee', stated as the default and unchangeable, versus 'Request', which the administrator sets.",
+   "appliesTo": {
+    "page": "Feature Hierarchies",
+    "field": "level"
+   },
+   "readings": [
+    {
+     "summary": "For the Invoice Vendor Employee Access feature hierarchy, Level is Employee and the topic states outright that it is the default and cannot be changed.",
+     "sourceQuote": "Click New to add Employee as the value for Level (this is the default and cannot be changed).",
+     "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+     "summary": "For the Invoice Payment feature hierarchy, the same New-row step SETS the level, and sets it to Request - an act of choosing, with no immutability claim and no mention of Employee.",
+     "sourceQuote": "Set the level to Request.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/professional-edition-fb3e6aa2.md"
+    }
+   ],
+   "consequenceForWriter": "Do NOT hardcode a Level option list and do NOT assume the control is editable or read-only. Branch on the feature hierarchy already selected: under Invoice Vendor Employee Access expect Employee pre-filled and accept it without writing; under Invoice Payment expect to set Request explicitly. For any OTHER feature hierarchy the corpus documents no Level value at all - read the offered options at runtime and report them rather than guessing, and never carry a value across from one feature hierarchy to another.",
+   "notes": "Raised by all three lenses with identical readings. HYPOTHESIS, not established: Level is feature-scoped, each feature hierarchy declaring which entity its levels hang off, so both topics are locally correct about different provisioning. A COMPETING hypothesis that cannot be excluded from documentation alone: 'Level' means different things on the two screens - a row-type selector in one, a hierarchy tier ordinal in the other - which would make this label drift rather than an option-list conflict. A third data point resolves neither: understand-the-hierarchy-b65d7089.md says the Request Authorized Approver hierarchy uses the Request and Employee fields - BOTH names, in a third feature hierarchy. Neither hypothesis is testable without a tenant, and this build has none."
+  },
+  {
+   "kind": "label-drift",
+   "topic": "Whether the left-menu entry under Administration > Invoice reads 'Feature Hierarchies' or plain 'Hierarchies'.",
+   "appliesTo": {
+    "page": "Feature Hierarchies"
+   },
+   "readings": [
+    {
+     "summary": "The only topic corpus-wide that documents the actual left-menu click writes the label as Feature Hierarchies.",
+     "sourceQuote": "Click Feature Hierarchies (left menu).",
+     "sourceFile": "concur-invoice-professional-edition-tools-guides/step-2-associate-the-feature-hierarchy-to-the-source-list-bcaf1f5a.md"
+    },
+    {
+     "summary": "The dedicated Hierarchies topic writes the same menu destination as bare Hierarchies, with 'Feature' absent from both its title and its navigation clause.",
+     "sourceQuote": "Hierarchies (explained below).",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/hierarchies-7f68a876.md"
+    }
+   ],
+   "consequenceForWriter": "Probe 'Feature Hierarchies' FIRST - it is the label in the one topic that documents the click, and it is used by four further topics - and fall back to a contains-match on 'Hierarchies' only if the exact label is absent. Do not match on 'Hierarchies' first: it would also match unrelated menu text. CRITICAL AND SEPARATE FROM THE LABEL QUESTION: this entry is a SIBLING of Workflows in the left menu, not a child of it; a driver told to reach this page through a Workflows path WILL FAIL.",
+   "notes": "Raised by the tables lens and the crosscut lens. Hypothesis: hierarchies-7f68a876.md is an editorially condensed overview that dropped the qualifier, rather than documenting a different UI - no corpus file states a UI change and no new-experience twin exists for any Feature Hierarchies file. The claim cannot be checked by menu-path comparison because 7f68a876's navigation clause uses U+00A0 separators and contains ZERO '>' characters; the fragment quoted here verifies but deliberately stops short of the separators and therefore does not itself carry the path. Both topics agree the parent chain is Administration > Invoice with no middle segment, so 'Invoice Processing Admin' is UNATTESTED for this page, not absent."
+  },
+  {
+   "kind": "scope",
+   "topic": "The external setup guide that holds this page's real documentation is cited under five different titles, and none of the five is in this corpus.",
+   "appliesTo": {},
+   "readings": [
+    {
+     "summary": "Cited as the Shared: Feature Hierarchies Setup Guide - hierarchies only, Shared deliverable. The most common form.",
+     "sourceQuote": "Feature Hierarchies: The _Shared: Feature Hierarchies Setup Guide_",
+     "sourceFile": "concur-invoice-professional-edition-tools-guides/additional-documentation-a105a5d7.md"
+    },
+    {
+     "summary": "Cited as a COMBINED hierarchies-plus-group-configuration guide, singular Configuration.",
+     "sourceQuote": "_Shared: Feature Hierarchies and Group Configuration Setup Guide_",
+     "sourceFile": "concur-invoice-professional-edition-tools-guides/before-you-begin-9b98872a.md"
+    },
+    {
+     "summary": "Cited as the same combined guide but with plural Configurations.",
+     "sourceQuote": "Shared: Feature Hierarchies and Group Configurations Setup Guide.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/workflow-creation-process-1d37b85f.md"
+    },
+    {
+     "summary": "Cited under the Concur Invoice deliverable rather than Shared.",
+     "sourceQuote": "_Concur Invoice: Feature Hierarchies Setup Guide_",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/preventing-po-transmittal-when-po-exceeds-specified-exception-level-51b11602.md"
+    },
+    {
+     "summary": "Cited as a hybrid naming two deliverables in one title.",
+     "sourceQuote": "refer to the Shared: Feature Hierarchies and Concur Invoice: Group Configurations Setup Guide.",
+     "sourceFile": "concur-invoice-professional-edition-admin-guides/delete-group-configurations-cd57af7a.md"
+    }
+   ],
+   "consequenceForWriter": "NO UI CONSEQUENCE - this is a documentation-sourcing consequence, and it is the ROOT CAUSE of this page's 'partial' coverage. When the graph is extended, search on the STEM 'Feature Hierarchies' plus 'Setup Guide' and accept any of the five titles; an exact-title search on any one of them will miss the other four. Do not assume the five names denote five different documents - assume ONE document until proven otherwise. Until it is ingested, no automation driver should expect field-level coverage of the Modify Hierarchy screen from this corpus.",
+   "notes": "Raised by the tables lens and the crosscut lens; readings merged to the union of five titles. Hypothesis: one external guide, renamed and/or merged with the Group Configurations guide across SAP releases, with older cross-references left un-updated - a very common pattern in this corpus. Supporting circumstantial evidence: the guide is deferred to by name in at least eight in-corpus topics yet appears as a source file in none, and the two 'combined' variants differ only by a singular/plural s, which reads like drift rather than two real documents. appliesTo is EMPTY on purpose: this is a fact about the product's documentation set, not about any control on the page, and attaching it to a plausible neighbouring field would be false precision."
+  }
+ ]
+}
