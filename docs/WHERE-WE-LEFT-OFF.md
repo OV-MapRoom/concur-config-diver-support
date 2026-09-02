@@ -10,6 +10,9 @@ _Last updated: 2026-09-01_
    method since v2. **Run a page recon before building Workflows; its "13 pages" is not trusted.**
 3. `docs/RESUME-PROMPT.md` — paste-ready prompt for a fresh session.
 4. This file — current state only.
+5. `docs/2026-09-02_RESUME-PUBLICATION-TRACK.md` — **a SECOND track.** Publication /
+   extractor / reproducibility. It does not change the build plan, the schema, or the
+   graph. Ignore it if you are here to build Group 6; read it before anything is published.
 
 ## Status
 
